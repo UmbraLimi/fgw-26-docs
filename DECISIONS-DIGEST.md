@@ -6,6 +6,15 @@ _As of 2026-10-24._
 
 ---
 
+### DEC-002-1 — A/B Stop guard: read `last_assistant_message`, assess only the ask block
+
+`check-ab-options.sh` no longer parses the transcript. It reads the turn text from the
+`last_assistant_message` field CC passes to the Stop hook, isolates the **ask** — everything after the
+*last* `👉👉👉` anchor (`${text##*"$anchor"}`) — and requires both an `A)` and a `B)` label within that
+block. A durable 15-case test suite (`.claude/hooks/check-ab-options.test.sh`) covers the behaviour.
+DEC-001-1's decision (enforce A/B via a Stop hook) still stands; only the mechanism changes — this is
+not a supersession.
+
 ### DEC-001-2 — Capture the operator's turns verbatim via a UserPromptSubmit hook
 
 A `UserPromptSubmit` hook (`.claude/hooks/capture-turn.sh`) appends each operator prompt

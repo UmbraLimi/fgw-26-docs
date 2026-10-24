@@ -26,7 +26,7 @@
     "files.insertFinalNewline": true,
     "workbench.iconTheme": "vs-seti",
     "workbench.colorCustomizations": {
-      "activityBar.background": "#7c3aed",
+      "activityBar.background": "#5b21b6",
     },
   },
 }

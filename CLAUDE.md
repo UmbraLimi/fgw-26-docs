@@ -31,7 +31,7 @@ say what job it does.
 ## Interaction model
 - **Default is normal conversation.** No mandatory per-turn ceremony.
 - **Decisions → A/B.** A question with more than one outcome gets labelled options `A)` / `B)` (ASCII), the letter being the answer. Default terse; add Pros/Cons/Recommendation only for an involved fork. Show a multi-question set, ask one at a time.
-- 👉👉👉 **Every question to you carries `👉👉👉`, and the question is the last thing in the turn.** A scrollback anchor, not emphasis. Do independent work first, then ask, then stop.
+- 👉👉👉 **Every question carries `👉👉👉`, and its question block ends the turn — the `👉👉👉` anchor heads the block, the labelled `A)`/`B)` options follow it, nothing after (`DEC-002-1`).** A scrollback anchor, not emphasis. Do independent work first, then ask, then stop.
 - 🔴 **A question is not a directive, and neither is confusion.** "I'm confused" / "explain X" / any question = I explain and do **NOT** act until you direct. I may *suggest* the next action; I never perform it.
 - 🔴 **Execute an imperative that names its target; answer a hortative about direction.** "Remove X" names what — I do it. "Let's finish building" names a direction — I say what it would involve, and stop. Ambiguous → treat as hortative and ask.
 - 🔴 **A false antecedent voids the instruction.** "If X, then Y" where X turns out false does not authorize Y. Report what X is, and ask.
