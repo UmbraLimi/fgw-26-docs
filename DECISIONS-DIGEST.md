@@ -2,9 +2,26 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-23._
+_As of 2026-10-24._
 
 ---
+
+### DEC-001-2 — Capture the operator's turns verbatim via a UserPromptSubmit hook
+
+A `UserPromptSubmit` hook (`.claude/hooks/capture-turn.sh`) appends each operator prompt
+verbatim as one JSON line to the untracked `.conv-turns.jsonl`; `/r-end` renders those into a per-conv
+dialogue companion (`docs/convs/.../Conv NNN — dialogue.md`, specced in `reference/CONV-FORMAT.md`) and
+deletes the `.jsonl`. The hook gates on `.conv-current`, writes only to files (never stdout — a
+UserPromptSubmit hook's stdout enters context), and fails open.
+
+### DEC-001-1 — Enforce the A/B question format with a Stop hook, not willpower
+
+A project Stop hook (`.claude/hooks/check-ab-options.sh`, registered in
+`.claude/settings.json`) inspects the last assistant turn; if it ends with a `👉👉👉` question but
+presents no labelled `A)`/`B)` options, it blocks the stop (exit 2) and feeds the lapse back to be
+re-asked. The `👉👉👉` anchor (CLAUDE.md "Interaction model") is the detection handle. Permission asks
+count — every `👉👉👉` question must offer labelled options. The hook fails open and has a
+`stop_hook_active` loop guard (at most one forced correction).
 
 ### DEC-000-7 — Keep the process lean by policy
 

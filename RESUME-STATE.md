@@ -2,19 +2,17 @@
 
 ## Where we left off
 
-Conv 000 (manual bootstrap) set up the fgw project home. Over this session we: surveyed the
-`~/projects` portfolio and wrote the evidence base (`discovery/EVIDENCE-LEDGER.md` +
-`WORKING-METHOD.md`); fixed the stack direction (Astro / Cloudflare Workers / Tailwind v4, shadcn
-under consideration); and stood up the conv lifecycle adapted from fps — `CLAUDE.md`, the four skills
-(`r-start`/`r-commit`/`r-end`/`r-hopper`), `conv-state.sh` + `gen-decisions-digest.sh`, the board,
-`DECISIONS.md` (DEC-000-1..7), reference formats, `_cc/repo-layout.md`, the `.scratch/` folder, the
-`fgw.code-workspace` (purple chrome), and the `fgw` launch alias in `~/.zshrc`.
+Conv 001 was a harness conv (no product work). Built two enforcement hooks outside the model's live
+judgment: an A/B question-format **Stop hook** (`DEC-001-1`) and **verbatim turn-capture** via a
+UserPromptSubmit hook that `/r-end` renders into a per-conv dialogue companion (`DEC-001-2`). Both were
+confirmed to load live via the file watcher (no restart). The `fgw` zsh launcher was diagnosed as
+fine-on-disk (a stale terminal session, not a file bug). The style discussion was deferred.
 
 ## Next action
 
-Run `/r-start` to open **Conv 001** and begin real work. The board's Unordered rows are
-`[STYLE-THEME]` (awaits the style discussion), `[SITE-SCAFFOLD]` (stand up the Astro app), and
-`[SITE-NARRATIVE]` (evidence → site copy). The user flagged the **style discussion as the next topic**.
+Start the **style discussion** for the marketing site — it's the operator's flagged next topic and it
+gates `[STYLE-THEME]` plus the sequencing of `[SITE-SCAFFOLD]` and `[SITE-NARRATIVE]` (all three sit in
+📋 Unordered; nothing is sequenced until style is set).
 
 ## 🔬 Carried findings
 
