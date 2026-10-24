@@ -8,6 +8,24 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 001
+
+### DEC-001-1 — Enforce the A/B question format with a Stop hook, not willpower
+**Decision:** A project Stop hook (`.claude/hooks/check-ab-options.sh`, registered in
+`.claude/settings.json`) inspects the last assistant turn; if it ends with a `👉👉👉` question but
+presents no labelled `A)`/`B)` options, it blocks the stop (exit 2) and feeds the lapse back to be
+re-asked. The `👉👉👉` anchor (CLAUDE.md "Interaction model") is the detection handle. Permission asks
+count — every `👉👉👉` question must offer labelled options. The hook fails open and has a
+`stop_hook_active` loop guard (at most one forced correction).
+**Rationale:** The A/B rule already lived in `CLAUDE.md` and was still violated in-conv; "I'll apply
+it going forward" is the same judgment that just lapsed, so only a check outside that judgment is
+worth anything. Rejected: B) relying on manual enforcement (the trust that already failed).
+**Consequences:** New process artifact (weighed against `DEC-000-7` lean-process: small, single-purpose,
+self-testing). Takes effect once the session reloads hook config. If the anchor convention changes,
+the detection handle changes with it.
+
+---
+
 ## Conv 000 — bootstrap (manual setup, predates the lifecycle)
 
 ### DEC-000-7 — Keep the process lean by policy

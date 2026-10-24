@@ -2,6 +2,18 @@
   "permissions": {
     "deny": ["AskUserQuestion"]
   },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/check-ab-options.sh"
+          }
+        ]
+      }
+    ]
+  },
   "model": "claude-opus-4-8",
   "outputStyle": "default",
   "verbose": false
