@@ -8,6 +8,33 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 002
+
+### DEC-002-1 — A/B Stop guard: read `last_assistant_message`, assess only the ask block
+**Decision:** `check-ab-options.sh` no longer parses the transcript. It reads the turn text from the
+`last_assistant_message` field CC passes to the Stop hook, isolates the **ask** — everything after the
+*last* `👉👉👉` anchor (`${text##*"$anchor"}`) — and requires both an `A)` and a `B)` label within that
+block. A durable 15-case test suite (`.claude/hooks/check-ab-options.test.sh`) covers the behaviour.
+DEC-001-1's decision (enforce A/B via a Stop hook) still stands; only the mechanism changes — this is
+not a supersession.
+**Rationale:** The Conv-001 hook used `tail -n1` on the transcript, which CC writes asynchronously and
+lags behind the live conversation (documented behaviour). Observed live in Conv 002: it read a prior
+`thinking` record (empty text → silent miss, the false negative) and, on the next turn, a stale earlier
+message (fired citing the wrong turn, the false positive). `last_assistant_message` is the documented,
+race-free source. Separately, scanning the whole message let a stray `A)`/`B)` in lead-up prose satisfy
+the guard; scoping to the ask block targets the actual question, and using the *last* anchor (not the
+first) keeps a `👉👉👉` merely mentioned in prose from mis-targeting it. Rejected: B) keeping transcript
+parsing with a flush-wait (still racy, version-dependent); C) a `MessageDisplay` pre-render hook
+(display-only — cannot block or regenerate the turn or change what the model sees, confirmed from the
+CC hooks docs); D) splitting on the *first* anchor (a prose mention mis-targets the block — caught in
+live verification, not by the tests).
+**Consequences:** The A/B convention tightens: labelled options must sit in the trailing ask block —
+**anchor first, then `A)`/`B)`** — so options listed *above* the anchor now (correctly) count as
+non-compliant. The guard remains after-the-fact: it forces a corrective re-ask but cannot revise an
+already-displayed turn (no CC hook can — the only pre-display hook, `MessageDisplay`, is display-only).
+Re-run the test suite after any change to the hook. DEC-001-1 is not tombstoned; its handle still
+resolves.
+
 ## Conv 001
 
 ### DEC-001-2 — Capture the operator's turns verbatim via a UserPromptSubmit hook
