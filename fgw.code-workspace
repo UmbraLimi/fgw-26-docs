@@ -1,0 +1,32 @@
+{
+  "folders": [
+    {
+      "path": "../fgw-26",
+      "name": "fgw-26 (website code)",
+    },
+    {
+      "path": ".",
+      "name": "fgw-26-docs",
+    },
+    {
+      "path": "../frasergorrie",
+      "name": "frasergorrie (legacy, read-only reference)",
+      "settings": {
+        "typescript.validate.enable": false,
+        "javascript.validate.enable": false,
+      },
+    },
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.minimap.enabled": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "workbench.iconTheme": "vs-seti",
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#7c3aed",
+    },
+  },
+}

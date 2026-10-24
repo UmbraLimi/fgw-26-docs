@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+
+# .scratch/ — non-git working space for temporary, often multi-conv material.
+# Useful but NOT durable: nothing here is backed up or travels by git, and it is
+# lost on a fresh checkout. Anything that must survive goes somewhere git-tracked.
+.scratch/
+
+# Ephemeral conv marker (added once the conv lifecycle lands) — answers
+# "is a conv open on this machine", which must not travel. Untracked by design.
+.conv-current
