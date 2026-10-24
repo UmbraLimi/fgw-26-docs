@@ -70,10 +70,23 @@ sh ~/projects/fgw-26-docs/.claude/scripts/gen-decisions-digest.sh
 🔴 Read the generator's stderr line — a non-zero EMPTY-gist count means an entry's `Decision:` field
 format the parser missed. If `DECISIONS.md` was untouched, skip silently.
 
-## Step 3 — Write the conv record
+## Step 3 — Write the conv record (+ dialogue companion)
 
 `docs/convs/YYYY-MM/YYYYMMDD_HHMM Conv NNN.md`, per `reference/CONV-FORMAT.md`. 🔴 `## Work` is never
 omitted. Written once, never edited (erratum-append only). 🔴 Never assert an outcome for a later step.
+
+**Then the dialogue companion** (`reference/CONV-FORMAT.md` § Dialogue companion). If
+`~/projects/fgw-26-docs/.conv-turns.jsonl` exists and holds lines for this conv:
+```
+jq -r --arg c <NNN> 'select(.conv==$c) | .text' ~/projects/fgw-26-docs/.conv-turns.jsonl
+```
+renders each operator turn verbatim; write them into `…Conv NNN — dialogue.md` in order, adding the
+optional one-line produced-note per turn. 🔴 Verbatim — never clean typos. **Then drain the capture:**
+```
+rm -f ~/projects/fgw-26-docs/.conv-turns.jsonl
+```
+No `.jsonl`, or no lines for this conv → skip the companion, say so in one line (capture was empty).
+The companion is a tracked doc under `docs/convs/**` (staged in Step 6); the `.jsonl` never travels.
 
 ## Step 4 — Carried findings
 

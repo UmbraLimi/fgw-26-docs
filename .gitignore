@@ -9,3 +9,7 @@ node_modules/
 # Ephemeral conv marker (added once the conv lifecycle lands) — answers
 # "is a conv open on this machine", which must not travel. Untracked by design.
 .conv-current
+
+# Within-conv capture of the operator's verbatim prompts (UserPromptSubmit hook).
+# Drained into the conv's dialogue companion and deleted at /r-end; never travels.
+.conv-turns.jsonl

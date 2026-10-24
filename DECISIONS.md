@@ -10,6 +10,23 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 001
 
+### DEC-001-2 — Capture the operator's turns verbatim via a UserPromptSubmit hook
+**Decision:** A `UserPromptSubmit` hook (`.claude/hooks/capture-turn.sh`) appends each operator prompt
+verbatim as one JSON line to the untracked `.conv-turns.jsonl`; `/r-end` renders those into a per-conv
+dialogue companion (`docs/convs/.../Conv NNN — dialogue.md`, specced in `reference/CONV-FORMAT.md`) and
+deletes the `.jsonl`. The hook gates on `.conv-current`, writes only to files (never stdout — a
+UserPromptSubmit hook's stdout enters context), and fails open.
+**Rationale:** `## Progress` only summarizes; the back-and-forth that shapes the project was being lost
+(Conv 000's companion was hand-built). Surveyed all three siblings: FPS captures nothing (what fgw
+inherited); Peerloop uses a manually-maintained `.scratch/conv-turns.md` plus a separate transcript
+viewer; SPT auto-captures via a `UserPromptSubmit` hook. Chose SPT's hook model — capture must not
+depend on live discipline (the thing that failed on A/B this same conv). Rejected: B) Peerloop's
+manual log; C) a transcript-scraping viewer tied to CC's undocumented JSONL format.
+**Consequences:** New hook + a `/r-end` render/drain step + a `CONV-FORMAT.md` companion spec (weighed
+against `DEC-000-7`: lean — one `jq`-writing shell hook, not SPT's multi-type `event.js` Node system).
+Capture only runs inside an open conv. If CC's UserPromptSubmit payload shape changes, the hook's
+`.prompt` read breaks — health-logged to `.scratch/hook-health.log`, not silent.
+
 ### DEC-001-1 — Enforce the A/B question format with a Stop hook, not willpower
 **Decision:** A project Stop hook (`.claude/hooks/check-ab-options.sh`, registered in
 `.claude/settings.json`) inspects the last assistant turn; if it ends with a `👉👉👉` question but

@@ -30,6 +30,29 @@ One line: count + "see RESUME-STATE.md". Omit if none.
 🔴 **Never assert an outcome for a step that runs after this one** (the push, the next open). Say "not
 yet run" and let the next conv record the result.
 
+## Dialogue companion — `docs/convs/YYYY-MM/YYYYMMDD_HHMM Conv NNN — dialogue.md`
+
+The operator's half of the conversation, **verbatim**. Captured live by the `capture-turn.sh`
+UserPromptSubmit hook into the untracked `.conv-turns.jsonl`; rendered and drained here at `/r-end`,
+after which the `.jsonl` is deleted. Written once (erratum-append only, like the conv record). The
+`## Progress` summary interprets; this preserves the actual words that shaped the conv.
+
+```markdown
+# Conv NNN — dialogue capture (operator's half, verbatim)
+**Machine:** <machine> · **Date:** YYYY-MM-DD
+
+Companion to the Conv NNN record. The operator's own messages, verbatim and in order.
+
+### Turn 1 — <short label>
+> <operator prompt, verbatim including typos>
+
+_→ one-line note of what it produced (added at /r-end; interpretive, optional)._
+```
+
+🔴 Verbatim means verbatim — typos included, nothing silently cleaned. Render only turns the hook
+captured for **this** conv (`.text` where `.conv` matches); lifecycle slash-commands may be dropped or
+collapsed. Omit the companion entirely if no turns were captured.
+
 ## RESUME-STATE.md — overwritten at every `/r-end`
 
 Holds only what the *next* conv needs — not an archive. Anything durable belongs in the conv record,
