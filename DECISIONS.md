@@ -8,6 +8,103 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 004
+
+### DEC-004-4 — Claude runs `/r-commit` autonomously on its own judgment
+**Decision:** Claude may run `/r-commit` **without asking**, on its own judgment, whenever meaningful
+and relatively self-contained work has been completed. (`/r-commit` was already a standing right in
+`CLAUDE.md`; this grants autonomous *timing* — no per-commit approval.) `/r-end` still needs explicit
+approval and remains the only operation that pushes.
+**Rationale:** Operator grant, Conv 004. Mid-conv commits are local-only and reversible, so the
+per-commit ask was friction without a safety payoff. Rejected: continue asking before each mid-conv
+commit.
+**Consequences:** Claude picks commit points; it still stages **CC-authored paths by name** (never
+`git add -A`), uses the `fgw-1` message format under the current conv number, never touches
+`frasergorrie`, and never pushes. Full operator review remains at `/r-end`.
+
+### DEC-004-3 — Do not adopt shadcn/ui; Tailwind v4 CSS-first theming instead
+**Decision:** Resolve `DEC-000-1`'s open "shadcn under consideration" clause **against adoption**. The
+token/theming layer is **Tailwind v4 CSS-first `@theme`** (CSS-variable tokens) directly. The few
+interactive pieces (mobile nav; optional theme toggle, image lightbox, contact form) are built as
+**CSS-only or tiny vanilla/React islands**. shadcn is deferred to a **per-component, island-scoped
+trigger**: pull in a *single* shadcn component only if/when a genuinely complex interactive component
+appears, and then only that one.
+**Rationale:** After `DEC-004-2` the site is mostly-static lead-gen with minimal interactivity, so
+shadcn's React/Radix components cost hydration weight for little benefit and fight Astro's near-zero-JS
+strength (`DEC-000-7` lean). shadcn's two offerings are separable — its CSS-variable theming convention
+is the only part that applied here, and Tailwind v4's CSS-first `@theme` already delivers that natively,
+so the attraction is obtained without the React tax. Rejected: **adopt shadcn now** — premature weight;
+polish and a11y come from design + the `jsx-a11y` lint (`DEC-003-2`), not from shadcn specifically.
+**Consequences:** The Astro + Workers + Tailwind v4 stack (`DEC-000-1`) stands unchanged; only the
+shadcn question resolves. `DEC-003-2`'s conditional "if `[STYLE-THEME]` picks shadcn, lift fps's
+`vitest.setup.ts` jsdom-hardening" **does not fire** — simpler jsdom test setup, revisit only if the
+per-component trigger later pulls in a Radix component. `[STYLE-THEME]` builds its theme on Tailwind v4
+`@theme` tokens; interactive islands stay minimal and island-scoped.
+
+### DEC-004-2 — fgw-26 launch information architecture (page set + scope)
+**Decision:** The launch site is these routes (multi-page, per `DEC-004-1` as amended below):
+- **`/`** — home: hero (the "I steer; AI drives — and I know when to overrule it" helmsman thesis), the
+  "sustained partnerships, not a portfolio grid" reframe, condensed proof-points, work teasers, a
+  testimonial, and the contact CTA.
+- **`/work`** — a rich index of **summary cards** (problem → outcome → proof), each **single-sourced**
+  from its case's own excerpt; plus **`/work/<slug>`** detail pages where the full case text lives
+  **once**. (Resolves A/B "both": rich index + detail pages, no full-text duplication.)
+- **`/method`** — the working method + honesty/verification frame (from `WORKING-METHOD.md`); the key
+  differentiator, successor to legacy `how-i-work`.
+- **`/about`** — bio, 44 years, longevity, repositioning-as-adaptability.
+- **`/contact`** — the **sole** conversion surface: email CTA, no checkout.
+
+Scope calls: **(1) Commerce dropped** — no Stripe; the legacy SKU / `_agreement` / `-purchase-thanks`
+pages are retired; this is a positioning/lead-gen site. **(2) Blog/podcast deferred from launch but
+planned-for** — reserve the `/blog` route and stand up the Astro content-collection pattern at scaffold
+so a blog is an *additive* insertion later, not a restructure; it is not surfaced in nav or launched
+now. **(3) `/spa` reservation abandoned** — amends `DEC-004-1`.
+**Rationale:** Page set follows the evidence base (`discovery/EVIDENCE-LEDGER.md`): the 6 proof-points
+and the five showable projects are the spine, framed for business owners not engineers. Alternatives
+that lost: **keep coaching/commerce** — rejected, the new thesis is software judgment/partnership not
+coaching, and dropping it also removes the Stripe-key reuse risk the ledger flags; **single `/work`
+page, or full-content on both index and detail** — rejected, duplication splits SEO signal
+(cannibalization) and drifts, whereas single-sourced summaries give best-of-both; **ship a blog now** —
+rejected, the legacy blog is 3 years dormant with no current content and an empty blog reads worse than
+none, but it is cheap to design for. **`/spa` long-scroll** — abandoned by the operator once the
+multi-page SEO/scale case landed; single-page offered nothing multi-page didn't.
+**Consequences:** `[SITE-SCAFFOLD]` stands up five routes + a `/work/<slug>` content collection + a
+reserved (unsurfaced) blog collection. `[STYLE-THEME]` designs nav for the four/five top-level items
+with the blog planned as a sixth. `[SITE-NARRATIVE]` produces hero/thesis copy, per-case
+summary+detail, the method narrative, and bio — all client material **de-identified** per the
+publishability map before publish; case studies are gated on that de-identification, so start with the
+most showable (`redline` is fully clear) and add as each clears. No payments surface, no Stripe deps.
+
+### DEC-004-1 — Site structure: multi-page primary + reserved `/spa` long-scroll view
+🔧 **Amended by `DEC-004-2` (Conv 004):** the reserved-`/spa` long-scroll clause is **dropped** (operator
+abandoned the single-page variant). The multi-page-primary decision and single-sourced-section-component
+practice below still stand; only the `/spa` consumer is gone.
+**Decision:** fgw-26 is a **multi-page site** as its primary structure — real Astro routes
+(`/`, plus topic pages), with View Transitions (`<ClientRouter>`) for SPA-smooth navigation where it
+helps. Build each content block as a **single-sourced Astro section component**, so routes compose
+subsets of a shared component library. **Reserve a `/spa` route** that assembles all sections into one
+long-scroll page — a *secondary view of the same source*, not a separate build. `/spa` earns its keep
+only if a real job emerges (read-it-all-on-one-page / print-friendly / single-link-to-share); if none
+does it can be dropped with zero content loss, and if single-page later wins outright its content is
+promoted to `/`.
+**Rationale:** SEO is the tie-breaker for a broad-appeal marketing site — multi-page gives each topic
+its own URL/`<title>`/meta/OG and ranks per theme, and scales cleanly as content grows. Alternatives
+that lost: **(a) single long-scroll landing page as primary** — rejected because one URL caps the SEO
+surface and scales poorly, but retained as the `/spa` view at near-zero marginal cost; **(b) true
+client-routed SPA (React Router)** — rejected: fights Astro, forfeits per-page static output, no
+marketing upside; **(c) defer the decision until content is sized from `EVIDENCE-LEDGER.md`** — operator
+chose to decide on strategic intent now (`B` offered, `A` taken), so content volume is demoted from a
+blocker to a revisit trigger. Single-sourced section components make the two views cost almost nothing
+and keep them from drifting (ties `[SITE-NARRATIVE]`). Independent of the shadcn/CSS-variable question
+(`DEC-000-1`).
+**Consequences:** `[SITE-SCAFFOLD]` stands up a multi-route Astro app with `<ClientRouter>` and a
+section-component library; `[STYLE-THEME]` designs a multi-page IA + nav, not just one page. `/spa` is
+reserved from scaffold time as an assembled view; its fate (keep / drop / promote to `/`) is decided
+once content and a concrete use-case are known. **Revisit trigger:** if `EVIDENCE-LEDGER.md` yields too
+little for several substantial pages, collapse to single-page (promote `/spa` to `/`). **Watch item:**
+two navigation models (route-links vs anchor-scroll) must stay single-sourced to avoid drift. Feeds
+`[SITE-NARRATIVE]` (copy single-sourced per section) and shapes `[STYLE-THEME]`.
+
 ## Conv 003
 
 ### DEC-003-2 — fgw-26 testing strategy (all layers)
@@ -189,6 +286,8 @@ pattern. Rejected: a single combined repo; treating `fgw-26` as the home.
 across the two owned repos only.
 
 ### DEC-000-1 — Tech stack: Astro + Cloudflare Workers + Tailwind v4 (latest)
+🔧 **shadcn/ui clause resolved by `DEC-004-3` (Conv 004): not adopted** — Tailwind v4 CSS-first theming
+instead. The rest of this decision (Astro + Workers + Tailwind v4) stands.
 **Decision:** The website is built on Astro (SSR, Cloudflare adapter) deployed to **Cloudflare
 Workers**, with **Tailwind v4** (CSS-first, via `@tailwindcss/vite`), on latest package versions.
 **shadcn/ui** is under consideration for styling consistency (React islands + Tailwind + CSS-variable

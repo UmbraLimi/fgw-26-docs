@@ -30,3 +30,5 @@ RTL/jsdom-hardening choice in `DEC-003-2`.
   quotes). The logic was verified in-shell, but the fix only executes in the harness `!`-command path
   at `/r-start` — confirm the next `/r-start` repo-state block shows real `ahead/behind` (not
   `NO UPSTREAM` or an awk error). If still broken, the nested-single-quote diagnosis was wrong.
+
+  ✔ **ruled:** kept in hopper as a 3-conv watch — retires after 3 consecutive clean `/r-start` precompute blocks. Conv 004 = 1/3 ✓.

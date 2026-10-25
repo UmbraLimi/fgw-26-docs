@@ -6,4 +6,4 @@ durable record of what was done is the conv record + the board, never a line lef
 
 ## Open
 
-_None._
+- [ ] **Repo-state precompute fix — confirm stable (`r-start` SKILL.md, from Conv 003).** The nested `awk '…$1…$2…'` → `read a b` rewrite. Retires after **3 consecutive clean `/r-start` precompute blocks** (real `ahead/behind`, no `NO UPSTREAM` / awk error). Count: **1/3** — Conv 004 ✓ clean.
