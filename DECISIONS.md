@@ -8,6 +8,34 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 005
+
+### DEC-005-1 — The 👉👉👉 trigger covers every answer-expecting question, incl. the end-of-turn "what next?"
+**Decision:** Extend the 👉👉👉 rule (`DEC-002-1`) in `CLAUDE.md` §Interaction model: the anchor is
+required on *every question expecting an answer — ruling, pick, or aside alike, never a rhetorical one*,
+not only on questions I classify as decisions. The A/B rule and the `check-ab-options.sh` Stop hook are
+left unchanged.
+**Rationale:** Twice in two convs I ended a turn with a bare "what next?" question (e.g. "Want me to
+start it, or something else?") carrying no anchor — so the Stop hook, which only enforces the `A)`/`B)`
+labels *once an anchor is present*, never fired. Root cause was wording, not the hook: the "Default is
+normal conversation / no mandatory per-turn ceremony" line gave cover to treat an end-of-turn aside as
+casual. The sibling projects (peerloop, fps) never miss the anchor and have **no** anchor Stop hook —
+they close the loophole in the rule text (fps `DEC-005-7`: "the end-of-turn 'what next?' included"). The
+losing alternative was a heuristic extension to `check-ab-options.sh` that would detect question-shaped
+endings lacking the anchor — rejected as elaborate and false-positive-prone when the sibling evidence
+shows the rule wording alone suffices.
+**Consequences:** One line of `CLAUDE.md` changed. A rhetorical/self-answered question still takes no
+anchor. Separately, surfacing that wording work exposed a latent false positive in the
+`check-ab-options.sh` Stop hook: it treated **any** 👉👉👉 in the turn — including the emoji merely
+quoted in prose — as the start of a question block, so a non-question turn that mentioned the anchor was
+wrongly blocked. Fixed same conv: the hook now counts a 👉👉👉 **only when it begins a line** (how a real
+ask is written — "👉👉👉 …" heads its line; a mid-sentence mention never does), walking lines to isolate
+the block from the last anchor-headed line to end of turn. The A/B labelling rule and the Stop hook's
+enforcement are otherwise unchanged; unit suite (18) + mutation suite (5, incl. a line-start-removed
+mutation) green, and the original mis-firing message now exits 0 against the live hook. The rejected
+alternative — a heuristic that guesses whether a turn is "question-shaped" — stays the documented
+fallback only if misses recur despite the wording.
+
 ## Conv 004
 
 ### DEC-004-7 — `[STYLE-THEME]` component styles (buttons, inputs, cards, prose, nav/footer)

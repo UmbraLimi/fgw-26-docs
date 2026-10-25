@@ -69,6 +69,11 @@ check "near-miss: period markers a. / 1."       2 false "$A Which?
 a. second"
 check "no labels at all in block"               2 false "$A Ready to go?"
 
+# --- DEC-005-1: the emoji QUOTED MID-LINE in prose is not an anchor ---
+check "prose mid-line anchor, no labels (Conv 005 FP)" 0 false "Done. The $A rule now reads differently."
+check "prose mid-line anchor twice, no real ask"       0 false "Edited the $A rule; the $A anchor now covers asides too."
+check "prose mid-line anchor + stray A)/B), no ask"    0 false "The $A rule lists options A) and B) for forks."
+
 # --- not-a-question / guard-off paths ---
 check "no anchor: plain statement"              0 false "All done and committed."
 check "no anchor: prose mentions A)/B)"         0 false "I weighed A) and B) and chose the first."

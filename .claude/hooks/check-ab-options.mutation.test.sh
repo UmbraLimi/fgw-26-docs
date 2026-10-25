@@ -31,8 +31,12 @@ mutate() { # $1 name  $2 sed-expr
 mutate "guard never blocks (exit 2 -> exit 0)"            's/^exit 2$/exit 0/'
 # Loop guard neutered — active=true must still suppress. Caught by the loop-guard case.
 mutate "loop guard disabled (active never matches true)"   's/= "true"/= "__never__"/'
-# Splits on the FIRST anchor, not the last — a prose 👉👉👉 would mis-target the block.
-mutate "first-anchor split (text## -> text#)"              's/text##/text#/'
+# Anchor matched anywhere in a line, not only at line-start — a mid-line prose mention would
+# be treated as the ask. Caught by the DEC-005-1 prose-mention cases.
+mutate "line-start requirement removed (heads-line -> contains)"  's|"$anchor"\*) found|*"$anchor"*) found|'
+# Block never extends past the anchor line — options on following lines would be missed.
+# Caught by the "options paragraphs below anchor" compliant case.
+mutate "block not extended past anchor line (append neutered)"    's/"\$found" = 1/"$found" = 9/'
 # One label suffices — must require BOTH A) and B). Caught by the "only A), no B)" case.
 mutate "single label passes (A) && B)  ->  A) || B))"      's/&&/||/'
 

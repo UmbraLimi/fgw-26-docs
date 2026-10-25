@@ -3,7 +3,8 @@
 #
 # Enforces CLAUDE.md "Decisions → A/B": a turn's trailing question block — from the 👉👉👉
 # anchor to end of message — must present labelled ASCII options (A) / B) [/ C) ...]). The
-# anchor HEADS the question block; the options follow it. Only that block is assessed, so a
+# anchor HEADS the question block (it must BEGIN A LINE — the emoji quoted mid-sentence in
+# prose is not an ask, DEC-005-1); the options follow it. Only that block is assessed, so a
 # stray "A)"/"B)" in earlier prose no longer satisfies the guard (the Conv-002 loophole:
 # the check used to scan the whole message). If the block lacks the labels, the hook blocks
 # the stop (exit 2) and feeds the lapse back to Claude to re-ask correctly.
@@ -30,17 +31,32 @@ text=$(printf '%s' "$input" | jq -r '.last_assistant_message // empty' 2>/dev/nu
 # The 👉👉👉 anchor, built from its bytes so matching never depends on locale/awk.
 anchor=$(printf '\xf0\x9f\x91\x89\xf0\x9f\x91\x89\xf0\x9f\x91\x89')
 
-# No anchor → no question block → nothing to enforce.
+# Fast path: the emoji appears nowhere → no question → nothing to enforce.
 case "$text" in
   *"$anchor"*) ;;
   *) exit 0 ;;
 esac
 
-# Isolate the ask: everything after the LAST anchor. CLAUDE.md puts the question (and its
-# anchor) last in the turn, so the final 👉👉👉 is the real ask; stripping the longest
-# prefix (##) skips any earlier 👉👉👉 merely mentioned in lead-up prose. POSIX-only, no
-# awk/multibyte-regex dependency.
-block=${text##*"$anchor"}
+# Isolate the ask. The anchor counts only when it HEADS A LINE — a real question is written
+# "👉👉👉 …" at the start of a line; the same emoji quoted mid-sentence in prose is not an
+# ask. Walk the lines, keeping everything from the LAST line that BEGINS with the anchor to
+# end of turn — that span is the question block. (DEC-005-1, Conv 005: a non-question turn
+# that merely quoted 👉👉👉 in prose was wrongly blocked, because the old `text##*anchor`
+# split treated a mid-line mention as the ask.) POSIX-only, byte-safe match, no awk.
+found=0
+block=""
+while IFS= read -r line || [ -n "$line" ]; do
+  case "$line" in
+    "$anchor"*) found=1; block=$line ;;
+    *) [ "$found" = 1 ] && block="$block
+$line" ;;
+  esac
+done <<EOF
+$text
+EOF
+
+# Anchor present only mid-line (prose mention) → no real ask → nothing to enforce.
+[ "$found" = 0 ] && exit 0
 
 # The question block must carry both an A) and a B) label (label not preceded by a word
 # char, so "plan A)" in running prose does not count as an option label).
