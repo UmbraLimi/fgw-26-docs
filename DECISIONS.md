@@ -10,7 +10,36 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 004
 
+### DEC-004-6 — `[STYLE-THEME]` concrete token values (fonts, palette, scale)
+**Decision:** Finalise the stand-ins from `DEC-004-5` into concrete tokens (all chosen from in-browser
+specimens). These are the durable source — the `.scratch/style-*.html` mockups are illustrative only.
+**Fonts:** headings **Fraunces** (variable, optical-size, weight 500); body/UI **Inter** (400/500/600).
+No mono in the theme (add only if a later need appears).
+**Palette (CSS-variable tokens) — light:** `--paper #faf7f2` · `--surface #fffdf9` · `--ink #1c1a17` ·
+`--muted #44403a` · `--subtle #6b6459` · `--faint #9a9087` · `--line #e7e1d8` · `--accent #b45309` ·
+`--accent-strong #92400e` · `--accent-tint #f6ead9`.
+**Palette — dark:** `--paper #1b1712` · `--surface #241f18` · `--ink #f3eee5` · `--muted #cabfb0` ·
+`--subtle #9a8f80` · `--faint #6f6557` · `--line #342e25` · `--accent #f0a53f` ·
+`--accent-strong #f6b85e` · `--accent-tint #2a2114`. Accent derived from the legacy amber `#ffae1a`
+(deepened for light, lifted for dark).
+**Type scale (base 16px):** `--display clamp(2.75rem,5vw,3.75rem)` lh 1.08, -0.01em ·
+`--h2 clamp(2rem,3.5vw,2.5rem)` lh 1.12, -0.005em · `--h3 1.6rem` lh 1.2 · `--h4 1.3rem` lh 1.3 ·
+`--lede 1.25rem` lh 1.6 · `--body 1.0625rem` lh 1.65 (~42ch measure) · `--small 0.875rem` ·
+`--eyebrow 0.75rem` +0.14em uppercase (Inter 600). All headings Fraunces 500.
+**Spacing:** adopt Tailwind v4's default 0.25rem scale; section rhythm token `clamp(4rem,8vw,8rem)`.
+**Rationale:** Each value was judged on a rendered specimen in-browser, not from a swatch list
+(`DEC-000-7` verify-in-product, applied to design). Fraunces+Inter chosen over Newsreader/Source
+Serif 4/Spectral (heading) for distinctiveness + warmth at seniority. Warm neutrals + a single ember
+accent keep the palette disciplined and tie to the legacy without inheriting its brightness. The
+modular scale gives a clear, even hierarchy at an editorial measure.
+**Consequences:** These become the Tailwind v4 `@theme` definitions at `[SITE-SCAFFOLD]`. 🔴 **Contrast
+not yet verified** — accent-as-text and the muted tiers must be checked against WCAG AA at scaffold
+(`jsx-a11y` + manual), and nudged if any tier fails. `[STYLE-THEME]` design is now complete (direction
+`DEC-004-5` + these tokens); only implementation remains, folded into `[SITE-SCAFFOLD]`.
+
 ### DEC-004-5 — Visual direction: "quiet authority / editorial craft"
+🔧 **Tokens finalised in `DEC-004-6` (Conv 004):** the Fraunces/Inter + hex stand-ins here are now
+concrete values there.
 **Decision:** fgw-26's visual personality is **direction A — quiet authority / editorial craft**:
 - **Editorial serif headings** + **clean humanist sans body** (Fraunces / Inter shown as stand-ins).
 - **Warm neutral palette** — off-white "paper" ground + near-black ink + **one disciplined accent**, an
