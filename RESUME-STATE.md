@@ -2,25 +2,24 @@
 
 ## Where we left off
 
-Conv 004 settled the full fgw-26 **style system** (`DEC-004-1`…`DEC-004-7`), each fork decided from a
-rendered in-browser mockup. Structure: multi-page primary, SPA-smooth via View Transitions; `/spa`
-abandoned. IA: `/`, `/work` (+ `/work/<slug>`), `/method`, `/about`, `/contact` — lead-gen only
-(commerce dropped), blog designed-for but deferred. Substrate: no shadcn, Tailwind v4 CSS-first. Visual:
-"quiet authority / editorial" — Fraunces + Inter, warm-neutral + ember palette (light+dark), modular
-scale, and a full component layer (ink-primary buttons / ember reserved, boxed inputs, hairline cards,
-prose, nav/footer). The style guide is the **definitive single source**; its canonical `/styleguide`
-page + WCAG contrast review are deferred to scaffold. Also granted autonomous `/r-commit` (`DEC-004-4`).
-No product code this conv.
+Conv 005 hardened the 👉👉👉 question-anchor guard (`DEC-005-1`) after it missed twice: `CLAUDE.md` now
+requires the anchor on **every answer-expecting question** (ruling/pick/aside alike), and
+`check-ab-options.sh` counts a 👉👉👉 as the anchor **only when it begins a line** — fixing a false
+positive where the emoji quoted in prose blocked a non-question turn. Tests green (18 unit + 5 mutation)
+and verified against the live hook. No product code this conv; `[SITE-SCAFFOLD]` not started.
 
 ## Next action
 
-**[SITE-SCAFFOLD]** (now 🔥 Ordered #1) — stand up Astro + Cloudflare Workers + Tailwind v4 in
+**[SITE-SCAFFOLD]** (🔥 Ordered #1) — stand up Astro + Cloudflare Workers + Tailwind v4 in
 `~/projects/fgw-26` (latest), translate the `DEC-004-6/7` tokens into `@theme`, build the components +
 the canonical `/styleguide` page, wire the lint/test/format gates, then the live review (incl. WCAG AA
-contrast — ember-on-paper, `--muted` tiers, `--danger`). It's the sequenced next step and unblocks
-`[SITE-TEST-SETUP]`. The agreed plan's step 3 (review/refine the guide against the running app) lives
-here.
+contrast). It's the sequenced next step and unblocks `[SITE-TEST-SETUP]`.
 
 ## 🔬 Carried findings
 
-_None._ (The repo-state precompute watch rides the **hopper**, 1/3 — not a carried finding.)
+- **Conv 005 dialogue turn 3 — "Autinonmous and record this DEC" — unresolved.** The live capture holds
+  an operator turn I cannot map to an action I took. It may have (a) granted autonomous-continue mode
+  for the conv — I operated in ask/respond/wait (mode B) throughout — and/or (b) asked for a `DEC` to be
+  recorded during the hopper phase that I did not record. Re-verify against the Conv 005 record +
+  `DECISIONS.md` at `/r-start` and rule whether anything is owed. (The precompute watch, 2/3, rides the
+  **hopper**, not here.)

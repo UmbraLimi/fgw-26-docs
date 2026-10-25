@@ -39,5 +39,6 @@ appears; GitHub Actions deferred to deploy (`DEC-003-2`). **Gate:** needs the ap
 
 ## ✅ Completed this conv
 
-_None yet._ (Conv 004 settled the full `[STYLE-THEME]` design — `DEC-004-1`…`DEC-004-7` — but the task
-stays open until its post-scaffold implementation + review; nothing fully closed this conv.)
+_None._ (Conv 005 was process/infra work, not a board task: hardened the 👉👉👉 question-anchor guard —
+`CLAUDE.md` rule wording + `check-ab-options.sh` line-start matching + tests, `DEC-005-1`. No `[CODE]`
+task opened or closed; `[SITE-SCAFFOLD]` remains the next action.)

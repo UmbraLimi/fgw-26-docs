@@ -6,6 +6,13 @@ _As of 2026-10-25._
 
 ---
 
+### DEC-005-1 — The 👉👉👉 trigger covers every answer-expecting question, incl. the end-of-turn "what next?"
+
+Extend the 👉👉👉 rule (`DEC-002-1`) in `CLAUDE.md` §Interaction model: the anchor is
+required on *every question expecting an answer — ruling, pick, or aside alike, never a rhetorical one*,
+not only on questions I classify as decisions. The A/B rule and the `check-ab-options.sh` Stop hook are
+left unchanged.
+
 ### DEC-004-7 — `[STYLE-THEME]` component styles (buttons, inputs, cards, prose, nav/footer)
 
 Component layer of the style guide, all driven by the `DEC-004-6` tokens + the new tokens
