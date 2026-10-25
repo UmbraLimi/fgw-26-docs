@@ -11,6 +11,13 @@ _None yet — sequencing happens once the style direction is set._
 
 ## 📋 Unordered
 
+### [STYLE-THEME] Style guide + theme for the marketing site
+**Design complete** this conv: direction (`DEC-004-5`), tokens — fonts/palette/scale (`DEC-004-6`), and
+component styles — buttons/inputs/cards/prose/nav/footer/misc (`DEC-004-7`); Tailwind v4 CSS-first, no
+shadcn (`DEC-004-3`). The definitive single source for all styling. **Outstanding (post-scaffold, per
+the agreed plan):** implement as Tailwind v4 `@theme` + components, build the canonical `/styleguide`
+page, and the live review — including WCAG AA contrast verification. Not closed until that review.
+
 ### [SITE-SCAFFOLD] Scaffold the fgw-26 website app
 Stand up the Astro + Cloudflare Workers + Tailwind v4 skeleton (`DEC-000-1`) in `~/projects/fgw-26`,
 latest versions, with the testing/lint/format gates. Pins `dep-check.sh` can then be adapted to.
@@ -29,12 +36,6 @@ fps's `vitest.setup.ts` jsdom-hardening if shadcn chosen) + ESLint flat + Pretti
 appears; GitHub Actions deferred to deploy (`DEC-003-2`). **Gate:** needs the app scaffolded first.
 
 ## ✅ Completed this conv
-
-### [STYLE-THEME] Style guide + theme for the marketing site ✅
-Design settled this conv: structure/IA (`DEC-004-1/2`), no shadcn — Tailwind v4 CSS-first
-(`DEC-004-3`), visual direction "quiet authority / editorial" (`DEC-004-5`), and concrete tokens —
-Fraunces + Inter, warm-neutral + ember palette (light+dark), modular type scale (`DEC-004-6`).
-Implementation folded into `[SITE-SCAFFOLD]`; contrast still to be WCAG-verified at scaffold.
 
 ### [HARNESS-TESTS] Test the `.claude` harness scripts/hooks ✅
 `.claude/scripts/test-harness.sh` aggregator (runs every `*.test.sh`, non-zero on any failure, shows

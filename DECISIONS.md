@@ -10,6 +10,41 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 004
 
+### DEC-004-7 — `[STYLE-THEME]` component styles (buttons, inputs, cards, prose, nav/footer)
+**Decision:** Component layer of the style guide, all driven by the `DEC-004-6` tokens + the new tokens
+below. Chosen from rendered in-browser sheets; the `.scratch` mockups are illustrative only — this is
+the durable source.
+**Buttons** — variants **primary (ink)**, **accent (ember)**, **secondary (outline)**, **ghost**,
+**link**. Primary = `--ink` fill + `--paper` text; **ember reserved for the single top conversion CTA +
+accents** (not the default). Hover: primary→`--primary-hover`, accent→`--accent-strong`,
+secondary/ghost→`--tint-hover`. **Focus = 2px `--accent` ring with 2px offset, site-wide.** Disabled =
+45% opacity. Radius `--radius-sm`. In dark, primary inverts (light fill/dark text); accent text uses
+`--on-accent`.
+**Inputs (boxed)** — `--surface` bg, 1px `--line`, `--radius-sm`, 16px text, placeholder `--faint`;
+focus = `--accent` border + 3px `--accent-tint` ring; error = `--danger` border + 3px `--danger-tint`
++ message; label Inter 500 / 13px; help & error text 12.5px.
+**Cards/surfaces** — `--surface` fill, 1px `--line`, `--radius-md`, **no shadow**; interactive cards
+hover → border `--accent` (no lift).
+**Prose** — body `--body`/`--muted` at ~62ch; links `--accent` (underline-offset 3px) → `--accent-strong`;
+`ul/ol` disc; blockquote left 3px `--accent` rule, `--subtle`, no italics; inline `code` in `--font-mono`
+on `--code-bg`; `hr` 1px `--line`.
+**Nav/footer** — header `--paper` + hairline underline, Fraunces brand, nav links Inter 14px `--subtle`
+→ hover/active `--accent`; footer `--surface`, columnar, small `--subtle` text.
+**Misc** — breakpoints Tailwind defaults (640/768/1024/1280); motion 150ms ease on hover/focus + Astro
+View Transitions (subtle cross-fade), all behind `prefers-reduced-motion`.
+**New tokens (light values; dark mirrors per `DEC-004-6`):** `--on-accent #fff` · `--primary-hover
+#332e27` · `--tint-hover #f1ece3` · `--danger #b4231a` · `--danger-tint #fbeceb` · `--radius-sm 4px` ·
+`--radius-md 8px` · `--radius-lg 12px` · `--font-mono "JetBrains Mono",ui-monospace,…` · `--code-bg
+#f0ebe2`. Dark values for `--on-accent #1b1712` · `--primary-hover #e4ddd0` · `--tint-hover #2b251d`;
+dark `--danger*`/`--code-bg` to be set at scaffold.
+**Rationale:** Hairline-only, no drop shadows, ember-as-rare-accent — all serve the "quiet authority /
+editorial" direction (`DEC-004-5`) and keep the warm accent powerful by scarcity. Boxed inputs over
+underline for clarity on a contact form. Primary=ink over ember so the accent stays a signal, not noise.
+**Consequences:** Completes the `[STYLE-THEME]` **design** (direction `DEC-004-5` + tokens `DEC-004-6` +
+components here). Remaining is **implementation** as Tailwind v4 `@theme` + components at
+`[SITE-SCAFFOLD]`, the canonical **`/styleguide` page**, and a **live review** — where WCAG AA contrast
+(ember-on-paper, `--muted` tiers, `--danger`) is verified and nudged as needed.
+
 ### DEC-004-6 — `[STYLE-THEME]` concrete token values (fonts, palette, scale)
 **Decision:** Finalise the stand-ins from `DEC-004-5` into concrete tokens (all chosen from in-browser
 specimens). These are the durable source — the `.scratch/style-*.html` mockups are illustrative only.
