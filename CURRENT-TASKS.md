@@ -27,8 +27,16 @@ client-owned material.
 
 ## ⏸️ Parked
 
-_None._
+### [SITE-TEST-SETUP] Stand up fgw-26's testing stack — gated on [SITE-SCAFFOLD]
+Vitest (co-located `*.test.ts`, thin) + React Testing Library on jsdom (interactive islands only; lift
+fps's `vitest.setup.ts` jsdom-hardening if shadcn chosen) + ESLint flat + Prettier (`jsx-a11y` +
+`react-hooks`) + npm `verify` = lint+typecheck+test+build. D1-in-memory test helper only if data access
+appears; GitHub Actions deferred to deploy (`DEC-003-2`). **Gate:** needs the app scaffolded first.
 
 ## ✅ Completed this conv
 
-_None yet._
+### [HARNESS-TESTS] Test the `.claude` harness scripts/hooks ✅
+`.claude/scripts/test-harness.sh` aggregator (runs every `*.test.sh`, non-zero on any failure, shows
+failing output). Guards mutation-checked: `check-ab-options.mutation.test.sh` (4 mutations) and a new
+`capture-turn.test.sh` + `capture-turn.mutation.test.sh` (2 mutations). All 6 mutations caught; verified
+live that a suite-invisible break is correctly reported SURVIVED (`DEC-003-2`).
