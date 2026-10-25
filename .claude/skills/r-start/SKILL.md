@@ -24,7 +24,7 @@ wait for the ruling (Step 4). Otherwise run straight through to Step 6 and stop.
 !`sh ~/projects/fgw-26-docs/.claude/scripts/conv-state.sh`
 
 **Repo state** (fetches first; a stale local is the failure this catches):
-!`for entry in "fgw-26-docs:$HOME/projects/fgw-26-docs" "fgw-26:$HOME/projects/fgw-26"; do label="${entry%%:*}"; dir="${entry#*:}"; if ! git -C "$dir" rev-parse --git-dir >/dev/null 2>&1; then echo "$label | no repo"; continue; fi; b=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null); git -C "$dir" fetch -q 2>/dev/null; c=$(git -C "$dir" rev-list --left-right --count HEAD...origin/$b 2>/dev/null | awk '{print "ahead "$1" · behind "$2}' | grep . || echo "NO UPSTREAM"); d=$(git -C "$dir" status --porcelain 2>/dev/null | wc -l | tr -d ' '); echo "$label | $b | $c | dirty $d"; done`
+!`for entry in "fgw-26-docs:$HOME/projects/fgw-26-docs" "fgw-26:$HOME/projects/fgw-26"; do label="${entry%%:*}"; dir="${entry#*:}"; if ! git -C "$dir" rev-parse --git-dir >/dev/null 2>&1; then echo "$label | no repo"; continue; fi; b=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null); git -C "$dir" fetch -q 2>/dev/null; c=$(git -C "$dir" rev-list --left-right --count HEAD...origin/$b 2>/dev/null | { read a b && echo ahead $a · behind $b || echo NO UPSTREAM; }); d=$(git -C "$dir" status --porcelain 2>/dev/null | wc -l | tr -d ' '); echo "$label | $b | $c | dirty $d"; done`
 
 **Hopper** (open `- [ ]` items carried from last conv):
 !`n=$(awk '/^## Open/{f=1;next} /^## /{f=0} f && /^- \[ \]/{c++} END{print c+0}' ~/projects/fgw-26-docs/HOPPER.md 2>/dev/null); if [ "$n" -gt 0 ]; then echo "🔴 $n open — run /r-hopper after this /r-start"; else echo "clear"; fi`

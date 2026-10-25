@@ -2,9 +2,39 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-24._
+_As of 2026-10-25._
 
 ---
+
+### DEC-003-2 — fgw-26 testing strategy (all layers)
+
+Adopt one testing strategy across layers, most infra standing up at `[SITE-SCAFFOLD]`:
+- **Unit/integration:** Vitest, co-located `*.test.ts`, kept thin (a marketing site has little logic).
+  Add a `better-sqlite3`-as-D1 in-memory helper (Peerloop/fps pattern) **only if/when** the site reads
+  or writes D1 — not before.
+- **UI/component:** React Testing Library on Vitest/jsdom, testing the **interactive React islands
+  only** (static Astro markup is eyeballed via the bridge, not unit-tested). If `[STYLE-THEME]` picks
+  shadcn/ui, lift fps's `vitest.setup.ts` jsdom-hardening (Radix `ResizeObserver`/`matchMedia`/
+  pointer-capture) wholesale.
+- **Browser/e2e:** `/chrome` bridge is the live tool (ad hoc). PLATO deferred (`DEC-003-1`); Playwright
+  deferred until real flows exist and then kept to a tiny genuinely-gating set (not left to rot as
+  Peerloop's did).
+- **Harness CLI/scripts:** hand-rolled POSIX `sh`/bash harnesses + a `test-harness.sh` aggregator;
+  **mutation-check the guards** — each guard test names, in a comment, the deliberate break it must
+  catch, verified to fail on it.
+- **Gates/CI:** npm `verify` = lint + typecheck (`tsc --noEmit`) + test + build as the commit-safety
+  command; **ESLint (flat) + Prettier** for `eslint-plugin-jsx-a11y` + `react-hooks`; GitHub Actions
+  deferred to `[SITE-SCAFFOLD]`/deploy; no TZ-matrix.
+- **Discipline:** keep the `[checked:]` tags + re-run-baseline-this-conv rule (`DEC-000-7`); treat the
+  bridge-rendered DOM as ground truth (Peerloop's "only a DOM check exposed the empty feeds" lesson).
+
+### DEC-003-1 — Defer PLATO for fgw-26; document the adoption playbook
+
+Do not build a PLATO-style journey runner for fgw-26 now. Start browser/UI testing with
+Vitest + React Testing Library on jsdom for components, and the `/chrome` bridge used ad hoc for visual
+checks. Capture the full "what PLATO is / when to adopt / how to adopt" playbook in `_cc/PLATO.md` so
+the deferral is revisitable. Browser testing still models on Peerloop's quadrant division of labour
+(unit/API → PLATO → bridge-scripted UI walk → sparse Playwright) — only the PLATO layer is deferred.
 
 ### DEC-002-1 — A/B Stop guard: read `last_assistant_message`, assess only the ask block
 
