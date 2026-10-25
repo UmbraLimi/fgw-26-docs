@@ -2,33 +2,25 @@
 
 ## Where we left off
 
-Conv 003 settled the full fgw-26 testing strategy (`DEC-003-2`) under the opening of the style/stack
-discussion: Vitest + React Testing Library on jsdom (interactive islands only), the `/chrome` bridge
-for browser checks, ESLint + Prettier, with PLATO, Playwright, GitHub Actions CI and a D1 test-helper
-all deferred behind named triggers. PLATO was deferred for a marketing site's thin journeys but fully
-documented in `_cc/PLATO.md` (`DEC-003-1`). The harness-test row shipped (`[HARNESS-TESTS]`): a
-`test-harness.sh` aggregator plus mutation-checked guards. Also fixed the `/r-start` repo-state
-precompute. No product/site code this conv.
+Conv 004 settled the full fgw-26 **style system** (`DEC-004-1`…`DEC-004-7`), each fork decided from a
+rendered in-browser mockup. Structure: multi-page primary, SPA-smooth via View Transitions; `/spa`
+abandoned. IA: `/`, `/work` (+ `/work/<slug>`), `/method`, `/about`, `/contact` — lead-gen only
+(commerce dropped), blog designed-for but deferred. Substrate: no shadcn, Tailwind v4 CSS-first. Visual:
+"quiet authority / editorial" — Fraunces + Inter, warm-neutral + ember palette (light+dark), modular
+scale, and a full component layer (ink-primary buttons / ember reserved, boxed inputs, hairline cards,
+prose, nav/footer). The style guide is the **definitive single source**; its canonical `/styleguide`
+page + WCAG contrast review are deferred to scaffold. Also granted autonomous `/r-commit` (`DEC-004-4`).
+No product code this conv.
 
 ## Next action
 
-Start the **style / website design** discussion in earnest — the standing gate for `[STYLE-THEME]` and
-for sequencing `[SITE-SCAFFOLD]` → `[SITE-TEST-SETUP]`. The operator's opening sub-topic is
-**single-page vs multi-page site**, and whether to reserve a `/spa` route for the single-page variant
-alongside the multi-page site. My provisional take (preview given Conv 003, decision deferred):
-reserving a route is cheap and reversible in Astro; "single-page" most likely means a single
-long-scroll landing page (Astro-idiomatic) rather than a true client-routed SPA; keep the copy
-single-sourced (ties `[SITE-NARRATIVE]`) so the two variants can't drift; treat `/spa` as a temporary
-alias that becomes `/` if single-page wins; SEO is the likely tie-breaker (multi-page usually favours a
-marketing site). The shadcn/ui question (`DEC-000-1`) also surfaces here and feeds back into the
-RTL/jsdom-hardening choice in `DEC-003-2`.
+**[SITE-SCAFFOLD]** (now 🔥 Ordered #1) — stand up Astro + Cloudflare Workers + Tailwind v4 in
+`~/projects/fgw-26` (latest), translate the `DEC-004-6/7` tokens into `@theme`, build the components +
+the canonical `/styleguide` page, wire the lint/test/format gates, then the live review (incl. WCAG AA
+contrast — ember-on-paper, `--muted` tiers, `--danger`). It's the sequenced next step and unblocks
+`[SITE-TEST-SETUP]`. The agreed plan's step 3 (review/refine the guide against the running app) lives
+here.
 
 ## 🔬 Carried findings
 
-- **Repo-state precompute fix needs harness-path proof (r-start SKILL.md, Conv 003).** The nested
-  single-quoted `awk '…$1…$2…'` was rewritten to `read a b` (named vars, no positionals, no inner
-  quotes). The logic was verified in-shell, but the fix only executes in the harness `!`-command path
-  at `/r-start` — confirm the next `/r-start` repo-state block shows real `ahead/behind` (not
-  `NO UPSTREAM` or an awk error). If still broken, the nested-single-quote diagnosis was wrong.
-
-  ✔ **ruled:** kept in hopper as a 3-conv watch — retires after 3 consecutive clean `/r-start` precompute blocks. Conv 004 = 1/3 ✓.
+_None._ (The repo-state precompute watch rides the **hopper**, 1/3 — not a carried finding.)
