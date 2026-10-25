@@ -10,6 +10,29 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 004
 
+### DEC-004-5 — Visual direction: "quiet authority / editorial craft"
+**Decision:** fgw-26's visual personality is **direction A — quiet authority / editorial craft**:
+- **Editorial serif headings** + **clean humanist sans body** (Fraunces / Inter shown as stand-ins).
+- **Warm neutral palette** — off-white "paper" ground + near-black ink + **one disciplined accent**, an
+  ember/ochre that **evolves the legacy amber** (`#ffae1a`) rather than discarding it (continuity +
+  seniority).
+- Generous type scale, roomy spacing, legibility-as-aesthetic (mirrors the honesty frame).
+- **Light and dark both first-class**, via Tailwind v4 CSS-variable tokens (`DEC-004-3`).
+- Exact font families, colour ramp, type scale and spacing are **not yet fixed** — the fonts/hexes in
+  the Conv 004 mockup (`.scratch/style-directions.html`) are illustrative stand-ins; finalising them is
+  the next `[STYLE-THEME]` step.
+**Rationale:** Chosen from a **rendered side-by-side mockup** (A vs B, real evidence-based copy, viewed
+in-browser) rather than labels. A differentiates hardest from both the dated coaching-era legacy *and*
+the saturated field of mono-accented dev-portfolio sites, and the "seasoned judgment for business
+owners" thesis (`DEC-000-6`) is carried better by editorial warmth than by builder-minimal signalling.
+Rejected: **B — engineered minimal** (stronger for overt technical signalling but reads younger/more
+generic); **C — hybrid** (unnecessary once A was decisive).
+**Consequences:** `[STYLE-THEME]` direction is locked; the remaining work is concrete **token values**
+(palette ramp incl. dark, final serif+sans families with weights, type scale, spacing) on Tailwind v4
+`@theme`. Feeds `[SITE-SCAFFOLD]` (tokens stood up at scaffold) and sets the visual frame for
+`[SITE-NARRATIVE]`. The legacy amber is evolved, not dropped; the legacy playful faces (Comfortaa,
+Raleway Dots) are retired.
+
 ### DEC-004-4 — Claude runs `/r-commit` autonomously on its own judgment
 **Decision:** Claude may run `/r-commit` **without asking**, on its own judgment, whenever meaningful
 and relatively self-contained work has been completed. (`/r-commit` was already a standing right in
