@@ -8,6 +8,77 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 006
+
+### DEC-006-4 — Node 24 LTS as the project runtime, enforced by `engines.node >=24`
+**Decision:** Baseline **Node 24 LTS** (`.nvmrc` = `24.22.1`), with `engines.node` raised to
+`>=24.0.0` so the `predev`/`prebuild` guard (`scripts/check-node.mjs`) and `engine-strict` **refuse
+anything older**. Supersedes an interim 22.23.4 pick made earlier this conv (the minimal bump to clear
+Astro 7's floor; never recorded as a standing decision).
+**Rationale:** Nothing in the stack imposes an upper Node bound (every dep is `>= floor`), so sitting
+on Node 22 (maintenance LTS, two lines back) was only a conservative default; at project start, active
+LTS is the durable runtime. Enforce the floor (chosen **B**) over the honest-minimum floor (**A**: keep
+`>=22.23.4`) because the app is `private: true` — the consumer-exclusion argument for a permissive
+floor doesn't apply — and the guard's purpose is to fail loud on the wrong Node, not merely suggest it.
+Losers: **staying on Node 22**; **Node 26** (newest, but Current not a promoted LTS — bleeding edge for
+a client site); **floor at `>=22.23.4`** (permits silent drift to untested Node 22).
+**Consequences:** Node 24 ships **npm 11**, which blocks dependency install scripts by default — a
+fresh `npm install` would skip the `esbuild`/`workerd` binary postinstalls and break the checkout.
+Added an `allowScripts` allow-list (`esbuild`, `workerd` ×2, `fsevents`), proven by a clean reinstall.
+🔴 `allowScripts` entries are **version-pinned**, so those scripts re-block on a version bump until
+re-approved — a small recurring maintenance touch. `npm run verify` green on Node 24; `npm audit` clean.
+The two safe bumps from the same tooling pass — `typescript-eslint` → 8.72.1, `wrangler` pin → 4.153.0
+(exact) — ride here.
+
+### DEC-006-3 — Resolve the `undici` dev-toolchain advisories with a scoped override, not `--force`
+**Decision:** Add `overrides: { miniflare: { undici: "7.30.1" } }` to lift miniflare's transitive
+`undici` (7.29.1, flagged) to the patched **7.30.1**, clearing all three advisories (their ranges are
+`<7.30.1`).
+**Rationale:** The advisories sit in `undici` **under `miniflare`** — the *local* Workers dev
+simulator, not Cloudflare's production runtime. 7.30.1 is a patch bump inside miniflare's own major
+(API-compatible; verified serving). Losers: **`npm audit fix --force`** (npm's own suggestion) —
+downgrades `@astrojs/cloudflare` 14→12 and breaks the exact wrangler pin (`DEC-000-1`); a **global**
+`undici` override — would wrongly downgrade the unrelated, current `undici` 8.12.3 elsewhere in the
+tree; **dropping it** — leaves a high advisory that re-surfaces every audit.
+**Consequences:** `npm audit` clean (0, prod + dev). The override is version-pinned, so a future
+miniflare wanting a different `undici` major needs re-checking (revisit trigger).
+
+### DEC-006-2 — Pin ESLint 9 / eslint-plugin-astro ^1 / TypeScript 6; latest elsewhere
+**Decision:** Pin **ESLint 9** (`@eslint/js` 9 to match) and **`eslint-plugin-astro` `^1`**, and accept
+**TypeScript 6.x** — all one major behind latest (ESLint 10, astro-plugin 3, TS 7). Every other package
+is on latest.
+**Rationale:** `eslint-plugin-jsx-a11y` (the a11y linter `DEC-003-2` chose ESLint *for*) has no ESLint
+10 support, and `eslint-plugin-astro` 2.x/3.x *require* ESLint 10 — so **ESLint 9 is the only major
+where jsx-a11y + astro linting coexist**; `@astrojs/check` (our `astro check` typecheck) declares
+`peer.typescript "^5 || ^6"`, capping TS at 6. Loser: **bleeding-edge majors** (ESLint 10 / TS 7) —
+would forfeit a11y linting or risk the typecheck gate, for no gain. Deviates from `DEC-000-1`'s "latest
+package versions", which anticipated concrete scaffold-time pins. Not a **Biome** switch (`DEC-003-2`
+stands — Biome has no `jsx-a11y` equivalent).
+**Consequences:** Revisit triggers — bump ESLint→10 **with** astro-plugin→3 once jsx-a11y ships ESLint
+10 support; bump TS→7 once `@astrojs/check` supports it. These are the *only* packages held back; all
+others track latest.
+
+### DEC-006-1 — fgw-26 scaffold architecture: static output, `light-dark()` theming, Fontsource fonts
+**Decision:** Scaffold fgw-26 as Astro **`output: 'static'` + `@astrojs/cloudflare` adapter** (per-route
+SSR available later via `export const prerender = false`). Light/dark via CSS **`light-dark()`** driven
+by `color-scheme`, with `[data-theme]` on `<html>` overriding for the optional toggle (a no-flash inline
+script persists the choice). The `DEC-004-7` component styles live as **semantic classes in one
+`global.css` `@layer components`** (the single durable source). Fonts **self-hosted via Fontsource
+variable** packages (Fraunces, Inter); **no mono webfont** (system mono stack for inline code).
+**Rationale:** static+adapter is exactly `DEC-000-1`'s "mostly static + a Worker only if an endpoint
+appears" — `/contact` is an email CTA with no server route (`DEC-004-2`). `light-dark()` states both
+themes in one declaration per token (`DEC-004-5` "both first-class"), and the primary-button inversion
+falls out of the `--ink`/`--paper` swap for free. Losers: **`output: 'server'` everywhere** (needless
+SSR for a static site); **duplicated `@media (prefers-color-scheme)` + class-based dark blocks** (two
+sources, drift-prone); **Google Fonts CDN / Astro's experimental fonts API** (runtime CDN dependency /
+experimental flag) — Fontsource is self-hosted and offline; **loading JetBrains Mono** (webfont weight
+for rare inline code).
+**Consequences:** Five routes + `/work/[slug]` + a reserved-unsurfaced `blog` collection; `/styleguide`
+renders every token/component. **Discharges the `DEC-004-6/7` "🔴 contrast not yet verified" flag:**
+every required WCAG AA pair passes in both themes (computed + visual); **light accent-as-text is a thin
+4.70:1 pass** (deepen `--accent` if more headroom is wanted); `--faint` is sub-AA but placeholder-only
+and WCAG-exempt. Adding a server endpoint later = `prerender = false` on that page alone.
+
 ## Conv 005
 
 ### DEC-005-1 — The 👉👉👉 trigger covers every answer-expecting question, incl. the end-of-turn "what next?"

@@ -2,9 +2,37 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-25._
+_As of 2026-10-26._
 
 ---
+
+### DEC-006-4 — Node 24 LTS as the project runtime, enforced by `engines.node >=24`
+
+Baseline **Node 24 LTS** (`.nvmrc` = `24.22.1`), with `engines.node` raised to
+`>=24.0.0` so the `predev`/`prebuild` guard (`scripts/check-node.mjs`) and `engine-strict` **refuse
+anything older**. Supersedes an interim 22.23.4 pick made earlier this conv (the minimal bump to clear
+Astro 7's floor; never recorded as a standing decision).
+
+### DEC-006-3 — Resolve the `undici` dev-toolchain advisories with a scoped override, not `--force`
+
+Add `overrides: { miniflare: { undici: "7.30.1" } }` to lift miniflare's transitive
+`undici` (7.29.1, flagged) to the patched **7.30.1**, clearing all three advisories (their ranges are
+`<7.30.1`).
+
+### DEC-006-2 — Pin ESLint 9 / eslint-plugin-astro ^1 / TypeScript 6; latest elsewhere
+
+Pin **ESLint 9** (`@eslint/js` 9 to match) and **`eslint-plugin-astro` `^1`**, and accept
+**TypeScript 6.x** — all one major behind latest (ESLint 10, astro-plugin 3, TS 7). Every other package
+is on latest.
+
+### DEC-006-1 — fgw-26 scaffold architecture: static output, `light-dark()` theming, Fontsource fonts
+
+Scaffold fgw-26 as Astro **`output: 'static'` + `@astrojs/cloudflare` adapter** (per-route
+SSR available later via `export const prerender = false`). Light/dark via CSS **`light-dark()`** driven
+by `color-scheme`, with `[data-theme]` on `<html>` overriding for the optional toggle (a no-flash inline
+script persists the choice). The `DEC-004-7` component styles live as **semantic classes in one
+`global.css` `@layer components`** (the single durable source). Fonts **self-hosted via Fontsource
+variable** packages (Fraunces, Inter); **no mono webfont** (system mono stack for inline code).
 
 ### DEC-005-1 — The 👉👉👉 trigger covers every answer-expecting question, incl. the end-of-turn "what next?"
 
