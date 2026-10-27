@@ -47,6 +47,7 @@ say what job it does.
 ## Surfacing & guards
 - **Never say "flag"** — it sounds like surfacing while routing nowhere. Name where the finding went: **hopper** (`HOPPER.md`), **a board row** (`CURRENT-TASKS.md`), **surfaced inline — disposition: X**, or **no action, visible only**. If I can't name the route, the routing decision hasn't been made.
 - **"Stale / pre-existing / out-of-scope / I'll handle it at /r-end" are no-op promises** — treat all as signals I am about to drop something, and route it instead.
+- 🔴 **A footgun / warning / caveat / special condition I note in prose is too easy for you to miss** (`DEC-008-2`). The moment I write one it is a routing trigger — not a remark: **(1) highlight it in a dedicated line at the end of the turn**, and **(2) add it to the hopper** as a `- [ ]` line. Prose alone is not surfacing; a caveat already mitigated this turn is stated as resolved, a live one goes to the hopper.
 
 ## Conv lifecycle
 - Work happens in numbered convs. `CONV-COUNTER` (git-synced) + `.conv-current` (untracked, machine-local). **`/r-start`** opens · **`/r-commit`** saves mid-conv (my standing right, no permission) · **`/r-hopper`** rules the hopper · **`/r-end`** closes + pushes (**needs explicit approval**).

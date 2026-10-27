@@ -22,14 +22,13 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. ⚡ **[SITE-DEPLOY-STAGING]** — the first `wrangler deploy` of the fgw-26 app to Cloudflare staging
-   (`fgw-staging.<account>.workers.dev`). Deploy wiring done Conv 007 (`DEC-007-2`); remaining is the
-   deploy itself, gated on the operator clearing Cloudflare auth. Critical-path **Phase 1**.
-2. **[SITE-NARRATIVE]** — turn the evidence (`discovery/EVIDENCE-LEDGER.md`) + the `WORKING-METHOD.md`
+1. ⚡ **[SITE-NARRATIVE]** — turn the evidence (`discovery/EVIDENCE-LEDGER.md`) + the `WORKING-METHOD.md`
    honesty frame (`DEC-000-6`) into real site copy, de-identified per the publishability map.
    Critical-path **Phase 2** (the site needs true content before a real domain points at it).
-3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+2. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until Phases 1–2 land. Critical-path **Phase 3** — the destination.
+
+(**[SITE-DEPLOY-STAGING]** — critical-path Phase 1 — ✅ completed Conv 008; see ✅ Completed this conv.)
 
 ---
 
@@ -46,13 +45,11 @@ not a second copy.
 v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006). What's missing is (a) any
 deploy, (b) real copy, (c) the domain.
 
-### Phase 1 — Staging reachable *(prove the deploy pipeline)*
-- **1.0 — operator: clear Cloudflare auth** — `wrangler login` (interactive) or `CLOUDFLARE_API_TOKEN`.
-  Hard blocker; CC cannot do it.
-- **1.1 — `[SITE-DEPLOY-STAGING]`** — wiring done Conv 007 (`fgw`/`fgw-staging` + deploy scripts); run
-  `npm run deploy:staging` under Node 24 → a live `*.workers.dev` URL. **Done-when:** the scaffold
-  (placeholder copy) is reachable + correct at the staging URL. CI stays deferred (`DEC-003-2`); manual
-  deploy is the path.
+### Phase 1 — Staging reachable *(prove the deploy pipeline)* — ✅ DONE Conv 008
+- **1.0 — operator: clear Cloudflare auth** — ✅ done Conv 008 (`wrangler login`, OAuth).
+- **1.1 — `[SITE-DEPLOY-STAGING]`** — ✅ done Conv 008. Deploy env-selection corrected to build-time
+  `CLOUDFLARE_ENV` + a fail-closed resolved-name guard (`DEC-008-1`, correcting `DEC-007-2`'s wiring).
+  Scaffold live + correct at `fgw-staging.fgorrie.workers.dev` (HTTP 200). CI stays deferred (`DEC-003-2`).
 
 ### Phase 2 — Publishable content *(the site must say something true)*
 - **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases (start with
@@ -68,37 +65,6 @@ deploy, (b) real copy, (c) the domain.
 ---
 
 ## 🔥 Ordered
-
-### [SITE-DEPLOY-STAGING] · opened Conv 007 · critical-path Phase 1
-
-#### What it is
-Stand up a working **staging** deploy of the fgw-26 app on Cloudflare — the first time the scaffold is
-reachable at a URL. The build is a **Workers** deploy (`@astrojs/cloudflare` adapter + `wrangler.jsonc`:
-server `main` entrypoint + `ASSETS`→`./dist`; `dist/` holds `client/` + `server/`), not Pages.
-
-#### Status — Conv 007 (plain language)
-- **What works:** the app builds (`npm run build` → `dist/`); `npm verify` green (Conv 006). Deploy
-  wiring is in place (Conv 007): `wrangler.jsonc` worker `name` = `fgw` (production) + an `env.staging`
-  → `fgw-staging`; `deploy` + `deploy:staging` scripts added (`DEC-007-2`).
-- **What's not built:** no deploy has run — no domain/route binding (that's Phase 3). The staging URL
-  will be `fgw-staging.<account>.workers.dev` once deployed.
-- **What's buildable next:** `npm run deploy:staging` under Node 24 — **blocked only on the operator
-  clearing Cloudflare auth** (`wrangler whoami` = not logged in / token expired, re-checked Conv 007).
-
-#### Owed by the operator
-- Clear Cloudflare auth: `wrangler login` (interactive OAuth) or set `CLOUDFLARE_API_TOKEN`. Hard blocker.
-- Ruling: staging-URL strategy — **resolved Conv 007 → `*.workers.dev`** (`fgw-staging.<account>.workers.dev`),
-  with brand-stable worker naming decoupled from the yearly repo (`DEC-007-2`). Option B
-  (`staging.frasergorrie.com`) deferred — needs the zone + DNS, coupling to Phase 3.
-
-#### Build steps (CC)
-1. ✅ Conv 007 — `deploy` / `deploy:staging` scripts added (`npm run deploy` / `npm run deploy:staging`).
-2. ✅ Conv 007 — `env.staging` block in `wrangler.jsonc` → `fgw-staging`; top-level `name` = `fgw`
-   (production).
-3. ⏳ `npm run deploy:staging` **under Node 24** — this shell defaults to Node 22 and the
-   `predev`/`prebuild` guard refuses older; run via `nvm use`. Blocked on operator Cloudflare auth.
-
-**Done-when:** the scaffold (placeholder copy) is reachable + correct at the staging URL.
 
 ### [SITE-NARRATIVE] · critical-path Phase 2
 
@@ -158,5 +124,9 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-_None._ Conv 007 shipped no board row — the `fgw` / `fgw-staging` deploy-config wiring is partial
-progress on the still-open `[SITE-DEPLOY-STAGING]` (blocked on operator Cloudflare auth).
+### [SITE-DEPLOY-STAGING] · critical-path Phase 1 · ✅ Conv 008
+First staging deploy landed: scaffold live + correct at `https://fgw-staging.fgorrie.workers.dev`
+(HTTP 200). The Conv 007 `--env`-at-deploy wiring was broken — it silently deployed the production-named
+`fgw` — so env-selection was corrected to build-time `CLOUDFLARE_ENV` + a fail-closed resolved-name guard
+(`scripts/assert-worker.mjs`), with a split `.env.*` / `.dev.vars.*` env-file layout (`DEC-008-1`,
+correcting `DEC-007-2`). Stray `fgw` worker deleted. Done-when met.

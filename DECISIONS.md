@@ -8,6 +8,59 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 008
+
+### DEC-008-2 — A footgun/caveat noted in prose is a routing trigger: highlight + hopper
+**Decision:** Any footgun, warning, caveat, or special condition CC notes in prose is treated not as a
+remark but as a routing trigger: CC **(1)** highlights it in a dedicated line at the end of the turn and
+**(2)** adds it to `HOPPER.md` as a `- [ ]` line. A caveat already mitigated within the same turn is
+stated as resolved rather than hoppered; a live one is hoppered. Recorded as a rule line under CLAUDE.md
+*Surfacing & guards*.
+**Rationale:** A caveat buried in turn prose is too easy for the operator to miss — the project's whole
+surfacing discipline (`DEC-000`-era "never say flag"; route every finding) exists because prose is not a
+route. Operator's call, Conv 008: "a footgun … that you note in the prose is too easy to miss … and is
+therefore a trigger to 1) highlight at the end of the turn and 2) add to the hopper." Losers: trusting
+inline prose to carry a warning (the status quo that let the staging→production footgun sit in a
+paragraph); a passive "I'll remember it" (a no-op promise by this file's own rule).
+**Consequences:** CLAUDE.md *Surfacing & guards* gains the rule line. End-of-turn highlighting + hopper
+capture of caveats becomes standing behavior. The hopper will carry caveat `- [ ]` lines for ruling at
+`/r-hopper` / `/r-end` alongside other spin-offs.
+
+### DEC-008-1 — Select the Cloudflare deploy env at build time via `CLOUDFLARE_ENV`, guarded by a resolved-name assertion
+**Decision:** The staging/production split is driven by **`CLOUDFLARE_ENV` at build time**, not by
+`wrangler deploy --env` at deploy time. `deploy:staging` = `npm run build -- --mode staging && node
+scripts/assert-worker.mjs fgw-staging && wrangler deploy`; `deploy` = `npm run build && node
+scripts/assert-worker.mjs fgw && wrangler deploy`. The selector lives in a committed, non-secret
+`.env.staging` (`CLOUDFLARE_ENV=staging`). Env-var files are split by consumer into two maintained
+families — **`.env.*`** (build-time, read by astro/vite/the Cloudflare plugin; `.env.<mode>` committable,
+`.env*.local` secret/ignored) and **`.dev.vars.*`** (wrangler-dev runtime secrets, ignored; with a
+committed `.dev.vars.example` template) — **not** symlinked to one source. A fail-closed guard
+(`scripts/assert-worker.mjs`) reads the build output `dist/client/wrangler.json` and refuses to deploy
+unless the resolved worker name matches the expected target. This **corrects the deploy-script wiring in
+`DEC-007-2`** (the `fgw` / `fgw-staging` *naming* decision there stands unchanged).
+**Rationale:** The `@astrojs/cloudflare` adapter flattens the wrangler env into `dist/client/wrangler.json`
+at **build** time (keyed off `CLOUDFLARE_ENV`), so a `--env staging` passed to `wrangler deploy` arrives
+too late and silently deploys the top-level `fgw` — which is exactly what happened on Conv 008's first
+deploy (a production-named `fgw` worker, since deleted). Vite mode and `CLOUDFLARE_ENV` are independent:
+`--mode staging` only loads the `.env.staging` *file*; the plugin keys off the *variable* inside it, so a
+missing selector silently falls back to production (confirmed: build exit 0, no warning, resolved `fgw`).
+The guard checks the actual build artifact, not a proxy, so it catches every cause (missing file, missing
+var, wrong mode, typo). The two file families are kept separate because wrangler turns every key it loads
+into a runtime `secret_text` binding and only reads `.env*` when `.dev.vars` is absent
+(`CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV` defaults true) — so a shared source would inject the build-only
+`CLOUDFLARE_ENV` as a stray runtime secret and collapse the committed/ignored boundary. Losers: `--env`
+at deploy (the broken `DEC-007-2` wiring); inline `CLOUDFLARE_ENV=` in the npm script (works but hides
+the selector, no fresh-checkout reproducibility, no guard); a single env file symlinked into both
+families (unnecessary — wrangler already falls back to `.env*` — and hazardous to the secret boundary).
+**Consequences:** `fgw-26` gains `.env.staging` (committed), `.dev.vars.example` (committed),
+`scripts/assert-worker.mjs`, a hardened `.gitignore` (`.env*.local`, `.dev.vars`, `.dev.vars.*`, keep
+`!.dev.vars.example`), and both deploy scripts rewired to build→assert→deploy. Staging deploys verified
+end-to-end at `fgw-staging.fgorrie.workers.dev` (HTTP 200); the guard verified to block a deploy on a
+missing selector (exit 1). Production (`deploy`) now also fails closed unless it resolves to exactly
+`fgw`. `[SITE-DEPLOY-STAGING]` done-when met. **Live caveat (hoppered):** with no `.dev.vars.staging`,
+`wrangler dev --env staging` will read `.env.staging` via the `.env` fallback and inject `CLOUDFLARE_ENV`
+as a runtime secret binding — needs verification + a decision.
+
 ## Conv 007
 
 ### DEC-007-2 — Deploy to brand-stable `fgw` worker names, decoupled from the yearly repo
