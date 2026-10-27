@@ -2,22 +2,21 @@
 
 ## Where we left off
 
-Conv 007 adopted the fps `CURRENT-TASKS.md` board format (`DEC-007-1`) with a staging→content→live
-**critical path**, and wired (but did **not** run) the Cloudflare staging deploy: `wrangler.jsonc` worker
-`name` is now `fgw` (production) + an `env.staging`→`fgw-staging`, with `deploy` / `deploy:staging`
-scripts — brand-stable names decoupled from the yearly repo (`DEC-007-2`). The pipeline is **unproven**:
-nothing has deployed, because Cloudflare auth is expired. The site's client-attraction **positioning
-thesis** (worldview + the reassurance half) is documented in `[SITE-NARRATIVE]` as a Phase-2 drafting
-brief — not yet copy.
+Conv 008 **proved** the Cloudflare staging deploy: the scaffold is live + correct at
+`fgw-staging.fgorrie.workers.dev` (critical-path Phase 1 done). The Conv-007 `--env`-at-deploy wiring was
+broken — it silently deployed the production-named `fgw` — so it was corrected to build-time
+`CLOUDFLARE_ENV` selection via a committed `.env.staging`, guarded by `scripts/assert-worker.mjs`, with a
+split `.env.*` / `.dev.vars.*` env-file layout (`DEC-008-1`). SITE-NARRATIVE source material from ~30 Zoom
+talks was distilled into `discovery/NARRATIVE-SOURCE-GEMINI.md`.
 
 ## Next action
 
-**`[SITE-DEPLOY-STAGING]`** (🔥 Ordered #1, critical-path Phase 1) — the first staging deploy. **Blocked
-on the operator:** clear Cloudflare auth — `wrangler login` (interactive; run via `! npx wrangler login`)
-or set `CLOUDFLARE_API_TOKEN`. Once cleared, CC runs `npm run deploy:staging` **under Node 24**
-(`nvm use` in `~/projects/fgw-26`; the `predev`/`prebuild` guard refuses older Node) → a live
-`fgw-staging.<account>.workers.dev`. **Done-when:** the scaffold (placeholder copy) is reachable + correct
-at that URL. Also still open on the board: confirm the staging worker deploys cleanly before Phase 2 copy.
+**`[SITE-NARRATIVE]`** (🔥 Ordered #1, critical-path Phase 2) — draft real site copy. Start from
+`discovery/NARRATIVE-SOURCE-GEMINI.md` (Gemini synthesis, already mapped to the positioning thesis +
+honesty frame) and `discovery/EVIDENCE-LEDGER.md`, honouring the `WORKING-METHOD.md` honesty frame
+(`DEC-000-6`). 🔴 Three gates before any copy publishes: **verify the biography** (incl. the "44-year" vs
+"decades" mismatch); **fold the honesty half back in** (Gemini's draft is pure highlight reel); and
+**de-identify** per the publishability map. Redeploy to staging as copy lands.
 
 ## 🔬 Carried findings
 

@@ -34,16 +34,17 @@ remainder**.
 
 ## 🎯 Critical path — to fgw-26 live on Cloudflare at frasergorrie.com
 
-Set Conv 007. The arc from the current scaffold (placeholder copy, never deployed) to the real site
-serving at **frasergorrie.com**.
+Set Conv 007. The arc from the current scaffold (placeholder copy, now live on staging as of Conv 008)
+to the real site serving at **frasergorrie.com**.
 
 🔴 **This section is pure sequence + pointers.** Every step names an **existing** task by `[CODE]` or an
 operator action; the row holds the work, detail, and done-condition — this holds the order *over* them,
 not a second copy.
 
 **Already true — NOT a gate:** the app is scaffolded (Astro 7 + Cloudflare Workers adapter + Tailwind
-v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006). What's missing is (a) any
-deploy, (b) real copy, (c) the domain.
+v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006); and the staging deploy
+pipeline is proven — scaffold live at `fgw-staging.fgorrie.workers.dev` (Conv 008). What's missing is
+(a) real copy, (b) the production deploy + the domain.
 
 ### Phase 1 — Staging reachable *(prove the deploy pipeline)* — ✅ DONE Conv 008
 - **1.0 — operator: clear Cloudflare auth** — ✅ done Conv 008 (`wrangler login`, OAuth).
@@ -91,10 +92,14 @@ opens the door, the second must close it:
 
 Draft this at Phase 2, not now — it is held above the copy on purpose.
 
-#### Status — Conv 007
-Not started. Scaffold copy is deliberate placeholder (Conv 006). Sequenced behind `[SITE-DEPLOY-STAGING]`
-on the critical path (Conv 007) — staging first, then content. Positioning thesis documented Conv 007
+#### Status — Conv 008
+Not started, but now the **active critical-path item** (`[SITE-DEPLOY-STAGING]` / Phase 1 completed
+Conv 008). Scaffold copy is deliberate placeholder (Conv 006). Positioning thesis documented Conv 007
 (above) as the drafting brief.
+
+**Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` — distilled from Gemini's reading
+of ~30 Zoom talks; mapped to the positioning thesis + honesty frame, with the biography flagged
+`[unverified]` and a verbatim draft-copy appendix. Raw clay, honesty half must be folded back in.
 
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 3
 

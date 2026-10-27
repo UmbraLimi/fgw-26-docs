@@ -2,9 +2,31 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-26._
+_As of 2026-10-27._
 
 ---
+
+### DEC-008-2 — A footgun/caveat noted in prose is a routing trigger: highlight + hopper
+
+Any footgun, warning, caveat, or special condition CC notes in prose is treated not as a
+remark but as a routing trigger: CC **(1)** highlights it in a dedicated line at the end of the turn and
+**(2)** adds it to `HOPPER.md` as a `- [ ]` line. A caveat already mitigated within the same turn is
+stated as resolved rather than hoppered; a live one is hoppered. Recorded as a rule line under CLAUDE.md
+*Surfacing & guards*.
+
+### DEC-008-1 — Select the Cloudflare deploy env at build time via `CLOUDFLARE_ENV`, guarded by a resolved-name assertion
+
+The staging/production split is driven by **`CLOUDFLARE_ENV` at build time**, not by
+`wrangler deploy --env` at deploy time. `deploy:staging` = `npm run build -- --mode staging && node
+scripts/assert-worker.mjs fgw-staging && wrangler deploy`; `deploy` = `npm run build && node
+scripts/assert-worker.mjs fgw && wrangler deploy`. The selector lives in a committed, non-secret
+`.env.staging` (`CLOUDFLARE_ENV=staging`). Env-var files are split by consumer into two maintained
+families — **`.env.*`** (build-time, read by astro/vite/the Cloudflare plugin; `.env.<mode>` committable,
+`.env*.local` secret/ignored) and **`.dev.vars.*`** (wrangler-dev runtime secrets, ignored; with a
+committed `.dev.vars.example` template) — **not** symlinked to one source. A fail-closed guard
+(`scripts/assert-worker.mjs`) reads the build output `dist/client/wrangler.json` and refuses to deploy
+unless the resolved worker name matches the expected target. This **corrects the deploy-script wiring in
+`DEC-007-2`** (the `fgw` / `fgw-staging` *naming* decision there stands unchanged).
 
 ### DEC-007-2 — Deploy to brand-stable `fgw` worker names, decoupled from the yearly repo
 

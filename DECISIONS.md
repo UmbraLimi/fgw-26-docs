@@ -57,9 +57,15 @@ families (unnecessary — wrangler already falls back to `.env*` — and hazardo
 `!.dev.vars.example`), and both deploy scripts rewired to build→assert→deploy. Staging deploys verified
 end-to-end at `fgw-staging.fgorrie.workers.dev` (HTTP 200); the guard verified to block a deploy on a
 missing selector (exit 1). Production (`deploy`) now also fails closed unless it resolves to exactly
-`fgw`. `[SITE-DEPLOY-STAGING]` done-when met. **Live caveat (hoppered):** with no `.dev.vars.staging`,
-`wrangler dev --env staging` will read `.env.staging` via the `.env` fallback and inject `CLOUDFLARE_ENV`
-as a runtime secret binding — needs verification + a decision.
+`fgw`. `[SITE-DEPLOY-STAGING]` done-when met. **Dev-only caveat — verified Conv 008, ruled benign:** with
+no `.dev.vars.staging`, the local dev path (`getPlatformProxy`, which backs `astro dev` / `wrangler dev`)
+reads `.env.staging` via the `.env` fallback (`CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV` defaults true;
+confirmed by wrangler's own "Using secrets defined in .env.staging" log) and exposes
+`CLOUDFLARE_ENV="staging"` as a runtime binding. Harmless: local-dev only, non-secret value, and
+production deploys are unaffected (the Conv 008 deploy listed only `SESSION` + `IMAGES` bindings). Left
+unshielded on purpose — a `.dev.vars.staging` shield is gitignored so it would not survive a fresh
+checkout, committing one would break this decision's secret boundary, and disabling the fallback is extra
+machinery for a cosmetic. Known-benign.
 
 ## Conv 007
 
