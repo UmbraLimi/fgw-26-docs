@@ -6,6 +6,26 @@ _As of 2026-10-26._
 
 ---
 
+### DEC-007-2 — Deploy to brand-stable `fgw` worker names, decoupled from the yearly repo
+
+The Cloudflare Worker names are the stable brand `fgw`, independent of the per-year repo
+name. Production worker = **`fgw`**; staging worker = **`fgw-staging`** (a `wrangler.jsonc` `env.staging`
+block). The repo `fgw-26` — and future `fgw-27`, … — is a yearly rebuild that deploys *into* these same
+two workers: a new year points a new repo at the existing names rather than minting `fgw-27`-named
+infrastructure. The staging URL is therefore `fgw-staging.<account>.workers.dev` (`*.workers.dev` —
+option A of the `[SITE-DEPLOY-STAGING]` staging-URL ruling).
+
+### DEC-007-1 — Adopt the fps `CURRENT-TASKS.md` format; all sections stay in one file
+
+Restructure fgw's `CURRENT-TASKS.md` to the `fps-docs` board format: a header stating it
+is the durable state + the `[CODE]`-mnemonic rule; a `## 🔥 Ordered — index` (⚡ = do-next one-liners
+pointing to the bodies below); a `## 🎯 Critical path` sequence-and-pointers section; the full
+`## 🔥 Ordered` task bodies (a substantial row leads with a plain-language `#### Status — Conv NNN`
+block, dense detail below it); then `## 📋 Unordered`, `## ⏸️ Parked`, `## ✅ Completed this conv`.
+**Deviation from fps:** fps splits its backlog across three files (Unordered → `UNORDERED-TASKS.md`,
+doc-debt → `DOC-TASKS.md`); fgw keeps **every** section — including `📋 Unordered` — in the single
+`CURRENT-TASKS.md` (`DEC-000-4`).
+
 ### DEC-006-4 — Node 24 LTS as the project runtime, enforced by `engines.node >=24`
 
 Baseline **Node 24 LTS** (`.nvmrc` = `24.22.1`), with `engines.node` raised to

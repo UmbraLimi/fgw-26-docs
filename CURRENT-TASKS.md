@@ -22,9 +22,9 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. ⚡ **[SITE-DEPLOY-STAGING]** — stand up a working **staging** deploy of the fgw-26 Workers app on
-   Cloudflare (`*.workers.dev`): deploy wiring (`deploy` script + `env.staging`) + first `wrangler
-   deploy`. Gated on the operator clearing Cloudflare auth. Critical-path **Phase 1**.
+1. ⚡ **[SITE-DEPLOY-STAGING]** — the first `wrangler deploy` of the fgw-26 app to Cloudflare staging
+   (`fgw-staging.<account>.workers.dev`). Deploy wiring done Conv 007 (`DEC-007-2`); remaining is the
+   deploy itself, gated on the operator clearing Cloudflare auth. Critical-path **Phase 1**.
 2. **[SITE-NARRATIVE]** — turn the evidence (`discovery/EVIDENCE-LEDGER.md`) + the `WORKING-METHOD.md`
    honesty frame (`DEC-000-6`) into real site copy, de-identified per the publishability map.
    Critical-path **Phase 2** (the site needs true content before a real domain points at it).
@@ -49,10 +49,10 @@ deploy, (b) real copy, (c) the domain.
 ### Phase 1 — Staging reachable *(prove the deploy pipeline)*
 - **1.0 — operator: clear Cloudflare auth** — `wrangler login` (interactive) or `CLOUDFLARE_API_TOKEN`.
   Hard blocker; CC cannot do it.
-- **1.1 — `[SITE-DEPLOY-STAGING]`** — add a `deploy` script + an `env.staging` block, `npm run build` +
-  `wrangler deploy` under Node 24 → a live `*.workers.dev` URL. **Done-when:** the scaffold (placeholder
-  copy) is reachable + correct at the staging URL. CI stays deferred (`DEC-003-2`); manual deploy is the
-  path.
+- **1.1 — `[SITE-DEPLOY-STAGING]`** — wiring done Conv 007 (`fgw`/`fgw-staging` + deploy scripts); run
+  `npm run deploy:staging` under Node 24 → a live `*.workers.dev` URL. **Done-when:** the scaffold
+  (placeholder copy) is reachable + correct at the staging URL. CI stays deferred (`DEC-003-2`); manual
+  deploy is the path.
 
 ### Phase 2 — Publishable content *(the site must say something true)*
 - **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases (start with
@@ -107,11 +107,28 @@ Build the site messaging/structure from `discovery/EVIDENCE-LEDGER.md`'s proof-p
 `WORKING-METHOD.md` honesty frame (`DEC-000-6`), honouring the publishability map — de-identify all
 client-owned material. The scaffold provides the routes + the `work`/`blog` content collections + the
 component library to drop copy into; each `/work/<slug>` case is gated on its de-identification, so start
-with the most showable (`redline` is fully clear).
+with the most showable (`redline` is fully clear). The copy must carry the **positioning thesis** below.
+
+#### Positioning thesis — operator input, Conv 007 (the brief to draft from; not yet copy)
+The guiding message for client attraction. Two halves, held deliberately **in balance** — the first
+opens the door, the second must close it:
+
+1. **The shift (worldview).** AI is upending a world where programmers were scarce, highly valued, and
+   highly paid. Bespoke software — long too expensive to build per-business — is becoming viable for any
+   organization, because AI now does much of the writing, deployment, and former IT work.
+2. **FG's place + the reassurance (why pay FG).** FG uses intuitive judgment and the ability to *steer*
+   AI development to help **small-to-medium companies and organizations** build their **own** bespoke
+   software so their operations run well. 🔴 The reassurance half is load-bearing: the site must answer
+   *why steering AI is a skill worth paying FG for* — rather than the buyer attempting it alone or hiring
+   a cheaper AI-wrapper. That proof comes from the `WORKING-METHOD.md` honesty frame (`DEC-000-6`) + the
+   `EVIDENCE-LEDGER.md` proof-points: the worldview is the hook, the evidence is the warrant.
+
+Draft this at Phase 2, not now — it is held above the copy on purpose.
 
 #### Status — Conv 007
 Not started. Scaffold copy is deliberate placeholder (Conv 006). Sequenced behind `[SITE-DEPLOY-STAGING]`
-on the critical path (Conv 007) — staging first, then content.
+on the critical path (Conv 007) — staging first, then content. Positioning thesis documented Conv 007
+(above) as the drafting brief.
 
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 3
 
@@ -141,6 +158,5 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-_None yet._ (Conv 006's `[SITE-SCAFFOLD]` / `[STYLE-THEME]` / `[SITE-TEST-SETUP]` completions were
-swept Conv 007 — the previous `/r-end` left them here. Their durable home is the Conv 006 record,
-`docs/convs/2026-10/20261026_0851 Conv 006.md`.)
+_None._ Conv 007 shipped no board row — the `fgw` / `fgw-staging` deploy-config wiring is partial
+progress on the still-open `[SITE-DEPLOY-STAGING]` (blocked on operator Cloudflare auth).
