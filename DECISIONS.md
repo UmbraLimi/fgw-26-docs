@@ -8,6 +8,47 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 007
+
+### DEC-007-2 — Deploy to brand-stable `fgw` worker names, decoupled from the yearly repo
+**Decision:** The Cloudflare Worker names are the stable brand `fgw`, independent of the per-year repo
+name. Production worker = **`fgw`**; staging worker = **`fgw-staging`** (a `wrangler.jsonc` `env.staging`
+block). The repo `fgw-26` — and future `fgw-27`, … — is a yearly rebuild that deploys *into* these same
+two workers: a new year points a new repo at the existing names rather than minting `fgw-27`-named
+infrastructure. The staging URL is therefore `fgw-staging.<account>.workers.dev` (`*.workers.dev` —
+option A of the `[SITE-DEPLOY-STAGING]` staging-URL ruling).
+**Rationale:** The site is expected to be redone over the years; tying the deploy target to the repo
+name (`fgw-26`) would churn worker names, URLs, and eventually the domain binding on every rebuild. A
+stable `fgw` / `fgw-staging` pair survives the rebuilds — only the source repo changes. `*.workers.dev`
+(over a `staging.frasergorrie.com` subdomain) keeps staging zero-DNS, free, and decoupled from the
+Phase 3 domain cutover; frasergorrie.com stays on the live legacy site until then. Losers: keeping the
+scaffold's repo-derived `fgw-26` worker name (couples infra to the yearly repo); a custom staging
+subdomain now (needs the zone + DNS — premature coupling to Phase 3).
+**Consequences:** `wrangler.jsonc` top-level `name` changed `fgw-26` → `fgw`; an `env.staging` block
+→ `fgw-staging` added; `deploy` / `deploy:staging` scripts added to `package.json`. The production
+deploy (Phase 3) and the custom-domain binding will attach to the `fgw` worker.
+`[SITE-DEPLOY-STAGING]`'s open staging-URL ruling is resolved (A).
+
+### DEC-007-1 — Adopt the fps `CURRENT-TASKS.md` format; all sections stay in one file
+**Decision:** Restructure fgw's `CURRENT-TASKS.md` to the `fps-docs` board format: a header stating it
+is the durable state + the `[CODE]`-mnemonic rule; a `## 🔥 Ordered — index` (⚡ = do-next one-liners
+pointing to the bodies below); a `## 🎯 Critical path` sequence-and-pointers section; the full
+`## 🔥 Ordered` task bodies (a substantial row leads with a plain-language `#### Status — Conv NNN`
+block, dense detail below it); then `## 📋 Unordered`, `## ⏸️ Parked`, `## ✅ Completed this conv`.
+**Deviation from fps:** fps splits its backlog across three files (Unordered → `UNORDERED-TASKS.md`,
+doc-debt → `DOC-TASKS.md`); fgw keeps **every** section — including `📋 Unordered` — in the single
+`CURRENT-TASKS.md` (`DEC-000-4`).
+**Rationale:** The fps format earned its shape over ~150 convs — the index + critical-path + status-block
+conventions keep a growing board scannable and give a non-author a ten-second entry point per row
+(fps's `DEC-093-3`). fgw needs the same, and specifically needs the **critical-path sequence** to hold
+the arc from scaffold to a live site. But fgw's board is small, so fps's file-split (its Conv-076
+readability move) is not yet worth its cost (lean-process, `DEC-000-7`) — one file is still scannable.
+Losers: inventing a bespoke fgw format (no reason to diverge from a proven sibling); adopting the
+file-split now (premature for a small board — revisit at the trigger fps hit, ~a page per section).
+**Consequences:** `CURRENT-TASKS.md` gains the index + critical-path + status-block conventions. Revisit
+the file-split if the board outgrows one scannable file. `## ✅ Completed this conv` stays (emptied each
+`/r-end`).
+
 ## Conv 006
 
 ### DEC-006-4 — Node 24 LTS as the project runtime, enforced by `engines.node >=24`
