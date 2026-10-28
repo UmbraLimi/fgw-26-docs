@@ -2,9 +2,47 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-27._
+_As of 2026-10-28._
 
 ---
+
+### DEC-009-5 — One documented site voice: Fraser to a client in a first meeting, lightly-warmed and candid
+
+Every page adheres to a single voice/tone, documented in `reference/VOICE.md`: first person
+as if Fraser is speaking to a prospective client in a first meeting; the **lightly-warmed** register
+(contractions, plain verbs, measured but human); **candid** to the point of naming what went wrong (the
+`this-site` "The record" block is the exemplar). No marketing superlatives/hype/AI-default cadence; no
+engineer-speak at a business-owner reader.
+
+### DEC-009-4 — "The record": an independent, evidence-cited assessment of Fraser's steering on each Work project
+
+Each Work case carries a **"The record"** block — an independent read of that project's own
+docs repo answering, with citations a reader could check: how big the project was (**convs first**), where
+Fraser steered or overruled the AI (**including where he did NOT steer well**), and how well he planned.
+Produced by a **fresh subagent per repo** (independent; keeps the big read out of the main context). Full
+candor — documented misses stay. Client-project assessments are de-identified like the cases.
+
+### DEC-009-3 — Critical path gains Phase 3 (findable & fast); go-live becomes Phase 4
+
+The critical path adds **Phase 3 — Findable & fast**: `[SITE-SEO]` (site URL, sitemap,
+robots.txt, canonical, og:image, `schema.org` JSON-LD), `[SITE-AI-SEO]` (llms.txt, structured facts,
+AI-crawler policy), `[SITE-PERF]` (Lighthouse/CWV + budget, image optimization) — plus `[SITE-VISUAL]` as
+pre-go-live polish. `[SITE-GO-LIVE]` (production + domain) becomes **Phase 4**.
+
+### DEC-009-2 — Client-case publishability: sign-off gates production only; de-identification guards dev/staging
+
+The two de-identified client Work cases ship to **dev and staging freely**; **client
+sign-off is required only before the production deploy** to frasergorrie.com (`[SITE-GO-LIVE]`).
+De-identification (no client/org/product/source-text identity, verified by scan — including HTML comments
+and the independent reads) is the guard that makes dev/staging safe; sign-off is the guard for production.
+
+### DEC-009-1 — Site IA unchanged; the three "services" fold into a "What I do" block, no Services page
+
+The built 5-page IA (Home, Work + `/work/<slug>`, Method, About, Contact) stands; the three
+candidate services (prototype→production, architecture & refactoring, fractional mentorship) appear as a
+light **"What I do"** block on Home rather than a dedicated Services page/route. Also settled: Home `h1`
+kept ("I steer; AI drives…"); the 3 Home proof cards = catch-what-checks-miss / tell-you-when-it-isn't-
+working / measure-not-guess.
 
 ### DEC-008-2 — A footgun/caveat noted in prose is a routing trigger: highlight + hopper
 

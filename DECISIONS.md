@@ -8,6 +8,78 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 009
+
+### DEC-009-5 — One documented site voice: Fraser to a client in a first meeting, lightly-warmed and candid
+**Decision:** Every page adheres to a single voice/tone, documented in `reference/VOICE.md`: first person
+as if Fraser is speaking to a prospective client in a first meeting; the **lightly-warmed** register
+(contractions, plain verbs, measured but human); **candid** to the point of naming what went wrong (the
+`this-site` "The record" block is the exemplar). No marketing superlatives/hype/AI-default cadence; no
+engineer-speak at a business-owner reader.
+**Rationale:** Operator's call, Conv 009 — he wanted "the whole site with the same voice and candor — as
+if I was talking directly to them in my initial meeting with a client," with the warmth "documented and
+adhered to." Losers: the sparer and the more-performative register options (both rejected for About
+earlier this conv); leaving voice implicit/per-page (lets the AI-default cadence creep back — the exact
+thing the operator flagged). A machine-enforceable voice config *in the site repo* was considered and
+deferred (no need yet).
+**Consequences:** `reference/VOICE.md` is the standard all `[SITE-NARRATIVE]` copy and every
+`[SITE-ASSESS]` "The record" block follow. The Conv-009 copy predates the written standard, so a
+whole-site re-pass against it is queued for next conv ("C").
+
+### DEC-009-4 — "The record": an independent, evidence-cited assessment of Fraser's steering on each Work project
+**Decision:** Each Work case carries a **"The record"** block — an independent read of that project's own
+docs repo answering, with citations a reader could check: how big the project was (**convs first**), where
+Fraser steered or overruled the AI (**including where he did NOT steer well**), and how well he planned.
+Produced by a **fresh subagent per repo** (independent; keeps the big read out of the main context). Full
+candor — documented misses stay. Client-project assessments are de-identified like the cases.
+**Rationale:** Operator's call, Conv 009 — the site claims the work is checkable, so substantiate it:
+"ask the docs repo for that project for an assessment of what my value was. Did I plan well? Did I
+steer." On-thesis: an AI independently assessing the human's steering is itself the proof; what makes it
+verifiable is the cited record, not the AI's authority. Losers: a self-written assessment (not
+independent); owned-projects-only (the client repos aren't publicly openable — asymmetry accepted because
+the de-identified narrative is still the asset); hiding the misses (less credible, not more). Piloted on
+`fgw-26`, then rolled out to `redline` + the two client cases.
+**Consequences:** four "The record" blocks live (Conv 009). Standing approach for any future Work case.
+Client-case blocks are also part of what the client signs off before production (`DEC-009-2`).
+
+### DEC-009-3 — Critical path gains Phase 3 (findable & fast); go-live becomes Phase 4
+**Decision:** The critical path adds **Phase 3 — Findable & fast**: `[SITE-SEO]` (site URL, sitemap,
+robots.txt, canonical, og:image, `schema.org` JSON-LD), `[SITE-AI-SEO]` (llms.txt, structured facts,
+AI-crawler policy), `[SITE-PERF]` (Lighthouse/CWV + budget, image optimization) — plus `[SITE-VISUAL]` as
+pre-go-live polish. `[SITE-GO-LIVE]` (production + domain) becomes **Phase 4**.
+**Rationale:** Operator asked (Conv 009) whether the plan handled SEO, AI SEO, and page speed; an audit
+found none were explicit plan items (SEO was cited only as the rationale for the multi-page IA,
+`DEC-004-2`) and the delivered visuals read "AI-default." These belong in place before the domain points
+at production. Losers: leaving them implicit / post-launch; a "Phase 2.5" insert (rejected — renumbered
+cleanly instead).
+**Consequences:** rows `[SITE-SEO]` / `[SITE-AI-SEO]` / `[SITE-PERF]` / `[SITE-VISUAL]` opened;
+`[SITE-GO-LIVE]` relabelled Phase 4. `[SITE-VISUAL]` is next conv's ⚡.
+
+### DEC-009-2 — Client-case publishability: sign-off gates production only; de-identification guards dev/staging
+**Decision:** The two de-identified client Work cases ship to **dev and staging freely**; **client
+sign-off is required only before the production deploy** to frasergorrie.com (`[SITE-GO-LIVE]`).
+De-identification (no client/org/product/source-text identity, verified by scan — including HTML comments
+and the independent reads) is the guard that makes dev/staging safe; sign-off is the guard for production.
+**Rationale:** Operator's call, Conv 009: "The changes you made do not need client sign off yet. That
+happens before I push to production which is connected to frasergorrie.com. So go ahead and make them
+live on dev." Loser: gating dev/staging on sign-off too (the initial `draft: true` treatment —
+over-cautious; dev/staging are not the live client-facing domain).
+**Consequences:** both client cases are `draft: false`, live on dev + staging. The case→project mapping
+lives only in `fgw-26-docs`, never in the site source. Production stays gated on sign-off.
+
+### DEC-009-1 — Site IA unchanged; the three "services" fold into a "What I do" block, no Services page
+**Decision:** The built 5-page IA (Home, Work + `/work/<slug>`, Method, About, Contact) stands; the three
+candidate services (prototype→production, architecture & refactoring, fractional mentorship) appear as a
+light **"What I do"** block on Home rather than a dedicated Services page/route. Also settled: Home `h1`
+kept ("I steer; AI drives…"); the 3 Home proof cards = catch-what-checks-miss / tell-you-when-it-isn't-
+working / measure-not-guess.
+**Rationale:** Operator's call ("A for now"), Conv 009. Work (evidence) + Method (how) already carry the
+offering (`DEC-004-2`); a Services page is the conventional brochure move the IA deliberately avoided.
+Loser: a dedicated Services page (reopens the IA — revisitable if it earns its place).
+**Consequences:** no new route; a "What I do" block added to Home. The dedicated-page option stays open.
+
+---
+
 ## Conv 008
 
 ### DEC-008-2 — A footgun/caveat noted in prose is a routing trigger: highlight + hopper

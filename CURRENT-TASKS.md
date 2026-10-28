@@ -22,25 +22,23 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. ⚡ **[SITE-NARRATIVE]** — turn the evidence (`discovery/EVIDENCE-LEDGER.md`) + the `WORKING-METHOD.md`
-   honesty frame (`DEC-000-6`) into real site copy, de-identified per the publishability map.
-   Critical-path **Phase 2** (the site needs true content before a real domain points at it).
-2. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
-   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**.
-3. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
-   Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
-4. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization).
-   Opened Conv 009. Critical-path **Phase 3**; mostly satisfied already by the static+edge architecture.
-5. **[SITE-VISUAL]** — close the gap between the intended warm-editorial direction and the
+1. ⚡ **[SITE-VISUAL]** — close the gap between the intended warm-editorial direction and the delivered
    near-monochrome, imageless, "AI-default" result (operator critique Conv 009): warmth, deliberate
-   accent, icons, imagery. Opened Conv 009. Pre-go-live polish (alongside Phase 3).
-6. **[SITE-ASSESS]** — substantiate "you can check my work" with an independent, evidence-cited
-   assessment of Fraser's steering value on each Work project, read from that project's docs repo.
-   Opened Conv 009. Enhances the Work set (Phase 2); pilot on this site.
-7. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+   accent, icons, imagery. Mock 2–3 directions → pick → implement. **Next conv (operator-queued "B").**
+   Pre-go-live polish.
+2. **[SITE-NARRATIVE]** — real site copy. Bulk drafted + live on staging Conv 009; **remaining: a
+   whole-site voice pass against `reference/VOICE.md` (operator-queued "C", next conv)**, an optional
+   urantia case, and client sign-off (production gate). Critical-path **Phase 2**.
+3. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
+   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**.
+4. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
+   Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
+5. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization).
+   Opened Conv 009. Critical-path **Phase 3**; mostly satisfied already by the static+edge architecture.
+6. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-(**[SITE-DEPLOY-STAGING]** — critical-path Phase 1 — ✅ completed Conv 008; see ✅ Completed this conv.)
+(**[SITE-DEPLOY-STAGING]** — Phase 1 — ✅ Conv 008 · **[SITE-ASSESS]** — ✅ Conv 009; both in ✅ Completed.)
 
 ---
 
@@ -54,9 +52,10 @@ operator action; the row holds the work, detail, and done-condition — this hol
 not a second copy.
 
 **Already true — NOT a gate:** the app is scaffolded (Astro 7 + Cloudflare Workers adapter + Tailwind
-v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006); and the staging deploy
-pipeline is proven — scaffold live at `fgw-staging.fgorrie.workers.dev` (Conv 008). What's missing is
-(a) real copy, (b) the production deploy + the domain.
+v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006); the staging deploy pipeline
+is proven (Conv 008); and real copy for all pages + Work cases (with independent "The record" blocks) is
+drafted and live on staging (Conv 009). What's missing is (a) the visual + voice pass, (b) findable/fast
+(SEO), (c) the production deploy + the domain.
 
 ### Phase 1 — Staging reachable *(prove the deploy pipeline)* — ✅ DONE Conv 008
 - **1.0 — operator: clear Cloudflare auth** — ✅ done Conv 008 (`wrangler login`, OAuth).
@@ -65,8 +64,8 @@ pipeline is proven — scaffold live at `fgw-staging.fgorrie.workers.dev` (Conv 
   Scaffold live + correct at `fgw-staging.fgorrie.workers.dev` (HTTP 200). CI stays deferred (`DEC-003-2`).
 
 ### Phase 2 — Publishable content *(the site must say something true)*
-- **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases (start with
-  `redline`, fully clear). Redeploy to staging as it lands.
+- **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases. Bulk landed +
+  live on staging Conv 009; whole-site voice pass (`reference/VOICE.md`) remains for next conv.
 
 ### Phase 3 — Findable & fast *(in place before the domain points at production)*
 - **3.1 — `[SITE-SEO]`** — set astro `site:`, add `@astrojs/sitemap` + `robots.txt`, canonical +
@@ -113,39 +112,26 @@ opens the door, the second must close it:
 Draft this at Phase 2, not now — it is held above the copy on purpose.
 
 #### Status — Conv 009
-**In progress.** The active critical-path item. Copy structure/approach agreed Conv 009 (below);
-drafting of the unblocked pages underway.
+**Bulk delivered, live on staging.** All five pages (Home, Method, Contact, About, nav) carry real copy,
+and there are five Work cases — `redline`, `this-site` (fgw-26 itself), and the two de-identified client
+cases — each with an independent **"The record"** assessment block (`[SITE-ASSESS]`). Biography verified
+and recorded in `discovery/BIO-VERIFIED.md`; About in the lightly-warmed register. All live at
+`fgw-staging.fgorrie.workers.dev` (Conv 009).
 
-**Settled plan (Conv 009):**
-- **IA:** the built 5-page scaffold, unchanged. The three candidate "services" fold into a light
-  **"What I do"** block on Home — no Services page, no route (revisitable; the dedicated-page option
-  stays open if it earns its place).
-- **Home:** keep scaffold h1 ("I steer; AI drives — and I know when to overrule it"); lede = the
-  two-half positioning thesis; **3 proof cards = #2 catch-what-checks-miss · #3
-  tell-you-when-it-isn't-working · #4 measure-not-guess** (ledger proof-points; #1 is the headline,
-  #5 range → About).
-- **Method** (the differentiator): collaboration shape + why-pay warrant (deterministic core /
-  human-in-loop / 80/20) **and** the honesty frame — honesty half is load-bearing here.
-- **Work:** `redline` first (fully clear); then de-identified SPT + Peerloop; bake-off optional.
-- **Contact:** short framing, email CTA (address still a launch-config placeholder).
+🔴 **Case → project mapping lives here, never in the `fgw-26` site source:** `translation-platform.md` =
+the translation-system/SPT engagement; `learning-marketplace.md` = the Peerloop engagement.
 
-**Drafted + live Conv 009:** Home, Method, Contact, `redline`, **About** (biography verified Conv 009,
-recorded in `discovery/BIO-VERIFIED.md`).
-**Live on dev + staging-eligible (Conv 009):** two de-identified cases —
-`work/translation-platform.md` (= the translation-system/SPT engagement) and
-`work/learning-marketplace.md` (= the Peerloop engagement) — now `draft: false`. 🔴 This mapping lives
-here, never in the `fgw-26` site source.
-🔴 **Sign-off gate (operator, Conv 009):** client sign-off is required before the **production** deploy
-to frasergorrie.com (`[SITE-GO-LIVE]` / Phase 3) — **not** for dev or staging. De-identification is the
-guard that makes dev/staging safe; sign-off is the guard for production.
-**About voice:** resolved Conv 009 — lightly-warmed register, operator-chosen.
-**Remaining Work cases:** **this site (`fgw-26`)** as a Work case — operator-requested Conv 009 ("it
-shows AI and myself at work"); it is the `[SITE-ASSESS]` pilot and its "The record" block is the
-assessment of this very project. Optional urantia bake-off case stays deferred (Conv 009).
+**Remaining:**
+- **Whole-site voice pass (operator-queued "C", next conv)** — re-read every page against
+  `reference/VOICE.md` (Fraser-to-client, lightly-warmed, candid). The Conv-009 copy was written toward
+  this voice but predates the written standard.
+- Optional urantia bake-off case — deferred (overlaps the translation case; its proof is already on Home
+  card #4).
+- 🔴 **Client sign-off** required before the **production** deploy (`[SITE-GO-LIVE]`), **not** for
+  dev/staging. De-identification guards dev/staging; sign-off guards production.
 
-**Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` — distilled from Gemini's reading
-of ~30 Zoom talks; mapped to the positioning thesis + honesty frame, with the biography flagged
-`[unverified]` and a verbatim draft-copy appendix. Raw clay, honesty half must be folded back in.
+**Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` (Gemini synthesis, historical);
+the honesty frame + evidence came from `discovery/WORKING-METHOD.md` + `discovery/EVIDENCE-LEDGER.md`.
 
 ### [SITE-SEO] · critical-path Phase 3 · opened Conv 009
 
@@ -194,38 +180,6 @@ machine boilerplate. Dimensions:
 First mock up **2–3 distinct visual directions** on the styleguide / live pages so a direction can be
 chosen (B); then spec and implement the chosen one (A). No restyle committed until a direction is picked.
 
-### [SITE-ASSESS] · opened Conv 009 · enhances the Work set
-
-#### What it is
-The site claims Fraser's work is legible — clients can check it. `[SITE-ASSESS]` makes that literal: for
-each project shown in Work, read **that project's own docs repo** and produce an honest, evidence-cited
-assessment of Fraser's contribution — *did he plan well? did he steer the AI, and overrule it when it
-mattered?* — citing the specific decision records / conv logs so a reader could verify. On-thesis: an AI
-independently assessing the human's steering is itself proof of the thesis.
-
-#### Mechanism (Conv 009 — adjusted per operator "C", pending sign-off)
-- One **independent read per project docs repo** (a subagent per repo: keeps the big cross-file reads out
-  of the main context and reads the record fresh). Map: `redline` case → `redline`; translation-platform
-  → `spt-docs`; learning-marketplace → `peerloop-docs`; this site → `fgw-26-docs`.
-- **Each agent returns, grounded in cited artifacts (`DEC-NNN` / conv refs so a reader can verify):**
-  1. **Scale** — how big the project is: **number of convs first**, plus whatever other scale the repo
-     offers (decisions recorded, files / LOC, duration).
-  2. **Steering** — specific **highlighted decisions that show Fraser steering or overruling the AI**,
-     each cited — **including where he did NOT steer well** (the honesty frame, `DEC-000-6`).
-  3. **The plan** — a comment on **how well he planned** the work.
-- Rendered as a per-case **"The record"** block on each `/work/<slug>` detail page.
-
-#### 🔴 Constraints / open fork
-- De-identify client-project assessments (`spt-docs`, `peerloop-docs`) exactly as the cases are.
-- **Checkability asymmetry:** "you can check it" is *literal* only for owned/public repos (`redline`,
-  `fgw-26-docs`); client repos are private, so their assessment is grounded-but-not-publicly-openable.
-  **Open fork:** do client projects get the assessment block at all, or only the owned/public ones?
-- Honest, not hagiography. Reads of other repos are outside the declared working dirs → may prompt.
-
-#### Pilot
-This site (`fgw-26-docs`) — fully owned, fully accessible, and the new Work case the operator asked for
-(this website "shows AI and Fraser at work"). Doubles as the `[SITE-VISUAL]`-era Work-case content.
-
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4
 
 #### What it is
@@ -254,9 +208,11 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### [SITE-DEPLOY-STAGING] · critical-path Phase 1 · ✅ Conv 008
-First staging deploy landed: scaffold live + correct at `https://fgw-staging.fgorrie.workers.dev`
-(HTTP 200). The Conv 007 `--env`-at-deploy wiring was broken — it silently deployed the production-named
-`fgw` — so env-selection was corrected to build-time `CLOUDFLARE_ENV` + a fail-closed resolved-name guard
-(`scripts/assert-worker.mjs`), with a split `.env.*` / `.dev.vars.*` env-file layout (`DEC-008-1`,
-correcting `DEC-007-2`). Stray `fgw` worker deleted. Done-when met.
+### [SITE-ASSESS] · ✅ Conv 009
+Built and proved the independent-assessment mechanism, then rolled it out across the whole current Work
+set. A fresh subagent per project read that project's own repo and returned a cited, honest three-part
+assessment (scale / steering / what-went-wrong / the plan); each became a **"The record"** block on its
+`/work/<slug>` page — `this-site`, `redline`, `translation-platform`, `learning-marketplace`. Full
+candor (operator call); the two client cases de-identified, including scrubbing a client-named folder
+reference that surfaced in a read. Standing approach for any future Work case (not just these four).
+Candor standard lives in `reference/VOICE.md`; mechanism detail in the conv record.

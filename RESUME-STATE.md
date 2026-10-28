@@ -2,36 +2,27 @@
 
 ## Where we left off
 
-Conv 008 **proved** the Cloudflare staging deploy: the scaffold is live + correct at
-`fgw-staging.fgorrie.workers.dev` (critical-path Phase 1 done). The Conv-007 `--env`-at-deploy wiring was
-broken — it silently deployed the production-named `fgw` — so it was corrected to build-time
-`CLOUDFLARE_ENV` selection via a committed `.env.staging`, guarded by `scripts/assert-worker.mjs`, with a
-split `.env.*` / `.dev.vars.*` env-file layout (`DEC-008-1`). SITE-NARRATIVE source material from ~30 Zoom
-talks was distilled into `discovery/NARRATIVE-SOURCE-GEMINI.md`.
+Conv 009 took the site from placeholder to a full, real draft, live on staging: all five pages (Home,
+Method, Contact, About, nav) and five Work cases — `redline`, `this-site` (fgw-26 itself), and the two
+de-identified client cases (`translation-platform` = SPT, `learning-marketplace` = Peerloop). Each case
+carries an independent, candid **"The record"** assessment read by a fresh subagent from that project's
+own docs repo (`[SITE-ASSESS]`, `DEC-009-4`). Biography verified with the operator (`discovery/
+BIO-VERIFIED.md`); a single site voice standard set in `reference/VOICE.md` (`DEC-009-5`). The operator
+flagged the visuals as "AI-default" (near-monochrome, no icons/imagery) → `[SITE-VISUAL]`. Nothing is in
+production; client sign-off gates production only (`DEC-009-2`).
 
 ## Next action
 
-**`[SITE-NARRATIVE]`** (🔥 Ordered #1, critical-path Phase 2) — draft real site copy. Start from
-`discovery/NARRATIVE-SOURCE-GEMINI.md` (Gemini synthesis, already mapped to the positioning thesis +
-honesty frame) and `discovery/EVIDENCE-LEDGER.md`, honouring the `WORKING-METHOD.md` honesty frame
-(`DEC-000-6`). 🔴 Three gates before any copy publishes: **verify the biography** (incl. the "44-year" vs
-"decades" mismatch); **fold the honesty half back in** (Gemini's draft is pure highlight reel); and
-**de-identify** per the publishability map. Redeploy to staging as copy lands.
+Next conv does **B then C** (operator-queued Conv 009):
+- **B — `[SITE-VISUAL]`** (⚡): mock up **2–3 distinct visual directions** (warmth, deliberate ember
+  accent, icons for theme/menu, imagery incl. a headshot + `og:image`), operator picks one, then spec +
+  implement. This fixes the weakest, most-visible part of the site — the "AI-default" look.
+- **C — whole-site voice pass:** re-read every page against `reference/VOICE.md` (Fraser-to-client,
+  lightly-warmed, candid) and bring the Conv-009 copy — which predates the written standard — fully into
+  it; also review the `this-site` case.
 
-## ⏭️ Queued for next conv (added mid-Conv 009 at operator request)
-
-> Deferred from Conv 009 on purpose. (This file is Conv 008's handoff; `/r-end` will rewrite it and must
-> carry these two forward.)
-
-- **B — `[SITE-VISUAL]` directions.** Mock up 2–3 distinct visual directions (warmth, deliberate ember
-  accent, icons for theme/menu, imagery incl. headshot + `og:image`), operator picks one, then spec +
-  implement. Context: the delivered site reads near-monochrome / "AI-default", a gap from the intended
-  warm-editorial direction (`DEC-004-5/6`). See the `[SITE-VISUAL]` board row.
-- **C — whole-site voice/candor pass.** Bring **every** page into the one documented voice:
-  `reference/VOICE.md` — Fraser speaking directly to a client in a first meeting, lightly-warmed
-  register, candid (the `this-site` "The record" block is the exemplar). Also review/edit the `this-site`
-  case itself. The copy drafted Conv 009 was written toward this voice but predates the written standard,
-  so re-pass it against `reference/VOICE.md`.
+Then Phase 3 (`[SITE-SEO]` / `[SITE-AI-SEO]` / `[SITE-PERF]`) and Phase 4 (`[SITE-GO-LIVE]`, operator-
+gated: needs the `frasergorrie.com` DNS/zone facts + client sign-off before any production cutover).
 
 ## 🔬 Carried findings
 
