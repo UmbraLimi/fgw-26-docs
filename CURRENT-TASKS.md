@@ -203,12 +203,16 @@ assessment of Fraser's contribution — *did he plan well? did he steer the AI, 
 mattered?* — citing the specific decision records / conv logs so a reader could verify. On-thesis: an AI
 independently assessing the human's steering is itself proof of the thesis.
 
-#### Proposed mechanism (Conv 009 — pending operator sign-off)
+#### Mechanism (Conv 009 — adjusted per operator "C", pending sign-off)
 - One **independent read per project docs repo** (a subagent per repo: keeps the big cross-file reads out
   of the main context and reads the record fresh). Map: `redline` case → `redline`; translation-platform
   → `spt-docs`; learning-marketplace → `peerloop-docs`; this site → `fgw-26-docs`.
-- Each returns an honest assessment (planning + steering, **including where he did NOT steer well** — the
-  honesty frame is the trust signal, `DEC-000-6`), grounded in cited artifacts.
+- **Each agent returns, grounded in cited artifacts (`DEC-NNN` / conv refs so a reader can verify):**
+  1. **Scale** — how big the project is: **number of convs first**, plus whatever other scale the repo
+     offers (decisions recorded, files / LOC, duration).
+  2. **Steering** — specific **highlighted decisions that show Fraser steering or overruling the AI**,
+     each cited — **including where he did NOT steer well** (the honesty frame, `DEC-000-6`).
+  3. **The plan** — a comment on **how well he planned** the work.
 - Rendered as a per-case **"The record"** block on each `/work/<slug>` detail page.
 
 #### 🔴 Constraints / open fork
