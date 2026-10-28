@@ -18,6 +18,21 @@ honesty frame) and `discovery/EVIDENCE-LEDGER.md`, honouring the `WORKING-METHOD
 "decades" mismatch); **fold the honesty half back in** (Gemini's draft is pure highlight reel); and
 **de-identify** per the publishability map. Redeploy to staging as copy lands.
 
+## ⏭️ Queued for next conv (added mid-Conv 009 at operator request)
+
+> Deferred from Conv 009 on purpose. (This file is Conv 008's handoff; `/r-end` will rewrite it and must
+> carry these two forward.)
+
+- **B — `[SITE-VISUAL]` directions.** Mock up 2–3 distinct visual directions (warmth, deliberate ember
+  accent, icons for theme/menu, imagery incl. headshot + `og:image`), operator picks one, then spec +
+  implement. Context: the delivered site reads near-monochrome / "AI-default", a gap from the intended
+  warm-editorial direction (`DEC-004-5/6`). See the `[SITE-VISUAL]` board row.
+- **C — whole-site voice/candor pass.** Bring **every** page into the one documented voice:
+  `reference/VOICE.md` — Fraser speaking directly to a client in a first meeting, lightly-warmed
+  register, candid (the `this-site` "The record" block is the exemplar). Also review/edit the `this-site`
+  case itself. The copy drafted Conv 009 was written toward this voice but predates the written standard,
+  so re-pass it against `reference/VOICE.md`.
+
 ## 🔬 Carried findings
 
 _None._
