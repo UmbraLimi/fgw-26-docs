@@ -22,10 +22,9 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. ⚡ **[SITE-VISUAL]** — close the gap between the intended warm-editorial direction and the delivered
-   near-monochrome, imageless, "AI-default" result (operator critique Conv 009): warmth, deliberate
-   accent, icons, imagery. Mock 2–3 directions → pick → implement. **Next conv (operator-queued "B").**
-   Pre-go-live polish.
+1. **[SITE-VISUAL]** — substantially done Conv 010: mocked 3 directions → operator picked **A
+   (warm-editorial)** → implemented site-wide + deployed to staging. Remainder: real headshot
+   (hoppered), dark-mode per-page spot-check, optional device-review polish. Pre-go-live polish.
 2. **[SITE-NARRATIVE]** — real site copy. Bulk drafted + live on staging Conv 009; **remaining: a
    whole-site voice pass against `reference/VOICE.md` (operator-queued "C", next conv)**, an optional
    urantia case, and client sign-off (production gate). Critical-path **Phase 2**.
@@ -162,6 +161,21 @@ Core Web Vitals pass + a budget, and image optimization (the Cloudflare `IMAGES`
 unused — no imagery yet). The lightest of the three.
 
 ### [SITE-VISUAL] · opened Conv 009 · pre-go-live polish
+
+#### Status — Conv 010
+**Delivered + live on staging.** Mocked 3 distinct directions (`.scratch/visual-dir{A,B,C}*.jpg`);
+operator chose **A — warm-editorial**. Implemented site-wide and deployed to
+`fgw-staging.fgorrie.workers.dev`: deepened the warm light palette so warmth reads to the eye (was flat
+near-white); ember eyebrows + a lead-rule variant; **ember-as-text moved to `--accent-strong` to hold
+WCAG AA on the deeper paper** (ember-as-fill stays `--accent`); new `Icon.astro` feather set; card icon
+chips; sun/moon/menu icons; two-column Home hero + About header with a swap-ready portrait; warm
+proof-card band; Work "Read the case" arrows + case "Back to work" link. `npm run verify` green (lint,
+typecheck, 2 tests, 10-page build); committed `d486082` (code) / `f76108e` (docs), not yet pushed.
+Design decision (Direction A + the tokens/AA rule) **to be recorded as a `DEC-010` entry at `/r-end`.**
+
+**Remainder:** real headshot asset (hopper — placeholder on Home + About); dark-mode per-page
+spot-check (only Home confirmed in dark); any polish from operator device review (e.g. the "Auto" toggle
+glyph). 🔴 Client sign-off still gates **production**, not staging.
 
 #### What it is
 Close the gap between the *intended* look — "warm neutrals + a single ember accent," "quiet editorial

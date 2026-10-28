@@ -25,6 +25,16 @@ claim the evidence doesn't support; never an implied shipped win that isn't ther
 - **Don't:** marketing superlatives ("cutting-edge", "world-class", "seamless"), hype, buzzwords, or the
   AI-default boilerplate cadence; engineer-speak at a business-owner reader.
 
+## Humility — seasoned, not above (operator, Conv 010)
+Fraser does **not** claim to stand above the reader, or above others who do this work. Avoid the
+"I know …" / "I catch what others miss" / "…before you do" / "what a cheaper X can't do" framing — it
+reads as boastful and superior. Write from *"I'm good at this, I'm seasoned, and here's how I can help
+you"*: state the help and how it works, not a rank over the client or the field.
+- **Don't:** "I know when to…", "I catch what the tests miss", "…catching it before you do", "the part a
+  cheaper AI wrapper can't do for you".
+- **Do:** name the client's problem and how Fraser helps with it; let grounded, checkable specifics
+  carry the credibility instead of a comparative claim.
+
 ## Scope
 All pages (Home, Method, Work + every case, About, Contact) and all "The record" blocks. A whole-site
 pass to bring the *existing* copy fully into this voice is queued for next conv (see `RESUME-STATE.md`
