@@ -92,10 +92,26 @@ opens the door, the second must close it:
 
 Draft this at Phase 2, not now — it is held above the copy on purpose.
 
-#### Status — Conv 008
-Not started, but now the **active critical-path item** (`[SITE-DEPLOY-STAGING]` / Phase 1 completed
-Conv 008). Scaffold copy is deliberate placeholder (Conv 006). Positioning thesis documented Conv 007
-(above) as the drafting brief.
+#### Status — Conv 009
+**In progress.** The active critical-path item. Copy structure/approach agreed Conv 009 (below);
+drafting of the unblocked pages underway.
+
+**Settled plan (Conv 009):**
+- **IA:** the built 5-page scaffold, unchanged. The three candidate "services" fold into a light
+  **"What I do"** block on Home — no Services page, no route (revisitable; the dedicated-page option
+  stays open if it earns its place).
+- **Home:** keep scaffold h1 ("I steer; AI drives — and I know when to overrule it"); lede = the
+  two-half positioning thesis; **3 proof cards = #2 catch-what-checks-miss · #3
+  tell-you-when-it-isn't-working · #4 measure-not-guess** (ledger proof-points; #1 is the headline,
+  #5 range → About).
+- **Method** (the differentiator): collaboration shape + why-pay warrant (deterministic core /
+  human-in-loop / 80/20) **and** the honesty frame — honesty half is load-bearing here.
+- **Work:** `redline` first (fully clear); then de-identified SPT + Peerloop; bake-off optional.
+- **Contact:** short framing, email CTA (address still a launch-config placeholder).
+
+**Unblocked, drafting Conv 009:** Home, Method, Contact, `redline`.
+**Blocked:** About (biography verification + "44-year" vs "decades" — in hopper) · SPT/Peerloop Work
+cases (de-identification + client sign-off).
 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` — distilled from Gemini's reading
 of ~30 Zoom talks; mapped to the positioning thesis + honesty frame, with the biography flagged
