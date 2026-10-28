@@ -109,9 +109,14 @@ drafting of the unblocked pages underway.
 - **Work:** `redline` first (fully clear); then de-identified SPT + Peerloop; bake-off optional.
 - **Contact:** short framing, email CTA (address still a launch-config placeholder).
 
-**Unblocked, drafting Conv 009:** Home, Method, Contact, `redline`.
-**Blocked:** About (biography verification + "44-year" vs "decades" — in hopper) · SPT/Peerloop Work
-cases (de-identification + client sign-off).
+**Drafted + live Conv 009:** Home, Method, Contact, `redline`, **About** (biography verified Conv 009,
+recorded in `discovery/BIO-VERIFIED.md`).
+**Drafted, held `draft: true` pending client sign-off (Conv 009):** two de-identified cases —
+`work/translation-platform.md` (= the translation-system/SPT engagement) and
+`work/learning-marketplace.md` (= the Peerloop engagement). De-identification done; client **sign-off**
+is the only remaining blocker before `draft: false` + publish. 🔴 This mapping lives here, never in the
+`fgw-26` site source.
+**Still blocked:** About voice is a draft (operator to react); optional urantia bake-off case not drafted.
 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` — distilled from Gemini's reading
 of ~30 Zoom talks; mapped to the positioning thesis + honesty frame, with the biography flagged
