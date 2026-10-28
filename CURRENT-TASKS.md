@@ -111,11 +111,13 @@ drafting of the unblocked pages underway.
 
 **Drafted + live Conv 009:** Home, Method, Contact, `redline`, **About** (biography verified Conv 009,
 recorded in `discovery/BIO-VERIFIED.md`).
-**Drafted, held `draft: true` pending client sign-off (Conv 009):** two de-identified cases —
+**Live on dev + staging-eligible (Conv 009):** two de-identified cases —
 `work/translation-platform.md` (= the translation-system/SPT engagement) and
-`work/learning-marketplace.md` (= the Peerloop engagement). De-identification done; client **sign-off**
-is the only remaining blocker before `draft: false` + publish. 🔴 This mapping lives here, never in the
-`fgw-26` site source.
+`work/learning-marketplace.md` (= the Peerloop engagement) — now `draft: false`. 🔴 This mapping lives
+here, never in the `fgw-26` site source.
+🔴 **Sign-off gate (operator, Conv 009):** client sign-off is required before the **production** deploy
+to frasergorrie.com (`[SITE-GO-LIVE]` / Phase 3) — **not** for dev or staging. De-identification is the
+guard that makes dev/staging safe; sign-off is the guard for production.
 **Still blocked:** About voice is a draft (operator to react); optional urantia bake-off case not drafted.
 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` — distilled from Gemini's reading
