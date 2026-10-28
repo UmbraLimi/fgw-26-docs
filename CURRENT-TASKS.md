@@ -31,8 +31,14 @@ remainder**.
    Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
 4. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization).
    Opened Conv 009. Critical-path **Phase 3**; mostly satisfied already by the static+edge architecture.
-5. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
-   Conv 007; lean until Phases 1–3 land. Critical-path **Phase 4** — the destination.
+5. **[SITE-VISUAL]** — close the gap between the intended warm-editorial direction and the
+   near-monochrome, imageless, "AI-default" result (operator critique Conv 009): warmth, deliberate
+   accent, icons, imagery. Opened Conv 009. Pre-go-live polish (alongside Phase 3).
+6. **[SITE-ASSESS]** — substantiate "you can check my work" with an independent, evidence-cited
+   assessment of Fraser's steering value on each Work project, read from that project's docs repo.
+   Opened Conv 009. Enhances the Work set (Phase 2); pilot on this site.
+7. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+   Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
 (**[SITE-DEPLOY-STAGING]** — critical-path Phase 1 — ✅ completed Conv 008; see ✅ Completed this conv.)
 
@@ -132,7 +138,10 @@ here, never in the `fgw-26` site source.
 🔴 **Sign-off gate (operator, Conv 009):** client sign-off is required before the **production** deploy
 to frasergorrie.com (`[SITE-GO-LIVE]` / Phase 3) — **not** for dev or staging. De-identification is the
 guard that makes dev/staging safe; sign-off is the guard for production.
-**Still blocked:** About voice is a draft (operator to react); optional urantia bake-off case not drafted.
+**About voice:** resolved Conv 009 — lightly-warmed register, operator-chosen.
+**Remaining Work cases:** **this site (`fgw-26`)** as a Work case — operator-requested Conv 009 ("it
+shows AI and myself at work"); it is the `[SITE-ASSESS]` pilot and its "The record" block is the
+assessment of this very project. Optional urantia bake-off case stays deferred (Conv 009).
 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` — distilled from Gemini's reading
 of ~30 Zoom talks; mapped to the positioning thesis + honesty frame, with the biography flagged
@@ -165,6 +174,53 @@ construction:** static output on Cloudflare's edge, near-zero JS (one hydrated i
 immutable `Cache-Control` on `/_astro/*`, small Tailwind v4 CSS. **Not yet deliberate:** a Lighthouse /
 Core Web Vitals pass + a budget, and image optimization (the Cloudflare `IMAGES` binding is enabled but
 unused — no imagery yet). The lightest of the three.
+
+### [SITE-VISUAL] · opened Conv 009 · pre-go-live polish
+
+#### What it is
+Close the gap between the *intended* look — "warm neutrals + a single ember accent," "quiet editorial
+authority," explicitly "distinct in the saturated field of mono-accented dev-portfolio sites"
+(`DEC-004-5/6`) — and the *delivered* look: near-monochrome, no icons, no imagery, reads "AI-default"
+(operator critique Conv 009). The thesis is human judgment steering AI; the site must not read as
+machine boilerplate. Dimensions:
+- **Warmth** — the warm neutrals (`#faf7f2` / `#1c1a17`) are warm in hex but flat to the eye; verify and
+  likely deepen against the live render.
+- **Accent** — the ember appears on ~2 buttons total, none on Method/About; bring it in deliberately
+  without losing the "signal not noise" discipline.
+- **Icons** — theme toggle ("Auto/Light/Dark") and mobile "Menu" are plain text; add real icons.
+- **Imagery** — none exists; plan a headshot + work visuals + `og:image` (feeds `[SITE-SEO]`/`[SITE-PERF]`).
+
+#### Approach (operator A+B, Conv 009)
+First mock up **2–3 distinct visual directions** on the styleguide / live pages so a direction can be
+chosen (B); then spec and implement the chosen one (A). No restyle committed until a direction is picked.
+
+### [SITE-ASSESS] · opened Conv 009 · enhances the Work set
+
+#### What it is
+The site claims Fraser's work is legible — clients can check it. `[SITE-ASSESS]` makes that literal: for
+each project shown in Work, read **that project's own docs repo** and produce an honest, evidence-cited
+assessment of Fraser's contribution — *did he plan well? did he steer the AI, and overrule it when it
+mattered?* — citing the specific decision records / conv logs so a reader could verify. On-thesis: an AI
+independently assessing the human's steering is itself proof of the thesis.
+
+#### Proposed mechanism (Conv 009 — pending operator sign-off)
+- One **independent read per project docs repo** (a subagent per repo: keeps the big cross-file reads out
+  of the main context and reads the record fresh). Map: `redline` case → `redline`; translation-platform
+  → `spt-docs`; learning-marketplace → `peerloop-docs`; this site → `fgw-26-docs`.
+- Each returns an honest assessment (planning + steering, **including where he did NOT steer well** — the
+  honesty frame is the trust signal, `DEC-000-6`), grounded in cited artifacts.
+- Rendered as a per-case **"The record"** block on each `/work/<slug>` detail page.
+
+#### 🔴 Constraints / open fork
+- De-identify client-project assessments (`spt-docs`, `peerloop-docs`) exactly as the cases are.
+- **Checkability asymmetry:** "you can check it" is *literal* only for owned/public repos (`redline`,
+  `fgw-26-docs`); client repos are private, so their assessment is grounded-but-not-publicly-openable.
+  **Open fork:** do client projects get the assessment block at all, or only the owned/public ones?
+- Honest, not hagiography. Reads of other repos are outside the declared working dirs → may prompt.
+
+#### Pilot
+This site (`fgw-26-docs`) — fully owned, fully accessible, and the new Work case the operator asked for
+(this website "shows AI and Fraser at work"). Doubles as the `[SITE-VISUAL]`-era Work-case content.
 
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4
 
