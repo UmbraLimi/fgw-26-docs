@@ -25,8 +25,14 @@ remainder**.
 1. ⚡ **[SITE-NARRATIVE]** — turn the evidence (`discovery/EVIDENCE-LEDGER.md`) + the `WORKING-METHOD.md`
    honesty frame (`DEC-000-6`) into real site copy, de-identified per the publishability map.
    Critical-path **Phase 2** (the site needs true content before a real domain points at it).
-2. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
-   Conv 007; lean until Phases 1–2 land. Critical-path **Phase 3** — the destination.
+2. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
+   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**.
+3. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
+   Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
+4. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization).
+   Opened Conv 009. Critical-path **Phase 3**; mostly satisfied already by the static+edge architecture.
+5. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+   Conv 007; lean until Phases 1–3 land. Critical-path **Phase 4** — the destination.
 
 (**[SITE-DEPLOY-STAGING]** — critical-path Phase 1 — ✅ completed Conv 008; see ✅ Completed this conv.)
 
@@ -56,10 +62,18 @@ pipeline is proven — scaffold live at `fgw-staging.fgorrie.workers.dev` (Conv 
 - **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases (start with
   `redline`, fully clear). Redeploy to staging as it lands.
 
-### Phase 3 — Live at frasergorrie.com *(production + domain cutover)*
-- **3.1 — operator: confirm where `frasergorrie.com` DNS lives today** and whether/when its zone is in
+### Phase 3 — Findable & fast *(in place before the domain points at production)*
+- **3.1 — `[SITE-SEO]`** — set astro `site:`, add `@astrojs/sitemap` + `robots.txt`, canonical +
+  `og:url`/`og:image`, `schema.org` JSON-LD (Person/ProfessionalService). All additive; dev/staging only.
+- **3.2 — `[SITE-AI-SEO]`** — LLM/generative-engine discoverability: `llms.txt`, structured facts, an
+  AI-crawler policy. Shares the JSON-LD + crawlability work with 3.1.
+- **3.3 — `[SITE-PERF]`** — page-speed as a tracked discipline: a Lighthouse / Core Web Vitals pass +
+  budget, image optimization when imagery lands. Largely satisfied already (static + edge + near-zero JS).
+
+### Phase 4 — Live at frasergorrie.com *(production + domain cutover)*
+- **4.1 — operator: confirm where `frasergorrie.com` DNS lives today** and whether/when its zone is in
   this Cloudflare account. The legacy `frasergorrie` site currently answers the domain.
-- **3.2 — `[SITE-GO-LIVE]`** — a production worker + a custom-domain/route binding (apex + `www`) + the
+- **4.2 — `[SITE-GO-LIVE]`** — a production worker + a custom-domain/route binding (apex + `www`) + the
   DNS cutover. 🔴 **Outward-facing + hard to reverse** — this takes the domain off the live legacy site;
   needs an explicit operator go-ahead, never autopilot. **Done-when:** frasergorrie.com serves fgw-26.
 
@@ -124,7 +138,35 @@ guard that makes dev/staging safe; sign-off is the guard for production.
 of ~30 Zoom talks; mapped to the positioning thesis + honesty frame, with the biography flagged
 `[unverified]` and a verbatim draft-copy appendix. Raw clay, honesty half must be folded back in.
 
-### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 3
+### [SITE-SEO] · critical-path Phase 3 · opened Conv 009
+
+#### What it is
+Traditional search-engine infrastructure the scaffold doesn't yet have (audit Conv 009). **Present
+already:** per-page `<title>` / `<meta description>` / Open Graph (title/description/type), multi-page
+URLs, `lang`, semantic HTML + WCAG AA. **Missing:** astro `site:` URL · `sitemap.xml` (`@astrojs/sitemap`)
+· `robots.txt` · canonical link · `og:url` / `og:image` / Twitter card · `schema.org` JSON-LD
+(Person/ProfessionalService). All additive, dev/staging only, no production action. Must be in place
+before go-live (Phase 4). Not in the original plan — SEO was cited there only as the rationale for the
+multi-page IA (`DEC-004-2`).
+
+### [SITE-AI-SEO] · critical-path Phase 3 · opened Conv 009
+
+#### What it is
+Discoverability for LLMs / generative engines — not addressed anywhere in the current build (audit
+Conv 009). Candidate work: `llms.txt`, `schema.org` JSON-LD as machine-readable facts (shared with
+[SITE-SEO]), an explicit AI-crawler policy in `robots.txt`. The static, semantic, text-first HTML
+already helps. Scope to be specced; lean until [SITE-SEO] lands, since they share machinery.
+
+### [SITE-PERF] · critical-path Phase 3 · opened Conv 009
+
+#### What it is
+Page speed as a tracked discipline rather than a happy accident (audit Conv 009). **Already good by
+construction:** static output on Cloudflare's edge, near-zero JS (one hydrated island, `ThemeToggle`),
+immutable `Cache-Control` on `/_astro/*`, small Tailwind v4 CSS. **Not yet deliberate:** a Lighthouse /
+Core Web Vitals pass + a budget, and image optimization (the Cloudflare `IMAGES` binding is enabled but
+unused — no imagery yet). The lightest of the three.
+
+### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4
 
 #### What it is
 Take fgw-26 to production on Cloudflare and point **frasergorrie.com** at it: a production worker (the
@@ -133,7 +175,7 @@ cutover from the legacy site.
 
 #### Status — Conv 007 (plain language)
 Lean placeholder — opened so the critical path's destination resolves to a real row. Not specced;
-blocked behind Phases 1–2. 🔴 **The cutover is outward-facing + hard to reverse** (it takes the domain
+blocked behind Phases 1–3. 🔴 **The cutover is outward-facing + hard to reverse** (it takes the domain
 off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead, never autopilot.
 
 #### Owed by the operator (when Phase 3 opens)
