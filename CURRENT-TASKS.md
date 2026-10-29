@@ -22,16 +22,22 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; **whole-site
+1. ⚡ **[SITE-CONTACT]** — contact form built Conv 012 (Worker → Resend). Finish: operator sets per-env
+   secret files + verifies Resend sender domain, then redeploy staging + live-test end-to-end; Turnstile
+   spam hardening before launch. **Next conv.** (promoted Conv 012)
+2. ⚡ **[SITE-TESTIMONIALS]** — testimonials + a de-identified client list (operator idea-set item 6).
+   Honour NDA: generalities only, client removed, but surface the *kinds* of work + difficulties.
+   **Next-conv start.** (promoted Conv 012)
+3. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; **whole-site
    voice/humility pass done Conv 010**. Remainder: optional urantia case + 🔴 client sign-off (production
    gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
-2. ⚡ **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
-   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**. **Do next.**
-3. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
+4. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
+   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**.
+5. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
    Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
-4. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
+6. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
    now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3**.
-5. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+7. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
 (**[SITE-DEPLOY-STAGING]** — Phase 1 — ✅ Conv 008 · **[SITE-ASSESS]** — ✅ Conv 009 · **[SITE-VISUAL]** —
@@ -89,6 +95,31 @@ What's missing is (a) findable/fast (SEO), (b) the production deploy + the domai
 ---
 
 ## 🔥 Ordered
+
+### [SITE-CONTACT] · promoted Conv 012
+
+#### Status — Conv 012
+**Built this conv; needs operator config + a live test.** The Contact page is a real form posting to a
+Worker route (`src/pages/api/contact.ts`) that emails via Resend (replaces the mailto-only surface of
+`DEC-004-2`). Honeypot spam trap; progressive-enhancement fetch with a no-JS mailto fallback. Verified in
+dev (validation / send-attempt / honeypot). Env uses the file-based secrets convention (`VARS_SECRETS.md`):
+`EMAIL_FROM` is a committed var; `RESEND_API_KEY` + `EMAIL_TO` are secrets.
+
+**Owed by the operator:** create gitignored `.dev.vars.staging` / `.dev.vars.production` (real
+`RESEND_API_KEY` + `EMAIL_TO`), confirm/edit the committed `EMAIL_FROM`, and verify the Resend sender
+domain. **Then:** redeploy staging (`npm run deploy:staging`, now ships secrets via `--secrets-file`) and
+live-test the round-trip. **Deferred:** Cloudflare Turnstile spam hardening (needs its own site+secret
+keys) before go-live.
+
+### [SITE-TESTIMONIALS] · promoted Conv 012
+
+#### What it is
+Testimonials + a de-identified client list (operator idea-set item 6, Conv 012). 🔴 **NDA frame
+(operator, Conv 012):** FG works under NDAs + verbal agreements; testimonials and any client reference are
+modified to generalities with the client removed — but there is real reader value in the *kinds* of work,
+the difficulties, and generic aspects. A *named* client list may be impossible; anonymised testimonials
+("a translation-platform client") are the likely form. Shares the production **client sign-off** gate with
+`[SITE-NARRATIVE]`. Not yet scoped — **next-conv start.**
 
 ### [SITE-NARRATIVE] · critical-path Phase 2
 
@@ -188,7 +219,20 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 
 ## 📋 Unordered
 
-_None._
+### [SITE-TOOLS] · promoted Conv 012
+Operator idea-set item 7, unscoped: a "tools" surface — ambiguous between a tools/stack page, the tech
+stack, or the tools FG uses to steer AI. Seeded already by the per-case **Built with** chips (`[SITE-CONTACT]`
+conv's case extras). Clarify intent before building.
+
+### [SITE-SOCIAL] · promoted Conv 012
+Operator idea-set item 8, unscoped: "redo LinkedIn and X." Ambiguous — the footer links/icons (editable
+here) vs the off-site profiles themselves (need the browser + operator accounts). Clarify which.
+
+### [NODE-FLOOR] · promoted Conv 012
+Recurring papercut (Conv 011–012): a fresh Bash shell comes up on Node 22.19.0 (below Astro's floor) despite
+`DEC-011-3`'s nvm-default fix; `npm run typecheck` (astro check) isn't guarded by `check-node.mjs`, so it
+fails until a manual `nvm use 24`. Candidate fix: a repo `.nvmrc` + guard `typecheck`, or diagnose why the
+shell defaults to 22.
 
 ## ⏸️ Parked
 
@@ -196,26 +240,27 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### [SITE-PHASES] · ✅ Conv 011
-A new **self-qualification page** (`/phases`) closing the gap that the live site told only FG's story and
-nothing of the reader's. Promoted from an operator draft, assessed worthy, then built and deployed to
-staging:
-- **The page** (`src/pages/phases.astro`): a sharper hook lede → the three phases **straw man → tin man
-  → steel man** (the reader's journey building with AI) → an "If you recognized yourself" close + CTA.
-  Each phase carries an ember-rule **"Where I come in"** callout (distinct help per phase).
-- **Dual-natured** by operator direction: the phases both describe FG's build discipline (start fresh,
-  learn from the last, add rigor) **and** map the reader's own journey — stated in the lede, demonstrated
-  in the close.
-- **Voice**: written to `VOICE.md` from the start — humility rule applied (dropped the draft's "perfect
-  client" / "I'm impressed"), the `Marketing` tail cut (it restated the Home hero), 2nd-person kept as a
-  deliberate guided-walk with FG 1st-person in the help lines.
-- **On-ramps**: a **"Phases"** nav item after Method (`Nav.astro`) + a **Home banner** ("Where are you in
-  building with AI?" → `/phases`) between "What I do" and the meet-Fraser teaser.
-- **Sticky header** added site-wide this conv (`global.css .site-header`: `position: sticky; top: 0`).
-- `npm run verify` green (11 pages); page, nav, callouts, banner, and sticky header **verified in the
-  running product** light + dark (dev) and deployed to **staging** (version `47b7bce4`). Loose ends:
-  operator review of the live page; production rides `[SITE-GO-LIVE]`.
-Decisions: `DEC-011-1` (the page + on-ramps + dual-nature), `DEC-011-2` (sticky header), `DEC-011-3`
-(nvm default fix). Mechanism + screenshots in the conv record.
+### Conv 012 — visual/UX polish + a working contact form
+Operator idea-set (`B`, Conv 012) walked one at a time (order 1,2,4,5,6,7,8); items 1/2/4 shipped, 5
+built, 6/7/8 promoted. Plus a contact form and a secrets convention. All committed; `npm run verify`
+green; each verified in the running product (light + dark).
+- **[item 1] Case-page extras** — a JSON-driven system (`src/data/case-extras.json` + a `caseExtras`
+  collection): per-case vertical line-art **diagram**, **tools** chips, **benefit** line, and an index-card
+  **motif**. Mock content for all four cases; client-case diagrams are NDA-gated, shown with a "Sample"
+  caption. (`DEC-012-1`)
+- **[item 2] Section icons** — 7 feather glyphs: markers on the four Method claims + the three Home
+  "What I do" cards, and a "Judgment in practice" eyebrow on the proof band (parity fix).
+- **[item 4] Brand marks** — FG monogram **favicon/app-icon set** (svg + 32px png + apple-touch + a real
+  .ico, replacing the Astro default) and the monogram **header lockup** beside the wordmark.
+- **Theme fix** — the colour choice no longer drops on view-transition navigation (re-asserted on
+  `astro:after-swap`; Astro was resetting `<html>` attributes on swap).
+- **Header** given the elevated `--surface` tone — a subtle step from the body where the 1px line was
+  near-invisible in dark. (`DEC-012-4`)
+- **Contact form** (`[SITE-CONTACT]`, live Ordered row) — real form → Worker route → Resend, replacing
+  the mailto. Built + dev-verified; owed: operator secrets + Resend domain + live test. (`DEC-012-2`)
+- **Secrets/config convention** — `VARS_SECRETS.md` playbook (file-based, documented): `EMAIL_FROM` var +
+  `RESEND_API_KEY`/`EMAIL_TO` secrets, deploy via `--secrets-file`. **Fixed** the `DEC-008-1` deploy guard
+  (`assert-worker.mjs`) — it read the pre-v14 `dist/client/` path and had silently stopped guarding. (`DEC-012-3`)
+Mechanism + screenshots in the conv record.
 
-(`[SITE-ASSESS]` ✅ Conv 009 · `[SITE-VISUAL]` ✅ Conv 010 — archived to their conv records.)
+(`[SITE-PHASES]` ✅ Conv 011 · `[SITE-ASSESS]` ✅ Conv 009 · `[SITE-VISUAL]` ✅ Conv 010 — archived to their conv records.)

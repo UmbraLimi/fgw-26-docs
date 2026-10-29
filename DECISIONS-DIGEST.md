@@ -6,6 +6,31 @@ _As of 2026-10-29._
 
 ---
 
+### DEC-012-4 — the site header uses the elevated `--surface` tone
+
+Change `.site-header` background from `--paper` to `--surface` (the elevated tone the footer
+already uses) so the sticky header reads as a subtle step above the body in both themes.
+
+### DEC-012-3 — file-based secret-vs-config convention (`VARS_SECRETS.md`)
+
+Adopt a documented, file-based convention: non-secret config as `vars` in `wrangler.jsonc`
+(committed, commented); secret *names* declared in `secrets.required` (per env); secret *values* in
+gitignored `.dev.vars[.<env>]` deployed via `wrangler deploy --secrets-file`. For the contact form,
+`EMAIL_FROM` is a var; `RESEND_API_KEY` + `EMAIL_TO` are secrets. Captured as a portable playbook,
+`VARS_SECRETS.md`.
+
+### DEC-012-2 — contact form via a Worker → Resend route (supersedes `DEC-004-2`'s mailto-only surface)
+
+Replace the Contact page's `mailto` with a real form posting to a Cloudflare Worker route
+(`src/pages/api/contact.ts`) that emails via Resend; honeypot spam trap; progressive-enhancement fetch
+with a no-JS mailto fallback.
+
+### DEC-012-1 — `/work` case extras as a JSON data collection, separate from the prose
+
+Enrich each `/work` case with a vertical line-art **diagram** (SVG), a **tools** list, a
+**benefit** line, and an index-card **motif**, driven by a JSON data collection (`src/data/case-extras.json`
++ a zod-schema'd `caseExtras` collection) kept separate from the markdown prose.
+
 ### DEC-011-3 — nvm `default` alias set to 24.22.1 (global) over a project-scoped direnv
 
 Fix the recurring "wrong Node" friction by setting the machine's nvm `default` alias to

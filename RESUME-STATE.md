@@ -2,24 +2,24 @@
 
 ## Where we left off
 
-Conv 011 built **`[SITE-PHASES]`** — a new `/phases` self-qualification page (the three phases a client
-goes through building with AI: **straw man → tin man → steel man**), so a prospect can place themselves
-and judge the fit. It ships with a **"Phases"** nav item, a **Home banner** ("Where are you in building
-with AI?" → `/phases`), and a site-wide **sticky header** (`DEC-011-2`). The page is dual-natured by
-operator direction (describes FG's process *and* maps the reader's journey) and written to `VOICE.md`
-(humility rule). All live on staging (`fgw-staging.fgorrie.workers.dev`, version `47b7bce4`), verified
-light + dark; `npm run verify` green (11 pages). Nothing in production. Also fixed a Node papercut: the
-nvm `default` alias was `22.19.0` (below floor) → set to `24.22.1` (`DEC-011-3`).
+Conv 012 was an operator-led visual/UX pass: **items 1/2/4 shipped** — case-page extras (a JSON
+`caseExtras` collection → per-case diagram + tools + benefit + card motif, mock content), section icons
+(Method + Home "What I do" + a proof-band eyebrow), and the **FG monogram** favicon/app-icon set + header
+lockup — plus a **theme-on-nav fix** (`astro:after-swap`) and a `--surface` **header tone**. Two bigger
+threads: a **contact form** (`[SITE-CONTACT]`) — real form → Worker route → Resend, built + dev-verified
+but **inert until the operator provisions Resend secrets** — and a **file-based secrets/config convention**
+(`VARS_SECRETS.md`, `DEC-012-3`) that also uncovered + fixed a silently-broken deploy guard
+(`assert-worker.mjs`). Everything verified in dev; nothing in production. **Staging is behind HEAD** — it
+has the favicon + theme fix (version `7f826659`) but not the header lockup, header tone, or the form.
 
 ## Next action
 
-Open **`[SITE-SEO]`** (critical-path Phase 3, the ⚡ top of the board): astro `site:`, `@astrojs/sitemap`,
-`robots.txt`, canonical + `og:url`/`og:image`, `schema.org` JSON-LD — all additive, dev/staging only.
-Reason: the content + visual + phases layers are done and staged; "findable & fast" (SEO → AI-SEO →
-PERF) is the last pre-go-live phase before the domain cutover. **Note:** `/phases` (and the sticky
-header) still want an **operator review of the live staging page**; a new page means the sitemap work in
-`[SITE-SEO]` should now include `/phases`. `[SITE-PERF]` reminder still stands: `public/fraser.jpg` is a
-~330 KB unoptimized photo on three spots.
+Finish **`[SITE-CONTACT]`** (⚡ next): operator creates the gitignored `.dev.vars.staging` /
+`.dev.vars.production` (real `RESEND_API_KEY` + `EMAIL_TO`), confirms the committed `EMAIL_FROM`, and
+verifies the Resend sender domain — then redeploy staging (`npm run deploy:staging`, now ships secrets via
+`--secrets-file`) and **live-test the contact round-trip**. Reason: it's the committed-but-inert work the
+operator named as the next-conv priority, and the redeploy also brings staging current. Then start
+**`[SITE-TESTIMONIALS]`** (item 6). ⚠️ New shells still need a manual `nvm use 24` (`[NODE-FLOOR]`).
 
 ## 🔬 Carried findings
 

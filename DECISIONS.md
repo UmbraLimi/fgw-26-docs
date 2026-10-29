@@ -8,6 +8,65 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 012
+
+### DEC-012-4 — the site header uses the elevated `--surface` tone
+**Decision:** Change `.site-header` background from `--paper` to `--surface` (the elevated tone the footer
+already uses) so the sticky header reads as a subtle step above the body in both themes.
+**Rationale:** Operator — the 1px `--line` separator was near-invisible in dark. Chose the *lighter*
+`--surface` (no new token, matches the footer; "lighter" because dark `--paper` is already near-black and
+"darker" would crush). Rejected: a scroll-triggered shadow (more app-like, off the flat editorial look); a
+frosted/translucent header (reads SaaS); a stronger border; leaving it.
+**Consequences:** `global.css`; verified light + dark in the running product. Bookends the page with the
+footer's surface tone.
+
+### DEC-012-3 — file-based secret-vs-config convention (`VARS_SECRETS.md`)
+**Decision:** Adopt a documented, file-based convention: non-secret config as `vars` in `wrangler.jsonc`
+(committed, commented); secret *names* declared in `secrets.required` (per env); secret *values* in
+gitignored `.dev.vars[.<env>]` deployed via `wrangler deploy --secrets-file`. For the contact form,
+`EMAIL_FROM` is a var; `RESEND_API_KEY` + `EMAIL_TO` are secrets. Captured as a portable playbook,
+`VARS_SECRETS.md`.
+**Rationale:** Operator's recurring cross-project pain — secret/config homes should be obvious and
+documented *in files*, not scattered across `wrangler secret put` history and the dashboard. Verified
+wrangler 4.153.0 supports `--secrets-file`, `secret bulk`, and the `secrets.required` property. Rejected:
+interactive `secret put` / dashboard (opaque, undocumented); treating all three as secrets (one mechanism
+but documents nothing); aligning to another project's `EMAIL_DOMAIN` convention (operator chose minimal —
+Resend mandates only `RESEND_API_KEY`).
+**Consequences:** Deploy fails closed without the env's secrets file; separate `.dev.vars.production` vs
+local `.dev.vars` keeps dev fakes out of prod. **Also surfaced + fixed** a latent bug: the `DEC-008-1`
+deploy guard (`assert-worker.mjs`) read `dist/client/wrangler.json`, but `@astrojs/cloudflare` v14 writes
+it to `dist/server/` — the guard had silently stopped working (passed only on a stale leftover). Now reads
+`dist/server/`.
+
+### DEC-012-2 — contact form via a Worker → Resend route (supersedes `DEC-004-2`'s mailto-only surface)
+**Decision:** Replace the Contact page's `mailto` with a real form posting to a Cloudflare Worker route
+(`src/pages/api/contact.ts`) that emails via Resend; honeypot spam trap; progressive-enhancement fetch
+with a no-JS mailto fallback.
+**Rationale:** Operator found the `mailto` high-friction (hands off to an often-unconfigured mail client).
+Surveyed 2026 consultant-site practice (scheduling links / hosted form backends / self-hosted form); chose
+self-hosted Worker → Resend to keep the "direct line, no funnel" positioning on-brand/on-domain and reuse
+the edge stack. Rejected: keeping/enriching `mailto` (the friction being fixed); a hosted form backend
+(e.g. Web3Forms — third-party funnel/branding, data off-domain); a scheduling link (e.g. Cal.com —
+different interaction; can be an additive secondary path later). **Supersedes the mailto-only conversion
+surface of `DEC-004-2`** (not the rest of that decision — so no tombstone).
+**Consequences:** The site's first on-demand server route (`prerender = false`). `[SITE-CONTACT]` carries
+the owed operator config (Resend key/domain, per-env secrets) and the deferred Turnstile hardening before
+launch. Env wired per `DEC-012-3`.
+
+### DEC-012-1 — `/work` case extras as a JSON data collection, separate from the prose
+**Decision:** Enrich each `/work` case with a vertical line-art **diagram** (SVG), a **tools** list, a
+**benefit** line, and an index-card **motif**, driven by a JSON data collection (`src/data/case-extras.json`
++ a zod-schema'd `caseExtras` collection) kept separate from the markdown prose.
+**Rationale:** Operator (idea-set item 1) wanted case imagery + a reusable, content-replaceable structure,
+and asked explicitly for "a JSON file with a schema." Diagram medium (operator): operator-supplied source
+images redrawn as sanitized, theme-aware, vertical line-art SVG. Rejected: extending md frontmatter (less
+visible/editable as a set); raster screenshots (image weight → PERF, theme mismatch, re-identification risk
+on de-identified cases); decorative stock imagery (undercuts the evidence-first "The record" tone). Mock
+content shipped for all four cases pending real/NDA-approved material.
+**Consequences:** A second content source beside the md collection (prose in md, structured extras in JSON)
+— a mild split from `DEC-004-2`'s single-sourcing, accepted for the editability win. Client-case diagrams
+stay NDA-gated (generic shape, "Sample" caption) under the `[SITE-NARRATIVE]` sign-off gate.
+
 ## Conv 011
 
 ### DEC-011-3 — nvm `default` alias set to 24.22.1 (global) over a project-scoped direnv
