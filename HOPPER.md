@@ -6,4 +6,7 @@ durable record of what was done is the conv record + the board, never a line lef
 
 ## Open
 
+- [ ] [SITE-TESTIMONIALS] The two AI-era testimonials are MOCK placeholders (Conv 013). Before
+  `[SITE-GO-LIVE]`: swap for the real quotes (operator is sourcing them) + client sign-off. Until then
+  they must stay visibly marked SAMPLE and must not ship to production as if real.
 
