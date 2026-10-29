@@ -22,22 +22,20 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. **[SITE-VISUAL]** — substantially done Conv 010: mocked 3 directions → operator picked **A
-   (warm-editorial)** → implemented site-wide + deployed to staging. Remainder: real headshot
-   (hoppered), dark-mode per-page spot-check, optional device-review polish. Pre-go-live polish.
-2. **[SITE-NARRATIVE]** — real site copy. Bulk drafted + live on staging Conv 009; **remaining: a
-   whole-site voice pass against `reference/VOICE.md` (operator-queued "C", next conv)**, an optional
-   urantia case, and client sign-off (production gate). Critical-path **Phase 2**.
-3. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
-   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**.
-4. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
+1. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; **whole-site
+   voice/humility pass done Conv 010**. Remainder: optional urantia case + 🔴 client sign-off (production
+   gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
+2. ⚡ **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
+   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**. **Do next.**
+3. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
    Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
-5. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization).
-   Opened Conv 009. Critical-path **Phase 3**; mostly satisfied already by the static+edge architecture.
-6. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+4. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
+   now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3**.
+5. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-(**[SITE-DEPLOY-STAGING]** — Phase 1 — ✅ Conv 008 · **[SITE-ASSESS]** — ✅ Conv 009; both in ✅ Completed.)
+(**[SITE-DEPLOY-STAGING]** — Phase 1 — ✅ Conv 008 · **[SITE-ASSESS]** — ✅ Conv 009 · **[SITE-VISUAL]** —
+✅ Conv 010; all in ✅ Completed.)
 
 ---
 
@@ -52,9 +50,10 @@ not a second copy.
 
 **Already true — NOT a gate:** the app is scaffolded (Astro 7 + Cloudflare Workers adapter + Tailwind
 v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006); the staging deploy pipeline
-is proven (Conv 008); and real copy for all pages + Work cases (with independent "The record" blocks) is
-drafted and live on staging (Conv 009). What's missing is (a) the visual + voice pass, (b) findable/fast
-(SEO), (c) the production deploy + the domain.
+is proven (Conv 008); real copy for all pages + Work cases (with independent "The record" blocks) is
+drafted and live on staging (Conv 009); and the **visual + voice pass** is done (`[SITE-VISUAL]` warm-
+editorial refresh + a whole-site voice/humility pass + a real headshot, Conv 010). What's missing is
+(a) findable/fast (SEO), (b) the production deploy + the domain.
 
 ### Phase 1 — Staging reachable *(prove the deploy pipeline)* — ✅ DONE Conv 008
 - **1.0 — operator: clear Cloudflare auth** — ✅ done Conv 008 (`wrangler login`, OAuth).
@@ -64,7 +63,8 @@ drafted and live on staging (Conv 009). What's missing is (a) the visual + voice
 
 ### Phase 2 — Publishable content *(the site must say something true)*
 - **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases. Bulk landed +
-  live on staging Conv 009; whole-site voice pass (`reference/VOICE.md`) remains for next conv.
+  live on staging Conv 009; whole-site voice/humility pass done Conv 010. Content-complete, gated on
+  client sign-off.
 
 ### Phase 3 — Findable & fast *(in place before the domain points at production)*
 - **3.1 — `[SITE-SEO]`** — set astro `site:`, add `@astrojs/sitemap` + `robots.txt`, canonical +
@@ -120,10 +120,12 @@ and recorded in `discovery/BIO-VERIFIED.md`; About in the lightly-warmed registe
 🔴 **Case → project mapping lives here, never in the `fgw-26` site source:** `translation-platform.md` =
 the translation-system/SPT engagement; `learning-marketplace.md` = the Peerloop engagement.
 
+**Voice/humility pass — ✅ done Conv 010.** Re-read every page + the four Work cases + the footer against
+`reference/VOICE.md`; added a **humility rule** (`DEC-010-2`) and reframed the boastful "I know…" /
+"before you do" / "a cheaper wrapper can't" framing site-wide. The Home hero was also re-led with the
+**business identity** headline + a **44-year differentiator** (`DEC-010-3`).
+
 **Remaining:**
-- **Whole-site voice pass (operator-queued "C", next conv)** — re-read every page against
-  `reference/VOICE.md` (Fraser-to-client, lightly-warmed, candid). The Conv-009 copy was written toward
-  this voice but predates the written standard.
 - Optional urantia bake-off case — deferred (overlaps the translation case; its proof is already on Home
   card #4).
 - 🔴 **Client sign-off** required before the **production** deploy (`[SITE-GO-LIVE]`), **not** for
@@ -157,42 +159,9 @@ already helps. Scope to be specced; lean until [SITE-SEO] lands, since they shar
 Page speed as a tracked discipline rather than a happy accident (audit Conv 009). **Already good by
 construction:** static output on Cloudflare's edge, near-zero JS (one hydrated island, `ThemeToggle`),
 immutable `Cache-Control` on `/_astro/*`, small Tailwind v4 CSS. **Not yet deliberate:** a Lighthouse /
-Core Web Vitals pass + a budget, and image optimization (the Cloudflare `IMAGES` binding is enabled but
-unused — no imagery yet). The lightest of the three.
-
-### [SITE-VISUAL] · opened Conv 009 · pre-go-live polish
-
-#### Status — Conv 010
-**Delivered + live on staging.** Mocked 3 distinct directions (`.scratch/visual-dir{A,B,C}*.jpg`);
-operator chose **A — warm-editorial**. Implemented site-wide and deployed to
-`fgw-staging.fgorrie.workers.dev`: deepened the warm light palette so warmth reads to the eye (was flat
-near-white); ember eyebrows + a lead-rule variant; **ember-as-text moved to `--accent-strong` to hold
-WCAG AA on the deeper paper** (ember-as-fill stays `--accent`); new `Icon.astro` feather set; card icon
-chips; sun/moon/menu icons; two-column Home hero + About header with a swap-ready portrait; warm
-proof-card band; Work "Read the case" arrows + case "Back to work" link. `npm run verify` green (lint,
-typecheck, 2 tests, 10-page build); committed `d486082` (code) / `f76108e` (docs), not yet pushed.
-Design decision (Direction A + the tokens/AA rule) **to be recorded as a `DEC-010` entry at `/r-end`.**
-
-**Remainder:** real headshot asset (hopper — placeholder on Home + About); dark-mode per-page
-spot-check (only Home confirmed in dark); any polish from operator device review (e.g. the "Auto" toggle
-glyph). 🔴 Client sign-off still gates **production**, not staging.
-
-#### What it is
-Close the gap between the *intended* look — "warm neutrals + a single ember accent," "quiet editorial
-authority," explicitly "distinct in the saturated field of mono-accented dev-portfolio sites"
-(`DEC-004-5/6`) — and the *delivered* look: near-monochrome, no icons, no imagery, reads "AI-default"
-(operator critique Conv 009). The thesis is human judgment steering AI; the site must not read as
-machine boilerplate. Dimensions:
-- **Warmth** — the warm neutrals (`#faf7f2` / `#1c1a17`) are warm in hex but flat to the eye; verify and
-  likely deepen against the live render.
-- **Accent** — the ember appears on ~2 buttons total, none on Method/About; bring it in deliberately
-  without losing the "signal not noise" discipline.
-- **Icons** — theme toggle ("Auto/Light/Dark") and mobile "Menu" are plain text; add real icons.
-- **Imagery** — none exists; plan a headshot + work visuals + `og:image` (feeds `[SITE-SEO]`/`[SITE-PERF]`).
-
-#### Approach (operator A+B, Conv 009)
-First mock up **2–3 distinct visual directions** on the styleguide / live pages so a direction can be
-chosen (B); then spec and implement the chosen one (A). No restyle committed until a direction is picked.
+Core Web Vitals pass + a budget, and image optimization — now actionable: `public/fraser.jpg` is a real
+~330 KB photo served unoptimized on three spots (Home hero avatar + band, About), and the Cloudflare
+`IMAGES` binding is enabled but unused. The lightest of the three.
 
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4
 
@@ -222,11 +191,24 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### [SITE-ASSESS] · ✅ Conv 009
-Built and proved the independent-assessment mechanism, then rolled it out across the whole current Work
-set. A fresh subagent per project read that project's own repo and returned a cited, honest three-part
-assessment (scale / steering / what-went-wrong / the plan); each became a **"The record"** block on its
-`/work/<slug>` page — `this-site`, `redline`, `translation-platform`, `learning-marketplace`. Full
-candor (operator call); the two client cases de-identified, including scrubbing a client-named folder
-reference that surfaced in a read. Standing approach for any future Work case (not just these four).
-Candor standard lives in `reference/VOICE.md`; mechanism detail in the conv record.
+### [SITE-VISUAL] · ✅ Conv 010
+Closed the "AI-default" gap (operator critique Conv 009). Mocked 3 directions (`.scratch/visual-dir*`);
+operator chose **A — warm-editorial** (`DEC-010-1`). Shipped site-wide and deployed to staging:
+- **Palette** deepened so the warmth reads to the eye (was flat near-white); ember brought in as a
+  disciplined accent (eyebrows + lead-rule, card icon chips, Work "Read the case" arrows, case
+  back-link). **Ember-as-text → `--accent-strong`** to hold WCAG AA on the deeper paper; ember-as-fill
+  stays `--accent`.
+- **Icons:** new `Icon.astro` feather set (search/shield/chart/sun/moon/menu/mail/arrows).
+- **Imagery:** a stylized hero **flow sequence** (Plan→Steer→AI drives→Course-correct); a **real
+  headshot** (`public/fraser.jpg`, operator's legacy pro photo) on the Home hero avatar, a "meet Fraser"
+  band, and the About portrait.
+- **Hero re-led** with the business identity headline + a 44-year differentiator (`DEC-010-3`); full
+  **voice/humility pass** folded in (`DEC-010-2`; copy work tracked under `[SITE-NARRATIVE]`).
+- `npm run verify` green throughout; dark mode verified across all pages; live on staging (version
+  `c7be0525`). Loose ends tracked elsewhere: photo optimization + `og:image` → `[SITE-PERF]` / `[SITE-SEO]`;
+  a newer photo is swap-able; favicon/branding (legacy cyan "JFG" mark) deferred; client sign-off →
+  `[SITE-GO-LIVE]`.
+Decisions: `DEC-010-1` (direction A + tokens/AA), `DEC-010-2` (humility voice rule), `DEC-010-3` (hero
+identity + differentiator). Mechanism + screenshots in the conv record.
+
+(`[SITE-ASSESS]` ✅ Conv 009 — archived to that conv's record.)

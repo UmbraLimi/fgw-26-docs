@@ -8,6 +8,55 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 010
+
+### DEC-010-3 — Home hero leads with the business identity + a 44-year differentiator
+**Decision:** Restructure the Home above-the-fold so the top headline states the **business** —
+"Software development — built with AI, kept on course." The method sentence ("I plan, then steer — AI
+drives development, and I course-correct where it's needed") is demoted and then replaced by a **44-year
+client-experience differentiator** line ("Let 44 years of building software for clients guide your own
+project"), with a small headshot beside it; the method is carried visually by the hero **flow sequence**
+(Plan → Steer → AI drives → Course-correct). A "meet Fraser" teaser band (headshot + About link) was
+also added lower on Home.
+**Rationale:** Operator, Conv 010 — the above-the-fold neither identified the business (a scanner
+couldn't tell it was a software developer's site) nor differentiated him from other AI shops. Leading
+with the discipline + "44 years" (verifiable, consistent with About) fixes both and ties to the "build
+your own software" thesis. Rejected: carrying the business identity in the eyebrow (operator: eyebrows
+shouldn't hold the important reader clue); keeping the method line as the h1 (it describes *how*, not
+*what*).
+**Consequences:** Home `index.astro` hero rebuilt; the `.flow` stepper + `.headshot` placeholder stand
+up here. The "44 years" number must stay consistent with About (currently 44, from ~1982). The
+differentiator depends on the real headshot (now `public/fraser.jpg`).
+
+### DEC-010-2 — Voice gains a humility rule: seasoned, not above the reader or the field
+**Decision:** Add a **Humility** section to `reference/VOICE.md` (extends `DEC-009-5`): avoid the
+"I know…" / "I catch what others miss" / "…before you do" / "what a cheaper X can't do" framing — write
+from "I'm good at this, I'm seasoned, here's how I can help you." Reframe the existing copy site-wide to
+match (main pages, the four Work cases, the footer).
+**Rationale:** Operator, Conv 010 — "I am not a person that would say 'I know x, y, z'. It sounds
+boastful." Grounded, checkable specifics should carry credibility instead of a comparative/superior
+claim. Rejected: leaving `DEC-009-5`'s standard as-is (it bans hype but not the subtler "above-others"
+framing the operator flagged).
+**Consequences:** `VOICE.md` Humility section added; Home cards, Method, footer, and Work cases
+reframed; the `learning-marketplace` unproven "far higher completion than typical" line dropped (also a
+`DEC-009-5` candor fix — the project is pre-launch). Copy work is tracked under `[SITE-NARRATIVE]`.
+
+### DEC-010-1 — Visual direction A (warm-editorial) shipped; ember-as-text uses `--accent-strong` for AA
+**Decision:** From three mocked directions, implement **A — warm-editorial**: deepen the light palette
+so the warmth reads to the eye (paper `#faf7f2`→`#f2e8d7`, surface/line/accent-tint likewise); bring the
+ember in as a disciplined accent (eyebrows + lead-rule, card icon chips, Work arrows, back-link, icons).
+**Ember used as text moves to `--accent-strong`; ember as fill stays `--accent`.**
+**Rationale:** Operator critiqued the Conv-009 render as "AI-default" near-monochrome, imageless. A
+directly fixes warmth/accent/icons/imagery while honoring the locked editorial brief (`DEC-004-5`).
+Rejected: B (ember & ink / signal) — the mono labels + hard edges read younger/more engineered, which
+`DEC-004-5` weighed against; C (ink-first / dark premium) — too gallery/agency for an SMB-owner
+audience. The text/fill split was **forced by measured contrast**: ember `#b45309` on the deeper paper
+is 4.14:1 (fails AA for small text); `--accent-strong` `#92400e` is 5.84:1 (passes).
+**Consequences:** Evolves `DEC-004-6`'s light palette values (not a supersede — same ramp, deepened);
+`global.css` gains `.card-icon` / `.band` / `.hero-portrait` / `.flow` / `.headshot`; new `Icon.astro`;
+`ThemeToggle` + nav icons; nav-active/`.btn-link`/prose links moved to `--accent-strong`. Deployed to
+staging; feeds `[SITE-PERF]` (image optimization) and `[SITE-SEO]` (`og:image`).
+
 ## Conv 009
 
 ### DEC-009-5 — One documented site voice: Fraser to a client in a first meeting, lightly-warmed and candid

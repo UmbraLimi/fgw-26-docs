@@ -1,8 +1,8 @@
 # Site voice & tone — the standard the copy adheres to
 
 > The single voice for every page of frasergorrie.com. Set by the operator, Conv 009. Adhered to by all
-> `[SITE-NARRATIVE]` copy and every `[SITE-ASSESS]` "The record" block. (To be recorded as a `DEC-009-N`
-> at `/r-end`.)
+> `[SITE-NARRATIVE]` copy and every `[SITE-ASSESS]` "The record" block. (Recorded as `DEC-009-5`; the
+> humility rule below added Conv 010, `DEC-010-2`.)
 
 ## The voice
 Write as **Fraser speaking directly to a prospective client in a first meeting** — first person, plain,
@@ -36,9 +36,9 @@ you"*: state the help and how it works, not a rank over the client or the field.
   carry the credibility instead of a comparative claim.
 
 ## Scope
-All pages (Home, Method, Work + every case, About, Contact) and all "The record" blocks. A whole-site
-pass to bring the *existing* copy fully into this voice is queued for next conv (see `RESUME-STATE.md`
-and `[SITE-VISUAL]`).
+All pages (Home, Method, Work + every case, About, Contact) and all "The record" blocks. The whole-site
+pass bringing the existing copy fully into this voice (including the humility rule) was done Conv 010 —
+all main pages, the four Work cases, and the footer.
 
 ## On a "site config file"
 The site repo (`fgw-26`) has no brand/voice config today; this file is the durable standard. If a

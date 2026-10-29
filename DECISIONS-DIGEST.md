@@ -6,6 +6,30 @@ _As of 2026-10-28._
 
 ---
 
+### DEC-010-3 — Home hero leads with the business identity + a 44-year differentiator
+
+Restructure the Home above-the-fold so the top headline states the **business** —
+"Software development — built with AI, kept on course." The method sentence ("I plan, then steer — AI
+drives development, and I course-correct where it's needed") is demoted and then replaced by a **44-year
+client-experience differentiator** line ("Let 44 years of building software for clients guide your own
+project"), with a small headshot beside it; the method is carried visually by the hero **flow sequence**
+(Plan → Steer → AI drives → Course-correct). A "meet Fraser" teaser band (headshot + About link) was
+also added lower on Home.
+
+### DEC-010-2 — Voice gains a humility rule: seasoned, not above the reader or the field
+
+Add a **Humility** section to `reference/VOICE.md` (extends `DEC-009-5`): avoid the
+"I know…" / "I catch what others miss" / "…before you do" / "what a cheaper X can't do" framing — write
+from "I'm good at this, I'm seasoned, here's how I can help you." Reframe the existing copy site-wide to
+match (main pages, the four Work cases, the footer).
+
+### DEC-010-1 — Visual direction A (warm-editorial) shipped; ember-as-text uses `--accent-strong` for AA
+
+From three mocked directions, implement **A — warm-editorial**: deepen the light palette
+so the warmth reads to the eye (paper `#faf7f2`→`#f2e8d7`, surface/line/accent-tint likewise); bring the
+ember in as a disciplined accent (eyebrows + lead-rule, card icon chips, Work arrows, back-link, icons).
+**Ember used as text moves to `--accent-strong`; ember as fill stays `--accent`.**
+
 ### DEC-009-5 — One documented site voice: Fraser to a client in a first meeting, lightly-warmed and candid
 
 Every page adheres to a single voice/tone, documented in `reference/VOICE.md`: first person
