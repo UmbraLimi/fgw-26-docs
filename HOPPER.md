@@ -12,7 +12,11 @@ durable record of what was done is the conv record + the board, never a line lef
 - [ ] (1) More images/graphics on Work + case-history pages
 - [ ] (2) Icons in certain paragraphs/sections
 - [ ] (4) Logo + favicon — create more appropriate ones
-- [ ] (5) Email → why not a contact [form?] (clarify intent)
+- [ ] (5) DONE (form built, Conv 012) — but OPERATOR-OWED before it sends on
+      staging/prod: (a) put the real Resend key + addresses in .dev.vars locally
+      and via `wrangler secret put RESEND_API_KEY|CONTACT_TO|CONTACT_FROM`
+      (+ `--env staging`); (b) verify the sender domain in Resend; (c) Turnstile
+      is the planned pre-launch spam hardening (needs site+secret keys).
 - [ ] (6) Testimonials + client list
 - [ ] (7) "Tools" (clarify: a tools page? stack? tools FG uses?)
 - [ ] (8) Redo LinkedIn and X (clarify: links/icons, or the profiles themselves)
