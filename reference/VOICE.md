@@ -36,9 +36,10 @@ you"*: state the help and how it works, not a rank over the client or the field.
   carry the credibility instead of a comparative claim.
 
 ## Scope
-All pages (Home, Method, Work + every case, About, Contact) and all "The record" blocks. The whole-site
-pass bringing the existing copy fully into this voice (including the humility rule) was done Conv 010 —
-all main pages, the four Work cases, and the footer.
+All pages (Home, Method, Phases, Work + every case, About, Contact) and all "The record" blocks. The
+whole-site pass bringing the existing copy fully into this voice (including the humility rule) was done
+Conv 010 — all main pages, the four Work cases, and the footer. The **Phases** page (new Conv 011) was
+written to this voice from the start, including the humility rule (`DEC-010-2`).
 
 ## On a "site config file"
 The site repo (`fgw-26`) has no brand/voice config today; this file is the durable standard. If a

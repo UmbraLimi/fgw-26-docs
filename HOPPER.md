@@ -6,5 +6,4 @@ durable record of what was done is the conv record + the board, never a line lef
 
 ## Open
 
-- [ ] This shell starts on Node 22.19.0, below the project's ≥22.23.4 / v24.22.1 baseline (`.nvmrc`), so `npm run verify` dies in `astro check` until `source ~/.nvm/nvm.sh && nvm use` is run first. Prefix Node commands this conv; worth a durable fix (shell default / direnv) if it recurs. (Conv 011)
 

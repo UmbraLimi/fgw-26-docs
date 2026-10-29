@@ -25,20 +25,17 @@ remainder**.
 1. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; **whole-site
    voice/humility pass done Conv 010**. Remainder: optional urantia case + 🔴 client sign-off (production
    gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
-2. 🚧 **[SITE-PHASES]** — new "three phases / are you a fit?" page (straw man → tin man → steel man).
-   Built + verified in dev Conv 011 (page + "Phases" nav + Home banner + sticky header); pending staging
-   + review. Critical-path **Phase 2** content — a new page; gated on nothing but operator words.
-3. ⚡ **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
-   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**. **Do next after PHASES.**
-4. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
+2. ⚡ **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
+   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**. **Do next.**
+3. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
    Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
-5. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
+4. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
    now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3**.
-6. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+5. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
 (**[SITE-DEPLOY-STAGING]** — Phase 1 — ✅ Conv 008 · **[SITE-ASSESS]** — ✅ Conv 009 · **[SITE-VISUAL]** —
-✅ Conv 010; all in ✅ Completed.)
+✅ Conv 010 · **[SITE-PHASES]** — ✅ Conv 011; all in ✅ Completed.)
 
 ---
 
@@ -54,9 +51,10 @@ not a second copy.
 **Already true — NOT a gate:** the app is scaffolded (Astro 7 + Cloudflare Workers adapter + Tailwind
 v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006); the staging deploy pipeline
 is proven (Conv 008); real copy for all pages + Work cases (with independent "The record" blocks) is
-drafted and live on staging (Conv 009); and the **visual + voice pass** is done (`[SITE-VISUAL]` warm-
-editorial refresh + a whole-site voice/humility pass + a real headshot, Conv 010). What's missing is
-(a) findable/fast (SEO), (b) the production deploy + the domain.
+drafted and live on staging (Conv 009); the **visual + voice pass** is done (`[SITE-VISUAL]` warm-
+editorial refresh + a whole-site voice/humility pass + a real headshot, Conv 010); and the **Phases
+self-qualification page** + a **sticky header** are built and on staging (`[SITE-PHASES]`, Conv 011).
+What's missing is (a) findable/fast (SEO), (b) the production deploy + the domain.
 
 ### Phase 1 — Staging reachable *(prove the deploy pipeline)* — ✅ DONE Conv 008
 - **1.0 — operator: clear Cloudflare auth** — ✅ done Conv 008 (`wrangler login`, OAuth).
@@ -68,9 +66,10 @@ editorial refresh + a whole-site voice/humility pass + a real headshot, Conv 010
 - **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases. Bulk landed +
   live on staging Conv 009; whole-site voice/humility pass done Conv 010. Content-complete, gated on
   client sign-off.
-- **2.2 — `[SITE-PHASES]`** — a new self-qualification page: the three phases a client goes through
-  building with AI (straw/tin/steel man), so a prospect can place themselves and see the fit. Promoted
-  Conv 011. Generic content — no client material, so not gated on sign-off.
+- **2.2 — `[SITE-PHASES]`** — ✅ built + on staging Conv 011. A new self-qualification page: the three
+  phases a client goes through building with AI (straw/tin/steel man), so a prospect can place themselves
+  and see the fit. Generic content — no client material, so not gated on sign-off; rides `[SITE-GO-LIVE]`
+  to production like the rest of the content.
 
 ### Phase 3 — Findable & fast *(in place before the domain points at production)*
 - **3.1 — `[SITE-SEO]`** — set astro `site:`, add `@astrojs/sitemap` + `robots.txt`, canonical +
@@ -140,42 +139,6 @@ the translation-system/SPT engagement; `learning-marketplace.md` = the Peerloop 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` (Gemini synthesis, historical);
 the honesty frame + evidence came from `discovery/WORKING-METHOD.md` + `discovery/EVIDENCE-LEDGER.md`.
 
-### [SITE-PHASES] · critical-path Phase 2 · promoted Conv 011
-
-#### What it is
-A new page that lets a prospect **place themselves** and judge the fit — the gap the live site has (Home,
-Method, Work all tell FG's story; nothing tells the reader's). It walks the three phases a non-programmer
-goes through building their own software with AI, named by how sturdy each is:
-- **Straw man** — you let the AI build from a rough plan; it looks great but misses what you meant, and
-  you can't quite fix it. Many stop here, disillusioned.
-- **Tin man** — you start fresh, make hard priority/sequencing choices, plan interactively with the AI,
-  and manage its work across sessions. Much better, but productionizing (users/security/deploy) looms.
-- **Steel man** — you start fresh again and organize the whole thing (security, API, outside services);
-  it gets big, and you can't tell if the parts you didn't understand actually work. ← where FG earns his keep.
-
-Grounded, not invented: the straw→tin→steel arc mirrors the real prototype→rebuild→productionize
-progression and the SPT V1→V2→V3 history (`EVIDENCE-LEDGER.md` literally calls SPT V1 the "straw man").
-It concretizes the **reassurance half** of the positioning thesis as felt experience.
-
-#### Status — Conv 011
-**Built + verified in dev.** Promoted from operator draft (pasted text, Conv 011); assessed worthy, then
-reframed on four counts vs. the raw draft: (1) **humility rule** (`DEC-010-2`) — dropped "you are the
-perfect client" / "I am impressed" rank-over-reader framing; (2) **person** — kept the draft's 2nd-person
-as a deliberate guided-walk, FG speaks 1st-person in the "Where I come in" lines; (3) **dropped the
-`Marketing` tail** (restated the Home hero); (4) typos. Operator added a **dual-nature** framing (the
-phases describe FG's process *and* map the reader's journey) — folded into the lede + close.
-Shipped as `src/pages/phases.astro` (lede + straw/tin/steel sections, each with an ember-rule "Where I
-come in" callout, close + CTA), a **"Phases"** nav item (after Method, `Nav.astro`), and a **Home banner**
-("Where are you in building with AI?" → `/phases`, between "What I do" and the meet-Fraser teaser). Also
-this conv: the **site header is now sticky** (`global.css .site-header`). `npm run verify` green (11
-pages); `/phases`, the nav item, the callouts, the banner, and the sticky header all **verified in the
-running dev product** (localhost:4321). Pending: staging deploy + operator review of the live page.
-
-#### Open
-- Deploy to staging + operator review of the live `/phases` + banner + sticky header.
-- Land before `[SITE-SEO]` sitemap generation (Phase 3) so the sitemap is complete. Not blocking.
-- Nav placement (after Method) and banner placement are easy to move if the operator wants.
-
 ### [SITE-SEO] · critical-path Phase 3 · opened Conv 009
 
 #### What it is
@@ -233,24 +196,26 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### [SITE-VISUAL] · ✅ Conv 010
-Closed the "AI-default" gap (operator critique Conv 009). Mocked 3 directions (`.scratch/visual-dir*`);
-operator chose **A — warm-editorial** (`DEC-010-1`). Shipped site-wide and deployed to staging:
-- **Palette** deepened so the warmth reads to the eye (was flat near-white); ember brought in as a
-  disciplined accent (eyebrows + lead-rule, card icon chips, Work "Read the case" arrows, case
-  back-link). **Ember-as-text → `--accent-strong`** to hold WCAG AA on the deeper paper; ember-as-fill
-  stays `--accent`.
-- **Icons:** new `Icon.astro` feather set (search/shield/chart/sun/moon/menu/mail/arrows).
-- **Imagery:** a stylized hero **flow sequence** (Plan→Steer→AI drives→Course-correct); a **real
-  headshot** (`public/fraser.jpg`, operator's legacy pro photo) on the Home hero avatar, a "meet Fraser"
-  band, and the About portrait.
-- **Hero re-led** with the business identity headline + a 44-year differentiator (`DEC-010-3`); full
-  **voice/humility pass** folded in (`DEC-010-2`; copy work tracked under `[SITE-NARRATIVE]`).
-- `npm run verify` green throughout; dark mode verified across all pages; live on staging (version
-  `c7be0525`). Loose ends tracked elsewhere: photo optimization + `og:image` → `[SITE-PERF]` / `[SITE-SEO]`;
-  a newer photo is swap-able; favicon/branding (legacy cyan "JFG" mark) deferred; client sign-off →
-  `[SITE-GO-LIVE]`.
-Decisions: `DEC-010-1` (direction A + tokens/AA), `DEC-010-2` (humility voice rule), `DEC-010-3` (hero
-identity + differentiator). Mechanism + screenshots in the conv record.
+### [SITE-PHASES] · ✅ Conv 011
+A new **self-qualification page** (`/phases`) closing the gap that the live site told only FG's story and
+nothing of the reader's. Promoted from an operator draft, assessed worthy, then built and deployed to
+staging:
+- **The page** (`src/pages/phases.astro`): a sharper hook lede → the three phases **straw man → tin man
+  → steel man** (the reader's journey building with AI) → an "If you recognized yourself" close + CTA.
+  Each phase carries an ember-rule **"Where I come in"** callout (distinct help per phase).
+- **Dual-natured** by operator direction: the phases both describe FG's build discipline (start fresh,
+  learn from the last, add rigor) **and** map the reader's own journey — stated in the lede, demonstrated
+  in the close.
+- **Voice**: written to `VOICE.md` from the start — humility rule applied (dropped the draft's "perfect
+  client" / "I'm impressed"), the `Marketing` tail cut (it restated the Home hero), 2nd-person kept as a
+  deliberate guided-walk with FG 1st-person in the help lines.
+- **On-ramps**: a **"Phases"** nav item after Method (`Nav.astro`) + a **Home banner** ("Where are you in
+  building with AI?" → `/phases`) between "What I do" and the meet-Fraser teaser.
+- **Sticky header** added site-wide this conv (`global.css .site-header`: `position: sticky; top: 0`).
+- `npm run verify` green (11 pages); page, nav, callouts, banner, and sticky header **verified in the
+  running product** light + dark (dev) and deployed to **staging** (version `47b7bce4`). Loose ends:
+  operator review of the live page; production rides `[SITE-GO-LIVE]`.
+Decisions: `DEC-011-1` (the page + on-ramps + dual-nature), `DEC-011-2` (sticky header), `DEC-011-3`
+(nvm default fix). Mechanism + screenshots in the conv record.
 
-(`[SITE-ASSESS]` ✅ Conv 009 — archived to that conv's record.)
+(`[SITE-ASSESS]` ✅ Conv 009 · `[SITE-VISUAL]` ✅ Conv 010 — archived to their conv records.)

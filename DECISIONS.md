@@ -8,6 +8,50 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 011
+
+### DEC-011-3 — nvm `default` alias set to 24.22.1 (global) over a project-scoped direnv
+**Decision:** Fix the recurring "wrong Node" friction by setting the machine's nvm `default` alias to
+**24.22.1** (`nvm alias default 24.22.1`). Root cause: the alias was `22.19.0`, below the project floor
+(Astro ≥22.23.4, `.nvmrc` 24.22.1), so every new shell nvm-activated a below-floor Node and
+`npm run verify` died in `astro check` until a manual `nvm use`.
+**Rationale:** Operator confirmed nothing else on the machine needs Node 22, so the one-command global
+fix is simplest and leaves the `.zshrc` "warn, don't auto-switch" choice intact. Rejected: a committed
+`.envrc` + direnv (project-scoped, no global change, but needs `brew install direnv` + a `~/.zshrc` hook
+per machine — more moving parts); dropping it (keep prefixing — rejected as "we are building a durable
+system"). Verified a clean login shell now auto-uses v24.22.1.
+**Consequences:** The alias is machine-local (`~/.nvm`), so a rebuilt/new machine must re-set it —
+recorded in `_cc/repo-layout.md` § "Dev environment — Node". A session already running when the alias
+changed keeps its initialized Node (this conv's shells stayed on 22.19.0, hence continued prefixing).
+
+### DEC-011-2 — the site header is sticky
+**Decision:** Make `.site-header` sticky site-wide (`position: sticky; top: 0; z-index: 50`, opaque
+`--paper` background, existing bottom border) so the nav stays reachable as a visitor scrolls any page.
+**Rationale:** Operator — the header scrolled off every page and a prospect should always be able to
+navigate. Rejected: the non-sticky status quo.
+**Consequences:** Global in `global.css`; verified light + dark on staging. `z-index: 50` floats it above
+page content and the hydrated `ThemeToggle`.
+
+### DEC-011-1 — a `/phases` self-qualification page (three phases), with on-ramps and a dual nature
+**Decision:** Add a new **Phases** page (`/phases`) walking the three phases of building software with AI
+— **straw man → tin man → steel man** — so a prospect can place themselves and judge the fit. Reached
+via a **"Phases"** nav item (after Method) and a **Home banner** ("Where are you in building with AI?").
+The phases are **dual-natured**: they describe FG's build discipline *and* map the reader's own journey
+(stated in the lede, demonstrated in the close). Each phase carries a "Where I come in" help callout.
+**Rationale:** Operator — the live site (Home/Method/Work) told only FG's story; nothing let a reader
+locate themselves or self-qualify. The straw→tin→steel arc is grounded, not invented — it mirrors the
+real prototype→rebuild→productionize progression and the SPT V1→V2→V3 history (`EVIDENCE-LEDGER.md`
+calls SPT V1 the "straw man"), and it concretizes the positioning thesis's reassurance half as felt
+experience. Rejected: folding it into Method (distinct job — the reader's journey, not "how I work");
+not adding it (leaves the self-qualification gap). Nav label **"Phases"** chosen over "Where you are" /
+"Start here" — a terse noun fits the all-noun nav set; the pull lives in the banner, which can carry a
+question a nav label can't (the operator judged a phrase-label "advertising in the navigation").
+**Consequences:** `src/pages/phases.astro` added; `Nav.astro` gains a sixth item; `index.astro` gains a
+`.band` funnel section. Written to `VOICE.md` (humility rule) — `VOICE.md` Scope updated to list Phases.
+Content is generic (no client material), so not gated on client sign-off; it rides `[SITE-GO-LIVE]` to
+production like the rest of the content. Reuses the existing `.prose blockquote` ember rule for the
+callouts (no new CSS).
+
 ## Conv 010
 
 ### DEC-010-3 — Home hero leads with the business identity + a 44-year differentiator

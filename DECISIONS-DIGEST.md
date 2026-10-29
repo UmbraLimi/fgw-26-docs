@@ -2,9 +2,29 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-28._
+_As of 2026-10-29._
 
 ---
+
+### DEC-011-3 — nvm `default` alias set to 24.22.1 (global) over a project-scoped direnv
+
+Fix the recurring "wrong Node" friction by setting the machine's nvm `default` alias to
+**24.22.1** (`nvm alias default 24.22.1`). Root cause: the alias was `22.19.0`, below the project floor
+(Astro ≥22.23.4, `.nvmrc` 24.22.1), so every new shell nvm-activated a below-floor Node and
+`npm run verify` died in `astro check` until a manual `nvm use`.
+
+### DEC-011-2 — the site header is sticky
+
+Make `.site-header` sticky site-wide (`position: sticky; top: 0; z-index: 50`, opaque
+`--paper` background, existing bottom border) so the nav stays reachable as a visitor scrolls any page.
+
+### DEC-011-1 — a `/phases` self-qualification page (three phases), with on-ramps and a dual nature
+
+Add a new **Phases** page (`/phases`) walking the three phases of building software with AI
+— **straw man → tin man → steel man** — so a prospect can place themselves and judge the fit. Reached
+via a **"Phases"** nav item (after Method) and a **Home banner** ("Where are you in building with AI?").
+The phases are **dual-natured**: they describe FG's build discipline *and* map the reader's own journey
+(stated in the lede, demonstrated in the close). Each phase carries a "Where I come in" help callout.
 
 ### DEC-010-3 — Home hero leads with the business identity + a 44-year differentiator
 
