@@ -14,7 +14,7 @@ durable record of what was done is the conv record + the board, never a line lef
 - [ ] (4) Logo + favicon — create more appropriate ones
 - [ ] (5) DONE (form built, Conv 012) — but OPERATOR-OWED before it sends on
       staging/prod: (a) put the real Resend key + addresses in .dev.vars locally
-      and via `wrangler secret put RESEND_API_KEY|CONTACT_TO|CONTACT_FROM`
+      and via `wrangler secret put RESEND_API_KEY|EMAIL_TO|EMAIL_FROM`
       (+ `--env staging`); (b) verify the sender domain in Resend; (c) Turnstile
       is the planned pre-launch spam hardening (needs site+secret keys).
 - [ ] (6) Testimonials + client list
