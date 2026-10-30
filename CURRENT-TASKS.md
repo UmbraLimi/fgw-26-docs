@@ -22,20 +22,20 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. ⚡ **[SITE-CROSSLINK]** — weave cross-links across pages so footer-tier material (Testimonials, FAQ,
-   History, Work) is reachable by more paths than the footer alone (`DEC-013-1` follow-on). Parked to
-   next conv. (promoted Conv 013)
-2. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; voice/humility
+1. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; voice/humility
    pass Conv 010; two named Urantia cases added Conv 013. Remainder: 🔴 client sign-off (production
    gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
-3. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
+2. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
    og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**.
-4. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
+3. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
    Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
-5. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
+4. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
    now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3**.
-6. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+5. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
+
+(No `⚡ do-next` marker set — operator to pick the next buildable; [SITE-NARRATIVE] is gated on sign-off,
+so [SITE-SEO] is the likely next build.)
 
 (**[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
 **[SITE-DEPLOY-STAGING]** ✅ Conv 008 · **[SITE-ASSESS]** ✅ Conv 009 · **[SITE-VISUAL]** ✅ Conv 010 ·
@@ -93,15 +93,6 @@ What's missing is (a) findable/fast (SEO), (b) the production deploy + the domai
 ---
 
 ## 🔥 Ordered
-
-### [SITE-CROSSLINK] · promoted Conv 013
-
-#### What it is
-Weave cross-links across the site so the footer-tier "explore mode" pages (Testimonials, FAQ, History,
-Work cases) are reachable by more paths than the footer alone — the `DEC-013-1` follow-on. Candidates:
-Method/About pointing into History and the cases; cases pointing to Testimonials/FAQ; FAQ answers linking
-to Phases/Work. History already cross-links to About/Work/Contact (Conv 013) as the first instance.
-Parked from Conv 013 to the next conv (operator).
 
 ### [SITE-NARRATIVE] · critical-path Phase 2
 
@@ -237,6 +228,14 @@ shell defaults to 22.
 _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — is satisfied.)
 
 ## ✅ Completed this conv
+
+### Conv 015 — cross-links woven across the footer-tier pages
+- **[SITE-CROSSLINK]** ✅ — six closing-"nudge" cross-links added (house style: muted paragraph +
+  `text-link`), so the footer-tier pages reachable *only* via the footer now have body-content inbound:
+  About→History/Work, Method→Work/FAQ, Work-index→Testimonials/FAQ, case template→Work/Testimonials (one
+  edit serves all six cases), Testimonials→Work/Contact, FAQ→Phases/Work. Executes the `DEC-013-1`
+  follow-on. `npm run verify` green; verified in the running product, light + dark. HEAD-only — not yet
+  on staging. Files: `about/method/faq/testimonials.astro`, `work/index.astro`, `work/[slug].astro`.
 
 ### Conv 014 — "The record" overhauled into audited, rendered transcripts
 Operator-led. Re-ran the `DEC-009-4` audit as a **fresh independent subagent per repo** (redline,
