@@ -6,6 +6,11 @@ durable record of what was done is the conv record + the board, never a line lef
 
 ## Open
 
+- [ ] [CASE-RECORD-OVERHAUL] The Work cases' "The record — an independent read" (AI-review) blocks are too
+  generalised and read as operator-massaged, not authentically AI-generated. Overhaul: have Claude actually
+  review the project repo + its docs and report real findings/highlights — show # of convs, the date range,
+  and real output in the format Claude would genuinely produce (can be lengthy). Stamp each with a review
+  date + Claude version for legitimacy. Goal: a real independent audit, not marketing. (operator, Conv 013)
 - [ ] [LEGACY-REF] Real current source now cloned at `~/projects/fg` (Astro 5, `UmbraLimi/fg`, last commit
   2025-08-11) — THIS, not the frozen-2023 `frasergorrie` repo, is the authoritative legacy reference.
   Reference-only: never commit/modify (same rule as `frasergorrie`). TODO: document in `_cc/repo-layout.md`,
