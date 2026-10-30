@@ -8,6 +8,23 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 013
+
+### DEC-013-1 — Two-tier IA: top-nav = decide-to-look, footer links = explore-mode depth
+**Decision:** Split navigation into two tiers by visitor intent. The **top nav** (Home, Work, Method, About,
+Contact) is the "should I look further?" surface — lean, hook-and-differentiate, for a cold visitor deciding
+whether FG is worth their time. **Footer links** are the "explore mode" surface — depth and reassurance for a
+warmer, already-interested visitor: **Testimonials, FAQ, and a standalone History page** live here, not in the
+top nav. Pages are also cross-linked as appropriate, so footer material is reachable by more paths than the
+footer alone.
+**Rationale:** Operator, Conv 013 — the two surfaces serve different visitor states; keeping conversion-critical
+hooks in a lean top nav while parking depth content in the footer stops the nav bloating and matches how
+interested visitors actually explore. Confirmed the model and chose to record it. Rejected: everything in the
+top nav (bloats the decide-to-look surface); a single flat nav.
+**Consequences:** Testimonials (Conv 013) is footer-linked; FAQ and a standalone History page are confirmed as
+footer-tier builds. Top nav stays at its current five. Cross-linking between pages is an explicit follow-on so
+footer pages aren't reachable only from the footer.
+
 ## Conv 012
 
 ### DEC-012-4 — the site header uses the elevated `--surface` tone
