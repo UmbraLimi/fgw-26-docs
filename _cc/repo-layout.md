@@ -9,19 +9,28 @@ Detail behind `CLAUDE.md` §Repos & paths. The rules that must be followed every
 |---|---|---|---|
 | `fgw-26-docs` | `~/projects/fgw-26-docs` | `UmbraLimi/fgw-26-docs` | **Project home** — docs, `DECISIONS.md`, conv records, `.claude/`, `CLAUDE.md`. CC launched here. |
 | `fgw-26` | `~/projects/fgw-26` | `UmbraLimi/fgw-26` | The **website** (Astro / Cloudflare Workers / Tailwind — `DEC-000-1`). |
-| `frasergorrie` | `~/projects/frasergorrie` | `UmbraLimi/frasergorrie` | The **legacy** frasergorrie.com (Next.js). 🔴 **Read-only reference — never committed or pushed by the lifecycle.** |
+| `fg` | `~/projects/fg` | `UmbraLimi/fg` | **Current live frasergorrie.com source** (Astro 5 + React + Cloudflare — the site rebuilt since 2023). 🔴 **Read-only reference — never committed or pushed.** The **authoritative legacy reference** (Conv 013). |
+| `frasergorrie` | `~/projects/frasergorrie` | `UmbraLimi/frasergorrie` | The **older** frasergorrie.com (Next.js, frozen `2023-01-21`) — superseded by `fg` as the live-site reference; kept only for deep history. 🔴 **Read-only — never committed or pushed.** |
+
+🔴 **Which legacy repo?** Use **`fg`** for anything referencing the current live site (its FAQ, About, case
+studies, bio, positioning are all current). `frasergorrie` is a frozen 2023 snapshot — its content predates
+the AI-era rebuild, so do **not** treat it as "what the site says" (this bit us in Conv 013: an early legacy
+review used the stale repo and wrongly concluded there was no FAQ). Both are read-only reference.
 
 **Dual-repo control** (`DEC-000-2`): `fgw-26-docs` governs `fgw-26`, mirroring the proven
 `fps-docs`/`fps`, `peerloop-docs`/`Peerloop`, `spt-docs`/`spt` pattern. The conv lifecycle commits and
-pushes `fgw-26-docs` + `fgw-26`; `frasergorrie` is never touched.
+pushes `fgw-26-docs` + `fgw-26`; **`fg` and `frasergorrie` are never touched.**
 
 ## Launch
 
 The `fgw` shell function (in `~/.zshrc`, machine-local):
 
 ```bash
-cd ~/projects/fgw-26-docs && claude --add-dir ../fgw-26 --add-dir ../frasergorrie
+cd ~/projects/fgw-26-docs && claude --add-dir ../fgw-26 --add-dir ../fg --add-dir ../frasergorrie
 ```
+
+`../fg` (the current live-site reference) was added as a working dir Conv 013 — in both the `fgw` launch
+line and the `_pl_fgw_roots` guard array. Takes effect next `fgw` launch.
 
 It runs behind the cross-project launch guard (refuses to start fgw from inside another project's tree).
 

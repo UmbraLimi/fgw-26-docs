@@ -119,7 +119,13 @@ Testimonials + a de-identified client list (operator idea-set item 6, Conv 012).
 modified to generalities with the client removed — but there is real reader value in the *kinds* of work,
 the difficulties, and generic aspects. A *named* client list may be impossible; anonymised testimonials
 ("a translation-platform client") are the likely form. Shares the production **client sign-off** gate with
-`[SITE-NARRATIVE]`. Not yet scoped — **next-conv start.**
+`[SITE-NARRATIVE]`.
+
+**Built Conv 013:** a footer-linked `/testimonials` page — the current live testimonial set (6,
+de-identified, from `fg/src/data/testimonials.ts`) under an "Over the years" section, plus a separate
+AI-era section. 🔴 **Owed before `[SITE-GO-LIVE]`:** the two AI-era testimonials are MOCK placeholders
+(rendered with a visible SAMPLE badge) — swap for the real quotes (operator sourcing) + client sign-off;
+they must never ship to production as if real.
 
 ### [SITE-NARRATIVE] · critical-path Phase 2
 
@@ -218,6 +224,14 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 ---
 
 ## 📋 Unordered
+
+### [CASE-RECORD-OVERHAUL] · promoted Conv 013
+The Work cases' **"The record — an independent read"** (AI-review) blocks read too generalised and
+operator-massaged. Overhaul into a genuine independent audit: Claude reviews each project's repo + docs
+and reports real findings — **# of convs, date range, concrete highlights**, in the format Claude actually
+produces (can be lengthy). **Stamp each with a review date + Claude version** for legitimacy. Goal: a real
+independent audit, not marketing. Note: the new Urantia cases deliberately carry no such block (public-URL
+proof instead) — decide whether they need one. (operator, Conv 013)
 
 ### [SITE-TOOLS] · promoted Conv 012
 Operator idea-set item 7, unscoped: a "tools" surface — ambiguous between a tools/stack page, the tech

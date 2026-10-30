@@ -20,6 +20,7 @@ say what job it does.
 ## Permissions & mode
 - **Start with NO deny rules and NO allow/auto-accept rules** beyond the inherited `AskUserQuestion` deny; build them as need arises. User runs **auto-mode** most of the time.
 - **`AskUserQuestion` is disabled — never call it.** Verbose/Explanatory output OFF; match response length to the question.
+- **Auto-mode classifier denial → offer the `!<command>` route first** (operator runs it in-session); don't default to "disable auto mode", and don't just retry the same call (it re-denies).
 
 ## Claims & verification
 - 🔴 **Label every claim I have not verified** — guess, inference, or read-off-an-artifact. Unlabelled must mean "I checked this, this conv." (`DEC-000-5` keeps the record; this keeps it honest.)

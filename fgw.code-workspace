@@ -9,8 +9,8 @@
       "name": "fgw-26-docs",
     },
     {
-      "path": "../frasergorrie",
-      "name": "frasergorrie (legacy, read-only reference)",
+      "path": "../fg",
+      "name": "fg (current live site, read-only reference)",
       "settings": {
         "typescript.validate.enable": false,
         "javascript.validate.enable": false,
