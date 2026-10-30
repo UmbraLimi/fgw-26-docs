@@ -36,7 +36,10 @@ you"*: state the help and how it works, not a rank over the client or the field.
   carry the credibility instead of a comparative claim.
 
 ## Scope
-All pages (Home, Method, Phases, Work + every case, About, Contact) and all "The record" blocks. The
+All pages (Home, Method, Phases, Work + every case, About, Contact) and all "The record" **summary**
+blocks. **Exempt (Conv 014):** the linked full audit **transcripts** at `/work/<slug>/record` are
+verbatim independent-auditor output (third-person, "he"), kept as-is on purpose — the auditor's voice,
+not Fraser's, is what makes them read as independent (`DEC-014-1`). The
 whole-site pass bringing the existing copy fully into this voice (including the humility rule) was done
 Conv 010 — all main pages, the four Work cases, and the footer. The **Phases** page (new Conv 011) was
 written to this voice from the start, including the humility rule (`DEC-010-2`).

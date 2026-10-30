@@ -200,19 +200,22 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 #### 🔴 Pre-production content gates (not for dev/staging)
 - Swap the two **MOCK AI-era testimonials** for real quotes (SAMPLE-badged until then) — `[SITE-TESTIMONIALS]`.
 - **Client sign-off** on all de-identified Work cases + testimonials — `[SITE-NARRATIVE]`.
+- **Client sign-off** on the two client "The record" summaries + transcripts (Conv 014) — `[CASE-RECORD-SIGNOFF]`.
 - Turnstile spam hardening on the contact form — `[SITE-CONTACT]`.
 
 ---
 
 ## 📋 Unordered
 
-### [CASE-RECORD-OVERHAUL] · promoted Conv 013
-The Work cases' **"The record — an independent read"** (AI-review) blocks read too generalised and
-operator-massaged. Overhaul into a genuine independent audit: Claude reviews each project's repo + docs
-and reports real findings — **# of convs, date range, concrete highlights**, in the format Claude actually
-produces (can be lengthy). **Stamp each with a review date + Claude version** for legitimacy. Goal: a real
-independent audit, not marketing. Note: the new Urantia cases deliberately carry no such block (public-URL
-proof instead) — decide whether they need one. (operator, Conv 013)
+### [CASE-RECORD-SIGNOFF] · promoted Conv 014
+The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
+the full token-redacted transcripts at `/work/translation-platform/record` and
+`/work/learning-marketplace/record` — need **client sign-off before the production deploy** (`DEC-009-2`);
+dev/staging is fine. 🔴 Mandatory redaction already applied + verified: the translation-platform client is
+The Center for Unity and the source text is the Urantia Book — the *same* client named publicly in the two
+Urantia cases — so the source-text identity, client org, and people (Gabriel/Carlos/CFU/UmbraLimi) must stay
+masked or the confidential engagement links to the named one. Pairs with the existing client-sign-off gate on
+`[SITE-GO-LIVE]` / `[SITE-NARRATIVE]`. (operator, Conv 014)
 
 ### [SITE-TOOLS] · promoted Conv 012
 Operator idea-set item 7, unscoped: a "tools" surface — ambiguous between a tools/stack page, the tech
@@ -235,29 +238,21 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 013 — contact finished + the footer "explore mode" content set
-Operator-led. Finished `[SITE-CONTACT]`, then built the footer-tier content (`DEC-013-1`), mining the
-**current** live site (`~/projects/fg`, not the stale 2023 `frasergorrie` repo). All committed; `npm run
-verify` green; each page verified in the running product (light + dark).
-- **[SITE-CONTACT]** ✅ — operator provisioned the Resend secrets + `EMAIL_FROM` (`fgw@frasergorrie.com`);
-  redeployed staging via `--secrets-file`; **live round-trip verified** (a real email was delivered).
-  Turnstile still deferred to go-live.
-- **[SITE-TESTIMONIALS]** ✅ built — footer-linked `/testimonials`: the current live set (6, de-identified)
-  under "Over the years" + a separate AI-era section with 2 **MOCK** placeholders (SAMPLE-badged). 🔴 Mock
-  swap + client sign-off owed before go-live (now on `[SITE-GO-LIVE]`).
-- **[SITE-FAQ]** ✅ — footer-linked `/faq`: 15 Q&As in four groups, native `<details>` (no JS), dev-only
-  (coaching/pricing dropped), based on the live FAQ + richer operator answers, to `VOICE.md`.
-- **[SITE-HISTORY]** ✅ — footer-linked `/history` ("From sea to software"): the full narrative, named
-  public Previous Clients, Core Principles, Meristics/Technifar. The 1982 turn corrected (married, chose
-  not to follow a marine-biology career). Operator-approved copy.
-- **Two Urantia Work cases** ✅ — `/work/discover-jesus` + `/work/discover-the-ub` for The Center for Unity
-  (named/public; live-URL proof). Resolves `[SITE-NARRATIVE]`'s deferred urantia case.
-- **Site-wide years computed** (`src/consts.ts`, from 1982) — replaces the hardcoded "44" on Home, About, FAQ.
-- **Two-tier IA** (`DEC-013-1`): top nav = decide-to-look; footer = explore-mode depth.
-- **Legacy reference corrected** — the real current source is `~/projects/fg` (added as a working dir + to
-  the VS Code workspace); the 2023 `frasergorrie` repo is superseded. Documented in `_cc/repo-layout.md`.
-  Added a CLAUDE.md auto-mode-denial rule. Promoted `[CASE-RECORD-OVERHAUL]`.
-Mechanism + screenshots in the conv record.
+### Conv 014 — "The record" overhauled into audited, rendered transcripts
+Operator-led. Re-ran the `DEC-009-4` audit as a **fresh independent subagent per repo** (redline,
+fgw-26-docs, and the client docs repos spt-docs / peerloop-docs), captured each full transcript, re-derived
+the public summaries from the real audits, and rendered the transcripts behind a button
+(`DEC-014-1`/`DEC-014-2`). `npm run verify` green; feature verified in the running product (light + dark).
+- **[CASE-RECORD-OVERHAUL]** ✅ — the four "The record" summaries replaced with audit-derived versions
+  (corrected scale: translation ~5mo/558 decisions, learning ~854 units/~6,800 tests, this-site 14 convs/48
+  decisions), each stamped with review date + model. New `record` collection + `/work/<slug>/record` route
+  renders the full transcript read-only (no download); a button sits below each summary. The two Urantia
+  cases take a **"Visit the live site"** button instead of an audit (their repos predate Claude Code).
+- **Client transcripts light-token-redacted** (`DEC-014-2`) — `{source documents}`/`{client}`/etc. with an
+  in-body legend; third-party tools (DeepL, BigBlueButton, Stripe…) + own harness (PLATO) named as-is.
+- **Promoted `[CASE-RECORD-SIGNOFF]`** — the client summaries + transcripts need client sign-off before the
+  production deploy (`DEC-009-2`); the SPT→Urantia linkage redaction is mandatory.
+Mechanism + the four audit transcripts' provenance in the conv record.
 
-(`[SITE-PHASES]` ✅ Conv 011 · `[SITE-ASSESS]` ✅ Conv 009 · `[SITE-VISUAL]` ✅ Conv 010 · Conv 012 (visual
-polish + contact form) — archived to their conv records.)
+(`[SITE-CONTACT]` / `[SITE-TESTIMONIALS]` / `[SITE-FAQ]` / `[SITE-HISTORY]` ✅ Conv 013 · `[SITE-PHASES]` ✅
+Conv 011 · `[SITE-ASSESS]` ✅ Conv 009 · `[SITE-VISUAL]` ✅ Conv 010 — archived to their conv records.)

@@ -6,6 +6,26 @@ _As of 2026-10-30._
 
 ---
 
+### DEC-014-2 — Client "The record" transcripts: light typed-token redaction, not heavy rewriting
+
+The two **client** "The record" transcripts (translation-platform, learning-marketplace) are
+**light-token-redacted**: only true identifiers are replaced with typed `{braces}` placeholders carrying an
+in-body legend — client/org, product, source-text identity, people, target languages — while counts, dates,
+decision IDs, and the concrete steering moments and misses stay **verbatim**. Common third-party products
+(DeepL, COMET, BigBlueButton, PlugNmeet, GetStream, Stripe, Cloudflare) and the owner's own harness (PLATO)
+are named as themselves. The client summaries + transcripts are gated on **client sign-off before the
+production deploy** (`DEC-009-2`); dev/staging is fine.
+
+### DEC-014-1 — "The record" overhauled into genuine re-audits rendered as full, linkable transcripts
+
+Each audited Work case (redline, this-site, translation-platform, learning-marketplace) is
+re-audited by a **fresh independent subagent** reading that project's own repo (the `DEC-009-4` three-axis
+method carried forward), the full question-plus-answer **transcript** is stored in a new `record` content
+collection and rendered **read-only at `/work/<slug>/record`**, reached by a button below the case summary;
+the public summary is re-derived from that real audit. The transcript is **viewable in-page, never
+downloaded**. The two named/public Urantia cases — whose repos **predate Claude Code**, so there is no
+decision-log to audit — take a **"Visit the live site"** button in the same slot instead.
+
 ### DEC-013-5 — Work cases: named + public (live-URL proof) alongside de-identified (record-block proof)
 
 The two Urantia sites (DiscoverJesus.com, DiscoverTheUB.com, for The Center for Unity) are

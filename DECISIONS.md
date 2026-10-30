@@ -8,6 +8,48 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 014
+
+### DEC-014-2 — Client "The record" transcripts: light typed-token redaction, not heavy rewriting
+**Decision:** The two **client** "The record" transcripts (translation-platform, learning-marketplace) are
+**light-token-redacted**: only true identifiers are replaced with typed `{braces}` placeholders carrying an
+in-body legend — client/org, product, source-text identity, people, target languages — while counts, dates,
+decision IDs, and the concrete steering moments and misses stay **verbatim**. Common third-party products
+(DeepL, COMET, BigBlueButton, PlugNmeet, GetStream, Stripe, Cloudflare) and the owner's own harness (PLATO)
+are named as themselves. The client summaries + transcripts are gated on **client sign-off before the
+production deploy** (`DEC-009-2`); dev/staging is fine.
+**Rationale:** Operator, Conv 014 — typed tokens keep the relational structure legible (who overruled whom,
+who reviewed what) while masking identity, and read as visibly, honestly redacted. Chosen over heavy prose
+de-identification (loses the concrete evidence that makes the audit credible) and over giving client cases no
+transcript at all (an asymmetry the operator rejected). Naming common third-party tools is safe once the
+identifying anchors are tokenized. 🔴 Mandatory and load-bearing: the translation-platform client is The
+Center for Unity and the source text is the Urantia Book — the *same* client named publicly in the two
+Urantia cases — so source-text/client/people must stay masked or the confidential engagement links to the
+named one.
+**Consequences:** the two client transcripts carry a legend + `{tokens}`; `[CASE-RECORD-SIGNOFF]` promoted to
+the board and added to the `[SITE-GO-LIVE]` pre-production gates as the sign-off checkpoint. Raw unredacted
+audits were kept only in gitignored session scratch, never committed.
+
+### DEC-014-1 — "The record" overhauled into genuine re-audits rendered as full, linkable transcripts
+**Decision:** Each audited Work case (redline, this-site, translation-platform, learning-marketplace) is
+re-audited by a **fresh independent subagent** reading that project's own repo (the `DEC-009-4` three-axis
+method carried forward), the full question-plus-answer **transcript** is stored in a new `record` content
+collection and rendered **read-only at `/work/<slug>/record`**, reached by a button below the case summary;
+the public summary is re-derived from that real audit. The transcript is **viewable in-page, never
+downloaded**. The two named/public Urantia cases — whose repos **predate Claude Code**, so there is no
+decision-log to audit — take a **"Visit the live site"** button in the same slot instead.
+**Rationale:** Operator, Conv 014 — the prior blocks read too generalised and operator-massaged; showing the
+actual audit transcript substantiates the "my work is checkable" claim far better than a polished paragraph.
+A dedicated rendered route beat an inline `<details>` expander (keeps long transcripts off the case page,
+shareable) and a JS modal (breaks the no-JS ethos); **download was rejected** (operator: render it, don't let
+them download the file). The auditor's third-person voice is kept verbatim (VOICE.md exemption) because the
+independence is the point. Builds on `DEC-009-4` (not superseded — its audit method + fresh-subagent-per-repo
+approach carry forward).
+**Consequences:** `record` collection + `src/pages/work/[slug]/record.astro` route + `.record-cta` /
+`.record-stamp`; four transcripts live, each stamped with review date + model; the four summaries updated with
+corrected scale; Urantia cases gain `liveUrl` on `caseExtras`. Client-transcript redaction specified in
+`DEC-014-2`.
+
 ## Conv 013
 
 ### DEC-013-5 — Work cases: named + public (live-URL proof) alongside de-identified (record-block proof)
