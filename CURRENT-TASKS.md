@@ -25,17 +25,15 @@ remainder**.
 1. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; voice/humility
    pass Conv 010; two named Urantia cases added Conv 013. Remainder: 🔴 client sign-off (production
    gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
-2. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
-   og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**.
-3. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
-   Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
-4. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
+2. ⚡ **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
+   Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO] (now built Conv 015).
+3. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
    now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3**.
-5. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+4. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-(No `⚡ do-next` marker set — operator to pick the next buildable; [SITE-NARRATIVE] is gated on sign-off,
-so [SITE-SEO] is the likely next build.)
+(`⚡` on [SITE-AI-SEO] — it shares machinery with the now-built [SITE-SEO]. [SITE-NARRATIVE] is #1 by
+critical-path order but gated on sign-off, so not the next *build*.)
 
 (**[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
 **[SITE-DEPLOY-STAGING]** ✅ Conv 008 · **[SITE-ASSESS]** ✅ Conv 009 · **[SITE-VISUAL]** ✅ Conv 010 ·
@@ -76,8 +74,10 @@ What's missing is (a) findable/fast (SEO), (b) the production deploy + the domai
   to production like the rest of the content.
 
 ### Phase 3 — Findable & fast *(in place before the domain points at production)*
-- **3.1 — `[SITE-SEO]`** — set astro `site:`, add `@astrojs/sitemap` + `robots.txt`, canonical +
-  `og:url`/`og:image`, `schema.org` JSON-LD (Person/ProfessionalService). All additive; dev/staging only.
+- **3.1 — `[SITE-SEO]`** — ✅ built Conv 015: astro `site:`, `@astrojs/sitemap` (styleguide excluded),
+  `robots.txt`, per-page canonical + `og:url` + Twitter card, `schema.org` JSON-LD (Person +
+  ProfessionalService). Deferred remainder: a 1200×630 `og:image` (hopper) — until then `twitter:card`
+  is `summary`, not `summary_large_image`.
 - **3.2 — `[SITE-AI-SEO]`** — LLM/generative-engine discoverability: `llms.txt`, structured facts, an
   AI-crawler policy. Shares the JSON-LD + crawlability work with 3.1.
 - **3.3 — `[SITE-PERF]`** — page-speed as a tracked discipline: a Lighthouse / Core Web Vitals pass +
@@ -142,17 +142,6 @@ the translation-system/SPT engagement; `learning-marketplace.md` = the Peerloop 
 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` (Gemini synthesis, historical);
 the honesty frame + evidence came from `discovery/WORKING-METHOD.md` + `discovery/EVIDENCE-LEDGER.md`.
-
-### [SITE-SEO] · critical-path Phase 3 · opened Conv 009
-
-#### What it is
-Traditional search-engine infrastructure the scaffold doesn't yet have (audit Conv 009). **Present
-already:** per-page `<title>` / `<meta description>` / Open Graph (title/description/type), multi-page
-URLs, `lang`, semantic HTML + WCAG AA. **Missing:** astro `site:` URL · `sitemap.xml` (`@astrojs/sitemap`)
-· `robots.txt` · canonical link · `og:url` / `og:image` / Twitter card · `schema.org` JSON-LD
-(Person/ProfessionalService). All additive, dev/staging only, no production action. Must be in place
-before go-live (Phase 4). Not in the original plan — SEO was cited there only as the rationale for the
-multi-page IA (`DEC-004-2`).
 
 ### [SITE-AI-SEO] · critical-path Phase 3 · opened Conv 009
 
@@ -236,6 +225,13 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
   edit serves all six cases), Testimonials→Work/Contact, FAQ→Phases/Work. Executes the `DEC-013-1`
   follow-on. `npm run verify` green; verified in the running product, light + dark. HEAD-only — not yet
   on staging. Files: `about/method/faq/testimonials.astro`, `work/index.astro`, `work/[slug].astro`.
+- **[SITE-SEO]** ✅ — SEO infrastructure built: `site: https://frasergorrie.com` + `@astrojs/sitemap`
+  (`/styleguide` filtered out), `public/robots.txt`, per-page canonical + `og:url` + Twitter card, and
+  site-wide `schema.org` JSON-LD (Person + ProfessionalService: Meristics / The Technifar Corporation,
+  US + Canada — facts from the History copy). `verify` green; sitemap (19 URLs), robots, head tags and
+  valid JSON-LD confirmed in built output. HEAD-only — not on staging. Deferred: `og:image` (hopper);
+  `sameAs` waits on [SITE-SOCIAL]. Files: `astro.config.mjs`, `src/layouts/Layout.astro`,
+  `public/robots.txt`, `package.json` (+`@astrojs/sitemap`).
 
 ### Conv 014 — "The record" overhauled into audited, rendered transcripts
 Operator-led. Re-ran the `DEC-009-4` audit as a **fresh independent subagent per repo** (redline,
