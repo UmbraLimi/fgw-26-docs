@@ -22,26 +22,24 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. ⚡ **[SITE-CONTACT]** — contact form built Conv 012 (Worker → Resend). Finish: operator sets per-env
-   secret files + verifies Resend sender domain, then redeploy staging + live-test end-to-end; Turnstile
-   spam hardening before launch. **Next conv.** (promoted Conv 012)
-2. ⚡ **[SITE-TESTIMONIALS]** — testimonials + a de-identified client list (operator idea-set item 6).
-   Honour NDA: generalities only, client removed, but surface the *kinds* of work + difficulties.
-   **Next-conv start.** (promoted Conv 012)
-3. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; **whole-site
-   voice/humility pass done Conv 010**. Remainder: optional urantia case + 🔴 client sign-off (production
+1. ⚡ **[SITE-CROSSLINK]** — weave cross-links across pages so footer-tier material (Testimonials, FAQ,
+   History, Work) is reachable by more paths than the footer alone (`DEC-013-1` follow-on). Parked to
+   next conv. (promoted Conv 013)
+2. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; voice/humility
+   pass Conv 010; two named Urantia cases added Conv 013. Remainder: 🔴 client sign-off (production
    gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
-4. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
+3. **[SITE-SEO]** — SEO infrastructure the scaffold lacks (site URL, sitemap, robots.txt, canonical,
    og:image, `schema.org` JSON-LD). Opened Conv 009. Critical-path **Phase 3**.
-5. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
+4. **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
    Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO].
-6. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
+5. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
    now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3**.
-7. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+6. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-(**[SITE-DEPLOY-STAGING]** — Phase 1 — ✅ Conv 008 · **[SITE-ASSESS]** — ✅ Conv 009 · **[SITE-VISUAL]** —
-✅ Conv 010 · **[SITE-PHASES]** — ✅ Conv 011; all in ✅ Completed.)
+(**[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
+**[SITE-DEPLOY-STAGING]** ✅ Conv 008 · **[SITE-ASSESS]** ✅ Conv 009 · **[SITE-VISUAL]** ✅ Conv 010 ·
+**[SITE-PHASES]** ✅ Conv 011; all in ✅ Completed / conv records.)
 
 ---
 
@@ -96,36 +94,14 @@ What's missing is (a) findable/fast (SEO), (b) the production deploy + the domai
 
 ## 🔥 Ordered
 
-### [SITE-CONTACT] · promoted Conv 012
-
-#### Status — Conv 012
-**Built this conv; needs operator config + a live test.** The Contact page is a real form posting to a
-Worker route (`src/pages/api/contact.ts`) that emails via Resend (replaces the mailto-only surface of
-`DEC-004-2`). Honeypot spam trap; progressive-enhancement fetch with a no-JS mailto fallback. Verified in
-dev (validation / send-attempt / honeypot). Env uses the file-based secrets convention (`VARS_SECRETS.md`):
-`EMAIL_FROM` is a committed var; `RESEND_API_KEY` + `EMAIL_TO` are secrets.
-
-**Owed by the operator:** create gitignored `.dev.vars.staging` / `.dev.vars.production` (real
-`RESEND_API_KEY` + `EMAIL_TO`), confirm/edit the committed `EMAIL_FROM`, and verify the Resend sender
-domain. **Then:** redeploy staging (`npm run deploy:staging`, now ships secrets via `--secrets-file`) and
-live-test the round-trip. **Deferred:** Cloudflare Turnstile spam hardening (needs its own site+secret
-keys) before go-live.
-
-### [SITE-TESTIMONIALS] · promoted Conv 012
+### [SITE-CROSSLINK] · promoted Conv 013
 
 #### What it is
-Testimonials + a de-identified client list (operator idea-set item 6, Conv 012). 🔴 **NDA frame
-(operator, Conv 012):** FG works under NDAs + verbal agreements; testimonials and any client reference are
-modified to generalities with the client removed — but there is real reader value in the *kinds* of work,
-the difficulties, and generic aspects. A *named* client list may be impossible; anonymised testimonials
-("a translation-platform client") are the likely form. Shares the production **client sign-off** gate with
-`[SITE-NARRATIVE]`.
-
-**Built Conv 013:** a footer-linked `/testimonials` page — the current live testimonial set (6,
-de-identified, from `fg/src/data/testimonials.ts`) under an "Over the years" section, plus a separate
-AI-era section. 🔴 **Owed before `[SITE-GO-LIVE]`:** the two AI-era testimonials are MOCK placeholders
-(rendered with a visible SAMPLE badge) — swap for the real quotes (operator sourcing) + client sign-off;
-they must never ship to production as if real.
+Weave cross-links across the site so the footer-tier "explore mode" pages (Testimonials, FAQ, History,
+Work cases) are reachable by more paths than the footer alone — the `DEC-013-1` follow-on. Candidates:
+Method/About pointing into History and the cases; cases pointing to Testimonials/FAQ; FAQ answers linking
+to Phases/Work. History already cross-links to About/Work/Contact (Conv 013) as the first instance.
+Parked from Conv 013 to the next conv (operator).
 
 ### [SITE-NARRATIVE] · critical-path Phase 2
 
@@ -168,8 +144,8 @@ the translation-system/SPT engagement; `learning-marketplace.md` = the Peerloop 
 **business identity** headline + a **44-year differentiator** (`DEC-010-3`).
 
 **Remaining:**
-- Optional urantia bake-off case — deferred (overlaps the translation case; its proof is already on Home
-  card #4).
+- ✅ **Urantia cases — done Conv 013:** added as two named, public Work cases (`/work/discover-jesus`,
+  `/work/discover-the-ub`) for The Center for Unity — live-URL proof, no "The record" block.
 - 🔴 **Client sign-off** required before the **production** deploy (`[SITE-GO-LIVE]`), **not** for
   dev/staging. De-identification guards dev/staging; sign-off guards production.
 
@@ -221,6 +197,11 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 - Where `frasergorrie.com` DNS lives today + whether/when its zone moves into this Cloudflare account.
 - The go-ahead for the cutover itself.
 
+#### 🔴 Pre-production content gates (not for dev/staging)
+- Swap the two **MOCK AI-era testimonials** for real quotes (SAMPLE-badged until then) — `[SITE-TESTIMONIALS]`.
+- **Client sign-off** on all de-identified Work cases + testimonials — `[SITE-NARRATIVE]`.
+- Turnstile spam hardening on the contact form — `[SITE-CONTACT]`.
+
 ---
 
 ## 📋 Unordered
@@ -254,27 +235,29 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 012 — visual/UX polish + a working contact form
-Operator idea-set (`B`, Conv 012) walked one at a time (order 1,2,4,5,6,7,8); items 1/2/4 shipped, 5
-built, 6/7/8 promoted. Plus a contact form and a secrets convention. All committed; `npm run verify`
-green; each verified in the running product (light + dark).
-- **[item 1] Case-page extras** — a JSON-driven system (`src/data/case-extras.json` + a `caseExtras`
-  collection): per-case vertical line-art **diagram**, **tools** chips, **benefit** line, and an index-card
-  **motif**. Mock content for all four cases; client-case diagrams are NDA-gated, shown with a "Sample"
-  caption. (`DEC-012-1`)
-- **[item 2] Section icons** — 7 feather glyphs: markers on the four Method claims + the three Home
-  "What I do" cards, and a "Judgment in practice" eyebrow on the proof band (parity fix).
-- **[item 4] Brand marks** — FG monogram **favicon/app-icon set** (svg + 32px png + apple-touch + a real
-  .ico, replacing the Astro default) and the monogram **header lockup** beside the wordmark.
-- **Theme fix** — the colour choice no longer drops on view-transition navigation (re-asserted on
-  `astro:after-swap`; Astro was resetting `<html>` attributes on swap).
-- **Header** given the elevated `--surface` tone — a subtle step from the body where the 1px line was
-  near-invisible in dark. (`DEC-012-4`)
-- **Contact form** (`[SITE-CONTACT]`, live Ordered row) — real form → Worker route → Resend, replacing
-  the mailto. Built + dev-verified; owed: operator secrets + Resend domain + live test. (`DEC-012-2`)
-- **Secrets/config convention** — `VARS_SECRETS.md` playbook (file-based, documented): `EMAIL_FROM` var +
-  `RESEND_API_KEY`/`EMAIL_TO` secrets, deploy via `--secrets-file`. **Fixed** the `DEC-008-1` deploy guard
-  (`assert-worker.mjs`) — it read the pre-v14 `dist/client/` path and had silently stopped guarding. (`DEC-012-3`)
+### Conv 013 — contact finished + the footer "explore mode" content set
+Operator-led. Finished `[SITE-CONTACT]`, then built the footer-tier content (`DEC-013-1`), mining the
+**current** live site (`~/projects/fg`, not the stale 2023 `frasergorrie` repo). All committed; `npm run
+verify` green; each page verified in the running product (light + dark).
+- **[SITE-CONTACT]** ✅ — operator provisioned the Resend secrets + `EMAIL_FROM` (`fgw@frasergorrie.com`);
+  redeployed staging via `--secrets-file`; **live round-trip verified** (a real email was delivered).
+  Turnstile still deferred to go-live.
+- **[SITE-TESTIMONIALS]** ✅ built — footer-linked `/testimonials`: the current live set (6, de-identified)
+  under "Over the years" + a separate AI-era section with 2 **MOCK** placeholders (SAMPLE-badged). 🔴 Mock
+  swap + client sign-off owed before go-live (now on `[SITE-GO-LIVE]`).
+- **[SITE-FAQ]** ✅ — footer-linked `/faq`: 15 Q&As in four groups, native `<details>` (no JS), dev-only
+  (coaching/pricing dropped), based on the live FAQ + richer operator answers, to `VOICE.md`.
+- **[SITE-HISTORY]** ✅ — footer-linked `/history` ("From sea to software"): the full narrative, named
+  public Previous Clients, Core Principles, Meristics/Technifar. The 1982 turn corrected (married, chose
+  not to follow a marine-biology career). Operator-approved copy.
+- **Two Urantia Work cases** ✅ — `/work/discover-jesus` + `/work/discover-the-ub` for The Center for Unity
+  (named/public; live-URL proof). Resolves `[SITE-NARRATIVE]`'s deferred urantia case.
+- **Site-wide years computed** (`src/consts.ts`, from 1982) — replaces the hardcoded "44" on Home, About, FAQ.
+- **Two-tier IA** (`DEC-013-1`): top nav = decide-to-look; footer = explore-mode depth.
+- **Legacy reference corrected** — the real current source is `~/projects/fg` (added as a working dir + to
+  the VS Code workspace); the 2023 `frasergorrie` repo is superseded. Documented in `_cc/repo-layout.md`.
+  Added a CLAUDE.md auto-mode-denial rule. Promoted `[CASE-RECORD-OVERHAUL]`.
 Mechanism + screenshots in the conv record.
 
-(`[SITE-PHASES]` ✅ Conv 011 · `[SITE-ASSESS]` ✅ Conv 009 · `[SITE-VISUAL]` ✅ Conv 010 — archived to their conv records.)
+(`[SITE-PHASES]` ✅ Conv 011 · `[SITE-ASSESS]` ✅ Conv 009 · `[SITE-VISUAL]` ✅ Conv 010 · Conv 012 (visual
+polish + contact form) — archived to their conv records.)

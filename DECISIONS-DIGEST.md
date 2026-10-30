@@ -2,9 +2,42 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-29._
+_As of 2026-10-30._
 
 ---
+
+### DEC-013-5 — Work cases: named + public (live-URL proof) alongside de-identified (record-block proof)
+
+The two Urantia sites (DiscoverJesus.com, DiscoverTheUB.com, for The Center for Unity) are
+published as **named, public** Work cases whose proof is the **live URL**, kept as **two** separate cases
+(meaningfully different stacks), with **no "The record — an independent read" block**. They sit alongside the
+de-identified client cases, whose proof is the NDA-safe "The record" audit.
+
+### DEC-013-4 — Career length is computed from 1982, never hardcoded
+
+"Years of experience" is computed site-wide as `currentYear − 1982` (`src/consts.ts` →
+`YEARS_EXPERIENCE`), not a hardcoded number. 1982 (the software-business start) is the load-bearing anchor.
+
+### DEC-013-3 — `fg` is the authoritative legacy reference; `frasergorrie` superseded
+
+`~/projects/fg` (the current live frasergorrie.com source, Astro 5) is the authoritative legacy
+reference; the `frasergorrie` repo (Next.js, frozen `2023-01-21`) is superseded, kept only for deep history.
+Both are read-only (never committed/pushed). `fg` added as a working dir (`fgw` launch + guard roots + the
+VS Code workspace).
+
+### DEC-013-2 — The site is dev-only: no coaching, no pricing surfaces
+
+fgw-26 presents **software development only** — no AI-coaching offering and no pricing /
+hourly-block / "buy hours" surfaces (coaching may happen off-site; it is not promoted on the site).
+
+### DEC-013-1 — Two-tier IA: top-nav = decide-to-look, footer links = explore-mode depth
+
+Split navigation into two tiers by visitor intent. The **top nav** (Home, Work, Method, About,
+Contact) is the "should I look further?" surface — lean, hook-and-differentiate, for a cold visitor deciding
+whether FG is worth their time. **Footer links** are the "explore mode" surface — depth and reassurance for a
+warmer, already-interested visitor: **Testimonials, FAQ, and a standalone History page** live here, not in the
+top nav. Pages are also cross-linked as appropriate, so footer material is reachable by more paths than the
+footer alone.
 
 ### DEC-012-4 — the site header uses the elevated `--surface` tone
 

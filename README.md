@@ -10,7 +10,8 @@ This is the **documentation / project-management repo** for the new frasergorrie
 |---|---|
 | **`fgw-26-docs`** (here) | Project home — docs, decisions, methodology, `.claude/`, `CLAUDE.md` |
 | **`fgw-26`** | The website code (Astro / Cloudflare Workers / Tailwind) |
-| **`frasergorrie`** | The **legacy** frasergorrie.com (Next.js) — reference only, being replaced |
+| **`fg`** | The **current live** frasergorrie.com source (Astro 5) — read-only reference (the authoritative one) |
+| **`frasergorrie`** | The **older 2023** frasergorrie.com (Next.js) — read-only reference, superseded by `fg` |
 
 Mirrors the proven `fps-docs` / `peerloop-docs` / `spt-docs` pattern: a docs repo that governs a
 sibling code repo.

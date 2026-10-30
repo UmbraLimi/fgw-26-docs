@@ -10,6 +10,50 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 013
 
+### DEC-013-5 — Work cases: named + public (live-URL proof) alongside de-identified (record-block proof)
+**Decision:** The two Urantia sites (DiscoverJesus.com, DiscoverTheUB.com, for The Center for Unity) are
+published as **named, public** Work cases whose proof is the **live URL**, kept as **two** separate cases
+(meaningfully different stacks), with **no "The record — an independent read" block**. They sit alongside the
+de-identified client cases, whose proof is the NDA-safe "The record" audit.
+**Rationale:** Operator, Conv 013 — these clients/sites are already credited publicly on the live site, so
+naming them is cleared and a live URL is stronger proof than a de-identified write-up; the two sites use
+different stacks, so one combined case would blur them. Rejected: one combined case (blurs the stacks);
+de-identifying them (needless — they're public); a fabricated "The record" block (no decision-log to audit).
+**Consequences:** `/work/discover-jesus` + `/work/discover-the-ub`; `caseExtras` icon enum widened
+(+ `blocks`, `compass`). Pattern set: named-public cases prove via live URL, de-identified via the record
+block. Tool lists provisional pending operator elaboration.
+
+### DEC-013-4 — Career length is computed from 1982, never hardcoded
+**Decision:** "Years of experience" is computed site-wide as `currentYear − 1982` (`src/consts.ts` →
+`YEARS_EXPERIENCE`), not a hardcoded number. 1982 (the software-business start) is the load-bearing anchor.
+**Rationale:** Operator, Conv 013 — a hardcoded "44" drifts and goes stale yearly (the live site already had
+a 43-vs-44 wobble that was only the year); computing from the anchor fixes it everywhere, matching the live
+site's approach. Rejected: hardcoding the number (drifts); recomputing per page (duplication).
+**Consequences:** `src/consts.ts` holds `CAREER_START_YEAR`/`YEARS_EXPERIENCE`; Home, About, FAQ interpolate
+it; renders 44 in 2026.
+
+### DEC-013-3 — `fg` is the authoritative legacy reference; `frasergorrie` superseded
+**Decision:** `~/projects/fg` (the current live frasergorrie.com source, Astro 5) is the authoritative legacy
+reference; the `frasergorrie` repo (Next.js, frozen `2023-01-21`) is superseded, kept only for deep history.
+Both are read-only (never committed/pushed). `fg` added as a working dir (`fgw` launch + guard roots + the
+VS Code workspace).
+**Rationale:** Conv 013 — discovered mid-conv that `frasergorrie` is a dead 2023 snapshot while the live site
+is years ahead (modern AI-era FAQ, named clients, current stack); an early review used the stale repo and
+wrongly concluded there was no FAQ. Rejected: scraping the live site per-need (no local source to grep);
+treating `frasergorrie` as current (it isn't).
+**Consequences:** `_cc/repo-layout.md`, `CLAUDE.md`, `README.md`, `fgw.code-workspace` updated; current-site
+reference work goes to `fg`.
+
+### DEC-013-2 — The site is dev-only: no coaching, no pricing surfaces
+**Decision:** fgw-26 presents **software development only** — no AI-coaching offering and no pricing /
+hourly-block / "buy hours" surfaces (coaching may happen off-site; it is not promoted on the site).
+**Rationale:** Operator, Conv 013 — the live site sells dev + coaching with pricing, but the new site is
+deliberately dev-focused (the nav already reflects this). This gated the FAQ: coaching/pricing/consultation
+questions dropped, and the "$250/hour" question reframed to "why pay an experienced developer" with no price.
+Rejected: porting the live site's coaching + pricing content.
+**Consequences:** FAQ scoped to 15 dev-only Q&As; no `/services`, `/ai-coaching`, or pricing pages; future
+mining of the live site must screen out coaching/pricing.
+
 ### DEC-013-1 — Two-tier IA: top-nav = decide-to-look, footer links = explore-mode depth
 **Decision:** Split navigation into two tiers by visitor intent. The **top nav** (Home, Work, Method, About,
 Contact) is the "should I look further?" surface — lean, hook-and-differentiate, for a cold visitor deciding
