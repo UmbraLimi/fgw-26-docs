@@ -25,17 +25,17 @@ remainder**.
 1. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; voice/humility
    pass Conv 010; two named Urantia cases added Conv 013. Remainder: 🔴 client sign-off (production
    gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
-2. ⚡ **[SITE-AI-SEO]** — AI/LLM discoverability (llms.txt, structured facts, AI-crawler policy). Opened
-   Conv 009. Critical-path **Phase 3**; shares machinery with [SITE-SEO] (now built Conv 015).
-3. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
-   now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3**.
-4. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
+2. ⚡ **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
+   now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3** — the last
+   Phase 3 build, now that [SITE-SEO] (Conv 015) and [SITE-AI-SEO] (Conv 016) are done.
+3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-(`⚡` on [SITE-AI-SEO] — it shares machinery with the now-built [SITE-SEO]. [SITE-NARRATIVE] is #1 by
-critical-path order but gated on sign-off, so not the next *build*.)
+(`⚡` on [SITE-PERF] — the last Phase 3 build. [SITE-NARRATIVE] is #1 by critical-path order but gated
+on sign-off, so not the next *build*.)
 
-(**[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
+(**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
+**[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
 **[SITE-DEPLOY-STAGING]** ✅ Conv 008 · **[SITE-ASSESS]** ✅ Conv 009 · **[SITE-VISUAL]** ✅ Conv 010 ·
 **[SITE-PHASES]** ✅ Conv 011; all in ✅ Completed / conv records.)
 
@@ -57,8 +57,10 @@ drafted and live on staging (Conv 009); the **visual + voice pass** is done (`[S
 editorial refresh + a whole-site voice/humility pass + a real headshot, Conv 010); and the **Phases
 self-qualification page** + a **sticky header** are built and on staging (`[SITE-PHASES]`, Conv 011);
 and **SEO infrastructure + footer-tier cross-links** are built and on staging (`[SITE-SEO]` /
-`[SITE-CROSSLINK]`, Conv 015), with staging held `noindex` (`DEC-015-1`). What's missing is (a) the rest
-of findable/fast — AI/LLM discoverability + a deliberate perf pass, (b) the production deploy + the domain.
+`[SITE-CROSSLINK]`, Conv 015), with staging held `noindex` (`DEC-015-1`); and **AI/LLM discoverability**
+is built and on staging (`[SITE-AI-SEO]`, Conv 016 — `/llms.txt`, the AI-crawler policy, and
+`FAQPage`/`OfferCatalog` JSON-LD). What's missing is (a) a deliberate perf pass (`[SITE-PERF]`), (b) the
+production deploy + the domain.
 
 ### Phase 1 — Staging reachable *(prove the deploy pipeline)* — ✅ DONE Conv 008
 - **1.0 — operator: clear Cloudflare auth** — ✅ done Conv 008 (`wrangler login`, OAuth).
@@ -80,8 +82,10 @@ of findable/fast — AI/LLM discoverability + a deliberate perf pass, (b) the pr
   excluded), a `robots.txt` endpoint (prod allow-all / staging `Disallow: /` + `noindex`, `DEC-015-1`),
   per-page canonical + `og:url` + Twitter card, `schema.org` JSON-LD (Person + ProfessionalService).
   Deferred remainder: a 1200×630 `og:image` (`[SITE-OG-IMAGE]`) — until then `twitter:card` is `summary`.
-- **3.2 — `[SITE-AI-SEO]`** — LLM/generative-engine discoverability: `llms.txt`, structured facts, an
-  AI-crawler policy. Shares the JSON-LD + crawlability work with 3.1.
+- **3.2 — `[SITE-AI-SEO]`** — ✅ built Conv 016, on staging: `/llms.txt` (Work section auto-generated),
+  the production AI-crawler policy in the robots endpoint (`DEC-016-1` — search bots allowed, training-only
+  declined), and machine-readable facts (`FAQPage` on `/faq` + `OfferCatalog`/`knowsAbout` on the global
+  JSON-LD, via a reusable `<head>` slot). Shared the JSON-LD + crawlability work with 3.1.
 - **3.3 — `[SITE-PERF]`** — page-speed as a tracked discipline: a Lighthouse / Core Web Vitals pass +
   budget, image optimization when imagery lands. Largely satisfied already (static + edge + near-zero JS).
 
@@ -144,14 +148,6 @@ the translation-system/SPT engagement; `learning-marketplace.md` = the Peerloop 
 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` (Gemini synthesis, historical);
 the honesty frame + evidence came from `discovery/WORKING-METHOD.md` + `discovery/EVIDENCE-LEDGER.md`.
-
-### [SITE-AI-SEO] · critical-path Phase 3 · opened Conv 009
-
-#### What it is
-Discoverability for LLMs / generative engines — not addressed anywhere in the current build (audit
-Conv 009). Candidate work: `llms.txt`, `schema.org` JSON-LD as machine-readable facts (shared with
-[SITE-SEO]), an explicit AI-crawler policy in `robots.txt`. The static, semantic, text-first HTML
-already helps. Scope to be specced; lean until [SITE-SEO] lands, since they share machinery.
 
 ### [SITE-PERF] · critical-path Phase 3 · opened Conv 009
 
@@ -225,6 +221,26 @@ shell defaults to 22.
 _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — is satisfied.)
 
 ## ✅ Completed this conv
+
+### Conv 016 — AI/LLM discoverability built, a site-wide "-12 years" bug fixed + guarded, all on staging
+- **[SITE-AI-SEO]** ✅ — three legs, built + verified live on staging (the `noindex` gate stays intact):
+  (A) the production `robots.txt` endpoint now carries an AI-crawler policy (`DEC-016-1`) — answer/search
+  bots allowed, training-only bots (GPTBot, CCBot, ClaudeBot) declined, Google-Extended allowed; (B) a new
+  `/llms.txt` endpoint (`src/pages/llms.txt.ts`) in llmstxt.org format, its Work section auto-generated
+  from the `work` collection; (C) machine-readable facts — a `FAQPage` JSON-LD on `/faq` (from `faq.json`)
+  plus `hasOfferCatalog`/`knowsAbout`/`description` on the global graph, delivered via a new reusable
+  `<head>` slot in `Layout`/`SiteLayout`. `verify` green; all three confirmed in built output + live
+  staging. Files: `robots.txt.ts`, `llms.txt.ts` (new), `Layout.astro`, `SiteLayout.astro`, `faq.astro`.
+- **`-12 years` bug fixed** (`DEC-016-2`) — `YEARS_EXPERIENCE`, a module-top-level const reading
+  `new Date()`, rendered as `-12` site-wide on **live** staging (home, about, FAQ), because the Cloudflare
+  Workers global scope reads the clock at epoch 0 (1970): `1970 − 1982 = −12`. Replaced with
+  `yearsExperience()` computed at call time; all five consumers updated; verified "44 years" live. Found
+  while verifying [SITE-AI-SEO] in the running product. Files: `consts.ts`, `index.astro`, `about.astro`,
+  `faq.astro`, `llms.txt.ts`.
+- **Latent-`Date` guard** — an eslint `no-restricted-syntax` rule forbidding top-level `Date` reads in
+  `src` modules (proven to fire on the antipattern, exempts functions + `.astro` frontmatter), plus a
+  vitest contract test for `yearsExperience()` (pins the callable shape; honest that Node can't reproduce
+  the Workers condition). Files: `eslint.config.js`, `consts.test.ts` (new).
 
 ### Conv 015 — SEO + cross-links built, staging-noindex added, whole batch deployed to staging
 - **[SITE-CROSSLINK]** ✅ — six closing-"nudge" cross-links added (house style: muted paragraph +

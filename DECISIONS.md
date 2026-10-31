@@ -8,6 +8,42 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 016
+
+### DEC-016-2 — Career length is computed at call time, not at module load (Workers Date-at-global-scope)
+**Decision:** `src/consts.ts` exposes `yearsExperience()` (a function) instead of the former
+`YEARS_EXPERIENCE` module const. Every consumer (`index`, `about`, `faq`, `llms.txt`) calls it at
+render/request time. `CAREER_START_YEAR = 1982` stays a const.
+**Rationale:** On the Cloudflare Workers runtime, `new Date()` evaluated at module/global scope returns
+epoch 0 (year 1970), so the old `new Date().getFullYear() - CAREER_START_YEAR` module const froze at
+`1970 − 1982 = −12` and rendered "-12 years" **site-wide on live staging** (home, about, FAQ). Moving the
+computation into a function defers it to render time, which executes with the real clock (verified: built
+output shows 44). Alternative that lost: forcing the affected pages to on-demand SSR (`prerender = false`)
+— heavier, changes caching, and unnecessary since render-time eval already has the real date.
+**Consequences:** The number recomputes each render and never goes stale (preserves the Conv 013 intent).
+General rule for this codebase: never read `Date`/time in a module top-level const — compute it inside a
+render/handler. Found while verifying `[SITE-AI-SEO]` in the running product (Conv 016).
+
+### DEC-016-1 — AI-crawler policy: welcome answer/search crawlers, decline training-only crawlers
+**Decision:** The production `robots.txt` endpoint (`[SITE-AI-SEO]`) adds explicit AI-crawler stanzas:
+**allow** the generative-engine *answer/search* crawlers that drive discoverability — OAI-SearchBot,
+ChatGPT-User, PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User, Google-Extended — and
+**disallow** the *training-only* crawlers GPTBot, CCBot, ClaudeBot. Staging is unchanged (`Disallow: /`
+for everyone, `DEC-015-1`). The roster lives in `src/pages/robots.txt.ts` and is easy to tune.
+**Rationale:** The task's goal is to *be found* by LLMs/answer-engines; "found" (live answer surfaces)
+and "trained on" (future model weights) are separable mechanisms served by different bots. Allowing the
+search/answer bots preserves essentially all live discoverability; declining training-only bots opts the
+content out of model training on principle at ~no discoverability cost, since training-corpus inclusion
+gives a brand-new low-authority site little in the near term. Google-Extended is deliberately **allowed**
+despite its training association, because blocking it also drops Google AI-Overviews grounding — a live
+discoverability surface. Alternatives that lost: (a) *welcome all* — rejected, concedes content to
+commercial model training for negligible extra discoverability; (b) *block all AI bots* — rejected, it
+contradicts the whole point of building llms.txt + JSON-LD.
+**Consequences:** `robots.txt` is advisory — this states a preference, not a wall; non-compliant fetchers
+ignore it. The AI-crawler policy exists only in the production build string, so like all robots policy it
+takes effect only on the eventual production deploy (`[SITE-GO-LIVE]`); nothing is live until then. The
+bot roster drifts over time and must be tended as crawlers are renamed/added.
+
 ## Conv 015
 
 ### DEC-015-1 — Staging builds are held out of search indexes, keyed on build MODE
