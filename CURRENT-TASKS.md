@@ -25,14 +25,16 @@ remainder**.
 1. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; voice/humility
    pass Conv 010; two named Urantia cases added Conv 013. Remainder: 🔴 client sign-off (production
    gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
-2. ⚡ **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
-   now live imagery exists, `public/fraser.jpg`). Opened Conv 009. Critical-path **Phase 3** — the last
-   Phase 3 build, now that [SITE-SEO] (Conv 015) and [SITE-AI-SEO] (Conv 016) are done.
+2. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
+   `public/fraser.jpg` exists). Opened Conv 009. Critical-path **Phase 3** — the last Phase 3 build, now
+   that [SITE-SEO] (Conv 015) and [SITE-AI-SEO] (Conv 016) are done. 🔴 **Waits until all images are added**
+   (operator, Conv 016) — the image-optimization leg needs the full image set in hand first.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-(`⚡` on [SITE-PERF] — the last Phase 3 build. [SITE-NARRATIVE] is #1 by critical-path order but gated
-on sign-off, so not the next *build*.)
+(No `⚡` do-next: [SITE-PERF] is the last Phase 3 build but now waits on the full image set (operator,
+Conv 016); [SITE-NARRATIVE] is #1 by critical-path order but gated on client sign-off. The next moves are
+operator-owed — add images, secure sign-off.)
 
 (**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
 **[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
@@ -88,6 +90,7 @@ production deploy + the domain.
   JSON-LD, via a reusable `<head>` slot). Shared the JSON-LD + crawlability work with 3.1.
 - **3.3 — `[SITE-PERF]`** — page-speed as a tracked discipline: a Lighthouse / Core Web Vitals pass +
   budget, image optimization when imagery lands. Largely satisfied already (static + edge + near-zero JS).
+  🔴 Waits until all images are added (operator, Conv 016) before the image-optimization leg.
 
 ### Phase 4 — Live at frasergorrie.com *(production + domain cutover)*
 - **4.1 — operator: confirm where `frasergorrie.com` DNS lives today** and whether/when its zone is in
@@ -151,13 +154,17 @@ the honesty frame + evidence came from `discovery/WORKING-METHOD.md` + `discover
 
 ### [SITE-PERF] · critical-path Phase 3 · opened Conv 009
 
+🔴 **Gated — waits until all images are added** (operator, Conv 016). The image-optimization leg is the
+substantive part of this task, and it needs the full image set in hand first; the measurement/budget leg
+can precede it but is largely satisfied by construction already. Do not start until the images land.
+
 #### What it is
 Page speed as a tracked discipline rather than a happy accident (audit Conv 009). **Already good by
 construction:** static output on Cloudflare's edge, near-zero JS (one hydrated island, `ThemeToggle`),
 immutable `Cache-Control` on `/_astro/*`, small Tailwind v4 CSS. **Not yet deliberate:** a Lighthouse /
-Core Web Vitals pass + a budget, and image optimization — now actionable: `public/fraser.jpg` is a real
-~330 KB photo served unoptimized on three spots (Home hero avatar + band, About), and the Cloudflare
-`IMAGES` binding is enabled but unused. The lightest of the three.
+Core Web Vitals pass + a budget, and image optimization — `public/fraser.jpg` is a real ~330 KB photo
+served unoptimized on three spots (Home hero avatar + band, About), and the Cloudflare `IMAGES` binding
+is enabled but unused. The lightest of the three — but gated on the full image set (above).
 
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4
 
@@ -241,26 +248,4 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
   `src` modules (proven to fire on the antipattern, exempts functions + `.astro` frontmatter), plus a
   vitest contract test for `yearsExperience()` (pins the callable shape; honest that Node can't reproduce
   the Workers condition). Files: `eslint.config.js`, `consts.test.ts` (new).
-
-### Conv 015 — SEO + cross-links built, staging-noindex added, whole batch deployed to staging
-- **[SITE-CROSSLINK]** ✅ — six closing-"nudge" cross-links added (house style: muted paragraph +
-  `text-link`), so the footer-tier pages reachable *only* via the footer now have body-content inbound:
-  About→History/Work, Method→Work/FAQ, Work-index→Testimonials/FAQ, case template→Work/Testimonials (one
-  edit serves all six cases), Testimonials→Work/Contact, FAQ→Phases/Work. Executes the `DEC-013-1`
-  follow-on. `npm run verify` green; verified in the running product, light + dark. **On staging** (Conv 015
-  redeploy). Files: `about/method/faq/testimonials.astro`, `work/index.astro`, `work/[slug].astro`.
-- **[SITE-SEO]** ✅ — SEO infrastructure built: `site: https://frasergorrie.com` + `@astrojs/sitemap`
-  (`/styleguide` filtered out), `robots.txt`, per-page canonical + `og:url` + Twitter card, and
-  site-wide `schema.org` JSON-LD (Person + ProfessionalService: Meristics / The Technifar Corporation,
-  US + Canada — facts from the History copy). `verify` green; sitemap (19 URLs), robots, head tags and
-  valid JSON-LD confirmed in built output. **On staging** (Conv 015 redeploy). Promoted the deferred
-  `og:image` remainder to the board (`[SITE-OG-IMAGE]`) — until it lands `twitter:card` stays `summary`;
-  `sameAs` waits on [SITE-SOCIAL]. Files: `astro.config.mjs`, `src/layouts/Layout.astro`,
-  `src/pages/robots.txt.ts`, `package.json` (+`@astrojs/sitemap`).
-- **Staging-noindex** ✅ (`DEC-015-1`) — the SEO assets are env-agnostic (canonicals/sitemap → prod), so
-  staging would be independently crawlable. Keyed on `import.meta.env.MODE === "staging"` (set by
-  `astro build --mode staging`), the staging build now serves `robots.txt` `Disallow: /` and a
-  `noindex, nofollow` meta site-wide; prod is unchanged (allow-all). `public/robots.txt` became a
-  prerendered endpoint `src/pages/robots.txt.ts`. Verified in the running product on live staging
-  (`robots.txt` + `noindex` both confirmed). Files: `src/pages/robots.txt.ts` (new), `src/layouts/Layout.astro`.
 

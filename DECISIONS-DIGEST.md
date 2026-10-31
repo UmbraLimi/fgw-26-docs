@@ -6,6 +6,20 @@ _As of 2026-10-31._
 
 ---
 
+### DEC-016-2 — Career length is computed at call time, not at module load (Workers Date-at-global-scope)
+
+`src/consts.ts` exposes `yearsExperience()` (a function) instead of the former
+`YEARS_EXPERIENCE` module const. Every consumer (`index`, `about`, `faq`, `llms.txt`) calls it at
+render/request time. `CAREER_START_YEAR = 1982` stays a const.
+
+### DEC-016-1 — AI-crawler policy: welcome answer/search crawlers, decline training-only crawlers
+
+The production `robots.txt` endpoint (`[SITE-AI-SEO]`) adds explicit AI-crawler stanzas:
+**allow** the generative-engine *answer/search* crawlers that drive discoverability — OAI-SearchBot,
+ChatGPT-User, PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User, Google-Extended — and
+**disallow** the *training-only* crawlers GPTBot, CCBot, ClaudeBot. Staging is unchanged (`Disallow: /`
+for everyone, `DEC-015-1`). The roster lives in `src/pages/robots.txt.ts` and is easy to tune.
+
 ### DEC-015-1 — Staging builds are held out of search indexes, keyed on build MODE
 
 Staging builds are blocked from indexing two ways: the `robots.txt` endpoint emits

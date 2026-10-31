@@ -2,26 +2,26 @@
 
 ## Where we left off
 
-Conv 015 shipped `[SITE-SEO]` and `[SITE-CROSSLINK]` (both pre-brownout; the conv resumed under its own
-number after a power loss), then added a **staging-noindex gate** (`DEC-015-1`): staging builds serve
-`robots.txt` `Disallow: /` + a site-wide `noindex` meta, keyed on build `MODE`, with `public/robots.txt`
-now a prerendered endpoint `src/pages/robots.txt.ts`. The **whole Conv 015 batch (SEO + cross-links +
-noindex) was redeployed to staging and verified live** (`fgw-staging.fgorrie.workers.dev`). Production is
-unchanged (allow-all, indexable). Phase 3's SEO leg is done; what remains in Phase 3 is AI/LLM
-discoverability and a deliberate perf pass.
+Conv 016 built **`[SITE-AI-SEO]`** (Phase 3) and deployed it to staging: a production AI-crawler policy
+in the `robots.txt` endpoint (`DEC-016-1`), a new `/llms.txt` endpoint (Work section auto-generated), and
+machine-readable facts (`FAQPage` on `/faq` + `OfferCatalog`/`knowsAbout` on the global JSON-LD, via a new
+reusable `<head>` slot). While verifying in the running product, found and fixed a **live site-wide
+"-12 years" bug** (`DEC-016-2`) — `YEARS_EXPERIENCE` was a module-top-level `new Date()` const, which the
+Workers global scope reads at epoch 0; now `yearsExperience()` computed at call time, verified "44 years"
+live. Added a **latent-`Date` eslint guard + a vitest test**. Staging held `noindex` throughout. Phase 3's
+findable/fast leg is now: SEO ✅ (Conv 015), AI-SEO ✅ (Conv 016), perf still owed.
 
 ## Next action
 
-Build **`[SITE-AI-SEO]`** (⚡ top of 🔥 Ordered, Phase 3) — operator-named next build. LLM/generative-engine
-discoverability: `llms.txt`, structured machine-readable facts, an explicit AI-crawler policy in the
-`robots.txt` endpoint. Reason: it reuses the JSON-LD + crawlability machinery `[SITE-SEO]` just laid down,
-and the `robots.txt` endpoint is now the natural home for the AI-crawler policy.
+**No un-gated CC build is queued** — both remaining ordered builds are gated:
+- **`[SITE-PERF]`** (the last Phase 3 build) 🔴 **waits until all images are added** (operator, Conv 016) —
+  the image-optimization leg needs the full image set first. Start it once the images land.
+- **`[SITE-NARRATIVE]`** is content-complete but gated on **client sign-off** (production gate).
+So the next moves are operator-owed: **add the full image set** (unblocks `[SITE-PERF]`) and **secure
+client sign-off** (unblocks production). `[SITE-OG-IMAGE]` also still needs a design-asset/operator call.
 
-⚠️ `[NODE-FLOOR]` persists — every `npm` command this conv needed a manual `nvm use 24` first.
-⚠️ The staging-noindex gate is **build-time**: any env's robots/noindex only changes on that env's next
-deploy. Production is currently allow-all + indexable (correct), but it is **not yet deployed** — prod has
-never been deployed at all (that is `[SITE-GO-LIVE]`, Phase 4).
+⚠️ Production has **never been deployed** — everything verified this conv is on staging only; prod
+robots/llms/AI-policy do not exist live until `[SITE-GO-LIVE]` (Phase 4).
 
 ## 🔬 Carried findings
-
 _None._
