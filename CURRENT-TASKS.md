@@ -55,8 +55,10 @@ v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006); the 
 is proven (Conv 008); real copy for all pages + Work cases (with independent "The record" blocks) is
 drafted and live on staging (Conv 009); the **visual + voice pass** is done (`[SITE-VISUAL]` warm-
 editorial refresh + a whole-site voice/humility pass + a real headshot, Conv 010); and the **Phases
-self-qualification page** + a **sticky header** are built and on staging (`[SITE-PHASES]`, Conv 011).
-What's missing is (a) findable/fast (SEO), (b) the production deploy + the domain.
+self-qualification page** + a **sticky header** are built and on staging (`[SITE-PHASES]`, Conv 011);
+and **SEO infrastructure + footer-tier cross-links** are built and on staging (`[SITE-SEO]` /
+`[SITE-CROSSLINK]`, Conv 015), with staging held `noindex` (`DEC-015-1`). What's missing is (a) the rest
+of findable/fast — AI/LLM discoverability + a deliberate perf pass, (b) the production deploy + the domain.
 
 ### Phase 1 — Staging reachable *(prove the deploy pipeline)* — ✅ DONE Conv 008
 - **1.0 — operator: clear Cloudflare auth** — ✅ done Conv 008 (`wrangler login`, OAuth).
@@ -74,10 +76,10 @@ What's missing is (a) findable/fast (SEO), (b) the production deploy + the domai
   to production like the rest of the content.
 
 ### Phase 3 — Findable & fast *(in place before the domain points at production)*
-- **3.1 — `[SITE-SEO]`** — ✅ built Conv 015: astro `site:`, `@astrojs/sitemap` (styleguide excluded),
-  `robots.txt`, per-page canonical + `og:url` + Twitter card, `schema.org` JSON-LD (Person +
-  ProfessionalService). Deferred remainder: a 1200×630 `og:image` (hopper) — until then `twitter:card`
-  is `summary`, not `summary_large_image`.
+- **3.1 — `[SITE-SEO]`** — ✅ built Conv 015, on staging: astro `site:`, `@astrojs/sitemap` (styleguide
+  excluded), a `robots.txt` endpoint (prod allow-all / staging `Disallow: /` + `noindex`, `DEC-015-1`),
+  per-page canonical + `og:url` + Twitter card, `schema.org` JSON-LD (Person + ProfessionalService).
+  Deferred remainder: a 1200×630 `og:image` (`[SITE-OG-IMAGE]`) — until then `twitter:card` is `summary`.
 - **3.2 — `[SITE-AI-SEO]`** — LLM/generative-engine discoverability: `llms.txt`, structured facts, an
   AI-crawler policy. Shares the JSON-LD + crawlability work with 3.1.
 - **3.3 — `[SITE-PERF]`** — page-speed as a tracked discipline: a Lighthouse / Core Web Vitals pass +
@@ -224,18 +226,25 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 015 — cross-links woven across the footer-tier pages
+### Conv 015 — SEO + cross-links built, staging-noindex added, whole batch deployed to staging
 - **[SITE-CROSSLINK]** ✅ — six closing-"nudge" cross-links added (house style: muted paragraph +
   `text-link`), so the footer-tier pages reachable *only* via the footer now have body-content inbound:
   About→History/Work, Method→Work/FAQ, Work-index→Testimonials/FAQ, case template→Work/Testimonials (one
   edit serves all six cases), Testimonials→Work/Contact, FAQ→Phases/Work. Executes the `DEC-013-1`
-  follow-on. `npm run verify` green; verified in the running product, light + dark. HEAD-only — not yet
-  on staging. Files: `about/method/faq/testimonials.astro`, `work/index.astro`, `work/[slug].astro`.
+  follow-on. `npm run verify` green; verified in the running product, light + dark. **On staging** (Conv 015
+  redeploy). Files: `about/method/faq/testimonials.astro`, `work/index.astro`, `work/[slug].astro`.
 - **[SITE-SEO]** ✅ — SEO infrastructure built: `site: https://frasergorrie.com` + `@astrojs/sitemap`
-  (`/styleguide` filtered out), `public/robots.txt`, per-page canonical + `og:url` + Twitter card, and
+  (`/styleguide` filtered out), `robots.txt`, per-page canonical + `og:url` + Twitter card, and
   site-wide `schema.org` JSON-LD (Person + ProfessionalService: Meristics / The Technifar Corporation,
   US + Canada — facts from the History copy). `verify` green; sitemap (19 URLs), robots, head tags and
-  valid JSON-LD confirmed in built output. HEAD-only — not on staging. Deferred: `og:image` (hopper);
+  valid JSON-LD confirmed in built output. **On staging** (Conv 015 redeploy). Promoted the deferred
+  `og:image` remainder to the board (`[SITE-OG-IMAGE]`) — until it lands `twitter:card` stays `summary`;
   `sameAs` waits on [SITE-SOCIAL]. Files: `astro.config.mjs`, `src/layouts/Layout.astro`,
-  `public/robots.txt`, `package.json` (+`@astrojs/sitemap`).
+  `src/pages/robots.txt.ts`, `package.json` (+`@astrojs/sitemap`).
+- **Staging-noindex** ✅ (`DEC-015-1`) — the SEO assets are env-agnostic (canonicals/sitemap → prod), so
+  staging would be independently crawlable. Keyed on `import.meta.env.MODE === "staging"` (set by
+  `astro build --mode staging`), the staging build now serves `robots.txt` `Disallow: /` and a
+  `noindex, nofollow` meta site-wide; prod is unchanged (allow-all). `public/robots.txt` became a
+  prerendered endpoint `src/pages/robots.txt.ts`. Verified in the running product on live staging
+  (`robots.txt` + `noindex` both confirmed). Files: `src/pages/robots.txt.ts` (new), `src/layouts/Layout.astro`.
 

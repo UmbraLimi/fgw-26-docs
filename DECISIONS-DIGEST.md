@@ -2,9 +2,18 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-30._
+_As of 2026-10-31._
 
 ---
+
+### DEC-015-1 — Staging builds are held out of search indexes, keyed on build MODE
+
+Staging builds are blocked from indexing two ways: the `robots.txt` endpoint emits
+`User-agent: * / Disallow: /`, and every page carries `<meta name="robots" content="noindex, nofollow">`.
+Both are gated on `import.meta.env.MODE === "staging"` — the mode `astro build --mode staging` sets (the
+`deploy:staging` script) — with production builds unchanged (allow-all robots, no robots meta). To make
+the robots policy differ per build, the static `public/robots.txt` was converted to a prerendered endpoint
+`src/pages/robots.txt.ts`.
 
 ### DEC-014-2 — Client "The record" transcripts: light typed-token redaction, not heavy rewriting
 

@@ -8,6 +8,27 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 015
+
+### DEC-015-1 — Staging builds are held out of search indexes, keyed on build MODE
+**Decision:** Staging builds are blocked from indexing two ways: the `robots.txt` endpoint emits
+`User-agent: * / Disallow: /`, and every page carries `<meta name="robots" content="noindex, nofollow">`.
+Both are gated on `import.meta.env.MODE === "staging"` — the mode `astro build --mode staging` sets (the
+`deploy:staging` script) — with production builds unchanged (allow-all robots, no robots meta). To make
+the robots policy differ per build, the static `public/robots.txt` was converted to a prerendered endpoint
+`src/pages/robots.txt.ts`.
+**Rationale:** The SEO assets added in `[SITE-SEO]` (astro `site:`, `@astrojs/sitemap`, per-page canonical)
+all resolve against `https://frasergorrie.com` regardless of which env is built, so the staging worker
+would otherwise be independently crawlable and indexable under its `*.workers.dev` domain. Keyed on `MODE`,
+**not** `import.meta.env.PROD`: under Vite `PROD` is derived from `NODE_ENV` and is `true` for both the
+staging and production builds, so it cannot tell them apart. Alternative that lost: rely on the
+canonical→prod tag alone — rejected because a canonical is a de-duplication *hint*, not a crawl block, and
+leaves the staging origin crawlable on its own.
+**Consequences:** `fgw-staging.fgorrie.workers.dev` is now fully disallowed + `noindex`ed (verified live on
+staging this conv); production is untouched. The robots policy now lives in code (an endpoint), not a
+static asset — any future env that *should* be indexed must be whitelisted in both the endpoint and the
+Layout `isStaging` check. The gate is build-time, so it only takes effect on the next deploy of each env.
+
 ## Conv 014
 
 ### DEC-014-2 — Client "The record" transcripts: light typed-token redaction, not heavy rewriting
