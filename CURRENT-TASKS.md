@@ -187,6 +187,12 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 
 ## 📋 Unordered
 
+### [SITE-OG-IMAGE] · promoted Conv 015
+A 1200×630 branded social-share card, the deferred remainder of `[SITE-SEO]` (Conv 015). Build the asset,
+then wire it into `og:image` + `twitter:image` and bump `twitter:card` from `summary` to
+`summary_large_image` in `src/layouts/Layout.astro`. 🔴 Needs a design asset / operator call on the card's
+look before any wiring. Blocks nothing — SEO works without it; wanted before `[SITE-GO-LIVE]`. (hopper → Conv 015)
+
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014
 The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
 the full token-redacted transcripts at `/work/translation-platform/record` and
@@ -233,21 +239,3 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
   `sameAs` waits on [SITE-SOCIAL]. Files: `astro.config.mjs`, `src/layouts/Layout.astro`,
   `public/robots.txt`, `package.json` (+`@astrojs/sitemap`).
 
-### Conv 014 — "The record" overhauled into audited, rendered transcripts
-Operator-led. Re-ran the `DEC-009-4` audit as a **fresh independent subagent per repo** (redline,
-fgw-26-docs, and the client docs repos spt-docs / peerloop-docs), captured each full transcript, re-derived
-the public summaries from the real audits, and rendered the transcripts behind a button
-(`DEC-014-1`/`DEC-014-2`). `npm run verify` green; feature verified in the running product (light + dark).
-- **[CASE-RECORD-OVERHAUL]** ✅ — the four "The record" summaries replaced with audit-derived versions
-  (corrected scale: translation ~5mo/558 decisions, learning ~854 units/~6,800 tests, this-site 14 convs/48
-  decisions), each stamped with review date + model. New `record` collection + `/work/<slug>/record` route
-  renders the full transcript read-only (no download); a button sits below each summary. The two Urantia
-  cases take a **"Visit the live site"** button instead of an audit (their repos predate Claude Code).
-- **Client transcripts light-token-redacted** (`DEC-014-2`) — `{source documents}`/`{client}`/etc. with an
-  in-body legend; third-party tools (DeepL, BigBlueButton, Stripe…) + own harness (PLATO) named as-is.
-- **Promoted `[CASE-RECORD-SIGNOFF]`** — the client summaries + transcripts need client sign-off before the
-  production deploy (`DEC-009-2`); the SPT→Urantia linkage redaction is mandatory.
-Mechanism + the four audit transcripts' provenance in the conv record.
-
-(`[SITE-CONTACT]` / `[SITE-TESTIMONIALS]` / `[SITE-FAQ]` / `[SITE-HISTORY]` ✅ Conv 013 · `[SITE-PHASES]` ✅
-Conv 011 · `[SITE-ASSESS]` ✅ Conv 009 · `[SITE-VISUAL]` ✅ Conv 010 — archived to their conv records.)
