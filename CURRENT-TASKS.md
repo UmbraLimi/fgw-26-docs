@@ -143,6 +143,13 @@ the translation-system/SPT engagement; `learning-marketplace.md` = the Peerloop 
 "before you do" / "a cheaper wrapper can't" framing site-wide. The Home hero was also re-led with the
 **business identity** headline + a **44-year differentiator** (`DEC-010-3`).
 
+**Home hero reworked — Conv 017.** New positioning h1 ("Custom software, designed with you — kept on
+course by me."), a supporting deck, and a two-paragraph narrative under a "Where I come in" h2
+(`DEC-017-1`); "44 years" → "over 40 years" on home (`DEC-017-3`); an em-dash footnote (`DEC-017-2`) and a
+home-only tighter section rhythm (`DEC-017-4`). Supersedes the home-hero h1 + "44" specifics of
+`DEC-010-3` (its flow-stepper/headshot/meet-Fraser structure still stands). Other pages' prose not yet
+reconciled to this voice — per-page as reached.
+
 **Remaining:**
 - ✅ **Urantia cases — done Conv 013:** added as two named, public Work cases (`/work/discover-jesus`,
   `/work/discover-the-ub`) for The Center for Unity — live-URL proof, no "The record" block.
@@ -229,23 +236,20 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 016 — AI/LLM discoverability built, a site-wide "-12 years" bug fixed + guarded, all on staging
-- **[SITE-AI-SEO]** ✅ — three legs, built + verified live on staging (the `noindex` gate stays intact):
-  (A) the production `robots.txt` endpoint now carries an AI-crawler policy (`DEC-016-1`) — answer/search
-  bots allowed, training-only bots (GPTBot, CCBot, ClaudeBot) declined, Google-Extended allowed; (B) a new
-  `/llms.txt` endpoint (`src/pages/llms.txt.ts`) in llmstxt.org format, its Work section auto-generated
-  from the `work` collection; (C) machine-readable facts — a `FAQPage` JSON-LD on `/faq` (from `faq.json`)
-  plus `hasOfferCatalog`/`knowsAbout`/`description` on the global graph, delivered via a new reusable
-  `<head>` slot in `Layout`/`SiteLayout`. `verify` green; all three confirmed in built output + live
-  staging. Files: `robots.txt.ts`, `llms.txt.ts` (new), `Layout.astro`, `SiteLayout.astro`, `faq.astro`.
-- **`-12 years` bug fixed** (`DEC-016-2`) — `YEARS_EXPERIENCE`, a module-top-level const reading
-  `new Date()`, rendered as `-12` site-wide on **live** staging (home, about, FAQ), because the Cloudflare
-  Workers global scope reads the clock at epoch 0 (1970): `1970 − 1982 = −12`. Replaced with
-  `yearsExperience()` computed at call time; all five consumers updated; verified "44 years" live. Found
-  while verifying [SITE-AI-SEO] in the running product. Files: `consts.ts`, `index.astro`, `about.astro`,
-  `faq.astro`, `llms.txt.ts`.
-- **Latent-`Date` guard** — an eslint `no-restricted-syntax` rule forbidding top-level `Date` reads in
-  `src` modules (proven to fire on the antipattern, exempts functions + `.astro` frontmatter), plus a
-  vitest contract test for `yearsExperience()` (pins the callable shape; honest that Node can't reproduce
-  the Workers condition). Files: `eslint.config.js`, `consts.test.ts` (new).
+### Conv 017 — home hero copy + UI refinements (untasked polish; no board row closed)
+- **Home hero reworked** (`DEC-017-1`) — new positioning h1 "Custom software, designed with you — kept
+  on course by me." (replaces the Conv 010 h1), a supporting deck (designed with you / AI for speed / me
+  for quality), and a two-paragraph narrative under a new "Where I come in" h2. Files: `index.astro`.
+- **Em-dash footnote** (`DEC-017-2`) — a site-wide footer `<details>` note owning the AI "tell"
+  (tool-vs-work), collapsed to a teaser + `more…`/`less…`; the home h1's first em dash carries a circled
+  "1" marker (CSS `::before`, kept out of the indexed heading; aria-label name) that auto-opens the note
+  (anchor targets an inner id). Files: `Footer.astro`, `index.astro`, `global.css`.
+- **"over 40 years" on home** (`DEC-017-3`) — replaced the computed `yearsExperience()` (=44) on both
+  home spots (hero sub-headline + teaser); true 44 kept in `llms.txt`; about/faq deferred per-page. The
+  now-unused import was dropped from `index.astro`. Files: `index.astro`.
+- **Home-only section rhythm** (`DEC-017-4`) — unified the white sections and the bands on a shared
+  2.5rem block padding (uniform 40px internal / 80px gaps), scoped to home via `section-tight` /
+  `band-tight` modifiers; verified live via the Chrome bridge. Files: `index.astro`, `global.css`.
+- All viewed via the dev server; **no deploy this conv**. `[SITE-NARRATIVE]` stays content-complete,
+  gated on client sign-off.
 

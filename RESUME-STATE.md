@@ -2,26 +2,25 @@
 
 ## Where we left off
 
-Conv 016 built **`[SITE-AI-SEO]`** (Phase 3) and deployed it to staging: a production AI-crawler policy
-in the `robots.txt` endpoint (`DEC-016-1`), a new `/llms.txt` endpoint (Work section auto-generated), and
-machine-readable facts (`FAQPage` on `/faq` + `OfferCatalog`/`knowsAbout` on the global JSON-LD, via a new
-reusable `<head>` slot). While verifying in the running product, found and fixed a **live site-wide
-"-12 years" bug** (`DEC-016-2`) — `YEARS_EXPERIENCE` was a module-top-level `new Date()` const, which the
-Workers global scope reads at epoch 0; now `yearsExperience()` computed at call time, verified "44 years"
-live. Added a **latent-`Date` eslint guard + a vitest test**. Staging held `noindex` throughout. Phase 3's
-findable/fast leg is now: SEO ✅ (Conv 015), AI-SEO ✅ (Conv 016), perf still owed.
+Conv 017 was a page-by-page prose + UI refinement of the **home page** (operator-driven, iterative),
+viewed on staging-via-dev only — **no deploy**. Shipped: a reworked hero (new positioning h1 "Custom
+software, designed with you — kept on course by me." + a supporting deck + a two-paragraph narrative
+under a "Where I come in" h2, `DEC-017-1`); a **site-wide footer em-dash footnote** that owns the AI
+"tell" (tool-vs-work), with a circled-"1" marker in the home h1 that auto-opens it (`DEC-017-2`);
+"44 years" → **"over 40 years"** on home (true 44 kept in `llms.txt`, `DEC-017-3`); and a **home-only
+uniform section rhythm** (2.5rem, scoped `section-tight`/`band-tight` modifiers, `DEC-017-4`).
+`[SITE-NARRATIVE]` stays content-complete, gated on client sign-off.
 
 ## Next action
 
-**No un-gated CC build is queued** — both remaining ordered builds are gated:
-- **`[SITE-PERF]`** (the last Phase 3 build) 🔴 **waits until all images are added** (operator, Conv 016) —
-  the image-optimization leg needs the full image set first. Start it once the images land.
-- **`[SITE-NARRATIVE]`** is content-complete but gated on **client sign-off** (production gate).
-So the next moves are operator-owed: **add the full image set** (unblocks `[SITE-PERF]`) and **secure
-client sign-off** (unblocks production). `[SITE-OG-IMAGE]` also still needs a design-asset/operator call.
+Continue the **page-by-page prose/UI pass** on the next page the operator chooses (home is done for now).
+When other pages are touched, reconcile two things the operator deferred per-page: (a) their prose/voice
+to the new home messaging, and (b) the "44 vs over 40" figure (`about.astro` + its "1982" anchor,
+`faq.astro`). No un-gated CC build is queued — the remaining ordered builds stay operator-gated
+(`[SITE-PERF]` waits on the full image set; production waits on client sign-off).
 
-⚠️ Production has **never been deployed** — everything verified this conv is on staging only; prod
-robots/llms/AI-policy do not exist live until `[SITE-GO-LIVE]` (Phase 4).
+⚠️ Production has **never been deployed** — all home changes this conv are dev/staging-visible only; they
+do not exist live until `[SITE-GO-LIVE]` (Phase 4).
 
 ## 🔬 Carried findings
 _None._

@@ -2,9 +2,42 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-10-31._
+_As of 2026-11-01._
 
 ---
+
+### DEC-017-4 — Home-only tighter, uniform section rhythm via scoped modifiers
+
+Home section spacing is unified with two modifier classes — `.section.section-tight` and
+`.band.band-tight`, both `padding-block: 2.5rem` — applied to all five home blocks, replacing the prior
+band→section `pt-0` pattern. Scoped to the home page only; every other page keeps the global
+`--section-rhythm` (`clamp(4rem, 8vw, 8rem)`).
+
+### DEC-017-3 — Home experience figure reads "over 40 years"; true 44 kept in `llms.txt`; other pages deferred
+
+On the home page the "44 years" figure (hero sub-headline + "meet Fraser" teaser) is
+replaced with the static phrase "over 40 years", and the now-unused `yearsExperience` import is dropped
+from `index.astro`. The exact computed figure (`yearsExperience()`, =44) is deliberately **kept** in
+`llms.txt.ts`; the remaining consumers (`about.astro` + its "1982" anchor, `faq.astro`) are left on the
+computed 44 — the "44 vs over-40" call is deferred per-page.
+
+### DEC-017-2 — Em-dash footnote owns the AI "tell"; marker is a pseudo-element anchor to an inner id
+
+A site-wide footer `<details>` note ("On the em dashes…") reframes the em-dash "AI tell"
+as the tool-vs-work thesis — collapsed to one teaser line + a `more…`/`less…` disclosure (no JS). The
+home h1's first em dash carries a small circled "1" marker linking to it. The digit is a CSS `::before`
+(presentational) so it stays **out of the h1's indexed/DOM text** (clean for SEO); the link's accessible
+name is an `aria-label`. The anchor's `href` targets an id on an element **inside** the `<details>` (not
+the `<details>` itself) so fragment navigation auto-opens the note (ancestor-reveal).
+
+### DEC-017-1 — Home hero reworked: new positioning h1 + supporting deck + two-paragraph narrative
+
+The home above-the-fold h1 becomes **"Custom software, designed with you — kept on course
+by me."** (replacing `DEC-010-3`'s "Software development — built with AI, kept on course."). A supporting
+deck follows (designed with you / AI builds for speed / I correct for quality — "Serious software, made
+with you rather than handed over"), then a two-paragraph narrative (the shift + AI's capability; the
+catch at scale) with a new **"Where I come in"** `<h2>` over the "my role" material. The "Let … years"
+differentiator line stays beside the headshot (now "over 40 years", `DEC-017-3`).
 
 ### DEC-016-2 — Career length is computed at call time, not at module load (Workers Date-at-global-scope)
 

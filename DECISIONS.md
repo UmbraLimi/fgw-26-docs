@@ -8,6 +8,73 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 017
+
+### DEC-017-4 — Home-only tighter, uniform section rhythm via scoped modifiers
+**Decision:** Home section spacing is unified with two modifier classes — `.section.section-tight` and
+`.band.band-tight`, both `padding-block: 2.5rem` — applied to all five home blocks, replacing the prior
+band→section `pt-0` pattern. Scoped to the home page only; every other page keeps the global
+`--section-rhythm` (`clamp(4rem, 8vw, 8rem)`).
+**Rationale:** Operator wanted a consistent, narrower vertical rhythm. The old pattern alternated wide
+(full+full) and tight (full+0 via `pt-0`) gaps; shrinking only the white sections left the bands
+ballooned (112px vs 40px) — a cramped-white / airy-band mismatch. Putting sections and bands on one
+shared reduced padding gives uniform 40px internal / 80px gaps (verified live via the Chrome bridge).
+Scoped to home (not the global token) per the per-page discipline. Alternative that lost: editing the
+global `--section-rhythm` — rejected because it re-spaces all 12 pages the operator hasn't reviewed.
+**Consequences:** Home uses a 2.5rem block rhythm; all other pages unchanged. The modifier selectors are
+compound (`.section.section-tight`) deliberately: a plain `.band-tight` tied `.band` on specificity and
+**lost on source order** (the base rule is defined later). Rolling the rhythm out site-wide later means
+promoting the modifiers or the global token.
+
+### DEC-017-3 — Home experience figure reads "over 40 years"; true 44 kept in `llms.txt`; other pages deferred
+**Decision:** On the home page the "44 years" figure (hero sub-headline + "meet Fraser" teaser) is
+replaced with the static phrase "over 40 years", and the now-unused `yearsExperience` import is dropped
+from `index.astro`. The exact computed figure (`yearsExperience()`, =44) is deliberately **kept** in
+`llms.txt.ts`; the remaining consumers (`about.astro` + its "1982" anchor, `faq.astro`) are left on the
+computed 44 — the "44 vs over-40" call is deferred per-page.
+**Rationale:** Operator — past a point an exact number is "noise in the guise of detail"; "over 40" reads
+cleaner in marketing copy, while the machine-readable `llms.txt` keeps the precise true figure. Narrows
+the "44" specifics of `DEC-010-3` for the home hero only. Alternative that lost: reconcile every page now
+— rejected per the per-page discipline (a hopper item to do so was dropped, Conv 017).
+**Consequences:** `index.astro` no longer consumes `yearsExperience()`; its consumers are now
+`about.astro`, `faq.astro`, `llms.txt.ts` — narrowing `DEC-016-2`'s "every consumer (index, about, faq,
+llms.txt)". If all displays eventually go static, `yearsExperience()` + its `DEC-016-2` eslint guard /
+vitest test become candidates to retire (not tracked — revisit when reached).
+
+### DEC-017-2 — Em-dash footnote owns the AI "tell"; marker is a pseudo-element anchor to an inner id
+**Decision:** A site-wide footer `<details>` note ("On the em dashes…") reframes the em-dash "AI tell"
+as the tool-vs-work thesis — collapsed to one teaser line + a `more…`/`less…` disclosure (no JS). The
+home h1's first em dash carries a small circled "1" marker linking to it. The digit is a CSS `::before`
+(presentational) so it stays **out of the h1's indexed/DOM text** (clean for SEO); the link's accessible
+name is an `aria-label`. The anchor's `href` targets an id on an element **inside** the `<details>` (not
+the `<details>` itself) so fragment navigation auto-opens the note (ancestor-reveal).
+**Rationale:** Operator keeps em dashes as deliberate punctuation and wants to pre-empt readers who'd
+dismiss AI-written prose. Spelling standardized to the dictionary "em dash" (two words). Marker evolved
+superscript-asterisk → circled "1" (subtler), sized/positioned by operator. SEO: a link inside an h1 is
+fine, but the literal "1" polluted the indexed heading, so it was moved to a pseudo-element (verified: h1
+DOM text is clean). Auto-open: verified live (Chrome 156) that targeting the `<details>` itself only
+**scrolls**, while targeting an inner id **opens** it; older browsers degrade gracefully (scroll +
+manual expand).
+**Consequences:** The footer note renders on every page using `SiteLayout` (all current pages); the in-h1
+marker is home-only. Copy spelling is "em dash" throughout.
+
+### DEC-017-1 — Home hero reworked: new positioning h1 + supporting deck + two-paragraph narrative
+**Decision:** The home above-the-fold h1 becomes **"Custom software, designed with you — kept on course
+by me."** (replacing `DEC-010-3`'s "Software development — built with AI, kept on course."). A supporting
+deck follows (designed with you / AI builds for speed / I correct for quality — "Serious software, made
+with you rather than handed over"), then a two-paragraph narrative (the shift + AI's capability; the
+catch at scale) with a new **"Where I come in"** `<h2>` over the "my role" material. The "Let … years"
+differentiator line stays beside the headshot (now "over 40 years", `DEC-017-3`).
+**Rationale:** Operator, Conv 017, via a tagline assessment. The new headline leads with the outcome
+(custom software) and the collaborative framing ("designed with you") — anti-elitist but premium
+("expensive, not elitist") — with the human-steering reassurance ("kept on course by me") in the headline
+itself. Chosen (tagline B) over the shorter "Custom software, designed with you." (A) to keep the
+nautical motif + personal accountability up top. Supersedes the **h1-text** specifics of `DEC-010-3`; that
+decision's hero structure (flow stepper, headshot, meet-Fraser band) still stands.
+**Consequences:** `index.astro` hero rebuilt; the positioning thesis (`[SITE-NARRATIVE]`) is now expressed
+in live home copy. Other pages' prose not yet reconciled to this voice (deferred per operator — per-page
+as reached).
+
 ## Conv 016
 
 ### DEC-016-2 — Career length is computed at call time, not at module load (Workers Date-at-global-scope)
