@@ -8,6 +8,31 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 019
+
+### DEC-019-1 — Project/testimonial data keeps the markdown-prose / JSON-structured split; no unified JSON
+**Decision:** Per-case and testimonial data keeps its current **two-store** shape: long-form prose (the
+`/work/<slug>` case bodies, and the reserved blog) stays in markdown content collections; structured
+attributes (per-case `type`/`icon`/`tools`/`benefit`/`diagram`, and testimonials) stay in zod-schema'd
+JSON (`src/data/case-extras.json`, `src/data/testimonials.json`). We do **not** build a unified per-case
+JSON record, and do not migrate the card fields (`title`/`summary`) out of markdown. The two-file authoring
+rule holds: **card text = `src/content/work/<slug>.md`; structured attributes = `src/data/case-extras.json`.**
+**Rationale:** Operator weighed a React + "database-like" single-JSON-per-project/testimonial approach and
+chose against it. (1) The structured data already *is* JSON, and Astro content collections are themselves a
+build-time queryable store (`getCollection(...).filter().sort()`), so the DB-like layer exists without a DB.
+(2) The site is static, near-zero-JS on Cloudflare's edge; React for content pages would add a client
+runtime, hydration, and a fetch story for no benefit on a lead-gen site. (3) The case body is long-form
+prose that renders to semantic HTML via Astro `render()` and diffs legibly in review (the operator reviews
+even AI-authored prose); markdown-in-JSON keeps the markdown while losing the file and the clean diff. The
+authoring-ergonomics argument for markdown is admittedly weaker while an agent is the sole author, but
+reasons (2)–(3) hold regardless of who authors. Alternatives that lost: **unified JSON per case, fields
+only, body left in markdown** (option A) and **everything incl. body into JSON** (option B) — both from the
+Conv 019 discussion. **React + a projects/testimonials data store** — rejected as a heavier architecture
+than a static lead-gen site needs.
+**Consequences:** This conv's `type` field stays in `case-extras.json` (the structured side of the split).
+Reaffirms `DEC-004-2` (single-sourced prose) and the Conv 012 JSON split — neither is superseded. No code
+change results from this decision; it records the road not taken so it isn't re-litigated.
+
 ## Conv 018
 
 ### DEC-018-3 — Home surfaces the two AI testimonials in a "Recent testimonials" band, shared + masked
