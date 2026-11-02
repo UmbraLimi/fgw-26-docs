@@ -32,9 +32,9 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-(No `⚡` do-next: [SITE-PERF] is the last Phase 3 build but now waits on the full image set (operator,
-Conv 016); [SITE-NARRATIVE] is #1 by critical-path order but gated on client sign-off. The next moves are
-operator-owed — add images, secure sign-off.)
+⚡ **Do-next — Conv 020's first work (operator, Conv 019):** **[CASE-FPS]** — assess the fps project +
+replace its Conv 019 placeholders (single-conv; task body below). The critical-path items above remain
+operator-gated: [SITE-PERF] waits on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off.
 
 (**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
 **[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
@@ -102,6 +102,25 @@ production deploy + the domain.
 ---
 
 ## 🔥 Ordered
+
+### [CASE-FPS] · ⚡ do-next · promoted Conv 019
+🔴 **Conv 020's first work** (operator, Conv 019) — single-conv, not multi-conv.
+
+#### What it is
+Assess the **fps** project — an in-house personal productivity desktop app at `~/projects/fps-docs`
+(several `fps-*` repos) — with the same independent-read treatment the other cases got, then replace the
+Conv 019 placeholders on its `/work` case.
+
+#### Built (Conv 019)
+Real title ("Secure personal productivity app") + summary on the `personal-productivity-app` case. The
+`case-extras.json` entry has type `desktop application` / status `ongoing` / `monitor` icon, but `tools`
+and `benefit` are placeholder and `mock:true`, and the case **body** is a placeholder stub.
+
+#### To do
+- Read `~/projects/fps-docs` + the `fps-*` repos. ⚠️ **Read-only — NOT one of the four fgw repos; never commit/push there.**
+- Write the real case body + real `tools`/`benefit`; set `mock:false`.
+- Confirm `type`/`status`; decide the real public name/slug (currently `personal-productivity-app`).
+- Decide whether it gets a "The record" independent-audit block + a diagram.
 
 ### [SITE-NARRATIVE] · critical-path Phase 2
 
@@ -216,6 +235,15 @@ then wire it into `og:image` + `twitter:image` and bump `twitter:card` from `sum
 `summary_large_image` in `src/layouts/Layout.astro`. 🔴 Needs a design asset / operator call on the card's
 look before any wiring. Blocks nothing — SEO works without it; wanted before `[SITE-GO-LIVE]`. (hopper → Conv 015)
 
+### [CASE-MOCKUPS] · promoted Conv 019
+Real per-case product mockup images for the `/work` case-study sidebars, replacing the Conv 019
+placeholder boxes. **Built (Conv 019):** the two-column case layout + a ~2:3 portrait placeholder box per
+case (`.case-mockup`, labeled with the title), in a sticky sidebar. **Owed by the operator:** a real
+portrait screenshot (~2:3) for each case — operator-produced (CC can't screenshot the apps). **Remainder:**
+decide the wiring (per-slug asset, e.g. `src/mockups/<slug>`, + an optional `caseExtras` field vs a filename
+convention) and wire each image in; and review the new `aside`'s mobile stacking order (prose-first vs
+extras-first). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish. (hopper → Conv 019)
+
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014
 The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
 the full token-redacted transcripts at `/work/translation-platform/record` and
@@ -231,6 +259,16 @@ surfaces the translation + marketplace quotes (kept masked for now). When the re
 **Gabriel** (translation) + **Brian** (marketplace) land, the attribution decision is here: naming Gabriel
 publicly links the confidential engagement to the named Urantia cases. Brian (marketplace) is not under
 this constraint.
+
+### [CASE-RECORD-REFRESH] · promoted Conv 019
+Refresh the independent-read **"The record"** assessments to the project's final state before production.
+The `this-site` read currently covers only **convs 000–008** (project now at conv 019) and is **stale**;
+the client-case records (Conv 014) should likewise reflect final state. **Input captured (Conv 019):** add
+the **data-structures episode** — the operator perceived a weakness in the markdown-prose / JSON-structured
+data split, probed it, and on discussion with the AI it was deemed unnecessary to change; status quo held
+(`DEC-019-1`) — a genuine "steering / judgment in the open" beat (a probe that ended in no change).
+🔴 Gated: wanted before `[SITE-GO-LIVE]`. Distinct from `[CASE-RECORD-SIGNOFF]` (that is client sign-off,
+not a content refresh). (hopper → Conv 019)
 
 ### [SITE-TOOLS] · promoted Conv 012
 Operator idea-set item 7, unscoped: a "tools" surface — ambiguous between a tools/stack page, the tech
@@ -253,7 +291,11 @@ After the page-by-page prose/UI pass is complete across the site, a two-part con
 messaging (Conv 017–018 reworked home hero, flow, judgment, "what I do", phases, testimonials); and
 (2) **the secondary data structures** — SEO metadata, AI-SEO / JSON-LD (`FAQPage`/`OfferCatalog`/Person),
 `/llms.txt`, the `robots.txt` endpoint, canonical + `og:` — reconciled to the final prose so they don't
-drift from what the pages now say. 🔴 Gated: waits until the prose pass is done (home done Conv 018;
+drift from what the pages now say; and (3) **layout measure** — confirm running prose uses a consistent
+max-width cap across pages (`max-w-2xl` vs `max-w-prose` etc.) so the readable line length doesn't vary
+page to page (hopper → Conv 019); and (4) **vertical rhythm** — the non-home pages carry too much top and
+bottom margin; normalise their top/bottom spacing so every page matches the home page (operator, Conv 019).
+🔴 Gated: waits until the prose pass is done (home done Conv 018;
 other pages pending). Pairs with the per-page reconciliations already owed (voice + "44 vs over 40",
 `RESUME-STATE.md` Conv 017). (hopper → Conv 018)
 
