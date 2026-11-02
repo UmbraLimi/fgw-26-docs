@@ -23,6 +23,9 @@ say what job it does.
 - **`AskUserQuestion` is disabled — never call it.** Verbose/Explanatory output OFF; match response length to the question.
 - **Auto-mode classifier denial → offer the `!<command>` route first** (operator runs it in-session); don't default to "disable auto mode", and don't just retry the same call (it re-denies).
 
+## Tooling
+- **Chrome bridge fails → it's usually the browser's Claude extension logged out.** Ask the operator to sign in again rather than retrying or treating it as a code fault.
+
 ## Claims & verification
 - 🔴 **Label every claim I have not verified** — guess, inference, or read-off-an-artifact. Unlabelled must mean "I checked this, this conv." (`DEC-000-5` keeps the record; this keeps it honest.)
 - 🔴 **Every claim carries its source inline: `[checked: <file/command>]` · `[inferred]` · `[assumed]`.** The tag describes the claim *as stated* — a generalisation drawn from a verified fact is `[inferred]`.
