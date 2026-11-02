@@ -314,27 +314,25 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 018 — home page prose/UI pass (untasked polish; no board row closed) + hopper ruled
-- **Flow chart reworded** — all four steps (We plan together / I set AI's operating conditions / AI drives
-  development / I course correct) rewritten with fuller glosses and a matching aria-label; the load-bearing
-  concept is that no plan fits one AI session, so multi-session work is the norm and needs managing.
-  Files: `index.astro`.
-- **"Judgment in practice" re-led** (`DEC-018-1`) — added a question lead-in ("Where does my judgment come
-  in?") + intro, and replaced the three anecdote cards with three "It happens in…" cards (choosing between
-  AI's options / judging whether tests are enough / knowing when AI lacks context), all on a new `scales`
-  icon. Files: `index.astro`, `Icon.astro`.
-- **"What I do" lead-in** — added an h2 ("Three ways I can help") + intro; card titles `h2`→`h3` for correct
-  heading hierarchy. Files: `index.astro`.
-- **"Find your phase" reworded** (`DEC-018-2`) — progression past phase one now reads as not guaranteed,
-  not an arc everyone completes. Files: `index.astro`.
-- **meet-Fraser line shortened** — "I'm Fraser Gorrie" → "I'm Fraser". Files: `index.astro`.
-- **"Recent testimonials" home band** (`DEC-018-3`) — new band surfacing the two AI testimonials shared
-  from `src/data/testimonials.json` (so home + `/testimonials` never drift), SAMPLE-badged, with a
-  secondary "See all testimonials" button; attributions kept masked. Files: `index.astro`.
-- **CLAUDE.md** — added a Tooling rule: a failed Chrome bridge usually means the browser's Claude extension
-  logged out; ask the operator to sign in.
-- **Deployed to staging** — `fgw-staging` rebuilt + deployed (version `058c8b9e`); first deploy since the
-  Conv 017 home work. `[SITE-NARRATIVE]` stays content-complete, gated on client sign-off.
-- **Hopper ruled** — promoted `[SITE-CONSISTENCY]` + `[SITE-ANALYTICS]`; folded the home-testimonial
-  attribution fact into `[SITE-TESTIMONIALS]` + `[CASE-RECORD-SIGNOFF]`.
+### Conv 019 — /work page pass (untasked polish; no board row closed) + hopper ruled
+- **Card header overhaul** (`DEC-019-2`) — `/work` cards now show project **type** (type-driven icon +
+  eyebrow label), **status** (right-aligned eyebrow), and a masked **"Client" pill** on client-owned cases.
+  Files: `work/index.astro`, `global.css`.
+- **Case-study two-column layout** (`DEC-019-3`) — prose main column + a sticky right **sidebar** holding a
+  ~2:3 portrait **mockup placeholder**, then benefit / diagram / tools (moved from above the prose); Client
+  badge mirrored under the h1. Files: `work/[slug].astro`, `global.css`.
+- **Per-case motif retired** (`DEC-019-4`, amends `DEC-012-1`) — cards + case pages share one type→icon map
+  (`lib/type-icon.ts`); the dead `caseExtras.icon` field removed from schema, data, README. Added a
+  `monitor` glyph. Files: `lib/type-icon.ts`, `Icon.astro`, `content.config.ts`, `case-extras.json`, `README.md`.
+- **Data model** — `caseExtras` gained required `type` + `status` enums (`DEC-019-2`); no unified JSON
+  (`DEC-019-1`). New **fps** case `personal-productivity-app` (real title/summary, placeholder body +
+  tools/benefit, `mock:true`). Files: `content.config.ts`, `case-extras.json`, `content/work/*`.
+- **Content copy** — retitled/edited this-site, redline, translation-platform (card + body reconciled to a
+  self-improving-pipeline framing, masking intact), learning-marketplace (dropped small-group), discover-*
+  lowercased; added a `/phases` trailing cross-link on `/work`.
+- **Typecheck green** — added `scales` to `Card.astro`'s icon union (red since Conv 018). File: `Card.astro`.
+- **Hopper ruled** — 4 promoted (`[CASE-FPS]` ⚡do-next, `[CASE-MOCKUPS]`, `[CASE-RECORD-REFRESH]`, prose-width
+  folded into `[SITE-CONSISTENCY]`), 3 done (translation body, motif retirement, scales fix). Added
+  `[SITE-CONSISTENCY]` checks (3) layout measure + (4) vertical rhythm (non-home margins).
+- **Not deployed** — no staging/prod deploy this conv (local dev only; production still gated on sign-off).
 

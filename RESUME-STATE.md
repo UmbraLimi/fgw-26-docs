@@ -2,27 +2,26 @@
 
 ## Where we left off
 
-Conv 018 was an operator-driven, page-by-page prose/UI pass on the **home page** (operator declared it
-done), deployed to staging at the end. Shipped: the four-step build-flow chart reworded (multi-session AI
-work is the key idea); the "Judgment in practice" band re-led as a question with three conceptual
-"It happens in…" cards on a new `scales` icon (`DEC-018-1`); a lead-in for "What I do"; "Find your phase"
-reworded so progression past phase one reads as not guaranteed (`DEC-018-2`); "I'm Fraser Gorrie" → "I'm
-Fraser"; and a new "Recent testimonials" home band sharing `src/data/testimonials.json`, SAMPLE-badged,
-attributions masked (`DEC-018-3`). Live on `fgw-staging.fgorrie.workers.dev`. `[SITE-NARRATIVE]` stays
-content-complete, gated on client sign-off.
+Conv 019 was the operator-driven **`/work` page pass**. Cards gained a structured header — project **type**
+(type-driven icon + eyebrow label), **status** (right-aligned), and a masked **"Client" pill**; case-study
+pages were restructured into a **two-column layout** with a sticky right sidebar holding a **~2:3 mockup
+placeholder** + benefit/diagram/tools. The per-case motif was **retired** in favour of a shared type→icon map
+(`lib/type-icon`; `caseExtras.icon` removed). Several case titles/summaries were rewritten (incl.
+translation-platform card + body, reconciled to a self-improving-pipeline framing). The recurring
+data-structure question was settled: **keep the markdown/JSON split, no unified JSON** (`DEC-019-1`). A new
+**fps** case was stubbed (placeholder body/extras). `astro check` is green again. **No deploy** — local dev only.
 
 ## Next action
 
-Continue the **page-by-page prose/UI pass** on the next page the operator chooses (home is done). On each
-page touched, reconcile two things still owed from Conv 017–018: (a) the page's prose/voice to the new home
-messaging, and (b) the "44 vs over 40" figure (`about.astro` + its "1982" anchor, `faq.astro`). When the
-whole prose pass is complete, the `[SITE-CONSISTENCY]` sweep (whole-site voice + the SEO/AI-SEO/`llms.txt`/
-`robots.txt` data structures) comes due. No un-gated CC build is queued — `[SITE-PERF]` waits on the full
-image set, `[SITE-ANALYTICS]` is a fresh build to scope, and production waits on client sign-off.
+🔥 **`[CASE-FPS]` is Conv 020's first work** (operator's call, Conv 019): assess the **fps** project — read
+`~/projects/fps-docs` + the `fps-*` repos (⚠️ **read-only — NOT an fgw repo; never commit/push there**) — then
+replace the placeholder body + `tools`/`benefit` on the `personal-productivity-app` case, set `mock:false`,
+confirm `type`/`status`, decide the real public name/slug (currently `personal-productivity-app`), and whether
+it gets a "The record" block + diagram. Reason: operator named it next; it's single-conv and CC-doable now,
+while the critical-path rows stay operator-gated (images for `[SITE-PERF]`, client sign-off for `[SITE-NARRATIVE]`).
 
-⚠️ Production has **never been deployed** — all home changes are dev/staging-visible only; they do not
-exist live until `[SITE-GO-LIVE]` (Phase 4). The home testimonials are **mock + SAMPLE-badged** and must be
-swapped for real signed-off quotes (and the Gabriel-vs-masked attribution resolved) before go-live.
+⚠️ Standing: production has **never** been deployed (all work dev/staging-only); the fps case + the case
+mockups are **placeholders** (`[CASE-FPS]`, `[CASE-MOCKUPS]`); home testimonials remain mock/SAMPLE.
 
 ## 🔬 Carried findings
 _None._

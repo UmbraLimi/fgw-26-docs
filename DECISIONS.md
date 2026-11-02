@@ -10,6 +10,50 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 019
 
+### DEC-019-4 — Retire the per-case motif; cards + case pages share one type→icon map
+**Decision:** The Conv 012 per-case "motif" icon is retired. `/work` cards **and** `/work/<slug>` case-page
+headers both derive their glyph from the project `type` via one shared map (`src/lib/type-icon.ts`):
+website→globe, web application→blocks, server application→box, browser extension→pin, desktop application→
+monitor. The now-dead `caseExtras.icon` field is removed from the schema, every `case-extras.json` entry,
+and the data README.
+**Rationale:** Conv 019 switched the cards to type-driven icons (`DEC-019-2`), leaving the case-page header
+still on the per-case motif — so card and page glyphs diverged on 4 cases. Operator chose consistency (card
+↔ page match) over the distinctive per-case motif. A shared module avoids duplicating the map across its two
+consumers. Alternative that lost: keep the per-case motif on case pages (distinctive per case, but glyphs
+differ card vs page).
+**Consequences:** Amends `DEC-012-1` (its index-card motif enrichment is gone; diagram/tools/benefit stand).
+`Icon.astro` keeps the full glyph set as a library — `languages`/`nodes`/`compass` are no longer referenced
+by cases but remain available. A new project type now requires a `type-icon` entry (TS enforces it).
+
+### DEC-019-3 — Case-study pages: two-column layout with a portrait mockup sidebar
+**Decision:** `/work/<slug>` pages become a two-column grid at `lg`: a prose main column + a **sticky** right
+sidebar (`top:5rem`, clears the header) holding, top-to-bottom, a **~2:3 portrait mockup** then the benefit /
+diagram / tools (moved out of the flow above the prose). Each case gets a per-case mockup **placeholder** box
+(labeled with the title) until real ~2:3 screenshots land; the Client badge is mirrored under the h1.
+**Rationale:** The single measure-width column (`--measure` 62ch) left ~45% of the ≤72rem container empty on
+desktop. Operator chose a sidebar (option A) over a newspaper two-column prose flow (rejected — poor web
+reading: down column 1, back up column 2) and over merely centering the column (doesn't use the space). The
+mockup was first set to 1:2 as a "go tall" signal, then to ~2:3 to match the real images' shape (and ease
+the sticky overflow). Real images are operator-owed (`[CASE-MOCKUPS]`).
+**Consequences:** A `.case-mockup` placeholder renders for every case (`mock` doesn't badge it). A sidebar
+taller than the viewport keeps its lower items below the fold while pinned, until release at page end.
+Mobile stacks main-then-aside (ordering flagged under `[CASE-MOCKUPS]`).
+
+### DEC-019-2 — /work cards surface project type, status, and client
+**Decision:** Each `/work` card header shows the project **type** (type-driven icon + uppercase eyebrow
+label) on the left and **status** (uppercase eyebrow) right-aligned; client-owned cases also carry a tinted
+**"Client" pill** (left cluster, mirrored under the case-page h1). `type` (website / web application /
+server application / browser extension / desktop application) and `status` (ongoing / deployed /
+experimental) are **required** `caseExtras` enums; the client marker is driven by the existing `work.client`
+field and shows a **generic "Client"** — never the client's name (masking).
+**Rationale:** Operator wanted the card to communicate what each project is, its lifecycle, and whether it
+was client work. Enums get build-time validation (not free strings). The client marker reuses existing data
+(`client` presence) rather than a new flag. A text pill beat an icon (no unambiguous "client" glyph); the
+generic label keeps de-identified and public cases identical and exposes no confidential name. Alternative
+that lost: badge personal projects too ("Personal") — operator chose client-only (absence = personal).
+**Consequences:** `type` drives the shared icon map (`DEC-019-4`). Adding a case now requires `type` +
+`status` values. The per-case `summary` renders under the type/status/client labels.
+
 ### DEC-019-1 — Project/testimonial data keeps the markdown-prose / JSON-structured split; no unified JSON
 **Decision:** Per-case and testimonial data keeps its current **two-store** shape: long-form prose (the
 `/work/<slug>` case bodies, and the reserved blog) stays in markdown content collections; structured
@@ -349,6 +393,9 @@ the owed operator config (Resend key/domain, per-env secrets) and the deferred T
 launch. Env wired per `DEC-012-3`.
 
 ### DEC-012-1 — `/work` case extras as a JSON data collection, separate from the prose
+🔧 **Amended by `DEC-019-4` (Conv 019):** the index-card **motif** enrichment is retired — card + case-page
+icons now come from the project `type` (`lib/type-icon`) and `caseExtras.icon` is removed. The JSON
+collection, diagram, tools, and benefit all still stand.
 **Decision:** Enrich each `/work` case with a vertical line-art **diagram** (SVG), a **tools** list, a
 **benefit** line, and an index-card **motif**, driven by a JSON data collection (`src/data/case-extras.json`
 + a zod-schema'd `caseExtras` collection) kept separate from the markdown prose.

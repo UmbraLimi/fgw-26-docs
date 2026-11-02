@@ -2,9 +2,42 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-01._
+_As of 2026-11-02._
 
 ---
+
+### DEC-019-4 — Retire the per-case motif; cards + case pages share one type→icon map
+
+The Conv 012 per-case "motif" icon is retired. `/work` cards **and** `/work/<slug>` case-page
+headers both derive their glyph from the project `type` via one shared map (`src/lib/type-icon.ts`):
+website→globe, web application→blocks, server application→box, browser extension→pin, desktop application→
+monitor. The now-dead `caseExtras.icon` field is removed from the schema, every `case-extras.json` entry,
+and the data README.
+
+### DEC-019-3 — Case-study pages: two-column layout with a portrait mockup sidebar
+
+`/work/<slug>` pages become a two-column grid at `lg`: a prose main column + a **sticky** right
+sidebar (`top:5rem`, clears the header) holding, top-to-bottom, a **~2:3 portrait mockup** then the benefit /
+diagram / tools (moved out of the flow above the prose). Each case gets a per-case mockup **placeholder** box
+(labeled with the title) until real ~2:3 screenshots land; the Client badge is mirrored under the h1.
+
+### DEC-019-2 — /work cards surface project type, status, and client
+
+Each `/work` card header shows the project **type** (type-driven icon + uppercase eyebrow
+label) on the left and **status** (uppercase eyebrow) right-aligned; client-owned cases also carry a tinted
+**"Client" pill** (left cluster, mirrored under the case-page h1). `type` (website / web application /
+server application / browser extension / desktop application) and `status` (ongoing / deployed /
+experimental) are **required** `caseExtras` enums; the client marker is driven by the existing `work.client`
+field and shows a **generic "Client"** — never the client's name (masking).
+
+### DEC-019-1 — Project/testimonial data keeps the markdown-prose / JSON-structured split; no unified JSON
+
+Per-case and testimonial data keeps its current **two-store** shape: long-form prose (the
+`/work/<slug>` case bodies, and the reserved blog) stays in markdown content collections; structured
+attributes (per-case `type`/`icon`/`tools`/`benefit`/`diagram`, and testimonials) stay in zod-schema'd
+JSON (`src/data/case-extras.json`, `src/data/testimonials.json`). We do **not** build a unified per-case
+JSON record, and do not migrate the card fields (`title`/`summary`) out of markdown. The two-file authoring
+rule holds: **card text = `src/content/work/<slug>.md`; structured attributes = `src/data/case-extras.json`.**
 
 ### DEC-018-3 — Home surfaces the two AI testimonials in a "Recent testimonials" band, shared + masked
 
