@@ -6,6 +6,26 @@ _As of 2026-11-01._
 
 ---
 
+### DEC-018-3 — Home surfaces the two AI testimonials in a "Recent testimonials" band, shared + masked
+
+The home page gains a "Recent testimonials" band rendering the two AI-era testimonials, read
+from `src/data/testimonials.json` (the same source the `/testimonials` page uses, not a copy), SAMPLE-badged
+via the existing `mock` flag, with a secondary "See all testimonials" button → `/testimonials`. Attributions
+stay the masked role descriptors for now.
+
+### DEC-018-2 — "Find your phase" framing: everyone starts at phase one; progression is not guaranteed
+
+The "Find your phase" band's prose is reworded from "Most people… pass through the same three
+phases" to "Everyone starts at phase one. Getting beyond it is the hard part, and far from guaranteed."
+
+### DEC-018-1 — "Judgment in practice" re-led as a question with conceptual "It happens in…" cards
+
+The home "Judgment in practice" band is reframed: a question lead-in ("Where does my judgment
+come in?") + intro sentence, and the three concrete anecdote cards (passing-tests fault / honest-when-not-
+working / measured bake-off) are replaced with three conceptual cards — "It happens in choosing between AI's
+options / judging whether the tests are enough / knowing when AI lacks the context to choose" — all using one
+new `scales` balance icon. Card titles are `h3` under the new section `h2`.
+
 ### DEC-017-4 — Home-only tighter, uniform section rhythm via scoped modifiers
 
 Home section spacing is unified with two modifier classes — `.section.section-tight` and

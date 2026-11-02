@@ -8,6 +8,49 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 018
+
+### DEC-018-3 — Home surfaces the two AI testimonials in a "Recent testimonials" band, shared + masked
+**Decision:** The home page gains a "Recent testimonials" band rendering the two AI-era testimonials, read
+from `src/data/testimonials.json` (the same source the `/testimonials` page uses, not a copy), SAMPLE-badged
+via the existing `mock` flag, with a secondary "See all testimonials" button → `/testimonials`. Attributions
+stay the masked role descriptors for now.
+**Rationale:** Operator wanted AI-project proof on the home page; both named people (Gabriel/translation,
+Brian/marketplace) have agreed to give real quotes but none exist yet. Sharing the data file keeps home and
+`/testimonials` from drifting. Attribution kept masked because naming **Gabriel** publicly would link the
+confidential translation engagement to the publicly-named Urantia cases (same client — `[CASE-RECORD-SIGNOFF]`).
+Alternative that lost: naming the two people now — rejected, it breaks the masking and the quotes aren't real
+yet. Alternative also rejected: hard-coding the quotes on home — would drift from `/testimonials`.
+**Consequences:** The home cards are still mock + SAMPLE-badged; the swap for real signed-off quotes now must
+cover home *and* `/testimonials` (`[SITE-TESTIMONIALS]`), and the Gabriel-vs-masked attribution decision is
+owed when the real quotes land (`[CASE-RECORD-SIGNOFF]`). A new `scales`-unrelated import (`testimonials.json`)
+is added to `index.astro`.
+
+### DEC-018-2 — "Find your phase" framing: everyone starts at phase one; progression is not guaranteed
+**Decision:** The "Find your phase" band's prose is reworded from "Most people… pass through the same three
+phases" to "Everyone starts at phase one. Getting beyond it is the hard part, and far from guaranteed."
+**Rationale:** Operator — the old copy implied progression through all three phases is something everyone
+completes; in reality those attempting AI coding start at phase 1 and advancing is not guaranteed. The new
+copy makes the phases a progression one can stall in, not an escalator. Avoided an unverified prevalence
+claim ("most people stall"). Alternative that lost: the measured rewrite ("Whether you progress… isn't
+guaranteed") — operator chose the punchier version.
+**Consequences:** The home funnel copy now matches the self-qualification intent of `/phases`; no change to
+`phases.astro` itself.
+
+### DEC-018-1 — "Judgment in practice" re-led as a question with conceptual "It happens in…" cards
+**Decision:** The home "Judgment in practice" band is reframed: a question lead-in ("Where does my judgment
+come in?") + intro sentence, and the three concrete anecdote cards (passing-tests fault / honest-when-not-
+working / measured bake-off) are replaced with three conceptual cards — "It happens in choosing between AI's
+options / judging whether the tests are enough / knowing when AI lacks the context to choose" — all using one
+new `scales` balance icon. Card titles are `h3` under the new section `h2`.
+**Rationale:** Operator — the cards read as answering "when does my judgment play a role?", so the lead should
+pose that question and the cards answer it; the three "It happens in…" moments generalise better than three
+specific anecdotes. One shared `scales` icon signals the common theme (weighing a call). Alternative that lost:
+keeping the anecdote cards and only restyling the mis-used sentence "eyebrows" into headings.
+**Consequences:** A `scales` icon was added to `Icon.astro`. The anecdote content is dropped from home (the
+anecdotes still live in the Work cases / `/testimonials`). The sibling "What I do" section was given a matching
+lead-in h2 + intro and its card titles corrected `h2`→`h3` for heading hierarchy.
+
 ## Conv 017
 
 ### DEC-017-4 — Home-only tighter, uniform section rhythm via scoped modifiers

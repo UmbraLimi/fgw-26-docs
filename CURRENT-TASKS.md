@@ -150,6 +150,15 @@ home-only tighter section rhythm (`DEC-017-4`). Supersedes the home-hero h1 + "4
 `DEC-010-3` (its flow-stepper/headshot/meet-Fraser structure still stands). Other pages' prose not yet
 reconciled to this voice — per-page as reached.
 
+**Home refined further — Conv 018.** Operator-driven page pass on home: the four-step flow chart reworded
+(the load-bearing idea is that big builds span multiple AI sessions and that needs managing); the
+"Judgment in practice" band re-led as a question ("Where does my judgment come in?") with three
+"It happens in…" cards on a new `scales` icon (`DEC-018-1`); "What I do" given a lead-in h2; "Find your
+phase" reworded so progression past phase one reads as **not guaranteed** (`DEC-018-2`); the meet-Fraser
+line shortened to "I'm Fraser"; and a new **"Recent testimonials" band** surfacing the two AI testimonials
+shared from `src/data/testimonials.json`, SAMPLE-badged (`DEC-018-3`). Live on staging (deploy Conv 018).
+Other pages still pending reconciliation; consistency sweep tracked as `[SITE-CONSISTENCY]`.
+
 **Remaining:**
 - ✅ **Urantia cases — done Conv 013:** added as two named, public Work cases (`/work/discover-jesus`,
   `/work/discover-the-ub`) for The Center for Unity — live-URL proof, no "The record" block.
@@ -191,6 +200,8 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 
 #### 🔴 Pre-production content gates (not for dev/staging)
 - Swap the two **MOCK AI-era testimonials** for real quotes (SAMPLE-badged until then) — `[SITE-TESTIMONIALS]`.
+  🔴 As of Conv 018 these two also render on the **home page** (a "Recent testimonials" band, shared from
+  `src/data/testimonials.json`), so the swap + SAMPLE removal must cover home *and* `/testimonials`.
 - **Client sign-off** on all de-identified Work cases + testimonials — `[SITE-NARRATIVE]`.
 - **Client sign-off** on the two client "The record" summaries + transcripts (Conv 014) — `[CASE-RECORD-SIGNOFF]`.
 - Turnstile spam hardening on the contact form — `[SITE-CONTACT]`.
@@ -215,6 +226,12 @@ Urantia cases — so the source-text identity, client org, and people (Gabriel/C
 masked or the confidential engagement links to the named one. Pairs with the existing client-sign-off gate on
 `[SITE-GO-LIVE]` / `[SITE-NARRATIVE]`. (operator, Conv 014)
 
+🔴 **Conv 018 — same masking governs the home testimonials.** The home "Recent testimonials" band now
+surfaces the translation + marketplace quotes (kept masked for now). When the real signed-off quotes from
+**Gabriel** (translation) + **Brian** (marketplace) land, the attribution decision is here: naming Gabriel
+publicly links the confidential engagement to the named Urantia cases. Brian (marketplace) is not under
+this constraint.
+
 ### [SITE-TOOLS] · promoted Conv 012
 Operator idea-set item 7, unscoped: a "tools" surface — ambiguous between a tools/stack page, the tech
 stack, or the tools FG uses to steer AI. Seeded already by the per-case **Built with** chips (`[SITE-CONTACT]`
@@ -230,26 +247,52 @@ Recurring papercut (Conv 011–012): a fresh Bash shell comes up on Node 22.19.0
 fails until a manual `nvm use 24`. Candidate fix: a repo `.nvmrc` + guard `typecheck`, or diagnose why the
 shell defaults to 22.
 
+### [SITE-CONSISTENCY] · promoted Conv 018
+After the page-by-page prose/UI pass is complete across the site, a two-part consistency review:
+(1) **the whole site** — voice, messaging, and terminology aligned across all pages to the final home
+messaging (Conv 017–018 reworked home hero, flow, judgment, "what I do", phases, testimonials); and
+(2) **the secondary data structures** — SEO metadata, AI-SEO / JSON-LD (`FAQPage`/`OfferCatalog`/Person),
+`/llms.txt`, the `robots.txt` endpoint, canonical + `og:` — reconciled to the final prose so they don't
+drift from what the pages now say. 🔴 Gated: waits until the prose pass is done (home done Conv 018;
+other pages pending). Pairs with the per-page reconciliations already owed (voice + "44 vs over 40",
+`RESUME-STATE.md` Conv 017). (hopper → Conv 018)
+
+### [SITE-ANALYTICS] · promoted Conv 018
+Add web analytics and design what it should teach us — not just a default pageview install. Two parts:
+(1) **choose + wire a provider** (GA4 vs a privacy-lighter option like Plausible/Cloudflare Web Analytics —
+weigh against the near-zero-JS build and the site's EU reachability / consent obligations), and
+(2) **event + funnel design** — define the clicks/paths worth tracking (hero CTAs → `/contact`, `/work`
+and `/phases` navigation, testimonials "see all", the phases self-qualification funnel) so we learn how
+prospects move through the site. 🔴 Privacy/consent is a real gate for a provider that sets cookies or
+sends PII. Likely wanted around `[SITE-GO-LIVE]`. (hopper → Conv 018)
+
 ## ⏸️ Parked
 
 _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — is satisfied.)
 
 ## ✅ Completed this conv
 
-### Conv 017 — home hero copy + UI refinements (untasked polish; no board row closed)
-- **Home hero reworked** (`DEC-017-1`) — new positioning h1 "Custom software, designed with you — kept
-  on course by me." (replaces the Conv 010 h1), a supporting deck (designed with you / AI for speed / me
-  for quality), and a two-paragraph narrative under a new "Where I come in" h2. Files: `index.astro`.
-- **Em-dash footnote** (`DEC-017-2`) — a site-wide footer `<details>` note owning the AI "tell"
-  (tool-vs-work), collapsed to a teaser + `more…`/`less…`; the home h1's first em dash carries a circled
-  "1" marker (CSS `::before`, kept out of the indexed heading; aria-label name) that auto-opens the note
-  (anchor targets an inner id). Files: `Footer.astro`, `index.astro`, `global.css`.
-- **"over 40 years" on home** (`DEC-017-3`) — replaced the computed `yearsExperience()` (=44) on both
-  home spots (hero sub-headline + teaser); true 44 kept in `llms.txt`; about/faq deferred per-page. The
-  now-unused import was dropped from `index.astro`. Files: `index.astro`.
-- **Home-only section rhythm** (`DEC-017-4`) — unified the white sections and the bands on a shared
-  2.5rem block padding (uniform 40px internal / 80px gaps), scoped to home via `section-tight` /
-  `band-tight` modifiers; verified live via the Chrome bridge. Files: `index.astro`, `global.css`.
-- All viewed via the dev server; **no deploy this conv**. `[SITE-NARRATIVE]` stays content-complete,
-  gated on client sign-off.
+### Conv 018 — home page prose/UI pass (untasked polish; no board row closed) + hopper ruled
+- **Flow chart reworded** — all four steps (We plan together / I set AI's operating conditions / AI drives
+  development / I course correct) rewritten with fuller glosses and a matching aria-label; the load-bearing
+  concept is that no plan fits one AI session, so multi-session work is the norm and needs managing.
+  Files: `index.astro`.
+- **"Judgment in practice" re-led** (`DEC-018-1`) — added a question lead-in ("Where does my judgment come
+  in?") + intro, and replaced the three anecdote cards with three "It happens in…" cards (choosing between
+  AI's options / judging whether tests are enough / knowing when AI lacks context), all on a new `scales`
+  icon. Files: `index.astro`, `Icon.astro`.
+- **"What I do" lead-in** — added an h2 ("Three ways I can help") + intro; card titles `h2`→`h3` for correct
+  heading hierarchy. Files: `index.astro`.
+- **"Find your phase" reworded** (`DEC-018-2`) — progression past phase one now reads as not guaranteed,
+  not an arc everyone completes. Files: `index.astro`.
+- **meet-Fraser line shortened** — "I'm Fraser Gorrie" → "I'm Fraser". Files: `index.astro`.
+- **"Recent testimonials" home band** (`DEC-018-3`) — new band surfacing the two AI testimonials shared
+  from `src/data/testimonials.json` (so home + `/testimonials` never drift), SAMPLE-badged, with a
+  secondary "See all testimonials" button; attributions kept masked. Files: `index.astro`.
+- **CLAUDE.md** — added a Tooling rule: a failed Chrome bridge usually means the browser's Claude extension
+  logged out; ask the operator to sign in.
+- **Deployed to staging** — `fgw-staging` rebuilt + deployed (version `058c8b9e`); first deploy since the
+  Conv 017 home work. `[SITE-NARRATIVE]` stays content-complete, gated on client sign-off.
+- **Hopper ruled** — promoted `[SITE-CONSISTENCY]` + `[SITE-ANALYTICS]`; folded the home-testimonial
+  attribution fact into `[SITE-TESTIMONIALS]` + `[CASE-RECORD-SIGNOFF]`.
 
