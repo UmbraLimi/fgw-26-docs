@@ -30,3 +30,4 @@ mock/SAMPLE; case mockups are placeholders (`[CASE-MOCKUPS]`, now minus fps).
   genuine captured audits. If they were composed the same way, it's a Work-section-wide honesty issue on
   the site's load-bearing "check my work" claim. Rule at `/r-start`: promote to a board row / investigate
   now / drop.
+  ✔ **ruled:** investigate now (Conv 021)

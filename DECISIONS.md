@@ -8,6 +8,65 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 021
+
+### DEC-021-3 — `paused` added to the case-status enum; translation-platform relabelled + card reworded
+**Decision:** The `caseExtras.status` enum (set in Conv 019) gains a fourth value, `paused`. The
+`translation-platform` case moves from `experimental` to `paused`, its over-long two-sentence card summary
+is cut to one sentence, and the summary now opens with "Exploratory." (renders as a lead on the Work card).
+**Rationale:** Operator (Conv 021): the engagement was exploratory/experimental and ran several months; the
+client paused it to explore AI-only pipelines on newer models — so it is on hiatus, not experimental-ongoing.
+The chip ("experimental") contradicted the prose ("clean and deliberate hiatus… not abandoned") and the audit
+("wound down cleanly"); `paused` reconciles them and is consistent with the honesty frame. Alternatives that
+lost: keep `experimental` and soften the prose (bends the truer text to the weaker label); leave it as the
+deliberate public framing (the mismatch stays visible). "Exploratory." as the card lead keeps the exploratory
+character the status word drops. The enum renders through `.eyebrow` (uppercased), so lowercase `paused`
+displays as "PAUSED" like the others.
+**Consequences:** `content.config.ts` enum widened; `case-extras.json` status set to `paused`; the summary in
+`content/work/translation-platform.md` rewritten. Build green; verified on the Work index (card shows
+"Exploratory. …" + PAUSED, length now comparable to its neighbour). Not deployed. `paused` is now available
+to any future case.
+
+### DEC-021-2 — A shared "Why this is checkable" framing line + modal above every audited record
+**Decision:** Every audited `/work` case renders, above its "The record" CTA, a shared one-line frame —
+"An independent read like this is only possible because the project is built to be examined." — with a
+"Why this is checkable" link that opens a modal explaining the method that makes the audit possible: a
+separate docs repo, numbered decisions (the wrong ones kept, not erased), turn-by-turn capture the AI
+learns from so a documented mistake isn't repeated, and full client access to every repo. Single-sourced
+in a new `RecordMethod.astro`, rendered by `work/[slug].astro` only where a `record` exists (never on the
+live-link-only Urantia cases). The modal is a native `<dialog>` driven by a view-transition-safe delegated
+inline script — no hydrated island.
+**Rationale:** Operator (Conv 021): the Work cases' self-audits are only possible because of the method,
+and readers should be told why — "we need to frame for our readers why this kind of meta-analysis is
+possible." It also states the transparency guarantee (client has every repo). Placement chose a shared line
+over per-case prose; option C (shared line) over A (this-site-only) / B (Method-page-only). A native
+`<dialog>` over a framework island keeps the near-zero-JS discipline (`ThemeToggle` stays the sole island);
+over a CSS-only `<details>` it gives focus-trap + Esc free. Placed with the CTA (just under the summary)
+rather than lifting the "## The record" heading out of markdown — lean over an exact-position refactor.
+**Consequences:** New `src/components/RecordMethod.astro`; `work/[slug].astro` imports + renders it in the
+`record` branch; styles added under `@layer components` in `global.css` (`.record-method`, `.record-modal`
++ `::backdrop`, themed via `light-dark()` tokens). Verified in the running product (localhost dev): renders
+on audited cases, absent on `discover-jesus`; modal opens, closes via × and backdrop, correct light + dark.
+Copy to be reconciled against `reference/VOICE.md` at the consistency pass. Not deployed (local dev only).
+
+### DEC-021-1 — The four pre-existing "The record" transcripts accepted as genuine; no re-run
+**Decision:** The four Conv-014 "The record" transcripts (`redline`, `this-site`, `translation-platform`,
+`learning-marketplace`) are accepted as genuine independent-subagent captures and left as-is — no re-audit,
+no re-label. Resolves the open question `DEC-020-4` carried to this `/r-start`.
+**Rationale:** Operator, after the investigation: "satisfied the work … for these 4 projects is already
+accurate and representative of what I would [want] the sub-agents to uncover." The committed record
+consistently documents fresh-subagent-per-repo production (`DEC-014-1`, `DEC-009-4`; the Conv-014 record +
+dialogue; an incidental capture-hook detail — subagent hand-backs landing in `.conv-turns.jsonl` as
+user-role turns — that is hard to fabricate), and this production path differs from fps's first-pass, which
+`DEC-020-4` records as authoring-model composition. The dispositive raw capture is not recoverable
+(`.conv-turns.jsonl` resets per conv; the raw audits were gitignored scratch), so acceptance rests on the
+operator's judgement of accuracy, not on re-verifiable machine evidence. Alternatives that lost: re-run the
+four as fresh audits like fps (operator judged the content already accurate); re-label the `unedited`-opener
+wording on `redline`/`this-site` (provenance is genuine, so the wording is not a false claim).
+**Consequences:** The four transcripts stand unchanged. The Work-section-wide honesty question is closed.
+`[CASE-RECORD-REFRESH]` (staleness of the `this-site` convs-000–008 read + final-state client reads) is a
+separate, still-open content concern, untouched by this.
+
 ## Conv 020
 
 ### DEC-020-4 — "The record" transcripts must be genuine independent audits (redacted), not model-composed
@@ -23,9 +82,9 @@ independent of the authoring context. Alternative that lost: reframe the page as
 keep model-authored prose (honest, but abandons the independent-audit claim the other cases make).
 **Consequences:** Replaced the fabricated fps transcript with a real redacted audit (463 decisions;
 per-line-tiering build-then-reversal; docs out-commit code ~3:1; "the roof is not on") + an author's-response
-section; the case-body "The record" summary was reconciled to it. 🔴 Open: whether the pre-existing
-transcripts (redline, this-site, translation-platform, learning-marketplace) are genuine captures — carried
-to next `/r-start`.
+section; the case-body "The record" summary was reconciled to it. ✔ Resolved by `DEC-021-1`: the four
+pre-existing transcripts (redline, this-site, translation-platform, learning-marketplace) accepted as
+genuine captures, no re-run.
 
 ### DEC-020-3 — Public-site copy states the confidentiality hardening present-tense and vague, though planned-not-built
 **Decision:** The fps case states name-obfuscation and secret-encryption as present capabilities, worded
