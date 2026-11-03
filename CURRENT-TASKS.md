@@ -183,6 +183,9 @@ immutable `Cache-Control` on `/_astro/*`, small Tailwind v4 CSS. **Not yet delib
 Core Web Vitals pass + a budget, and image optimization — `public/fraser.jpg` is a real ~330 KB photo
 served unoptimized on three spots (Home hero avatar + band, About), and the Cloudflare `IMAGES` binding
 is enabled but unused. The lightest of the three — but gated on the full image set (above).
+🔴 **Also unoptimized (Conv 022):** `src/mockups/*.png` product screenshots served via plain `<img>` (no
+`astro:assets` pipeline) — `redline.png` is 1000×1796 / ~344 KB into an ~288 px slot; this pass should
+resize + convert these to WebP/AVIF too ([CASE-MOCKUPS] deferred its optimization here).
 
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4
 
