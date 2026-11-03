@@ -32,11 +32,14 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 022:** the Conv-021 **full Work case-study pass is done** (all seven cases reviewed;
-`this-site`/`translation-platform`/`learning-marketplace` fixed, `redline` + Urantia cases clean). CC-buildable
-candidates next: **[CASE-DIAGRAMS]** (real per-case diagrams, no operator input needed) and
-**[CASE-RECORD-REFRESH]** (records to final state). Critical-path items remain operator-gated: [SITE-PERF]
-waits on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off.
+⚡ **Do-next — Conv 023:** Conv 022 ran a **Work-page polish pass** — card prose; the `redline` screenshot
+mockup + a real egress diagram; the `learning-marketplace` illustrative **system-map mockup** + a
+**click-to-enlarge lightbox**; every case's record section retitled **"Fraser's Role — an AI's independent
+audit"** (first-person→third-person); and the Peerloop benefit + **BUILT WITH** refresh from `package.json`.
+CC-buildable next: **[CASE-DIAGRAMS]** (`this-site` + `translation-platform` still mock) and
+**[CASE-RECORD-REFRESH]** (records to final state). Operator-owed: **[CASE-MOCKUPS]** screenshots for the
+remaining cases. Critical-path still gated: [SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on
+client sign-off.
 
 (**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
 **[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
@@ -232,6 +235,12 @@ extras-first). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish.
 **Conv 020:** the `personal-productivity-app` (fps) case **opts out** of the mockup box via
 `caseExtras.hideMockup` (`DEC-020-2`) — its diagram fills the sidebar slot — so the owed screenshot set
 no longer includes fps.
+**Conv 022:** wiring decided — a **filename convention** (`src/mockups/<slug>.{png,svg}`, plain `<img>`
+cover-fit into the 2:3 box; `DEC-022-1`) + an optional `caseExtras.mockupCaption`; raster optimization
+deferred to `[SITE-PERF]`. Wired: `redline` (operator screenshot) and `learning-marketplace` (an
+illustrative system-map SVG, `DEC-022-2`). A **click-to-enlarge lightbox** was added for all case mockups
+(`DEC-022-3`). Remaining owed: operator screenshots for the other cases (`translation-platform`; the two
+Urantia live-link cases if wanted).
 
 ### [CASE-DIAGRAMS] · promoted Conv 021
 Replace the generic **MOCK** line-art diagrams — the `.case-figure` SVGs shown with the "Sample diagram —
@@ -243,6 +252,9 @@ on the operator. 🔴 The two client diagrams (`translation-platform`, `learning
 de-identified / NDA-safe — the current mock SVGs are generic flows; the real ones must remain generic.
 **Done-when:** each of the four has a real SVG and its `mock` flag is cleared (so the "Sample diagram"
 caption drops). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish. (hopper → Conv 021)
+**Conv 022:** `redline` done — real egress diagram drawn, `mock` cleared. `learning-marketplace` is now
+handled via the system-map **mockup** (`DEC-022-2`) instead of a `.case-figure`, and its old mock diagram
+SVG was deleted. **Remaining: `this-site`, `translation-platform`.**
 
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014
 The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
@@ -314,24 +326,23 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 021 — Full Work case-study pass + "Why this is checkable" framing + A/B-guard fix
-- **Carried finding resolved** (`DEC-021-1`) — the four pre-existing "The record" transcripts (redline,
-  this-site, translation-platform, learning-marketplace) investigated and accepted as genuine captures;
-  no re-run. Resolved `DEC-020-4`'s carried open question.
-- **"Why this is checkable" framing** (`DEC-021-2`) — a shared line + native `<dialog>` modal above every
-  audited record (`RecordMethod.astro`), explaining the method that makes an audit possible (separate docs
-  repo, numbered decisions, turn-capture, full client repo access). Verified live (light+dark, open/×/backdrop
-  close). Files: `src/components/RecordMethod.astro`, `pages/work/[slug].astro`, `styles/global.css`.
-- **Full case pass — all seven cases** reviewed end to end. Fixes: `translation-platform` status→`paused` +
-  card summary tightened with an "Exploratory." lead (`DEC-021-3`, status enum widened); `learning-marketplace`
-  summary de-duplicated + uncited "hundred thousand lines" reconciled to the cited record; `this-site`
-  `hideMockup` set + stale comment fixed. `redline` and the two Urantia cases reviewed clean. The
-  Urantia↔translation-platform confidentiality proximity accepted as governed by the client-sign-off gate.
-- **A/B-guard refined** (`DEC-021-4`) — `check-ab-options.sh` now requires labelled options only for an
-  options-bearing (`or`-fork) `👉👉👉` question; open-ended asks pass. CLAUDE.md wording reconciled. Verified
-  against five hook inputs.
-- **Promoted** — `[CASE-DIAGRAMS]` (real per-case diagrams replacing the mock placeholders).
-- **Hopper** — via `/r-hopper`: 1 dropped (framing idea, shipped), 2 done (`this-site` hideMockup; A/B fix),
-  1 promoted (`[CASE-DIAGRAMS]`).
+### Conv 022 — Work-page polish: mockups, system-map, lightbox, record voice
+- **Cards** — reworded `discover-jesus` ("hand-written… by others", reconciled into the body too),
+  `learning-marketplace` (students-become-teachers framing), `redline` ("feedback from clients").
+- **[CASE-MOCKUPS]** — filename-convention wiring (`src/mockups/<slug>.{png,svg}`, cover-fit 2:3; `DEC-022-1`)
+  + optional `mockupCaption`; `redline` screenshot wired, `learning-marketplace` wired via an illustrative,
+  de-identified **system-map SVG** (`DEC-022-2`). **Click-to-enlarge lightbox** added for all mockups
+  (`DEC-022-3`), reusing the RecordMethod `<dialog>` pattern. Verified live (light+dark).
+- **[CASE-DIAGRAMS]** — `redline` diagram made real (`mock` cleared); `learning-marketplace` moved to the
+  system-map mockup (old mock SVG deleted). Remaining: `this-site`, `translation-platform`.
+- **learning-marketplace prose** — rewrote "The problem" + "What I built" for scale + the community half;
+  "not live" reframe of the payment-webhook moment; benefit refreshed; **BUILT WITH** rebuilt from the real
+  `package.json` (identifying names excluded).
+- **Record voice** (`DEC-022-4`) — every case's record section retitled **"Fraser's Role — an AI's
+  independent audit"** and rewritten first-person→third-person ("Fraser").
+- **`::selection` fix** (`DEC-022-5`) — `--accent / --on-accent` pair; the old `--accent-tint` was
+  near-invisible in dark mode (operator-confirmed).
+- **Hopper** — all ruled/cleared: `::selection` fix done, orphan diagram deleted, scratch generators deleted,
+  BUILT WITH refreshed from `package.json`.
 - **Not deployed** — local dev only; production still gated on sign-off.
 

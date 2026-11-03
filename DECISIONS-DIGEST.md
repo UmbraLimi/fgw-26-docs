@@ -2,9 +2,38 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-02._
+_As of 2026-11-03._
 
 ---
+
+### DEC-022-5 — `::selection` uses the `--accent`/`--on-accent` pair, not `--accent-tint`
+
+The global `::selection` rule sets `background-color: var(--accent)` + `color: var(--on-accent)`
+instead of the old `background-color: var(--accent-tint)`.
+
+### DEC-022-4 — Record section → "Fraser's Role — an AI's independent audit", written third-person
+
+Every case's on-page record summary is retitled **"Fraser's Role — an AI's independent audit"**
+(from "The record — an independent read") and rewritten in third person naming Fraser (past tense), matching
+the already-third-person transcripts.
+
+### DEC-022-3 — Click-to-enlarge lightbox for case mockups (native `<dialog>`)
+
+Case mockups open to a full-size view via a native `<dialog>` lightbox, reusing RecordMethod's
+delegated-inline-script pattern (bound once on `document`, dialog looked up at click time, ClientRouter-safe).
+
+### DEC-022-2 — learning-marketplace mockup is an illustrative, de-identified system-map SVG
+
+The learning-marketplace (Peerloop) case uses a generated, de-identified **system-map SVG** as
+its sidebar mockup (sized 2:3 to fill the box), captioned "the moving pieces are real; the connections
+between them are representative, not the client's exact architecture" (label also baked into the SVG). The
+old mock `.case-figure` flow diagram was removed and its SVG deleted.
+
+### DEC-022-1 — Mockup wiring by filename convention, not a caseExtras field
+
+Case product mockups are wired by **filename convention** — a `src/mockups/<slug>.{png,svg}`
+asset is globbed and rendered as a plain `<img>` cover-fit into the 2:3 `.case-mockup` box; a labelled
+placeholder shows when no file exists. Caption text comes from an optional `caseExtras.mockupCaption`.
 
 ### DEC-021-4 — A/B labels required only for options-bearing asks; open-ended `👉👉👉` questions are fine
 

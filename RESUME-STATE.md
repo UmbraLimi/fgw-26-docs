@@ -2,34 +2,31 @@
 
 ## Where we left off
 
-Conv 021 ran the **full Work case-study pass** (operator's Conv-020 direction). First it resolved the one
-carried finding: the four pre-existing "The record" transcripts (`redline`, `this-site`,
-`translation-platform`, `learning-marketplace`) were investigated and **accepted as genuine captures** — no
-re-run (`DEC-021-1`, resolving `DEC-020-4`). The pass then shipped a **"Why this is checkable" framing** — a
-shared line + native `<dialog>` modal above every audited record (`RecordMethod.astro`, `DEC-021-2`),
-explaining the method that makes an independent audit possible (separate docs repo, numbered decisions,
-turn-capture, full client repo access); verified live. Per-case fixes: `translation-platform` → status
-**`paused`** + a one-sentence card summary with an "Exploratory." lead (`DEC-021-3`, enum widened);
-`learning-marketplace` → summary de-duplicated + the uncited "hundred thousand lines" reconciled to the cited
-record; `this-site` → `hideMockup` + a stale comment fixed. `redline` and the two Urantia cases reviewed
-clean. Also: the **A/B-guard hook** was over-enforcing (blocking legitimate open-ended `👉👉👉` questions) and
-was refined to require labels only for options-bearing asks (`DEC-021-4`, CLAUDE.md reworded). **Not deployed**
-— local dev only.
+Conv 022 was a long operator-driven **Work-page polish pass**. Case cards were reworded (discover-jesus,
+Peerloop/learning-marketplace, redline). `redline` got its real product screenshot wired as the first case
+**mockup** (establishing a filename-convention: `src/mockups/<slug>.{png,svg}`, cover-fit 2:3; `DEC-022-1`)
+plus a real egress diagram. Peerloop's prose was rewritten (scale + the community half; a "not live" reframe)
+and — since the app is proprietary — its mockup became a **de-identified illustrative system-map SVG**
+(`DEC-022-2`), with a **click-to-enlarge lightbox** added for all mockups (`DEC-022-3`). Every case's record
+section was retitled **"Fraser's Role — an AI's independent audit"** and converted first-person→third-person
+(`DEC-022-4`). Also: dark-mode `::selection` fixed (`DEC-022-5`), and Peerloop's BENEFIT + BUILT WITH
+refreshed from the real `package.json` (de-identified). **Not deployed** — local dev only.
 
 ## Next action
 
-🔥 **CC-buildable, no operator input needed:** **[CASE-DIAGRAMS]** — replace the generic MOCK line-art on the
-four cases still carrying placeholders (`this-site`, `redline`, `translation-platform`, `learning-marketplace`)
-with real hand-drawn SVG figures (fps already has one). Reason: promoted this conv, unblocked, and the
-diagrams are the last obviously-weak element of the now-reviewed cases. Alternative CC-doable: **[CASE-RECORD-REFRESH]**
-(bring the "The record" reads to final state — `this-site`'s covers only convs 000–013). Critical-path rows
-remain operator-gated: [SITE-PERF] waits on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off.
+🔥 **CC-buildable, no operator input:** **[CASE-DIAGRAMS]** — draw real, de-identified SVG figures for the
+two cases still on mock placeholders: **`this-site`** and **`translation-platform`** (redline done this conv;
+learning-marketplace now uses the system-map mockup; fps already real). Reason: it's the last
+obviously-weak visual element on the reviewed cases and needs no operator input. Alternative CC-doable:
+**[CASE-RECORD-REFRESH]** (bring the "Fraser's Role" reads to final state — `this-site`'s still covers only
+early convs). Operator-gated remain: **[CASE-MOCKUPS]** screenshots for the other cases; [SITE-PERF] (full
+image set, incl. mockup optimization); [SITE-NARRATIVE] (client sign-off).
 
 ⚠️ Standing: production has **never** been deployed (dev/staging only); home testimonials remain
-mock/SAMPLE; **four case diagrams are still mock placeholders** (`[CASE-DIAGRAMS]`); case product mockups are
-placeholders (`[CASE-MOCKUPS]`, minus fps and now this-site).
+mock/SAMPLE; two case diagrams still mock (`this-site`, `translation-platform`); several case mockups still
+placeholder (`[CASE-MOCKUPS]`). The unrendered `this-site` `outcome:` frontmatter still reads first-person
+(dead metadata; left — see `DEC-022-4`).
 
 ## 🔬 Carried findings
 
-_None._ The conv's one carried finding (`DEC-020-4`'s open question) was ruled and resolved this conv
-(`DEC-021-1`).
+_None._

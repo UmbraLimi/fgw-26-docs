@@ -8,6 +8,72 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 022
+
+### DEC-022-5 — `::selection` uses the `--accent`/`--on-accent` pair, not `--accent-tint`
+**Decision:** The global `::selection` rule sets `background-color: var(--accent)` + `color: var(--on-accent)`
+instead of the old `background-color: var(--accent-tint)`.
+**Rationale:** `--accent-tint` in dark mode (`#2a2114`) is near-invisible against the near-black page — the
+operator confirmed text highlighting looked broken in dark, fine in light. `--accent`/`--on-accent` is the
+existing button pairing engineered to contrast in both themes. Alternative that lost: a bespoke
+`light-dark()` selection pair (extra tokens for no gain over the accent pairing).
+**Consequences:** Legible selection in both themes — verified live (light: dark-orange bg / white text;
+dark: amber bg / near-black text). `global.css` `::selection` only.
+
+### DEC-022-4 — Record section → "Fraser's Role — an AI's independent audit", written third-person
+**Decision:** Every case's on-page record summary is retitled **"Fraser's Role — an AI's independent audit"**
+(from "The record — an independent read") and rewritten in third person naming Fraser (past tense), matching
+the already-third-person transcripts.
+**Rationale:** The summaries were framed as an AI's independent read yet narrated in Fraser's first-person
+"I" voice — incoherent, and inconsistent with the transcripts. The new title names what is assessed
+(operator: "Fraser's Role … this is what is being assessed") and connotes an AI assessor. Alternative that
+lost: keep "The record — an independent read" + first person (the very incoherence that prompted the fix).
+Transcripts left unchanged (already third person; their residual "I" are verbatim log quotes that must stay
+faithful).
+**Consequences:** All five record-bearing cases updated (learning-marketplace, redline, this-site,
+translation-platform, personal-productivity-app). translation-platform needed a full conversion; the others'
+bodies were already third person (intro + title only). The unrendered `this-site` `outcome:` frontmatter
+still reads first-person (dead metadata, left as-is).
+
+### DEC-022-3 — Click-to-enlarge lightbox for case mockups (native `<dialog>`)
+**Decision:** Case mockups open to a full-size view via a native `<dialog>` lightbox, reusing RecordMethod's
+delegated-inline-script pattern (bound once on `document`, dialog looked up at click time, ClientRouter-safe).
+**Rationale:** The learning-marketplace system map is only legible at retina scale in the small 2:3 slot;
+enlarging lets a viewer actually read it (and as a vector it stays crisp at any size). Alternative that lost:
+open-in-new-tab (simpler, ~2 lines) — rejected as less built-in; CSS hover/focus zoom rejected (poor on
+touch).
+**Consequences:** Applies to every case mockup (redline PNG + learning-marketplace SVG); a ⤢ badge + a
+"click to enlarge" caption hint aid discoverability. 🔴 The `is:inline` script must sit inside the layout
+content — a first attempt placed after `</SiteLayout>` (outside `<html>`) never ran. `global.css`
+`.mockup-modal*`, `[slug].astro`.
+
+### DEC-022-2 — learning-marketplace mockup is an illustrative, de-identified system-map SVG
+**Decision:** The learning-marketplace (Peerloop) case uses a generated, de-identified **system-map SVG** as
+its sidebar mockup (sized 2:3 to fill the box), captioned "the moving pieces are real; the connections
+between them are representative, not the client's exact architecture" (label also baked into the SVG). The
+old mock `.case-figure` flow diagram was removed and its SVG deleted.
+**Rationale:** The app is proprietary — no screenshots, and no accurate flow/page diagram may be shown. A
+representative map implies the project's scale/complexity while staying NDA-safe; honesty is preserved by the
+"representative, not actual" caption + baked label (the site's checkable thesis). Alternatives that lost: an
+accurate diagram or a screenshot (NDA-unsafe); keeping the small generic mock flow (undersells scale, and a
+"Sample diagram" caption beside a real map reads wrong). Operator chose the top-down layout and "use the
+whole map scaled in" over cropping a window.
+**Consequences:** learning-marketplace no longer renders a `.case-figure` (its `[CASE-DIAGRAMS]` need is met
+via the mockup). The map's nodes are industry-standard LMS/marketplace/community pieces (several already named
+in the public record), so no new disclosure; the identifying `package.json` names were excluded.
+
+### DEC-022-1 — Mockup wiring by filename convention, not a caseExtras field
+**Decision:** Case product mockups are wired by **filename convention** — a `src/mockups/<slug>.{png,svg}`
+asset is globbed and rendered as a plain `<img>` cover-fit into the 2:3 `.case-mockup` box; a labelled
+placeholder shows when no file exists. Caption text comes from an optional `caseExtras.mockupCaption`.
+**Rationale:** A file's presence is itself the "a mockup exists" signal, so no per-case flag is needed —
+unlike the `diagram` field. Alternative that lost: a named `caseExtras.mockup` field mirroring `diagram`
+(redundant — it would just repeat the slug). Plain `<img>` chosen over `astro:assets`; raster optimization
+deferred to the gated `[SITE-PERF]` to dodge the Cloudflare image-service rabbit hole.
+**Consequences:** The glob accepts `.png` and `.svg`; image `alt` derives from the caption. `redline.png`
+(344 KB) + the mockup optimization are noted on the `[SITE-PERF]` row. `[slug].astro`, `global.css`
+`.case-mockup*`, `content.config.ts` (`mockupCaption`).
+
 ## Conv 021
 
 ### DEC-021-4 — A/B labels required only for options-bearing asks; open-ended `👉👉👉` questions are fine
