@@ -6,6 +6,37 @@ _As of 2026-11-02._
 
 ---
 
+### DEC-021-4 — A/B labels required only for options-bearing asks; open-ended `👉👉👉` questions are fine
+
+The A/B-options rule (`DEC-002-1`, extended `DEC-005-1`) is refined: labelled `A)`/`B)` options
+are required only when a `👉👉👉` question **offers options** (a fork — in practice the word "or"); a purely
+open-ended question carries the `👉👉👉` anchor alone and needs no labels. `check-ab-options.sh` now allows a
+label-less block that contains no standalone "or", and blocks only an options-bearing block that lacks
+labels. CLAUDE.md's `👉👉👉` bullet reworded to match.
+
+### DEC-021-3 — `paused` added to the case-status enum; translation-platform relabelled + card reworded
+
+The `caseExtras.status` enum (set in Conv 019) gains a fourth value, `paused`. The
+`translation-platform` case moves from `experimental` to `paused`, its over-long two-sentence card summary
+is cut to one sentence, and the summary now opens with "Exploratory." (renders as a lead on the Work card).
+
+### DEC-021-2 — A shared "Why this is checkable" framing line + modal above every audited record
+
+Every audited `/work` case renders, above its "The record" CTA, a shared one-line frame —
+"An independent read like this is only possible because the project is built to be examined." — with a
+"Why this is checkable" link that opens a modal explaining the method that makes the audit possible: a
+separate docs repo, numbered decisions (the wrong ones kept, not erased), turn-by-turn capture the AI
+learns from so a documented mistake isn't repeated, and full client access to every repo. Single-sourced
+in a new `RecordMethod.astro`, rendered by `work/[slug].astro` only where a `record` exists (never on the
+live-link-only Urantia cases). The modal is a native `<dialog>` driven by a view-transition-safe delegated
+inline script — no hydrated island.
+
+### DEC-021-1 — The four pre-existing "The record" transcripts accepted as genuine; no re-run
+
+The four Conv-014 "The record" transcripts (`redline`, `this-site`, `translation-platform`,
+`learning-marketplace`) are accepted as genuine independent-subagent captures and left as-is — no re-audit,
+no re-label. Resolves the open question `DEC-020-4` carried to this `/r-start`.
+
 ### DEC-020-4 — "The record" transcripts must be genuine independent audits (redacted), not model-composed
 
 A case's "The record" transcript must be the verbatim output of a genuine independent read — a

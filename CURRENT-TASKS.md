@@ -32,10 +32,11 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 021 (operator, Conv 020):** a **full pass through each Work case study** — review
-every `/work/<slug>` case end to end (prose, extras, diagram, record). **[CASE-FPS]** shipped Conv 020.
-The critical-path items above remain operator-gated: [SITE-PERF] waits on the full image set (Conv 016);
-[SITE-NARRATIVE] on client sign-off.
+⚡ **Do-next — Conv 022:** the Conv-021 **full Work case-study pass is done** (all seven cases reviewed;
+`this-site`/`translation-platform`/`learning-marketplace` fixed, `redline` + Urantia cases clean). CC-buildable
+candidates next: **[CASE-DIAGRAMS]** (real per-case diagrams, no operator input needed) and
+**[CASE-RECORD-REFRESH]** (records to final state). Critical-path items remain operator-gated: [SITE-PERF]
+waits on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off.
 
 (**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
 **[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
@@ -229,6 +230,17 @@ extras-first). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish.
 `caseExtras.hideMockup` (`DEC-020-2`) — its diagram fills the sidebar slot — so the owed screenshot set
 no longer includes fps.
 
+### [CASE-DIAGRAMS] · promoted Conv 021
+Replace the generic **MOCK** line-art diagrams — the `.case-figure` SVGs shown with the "Sample diagram —
+illustrative, pending the real figure" caption (`mock:true`) — with real, case-specific hand-drawn SVG
+figures for the four cases still carrying placeholders: `this-site`, `redline`, `translation-platform`,
+`learning-marketplace`. **fps already has a real diagram** (`DEC-020-1`, Conv 020). CC-authorable — the fps
+egress diagram is a hand-drawn SVG, no screenshot needed — so unlike `[CASE-MOCKUPS]` this does **not** wait
+on the operator. 🔴 The two client diagrams (`translation-platform`, `learning-marketplace`) must stay
+de-identified / NDA-safe — the current mock SVGs are generic flows; the real ones must remain generic.
+**Done-when:** each of the four has a real SVG and its `mock` flag is cleared (so the "Sample diagram"
+caption drops). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish. (hopper → Conv 021)
+
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014
 The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
 the full token-redacted transcripts at `/work/translation-platform/record` and
@@ -299,23 +311,24 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 020 — [CASE-FPS] shipped (fps case built real) + fabricated transcript replaced with a real audit
-- **[CASE-FPS] done** (`DEC-020-1`) — the `personal-productivity-app` case is real: whole-system scope,
-  kept generically named ("Secure personal productivity app"), type `desktop application` / status
-  `ongoing`, a new two-tier egress **diagram**, real `tools`/`benefit`, `mock:false`, and a "The record"
-  block. Files: `content/work/personal-productivity-app.md`, `case-extras.json`,
-  `diagrams/personal-productivity-app.svg`, `content/records/personal-productivity-app.md`.
-- **Real independent audit** (`DEC-020-4`) — the first-pass transcript was **model-composed and falsely
-  labelled "unedited"**; replaced with a genuine fresh-agent read of `fps-docs` (never `fps-sensitive`),
-  redacted per `DEC-014-2` (`{braces}` + legend), plus an author's-response section below it. The
-  case-body "The record" summary was reconciled to the real audit (463 decisions; per-line-tiering
-  reversal + ~3:1 docs/code ratio; "roof is not yet on").
-- **Per-case `hideMockup`** (`DEC-020-2`) — new opt-out `caseExtras` field (schema + data README);
-  `/work/[slug]` suppresses the sidebar mockup box when set; fps opts out. Files: `content.config.ts`,
-  `pages/work/[slug].astro`, `data/case-extras.json`, `data/README.md`.
-- **Public-site confidentiality framing** (`DEC-020-3`) — name-obfuscation + secret-encryption stated
-  present-tense and vague though planned-not-built in fps; the site is not fine-grained on build status.
-- **Hopper ruled** — 2 dropped (`[CASE-FPS]` accuracy spot-check; "medical-adjacent" dial), both via
-  `/r-hopper`.
+### Conv 021 — Full Work case-study pass + "Why this is checkable" framing + A/B-guard fix
+- **Carried finding resolved** (`DEC-021-1`) — the four pre-existing "The record" transcripts (redline,
+  this-site, translation-platform, learning-marketplace) investigated and accepted as genuine captures;
+  no re-run. Resolved `DEC-020-4`'s carried open question.
+- **"Why this is checkable" framing** (`DEC-021-2`) — a shared line + native `<dialog>` modal above every
+  audited record (`RecordMethod.astro`), explaining the method that makes an audit possible (separate docs
+  repo, numbered decisions, turn-capture, full client repo access). Verified live (light+dark, open/×/backdrop
+  close). Files: `src/components/RecordMethod.astro`, `pages/work/[slug].astro`, `styles/global.css`.
+- **Full case pass — all seven cases** reviewed end to end. Fixes: `translation-platform` status→`paused` +
+  card summary tightened with an "Exploratory." lead (`DEC-021-3`, status enum widened); `learning-marketplace`
+  summary de-duplicated + uncited "hundred thousand lines" reconciled to the cited record; `this-site`
+  `hideMockup` set + stale comment fixed. `redline` and the two Urantia cases reviewed clean. The
+  Urantia↔translation-platform confidentiality proximity accepted as governed by the client-sign-off gate.
+- **A/B-guard refined** (`DEC-021-4`) — `check-ab-options.sh` now requires labelled options only for an
+  options-bearing (`or`-fork) `👉👉👉` question; open-ended asks pass. CLAUDE.md wording reconciled. Verified
+  against five hook inputs.
+- **Promoted** — `[CASE-DIAGRAMS]` (real per-case diagrams replacing the mock placeholders).
+- **Hopper** — via `/r-hopper`: 1 dropped (framing idea, shipped), 2 done (`this-site` hideMockup; A/B fix),
+  1 promoted (`[CASE-DIAGRAMS]`).
 - **Not deployed** — local dev only; production still gated on sign-off.
 

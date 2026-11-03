@@ -2,12 +2,14 @@
 # check-ab-options.sh — Stop hook (fgw).
 #
 # Enforces CLAUDE.md "Decisions → A/B": a turn's trailing question block — from the 👉👉👉
-# anchor to end of message — must present labelled ASCII options (A) / B) [/ C) ...]). The
-# anchor HEADS the question block (it must BEGIN A LINE — the emoji quoted mid-sentence in
-# prose is not an ask, DEC-005-1); the options follow it. Only that block is assessed, so a
-# stray "A)"/"B)" in earlier prose no longer satisfies the guard (the Conv-002 loophole:
-# the check used to scan the whole message). If the block lacks the labels, the hook blocks
-# the stop (exit 2) and feeds the lapse back to Claude to re-ask correctly.
+# anchor to end of message — must present labelled ASCII options (A) / B) [/ C) ...]) WHEN
+# the ask offers options. The anchor HEADS the question block (it must BEGIN A LINE — the
+# emoji quoted mid-sentence in prose is not an ask, DEC-005-1); the options follow it. A
+# purely open-ended question (no "or" fork) carries the anchor alone and needs no labels
+# (DEC-021-4, Conv 021). Only that block is assessed, so a stray "A)"/"B)" in earlier prose
+# no longer satisfies the guard (the Conv-002 loophole: the check used to scan the whole
+# message). If an options-bearing block lacks the labels, the hook blocks the stop (exit 2)
+# and feeds the lapse back to Claude to re-ask correctly.
 #
 # Turn text comes from the `last_assistant_message` field CC passes on stdin — NOT the
 # transcript, which is written asynchronously and races (a `tail -n1` can read a prior
@@ -58,12 +60,19 @@ EOF
 # Anchor present only mid-line (prose mention) → no real ask → nothing to enforce.
 [ "$found" = 0 ] && exit 0
 
-# The question block must carry both an A) and a B) label (label not preceded by a word
-# char, so "plan A)" in running prose does not count as an option label).
+# Good case: the ask already carries labelled options (both A) and B)) → allow. The label is
+# not preceded by a word char, so "plan A)" in running prose does not count as a label.
 if printf '%s' "$block" | grep -qE '(^|[^A-Za-z0-9])A\)' \
    && printf '%s' "$block" | grep -qE '(^|[^A-Za-z0-9])B\)'; then
   exit 0
 fi
 
-echo "A/B GUARD: this turn's 👉👉👉 question block presents no labelled A)/B) options. CLAUDE.md requires every question — permission asks included — to offer labelled ASCII options in the trailing question block (the 👉👉👉 anchor first, then A) / B) [/ C) ...]). Re-ask so the operator can answer by letter." >&2
+# No labels. Labels are required only when the ask OFFERS options — heuristic (operator,
+# Conv 021, DEC-021-4): an options-bearing ask carries a standalone "or" fork. A bare
+# open-ended question has none and needs no labels, so it passes here.
+if ! printf '%s' "$block" | grep -qiE '(^|[^A-Za-z])or([^A-Za-z]|$)'; then
+  exit 0
+fi
+
+echo "A/B GUARD: this turn's 👉👉👉 question OFFERS options (an \"or\" fork) but presents no labelled A)/B) options. CLAUDE.md requires an options-bearing ask to carry labelled ASCII options in the trailing question block (the 👉👉👉 anchor first, then A) / B) [/ C) ...]). A purely open-ended question needs none; this one offers a choice, so re-ask with labels so the operator can answer by letter." >&2
 exit 2

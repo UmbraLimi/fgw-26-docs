@@ -10,6 +10,25 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 021
 
+### DEC-021-4 — A/B labels required only for options-bearing asks; open-ended `👉👉👉` questions are fine
+**Decision:** The A/B-options rule (`DEC-002-1`, extended `DEC-005-1`) is refined: labelled `A)`/`B)` options
+are required only when a `👉👉👉` question **offers options** (a fork — in practice the word "or"); a purely
+open-ended question carries the `👉👉👉` anchor alone and needs no labels. `check-ab-options.sh` now allows a
+label-less block that contains no standalone "or", and blocks only an options-bearing block that lacks
+labels. CLAUDE.md's `👉👉👉` bullet reworded to match.
+**Rationale:** Operator (Conv 021): "You may ask open-ended questions (in fact you should do so whenever you
+need more input). You only ask in A/B/C format if your ask contains options, and in particular the word
+'or'." The old hook demanded labels on every anchored question and misfired three times this conv on
+legitimate open-ended asks ("What do you make of it?"). The "or" test is the operator's own stated signal.
+Alternatives that lost: relax the hook to warn-only or drop it (loses the guard entirely); try to detect
+options-bearing asks more cleverly than "or" (no reliable mechanical signal). Known limits accepted: an
+options ask phrased without "or" and without labels slips through (narrower miss than the prior
+over-blocking); "or" in open-ended prose can over-trigger (rare, usually it is in fact offering a choice).
+**Consequences:** Does **not** supersede `DEC-002-1`/`DEC-005-1` — refines their scope. `check-ab-options.sh`
+(logic + header comment + feedback message) and CLAUDE.md §Interaction-model updated. Verified by running the
+hook against five inputs (open-ended→allow, or-fork-unlabelled→block, labelled→allow, no-anchor→allow,
+or+labels→allow).
+
 ### DEC-021-3 — `paused` added to the case-status enum; translation-platform relabelled + card reworded
 **Decision:** The `caseExtras.status` enum (set in Conv 019) gains a fourth value, `paused`. The
 `translation-platform` case moves from `experimental` to `paused`, its over-long two-sentence card summary
