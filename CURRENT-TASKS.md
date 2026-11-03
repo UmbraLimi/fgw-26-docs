@@ -32,9 +32,10 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 020's first work (operator, Conv 019):** **[CASE-FPS]** — assess the fps project +
-replace its Conv 019 placeholders (single-conv; task body below). The critical-path items above remain
-operator-gated: [SITE-PERF] waits on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off.
+⚡ **Do-next — Conv 021 (operator, Conv 020):** a **full pass through each Work case study** — review
+every `/work/<slug>` case end to end (prose, extras, diagram, record). **[CASE-FPS]** shipped Conv 020.
+The critical-path items above remain operator-gated: [SITE-PERF] waits on the full image set (Conv 016);
+[SITE-NARRATIVE] on client sign-off.
 
 (**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
 **[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
@@ -102,25 +103,6 @@ production deploy + the domain.
 ---
 
 ## 🔥 Ordered
-
-### [CASE-FPS] · ⚡ do-next · promoted Conv 019
-🔴 **Conv 020's first work** (operator, Conv 019) — single-conv, not multi-conv.
-
-#### What it is
-Assess the **fps** project — an in-house personal productivity desktop app at `~/projects/fps-docs`
-(several `fps-*` repos) — with the same independent-read treatment the other cases got, then replace the
-Conv 019 placeholders on its `/work` case.
-
-#### Built (Conv 019)
-Real title ("Secure personal productivity app") + summary on the `personal-productivity-app` case. The
-`case-extras.json` entry has type `desktop application` / status `ongoing` / `monitor` icon, but `tools`
-and `benefit` are placeholder and `mock:true`, and the case **body** is a placeholder stub.
-
-#### To do
-- Read `~/projects/fps-docs` + the `fps-*` repos. ⚠️ **Read-only — NOT one of the four fgw repos; never commit/push there.**
-- Write the real case body + real `tools`/`benefit`; set `mock:false`.
-- Confirm `type`/`status`; decide the real public name/slug (currently `personal-productivity-app`).
-- Decide whether it gets a "The record" independent-audit block + a diagram.
 
 ### [SITE-NARRATIVE] · critical-path Phase 2
 
@@ -243,6 +225,9 @@ portrait screenshot (~2:3) for each case — operator-produced (CC can't screens
 decide the wiring (per-slug asset, e.g. `src/mockups/<slug>`, + an optional `caseExtras` field vs a filename
 convention) and wire each image in; and review the new `aside`'s mobile stacking order (prose-first vs
 extras-first). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish. (hopper → Conv 019)
+**Conv 020:** the `personal-productivity-app` (fps) case **opts out** of the mockup box via
+`caseExtras.hideMockup` (`DEC-020-2`) — its diagram fills the sidebar slot — so the owed screenshot set
+no longer includes fps.
 
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014
 The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
@@ -314,25 +299,23 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 019 — /work page pass (untasked polish; no board row closed) + hopper ruled
-- **Card header overhaul** (`DEC-019-2`) — `/work` cards now show project **type** (type-driven icon +
-  eyebrow label), **status** (right-aligned eyebrow), and a masked **"Client" pill** on client-owned cases.
-  Files: `work/index.astro`, `global.css`.
-- **Case-study two-column layout** (`DEC-019-3`) — prose main column + a sticky right **sidebar** holding a
-  ~2:3 portrait **mockup placeholder**, then benefit / diagram / tools (moved from above the prose); Client
-  badge mirrored under the h1. Files: `work/[slug].astro`, `global.css`.
-- **Per-case motif retired** (`DEC-019-4`, amends `DEC-012-1`) — cards + case pages share one type→icon map
-  (`lib/type-icon.ts`); the dead `caseExtras.icon` field removed from schema, data, README. Added a
-  `monitor` glyph. Files: `lib/type-icon.ts`, `Icon.astro`, `content.config.ts`, `case-extras.json`, `README.md`.
-- **Data model** — `caseExtras` gained required `type` + `status` enums (`DEC-019-2`); no unified JSON
-  (`DEC-019-1`). New **fps** case `personal-productivity-app` (real title/summary, placeholder body +
-  tools/benefit, `mock:true`). Files: `content.config.ts`, `case-extras.json`, `content/work/*`.
-- **Content copy** — retitled/edited this-site, redline, translation-platform (card + body reconciled to a
-  self-improving-pipeline framing, masking intact), learning-marketplace (dropped small-group), discover-*
-  lowercased; added a `/phases` trailing cross-link on `/work`.
-- **Typecheck green** — added `scales` to `Card.astro`'s icon union (red since Conv 018). File: `Card.astro`.
-- **Hopper ruled** — 4 promoted (`[CASE-FPS]` ⚡do-next, `[CASE-MOCKUPS]`, `[CASE-RECORD-REFRESH]`, prose-width
-  folded into `[SITE-CONSISTENCY]`), 3 done (translation body, motif retirement, scales fix). Added
-  `[SITE-CONSISTENCY]` checks (3) layout measure + (4) vertical rhythm (non-home margins).
-- **Not deployed** — no staging/prod deploy this conv (local dev only; production still gated on sign-off).
+### Conv 020 — [CASE-FPS] shipped (fps case built real) + fabricated transcript replaced with a real audit
+- **[CASE-FPS] done** (`DEC-020-1`) — the `personal-productivity-app` case is real: whole-system scope,
+  kept generically named ("Secure personal productivity app"), type `desktop application` / status
+  `ongoing`, a new two-tier egress **diagram**, real `tools`/`benefit`, `mock:false`, and a "The record"
+  block. Files: `content/work/personal-productivity-app.md`, `case-extras.json`,
+  `diagrams/personal-productivity-app.svg`, `content/records/personal-productivity-app.md`.
+- **Real independent audit** (`DEC-020-4`) — the first-pass transcript was **model-composed and falsely
+  labelled "unedited"**; replaced with a genuine fresh-agent read of `fps-docs` (never `fps-sensitive`),
+  redacted per `DEC-014-2` (`{braces}` + legend), plus an author's-response section below it. The
+  case-body "The record" summary was reconciled to the real audit (463 decisions; per-line-tiering
+  reversal + ~3:1 docs/code ratio; "roof is not yet on").
+- **Per-case `hideMockup`** (`DEC-020-2`) — new opt-out `caseExtras` field (schema + data README);
+  `/work/[slug]` suppresses the sidebar mockup box when set; fps opts out. Files: `content.config.ts`,
+  `pages/work/[slug].astro`, `data/case-extras.json`, `data/README.md`.
+- **Public-site confidentiality framing** (`DEC-020-3`) — name-obfuscation + secret-encryption stated
+  present-tense and vague though planned-not-built in fps; the site is not fine-grained on build status.
+- **Hopper ruled** — 2 dropped (`[CASE-FPS]` accuracy spot-check; "medical-adjacent" dial), both via
+  `/r-hopper`.
+- **Not deployed** — local dev only; production still gated on sign-off.
 

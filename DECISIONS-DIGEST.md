@@ -6,6 +6,35 @@ _As of 2026-11-02._
 
 ---
 
+### DEC-020-4 — "The record" transcripts must be genuine independent audits (redacted), not model-composed
+
+A case's "The record" transcript must be the verbatim output of a genuine independent read — a
+fresh AI agent, given no prior conclusions, pointed at the project's own documentation — not authoring-model
+prose dressed in transcript framing. For fps the read is `fps-docs` only, never `fps-sensitive`. The output
+is redacted per `DEC-014-2` (typed `{braces}` + in-body legend) and may be followed by a clearly-separated
+author's-response section, with the audit above left unedited.
+
+### DEC-020-3 — Public-site copy states the confidentiality hardening present-tense and vague, though planned-not-built
+
+The fps case states name-obfuscation and secret-encryption as present capabilities, worded
+vaguely ("identifying names obfuscated, secrets kept encrypted"), with no mechanism named. fps's committed
+design is egress-only **isolation** (plaintext-at-rest; `fps-docs/07 §1`); obfuscation/encryption is
+planned-not-built.
+
+### DEC-020-2 — Per-case `hideMockup` opt-out for the case-study sidebar mockup box
+
+`caseExtras` gains an optional `hideMockup` boolean; `/work/[slug]` renders the sidebar
+mockup-placeholder box only when it is unset. The fps case sets `hideMockup:true` — its diagram fills the
+sidebar slot.
+
+### DEC-020-1 — [CASE-FPS] built: the fps case, whole-system scope, generically named, with a diagram + "The record"
+
+The `personal-productivity-app` case is built real (replacing the Conv 019 mock): scope = the
+whole FPS system (two-vault corpus + local-LLM confidentiality + CLI/MCP + desktop app), not the app alone;
+kept generically named ("Secure personal productivity app", slug unchanged); type `desktop application` /
+status `ongoing`; a new two-tier-egress diagram; real `tools`/`benefit`; `mock:false`; and a "The record"
+independent-audit block.
+
 ### DEC-019-4 — Retire the per-case motif; cards + case pages share one type→icon map
 
 The Conv 012 per-case "motif" icon is retired. `/work` cards **and** `/work/<slug>` case-page

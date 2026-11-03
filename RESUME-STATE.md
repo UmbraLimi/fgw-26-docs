@@ -2,26 +2,31 @@
 
 ## Where we left off
 
-Conv 019 was the operator-driven **`/work` page pass**. Cards gained a structured header — project **type**
-(type-driven icon + eyebrow label), **status** (right-aligned), and a masked **"Client" pill**; case-study
-pages were restructured into a **two-column layout** with a sticky right sidebar holding a **~2:3 mockup
-placeholder** + benefit/diagram/tools. The per-case motif was **retired** in favour of a shared type→icon map
-(`lib/type-icon`; `caseExtras.icon` removed). Several case titles/summaries were rewritten (incl.
-translation-platform card + body, reconciled to a self-improving-pipeline framing). The recurring
-data-structure question was settled: **keep the markdown/JSON split, no unified JSON** (`DEC-019-1`). A new
-**fps** case was stubbed (placeholder body/extras). `astro check` is green again. **No deploy** — local dev only.
+Conv 020 built the fps `/work` case (**[CASE-FPS]**, shipped) — whole-system scope, kept generically
+named, a new two-tier-egress diagram, real `tools`/`benefit`, and a "The record" block. The first-pass
+transcript turned out to be **model-fabricated** (my synthesis, falsely labelled an "unedited"
+independent audit); the operator caught it, and it was replaced with a **genuine fresh-agent audit** of
+`fps-docs` (never `fps-sensitive`), redacted per `DEC-014-2`, plus an operator **author's-response**
+section. The case body was reconciled to the frank real audit (463 decisions; per-line-tiering reversal;
+docs ~3:1 over code; "roof is not on"). Also added a per-case `hideMockup` opt-out (fps uses it, its
+diagram fills the slot). **Not deployed** — local dev only.
 
 ## Next action
 
-🔥 **`[CASE-FPS]` is Conv 020's first work** (operator's call, Conv 019): assess the **fps** project — read
-`~/projects/fps-docs` + the `fps-*` repos (⚠️ **read-only — NOT an fgw repo; never commit/push there**) — then
-replace the placeholder body + `tools`/`benefit` on the `personal-productivity-app` case, set `mock:false`,
-confirm `type`/`status`, decide the real public name/slug (currently `personal-productivity-app`), and whether
-it gets a "The record" block + diagram. Reason: operator named it next; it's single-conv and CC-doable now,
-while the critical-path rows stay operator-gated (images for `[SITE-PERF]`, client sign-off for `[SITE-NARRATIVE]`).
+🔥 **A full pass through each Work case study** (operator, Conv 020): review every `/work/<slug>` case
+end to end — prose, extras, diagram, "The record". Reason: the operator's stated next-conv direction
+("follow each of the case studies fully"); it's CC-doable, and no critical-path row is unblocked
+([SITE-PERF] waits on the full image set, [SITE-NARRATIVE] on client sign-off).
 
-⚠️ Standing: production has **never** been deployed (all work dev/staging-only); the fps case + the case
-mockups are **placeholders** (`[CASE-FPS]`, `[CASE-MOCKUPS]`); home testimonials remain mock/SAMPLE.
+⚠️ Standing: production has **never** been deployed (dev/staging only); home testimonials remain
+mock/SAMPLE; case mockups are placeholders (`[CASE-MOCKUPS]`, now minus fps).
 
 ## 🔬 Carried findings
-_None._
+
+- **Are the pre-existing "The record" transcripts genuine captures, or model-composed like fps's was?**
+  This conv the fps transcript was found to be authoring-model synthesis labelled an "unedited"
+  independent audit, and redone for real (`DEC-020-4`). The other four — `redline`, `this-site`,
+  `translation-platform`, `learning-marketplace` (authored Conv 014/030) — have **not** been verified as
+  genuine captured audits. If they were composed the same way, it's a Work-section-wide honesty issue on
+  the site's load-bearing "check my work" claim. Rule at `/r-start`: promote to a board row / investigate
+  now / drop.

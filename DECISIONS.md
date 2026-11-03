@@ -8,6 +8,64 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 020
+
+### DEC-020-4 — "The record" transcripts must be genuine independent audits (redacted), not model-composed
+**Decision:** A case's "The record" transcript must be the verbatim output of a genuine independent read — a
+fresh AI agent, given no prior conclusions, pointed at the project's own documentation — not authoring-model
+prose dressed in transcript framing. For fps the read is `fps-docs` only, never `fps-sensitive`. The output
+is redacted per `DEC-014-2` (typed `{braces}` + in-body legend) and may be followed by a clearly-separated
+author's-response section, with the audit above left unedited.
+**Rationale:** The first-pass fps transcript was composed by the authoring model and falsely labelled "the
+full, unedited transcript of the independent audit" — fabricated provenance on the one site whose pitch is
+"check my work." Operator: "It has to be real." A fresh agent (not a fork) makes the read genuinely
+independent of the authoring context. Alternative that lost: reframe the page as a "compiled assessment" and
+keep model-authored prose (honest, but abandons the independent-audit claim the other cases make).
+**Consequences:** Replaced the fabricated fps transcript with a real redacted audit (463 decisions;
+per-line-tiering build-then-reversal; docs out-commit code ~3:1; "the roof is not on") + an author's-response
+section; the case-body "The record" summary was reconciled to it. 🔴 Open: whether the pre-existing
+transcripts (redline, this-site, translation-platform, learning-marketplace) are genuine captures — carried
+to next `/r-start`.
+
+### DEC-020-3 — Public-site copy states the confidentiality hardening present-tense and vague, though planned-not-built
+**Decision:** The fps case states name-obfuscation and secret-encryption as present capabilities, worded
+vaguely ("identifying names obfuscated, secrets kept encrypted"), with no mechanism named. fps's committed
+design is egress-only **isolation** (plaintext-at-rest; `fps-docs/07 §1`); obfuscation/encryption is
+planned-not-built.
+**Rationale:** Operator: the public site "is not tuned in on my status on projects that finely" — it
+describes capability, not build-state granularity; the detailed roadmap (translation-layer obfuscation, a
+separate manual encryption tool) stays off public copy. To avoid a published self-contradiction, the audit
+transcript's threat-model point was reworded to not assert "encryption not committed." Alternative that lost:
+state it as "planned, not yet built" (my draft) — rejected as more status detail than a public site warrants.
+**Consequences:** The case body + summary carry the present-tense vague claim and the transcript no longer
+contradicts it. A deliberate accuracy-vs-framing call, operator-owned; dropped from the hopper after ruling.
+
+### DEC-020-2 — Per-case `hideMockup` opt-out for the case-study sidebar mockup box
+**Decision:** `caseExtras` gains an optional `hideMockup` boolean; `/work/[slug]` renders the sidebar
+mockup-placeholder box only when it is unset. The fps case sets `hideMockup:true` — its diagram fills the
+sidebar slot.
+**Rationale:** Operator, viewing the fps page: "remove the mock image as the diagram does the job." Scoped to
+fps only (not every diagram-bearing case), leaving the others slated for real screenshots per `[CASE-MOCKUPS]`.
+Named distinctly from the existing `mock` content-flag to avoid confusion. Alternative that lost: hide the box
+for any case that has a diagram (would retire the placeholder for all four diagram cases at once).
+**Consequences:** Amends `DEC-019-3`'s "a `.case-mockup` placeholder renders for every case." `[CASE-MOCKUPS]`'s
+owed screenshot set no longer includes fps. Field documented in `src/data/README.md`.
+
+### DEC-020-1 — [CASE-FPS] built: the fps case, whole-system scope, generically named, with a diagram + "The record"
+**Decision:** The `personal-productivity-app` case is built real (replacing the Conv 019 mock): scope = the
+whole FPS system (two-vault corpus + local-LLM confidentiality + CLI/MCP + desktop app), not the app alone;
+kept generically named ("Secure personal productivity app", slug unchanged); type `desktop application` /
+status `ongoing`; a new two-tier-egress diagram; real `tools`/`benefit`; `mock:false`; and a "The record"
+independent-audit block.
+**Rationale:** Four operator rulings — scope (whole system over app-only), name (generic over the real "FPS",
+so the system guarding confidential data isn't advertised), diagram (yes — the architecture is the point),
+record block (yes — the honest-frame signature). The record is sourced from `fps-docs` (how Fraser performs
+with AI is locked in each project's `-docs` repo); `fps`/`fps-app` were read for what's built; `fps-sensitive`
+never opened. Alternatives that lost: app-only scope, the real name, diagram-less, no record block.
+**Consequences:** fps joins the Work cases as real work. Its "The record" block was first fabricated then
+redone (`DEC-020-4`). The case summary was corrected from the Conv-019 placeholder, which had described an
+un-adopted per-note-encryption design rather than the committed tier-separation.
+
 ## Conv 019
 
 ### DEC-019-4 — Retire the per-case motif; cards + case pages share one type→icon map
