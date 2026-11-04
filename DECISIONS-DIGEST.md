@@ -6,6 +6,25 @@ _As of 2026-11-03._
 
 ---
 
+### DEC-023-3 — translation-platform: multi-language is intent only; the target language is not named
+
+On the `translation-platform` case, the multi-language scope is presented as **design intent**,
+not delivered scope — the "ten languages" claim is de-emphasised — and the single language it was actually
+developed in is **not named** on the card.
+
+### DEC-023-2 — Every Work case opens with a "Why it matters" section
+
+Each `/work/<slug>` case study carries a dedicated **"Why it matters"** section as its first
+`##` heading — 1–2 lines stating the project's motivation (the broader need it answers) — placed before "The
+problem". "The problem" is correspondingly trimmed to the *difficulty* only, so motivation and difficulty no
+longer share the opener.
+
+### DEC-023-1 — Case narration: "I" for Fraser's own calls, "we" for client-shared decisions
+
+In Work case-study narration, first-person **"I"** denotes Fraser's own decisions and actions;
+first-person-plural **"we"** denotes decisions made jointly with the client. The operator works closely with
+clients on strategy, so a mix of the two within one client case is intentional, not voice drift.
+
 ### DEC-022-5 — `::selection` uses the `--accent`/`--on-accent` pair, not `--accent-tint`
 
 The global `::selection` rule sets `background-color: var(--accent)` + `color: var(--on-accent)`

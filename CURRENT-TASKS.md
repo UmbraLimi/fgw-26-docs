@@ -32,10 +32,10 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 023:** Conv 022 ran a **Work-page polish pass** — card prose; the `redline` screenshot
-mockup + a real egress diagram; the `learning-marketplace` illustrative **system-map mockup** + a
-**click-to-enlarge lightbox**; every case's record section retitled **"Fraser's Role — an AI's independent
-audit"** (first-person→third-person); and the Peerloop benefit + **BUILT WITH** refresh from `package.json`.
+⚡ **Do-next — Conv 024:** Conv 023 restructured the Work cases — every case now opens with a **"Why it
+matters"** section (motivation, 1–2 lines) before **"The problem"**, which was trimmed to the difficulty
+(`DEC-023-2`); plus the **I/we narration convention** (`DEC-023-1`) and the `translation-platform` **"ten
+languages" de-emphasis** (`DEC-023-3`, with "The problem" rewritten from operator copy).
 CC-buildable next: **[CASE-DIAGRAMS]** (`this-site` + `translation-platform` still mock) and
 **[CASE-RECORD-REFRESH]** (records to final state). Operator-owed: **[CASE-MOCKUPS]** screenshots for the
 remaining cases. Critical-path still gated: [SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on
@@ -154,6 +154,10 @@ course by me."), a supporting deck, and a two-paragraph narrative under a "Where
 home-only tighter section rhythm (`DEC-017-4`). Supersedes the home-hero h1 + "44" specifics of
 `DEC-010-3` (its flow-stepper/headshot/meet-Fraser structure still stands). Other pages' prose not yet
 reconciled to this voice — per-page as reached.
+
+**Work-case structure — Conv 023.** Every `/work` case now opens with a **"Why it matters"** section
+(motivation, before "The problem"; `DEC-023-2`); narration follows the **I/we convention** (`DEC-023-1`);
+`translation-platform`'s "ten languages" was de-emphasised (`DEC-023-3`).
 
 **Home refined further — Conv 018.** Operator-driven page pass on home: the four-step flow chart reworded
 (the load-bearing idea is that big builds span multiple AI sessions and that needs managing); the
@@ -326,23 +330,15 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 022 — Work-page polish: mockups, system-map, lightbox, record voice
-- **Cards** — reworded `discover-jesus` ("hand-written… by others", reconciled into the body too),
-  `learning-marketplace` (students-become-teachers framing), `redline` ("feedback from clients").
-- **[CASE-MOCKUPS]** — filename-convention wiring (`src/mockups/<slug>.{png,svg}`, cover-fit 2:3; `DEC-022-1`)
-  + optional `mockupCaption`; `redline` screenshot wired, `learning-marketplace` wired via an illustrative,
-  de-identified **system-map SVG** (`DEC-022-2`). **Click-to-enlarge lightbox** added for all mockups
-  (`DEC-022-3`), reusing the RecordMethod `<dialog>` pattern. Verified live (light+dark).
-- **[CASE-DIAGRAMS]** — `redline` diagram made real (`mock` cleared); `learning-marketplace` moved to the
-  system-map mockup (old mock SVG deleted). Remaining: `this-site`, `translation-platform`.
-- **learning-marketplace prose** — rewrote "The problem" + "What I built" for scale + the community half;
-  "not live" reframe of the payment-webhook moment; benefit refreshed; **BUILT WITH** rebuilt from the real
-  `package.json` (identifying names excluded).
-- **Record voice** (`DEC-022-4`) — every case's record section retitled **"Fraser's Role — an AI's
-  independent audit"** and rewritten first-person→third-person ("Fraser").
-- **`::selection` fix** (`DEC-022-5`) — `--accent / --on-accent` pair; the old `--accent-tint` was
-  near-invisible in dark mode (operator-confirmed).
-- **Hopper** — all ruled/cleared: `::selection` fix done, orphan diagram deleted, scratch generators deleted,
-  BUILT WITH refreshed from `package.json`.
+### Conv 023 — Work cases: "Why it matters" section + narration conventions
+- **"Why it matters" section (`DEC-023-2`)** — added as the first `##` of all seven cases (motivation, 1–2
+  lines); each "The problem" trimmed to the difficulty so motivation/difficulty no longer share the opener.
+- **`translation-platform`** — "ten languages" de-emphasised (`DEC-023-3`): title keeps "Multi-language" as
+  intent, summary says "developed and proven on one", the count dropped from summary/problem; the target
+  language is deliberately **not named** (de-id link to the named Urantia cases). "The problem" rewritten
+  from operator copy (DeepL / glossary-adherence detail); solution-mechanism sentences cut.
+- **I/we convention (`DEC-023-1`)** — "I" = Fraser's own calls, "we" = client-shared decisions; applied the
+  one fix it surfaced (`learning-marketplace` "our deployment target" → "the deployment target").
+- **Hopper** — clear at close; nothing captured this conv.
 - **Not deployed** — local dev only; production still gated on sign-off.
 

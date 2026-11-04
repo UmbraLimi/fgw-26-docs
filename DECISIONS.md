@@ -10,6 +10,21 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 023
 
+### DEC-023-3 — translation-platform: multi-language is intent only; the target language is not named
+**Decision:** On the `translation-platform` case, the multi-language scope is presented as **design intent**,
+not delivered scope — the "ten languages" claim is de-emphasised — and the single language it was actually
+developed in is **not named** on the card.
+**Rationale:** The project was architected for multiple languages but developed and proven in one (Brazilian
+Portuguese — deliberately unnamed). Naming the target language risks linking this de-identified engagement to
+the named Center-for-Unity Urantia cases (same client and source text; the `[CASE-RECORD-SIGNOFF]` masking
+constraint). Operator chose generic over naming the language. Alternatives that lost: keep "ten languages" as
+a delivered accomplishment (overstates — it was single-language in practice); name Brazilian Portuguese
+explicitly (the de-id link the operator rejected).
+**Consequences:** Title keeps "Multi-language" (reads as intent); `summary` says "developed and proven on
+one"; the count removed from `summary` + `problem`. The body "The problem" was also rewritten from operator
+copy (DeepL / glossary-adherence detail) and lost its solution-mechanism sentences (duplicated "What I
+built"). 🔴 Future edits to this card must not name the target language.
+
 ### DEC-023-2 — Every Work case opens with a "Why it matters" section
 **Decision:** Each `/work/<slug>` case study carries a dedicated **"Why it matters"** section as its first
 `##` heading — 1–2 lines stating the project's motivation (the broader need it answers) — placed before "The
