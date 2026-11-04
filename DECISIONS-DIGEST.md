@@ -6,6 +6,21 @@ _As of 2026-11-04._
 
 ---
 
+### DEC-025-2 — A record's audit is the AI's independent read, kept verbatim — the operator does not edit its findings
+
+When a "The record" audit is refreshed, its findings — including unflattering ones (a
+fabricated-transcript miss; a sibling case page that frames work ahead of its build) — are kept exactly as
+the independent read produced them. The operator ruled **keep all three** of the sharpest debits on the
+explicit ground that the audit is the AI's point of view, not his to adjust.
+
+### DEC-025-1 — `currentAsOf` record-currency field, distinct from `reviewed`
+
+Add a required `currentAsOf` ISO-date field to the `record` collection schema, stamped on
+every record. It records when a record was last **assessed current** — a date that advances even when the
+audit body is unchanged — as opposed to `reviewed`, which dates when the audit was **authored**. On
+refreshing `this-site` both equal 2026-11-04; the four records whose projects are complete or on hiatus
+(SPT, Peerloop, fps, redline) are stamped 2026-11-04 as "assessed and held current" with no content change.
+
 ### DEC-024-2 — Optional `segmentTable` caseExtras render type (segment→sections HTML table)
 
 A new optional `segmentTable` field on the `caseExtras` schema — an ordered array of

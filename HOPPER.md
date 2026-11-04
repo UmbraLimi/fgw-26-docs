@@ -6,5 +6,5 @@ durable record of what was done is the conv record + the board, never a line lef
 
 ## Open
 
-- [ ] Consider adding a `## My response` section to the remaining record pages (`redline`, `learning-marketplace`, `this-site`) — fps + `translation-platform` now carry one (Conv 024); decide whether the pattern should be site-wide across all records.
+_None._
 

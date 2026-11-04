@@ -8,6 +8,41 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 025
+
+### DEC-025-2 — A record's audit is the AI's independent read, kept verbatim — the operator does not edit its findings
+**Decision:** When a "The record" audit is refreshed, its findings — including unflattering ones (a
+fabricated-transcript miss; a sibling case page that frames work ahead of its build) — are kept exactly as
+the independent read produced them. The operator ruled **keep all three** of the sharpest debits on the
+explicit ground that the audit is the AI's point of view, not his to adjust.
+**Rationale:** The feature's whole credibility is that the read is independent and candid (`DEC-009-4`); an
+operator who edits the findings to flatter himself destroys exactly that, and keeping the misses in print —
+on the page that sells "check my work" — is the strongest trust signal available. Alternative that lost:
+softening or cutting the sharpest debit (the fps framing-ahead-of-build admission), which was more
+comfortable but would have made the "unedited independent audit" label untrue. Refines `DEC-009-4`.
+**Consequences:** the refreshed `this-site` transcript and its on-page summary both carry the misses
+verbatim. Live downstream: the audit now states publicly that the fps case overstates its build state
+(`DEC-020-3`) — ruled acceptable this conv (hopper item dropped), so the admission stands unless the fps
+prose is reconciled before go-live. Format-only normalization (stripping two internal `[checked:]`
+provenance tags from the subagent output) is not a findings edit and is permitted.
+
+### DEC-025-1 — `currentAsOf` record-currency field, distinct from `reviewed`
+**Decision:** Add a required `currentAsOf` ISO-date field to the `record` collection schema, stamped on
+every record. It records when a record was last **assessed current** — a date that advances even when the
+audit body is unchanged — as opposed to `reviewed`, which dates when the audit was **authored**. On
+refreshing `this-site` both equal 2026-11-04; the four records whose projects are complete or on hiatus
+(SPT, Peerloop, fps, redline) are stamped 2026-11-04 as "assessed and held current" with no content change.
+**Rationale:** a completed or paused project's audit still goes stale, because the **auditing model changes
+over time** and its assessment may shift even when the project does not — so currency must be tracked
+independently of both audit authorship and project activity (operator's own rationale). Alternatives that
+lost: reusing `reviewed` (conflates authorship with currency); naming the field `refreshed` (reads oddly
+when nothing was refreshed — `currentAsOf` reads true for the held-current case); leaving staleness
+untracked (the Conv-014→025 drift on `this-site` went unnoticed for eleven convs).
+**Consequences:** `src/content.config.ts` gains `currentAsOf: z.string()`; all five records carry it; it is
+operator-facing (no page renders it — the record CTA still shows `reviewed`). A `currentAsOf` trailing well
+behind today is the staleness signal, marking a record due for re-assessment. Narrowed `[CASE-RECORD-REFRESH]`
+to `this-site` (done this conv); the four exempt records rely on `currentAsOf` for future reassessment.
+
 ## Conv 024
 
 ### DEC-024-2 — Optional `segmentTable` caseExtras render type (segment→sections HTML table)

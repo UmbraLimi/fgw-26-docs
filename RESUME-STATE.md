@@ -2,27 +2,27 @@
 
 ## Where we left off
 
-Conv 024 was an operator-driven rework of the SPT (`translation-platform`) case page, live on the dev
-server: a full prose tune (ending on a new async/Cloudflare-Workers production-ready note; a billing claim
-dropped from body + `outcome` as not-completed), a new **"My response"** record section in Fraser's voice,
-the real technical **Built with** stack (read from `spt/package.json`), and a new optional **`segmentTable`**
-caseExtras render type (`DEC-024-2` — an HTML segment→sections table) that replaced the case's diagram.
-Three cases' "Why it matters" were also tuned. **Not deployed** — local dev only.
+Conv 025 closed the FGW (`this-site`) case thread. Its stale independent audit (byte-identical to Conv
+014: convs 000–013 / 48 decisions) was refreshed to current state via a fresh subagent re-audit (convs
+000–024 / 82 decisions), the on-page summary refreshed section-by-section, and the audit kept **verbatim**
+— misses included (`DEC-025-2`). A new `currentAsOf` record-currency field (`DEC-025-1`) was added and all
+five records stamped. The last `mock` case diagram (`this-site`) was replaced with a real checkable-record
+pipeline SVG. That **closed both [CASE-RECORD-REFRESH] and [CASE-DIAGRAMS]**. Not deployed — local dev only.
 
 ## Next action
 
-Continue the Work-case review with the operator's remaining cases: **FGW** (`this-site`), **DR**, **DTUB**.
-CC-buildable alongside: **[CASE-DIAGRAMS]** — `this-site` is now the last mock diagram; and the **carried
-hopper item** — add a `## My response` section to the remaining records (`redline`, `learning-marketplace`,
-`this-site`), each shaped from the operator's gist (the pattern now exists on fps + `translation-platform`).
-Reason: these are the open threads from the case-review pass, and the SPT case itself is now complete.
+Continue the Work-case review with the operator's remaining cases — **DR** and **DTUB** (operator's
+shorthand, carried from the Conv 024 hand-off). Reason: these are the last open threads of the case-review
+pass now that FGW is done. Critical path stays gated: **[SITE-PERF]** on the full image set (Conv 016);
+**[SITE-NARRATIVE]** on client sign-off.
 
 ⚠️ Standing: production has **never** been deployed (dev/staging only); home testimonials remain
-mock/SAMPLE; the `this-site` diagram is still mock; several case mockups still placeholder. 🔴 Future edits
-to the `translation-platform` card/record must **not** name the target language, source text, client org, or
-people (`DEC-023-3` + `[CASE-RECORD-SIGNOFF]`) — the `spt` / `spt-docs` reference repos carry those
-identifiers in the clear, so mine them for generic engineering facts only.
+mock/SAMPLE; `[CASE-MOCKUPS]` still owes operator screenshots for some cases. 🔴 The refreshed `this-site`
+audit now publicly states the **fps case frames confidentiality work ahead of its build** (`DEC-020-3`) —
+ruled acceptable Conv 025; before go-live, either reconcile the fps prose or let the admission stand. 🔴
+Future edits to the `translation-platform` card/record must **not** name the target language, source text,
+client org, or people (`DEC-023-3` + `[CASE-RECORD-SIGNOFF]`).
 
 ## 🔬 Carried findings
 
-_None._ (One open hopper item — `## My response` for the remaining records — rides to Conv 025's `/r-start`.)
+_None._

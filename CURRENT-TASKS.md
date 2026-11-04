@@ -32,16 +32,16 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 025:** Conv 024 fully reworked the SPT (`translation-platform`) case — prose tune
-(incl. an async/Cloudflare-Workers production-ready close; billing dropped as not-completed), a new
-**"My response"** record section, the real technical **Built with** stack, and a new optional
-**`segmentTable`** caseExtras render type (an HTML segment→sections table, `DEC-024-2`) that replaced its
-diagram. Operator's remaining review cases: **FGW** (this-site), **DR**, **DTUB**.
-CC-buildable next: **[CASE-DIAGRAMS]** (`this-site` is now the only mock left) and **[CASE-RECORD-REFRESH]**
-(records to final state). Carried hopper: `## My response` for the remaining records. Critical-path still
-gated: [SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off.
+⚡ **Do-next — Conv 026:** Conv 025 closed the FGW (`this-site`) case thread — refreshed its stale
+independent audit to current state (convs 000–024 / 82 decisions, fresh-subagent re-audit), added the
+`currentAsOf` record-currency field (`DEC-025-1`), and drew the real checkable-record pipeline diagram
+for its aside — which **closed both [CASE-DIAGRAMS] and [CASE-RECORD-REFRESH]**. Operator's remaining
+review cases: **DR**, **DTUB**. Critical-path still gated: [SITE-PERF] on the full image set (Conv 016);
+[SITE-NARRATIVE] on client sign-off. Open polish rows: [CASE-MOCKUPS] (owed operator screenshots),
+[SITE-CONSISTENCY], [CASE-RECORD-SIGNOFF].
 
-(**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
+(**[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 ·
+**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
 **[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
 **[SITE-DEPLOY-STAGING]** ✅ Conv 008 · **[SITE-ASSESS]** ✅ Conv 009 · **[SITE-VISUAL]** ✅ Conv 010 ·
 **[SITE-PHASES]** ✅ Conv 011; all in ✅ Completed / conv records.)
@@ -256,23 +256,6 @@ Urantia live-link cases if wanted).
 `segmentTable` instead — so it leaves the owed-screenshot set. **Remaining owed:** the two Urantia
 live-link cases, if wanted.
 
-### [CASE-DIAGRAMS] · promoted Conv 021
-Replace the generic **MOCK** line-art diagrams — the `.case-figure` SVGs shown with the "Sample diagram —
-illustrative, pending the real figure" caption (`mock:true`) — with real, case-specific hand-drawn SVG
-figures for the four cases still carrying placeholders: `this-site`, `redline`, `translation-platform`,
-`learning-marketplace`. **fps already has a real diagram** (`DEC-020-1`, Conv 020). CC-authorable — the fps
-egress diagram is a hand-drawn SVG, no screenshot needed — so unlike `[CASE-MOCKUPS]` this does **not** wait
-on the operator. 🔴 The two client diagrams (`translation-platform`, `learning-marketplace`) must stay
-de-identified / NDA-safe — the current mock SVGs are generic flows; the real ones must remain generic.
-**Done-when:** each of the four has a real SVG and its `mock` flag is cleared (so the "Sample diagram"
-caption drops). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish. (hopper → Conv 021)
-**Conv 022:** `redline` done — real egress diagram drawn, `mock` cleared. `learning-marketplace` is now
-handled via the system-map **mockup** (`DEC-022-2`) instead of a `.case-figure`, and its old mock diagram
-SVG was deleted. **Remaining: `this-site`, `translation-platform`.**
-**Conv 024:** `translation-platform` no longer uses a diagram — its real flow SVG was drawn, then the case
-switched to the new `segmentTable` render type (`DEC-024-2`) and the SVG was deleted. **Remaining:
-`this-site`** (the last mock).
-
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014
 The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
 the full token-redacted transcripts at `/work/translation-platform/record` and
@@ -288,16 +271,6 @@ surfaces the translation + marketplace quotes (kept masked for now). When the re
 **Gabriel** (translation) + **Brian** (marketplace) land, the attribution decision is here: naming Gabriel
 publicly links the confidential engagement to the named Urantia cases. Brian (marketplace) is not under
 this constraint.
-
-### [CASE-RECORD-REFRESH] · promoted Conv 019
-Refresh the independent-read **"The record"** assessments to the project's final state before production.
-The `this-site` read currently covers only **convs 000–008** (project now at conv 019) and is **stale**;
-the client-case records (Conv 014) should likewise reflect final state. **Input captured (Conv 019):** add
-the **data-structures episode** — the operator perceived a weakness in the markdown-prose / JSON-structured
-data split, probed it, and on discussion with the AI it was deemed unnecessary to change; status quo held
-(`DEC-019-1`) — a genuine "steering / judgment in the open" beat (a probe that ended in no change).
-🔴 Gated: wanted before `[SITE-GO-LIVE]`. Distinct from `[CASE-RECORD-SIGNOFF]` (that is client sign-off,
-not a content refresh). (hopper → Conv 019)
 
 ### [SITE-TOOLS] · promoted Conv 012
 Operator idea-set item 7, unscoped: a "tools" surface — ambiguous between a tools/stack page, the tech
@@ -343,23 +316,25 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 024 — SPT case page fully reworked + new `segmentTable` render type
-- **SPT prose tune** — all sections of `translation-platform` reworked (operator-driven): "The problem"
-  rewritten (correction / glossary-adherence / rule-based framing, "shrink the black box" close); "What I
-  built" reworked with an async/Cloudflare-Workers production-ready close; billing dropped from body +
-  `outcome` frontmatter (did not complete).
-- **"My response" record section** — a new `## My response` on the SPT record, Fraser's reply to the audit,
-  in voice (de-identified).
-- **"Why it matters" tuning** — `redline` (client visual-feedback framing), `learning-marketplace`,
-  `personal-productivity-app`, per operator edits.
-- **Built with** — SPT `tools` replaced with the real technical stack (Astro, React, Cloudflare
-  Workers/Queues/DO/D1/R2, Drizzle, DeepL, Anthropic Claude, COMET/MQM), read from `spt/package.json`.
-- **`segmentTable` render type (`DEC-024-2`)** — new optional caseExtras field + CaseExtras HTML-table
-  render + `.case-segtable` styles; presence-flagged, uniform across cases. SPT adopts it in place of its
-  diagram (real SVG drawn then removed); mockup hidden. Verified rendering in-browser (light + dark).
-- **Benefit** — reworded to clear the `DEC-023-3` "~10 languages" residue.
-- **Process** — `DEC-024-1` (CC is sole file editor) recorded + stated in CLAUDE.md; `src/data/README.md`
-  currency-fixed (segmentTable + mockupCaption rows).
-- **Hopper** — 1 carried (`## My response` for remaining records); orphaned SVG deleted.
+### Conv 025 — FGW (`this-site`) record refreshed + `currentAsOf` + real diagram
+- **`this-site` audit refreshed ([CASE-RECORD-REFRESH] ✅)** — the stale independent read (convs 000–013 /
+  48 decisions, 2026-10-30) replaced with a fresh re-audit (convs 000–024 / 82 decisions) produced by a
+  fresh subagent deliberately not shown the prior audit; the on-page "Fraser's Role" summary refreshed
+  section-by-section; frontmatter (`reviewed`/`source`) + maintainer comment updated to Conv 025.
+- **Audit kept verbatim (`DEC-025-2`)** — operator ruled the independent read is the AI's point of view,
+  not for the operator to adjust; its documented misses (fabricated-transcript, fps framing-ahead-of-build)
+  stay in print.
+- **`currentAsOf` record field (`DEC-025-1`)** — added to the `record` schema; all five records stamped
+  (four exempt at 2026-11-04, `this-site` refreshed). A currency stamp distinct from `reviewed`, so a
+  completed/hiatus project's audit can be reassessed as the auditing model drifts.
+- **Scope resolution** — only FGW needed refreshing; SPT/Peerloop/fps/redline are complete or on hiatus →
+  exempt, with `currentAsOf` carrying their future reassessment.
+- **`this-site` aside diagram ([CASE-DIAGRAMS] ✅)** — the last `mock` diagram replaced with a real
+  checkable-record pipeline SVG (decision written down → kept/tombstoned → independent AI audit →
+  checkable); `mock` cleared so the "Sample diagram" caption drops. Every case now has a real figure /
+  table / mockup / live-link. Verified in-browser (light + dark).
+- **Currency** — `src/data/README.md` "see the mock files" reference fixed (no mocks remain).
+- **Hopper** — both open items dropped (site-wide `## My response`; fps framing reconcile — audit admission
+  stands).
 - **Not deployed** — local dev only; production still gated on sign-off.
 
