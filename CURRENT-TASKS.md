@@ -32,14 +32,14 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 024:** Conv 023 restructured the Work cases — every case now opens with a **"Why it
-matters"** section (motivation, 1–2 lines) before **"The problem"**, which was trimmed to the difficulty
-(`DEC-023-2`); plus the **I/we narration convention** (`DEC-023-1`) and the `translation-platform` **"ten
-languages" de-emphasis** (`DEC-023-3`, with "The problem" rewritten from operator copy).
-CC-buildable next: **[CASE-DIAGRAMS]** (`this-site` + `translation-platform` still mock) and
-**[CASE-RECORD-REFRESH]** (records to final state). Operator-owed: **[CASE-MOCKUPS]** screenshots for the
-remaining cases. Critical-path still gated: [SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on
-client sign-off.
+⚡ **Do-next — Conv 025:** Conv 024 fully reworked the SPT (`translation-platform`) case — prose tune
+(incl. an async/Cloudflare-Workers production-ready close; billing dropped as not-completed), a new
+**"My response"** record section, the real technical **Built with** stack, and a new optional
+**`segmentTable`** caseExtras render type (an HTML segment→sections table, `DEC-024-2`) that replaced its
+diagram. Operator's remaining review cases: **FGW** (this-site), **DR**, **DTUB**.
+CC-buildable next: **[CASE-DIAGRAMS]** (`this-site` is now the only mock left) and **[CASE-RECORD-REFRESH]**
+(records to final state). Carried hopper: `## My response` for the remaining records. Critical-path still
+gated: [SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off.
 
 (**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
 **[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
@@ -159,6 +159,13 @@ reconciled to this voice — per-page as reached.
 (motivation, before "The problem"; `DEC-023-2`); narration follows the **I/we convention** (`DEC-023-1`);
 `translation-platform`'s "ten languages" was de-emphasised (`DEC-023-3`).
 
+**SPT (`translation-platform`) fully reworked — Conv 024.** Operator-driven prose tune across all sections
+(incl. an async/Cloudflare-Workers production-ready close; billing dropped from body + `outcome` as
+not-completed); three cases' "Why it matters" tuned; a new **"My response"** record section (Fraser's reply
+to the audit, in voice); the real technical **Built with** stack; benefit reworded to clear the `DEC-023-3`
+"~10 languages" residue; and the case's diagram replaced by the new **`segmentTable`** render type
+(`DEC-024-2`). Local dev only — not deployed.
+
 **Home refined further — Conv 018.** Operator-driven page pass on home: the four-step flow chart reworded
 (the load-bearing idea is that big builds span multiple AI sessions and that needs managing); the
 "Judgment in practice" band re-led as a question ("Where does my judgment come in?") with three
@@ -245,6 +252,9 @@ deferred to `[SITE-PERF]`. Wired: `redline` (operator screenshot) and `learning-
 illustrative system-map SVG, `DEC-022-2`). A **click-to-enlarge lightbox** was added for all case mockups
 (`DEC-022-3`). Remaining owed: operator screenshots for the other cases (`translation-platform`; the two
 Urantia live-link cases if wanted).
+**Conv 024:** `translation-platform` opts out of the mockup (`hideMockup: true`) — its aside now shows the
+`segmentTable` instead — so it leaves the owed-screenshot set. **Remaining owed:** the two Urantia
+live-link cases, if wanted.
 
 ### [CASE-DIAGRAMS] · promoted Conv 021
 Replace the generic **MOCK** line-art diagrams — the `.case-figure` SVGs shown with the "Sample diagram —
@@ -259,6 +269,9 @@ caption drops). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish
 **Conv 022:** `redline` done — real egress diagram drawn, `mock` cleared. `learning-marketplace` is now
 handled via the system-map **mockup** (`DEC-022-2`) instead of a `.case-figure`, and its old mock diagram
 SVG was deleted. **Remaining: `this-site`, `translation-platform`.**
+**Conv 024:** `translation-platform` no longer uses a diagram — its real flow SVG was drawn, then the case
+switched to the new `segmentTable` render type (`DEC-024-2`) and the SVG was deleted. **Remaining:
+`this-site`** (the last mock).
 
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014
 The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
@@ -330,15 +343,23 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 023 — Work cases: "Why it matters" section + narration conventions
-- **"Why it matters" section (`DEC-023-2`)** — added as the first `##` of all seven cases (motivation, 1–2
-  lines); each "The problem" trimmed to the difficulty so motivation/difficulty no longer share the opener.
-- **`translation-platform`** — "ten languages" de-emphasised (`DEC-023-3`): title keeps "Multi-language" as
-  intent, summary says "developed and proven on one", the count dropped from summary/problem; the target
-  language is deliberately **not named** (de-id link to the named Urantia cases). "The problem" rewritten
-  from operator copy (DeepL / glossary-adherence detail); solution-mechanism sentences cut.
-- **I/we convention (`DEC-023-1`)** — "I" = Fraser's own calls, "we" = client-shared decisions; applied the
-  one fix it surfaced (`learning-marketplace` "our deployment target" → "the deployment target").
-- **Hopper** — clear at close; nothing captured this conv.
+### Conv 024 — SPT case page fully reworked + new `segmentTable` render type
+- **SPT prose tune** — all sections of `translation-platform` reworked (operator-driven): "The problem"
+  rewritten (correction / glossary-adherence / rule-based framing, "shrink the black box" close); "What I
+  built" reworked with an async/Cloudflare-Workers production-ready close; billing dropped from body +
+  `outcome` frontmatter (did not complete).
+- **"My response" record section** — a new `## My response` on the SPT record, Fraser's reply to the audit,
+  in voice (de-identified).
+- **"Why it matters" tuning** — `redline` (client visual-feedback framing), `learning-marketplace`,
+  `personal-productivity-app`, per operator edits.
+- **Built with** — SPT `tools` replaced with the real technical stack (Astro, React, Cloudflare
+  Workers/Queues/DO/D1/R2, Drizzle, DeepL, Anthropic Claude, COMET/MQM), read from `spt/package.json`.
+- **`segmentTable` render type (`DEC-024-2`)** — new optional caseExtras field + CaseExtras HTML-table
+  render + `.case-segtable` styles; presence-flagged, uniform across cases. SPT adopts it in place of its
+  diagram (real SVG drawn then removed); mockup hidden. Verified rendering in-browser (light + dark).
+- **Benefit** — reworded to clear the `DEC-023-3` "~10 languages" residue.
+- **Process** — `DEC-024-1` (CC is sole file editor) recorded + stated in CLAUDE.md; `src/data/README.md`
+  currency-fixed (segmentTable + mockupCaption rows).
+- **Hopper** — 1 carried (`## My response` for remaining records); orphaned SVG deleted.
 - **Not deployed** — local dev only; production still gated on sign-off.
 

@@ -2,9 +2,26 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-03._
+_As of 2026-11-04._
 
 ---
+
+### DEC-024-2 — Optional `segmentTable` caseExtras render type (segment→sections HTML table)
+
+A new optional `segmentTable` field on the `caseExtras` schema — an ordered array of
+`{ segment, sections[] }` — rendered by `CaseExtras` as an HTML table in the case aside, in place of a
+diagram. Presence of the field is the switch, handled uniformly for every case; a case gives it the aside
+slot by omitting `diagram` and setting `hideMockup: true`. `translation-platform` (SPT) is the first
+adopter: a generalized, de-identified segment→sections view of its pipeline (7 segments / 40 sections),
+replacing its flow diagram.
+
+### DEC-024-1 — Claude Code is the sole editor of file content; the operator never edits files directly
+
+Claude Code makes every change to file content. The operator never edits files directly;
+instead the operator conveys changes in prose and Claude Code applies them. "Section by section" is a
+collaborative cadence, not solo work: usually Claude presents a section and the operator corrects or
+replaces it in words, but the operator may also hand Claude a section (e.g. a paste) to change without
+Claude presenting it first. Either way, Claude makes the edit.
 
 ### DEC-023-3 — translation-platform: multi-language is intent only; the target language is not named
 

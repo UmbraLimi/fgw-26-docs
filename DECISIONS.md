@@ -10,6 +10,26 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 024
 
+### DEC-024-2 — Optional `segmentTable` caseExtras render type (segment→sections HTML table)
+**Decision:** A new optional `segmentTable` field on the `caseExtras` schema — an ordered array of
+`{ segment, sections[] }` — rendered by `CaseExtras` as an HTML table in the case aside, in place of a
+diagram. Presence of the field is the switch, handled uniformly for every case; a case gives it the aside
+slot by omitting `diagram` and setting `hideMockup: true`. `translation-platform` (SPT) is the first
+adopter: a generalized, de-identified segment→sections view of its pipeline (7 segments / 40 sections),
+replacing its flow diagram.
+**Rationale:** The operator wanted SPT's internal status table (a section × mode grid, from `spt-docs`)
+on the case page, but *generalized* — the full mode/readiness grid over-exposed a confidential engagement's
+internals and was too large for the aside. Reduced to segment + section names only (de-id safe: generic
+engineering + public-metric terms, no language/source/client identity). Chosen as a **structured data field
+rendered to HTML** (durable, matches the data-driven caseExtras pattern, no raw-HTML injection or de-id
+leak) and as a **reusable optional render type** (uniform across cases). Alternatives that lost: an SVG
+flow diagram (drawn as the real figure this conv, then removed — the table served the breakdown better);
+raw HTML string in the JSON (less durable, de-id risk); a per-slug template conditional (not reusable).
+**Consequences:** schema gains `segmentTable?`; `CaseExtras` renders `.case-segtable`; `work/[slug].astro`
+passes it through; `global.css` adds the styles; `src/data/README.md` documents it. SPT drops `diagram`,
+sets `hideMockup: true`, carries the table; `src/diagrams/translation-platform.svg` was deleted. Verified
+rendering in-browser (light + dark). Any case can adopt the pattern the same way.
+
 ### DEC-024-1 — Claude Code is the sole editor of file content; the operator never edits files directly
 **Decision:** Claude Code makes every change to file content. The operator never edits files directly;
 instead the operator conveys changes in prose and Claude Code applies them. "Section by section" is a
