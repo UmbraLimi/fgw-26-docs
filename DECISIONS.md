@@ -8,6 +8,44 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 023
+
+### DEC-023-2 — Every Work case opens with a "Why it matters" section
+**Decision:** Each `/work/<slug>` case study carries a dedicated **"Why it matters"** section as its first
+`##` heading — 1–2 lines stating the project's motivation (the broader need it answers) — placed before "The
+problem". "The problem" is correspondingly trimmed to the *difficulty* only, so motivation and difficulty no
+longer share the opener.
+**Rationale:** Operator wants a reader to follow the flow of thought — client need → chosen approach — and a
+standalone "why" section is the hinge that makes "What I built" read as a chosen response rather than an
+arbitrary build (conv 023). A section (not just a lead line inside "The problem") so the beat is explicit and
+consistent site-wide. Heading "Why it matters" chosen over the question-form "Why do this?" — declarative,
+matching the other noun-phrase headings ("The problem", "Where it stands"). Alternatives that lost: a 1–2
+line "why" folded into the top of "The problem" (keeps the redundancy the operator flagged — motivation and
+difficulty blurred); "Why do this?" question heading (the home page uses question headings, but the case
+sections are declarative).
+**Consequences:** Applied to all seven cases (translation-platform, learning-marketplace, redline,
+personal-productivity-app, this-site, discover-jesus, discover-the-ub); each "The problem" trimmed to the
+difficulty. De-identified cases (translation-platform, learning-marketplace) keep their "Why" generic — no
+client/source-text identity. In translation-platform this pass also removed the two solution-mechanism
+sentences from "The problem" (duplicated "What I built") and kept the "black box" aim line — folding in the
+unresolved earlier trim question. Not deployed — local dev only.
+
+### DEC-023-1 — Case narration: "I" for Fraser's own calls, "we" for client-shared decisions
+**Decision:** In Work case-study narration, first-person **"I"** denotes Fraser's own decisions and actions;
+first-person-plural **"we"** denotes decisions made jointly with the client. The operator works closely with
+clients on strategy, so a mix of the two within one client case is intentional, not voice drift.
+**Rationale:** Operator's stated working practice (conv 023). The distinction is meaningful — it marks which
+calls were solo and which were shared — and does positioning work (signals collaboration with the client,
+not just work done for them). Carries no de-identification risk ("we" names no one). Alternative that lost:
+normalise all case narration to "I" for a uniform voice (would erase the real solo-vs-shared distinction and
+misrepresent shared calls as Fraser's alone).
+**Consequences:** Governs the client cases (`translation-platform`, `learning-marketplace`, and the two named
+Center-for-Unity cases `discover-jesus` / `discover-the-ub`). Fraser's own-project cases (`this-site`,
+`redline`, `personal-productivity-app`) have no client, so no shared "we" arises. Verbatim log quotes inside
+the "Fraser's Role" record sections are exempt — they stay faithful to the source even where they contain
+"we" (e.g. the "we haven't hemmed in what we want to build" quote in `translation-platform`). Under this
+rule, "we were out to minimize… the black box" in `translation-platform` is correct.
+
 ## Conv 022
 
 ### DEC-022-5 — `::selection` uses the `--accent`/`--on-accent` pair, not `--accent-tint`
