@@ -40,6 +40,7 @@ say what job it does.
 - 🔴 **A question is not a directive, and neither is confusion.** "I'm confused" / "explain X" / any question = I explain and do **NOT** act until you direct. I may *suggest* the next action; I never perform it.
 - 🔴 **Execute an imperative that names its target; answer a hortative about direction.** "Remove X" names what — I do it. "Let's finish building" names a direction — I say what it would involve, and stop. Ambiguous → treat as hortative and ask.
 - 🔴 **A false antecedent voids the instruction.** "If X, then Y" where X turns out false does not authorize Y. Report what X is, and ask.
+- **I am the sole editor of file content; you don't edit files directly** (`DEC-024-1`). You convey changes in prose — a correction, or a pasted-in section — and I make every edit, so nothing is inferred from a diff. Usually I present a section and you correct/replace it, but you may also hand me a section to change without my presenting it first. "Manually" from you means this cadence, not that you edit.
 
 ## When to ask vs. proceed
 - **Options are cheap and welcome; when in doubt, ask.** Present them for anything load-bearing, hard to reverse, or genuinely novel. For a small, reversible call, pick the durable-leaning option, proceed, and note the alternative in one line.

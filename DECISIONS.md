@@ -8,7 +8,23 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
-## Conv 023
+## Conv 024
+
+### DEC-024-1 — Claude Code is the sole editor of file content; the operator never edits files directly
+**Decision:** Claude Code makes every change to file content. The operator never edits files directly;
+instead the operator conveys changes in prose and Claude Code applies them. "Section by section" is a
+collaborative cadence, not solo work: usually Claude presents a section and the operator corrects or
+replaces it in words, but the operator may also hand Claude a section (e.g. a paste) to change without
+Claude presenting it first. Either way, Claude makes the edit.
+**Rationale:** If the operator edited files directly, Claude would have to infer what changed from a diff —
+lossy and error-prone. A single editor keeps every change intentional and attributable and keeps Claude's
+in-context view of each file authoritative between pulls. The word "manually" from the operator means this
+collaborative cadence, **not** "the operator edits the file." Alternative that lost: operator edits directly
+and Claude reconciles from diffs (the inference cost the operator is explicitly avoiding).
+**Consequences:** Within a conv, Claude's edits are the sole source of file change; Claude re-reads from disk
+only after external changes (e.g. a pull). Operator instructions that sound like self-editing ("I'll tune
+this", "manually") are read as "I'll dictate the change for you to apply." Also stated as a rule in
+CLAUDE.md under "Interaction model" (operator call, this conv).
 
 ### DEC-023-3 — translation-platform: multi-language is intent only; the target language is not named
 **Decision:** On the `translation-platform` case, the multi-language scope is presented as **design intent**,
