@@ -39,8 +39,9 @@ hiatus story (`DEC-027-1`); a **pricing anchor** — a $10K–$150K qualifier on
 entry (`DEC-027-2`); a new **`/privacy`** page + footer link (`DEC-027-3`); the **contact form** got an
 all-fields-required submit gate + the first backend-endpoint **test suite** (`DEC-027-4`); Method's
 heading icons removed for prose-page consistency (`DEC-027-5`); and the contact email **unified to
-fraser@frasergorrie.com** (Resend-verified on staging, `DEC-027-6`). All deployed to staging. **Remaining
-prose-review pages: FAQ, Testimonials** (operator deferred to next conv). Critical path still gated:
+fraser@frasergorrie.com** (Resend-verified on staging, `DEC-027-6`). All deployed to staging. **FAQ + Testimonials
+prose review done Conv 028** — the page-by-page prose pass is now complete, so `[SITE-CONSISTENCY]` +
+`[SITE-A11Y]` are ungated (both also got a grouping-heading rule this conv). Critical path still gated:
 [SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off; [SITE-GO-LIVE] on the
 operator DNS + go-ahead (now also carrying the legal-review + prod-`EMAIL_TO` gates). Open polish rows:
 [SITE-CONSISTENCY], **[SITE-A11Y]** (new), [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS],
@@ -313,14 +314,16 @@ drift from what the pages now say; and (3) **layout measure** — confirm runnin
 max-width cap across pages (`max-w-2xl` vs `max-w-prose` etc.) so the readable line length doesn't vary
 page to page (hopper → Conv 019); and (4) **vertical rhythm** — the non-home pages carry too much top and
 bottom margin; normalise their top/bottom spacing so every page matches the home page (operator, Conv 019); and
-(5) **section-heading hierarchy** — FAQ section headings were lifted (weight 700 + an accent underline rule,
-`.faq-group h2`; Conv 028) because they shared the questions' weight; other pages' section headings stay on
-plain `text-h3`. Decide whether that lifted treatment becomes the site-wide section-heading pattern or stays
-FAQ-only (operator chose FAQ-only for now, Conv 028).
-🔴 Gated: waits until the prose pass is done. **Progress: home (Conv 018), About / History / Contact /
-Method (Conv 027) done; FAQ + Testimonials remain.** Pairs with the per-page reconciliations already owed
-(voice + "44 vs over 40" — still live: About/History got the full degree treatment but the FAQ
-"What have you been doing for {YEARS} years?" still interpolates 44 vs home's "over 40"). (hopper → Conv 018)
+(5) **section-heading hierarchy** — headings that lead a grouping were lifted (weight 700 + an accent
+underline rule): FAQ groups (`.faq-group h2`) and the Testimonials time-period headings
+(`.testimonial-period-h2`), both Conv 028, because they shared the body weight. Other pages' section headings
+stay on plain `text-h3`. Decide whether that lifted treatment becomes the site-wide section-heading pattern
+or stays scoped to these grouped pages (operator chose scoped-only for now, Conv 028).
+✅ **Ungated (Conv 028) — the page-by-page prose pass is complete:** home (Conv 018), About / History /
+Contact / Method (Conv 027), FAQ + Testimonials (Conv 028). This review is now runnable. Pairs with the
+per-page reconciliations already owed (voice + "44 vs over 40" — still live: the FAQ "What have you been
+doing for {YEARS} years?" interpolates 44 vs home's "over 40"; operator chose to leave FAQ at 44,
+Conv 028). (hopper → Conv 018)
 
 ### [SITE-ANALYTICS] · promoted Conv 018
 Add web analytics and design what it should teach us — not just a default pageview install. Two parts:
@@ -342,9 +345,10 @@ the `<details>` disclosures (nav, FAQ, footer em-note) and the mockup lightbox; 
 error association; image alt text (`fraser.jpg`, case mockups, the pipeline/diagram SVGs — decorative vs
 meaningful); `prefers-reduced-motion`; skip-to-content link.
 
-🔴 **Gated:** runs after the operator's own prose audit on the few pending pages — content-dependent a11y
-(heading order, link text, alt text, `aria-label`s) shifts with copy. Pairs with `[SITE-CONSISTENCY]` +
-`[SITE-PERF]` as the pre-go-live quality sweep; wanted before `[SITE-GO-LIVE]`.
+✅ **Ungated (Conv 028)** — the prose pass on the pending pages (FAQ + Testimonials) is complete, so the
+content-dependent a11y (heading order, link text, alt text, `aria-label`s) can now be checked against
+settled copy. Pairs with `[SITE-CONSISTENCY]` + `[SITE-PERF]` as the pre-go-live quality sweep; wanted
+before `[SITE-GO-LIVE]`.
 
 ## ⏸️ Parked
 
