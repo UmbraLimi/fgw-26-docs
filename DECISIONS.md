@@ -8,6 +8,53 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 026
+
+### DEC-026-3 — The other five cases' frontmatter/SEO left as-is after a consistency audit
+**Decision:** A Conv-026 audit compared each non-Urantia Work case (`this-site`, `redline`,
+`translation-platform`, `learning-marketplace`, `personal-productivity-app`) against its `summary` — which
+is both the `/work` card text and the SEO `description`/`og`/`twitter` — and its dark
+`problem`/`outcome`/`proof` fields. Finding: **no material inconsistency**; every field faithfully reflects
+its body. The operator ruled the remaining observations — summary phrasing drifts (redline "day" vs
+"afternoon"; a `learning-marketplace` stray comma), the summary-doubles-as-meta-description length overruns
+(137–309 chars vs ~155–160 typical SERP truncation), and the personal-vs-client heading-convention split —
+are prose / inclusion choices, not inconsistencies, and left unchanged.
+**Rationale:** the fields are accurate distillations of the bodies, so there is nothing to reconcile;
+churning phrasing or trimming summaries now earns nothing and costs process (lean-process, `DEC-000-7`).
+Alternative that lost: editing the summaries for length/uniformity this conv. (Confirms per-case SEO is only
+`title` + `summary`; JSON-LD is global, not per-case.)
+**Consequences:** no case files changed by the audit. The meta-description-length observation stays on
+record (this conv's record + `RESUME-STATE.md`) for a future SEO pass to revisit; deliberately **not**
+promoted to a board row, per the operator's ruling.
+
+### DEC-026-2 — Named-client / spiritual-theme cases use a pipeline diagram, not a product screenshot
+**Decision:** The two public Center-for-Unity cases (`discover-jesus`, `discover-the-ub`) take a line-art
+pipeline SVG in the aside (`hideMockup: true` + `diagram: "<slug>"`), not a screenshot of the live site.
+**Rationale:** the case's point is Fraser's technical contribution — the machinery — not the client's
+spiritual content; a screenshot would foreground the content that was *not* his work, and two
+spiritual-themed screenshots would skew the portfolio's impression of what he does. The "it's real" proof a
+screenshot would give is already carried by the "Visit the live site" button (`liveUrl`). Alternative that
+lost: an operator-supplied live-site screenshot (the route `redline` uses). The operator raised the
+portfolio-balance concern; the model agreed on the added ground that the diagram shows the machinery, not
+the message.
+**Consequences:** two new sanitised SVGs (`src/diagrams/discover-jesus.svg`, `discover-the-ub.svg`); both
+cases leave the owed-screenshot set in `[CASE-MOCKUPS]`, and with them every Work case now fills its aside
+slot (screenshot / system-map SVG / pipeline diagram) — no placeholder box remains anywhere.
+
+### DEC-026-1 — A case study presents only Fraser's actual contribution; others' content is attributed to them
+**Decision:** The `discover-jesus` and `discover-the-ub` cases were reframed so the writing, editing,
+reading-levels, images, and (DTUB) the entire AI-written corpus are attributed to the client's team/editor,
+and Fraser's case text claims only the technical pipeline + the site build. Prior framing that implied he
+shared in the writing or used AI *on the content* was dropped; where AI genuinely contributed (the site
+builds) it is located precisely — DJ ≈95% of the web-app rebuild, DTUB the entire Astro site.
+**Rationale:** the site's honesty/humility frame (`DEC-000-6`, `DEC-010-2`) — a case must not imply
+authorship of content Fraser did not produce, and for an AI-steering site, naming *where* AI was actually
+used is more credible than a vague "AI-assisted" claim. Alternative that lost: the earlier gleaned framing
+("extended with AI", "AI content generation", "157 automation scripts", React-as-authored), which was partly
+inaccurate. Establishes the pattern for future client cases where Fraser's role is downstream / technical.
+**Consequences:** both cases' bodies + frontmatter + aside rewritten and committed (`5228216`, `b47bee2`);
+the technical-role framing is now the house default for a case built on content Fraser did not author.
+
 ## Conv 025
 
 ### DEC-025-2 — A record's audit is the AI's independent read, kept verbatim — the operator does not edit its findings

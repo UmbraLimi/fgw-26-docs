@@ -6,6 +6,30 @@ _As of 2026-11-04._
 
 ---
 
+### DEC-026-3 — The other five cases' frontmatter/SEO left as-is after a consistency audit
+
+A Conv-026 audit compared each non-Urantia Work case (`this-site`, `redline`,
+`translation-platform`, `learning-marketplace`, `personal-productivity-app`) against its `summary` — which
+is both the `/work` card text and the SEO `description`/`og`/`twitter` — and its dark
+`problem`/`outcome`/`proof` fields. Finding: **no material inconsistency**; every field faithfully reflects
+its body. The operator ruled the remaining observations — summary phrasing drifts (redline "day" vs
+"afternoon"; a `learning-marketplace` stray comma), the summary-doubles-as-meta-description length overruns
+(137–309 chars vs ~155–160 typical SERP truncation), and the personal-vs-client heading-convention split —
+are prose / inclusion choices, not inconsistencies, and left unchanged.
+
+### DEC-026-2 — Named-client / spiritual-theme cases use a pipeline diagram, not a product screenshot
+
+The two public Center-for-Unity cases (`discover-jesus`, `discover-the-ub`) take a line-art
+pipeline SVG in the aside (`hideMockup: true` + `diagram: "<slug>"`), not a screenshot of the live site.
+
+### DEC-026-1 — A case study presents only Fraser's actual contribution; others' content is attributed to them
+
+The `discover-jesus` and `discover-the-ub` cases were reframed so the writing, editing,
+reading-levels, images, and (DTUB) the entire AI-written corpus are attributed to the client's team/editor,
+and Fraser's case text claims only the technical pipeline + the site build. Prior framing that implied he
+shared in the writing or used AI *on the content* was dropped; where AI genuinely contributed (the site
+builds) it is located precisely — DJ ≈95% of the web-app rebuild, DTUB the entire Astro site.
+
 ### DEC-025-2 — A record's audit is the AI's independent read, kept verbatim — the operator does not edit its findings
 
 When a "The record" audit is refreshed, its findings — including unflattering ones (a

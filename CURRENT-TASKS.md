@@ -32,13 +32,15 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 026:** Conv 025 closed the FGW (`this-site`) case thread — refreshed its stale
-independent audit to current state (convs 000–024 / 82 decisions, fresh-subagent re-audit), added the
-`currentAsOf` record-currency field (`DEC-025-1`), and drew the real checkable-record pipeline diagram
-for its aside — which **closed both [CASE-DIAGRAMS] and [CASE-RECORD-REFRESH]**. Operator's remaining
-review cases: **DR**, **DTUB**. Critical-path still gated: [SITE-PERF] on the full image set (Conv 016);
-[SITE-NARRATIVE] on client sign-off. Open polish rows: [CASE-MOCKUPS] (owed operator screenshots),
-[SITE-CONSISTENCY], [CASE-RECORD-SIGNOFF].
+⚡ **Do-next — Conv 027:** Conv 026 reworked the two named Center-for-Unity cases — **discover-jesus**
+and **discover-the-ub** — to Fraser's technical-only role (the writing / editing / AI-authored content is
+the client's; his part is the pipeline + the site build), each gaining a real pipeline-diagram aside
+(`DEC-026-1`/`DEC-026-2`); and a frontmatter/SEO consistency audit of the other five cases found no
+material inconsistency and left them as-is (`DEC-026-3`). **All seven Work cases are now reviewed +
+illustrated — the case-review pass is complete.** Critical path still gated: [SITE-PERF] on the full image
+set (Conv 016); [SITE-NARRATIVE] on client sign-off; [SITE-GO-LIVE] on the operator DNS + go-ahead. Open
+polish rows: [SITE-CONSISTENCY], [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS], [SITE-TOOLS],
+[SITE-SOCIAL], [NODE-FLOOR], [CASE-MOCKUPS] (residual only — see row).
 
 (**[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 ·
 **[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
@@ -255,6 +257,10 @@ Urantia live-link cases if wanted).
 **Conv 024:** `translation-platform` opts out of the mockup (`hideMockup: true`) — its aside now shows the
 `segmentTable` instead — so it leaves the owed-screenshot set. **Remaining owed:** the two Urantia
 live-link cases, if wanted.
+**Conv 026:** both Urantia cases (`discover-jesus`, `discover-the-ub`) opt out of the mockup box too — each
+now shows a real pipeline diagram (`hideMockup: true` + `diagram`; `DEC-026-2`) — so the **owed-screenshot
+set is empty** and no case renders the placeholder box. Residual only: the Conv-019 mobile stacking-order
+review (prose-first vs extras-first) is still unconfirmed; that is all this row is now holding open.
 
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014
 The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
@@ -316,25 +322,26 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 025 — FGW (`this-site`) record refreshed + `currentAsOf` + real diagram
-- **`this-site` audit refreshed ([CASE-RECORD-REFRESH] ✅)** — the stale independent read (convs 000–013 /
-  48 decisions, 2026-10-30) replaced with a fresh re-audit (convs 000–024 / 82 decisions) produced by a
-  fresh subagent deliberately not shown the prior audit; the on-page "Fraser's Role" summary refreshed
-  section-by-section; frontmatter (`reviewed`/`source`) + maintainer comment updated to Conv 025.
-- **Audit kept verbatim (`DEC-025-2`)** — operator ruled the independent read is the AI's point of view,
-  not for the operator to adjust; its documented misses (fabricated-transcript, fps framing-ahead-of-build)
-  stay in print.
-- **`currentAsOf` record field (`DEC-025-1`)** — added to the `record` schema; all five records stamped
-  (four exempt at 2026-11-04, `this-site` refreshed). A currency stamp distinct from `reviewed`, so a
-  completed/hiatus project's audit can be reassessed as the auditing model drifts.
-- **Scope resolution** — only FGW needed refreshing; SPT/Peerloop/fps/redline are complete or on hiatus →
-  exempt, with `currentAsOf` carrying their future reassessment.
-- **`this-site` aside diagram ([CASE-DIAGRAMS] ✅)** — the last `mock` diagram replaced with a real
-  checkable-record pipeline SVG (decision written down → kept/tombstoned → independent AI audit →
-  checkable); `mock` cleared so the "Sample diagram" caption drops. Every case now has a real figure /
-  table / mockup / live-link. Verified in-browser (light + dark).
-- **Currency** — `src/data/README.md` "see the mock files" reference fixed (no mocks remain).
-- **Hopper** — both open items dropped (site-wide `## My response`; fps framing reconcile — audit admission
-  stands).
+### Conv 026 — Discover Jesus + DiscoverTheUB cases reworked; other cases' frontmatter/SEO audited
+- **discover-jesus reworked** — reframed to Fraser's technical-only role (a team wrote the articles + the
+  editor hand-marked the cross-links; his part was the Airtable→Node-RED→Cloudflare-D1 pipeline incl. DeepL
+  FR/ES, then the AI-rebuilt web app after the Bildr era). Corrected stale gleans (dropped React-as-authored,
+  "157 automation scripts", "AI-assisted writing"); real 18-month arc incl. the Node-RED-JSON→D1 migration.
+  New Built-with chips, benefit, and a pipeline SVG. Committed `5228216`.
+- **discover-the-ub reworked** — a single editor AI-wrote all 199 papers at three reading levels + per-paper
+  AI images + a glossary; Fraser's part was the n8n pipeline (cross-link + glossary auto-linking,
+  first-match-wins incl. alternative spellings/names) and the fully AI-generated site. English-only (dropped
+  the false "multilingual" / "inline glossary" gleans); DJ Case Study cross-link; new chips, benefit,
+  pipeline SVG. Committed `b47bee2`.
+- **Aside image policy (`DEC-026-2`)** — both named/spiritual cases use a pipeline diagram, not a screenshot;
+  every Work case now fills its aside slot (screenshot / system-map SVG / pipeline diagram) — no placeholder
+  box remains (clears the owed-screenshot set in [CASE-MOCKUPS]).
+- **Technical-role framing (`DEC-026-1`)** — a case presents only Fraser's actual contribution; client/
+  editor-authored content (AI-authored included) is attributed to them, with AI's real role stated plainly
+  (DJ ~95% of the rebuild; DTUB the entire site).
+- **Consistency audit (`DEC-026-3`)** — the other five cases' bodies vs `summary` (= card text + SEO meta/og/
+  twitter description) + the dark problem/outcome/proof fields: **no material inconsistency**; left as-is per
+  operator. Noted-only: `summary` doubles as the meta description and several exceed ~160 chars; the
+  personal-vs-client heading-convention split.
 - **Not deployed** — local dev only; production still gated on sign-off.
 

@@ -2,26 +2,32 @@
 
 ## Where we left off
 
-Conv 025 closed the FGW (`this-site`) case thread. Its stale independent audit (byte-identical to Conv
-014: convs 000–013 / 48 decisions) was refreshed to current state via a fresh subagent re-audit (convs
-000–024 / 82 decisions), the on-page summary refreshed section-by-section, and the audit kept **verbatim**
-— misses included (`DEC-025-2`). A new `currentAsOf` record-currency field (`DEC-025-1`) was added and all
-five records stamped. The last `mock` case diagram (`this-site`) was replaced with a real checkable-record
-pipeline SVG. That **closed both [CASE-RECORD-REFRESH] and [CASE-DIAGRAMS]**. Not deployed — local dev only.
+Conv 026 reworked the two named Center-for-Unity cases to Fraser's technical-only role. **discover-jesus:**
+a team wrote the articles and the editor hand-marked the cross-links; Fraser built the
+Airtable→Node-RED→Cloudflare-D1 pipeline (incl. DeepL FR/ES) and, after the Bildr era, AI-rebuilt the web
+app. **discover-the-ub:** a single editor AI-wrote all 199 papers at three reading levels + AI images + a
+glossary; Fraser built the n8n pipeline (cross-link + glossary auto-linking, first-match-wins across
+variants) and the fully AI-generated, English-only site. Each gained a real pipeline-diagram aside and
+corrected Built-with/benefit (`DEC-026-1`/`-2`). A frontmatter/SEO consistency audit of the other five
+cases found **no material inconsistency**; left as-is per the operator (`DEC-026-3`). **The case-review
+pass is complete — all seven Work cases are reviewed + illustrated.** Committed (`5228216`, `b47bee2`); not
+deployed.
 
 ## Next action
 
-Continue the Work-case review with the operator's remaining cases — **DR** and **DTUB** (operator's
-shorthand, carried from the Conv 024 hand-off). Reason: these are the last open threads of the case-review
-pass now that FGW is done. Critical path stays gated: **[SITE-PERF]** on the full image set (Conv 016);
-**[SITE-NARRATIVE]** on client sign-off.
+No forced next step — the case thread is closed and the critical path is gated on operator inputs.
+Candidate next work: **[SITE-CONSISTENCY]** (whole-site voice + SEO/JSON-LD reconciliation, once the
+per-page prose pass is complete), or clear the smaller Unordered rows ([SITE-OG-IMAGE], [NODE-FLOOR],
+[SITE-TOOLS], [SITE-SOCIAL], [SITE-ANALYTICS]). Critical path stays gated: [SITE-PERF] on the full image
+set (Conv 016); [SITE-NARRATIVE] on client sign-off; [SITE-GO-LIVE] on operator DNS + go-ahead.
 
 ⚠️ Standing: production has **never** been deployed (dev/staging only); home testimonials remain
-mock/SAMPLE; `[CASE-MOCKUPS]` still owes operator screenshots for some cases. 🔴 The refreshed `this-site`
-audit now publicly states the **fps case frames confidentiality work ahead of its build** (`DEC-020-3`) —
-ruled acceptable Conv 025; before go-live, either reconcile the fps prose or let the admission stand. 🔴
-Future edits to the `translation-platform` card/record must **not** name the target language, source text,
-client org, or people (`DEC-023-3` + `[CASE-RECORD-SIGNOFF]`).
+mock/SAMPLE. 🔴 The `this-site` audit publicly states the **fps case frames confidentiality work ahead of
+its build** (`DEC-020-3`) — ruled acceptable Conv 025; reconcile or let stand before go-live. 🔴 Future
+edits to `translation-platform` must **not** name the target language, source text, client org, or people
+(`DEC-023-3` + `[CASE-RECORD-SIGNOFF]`). 🟡 Noted Conv 026 (ruled leave-alone, not acted): several case
+`summary` fields double as the SEO meta description and run long (up to ~309 chars vs ~160 typical) —
+revisit only in a future SEO pass, not a board row.
 
 ## 🔬 Carried findings
 
