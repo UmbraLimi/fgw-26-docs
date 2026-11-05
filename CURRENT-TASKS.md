@@ -312,7 +312,11 @@ messaging (Conv 017–018 reworked home hero, flow, judgment, "what I do", phase
 drift from what the pages now say; and (3) **layout measure** — confirm running prose uses a consistent
 max-width cap across pages (`max-w-2xl` vs `max-w-prose` etc.) so the readable line length doesn't vary
 page to page (hopper → Conv 019); and (4) **vertical rhythm** — the non-home pages carry too much top and
-bottom margin; normalise their top/bottom spacing so every page matches the home page (operator, Conv 019).
+bottom margin; normalise their top/bottom spacing so every page matches the home page (operator, Conv 019); and
+(5) **section-heading hierarchy** — FAQ section headings were lifted (weight 700 + an accent underline rule,
+`.faq-group h2`; Conv 028) because they shared the questions' weight; other pages' section headings stay on
+plain `text-h3`. Decide whether that lifted treatment becomes the site-wide section-heading pattern or stays
+FAQ-only (operator chose FAQ-only for now, Conv 028).
 🔴 Gated: waits until the prose pass is done. **Progress: home (Conv 018), About / History / Contact /
 Method (Conv 027) done; FAQ + Testimonials remain.** Pairs with the per-page reconciliations already owed
 (voice + "44 vs over 40" — still live: About/History got the full degree treatment but the FAQ
