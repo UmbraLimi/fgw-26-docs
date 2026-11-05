@@ -8,6 +8,100 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 027
+
+### DEC-027-6 — Contact email unified to `fraser@frasergorrie.com`
+**Decision:** `EMAIL_FROM` (in `wrangler.jsonc`, both the default and staging envs) and the contact page's
+no-JS mailto fallback are both set to `fraser@frasergorrie.com`, replacing `fgw@frasergorrie.com` and a
+`hello@frasergorrie.com` placeholder respectively. Verified **end-to-end on staging** this conv: Resend
+accepts the sender (the whole `frasergorrie.com` domain is verified — `signed-by frasergorrie.com`),
+the mail is delivered to the inbox, and `reply-to` carries the submitter's own address.
+**Rationale:** one address wherever the operator is reachable; the `hello@` placeholder was a go-live
+footgun (the no-JS path mailed a non-inbox). Same verified domain, so the local-part change sends cleanly.
+Alternative that lost: keeping the separate `fgw@` send-from address.
+**Consequences:** `wrangler.jsonc` + `contact.astro` committed (`7b584db`). Local dev `.dev.vars`
+`EMAIL_TO` stays `test@example.com` by design. The **production `EMAIL_TO` secret** must be set to
+`fraser@frasergorrie.com` via `wrangler secret put` once the prod worker exists — a `[SITE-GO-LIVE]`
+pre-production gate.
+
+### DEC-027-5 — Method's per-section heading icons removed, for prose-page consistency
+**Decision:** dropped the four decorative `<h2>` icons (lock / pie / document / alert) on `/method`; its
+headings are now plain, like every other prose page (About, History, Phases, FAQ, Privacy). Removed the
+now-unused `Icon` import and the dead `.method-h2` / `.method-icon` rules from `global.css`.
+**Rationale:** the site's decorative-icon vocabulary lives on **cards** (the home judgment / "what I do"
+bands) and as **affordances** (arrows, mail, menu) — Method was the only running-prose page decorating its
+headings, which nudged it toward "feature-list brochure" against the calm editorial voice of the other
+prose pages. Alternatives that lost: keep them (Method as the one more-designed page); rework them into a
+card treatment.
+**Consequences:** `method.astro` + `global.css` committed (`8070b65`); also moots the a11y question of
+whether those heading icons were announced to screen readers.
+
+### DEC-027-4 — The contact API gets the first backend-endpoint test suite; a convention for where such tests live
+**Decision:** added `src/pages/api/_contact.test.ts` — 12 vitest tests over the `/api/contact` route
+(required-field validation, email-shape rejection, honeypot fake-success, `503` when unconfigured, the
+Resend POST payload + success, `502` on Resend failure, the no-JS `303` redirects, `GET` → `405`). It runs
+in the **node** vitest environment (per-file docblock) with `cloudflare:workers` (`env`) and global
+`fetch` mocked, and is **underscore-prefixed** so Astro's file-based routing does not turn it into a route
+— an un-prefixed `*.test.ts` under `src/pages` prerenders as an endpoint and breaks the build (hit this
+conv).
+**Rationale:** the validation / honeypot / delivery logic was entirely untested ("green ≠ proven",
+`DEC-000-7`). This extends `DEC-003-2`'s island-only test scope to a backend endpoint. Alternative that
+lost: a `[CONTACT-TESTS]` board row (deferring) — the operator asked to write them now. The underscore
+placement was forced by the build failure, not chosen freely.
+**Consequences:** `npm run verify` green (lint + typecheck + test + build); committed (`e852b4e`). The
+pattern — backend-endpoint tests as `_`-prefixed node-env files beside the route — is the convention for
+future endpoint tests. `vitest.config.ts`'s "island-only" comment is now slightly narrow; left as-is.
+
+### DEC-027-3 — A `/privacy` page now; no standalone ToS; a liability disclaimer folded in
+**Decision:** shipped a footer-tier `/privacy` page describing the **actual** fgw-26 data flow (contact
+form → Cloudflare edge → Resend email; no database; no analytics / cookies currently), with a short
+**liability disclaimer** folded in ("provided as is… nothing is a professional commitment until it's set
+out in a written agreement") and a footer "Privacy" link — and **no** standalone Terms of Service. The
+"Analytics and cookies" section is a stub to revise when `[SITE-ANALYTICS]` wires a provider.
+**Rationale:** the contact form collects PII (name / email / message) via third parties, with EU
+reachability, so a privacy policy is the expected baseline; a full public ToS is contract material that
+belongs in an engagement agreement, not a brochure site (the legacy `fg` ToS was tightly coupled to the
+old hour-block / coaching model and named Meristics/Technifar + specific rates). A liability disclaimer is
+the one defensible public piece. Alternatives that lost: defer all legal pages until `[SITE-ANALYTICS]` is
+chosen (write once); a full ToS; a privacy page with no disclaimer. (The legacy `fg` privacy page named
+Google Analytics + Calendly — neither in this site's stack.)
+**Consequences:** `src/pages/privacy.astro` + the Footer link committed (`4702ae0`), on staging. 🔴
+CC-drafted, **not lawyer-reviewed** — a `[SITE-GO-LIVE]` pre-production gate (legal review, and revise the
+analytics section when a provider is wired).
+
+### DEC-027-2 — Pricing shown as a qualifier: a project-scale band, not a rate card
+**Decision:** a **$10K–$150K** project-scale band appears as a qualifying line on the Phases close (a new
+"What to budget" section before the CTA) and as a new FAQ entry ("What does an engagement cost?"). Framed
+as a range to self-qualify against, **not** a quote; **no hourly rate** shown. The FAQ entry **reverses**
+the Conv-013 scoping that dropped pricing from the FAQ (and now feeds the `FAQPage` JSON-LD).
+**Rationale:** a price floor is the most efficient qualifier (filters sub-band shoppers; signals senior
+judgment, supporting the "why pay FG vs a cheap wrapper" reassurance half of the positioning thesis). An
+hourly rate — as the legacy `fg` site showed ($150–$250/hr) — would reframe FG as an hourly contractor and
+invite the race-to-the-bottom comparison the thesis argues against. Placed with the self-qualification
+funnel (Phases), not a standalone `/pricing` page (which becomes a rate-shopping destination and strips the
+number from its value context). Alternatives that lost: no pricing on the site; fuller `fg`-style
+transparency incl. hourly; a dedicated `/pricing` page; an in-lede framing.
+**Consequences:** `phases.astro` + `faq.json` committed (`4702ae0`), on staging. `$10K–$150K` is the
+operator-set band; hourly mechanics (if any) belong in the contract / ToS, not marketing.
+
+### DEC-027-1 — `translation-platform`'s "judgment that mattered" + frontmatter reconciled to the real arc
+**Decision:** the case's "The judgment that mattered" section was reworked (the operator's own account)
+from the old "threw a number away / matched a free baseline, wound down cleanly" framing to the real arc —
+he built a DeepL-correction pipeline (calibrated twice against a human gold standard, automated for
+production), but general-purpose AI **leapfrogged** the whole approach (translating near-perfectly without
+it) and the client called the hiatus before he did. The frontmatter `summary` (option **B** — now signals
+the overtaken / paused reality), `outcome`, and `proof` were retold to match; `problem` left as-is.
+**Rationale:** body and frontmatter must tell one story. A finding reframed the scope — `proof` / `outcome`
+/ `problem` are optional and **rendered by no component**; only `summary` ships (the `/work` card text + the
+page meta `description`) `[checked: content.config.ts + grep for data.proof/outcome/problem]`. (This
+corrects an in-conv hopper note that wrongly said proof/outcome feed SEO.) Masking (`DEC-023-3`) preserved:
+no target language / source text / client org / people named; DeepL was already named in the body.
+Alternatives that lost: leave the frontmatter stale (invisible to users, but a stale record); delete the
+dead fields site-wide (the un-chosen option C).
+**Consequences:** `translation-platform.md` committed (`4691bda`), deployed to staging (new summary / meta
+verified live). The dead-field observation (`proof`/`outcome`/`problem` unrendered) stays on record for a
+possible future cleanup.
+
 ## Conv 026
 
 ### DEC-026-3 — The other five cases' frontmatter/SEO left as-is after a consistency audit

@@ -2,9 +2,57 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-04._
+_As of 2026-11-05._
 
 ---
+
+### DEC-027-6 — Contact email unified to `fraser@frasergorrie.com`
+
+`EMAIL_FROM` (in `wrangler.jsonc`, both the default and staging envs) and the contact page's
+no-JS mailto fallback are both set to `fraser@frasergorrie.com`, replacing `fgw@frasergorrie.com` and a
+`hello@frasergorrie.com` placeholder respectively. Verified **end-to-end on staging** this conv: Resend
+accepts the sender (the whole `frasergorrie.com` domain is verified — `signed-by frasergorrie.com`),
+the mail is delivered to the inbox, and `reply-to` carries the submitter's own address.
+
+### DEC-027-5 — Method's per-section heading icons removed, for prose-page consistency
+
+dropped the four decorative `<h2>` icons (lock / pie / document / alert) on `/method`; its
+headings are now plain, like every other prose page (About, History, Phases, FAQ, Privacy). Removed the
+now-unused `Icon` import and the dead `.method-h2` / `.method-icon` rules from `global.css`.
+
+### DEC-027-4 — The contact API gets the first backend-endpoint test suite; a convention for where such tests live
+
+added `src/pages/api/_contact.test.ts` — 12 vitest tests over the `/api/contact` route
+(required-field validation, email-shape rejection, honeypot fake-success, `503` when unconfigured, the
+Resend POST payload + success, `502` on Resend failure, the no-JS `303` redirects, `GET` → `405`). It runs
+in the **node** vitest environment (per-file docblock) with `cloudflare:workers` (`env`) and global
+`fetch` mocked, and is **underscore-prefixed** so Astro's file-based routing does not turn it into a route
+— an un-prefixed `*.test.ts` under `src/pages` prerenders as an endpoint and breaks the build (hit this
+conv).
+
+### DEC-027-3 — A `/privacy` page now; no standalone ToS; a liability disclaimer folded in
+
+shipped a footer-tier `/privacy` page describing the **actual** fgw-26 data flow (contact
+form → Cloudflare edge → Resend email; no database; no analytics / cookies currently), with a short
+**liability disclaimer** folded in ("provided as is… nothing is a professional commitment until it's set
+out in a written agreement") and a footer "Privacy" link — and **no** standalone Terms of Service. The
+"Analytics and cookies" section is a stub to revise when `[SITE-ANALYTICS]` wires a provider.
+
+### DEC-027-2 — Pricing shown as a qualifier: a project-scale band, not a rate card
+
+a **$10K–$150K** project-scale band appears as a qualifying line on the Phases close (a new
+"What to budget" section before the CTA) and as a new FAQ entry ("What does an engagement cost?"). Framed
+as a range to self-qualify against, **not** a quote; **no hourly rate** shown. The FAQ entry **reverses**
+the Conv-013 scoping that dropped pricing from the FAQ (and now feeds the `FAQPage` JSON-LD).
+
+### DEC-027-1 — `translation-platform`'s "judgment that mattered" + frontmatter reconciled to the real arc
+
+the case's "The judgment that mattered" section was reworked (the operator's own account)
+from the old "threw a number away / matched a free baseline, wound down cleanly" framing to the real arc —
+he built a DeepL-correction pipeline (calibrated twice against a human gold standard, automated for
+production), but general-purpose AI **leapfrogged** the whole approach (translating near-perfectly without
+it) and the client called the hiatus before he did. The frontmatter `summary` (option **B** — now signals
+the overtaken / paused reality), `outcome`, and `proof` were retold to match; `problem` left as-is.
 
 ### DEC-026-3 — The other five cases' frontmatter/SEO left as-is after a consistency audit
 

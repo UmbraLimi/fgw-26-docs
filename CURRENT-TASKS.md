@@ -32,15 +32,19 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 027:** Conv 026 reworked the two named Center-for-Unity cases — **discover-jesus**
-and **discover-the-ub** — to Fraser's technical-only role (the writing / editing / AI-authored content is
-the client's; his part is the pipeline + the site build), each gaining a real pipeline-diagram aside
-(`DEC-026-1`/`DEC-026-2`); and a frontmatter/SEO consistency audit of the other five cases found no
-material inconsistency and left them as-is (`DEC-026-3`). **All seven Work cases are now reviewed +
-illustrated — the case-review pass is complete.** Critical path still gated: [SITE-PERF] on the full image
-set (Conv 016); [SITE-NARRATIVE] on client sign-off; [SITE-GO-LIVE] on the operator DNS + go-ahead. Open
-polish rows: [SITE-CONSISTENCY], [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS], [SITE-TOOLS],
-[SITE-SOCIAL], [NODE-FLOOR], [CASE-MOCKUPS] (residual only — see row).
+⚡ **Do-next — Conv 028:** Conv 027 was a page-by-page **prose review** with the operator. **Done:**
+About, History, Contact, and Method reworked (client-facing voice, partnership framing, a de-abstracted
+Method); `translation-platform`'s "judgment that mattered" + frontmatter reconciled to the AI-leapfrog /
+hiatus story (`DEC-027-1`); a **pricing anchor** — a $10K–$150K qualifier on the Phases close + a FAQ
+entry (`DEC-027-2`); a new **`/privacy`** page + footer link (`DEC-027-3`); the **contact form** got an
+all-fields-required submit gate + the first backend-endpoint **test suite** (`DEC-027-4`); Method's
+heading icons removed for prose-page consistency (`DEC-027-5`); and the contact email **unified to
+fraser@frasergorrie.com** (Resend-verified on staging, `DEC-027-6`). All deployed to staging. **Remaining
+prose-review pages: FAQ, Testimonials** (operator deferred to next conv). Critical path still gated:
+[SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off; [SITE-GO-LIVE] on the
+operator DNS + go-ahead (now also carrying the legal-review + prod-`EMAIL_TO` gates). Open polish rows:
+[SITE-CONSISTENCY], **[SITE-A11Y]** (new), [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS],
+[SITE-TOOLS], [SITE-SOCIAL], [NODE-FLOOR], [CASE-MOCKUPS] (residual only — see row).
 
 (**[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 ·
 **[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
@@ -226,6 +230,12 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 - **Client sign-off** on all de-identified Work cases + testimonials — `[SITE-NARRATIVE]`.
 - **Client sign-off** on the two client "The record" summaries + transcripts (Conv 014) — `[CASE-RECORD-SIGNOFF]`.
 - Turnstile spam hardening on the contact form — `[SITE-CONTACT]`.
+- **Legal review** of the `/privacy` policy + folded-in liability disclaimer copy (Conv 027) — CC-drafted,
+  not lawyer-reviewed. Also revise its "no analytics/cookies" section when `[SITE-ANALYTICS]` wires a
+  provider (the two must move together).
+- **Production `EMAIL_TO` secret** — set it to `fraser@frasergorrie.com` via `wrangler secret put` once the
+  production worker exists (Conv 027). `EMAIL_FROM`=fraser@ and staging `EMAIL_TO`=fraser@ are done +
+  Resend-verified; only the prod inbox secret remains (can't be set until prod is deployed).
 
 ---
 
@@ -303,9 +313,10 @@ drift from what the pages now say; and (3) **layout measure** — confirm runnin
 max-width cap across pages (`max-w-2xl` vs `max-w-prose` etc.) so the readable line length doesn't vary
 page to page (hopper → Conv 019); and (4) **vertical rhythm** — the non-home pages carry too much top and
 bottom margin; normalise their top/bottom spacing so every page matches the home page (operator, Conv 019).
-🔴 Gated: waits until the prose pass is done (home done Conv 018;
-other pages pending). Pairs with the per-page reconciliations already owed (voice + "44 vs over 40",
-`RESUME-STATE.md` Conv 017). (hopper → Conv 018)
+🔴 Gated: waits until the prose pass is done. **Progress: home (Conv 018), About / History / Contact /
+Method (Conv 027) done; FAQ + Testimonials remain.** Pairs with the per-page reconciliations already owed
+(voice + "44 vs over 40" — still live: About/History got the full degree treatment but the FAQ
+"What have you been doing for {YEARS} years?" still interpolates 44 vs home's "over 40"). (hopper → Conv 018)
 
 ### [SITE-ANALYTICS] · promoted Conv 018
 Add web analytics and design what it should teach us — not just a default pageview install. Two parts:
@@ -316,32 +327,52 @@ and `/phases` navigation, testimonials "see all", the phases self-qualification 
 prospects move through the site. 🔴 Privacy/consent is a real gate for a provider that sets cookies or
 sends PII. Likely wanted around `[SITE-GO-LIVE]`. (hopper → Conv 018)
 
+### [SITE-A11Y] · promoted Conv 027
+Full WCAG AA review across the whole site, re-checking the Conv 006 scaffold baseline against everything
+added since — home rework (Conv 017/018), `/phases` (incl. the new pricing section), the `/work` cases +
+`/record` pages, testimonials, FAQ, the contact form, the new `/privacy` page, and the footer.
+
+Checklist: heading order + a single `h1`/page; landmark roles/labels; link text (no bare "here"); color
+contrast in **both** light and dark themes; visible focus + logical focus order; keyboard-only nav incl.
+the `<details>` disclosures (nav, FAQ, footer em-note) and the mockup lightbox; contact-form labels +
+error association; image alt text (`fraser.jpg`, case mockups, the pipeline/diagram SVGs — decorative vs
+meaningful); `prefers-reduced-motion`; skip-to-content link.
+
+🔴 **Gated:** runs after the operator's own prose audit on the few pending pages — content-dependent a11y
+(heading order, link text, alt text, `aria-label`s) shifts with copy. Pairs with `[SITE-CONSISTENCY]` +
+`[SITE-PERF]` as the pre-go-live quality sweep; wanted before `[SITE-GO-LIVE]`.
+
 ## ⏸️ Parked
 
 _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — is satisfied.)
 
 ## ✅ Completed this conv
 
-### Conv 026 — Discover Jesus + DiscoverTheUB cases reworked; other cases' frontmatter/SEO audited
-- **discover-jesus reworked** — reframed to Fraser's technical-only role (a team wrote the articles + the
-  editor hand-marked the cross-links; his part was the Airtable→Node-RED→Cloudflare-D1 pipeline incl. DeepL
-  FR/ES, then the AI-rebuilt web app after the Bildr era). Corrected stale gleans (dropped React-as-authored,
-  "157 automation scripts", "AI-assisted writing"); real 18-month arc incl. the Node-RED-JSON→D1 migration.
-  New Built-with chips, benefit, and a pipeline SVG. Committed `5228216`.
-- **discover-the-ub reworked** — a single editor AI-wrote all 199 papers at three reading levels + per-paper
-  AI images + a glossary; Fraser's part was the n8n pipeline (cross-link + glossary auto-linking,
-  first-match-wins incl. alternative spellings/names) and the fully AI-generated site. English-only (dropped
-  the false "multilingual" / "inline glossary" gleans); DJ Case Study cross-link; new chips, benefit,
-  pipeline SVG. Committed `b47bee2`.
-- **Aside image policy (`DEC-026-2`)** — both named/spiritual cases use a pipeline diagram, not a screenshot;
-  every Work case now fills its aside slot (screenshot / system-map SVG / pipeline diagram) — no placeholder
-  box remains (clears the owed-screenshot set in [CASE-MOCKUPS]).
-- **Technical-role framing (`DEC-026-1`)** — a case presents only Fraser's actual contribution; client/
-  editor-authored content (AI-authored included) is attributed to them, with AI's real role stated plainly
-  (DJ ~95% of the rebuild; DTUB the entire site).
-- **Consistency audit (`DEC-026-3`)** — the other five cases' bodies vs `summary` (= card text + SEO meta/og/
-  twitter description) + the dark problem/outcome/proof fields: **no material inconsistency**; left as-is per
-  operator. Noted-only: `summary` doubles as the meta description and several exceed ~160 chars; the
-  personal-vs-client heading-convention split.
-- **Not deployed** — local dev only; production still gated on sign-off.
+### Conv 027 — Page-by-page prose review; pricing anchor; privacy page; contact gate + tests; email unified
+- **Prose review (operator-driven, page by page)** — **About**: anchored the 1982 start to a named client
+  (Fisheries and Oceans Canada), full university names + capitalised degrees, nowrap `Apple ][+`.
+  **History**: depth-add (Fortran-on-punch-cards, published papers, MSc 1984), "A thousand miles from the
+  sea…" heading, muskellunge gloss, "custom software development", a who→what fix, matching caps/nowrap.
+  **Method**: all four sections reworked client-facing (concrete leash section; the last-20% as a
+  client/domain-knowledge **partnership**; the git record of decisions/learnings/plans/tasks from day one;
+  a two-way "we keep each other on course"), lede now shows poor choices **compound**. **Pages left for
+  next conv: FAQ, Testimonials.**
+- **translation-platform reconciled (`DEC-027-1`)** — "The judgment that mattered" reworked to the real
+  arc (corrected DeepL, but general-purpose AI leapfrogged the pipeline; client called the hiatus first);
+  `summary`/`outcome`/`proof` retold to match. Finding: `proof`/`outcome`/`problem` are **unrendered dead
+  fields** — only `summary` ships (card + meta description).
+- **Pricing anchor (`DEC-027-2`)** — a $10K–$150K project-scale band shown as a **qualifier** (not a rate
+  card, no hourly) on the Phases close + a new FAQ entry; reverses the Conv-013 pricing-off-FAQ scoping.
+- **Privacy page (`DEC-027-3`)** — new footer-tier `/privacy` describing the real data flow (contact form
+  → Cloudflare edge → Resend, no DB, no analytics/cookies) with a folded-in liability disclaimer; **no
+  standalone ToS**; footer "Privacy" link added. Legal review + analytics-section revision are go-live gates.
+- **Contact form (`DEC-027-4`)** — "Problem or idea?" reframe + "All fields are required." text + a
+  submit gate on native validity; first **backend-endpoint test suite** (`_contact.test.ts`, 12 tests,
+  node vitest env, cloudflare:workers + fetch mocked, underscore-prefixed so Astro doesn't route it).
+- **Method heading icons removed (`DEC-027-5`)** — the four decorative `<h2>` icons dropped for
+  prose-page consistency; unused `Icon` import + dead `.method-h2`/`.method-icon` CSS cleaned.
+- **Email unified (`DEC-027-6`)** — `EMAIL_FROM` + the no-JS fallback → `fraser@frasergorrie.com`
+  (was `fgw@` / a `hello@` placeholder); **Resend-verified end-to-end on staging** (delivered, domain-signed,
+  reply-to correct). Prod `EMAIL_TO` secret is a go-live gate.
+- **Deployed to staging** (versions `37c555ad` → `e4fad37c`); production still never deployed.
 

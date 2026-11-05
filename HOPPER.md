@@ -7,4 +7,3 @@ durable record of what was done is the conv record + the board, never a line lef
 ## Open
 
 _None._
-
