@@ -8,6 +8,36 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 028
+
+### DEC-028-2 — Site-wide spelling variety standard = UK English
+**Decision:** The site standardises on **UK English** spelling. This conv fixed "judgment" → "judgement"
+on the FAQ ("too old" answer) and Testimonials (pre-AI intro); a site-wide sweep for any remaining US
+forms (-ize, color, etc.) is promoted into `[SITE-CONSISTENCY]` (part 6).
+**Rationale:** the pages already used UK forms ("favourite", "favourites", "non-judgemental"), so UK was
+the de-facto variety and "judgment" was an inconsistent US straggler. Alternative that lost: standardise
+on US English — would have meant changing the more numerous, more deliberate UK forms.
+**Consequences:** new copy uses UK spelling; the `[SITE-CONSISTENCY]` sweep owns reconciling any remaining
+stragglers before go-live.
+
+### DEC-028-1 — FAQ accordion legibility: lift the group headings and bar the open answers (scoped, not indented)
+**Decision:** On the FAQ, group headings are lifted — weight 700 + a 2px accent underline rule
+(`.faq-group h2`) — and open answers carry a 2px left accent bar (`.faq-a`). The same heading rule is
+reused for the Testimonials time-period headings (`.testimonial-period-h2`). The treatment is kept
+**scoped** to these grouped pages; other pages' section headings stay on plain `text-h3`.
+**Rationale:** the group heading shared the questions' weight and colour, so only a 1.5× size step set it
+apart — too weak. Web research found the convention is to **lift the heading** (weight / colour / rule),
+not **indent the questions** (sites keep items flush-left) — hence the rule, not indentation. The left
+answer-bar fixes a second problem the operator flagged: an open answer flowed into the next question with
+an identical hairline between them, so where the answer ended was ambiguous; the bar runs the answer's
+height and stops. Alternatives that lost: indenting the questions (against convention); for the answer,
+tinting the whole open item (heavier) or turning every divider accent (busier, competed with the heading
+rule). Keeping it scoped rather than a site-wide section-heading pattern was the operator's call for now
+(the open question is recorded in `[SITE-CONSISTENCY]` part 5).
+**Consequences:** `.testimonial-period-h2` mirrors `.faq-group h2`; if the treatment later goes site-wide
+both collapse into a shared utility. `var(--accent-strong)` keeps both rules theme-aware (verified light
++ dark). On staging (`4e10f27c`).
+
 ## Conv 027
 
 ### DEC-027-6 — Contact email unified to `fraser@frasergorrie.com`

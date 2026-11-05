@@ -6,6 +6,19 @@ _As of 2026-11-05._
 
 ---
 
+### DEC-028-2 — Site-wide spelling variety standard = UK English
+
+The site standardises on **UK English** spelling. This conv fixed "judgment" → "judgement"
+on the FAQ ("too old" answer) and Testimonials (pre-AI intro); a site-wide sweep for any remaining US
+forms (-ize, color, etc.) is promoted into `[SITE-CONSISTENCY]` (part 6).
+
+### DEC-028-1 — FAQ accordion legibility: lift the group headings and bar the open answers (scoped, not indented)
+
+On the FAQ, group headings are lifted — weight 700 + a 2px accent underline rule
+(`.faq-group h2`) — and open answers carry a 2px left accent bar (`.faq-a`). The same heading rule is
+reused for the Testimonials time-period headings (`.testimonial-period-h2`). The treatment is kept
+**scoped** to these grouped pages; other pages' section headings stay on plain `text-h3`.
+
 ### DEC-027-6 — Contact email unified to `fraser@frasergorrie.com`
 
 `EMAIL_FROM` (in `wrangler.jsonc`, both the default and staging envs) and the contact page's

@@ -32,20 +32,19 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 028:** Conv 027 was a page-by-page **prose review** with the operator. **Done:**
-About, History, Contact, and Method reworked (client-facing voice, partnership framing, a de-abstracted
-Method); `translation-platform`'s "judgment that mattered" + frontmatter reconciled to the AI-leapfrog /
-hiatus story (`DEC-027-1`); a **pricing anchor** — a $10K–$150K qualifier on the Phases close + a FAQ
-entry (`DEC-027-2`); a new **`/privacy`** page + footer link (`DEC-027-3`); the **contact form** got an
-all-fields-required submit gate + the first backend-endpoint **test suite** (`DEC-027-4`); Method's
-heading icons removed for prose-page consistency (`DEC-027-5`); and the contact email **unified to
-fraser@frasergorrie.com** (Resend-verified on staging, `DEC-027-6`). All deployed to staging. **FAQ + Testimonials
-prose review done Conv 028** — the page-by-page prose pass is now complete, so `[SITE-CONSISTENCY]` +
-`[SITE-A11Y]` are ungated (both also got a grouping-heading rule this conv). Critical path still gated:
-[SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off; [SITE-GO-LIVE] on the
-operator DNS + go-ahead (now also carrying the legal-review + prod-`EMAIL_TO` gates). Open polish rows:
-[SITE-CONSISTENCY], **[SITE-A11Y]** (new), [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS],
-[SITE-TOOLS], [SITE-SOCIAL], [NODE-FLOOR], [CASE-MOCKUPS] (residual only — see row).
+⚡ **Do-next — Conv 029:** Conv 028 completed the page-by-page **prose review** — **FAQ + Testimonials**
+reworked with the operator (voice/accuracy edits throughout; the redundant FAQ "Common concerns" note
+moved to a Testimonials→FAQ cross-link; UK "judgement" fixes). Two **accordion-legibility** styling
+changes landed on FAQ: group headings lifted (weight 700 + accent underline rule) and open answers bound
+with a left accent bar (`DEC-028-1`); the same grouping-heading rule was reused to separate the
+Testimonials AI-era / pre-AI blocks. Spelling variety standardised on **UK** (`DEC-028-2`). All deployed
+to staging (version `4e10f27c`). **The page-by-page prose pass is now complete**, so the pre-go-live
+quality sweep is runnable: **[SITE-CONSISTENCY]** (now also carrying the site-wide spelling + "honest/
+honestly" rewords, parts 6–7) and **[SITE-A11Y]** are ungated — a natural do-next. Critical path still
+gated: [SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off; [SITE-GO-LIVE]
+on operator DNS + go-ahead (+ legal-review + prod-`EMAIL_TO` gates). Open polish rows: [SITE-CONSISTENCY],
+[SITE-A11Y], [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS], [SITE-TOOLS], [SITE-SOCIAL],
+[NODE-FLOOR], [CASE-MOCKUPS] (residual only — see row).
 
 (**[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 ·
 **[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
@@ -318,7 +317,12 @@ bottom margin; normalise their top/bottom spacing so every page matches the home
 underline rule): FAQ groups (`.faq-group h2`) and the Testimonials time-period headings
 (`.testimonial-period-h2`), both Conv 028, because they shared the body weight. Other pages' section headings
 stay on plain `text-h3`. Decide whether that lifted treatment becomes the site-wide section-heading pattern
-or stays scoped to these grouped pages (operator chose scoped-only for now, Conv 028).
+or stays scoped to these grouped pages (operator chose scoped-only for now, Conv 028); and
+(6) **spelling variety** — standardise on UK English site-wide (page uses UK "favourite"); US forms slip in
+(FAQ + Testimonials "judgment" → "judgement" done Conv 028). Sweep all pages for US spellings (-ize, color,
+judgment, etc.) and reconcile (hopper → Conv 028); and (7) **"honest"/"honestly" framing** — stop
+*asserting* honesty (protesting it can backfire); reword site-wide. FAQ item 5's "Honestly" dropped
+Conv 028; the FAQ h1 "Fair questions, honest answers" + other instances remain (hopper → Conv 028).
 ✅ **Ungated (Conv 028) — the page-by-page prose pass is complete:** home (Conv 018), About / History /
 Contact / Method (Conv 027), FAQ + Testimonials (Conv 028). This review is now runnable. Pairs with the
 per-page reconciliations already owed (voice + "44 vs over 40" — still live: the FAQ "What have you been
@@ -356,31 +360,26 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 027 — Page-by-page prose review; pricing anchor; privacy page; contact gate + tests; email unified
-- **Prose review (operator-driven, page by page)** — **About**: anchored the 1982 start to a named client
-  (Fisheries and Oceans Canada), full university names + capitalised degrees, nowrap `Apple ][+`.
-  **History**: depth-add (Fortran-on-punch-cards, published papers, MSc 1984), "A thousand miles from the
-  sea…" heading, muskellunge gloss, "custom software development", a who→what fix, matching caps/nowrap.
-  **Method**: all four sections reworked client-facing (concrete leash section; the last-20% as a
-  client/domain-knowledge **partnership**; the git record of decisions/learnings/plans/tasks from day one;
-  a two-way "we keep each other on course"), lede now shows poor choices **compound**. **Pages left for
-  next conv: FAQ, Testimonials.**
-- **translation-platform reconciled (`DEC-027-1`)** — "The judgment that mattered" reworked to the real
-  arc (corrected DeepL, but general-purpose AI leapfrogged the pipeline; client called the hiatus first);
-  `summary`/`outcome`/`proof` retold to match. Finding: `proof`/`outcome`/`problem` are **unrendered dead
-  fields** — only `summary` ships (card + meta description).
-- **Pricing anchor (`DEC-027-2`)** — a $10K–$150K project-scale band shown as a **qualifier** (not a rate
-  card, no hourly) on the Phases close + a new FAQ entry; reverses the Conv-013 pricing-off-FAQ scoping.
-- **Privacy page (`DEC-027-3`)** — new footer-tier `/privacy` describing the real data flow (contact form
-  → Cloudflare edge → Resend, no DB, no analytics/cookies) with a folded-in liability disclaimer; **no
-  standalone ToS**; footer "Privacy" link added. Legal review + analytics-section revision are go-live gates.
-- **Contact form (`DEC-027-4`)** — "Problem or idea?" reframe + "All fields are required." text + a
-  submit gate on native validity; first **backend-endpoint test suite** (`_contact.test.ts`, 12 tests,
-  node vitest env, cloudflare:workers + fetch mocked, underscore-prefixed so Astro doesn't route it).
-- **Method heading icons removed (`DEC-027-5`)** — the four decorative `<h2>` icons dropped for
-  prose-page consistency; unused `Icon` import + dead `.method-h2`/`.method-icon` CSS cleaned.
-- **Email unified (`DEC-027-6`)** — `EMAIL_FROM` + the no-JS fallback → `fraser@frasergorrie.com`
-  (was `fgw@` / a `hello@` placeholder); **Resend-verified end-to-end on staging** (delivered, domain-signed,
-  reply-to correct). Prod `EMAIL_TO` secret is a go-live gate.
-- **Deployed to staging** (versions `37c555ad` → `e4fad37c`); production still never deployed.
+### Conv 028 — FAQ + Testimonials prose review; accordion-legibility styling; UK spelling standard
+- **FAQ prose review (operator-driven, item by item)** — reworded the "too old" opener ("experience is the
+  asset here, not the liability"); the AI-cost Q + answer (dropped "Honestly"; "anyone good" → "anybody with
+  significant AI dev experience"; question → "If AI does software development well…"); "work with existing
+  code" ("Some people"; "assess the situation"); ongoing maintenance ("a few clients have kept…"; "20+ years
+  with no maintenance agreement. Ping me when you need me…"); communication cadence (+ a Slack/messaging
+  line); time zones (North America → **Canada**; "written updates" → "email and other messaging"). Appended a
+  **Claude / Claude Code** line to the tech-stack answer (verified via the claude-api skill: Claude = the LLM,
+  Claude Code = the harness).
+- **Testimonials prose review** — reworded the lede and the AI-era section intro to a client-led framing.
+- **FAQ "Common concerns" note moved** — the redundant "The questions people sometimes hesitate to ask
+  directly." (duplicated the lede) was removed from FAQ and **repurposed** as a Testimonials→FAQ cross-link.
+- **Accordion legibility (`DEC-028-1`)** — FAQ group headings lifted (weight 700 + accent underline rule,
+  `.faq-group h2`) because size alone under-sold them (web research: sites lift the heading, don't indent the
+  items); open answers bound with a **left accent bar** (`.faq-a`) so where an answer ends is unambiguous.
+  Same grouping rule reused for the Testimonials time-period headings (`.testimonial-period-h2`); kept
+  **scoped** to grouped pages, not generalised site-wide.
+- **UK spelling standard (`DEC-028-2`)** — "judgment" → "judgement" on FAQ + Testimonials.
+- **Hopper** — 2 items raised + ruled: a site-wide spelling-variety sweep and the "honest/honestly" reword,
+  both **promoted** into `[SITE-CONSISTENCY]` (parts 6 + 7). Hopper clear at close.
+- **Board** — the page-by-page prose pass marked **complete**; `[SITE-CONSISTENCY]` + `[SITE-A11Y]` ungated.
+- **Deployed to staging** (version `4e10f27c`); production still never deployed.
 
