@@ -83,8 +83,9 @@ production deploy + the domain.
 
 ### Phase 2 — Publishable content *(the site must say something true)*
 - **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases. Bulk landed +
-  live on staging Conv 009; whole-site voice/humility pass done Conv 010. Content-complete, gated on
-  client sign-off.
+  live on staging Conv 009; whole-site voice/humility pass done Conv 010. Content-complete; **client
+  sign-off on the Work cases received Conv 029** (no changes). Residual sign-off gates: testimonial
+  quotes + the two `/record` artifacts (`[CASE-RECORD-SIGNOFF]`).
 - **2.2 — `[SITE-PHASES]`** — ✅ built + on staging Conv 011. A new self-qualification page: the three
   phases a client goes through building with AI (straw/tin/steel man), so a prospect can place themselves
   and see the fit. Generic content — no client material, so not gated on sign-off; rides `[SITE-GO-LIVE]`
@@ -184,8 +185,10 @@ Other pages still pending reconciliation; consistency sweep tracked as `[SITE-CO
 **Remaining:**
 - ✅ **Urantia cases — done Conv 013:** added as two named, public Work cases (`/work/discover-jesus`,
   `/work/discover-the-ub`) for The Center for Unity — live-URL proof, no "The record" block.
-- 🔴 **Client sign-off** required before the **production** deploy (`[SITE-GO-LIVE]`), **not** for
-  dev/staging. De-identification guards dev/staging; sign-off guards production.
+- ✅ **Client sign-off on the de-identified Work cases — received Conv 029** (both clients, no changes).
+  This clears the Work-case leg of the production sign-off gate; de-identification/masking still governs
+  (`DEC-023-3`). Still owed before production: testimonial quotes + the two `/record` artifacts
+  (`[CASE-RECORD-SIGNOFF]`).
 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` (Gemini synthesis, historical);
 the honesty frame + evidence came from `discovery/WORKING-METHOD.md` + `discovery/EVIDENCE-LEDGER.md`.
@@ -224,10 +227,15 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 - The go-ahead for the cutover itself.
 
 #### 🔴 Pre-production content gates (not for dev/staging)
-- Swap the two **MOCK AI-era testimonials** for real quotes (SAMPLE-badged until then) — `[SITE-TESTIMONIALS]`.
-  🔴 As of Conv 018 these two also render on the **home page** (a "Recent testimonials" band, shared from
-  `src/data/testimonials.json`), so the swap + SAMPLE removal must cover home *and* `/testimonials`.
-- **Client sign-off** on all de-identified Work cases + testimonials — `[SITE-NARRATIVE]`.
+- ✅ **No longer a go-live blocker (Conv 029).** The two MOCK AI-era testimonials never arrived and may not
+  (operator, Conv 029). Both the home **"Recent testimonials" band** and the `/testimonials` **"In the AI era"
+  section** are now **suppressed** behind a `showAiTestimonials = false` flag (markup intact in `index.astro`
+  + `testimonials.astro`); the `/testimonials` lede is flag-gated too (single-group wording while off). The
+  site can go live without them. 🔴 **If a real, signed-off quote later arrives:** add it to
+  `src/data/testimonials.json` and set `showAiTestimonials = true` in both files to restore the sections +
+  the two-group lede — and the `[CASE-RECORD-SIGNOFF]` attribution-masking ruling applies before it renders.
+- **Client sign-off** on all de-identified Work cases + testimonials — `[SITE-NARRATIVE]`. ✅ **Work cases
+  signed off Conv 029** (both clients, no changes); **testimonial quotes still owed**.
 - **Client sign-off** on the two client "The record" summaries + transcripts (Conv 014) — `[CASE-RECORD-SIGNOFF]`.
 - Turnstile spam hardening on the contact form — `[SITE-CONTACT]`.
 - **Legal review** of the `/privacy` policy + folded-in liability disclaimer copy (Conv 027) — CC-drafted,
@@ -328,6 +336,32 @@ Contact / Method (Conv 027), FAQ + Testimonials (Conv 028). This review is now r
 per-page reconciliations already owed (voice + "44 vs over 40" — still live: the FAQ "What have you been
 doing for {YEARS} years?" interpolates 44 vs home's "over 40"; operator chose to leave FAQ at 44,
 Conv 028). (hopper → Conv 018)
+
+✅ **Reviewed + reconciled — Conv 029 (all 7 parts ruled; → ✅ Completed).** Dispositions:
+- **Part 4 (vertical rhythm)** — reduced the shared `--section-rhythm` from `clamp(4rem, 8vw, 8rem)` to
+  `clamp(3rem, 5vw, 4.5rem)`, applied uniformly to all section/band edges (operator chose option B =
+  tighten with a little responsive air, applied uniformly incl. the below-header / above-footer edges).
+  Home unchanged (keeps its 2.5rem `-tight` override). Closes the Conv 019 "non-home pages too tall" flag.
+- **Part 6 (spelling → UK)** — swept `judgment`→`judgement`, `organiz*`→`organis*`, `modernization`→
+  `modernisation`, `recognized`→`recognised`, `formalizing`→`formalising` across visible prose **and** the
+  metadata layer (page title, meta description default, JSON-LD, `/llms.txt`). Operator ruled the sweep
+  may touch the **client-approved Work cases** too (house-style copy-edit, meaning untouched). Exempt +
+  left: the `/record` transcripts (`DEC-014-1`), two code comments, and the schema.org keywords
+  `parentOrganization`/`Organization`.
+- **Part 7 ("honest" framing)** — reworded the 4 assertion-type instances (FAQ h1 + its meta description
+  → "straight answers"; dropped "Honestly," in the `this-site` case; `/llms.txt` `/faq` note → "Straight
+  answers"). The descriptive "honest record/account" group left intact (it describes demonstrated candor,
+  not a protested claim — the `DEC-000-6` evidentiary frame).
+- **Part 2a (meta descriptions)** — added unique per-page `description`s to Home, About, Method, Contact,
+  Phases (previously all inherited a stale generic default predating the Conv 017/018 home rework);
+  History/FAQ/Testimonials already had their own. Operator-tuned: "Fraser" not "Fraser Gorrie"; Home + About
+  reworded so "40 years" attaches to Fraser's career, not to AI.
+- **Left as-is (ruled):** Part 1a career-length variation ("over 40" / "44" / "forty-odd" — intentional,
+  two prior deliberate calls); Part 1c "North America" vs "Canada" (different referents); Part 3 layout
+  measure (already consistent); Part 5 heading hierarchy (scoped-only, Conv 028); Parts 2f/2g minor
+  metadata wording.
+🔴 **Not yet verified in the running product** — the Part 4 rhythm change + copy edits need a build/deploy
+eyeball before final. Changes uncommitted at time of writing.
 
 ### [SITE-ANALYTICS] · promoted Conv 018
 Add web analytics and design what it should teach us — not just a default pageview install. Two parts:
