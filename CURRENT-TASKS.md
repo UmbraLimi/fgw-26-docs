@@ -32,21 +32,22 @@ remainder**.
 3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
    Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
 
-⚡ **Do-next — Conv 029:** Conv 028 completed the page-by-page **prose review** — **FAQ + Testimonials**
-reworked with the operator (voice/accuracy edits throughout; the redundant FAQ "Common concerns" note
-moved to a Testimonials→FAQ cross-link; UK "judgement" fixes). Two **accordion-legibility** styling
-changes landed on FAQ: group headings lifted (weight 700 + accent underline rule) and open answers bound
-with a left accent bar (`DEC-028-1`); the same grouping-heading rule was reused to separate the
-Testimonials AI-era / pre-AI blocks. Spelling variety standardised on **UK** (`DEC-028-2`). All deployed
-to staging (version `4e10f27c`). **The page-by-page prose pass is now complete**, so the pre-go-live
-quality sweep is runnable: **[SITE-CONSISTENCY]** (now also carrying the site-wide spelling + "honest/
-honestly" rewords, parts 6–7) and **[SITE-A11Y]** are ungated — a natural do-next. Critical path still
-gated: [SITE-PERF] on the full image set (Conv 016); [SITE-NARRATIVE] on client sign-off; [SITE-GO-LIVE]
-on operator DNS + go-ahead (+ legal-review + prod-`EMAIL_TO` gates). Open polish rows: [SITE-CONSISTENCY],
-[SITE-A11Y], [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS], [SITE-TOOLS], [SITE-SOCIAL],
+⚡ **Do-next — Conv 030:** Conv 029 completed **[SITE-CONSISTENCY]** — the full 7-part pre-go-live
+consistency review: vertical rhythm reconciled site-wide (`DEC-029-1`); UK spelling swept across prose +
+metadata **and** the client-approved Work cases (`DEC-029-2`); four "honest"-assertion rewords (`DEC-029-3`);
+unique per-page meta descriptions on home/about/method/contact/phases (`DEC-029-4`). Also Conv 029 (ad hoc):
+**client sign-off on the de-identified Work cases** received (both clients, no changes) — clears the
+Work-case leg of the production sign-off gate; the two **AI-era testimonials suppressed** on home +
+/testimonials behind a `showAiTestimonials` flag (never arrived; no longer a go-live blocker; `DEC-029-5`);
+and **pro-forma testimonial templates** drafted for Gabriel + Brian (in the Conv 029 record). All deployed
+to staging (version `0dcb567e`). The remaining pre-go-live quality row is **[SITE-A11Y]** (full WCAG AA
+review, ungated) — the natural do-next. Critical path still gated: [SITE-PERF] on the full image set
+(Conv 016); [SITE-NARRATIVE] residual sign-off (testimonials + the two `/record` artifacts — Work cases now
+cleared); [SITE-GO-LIVE] on operator DNS + go-ahead (+ legal-review + prod-`EMAIL_TO` gates). Open polish
+rows: [SITE-A11Y], [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS], [SITE-TOOLS], [SITE-SOCIAL],
 [NODE-FLOOR], [CASE-MOCKUPS] (residual only — see row).
 
-(**[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 ·
+(**[SITE-CONSISTENCY]** ✅ Conv 029 · **[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 ·
 **[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
 **[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
 **[SITE-DEPLOY-STAGING]** ✅ Conv 008 · **[SITE-ASSESS]** ✅ Conv 009 · **[SITE-VISUAL]** ✅ Conv 010 ·
@@ -296,6 +297,13 @@ surfaces the translation + marketplace quotes (kept masked for now). When the re
 publicly links the confidential engagement to the named Urantia cases. Brian (marketplace) is not under
 this constraint.
 
+🔴 **Conv 029 — a pro-forma Gabriel testimonial was drafted** (a fill-in-the-blanks template for the client
+to complete; emphasises Fraser's role / ideas / AI-assisted coding, not project specifics — presented in the
+Conv 029 record). When Gabriel returns a filled-in version, **that** is the text to vet against this masking
+before it goes anywhere on the site: it must not name Gabriel / CFU / the Urantia source text / the target
+language. (Both AI-era testimonial sections are currently **suppressed** — see the `[SITE-GO-LIVE]`
+testimonial gate / the `showAiTestimonials` flag; the vet happens if/when they're restored.)
+
 ### [SITE-TOOLS] · promoted Conv 012
 Operator idea-set item 7, unscoped: a "tools" surface — ambiguous between a tools/stack page, the tech
 stack, or the tools FG uses to steer AI. Seeded already by the per-case **Built with** chips (`[SITE-CONTACT]`
@@ -310,58 +318,6 @@ Recurring papercut (Conv 011–012): a fresh Bash shell comes up on Node 22.19.0
 `DEC-011-3`'s nvm-default fix; `npm run typecheck` (astro check) isn't guarded by `check-node.mjs`, so it
 fails until a manual `nvm use 24`. Candidate fix: a repo `.nvmrc` + guard `typecheck`, or diagnose why the
 shell defaults to 22.
-
-### [SITE-CONSISTENCY] · promoted Conv 018
-After the page-by-page prose/UI pass is complete across the site, a two-part consistency review:
-(1) **the whole site** — voice, messaging, and terminology aligned across all pages to the final home
-messaging (Conv 017–018 reworked home hero, flow, judgment, "what I do", phases, testimonials); and
-(2) **the secondary data structures** — SEO metadata, AI-SEO / JSON-LD (`FAQPage`/`OfferCatalog`/Person),
-`/llms.txt`, the `robots.txt` endpoint, canonical + `og:` — reconciled to the final prose so they don't
-drift from what the pages now say; and (3) **layout measure** — confirm running prose uses a consistent
-max-width cap across pages (`max-w-2xl` vs `max-w-prose` etc.) so the readable line length doesn't vary
-page to page (hopper → Conv 019); and (4) **vertical rhythm** — the non-home pages carry too much top and
-bottom margin; normalise their top/bottom spacing so every page matches the home page (operator, Conv 019); and
-(5) **section-heading hierarchy** — headings that lead a grouping were lifted (weight 700 + an accent
-underline rule): FAQ groups (`.faq-group h2`) and the Testimonials time-period headings
-(`.testimonial-period-h2`), both Conv 028, because they shared the body weight. Other pages' section headings
-stay on plain `text-h3`. Decide whether that lifted treatment becomes the site-wide section-heading pattern
-or stays scoped to these grouped pages (operator chose scoped-only for now, Conv 028); and
-(6) **spelling variety** — standardise on UK English site-wide (page uses UK "favourite"); US forms slip in
-(FAQ + Testimonials "judgment" → "judgement" done Conv 028). Sweep all pages for US spellings (-ize, color,
-judgment, etc.) and reconcile (hopper → Conv 028); and (7) **"honest"/"honestly" framing** — stop
-*asserting* honesty (protesting it can backfire); reword site-wide. FAQ item 5's "Honestly" dropped
-Conv 028; the FAQ h1 "Fair questions, honest answers" + other instances remain (hopper → Conv 028).
-✅ **Ungated (Conv 028) — the page-by-page prose pass is complete:** home (Conv 018), About / History /
-Contact / Method (Conv 027), FAQ + Testimonials (Conv 028). This review is now runnable. Pairs with the
-per-page reconciliations already owed (voice + "44 vs over 40" — still live: the FAQ "What have you been
-doing for {YEARS} years?" interpolates 44 vs home's "over 40"; operator chose to leave FAQ at 44,
-Conv 028). (hopper → Conv 018)
-
-✅ **Reviewed + reconciled — Conv 029 (all 7 parts ruled; → ✅ Completed).** Dispositions:
-- **Part 4 (vertical rhythm)** — reduced the shared `--section-rhythm` from `clamp(4rem, 8vw, 8rem)` to
-  `clamp(3rem, 5vw, 4.5rem)`, applied uniformly to all section/band edges (operator chose option B =
-  tighten with a little responsive air, applied uniformly incl. the below-header / above-footer edges).
-  Home unchanged (keeps its 2.5rem `-tight` override). Closes the Conv 019 "non-home pages too tall" flag.
-- **Part 6 (spelling → UK)** — swept `judgment`→`judgement`, `organiz*`→`organis*`, `modernization`→
-  `modernisation`, `recognized`→`recognised`, `formalizing`→`formalising` across visible prose **and** the
-  metadata layer (page title, meta description default, JSON-LD, `/llms.txt`). Operator ruled the sweep
-  may touch the **client-approved Work cases** too (house-style copy-edit, meaning untouched). Exempt +
-  left: the `/record` transcripts (`DEC-014-1`), two code comments, and the schema.org keywords
-  `parentOrganization`/`Organization`.
-- **Part 7 ("honest" framing)** — reworded the 4 assertion-type instances (FAQ h1 + its meta description
-  → "straight answers"; dropped "Honestly," in the `this-site` case; `/llms.txt` `/faq` note → "Straight
-  answers"). The descriptive "honest record/account" group left intact (it describes demonstrated candor,
-  not a protested claim — the `DEC-000-6` evidentiary frame).
-- **Part 2a (meta descriptions)** — added unique per-page `description`s to Home, About, Method, Contact,
-  Phases (previously all inherited a stale generic default predating the Conv 017/018 home rework);
-  History/FAQ/Testimonials already had their own. Operator-tuned: "Fraser" not "Fraser Gorrie"; Home + About
-  reworded so "40 years" attaches to Fraser's career, not to AI.
-- **Left as-is (ruled):** Part 1a career-length variation ("over 40" / "44" / "forty-odd" — intentional,
-  two prior deliberate calls); Part 1c "North America" vs "Canada" (different referents); Part 3 layout
-  measure (already consistent); Part 5 heading hierarchy (scoped-only, Conv 028); Parts 2f/2g minor
-  metadata wording.
-🔴 **Not yet verified in the running product** — the Part 4 rhythm change + copy edits need a build/deploy
-eyeball before final. Changes uncommitted at time of writing.
 
 ### [SITE-ANALYTICS] · promoted Conv 018
 Add web analytics and design what it should teach us — not just a default pageview install. Two parts:
@@ -394,26 +350,33 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ## ✅ Completed this conv
 
-### Conv 028 — FAQ + Testimonials prose review; accordion-legibility styling; UK spelling standard
-- **FAQ prose review (operator-driven, item by item)** — reworded the "too old" opener ("experience is the
-  asset here, not the liability"); the AI-cost Q + answer (dropped "Honestly"; "anyone good" → "anybody with
-  significant AI dev experience"; question → "If AI does software development well…"); "work with existing
-  code" ("Some people"; "assess the situation"); ongoing maintenance ("a few clients have kept…"; "20+ years
-  with no maintenance agreement. Ping me when you need me…"); communication cadence (+ a Slack/messaging
-  line); time zones (North America → **Canada**; "written updates" → "email and other messaging"). Appended a
-  **Claude / Claude Code** line to the tech-stack answer (verified via the claude-api skill: Claude = the LLM,
-  Claude Code = the harness).
-- **Testimonials prose review** — reworded the lede and the AI-era section intro to a client-led framing.
-- **FAQ "Common concerns" note moved** — the redundant "The questions people sometimes hesitate to ask
-  directly." (duplicated the lede) was removed from FAQ and **repurposed** as a Testimonials→FAQ cross-link.
-- **Accordion legibility (`DEC-028-1`)** — FAQ group headings lifted (weight 700 + accent underline rule,
-  `.faq-group h2`) because size alone under-sold them (web research: sites lift the heading, don't indent the
-  items); open answers bound with a **left accent bar** (`.faq-a`) so where an answer ends is unambiguous.
-  Same grouping rule reused for the Testimonials time-period headings (`.testimonial-period-h2`); kept
-  **scoped** to grouped pages, not generalised site-wide.
-- **UK spelling standard (`DEC-028-2`)** — "judgment" → "judgement" on FAQ + Testimonials.
-- **Hopper** — 2 items raised + ruled: a site-wide spelling-variety sweep and the "honest/honestly" reword,
-  both **promoted** into `[SITE-CONSISTENCY]` (parts 6 + 7). Hopper clear at close.
-- **Board** — the page-by-page prose pass marked **complete**; `[SITE-CONSISTENCY]` + `[SITE-A11Y]` ungated.
-- **Deployed to staging** (version `4e10f27c`); production still never deployed.
+### Conv 029 — [SITE-CONSISTENCY] 7-part review; client sign-off recorded; AI testimonials suppressed; pro-forma templates
+- **[SITE-CONSISTENCY] — completed (all 7 parts ruled, actionable ones done + verified on staging).**
+  - **Part 4 (vertical rhythm, `DEC-029-1`)** — reduced the shared `--section-rhythm` `clamp(4rem, 8vw, 8rem)`
+    → `clamp(3rem, 5vw, 4.5rem)`, uniform on every section/band edge; home keeps its 2.5rem `-tight` override.
+    Closes the Conv 019 "non-home pages too tall" flag; operator confirmed the flow on staging.
+  - **Part 6 (spelling → UK, `DEC-029-2`)** — swept judgment→judgement, organiz*→organis*, modernization→
+    modernisation, recognized→recognised, formalizing→formalising across prose + page title + meta/JSON-LD +
+    `/llms.txt`, incl. the **client-approved Work cases** (operator ruled it a non-substantive copy-edit).
+    Left: `/record` transcripts (`DEC-014-1`), 2 code comments, schema.org keywords.
+  - **Part 7 ("honest" framing, `DEC-029-3`)** — reworded 4 assertion-type instances (FAQ h1 + meta →
+    "straight answers"; dropped "Honestly," in `this-site`; `/llms.txt` `/faq` note); kept the descriptive
+    "honest record/account" language.
+  - **Part 2a (meta descriptions, `DEC-029-4`)** — unique per-page `description` added to home/about/method/
+    contact/phases (were inheriting a stale generic default); "Fraser" not "Fraser Gorrie"; year-vs-AI
+    ambiguity fixed.
+  - **Left as ruled:** 1a career-length variation, 1c "North America"/"Canada", 3 layout measure, 5 heading
+    hierarchy (scoped), 2f/2g minor metadata.
+- **Client sign-off (ad hoc)** — both clients approved the de-identified `/work` case pages, **no changes**.
+  Clears the Work-case leg of the production sign-off gate (`[SITE-NARRATIVE]` / `[SITE-GO-LIVE]`); residual
+  gates: testimonial quotes + the two `/record` artifacts (`[CASE-RECORD-SIGNOFF]`). Masking (`DEC-023-3`) still governs.
+- **AI-era testimonials suppressed (`DEC-029-5`)** — the two placeholders never arrived (may not); the home
+  "Recent testimonials" band + the `/testimonials` "In the AI era" section are hidden behind a
+  `showAiTestimonials = false` flag (markup intact; `/testimonials` lede flag-gated to single-group wording).
+  No longer a go-live blocker; restore by adding a real quote to `testimonials.json` + flipping the flag.
+- **Pro-forma testimonials** — drafted fill-in-the-blank templates for Gabriel (SPT) + Brian (Peerloop),
+  emphasising Fraser's role / ideas / AI-assisted coding; presented in chat (operator to hand to clients).
+- **Hopper** — 1 item raised + ruled (promoted): the Gabriel-testimonial masking vet, folded into
+  `[CASE-RECORD-SIGNOFF]`. Hopper clear at close.
+- **Deployed to staging** (version `0dcb567e`); production still never deployed.
 

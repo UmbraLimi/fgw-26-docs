@@ -8,6 +8,74 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 029
+
+### DEC-029-5 — Suppress the unfulfilled AI-era testimonials behind a reversible flag
+**Decision:** The two AI-era testimonials (the home "Recent testimonials" band and the `/testimonials`
+"In the AI era" section) are suppressed behind a `showAiTestimonials = false` flag in `index.astro` +
+`testimonials.astro` — markup left intact; the `/testimonials` lede is flag-gated to a single-group
+wording. The quotes never arrived from the two clients and may not. Restore = add a real signed-off quote
+to `testimonials.json` and set the flag `true`.
+**Rationale:** showing SAMPLE-badged mock quotes on the two most prominent surfaces oversells with
+placeholders that may never become real; an empty slot beats a fake one. Alternatives that lost: keep the
+SAMPLE-badged mocks (the Conv 018 state — risks reading as real); delete the sections outright (loses the
+cheap return path). A flag keeps the markup and makes return a one-word change.
+**Consequences:** the "swap MOCK testimonials for real" item is no longer a `[SITE-GO-LIVE]` blocker — the
+site can launch without AI testimonials. If a quote later lands, the `[CASE-RECORD-SIGNOFF]` masking vet
+applies before it renders, and the two-group lede returns with the flag. On staging (`0dcb567e`).
+
+### DEC-029-4 — Unique per-page meta descriptions for the pages that inherited the default
+**Decision:** Home, About, Method, Contact, and Phases each get their own `description` (previously they
+inherited a generic default predating the Conv 017/018 home rework). History/FAQ/Testimonials already had
+their own; minor pages (Work, Privacy, etc.) keep the default.
+**Rationale:** the default was a stale throwaway line surfacing as the search/social snippet for the
+most-shared page (home). Alternatives that lost: refresh the single shared default for all (search engines
+mildly favour unique descriptions, and home deserves its own); home-only (operator chose all five main
+pages). Wording operator-tuned: "Fraser" not "Fraser Gorrie"; the home/About lines reworded so "40 years"
+attaches to Fraser's career, not to AI.
+**Consequences:** each key page carries a tailored snippet; new main pages should get their own rather than
+lean on the default.
+
+### DEC-029-3 — Stop asserting honesty in copy; keep describing a candid record
+**Decision:** The four assertion-type "honest/honestly" instances were reworded — FAQ h1 + its meta
+description → "straight answers"; "Honestly," dropped in the `this-site` case; `/llms.txt` `/faq` note →
+"Straight answers". The descriptive uses ("an honest record", "the honest account", "name its limits
+honestly") are kept.
+**Rationale:** protesting one's own honesty can backfire; the site's credibility comes from the shown
+record, not the claim. The descriptive uses are different in kind — they describe demonstrated candor (the
+`DEC-000-6` evidentiary frame), not a self-virtue claim. Alternative that lost: reword the descriptive
+group too (would weaken the frame that is the site's whole point). Extends Conv 028's drop of FAQ item 5's
+"Honestly".
+**Consequences:** new copy avoids asserting honesty as a virtue; describing the record's candor stays fine.
+
+### DEC-029-2 — Execute the UK-spelling sweep site-wide, incl. metadata and the client-approved cases
+**Decision:** The `DEC-028-2` UK standard was swept across all visible prose **and** the metadata layer
+(page title, default meta description, JSON-LD, `/llms.txt`): judgment→judgement, organiz*→organis*,
+modernization→modernisation, recognized→recognised, formalizing→formalising. The sweep **includes the four
+client-approved Work cases** — a spelling standardisation is treated as a non-substantive copy-edit that
+client content sign-off does not freeze. Left untouched: the `/record` transcripts (`DEC-014-1`, verbatim
+auditor output), developer code comments, and the schema.org vocabulary keywords
+`parentOrganization`/`Organization`.
+**Rationale:** one site, one spelling variety; metadata saying "judgment" while pages say "judgement" is the
+same drift part 2 of the row targets. Touching the approved cases is defensible because the edits alter no
+claim, name, or fact — only house style — so "no changes" is not violated in substance; the alternative
+(cases US while the rest is UK) keeps a visible split across the repeated "The judgement that mattered"
+headings. Records stay US by `DEC-014-1`; schema keywords are fixed vocabulary, not spelling.
+**Consequences:** UK spelling now holds across prose + metadata; the `/record` transcripts remain a
+deliberate US-spelling island by `DEC-014-1`.
+
+### DEC-029-1 — Reconcile non-home vertical rhythm by reducing the global section rhythm
+**Decision:** `--section-rhythm` reduced from `clamp(4rem, 8vw, 8rem)` to `clamp(3rem, 5vw, 4.5rem)`,
+applied uniformly to all `.section`/`.band` edges (below the header, between sections, above the footer).
+Home keeps its 2.5rem `-tight` override.
+**Rationale:** inner pages carried ~64–128px section padding vs home's 40px — the "non-home pages too tall"
+the operator flagged Conv 019, most visible below the sticky header. Alternatives that lost: match home
+exactly at 2.5rem flat (would flatten long reading pages to the hero's beat and drop responsive scaling);
+leave as-is (keeps the inconsistency). The chosen value keeps a little responsive air for long-form reading
+while closing most of the gap, applied uniformly (operator chose not to special-case the page edges).
+**Consequences:** the CSS "until reconciled" note is resolved; home stays intentionally a touch tighter than
+the inner pages. On staging (`0dcb567e`), flow confirmed by the operator.
+
 ## Conv 028
 
 ### DEC-028-2 — Site-wide spelling variety standard = UK English

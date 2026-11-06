@@ -2,9 +2,46 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-05._
+_As of 2026-11-06._
 
 ---
+
+### DEC-029-5 — Suppress the unfulfilled AI-era testimonials behind a reversible flag
+
+The two AI-era testimonials (the home "Recent testimonials" band and the `/testimonials`
+"In the AI era" section) are suppressed behind a `showAiTestimonials = false` flag in `index.astro` +
+`testimonials.astro` — markup left intact; the `/testimonials` lede is flag-gated to a single-group
+wording. The quotes never arrived from the two clients and may not. Restore = add a real signed-off quote
+to `testimonials.json` and set the flag `true`.
+
+### DEC-029-4 — Unique per-page meta descriptions for the pages that inherited the default
+
+Home, About, Method, Contact, and Phases each get their own `description` (previously they
+inherited a generic default predating the Conv 017/018 home rework). History/FAQ/Testimonials already had
+their own; minor pages (Work, Privacy, etc.) keep the default.
+
+### DEC-029-3 — Stop asserting honesty in copy; keep describing a candid record
+
+The four assertion-type "honest/honestly" instances were reworded — FAQ h1 + its meta
+description → "straight answers"; "Honestly," dropped in the `this-site` case; `/llms.txt` `/faq` note →
+"Straight answers". The descriptive uses ("an honest record", "the honest account", "name its limits
+honestly") are kept.
+
+### DEC-029-2 — Execute the UK-spelling sweep site-wide, incl. metadata and the client-approved cases
+
+The `DEC-028-2` UK standard was swept across all visible prose **and** the metadata layer
+(page title, default meta description, JSON-LD, `/llms.txt`): judgment→judgement, organiz*→organis*,
+modernization→modernisation, recognized→recognised, formalizing→formalising. The sweep **includes the four
+client-approved Work cases** — a spelling standardisation is treated as a non-substantive copy-edit that
+client content sign-off does not freeze. Left untouched: the `/record` transcripts (`DEC-014-1`, verbatim
+auditor output), developer code comments, and the schema.org vocabulary keywords
+`parentOrganization`/`Organization`.
+
+### DEC-029-1 — Reconcile non-home vertical rhythm by reducing the global section rhythm
+
+`--section-rhythm` reduced from `clamp(4rem, 8vw, 8rem)` to `clamp(3rem, 5vw, 4.5rem)`,
+applied uniformly to all `.section`/`.band` edges (below the header, between sections, above the footer).
+Home keeps its 2.5rem `-tight` override.
 
 ### DEC-028-2 — Site-wide spelling variety standard = UK English
 
