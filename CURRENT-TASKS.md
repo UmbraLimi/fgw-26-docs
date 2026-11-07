@@ -22,29 +22,32 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. **[SITE-NARRATIVE]** — ✅ content-complete + **fully client-signed-off** (Work cases Conv 029; the two
-   `/record` artifacts Conv 030). Critical-path **Phase 2 — done**; rides `[SITE-GO-LIVE]` to production.
-   Testimonial quotes are upside only, not a gate (AI-era section suppressed, `DEC-029-5`).
-2. **[SITE-ANALYTICS]** — GA4 + a paired `/privacy` rewrite (operator: "using GA today", Conv 030).
-   🔴 Awaiting the real GA4 Measurement ID; mirrors the live site's lean no-banner gtag approach.
-3. **[SITE-SOCIAL]** — footer X + LinkedIn links + `sameAs` on the JSON-LD. Scope resolved from `fg`
-   (Conv 030): `x.com/frasergorrie`, `linkedin.com/in/frasergorrie`. Actionable now.
-4. **[SITE-PERF]** — image optimization (`fraser.jpg`, mockup PNGs → WebP/AVIF) + a Lighthouse/CWV pass +
-   budget. Critical-path **Phase 3**. ✅ **Un-gated Conv 030** (images finalized by the operator).
-5. **[SITE-OG-IMAGE]** — a 1200×630 social-share card + wiring. 🔴 Needs an operator design call first.
-6. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over on Cloudflare. Critical-path
-   **Phase 4** — the destination. Gated on operator DNS + go-ahead + prod `EMAIL_TO` (legal-review gate
-   **dropped Conv 030** — operator deems `/privacy` adequate).
+**Content + discoverability are ✅ done.** NARRATIVE (signed off), ANALYTICS (GA4 + the view-transition
+page_view fix + `/privacy`, Conv 031), SOCIAL (footer X/LinkedIn + `sameAs`, Conv 031). What remains is
+the run to production, **re-sequenced Conv 031** so the only irreversible step (the DNS cutover) is last
+and the domain lands on the optimized, shareable site. Order (detail in the critical path below):
 
-⚡ **Do-next — Conv 030 (mid-conv):** GA4 is top priority but **blocked on the Measurement ID** — wire it
-the moment it lands (+ the `/privacy` rewrite). Actionable without waiting: **[SITE-SOCIAL]** footer links,
-and the directed **JSON-LD** work (a repo-side validator + a per-page structured-data dump for Google's
-paste tool). Done this conv: `[SITE-A11Y]` (3 WCAG fixes, deployed), the Home **Tooling** statement,
-`[CASE-RECORD-SIGNOFF]` (signed off), `[NODE-FLOOR]` (typecheck guarded), `[CASE-MOCKUPS]` (mobile
-stacking-order refactor). Remaining Unordered: `[SITE-TOOLS]` (page idea, parked — the summative statement
-shipped on home) and the slim `[CASE-RECORD-SIGNOFF]` masking guard.
+1. **Commit + push** Conv 031's work (SOCIAL + ANALYTICS) — production must deploy from pushed code.
+2. **[SITE-GO-LIVE] step 1 — production worker (reversible)** ⚡ — deploy the prod worker, set the prod
+   `EMAIL_TO` secret, verify on `*.workers.dev` (contact-form email + GA now live in prod). Does **not**
+   touch `frasergorrie.com`; the legacy site keeps answering the domain.
+3. **[SITE-PERF]** — image optimization (`fraser.jpg`, mockup PNGs → WebP/AVIF) + a Lighthouse/CWV pass +
+   budget. Actionable now — images finalized Conv 030.
+4. **[SITE-OG-IMAGE]** — a 1200×630 social-share card + wiring (`twitter:card` → `summary_large_image`).
+   🔴 Needs an operator design call first — the one thing that can gate the cutover.
+5. **[SITE-GO-LIVE] step 2 — DNS cutover (irreversible, LAST)** — operator DNS confirm + go-ahead; bind
+   apex + `www`; cut `frasergorrie.com` from the legacy site to the prod worker. **Done-when:**
+   frasergorrie.com serves fgw-26. (Legal-review gate dropped Conv 030.)
 
-(**[SITE-A11Y]** / **[CASE-RECORD-SIGNOFF]** / **[NODE-FLOOR]** ✅ Conv 030 · **[SITE-CONSISTENCY]** ✅ Conv 029 ·
+⚡ **Do-next — Conv 031:** **commit + push** this conv's work, then **[SITE-GO-LIVE] step 1** (deploy the
+reversible production worker + prod `EMAIL_TO` secret + verify on `workers.dev`). Then **[SITE-PERF]**
+(actionable now) and **[SITE-OG-IMAGE]** (needs the operator design call), and the **DNS cutover last**.
+Done this conv: `[SITE-ANALYTICS]` (GA4 `G-EH3RJTF0VE`, production-only, + the view-transition page_view
+fix for the case→`/record` funnel + per-page engagement time; `/privacy` reconciled) and `[SITE-SOCIAL]`
+(footer X/LinkedIn + JSON-LD `sameAs`) — both deployed to staging, **uncommitted** pending step 1.
+Remaining Unordered: `[SITE-TOOLS]` (parked) and the standing `[CASE-RECORD-SIGNOFF]` masking guard.
+
+(**[SITE-ANALYTICS]** / **[SITE-SOCIAL]** ✅ Conv 031 · **[SITE-A11Y]** / **[CASE-RECORD-SIGNOFF]** / **[NODE-FLOOR]** ✅ Conv 030 · **[SITE-CONSISTENCY]** ✅ Conv 029 ·
 **[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 · **[SITE-AI-SEO]** ✅ Conv 016 ·
 **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 · **[SITE-CONTACT]** ✅ Conv 013 ·
 **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 · **[SITE-DEPLOY-STAGING]** ✅ Conv 008 ·
@@ -98,16 +101,29 @@ production deploy + the domain.
   the production AI-crawler policy in the robots endpoint (`DEC-016-1` — search bots allowed, training-only
   declined), and machine-readable facts (`FAQPage` on `/faq` + `OfferCatalog`/`knowsAbout` on the global
   JSON-LD, via a reusable `<head>` slot). Shared the JSON-LD + crawlability work with 3.1.
-- **3.3 — `[SITE-PERF]`** — page-speed as a tracked discipline: a Lighthouse / Core Web Vitals pass +
-  budget, plus image optimization. Largely satisfied already (static + edge + near-zero JS). ✅ **Un-gated
-  Conv 030** — the operator finalized the image set, so the image-optimization leg can now proceed.
+- **3.3 — `[SITE-ANALYTICS]`** — ✅ built Conv 031: GA4 (`G-EH3RJTF0VE`), production-only, lean no-banner
+  gtag; the view-transition page_view fix (powers the case→`/record` funnel + per-page engagement time);
+  `/privacy` reconciled. Data only starts once production serves (prod-only gating).
+- **3.4 — `[SITE-SOCIAL]`** — ✅ built Conv 031: footer X + LinkedIn links + JSON-LD `sameAs`.
+- **3.5 — `[SITE-PERF]`** — 🔴 **remaining.** Page-speed as a tracked discipline: a Lighthouse / CWV pass +
+  budget, plus image optimization (`fraser.jpg`, mockup PNGs → WebP/AVIF). Largely satisfied already
+  (static + edge + near-zero JS). ✅ Un-gated Conv 030 (image set finalized) — **actionable now.**
+- **3.6 — `[SITE-OG-IMAGE]`** — 🔴 **remaining.** The 1200×630 social-share card + wiring (`twitter:card`
+  → `summary_large_image`). Needs an operator design call. Wanted before the cutover so launch shares via
+  the new SOCIAL links carry a proper card.
 
-### Phase 4 — Live at frasergorrie.com *(production + domain cutover)*
-- **4.1 — operator: confirm where `frasergorrie.com` DNS lives today** and whether/when its zone is in
-  this Cloudflare account. The legacy `frasergorrie` site currently answers the domain.
-- **4.2 — `[SITE-GO-LIVE]`** — a production worker + a custom-domain/route binding (apex + `www`) + the
-  DNS cutover. 🔴 **Outward-facing + hard to reverse** — this takes the domain off the live legacy site;
-  needs an explicit operator go-ahead, never autopilot. **Done-when:** frasergorrie.com serves fgw-26.
+### Phase 4 — Live at frasergorrie.com *(two steps; re-sequenced Conv 031)*
+The production worker and the domain cutover are **split** so the only irreversible, outward-facing action
+is last — and the domain lands on the PERF/OG-IMAGE-finished site.
+- **4.1 — `[SITE-GO-LIVE]` step 1: production worker (reversible)** ⚡ **next.** Deploy the prod worker,
+  set the prod `EMAIL_TO` secret (`fraser@frasergorrie.com`), verify on `*.workers.dev` — contact-form
+  email delivery + GA4 now firing in prod. Does **not** touch the domain; reversible; testable in isolation.
+- **4.2 — operator: confirm where `frasergorrie.com` DNS lives today** and whether/when its zone is in this
+  Cloudflare account. The legacy `frasergorrie` site currently answers the domain.
+- **4.3 — `[SITE-GO-LIVE]` step 2: DNS cutover (irreversible, LAST)** — a custom-domain/route binding
+  (apex + `www`) + the DNS cutover from the legacy site. 🔴 **Outward-facing + hard to reverse** — needs an
+  explicit operator go-ahead, never autopilot. Run only after PERF + OG-IMAGE. **Done-when:**
+  frasergorrie.com serves fgw-26.
 
 ---
 
@@ -235,17 +251,22 @@ then wire it into `og:image` + `twitter:image` and bump `twitter:card` from `sum
 `summary_large_image` in `src/layouts/Layout.astro`. 🔴 Needs a design asset / operator call on the card's
 look before any wiring. Blocks nothing — SEO works without it; wanted before `[SITE-GO-LIVE]`.
 
-### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4
+### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4 · split into two steps Conv 031
 
 #### What it is
-Take fgw-26 to production on Cloudflare and point **frasergorrie.com** at it: a production worker (the
-top-level `wrangler.jsonc` name), a custom-domain/route binding for the apex (+ `www`), and the DNS
-cutover from the legacy site.
+Take fgw-26 to production on Cloudflare and point **frasergorrie.com** at it — **split Conv 031 into two
+steps** so the only irreversible action is last:
+- **Step 1 — production worker (reversible):** deploy the prod worker (the top-level `wrangler.jsonc`
+  name) + set the prod `EMAIL_TO` secret; verify on its `*.workers.dev` URL. Does not touch the domain.
+- **Step 2 — DNS cutover (irreversible, LAST):** a custom-domain/route binding for the apex (+ `www`) +
+  the DNS cutover from the legacy site. Run only after `[SITE-PERF]` + `[SITE-OG-IMAGE]`.
 
-#### Status — Conv 007 (plain language)
-Lean placeholder — opened so the critical path's destination resolves to a real row. Not specced;
-blocked behind Phases 1–3. 🔴 **The cutover is outward-facing + hard to reverse** (it takes the domain
-off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead, never autopilot.
+#### Status — Conv 031 (plain language)
+Unblocked and sequenced. Content + discoverability are done (NARRATIVE/ANALYTICS/SOCIAL). **Step 1 is the
+do-next** once this conv's work is committed + pushed. 🔴 **Step 2 is outward-facing + hard to reverse**
+(it takes the domain off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead, never
+autopilot. The operator has confirmed they're fine losing the legacy fallback (Conv 031), so the ordering
+is about launching on the finished site, not about reversibility.
 
 #### Owed by the operator (when Phase 3 opens)
 - Where `frasergorrie.com` DNS lives today + whether/when its zone moves into this Cloudflare account.
