@@ -22,36 +22,34 @@ remainder**.
 
 ⚡ = do next. Full detail in the task bodies below; the critical-path sequence sits between.
 
-1. **[SITE-NARRATIVE]** — real site copy + de-identified Work cases. Bulk live Conv 009; voice/humility
-   pass Conv 010; two named Urantia cases added Conv 013. Remainder: 🔴 client sign-off (production
-   gate). Critical-path **Phase 2** — content-complete, gated on sign-off.
-2. **[SITE-PERF]** — page-speed as a tracked discipline (Lighthouse/CWV + budget, image optimization —
-   `public/fraser.jpg` exists). Opened Conv 009. Critical-path **Phase 3** — the last Phase 3 build, now
-   that [SITE-SEO] (Conv 015) and [SITE-AI-SEO] (Conv 016) are done. 🔴 **Waits until all images are added**
-   (operator, Conv 016) — the image-optimization leg needs the full image set in hand first.
-3. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over to fgw-26 on Cloudflare. Opened
-   Conv 007; lean until the pre-go-live work lands. Critical-path **Phase 4** — the destination.
+1. **[SITE-NARRATIVE]** — ✅ content-complete + **fully client-signed-off** (Work cases Conv 029; the two
+   `/record` artifacts Conv 030). Critical-path **Phase 2 — done**; rides `[SITE-GO-LIVE]` to production.
+   Testimonial quotes are upside only, not a gate (AI-era section suppressed, `DEC-029-5`).
+2. **[SITE-ANALYTICS]** — GA4 + a paired `/privacy` rewrite (operator: "using GA today", Conv 030).
+   🔴 Awaiting the real GA4 Measurement ID; mirrors the live site's lean no-banner gtag approach.
+3. **[SITE-SOCIAL]** — footer X + LinkedIn links + `sameAs` on the JSON-LD. Scope resolved from `fg`
+   (Conv 030): `x.com/frasergorrie`, `linkedin.com/in/frasergorrie`. Actionable now.
+4. **[SITE-PERF]** — image optimization (`fraser.jpg`, mockup PNGs → WebP/AVIF) + a Lighthouse/CWV pass +
+   budget. Critical-path **Phase 3**. ✅ **Un-gated Conv 030** (images finalized by the operator).
+5. **[SITE-OG-IMAGE]** — a 1200×630 social-share card + wiring. 🔴 Needs an operator design call first.
+6. **[SITE-GO-LIVE]** — production deploy + cut `frasergorrie.com` over on Cloudflare. Critical-path
+   **Phase 4** — the destination. Gated on operator DNS + go-ahead + prod `EMAIL_TO` (legal-review gate
+   **dropped Conv 030** — operator deems `/privacy` adequate).
 
-⚡ **Do-next — Conv 030:** Conv 029 completed **[SITE-CONSISTENCY]** — the full 7-part pre-go-live
-consistency review: vertical rhythm reconciled site-wide (`DEC-029-1`); UK spelling swept across prose +
-metadata **and** the client-approved Work cases (`DEC-029-2`); four "honest"-assertion rewords (`DEC-029-3`);
-unique per-page meta descriptions on home/about/method/contact/phases (`DEC-029-4`). Also Conv 029 (ad hoc):
-**client sign-off on the de-identified Work cases** received (both clients, no changes) — clears the
-Work-case leg of the production sign-off gate; the two **AI-era testimonials suppressed** on home +
-/testimonials behind a `showAiTestimonials` flag (never arrived; no longer a go-live blocker; `DEC-029-5`);
-and **pro-forma testimonial templates** drafted for Gabriel + Brian (in the Conv 029 record). All deployed
-to staging (version `0dcb567e`). The remaining pre-go-live quality row is **[SITE-A11Y]** (full WCAG AA
-review, ungated) — the natural do-next. Critical path still gated: [SITE-PERF] on the full image set
-(Conv 016); [SITE-NARRATIVE] residual sign-off (testimonials + the two `/record` artifacts — Work cases now
-cleared); [SITE-GO-LIVE] on operator DNS + go-ahead (+ legal-review + prod-`EMAIL_TO` gates). Open polish
-rows: [SITE-A11Y], [SITE-OG-IMAGE], [CASE-RECORD-SIGNOFF], [SITE-ANALYTICS], [SITE-TOOLS], [SITE-SOCIAL],
-[NODE-FLOOR], [CASE-MOCKUPS] (residual only — see row).
+⚡ **Do-next — Conv 030 (mid-conv):** GA4 is top priority but **blocked on the Measurement ID** — wire it
+the moment it lands (+ the `/privacy` rewrite). Actionable without waiting: **[SITE-SOCIAL]** footer links,
+and the directed **JSON-LD** work (a repo-side validator + a per-page structured-data dump for Google's
+paste tool). Done this conv: `[SITE-A11Y]` (3 WCAG fixes, deployed), the Home **Tooling** statement,
+`[CASE-RECORD-SIGNOFF]` (signed off), `[NODE-FLOOR]` (typecheck guarded), `[CASE-MOCKUPS]` (mobile
+stacking-order refactor). Remaining Unordered: `[SITE-TOOLS]` (page idea, parked — the summative statement
+shipped on home) and the slim `[CASE-RECORD-SIGNOFF]` masking guard.
 
-(**[SITE-CONSISTENCY]** ✅ Conv 029 · **[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 ·
-**[SITE-AI-SEO]** ✅ Conv 016 · **[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 ·
-**[SITE-CONTACT]** ✅ Conv 013 · **[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 ·
-**[SITE-DEPLOY-STAGING]** ✅ Conv 008 · **[SITE-ASSESS]** ✅ Conv 009 · **[SITE-VISUAL]** ✅ Conv 010 ·
-**[SITE-PHASES]** ✅ Conv 011; all in ✅ Completed / conv records.)
+(**[SITE-A11Y]** / **[CASE-RECORD-SIGNOFF]** / **[NODE-FLOOR]** ✅ Conv 030 · **[SITE-CONSISTENCY]** ✅ Conv 029 ·
+**[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 · **[SITE-AI-SEO]** ✅ Conv 016 ·
+**[SITE-SEO]** / **[SITE-CROSSLINK]** ✅ Conv 015 · **[SITE-CONTACT]** ✅ Conv 013 ·
+**[SITE-TESTIMONIALS]** / **[SITE-FAQ]** / **[SITE-HISTORY]** ✅ Conv 013 · **[SITE-DEPLOY-STAGING]** ✅ Conv 008 ·
+**[SITE-ASSESS]** ✅ Conv 009 · **[SITE-VISUAL]** ✅ Conv 010 · **[SITE-PHASES]** ✅ Conv 011; all in
+✅ Completed / conv records.)
 
 ---
 
@@ -83,10 +81,9 @@ production deploy + the domain.
   Scaffold live + correct at `fgw-staging.fgorrie.workers.dev` (HTTP 200). CI stays deferred (`DEC-003-2`).
 
 ### Phase 2 — Publishable content *(the site must say something true)*
-- **2.1 — `[SITE-NARRATIVE]`** — real copy/messaging + de-identified `/work/<slug>` cases. Bulk landed +
-  live on staging Conv 009; whole-site voice/humility pass done Conv 010. Content-complete; **client
-  sign-off on the Work cases received Conv 029** (no changes). Residual sign-off gates: testimonial
-  quotes + the two `/record` artifacts (`[CASE-RECORD-SIGNOFF]`).
+- **2.1 — `[SITE-NARRATIVE]`** — ✅ **done.** Real copy/messaging + de-identified `/work/<slug>` cases, live
+  on staging; voice/humility pass Conv 010. **Fully client-signed-off** — Work cases Conv 029, the two
+  `/record` artifacts Conv 030. Testimonials are upside, not a gate (`DEC-029-5`). Nothing content-side remains.
 - **2.2 — `[SITE-PHASES]`** — ✅ built + on staging Conv 011. A new self-qualification page: the three
   phases a client goes through building with AI (straw/tin/steel man), so a prospect can place themselves
   and see the fit. Generic content — no client material, so not gated on sign-off; rides `[SITE-GO-LIVE]`
@@ -102,8 +99,8 @@ production deploy + the domain.
   declined), and machine-readable facts (`FAQPage` on `/faq` + `OfferCatalog`/`knowsAbout` on the global
   JSON-LD, via a reusable `<head>` slot). Shared the JSON-LD + crawlability work with 3.1.
 - **3.3 — `[SITE-PERF]`** — page-speed as a tracked discipline: a Lighthouse / Core Web Vitals pass +
-  budget, image optimization when imagery lands. Largely satisfied already (static + edge + near-zero JS).
-  🔴 Waits until all images are added (operator, Conv 016) before the image-optimization leg.
+  budget, plus image optimization. Largely satisfied already (static + edge + near-zero JS). ✅ **Un-gated
+  Conv 030** — the operator finalized the image set, so the image-optimization leg can now proceed.
 
 ### Phase 4 — Live at frasergorrie.com *(production + domain cutover)*
 - **4.1 — operator: confirm where `frasergorrie.com` DNS lives today** and whether/when its zone is in
@@ -183,22 +180,23 @@ line shortened to "I'm Fraser"; and a new **"Recent testimonials" band** surfaci
 shared from `src/data/testimonials.json`, SAMPLE-badged (`DEC-018-3`). Live on staging (deploy Conv 018).
 Other pages still pending reconciliation; consistency sweep tracked as `[SITE-CONSISTENCY]`.
 
-**Remaining:**
+**Content-complete + fully signed off (Conv 030):**
 - ✅ **Urantia cases — done Conv 013:** added as two named, public Work cases (`/work/discover-jesus`,
   `/work/discover-the-ub`) for The Center for Unity — live-URL proof, no "The record" block.
-- ✅ **Client sign-off on the de-identified Work cases — received Conv 029** (both clients, no changes).
-  This clears the Work-case leg of the production sign-off gate; de-identification/masking still governs
-  (`DEC-023-3`). Still owed before production: testimonial quotes + the two `/record` artifacts
-  (`[CASE-RECORD-SIGNOFF]`).
+- ✅ **Client sign-off — complete.** De-identified Work cases Conv 029; the two `/record` artifacts Conv 030
+  (`[CASE-RECORD-SIGNOFF]`). De-identification/masking still governs (`DEC-023-3`). Testimonial quotes are
+  upside, not a gate (`DEC-029-5`). **Nothing content-side remains before production.**
+- **Conv 030 — Home "Tooling" statement added** (eyebrow `Tooling` + h2 "The tools I reach for"): the
+  operator's summative tools note, single-sourced on home (the `[SITE-TOOLS]` page idea stays parked).
 
 **Source material (Conv 008):** `discovery/NARRATIVE-SOURCE-GEMINI.md` (Gemini synthesis, historical);
 the honesty frame + evidence came from `discovery/WORKING-METHOD.md` + `discovery/EVIDENCE-LEDGER.md`.
 
 ### [SITE-PERF] · critical-path Phase 3 · opened Conv 009
 
-🔴 **Gated — waits until all images are added** (operator, Conv 016). The image-optimization leg is the
-substantive part of this task, and it needs the full image set in hand first; the measurement/budget leg
-can precede it but is largely satisfied by construction already. Do not start until the images land.
+✅ **Un-gated Conv 030** — the operator confirmed the current image set is finalized, so the
+image-optimization leg (the substantive part) can now proceed alongside the measurement/budget leg. Both
+legs are actionable.
 
 #### What it is
 Page speed as a tracked discipline rather than a happy accident (audit Conv 009). **Already good by
@@ -210,6 +208,32 @@ is enabled but unused. The lightest of the three — but gated on the full image
 🔴 **Also unoptimized (Conv 022):** `src/mockups/*.png` product screenshots served via plain `<img>` (no
 `astro:assets` pipeline) — `redline.png` is 1000×1796 / ~344 KB into an ~288 px slot; this pass should
 resize + convert these to WebP/AVIF too ([CASE-MOCKUPS] deferred its optimization here).
+
+### [SITE-ANALYTICS] · ordered Conv 030 (promoted from Unordered; opened Conv 018)
+
+#### Status — Conv 030 — GA4 is a go; blocked on the Measurement ID
+Operator is standing up Google Analytics "today" (Conv 030). Plan mirrors the current live site's approach
+found in `fg` — a basic `gtag` snippet, **no consent banner**, paired with a plain privacy disclosure:
+wire GA4 into the Layout `<head>`, and **rewrite the `/privacy` "Analytics and cookies" section with it**
+(the two move together). 🔴 **Blocked on the real `G-XXXXXXX` Measurement ID** — `fg` carried only the
+`GA_MEASUREMENT_ID` placeholder (commented out). EU-consent caveat noted; no banner unless the operator asks.
+
+#### Deferred remainder (the original "what should it teach us" half)
+Event + funnel design — the clicks/paths worth tracking (hero CTAs → `/contact`, `/work` + `/phases` nav,
+the phases self-qualification funnel). The provider question is settled (GA4). (hopper → Conv 018)
+
+### [SITE-SOCIAL] · ordered Conv 030 (promoted from Unordered; opened Conv 012)
+Operator idea-set item 8: "redo LinkedIn and X." **Scope resolved Conv 030** (URLs read from `fg`): the
+buildable part is adding **X** (`x.com/frasergorrie`) + **LinkedIn** (`linkedin.com/in/frasergorrie`) links
+to the footer (icon + `sr-only` label, as `fg`'s footer does) + a `sameAs` array on the Person JSON-LD.
+Actionable now — no operator input needed. (Redoing the off-site profiles themselves is separate — the
+operator's own accounts.)
+
+### [SITE-OG-IMAGE] · ordered Conv 030 (promoted from Unordered; opened Conv 015)
+A 1200×630 branded social-share card, the deferred remainder of `[SITE-SEO]` (Conv 015). Build the asset,
+then wire it into `og:image` + `twitter:image` and bump `twitter:card` from `summary` to
+`summary_large_image` in `src/layouts/Layout.astro`. 🔴 Needs a design asset / operator call on the card's
+look before any wiring. Blocks nothing — SEO works without it; wanted before `[SITE-GO-LIVE]`.
 
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4
 
@@ -235,13 +259,14 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
   site can go live without them. 🔴 **If a real, signed-off quote later arrives:** add it to
   `src/data/testimonials.json` and set `showAiTestimonials = true` in both files to restore the sections +
   the two-group lede — and the `[CASE-RECORD-SIGNOFF]` attribution-masking ruling applies before it renders.
-- **Client sign-off** on all de-identified Work cases + testimonials — `[SITE-NARRATIVE]`. ✅ **Work cases
-  signed off Conv 029** (both clients, no changes); **testimonial quotes still owed**.
-- **Client sign-off** on the two client "The record" summaries + transcripts (Conv 014) — `[CASE-RECORD-SIGNOFF]`.
+- ✅ **Client sign-off on the de-identified Work cases — Conv 029** (both clients, no changes). Testimonial
+  quotes are **not a gate** — the AI-era section is suppressed (`DEC-029-5`); real quotes are upside only.
+- ✅ **Client sign-off on the two `/record` artifacts — Conv 030** (operator + clients checked both; no
+  changes) — `[CASE-RECORD-SIGNOFF]` complete. This clears the last content sign-off gate.
 - Turnstile spam hardening on the contact form — `[SITE-CONTACT]`.
-- **Legal review** of the `/privacy` policy + folded-in liability disclaimer copy (Conv 027) — CC-drafted,
-  not lawyer-reviewed. Also revise its "no analytics/cookies" section when `[SITE-ANALYTICS]` wires a
-  provider (the two must move together).
+- ✅ **Legal review — dropped Conv 030.** The operator deems `/privacy` adequate (no lawyer). 🔴 Still live:
+  when `[SITE-ANALYTICS]` wires GA4, the `/privacy` "no analytics/cookies" section must be rewritten **with**
+  it (the two move together) — tracked on the `[SITE-ANALYTICS]` row.
 - **Production `EMAIL_TO` secret** — set it to `fraser@frasergorrie.com` via `wrangler secret put` once the
   production worker exists (Conv 027). `EMAIL_FROM`=fraser@ and staging `EMAIL_TO`=fraser@ are done +
   Resend-verified; only the prod inbox secret remains (can't be set until prod is deployed).
@@ -250,129 +275,56 @@ off the live legacy `frasergorrie` site) — needs an explicit operator go-ahead
 
 ## 📋 Unordered
 
-### [SITE-OG-IMAGE] · promoted Conv 015
-A 1200×630 branded social-share card, the deferred remainder of `[SITE-SEO]` (Conv 015). Build the asset,
-then wire it into `og:image` + `twitter:image` and bump `twitter:card` from `summary` to
-`summary_large_image` in `src/layouts/Layout.astro`. 🔴 Needs a design asset / operator call on the card's
-look before any wiring. Blocks nothing — SEO works without it; wanted before `[SITE-GO-LIVE]`. (hopper → Conv 015)
-
-### [CASE-MOCKUPS] · promoted Conv 019
-Real per-case product mockup images for the `/work` case-study sidebars, replacing the Conv 019
-placeholder boxes. **Built (Conv 019):** the two-column case layout + a ~2:3 portrait placeholder box per
-case (`.case-mockup`, labeled with the title), in a sticky sidebar. **Owed by the operator:** a real
-portrait screenshot (~2:3) for each case — operator-produced (CC can't screenshot the apps). **Remainder:**
-decide the wiring (per-slug asset, e.g. `src/mockups/<slug>`, + an optional `caseExtras` field vs a filename
-convention) and wire each image in; and review the new `aside`'s mobile stacking order (prose-first vs
-extras-first). Blocks nothing; wanted before `[SITE-GO-LIVE]` for visual polish. (hopper → Conv 019)
-**Conv 020:** the `personal-productivity-app` (fps) case **opts out** of the mockup box via
-`caseExtras.hideMockup` (`DEC-020-2`) — its diagram fills the sidebar slot — so the owed screenshot set
-no longer includes fps.
-**Conv 022:** wiring decided — a **filename convention** (`src/mockups/<slug>.{png,svg}`, plain `<img>`
-cover-fit into the 2:3 box; `DEC-022-1`) + an optional `caseExtras.mockupCaption`; raster optimization
-deferred to `[SITE-PERF]`. Wired: `redline` (operator screenshot) and `learning-marketplace` (an
-illustrative system-map SVG, `DEC-022-2`). A **click-to-enlarge lightbox** was added for all case mockups
-(`DEC-022-3`). Remaining owed: operator screenshots for the other cases (`translation-platform`; the two
-Urantia live-link cases if wanted).
-**Conv 024:** `translation-platform` opts out of the mockup (`hideMockup: true`) — its aside now shows the
-`segmentTable` instead — so it leaves the owed-screenshot set. **Remaining owed:** the two Urantia
-live-link cases, if wanted.
-**Conv 026:** both Urantia cases (`discover-jesus`, `discover-the-ub`) opt out of the mockup box too — each
-now shows a real pipeline diagram (`hideMockup: true` + `diagram`; `DEC-026-2`) — so the **owed-screenshot
-set is empty** and no case renders the placeholder box. Residual only: the Conv-019 mobile stacking-order
-review (prose-first vs extras-first) is still unconfirmed; that is all this row is now holding open.
-
-### [CASE-RECORD-SIGNOFF] · promoted Conv 014
-The two **client** "The record" artifacts built Conv 014 — the sharper audit-derived summaries **and**
-the full token-redacted transcripts at `/work/translation-platform/record` and
-`/work/learning-marketplace/record` — need **client sign-off before the production deploy** (`DEC-009-2`);
-dev/staging is fine. 🔴 Mandatory redaction already applied + verified: the translation-platform client is
-The Center for Unity and the source text is the Urantia Book — the *same* client named publicly in the two
-Urantia cases — so the source-text identity, client org, and people (Gabriel/Carlos/CFU/UmbraLimi) must stay
-masked or the confidential engagement links to the named one. Pairs with the existing client-sign-off gate on
-`[SITE-GO-LIVE]` / `[SITE-NARRATIVE]`. (operator, Conv 014)
-
-🔴 **Conv 018 — same masking governs the home testimonials.** The home "Recent testimonials" band now
-surfaces the translation + marketplace quotes (kept masked for now). When the real signed-off quotes from
-**Gabriel** (translation) + **Brian** (marketplace) land, the attribution decision is here: naming Gabriel
-publicly links the confidential engagement to the named Urantia cases. Brian (marketplace) is not under
-this constraint.
-
-🔴 **Conv 029 — a pro-forma Gabriel testimonial was drafted** (a fill-in-the-blanks template for the client
-to complete; emphasises Fraser's role / ideas / AI-assisted coding, not project specifics — presented in the
-Conv 029 record). When Gabriel returns a filled-in version, **that** is the text to vet against this masking
-before it goes anywhere on the site: it must not name Gabriel / CFU / the Urantia source text / the target
-language. (Both AI-era testimonial sections are currently **suppressed** — see the `[SITE-GO-LIVE]`
-testimonial gate / the `showAiTestimonials` flag; the vet happens if/when they're restored.)
+### [CASE-RECORD-SIGNOFF] · promoted Conv 014 · sign-off ✅ Conv 030
+✅ **Sign-off complete (Conv 030):** operator + clients checked both `/record` artifacts
+(`/work/translation-platform/record`, `/work/learning-marketplace/record`) — no changes. The production
+sign-off gate is cleared.
+🔴 **Standing masking guard (still live — why the row stays):** the translation-platform client is The
+Center for Unity and the source text is the Urantia Book — the *same* client named publicly in the two
+Urantia cases. If the suppressed AI-era testimonials (`DEC-029-5`) are ever restored, **Gabriel's** quote
+must not name Gabriel / CFU / the Urantia source text / the target language (`DEC-023-3`); a Conv-029
+pro-forma template exists for him to fill. **Brian** (marketplace) is unconstrained.
 
 ### [SITE-TOOLS] · promoted Conv 012
-Operator idea-set item 7, unscoped: a "tools" surface — ambiguous between a tools/stack page, the tech
-stack, or the tools FG uses to steer AI. Seeded already by the per-case **Built with** chips (`[SITE-CONTACT]`
-conv's case extras). Clarify intent before building.
-
-### [SITE-SOCIAL] · promoted Conv 012
-Operator idea-set item 8, unscoped: "redo LinkedIn and X." Ambiguous — the footer links/icons (editable
-here) vs the off-site profiles themselves (need the browser + operator accounts). Clarify which.
-
-### [NODE-FLOOR] · promoted Conv 012
-Recurring papercut (Conv 011–012): a fresh Bash shell comes up on Node 22.19.0 (below Astro's floor) despite
-`DEC-011-3`'s nvm-default fix; `npm run typecheck` (astro check) isn't guarded by `check-node.mjs`, so it
-fails until a manual `nvm use 24`. Candidate fix: a repo `.nvmrc` + guard `typecheck`, or diagnose why the
-shell defaults to 22.
-
-### [SITE-ANALYTICS] · promoted Conv 018
-Add web analytics and design what it should teach us — not just a default pageview install. Two parts:
-(1) **choose + wire a provider** (GA4 vs a privacy-lighter option like Plausible/Cloudflare Web Analytics —
-weigh against the near-zero-JS build and the site's EU reachability / consent obligations), and
-(2) **event + funnel design** — define the clicks/paths worth tracking (hero CTAs → `/contact`, `/work`
-and `/phases` navigation, testimonials "see all", the phases self-qualification funnel) so we learn how
-prospects move through the site. 🔴 Privacy/consent is a real gate for a provider that sets cookies or
-sends PII. Likely wanted around `[SITE-GO-LIVE]`. (hopper → Conv 018)
-
-### [SITE-A11Y] · promoted Conv 027
-
-#### Status — Conv 030 — ✅ review complete · 3 fixes applied + verified in the running product
-Full WCAG AA review done across all 14 routes + the shared shell. The site was already strong: single
-`h1`/page with orderly nesting; skip link + `header`/`main`/`footer` landmarks; native `<details>`/
-`<dialog>` disclosures (keyboard + Esc/backdrop close); `prefers-reduced-motion` reset; `:focus-visible`
-ring; meaningful img alt + decorative `alt=""`; icons `aria-hidden` by default; diagram/mockup SVGs carry
-`role="img"` + `aria-label`; theme toggle labelled; contact labels associated; **every** text/background
-pair passes AA contrast in both themes (computed). **Three gaps found + fixed (decisions at `/r-end`):**
-- **F1** placeholder contrast 2.9:1 → `--subtle` (5.2–5.4:1) — WCAG 1.4.3. `global.css` `.input::placeholder`.
-- **F2** form-input resting border ~1.2:1 → new `--field-border` token (3.1–3.7:1), scoped to
-  `.input/.textarea/.select`; `--line` hairlines/cards untouched — WCAG 1.4.11.
-- **F3** contact-form per-field error association — `aria-describedby` → a `field-error` slot; blur sets
-  `aria-invalid` + a plain-language message, cleared on valid — WCAG 3.3.1. Existing submit-gating,
-  honeypot, no-JS mailto fallback preserved.
-
-Verified in the running product (dev server: served HTML + CSS, and the F3 blur interaction exercised live
-on all three fields incl. a real-keystroke `tooShort`). Typecheck 0 errors. **Not yet deployed to staging.**
-Left (not AA): home's first `<h2>` renders at `text-h3` size — semantic order is correct; sits with
-`[SITE-CONSISTENCY]` part 5 (heading hierarchy), ruled scoped Conv 028.
-
-<details><summary>Original review brief + checklist (archive)</summary>
-
-Full WCAG AA review across the whole site, re-checking the Conv 006 scaffold baseline against everything
-added since — home rework (Conv 017/018), `/phases` (incl. the new pricing section), the `/work` cases +
-`/record` pages, testimonials, FAQ, the contact form, the new `/privacy` page, and the footer.
-
-Checklist: heading order + a single `h1`/page; landmark roles/labels; link text (no bare "here"); color
-contrast in **both** light and dark themes; visible focus + logical focus order; keyboard-only nav incl.
-the `<details>` disclosures (nav, FAQ, footer em-note) and the mockup lightbox; contact-form labels +
-error association; image alt text (`fraser.jpg`, case mockups, the pipeline/diagram SVGs — decorative vs
-meaningful); `prefers-reduced-motion`; skip-to-content link.
-
-✅ **Ungated (Conv 028)** — the prose pass on the pending pages (FAQ + Testimonials) is complete, so the
-content-dependent a11y (heading order, link text, alt text, `aria-label`s) can now be checked against
-settled copy. Pairs with `[SITE-CONSISTENCY]` + `[SITE-PERF]` as the pre-go-live quality sweep; wanted
-before `[SITE-GO-LIVE]`.
-
-</details>
+Operator idea-set item 7: a "tools" **page/surface** — ambiguous between a tools/stack page, the tech stack,
+or the tools FG uses to steer AI. **Conv 030:** the operator's *summative* tools statement now ships on
+**home** (the "Tooling" section — see `[SITE-NARRATIVE]`); a dedicated page is left parked ("not sure it
+will stand the test of time; individual projects give a taste"). Seeded by the per-case **Built with**
+chips. Revisit only if a fuller tools surface earns its place.
 
 ## ⏸️ Parked
 
 _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — is satisfied.)
 
 ## ✅ Completed this conv
+
+### Conv 030 — [SITE-A11Y] WCAG review + 3 fixes; board re-ordered toward production; NODE-FLOOR fixed; Home Tooling statement
+- **[SITE-A11Y] — full WCAG AA review done + 3 gaps fixed, deployed to staging (`cb5f7d02`).** The site was
+  already strong; the three fixes (decisions at `/r-end` as `DEC-030-?`): **F1** placeholder contrast
+  (`--faint`→`--subtle`, WCAG 1.4.3); **F2** form-input border (new `--field-border` token, WCAG 1.4.11);
+  **F3** contact-form per-field error association (`aria-describedby` + blur `aria-invalid` + messages,
+  WCAG 3.3.1). All verified in the running product (served HTML/CSS + live F3 blur, incl. real-keystroke
+  `tooShort`); typecheck green.
+- **[CASE-RECORD-SIGNOFF] — sign-off complete** (operator + clients checked both `/record` artifacts, no
+  changes). Clears the last content sign-off gate. The row's standing masking guard is retained (see row).
+- **[NODE-FLOOR] — fixed.** `.nvmrc` already existed; added a `pretypecheck` `check-node.mjs` guard so
+  `npm run typecheck` fails loud with "run `nvm use`" on Node 22 instead of a cryptic astro error — verified
+  live under Node 22. (Root cause — the shell's global nvm default being 22 — is a machine setting left to
+  the operator: `nvm alias default 24`.)
+- **Home "Tooling" statement added** (`[SITE-NARRATIVE]`) — eyebrow + h2 "The tools I reach for", the
+  operator's summative tools note, single-sourced on home; verified rendering. `[SITE-TOOLS]` page idea parked.
+- **Board re-ordered toward production (operator walkthrough):** `[SITE-ANALYTICS]` (GA4), `[SITE-SOCIAL]`,
+  `[SITE-OG-IMAGE]` promoted into 🔥 Ordered; the `[SITE-GO-LIVE]` **legal-review gate dropped** (operator:
+  `/privacy` adequate); `[SITE-PERF]` **un-gated** (images finalized).
+- **[CASE-MOCKUPS] — resolved + closed.** The one open residual (the `/work` case mobile stacking order)
+  is fixed: restructured the case grid into a 3-part layout (`.case-grid`/`.case-lead`/`.case-extra`) — on
+  mobile it stacks **lead (mockup/diagram + benefit) → prose → tools**; desktop grid-areas reassemble the
+  sticky two-column sidebar unchanged. `CaseExtras` split via a `part` prop. Verified in the running product
+  (DOM order + desktop screenshot); typecheck green.
+- **Queued / pending (not done this conv):** GA4 wiring + `/privacy` rewrite (🔴 blocked on the real
+  Measurement ID — `fg` had only a placeholder); the directed **JSON-LD** work (repo-side validator + a
+  per-page structured-data dump); `[SITE-SOCIAL]` footer links (`x.com/frasergorrie`,
+  `linkedin.com/in/frasergorrie` + JSON-LD `sameAs`).
 
 ### Conv 029 — [SITE-CONSISTENCY] 7-part review; client sign-off recorded; AI testimonials suppressed; pro-forma templates
 - **[SITE-CONSISTENCY] — completed (all 7 parts ruled, actionable ones done + verified on staging).**
