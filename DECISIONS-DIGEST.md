@@ -2,9 +2,51 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-06._
+_As of 2026-11-07._
 
 ---
+
+### DEC-030-6 — `/work` case layout: hoist the visual + benefit above the prose on mobile
+
+The `/work/<slug>` case page is a 3-part grid — `.case-lead` (mockup/diagram/segment-table +
+the one-line benefit), `.case-main` (prose), `.case-extra` (Built-with tools). Mobile (flex-column, DOM
+order) stacks **lead → prose → tools**; desktop uses `grid-template-areas` ("main lead" / "main extra") to
+reassemble the prior sticky two-column sidebar unchanged. `CaseExtras.astro` gained a `part` prop
+("lead" | "tools") to render the two groups into their slots.
+
+### DEC-030-5 — NODE-FLOOR: guard `typecheck` with a pretypecheck node check
+
+Added `pretypecheck: node scripts/check-node.mjs` to `fgw-26/package.json` so `npm run
+typecheck` fails with the clear "run `nvm use`" message on Node below the engines floor, matching the
+existing `predev`/`prebuild` guards. The repo `.nvmrc` (24.22.1) already existed.
+
+### DEC-030-4 — The Tooling statement ships on the home page only
+
+Fraser's summative tools statement ("The tools I reach for" — Claude Code/Claude first;
+comfortable with OpenAI + Codex; open-source LLMs on personal work; third-party in-app tools the client's
+choice) ships as a Home section (eyebrow + h2), single-sourced. The `[SITE-TOOLS]` dedicated-page idea
+stays parked.
+
+### DEC-030-3 — GA4 as the analytics provider, lean and banner-less
+
+`[SITE-ANALYTICS]` will wire **Google Analytics 4** into the Layout `<head>` and rewrite the
+`/privacy` "Analytics and cookies" section with it (the two move together), mirroring the current live
+site's approach in `fg`: a basic `gtag` snippet, **no consent banner**, with a plain privacy disclosure.
+Blocked on the real `G-XXXXXXX` Measurement ID (operator standing GA up "today"; `fg` carried only a
+`GA_MEASUREMENT_ID` placeholder).
+
+### DEC-030-2 — Drop the `/privacy` legal-review go-live gate
+
+The pre-production **legal review** of `/privacy` (CC-drafted, Conv 027) is removed as a
+`[SITE-GO-LIVE]` gate — the operator deems the policy adequate and does not want a lawyer.
+
+### DEC-030-1 — WCAG AA remediation: three fixes, with a scoped form-border token
+
+Three WCAG AA gaps found in the `[SITE-A11Y]` review were fixed: **F1** input/textarea
+placeholder colour `--faint`→`--subtle` (2.9:1 → 5.2–5.4:1, WCAG 1.4.3); **F2** a new `--field-border`
+token (`light-dark(#8f8169,#7a7161)`, 3.1–3.7:1, WCAG 1.4.11) scoped to `.input/.textarea/.select`; **F3**
+contact-form per-field error association — `aria-describedby` → a `field-error` slot, with blur-time
+`aria-invalid` + a plain-language message cleared on valid input (WCAG 3.3.1).
 
 ### DEC-029-5 — Suppress the unfulfilled AI-era testimonials behind a reversible flag
 

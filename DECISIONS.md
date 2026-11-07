@@ -8,6 +8,81 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 030
+
+### DEC-030-6 — `/work` case layout: hoist the visual + benefit above the prose on mobile
+**Decision:** The `/work/<slug>` case page is a 3-part grid — `.case-lead` (mockup/diagram/segment-table +
+the one-line benefit), `.case-main` (prose), `.case-extra` (Built-with tools). Mobile (flex-column, DOM
+order) stacks **lead → prose → tools**; desktop uses `grid-template-areas` ("main lead" / "main extra") to
+reassemble the prior sticky two-column sidebar unchanged. `CaseExtras.astro` gained a `part` prop
+("lead" | "tools") to render the two groups into their slots.
+**Rationale:** prose-first buried the product screenshot and the one-line benefit hook at the bottom on a
+phone. Alternatives that lost: keep prose-first (option A — zero work, but visual/benefit stay buried);
+extras-first (option B — hoists the whole aside incl. tools, burying the narrative and showing a
+context-free diagram). C hoists only the visual + benefit; tools stay below.
+**Consequences:** mobile case pages lead with image → benefit → narrative; desktop is visually unchanged
+(verified via DOM order + a desktop screenshot). `.case-aside` retired for `.case-grid`/`.case-lead`/
+`.case-extra`. Not yet deployed to staging.
+
+### DEC-030-5 — NODE-FLOOR: guard `typecheck` with a pretypecheck node check
+**Decision:** Added `pretypecheck: node scripts/check-node.mjs` to `fgw-26/package.json` so `npm run
+typecheck` fails with the clear "run `nvm use`" message on Node below the engines floor, matching the
+existing `predev`/`prebuild` guards. The repo `.nvmrc` (24.22.1) already existed.
+**Rationale:** the recurring papercut was `typecheck` dying with a cryptic astro-check error on a fresh
+Node-22 shell. Alternative that lost: diagnose/fix why the shell defaults to Node 22 — that is the
+operator's global `nvm alias default`, a machine setting outside the repo, left to them. The guard is the
+in-repo durable fix.
+**Consequences:** all three build-ish scripts fail loud + actionable below the floor; verified live under
+Node 22. `[NODE-FLOOR]` closed.
+
+### DEC-030-4 — The Tooling statement ships on the home page only
+**Decision:** Fraser's summative tools statement ("The tools I reach for" — Claude Code/Claude first;
+comfortable with OpenAI + Codex; open-source LLMs on personal work; third-party in-app tools the client's
+choice) ships as a Home section (eyebrow + h2), single-sourced. The `[SITE-TOOLS]` dedicated-page idea
+stays parked.
+**Rationale:** a prospect wants the "current + flexible on tools" signal early, before inner pages.
+Alternatives that lost: `/method` only (operator: prospects won't reach it early); Home **and** `/method`
+(duplicate copy across pages — the drift the Conv 029 consistency pass just cleaned up). Home-only gives
+early visibility without duplication.
+**Consequences:** home carries the statement; the `[SITE-TOOLS]` page is revisited only if a fuller tools
+surface earns its place ("individual projects give a taste").
+
+### DEC-030-3 — GA4 as the analytics provider, lean and banner-less
+**Decision:** `[SITE-ANALYTICS]` will wire **Google Analytics 4** into the Layout `<head>` and rewrite the
+`/privacy` "Analytics and cookies" section with it (the two move together), mirroring the current live
+site's approach in `fg`: a basic `gtag` snippet, **no consent banner**, with a plain privacy disclosure.
+Blocked on the real `G-XXXXXXX` Measurement ID (operator standing GA up "today"; `fg` carried only a
+`GA_MEASUREMENT_ID` placeholder).
+**Rationale:** the site is NA-focused (areaServed US + Canada), privacy-light, near-zero-JS; GA4 is what the
+operator uses and matches the legacy site. Alternatives that lost: a privacy-lighter provider (Plausible /
+Cloudflare Web Analytics — operator chose GA4); a cookie-consent banner / Consent Mode (deferred — EU reach
+is incidental; the operator may add one later). EU-consent caveat noted.
+**Consequences:** `[SITE-ANALYTICS]` is ordered; building waits on the Measurement ID. The `/privacy`
+"no analytics/cookies" copy must change in the same commit that wires GA4.
+
+### DEC-030-2 — Drop the `/privacy` legal-review go-live gate
+**Decision:** The pre-production **legal review** of `/privacy` (CC-drafted, Conv 027) is removed as a
+`[SITE-GO-LIVE]` gate — the operator deems the policy adequate and does not want a lawyer.
+**Rationale:** the operator's call on their own risk tolerance for a solo-consultant site. Alternative that
+lost: hold the gate pending a lawyer review (the Conv 027 default). Not CC's decision to make — recorded as
+the operator's.
+**Consequences:** one fewer go-live gate; remaining `[SITE-GO-LIVE]` gates are operator DNS + go-ahead +
+prod `EMAIL_TO`. The analytics/consent `/privacy` rewrite (`DEC-030-3`) is separate and still pending.
+
+### DEC-030-1 — WCAG AA remediation: three fixes, with a scoped form-border token
+**Decision:** Three WCAG AA gaps found in the `[SITE-A11Y]` review were fixed: **F1** input/textarea
+placeholder colour `--faint`→`--subtle` (2.9:1 → 5.2–5.4:1, WCAG 1.4.3); **F2** a new `--field-border`
+token (`light-dark(#8f8169,#7a7161)`, 3.1–3.7:1, WCAG 1.4.11) scoped to `.input/.textarea/.select`; **F3**
+contact-form per-field error association — `aria-describedby` → a `field-error` slot, with blur-time
+`aria-invalid` + a plain-language message cleared on valid input (WCAG 3.3.1).
+**Rationale:** the form's `--surface`-on-`--paper` fields rested on a ~1.2:1 `--line` border. Alternatives
+that lost: darken `--line` globally (would thicken every hairline/card site-wide) — rejected for a token
+scoped to form controls; for F3, a hard submit-gate alone (a silently-disabled button with no explanation)
+— kept the gate but added blur errors so AT users learn *why* a field is unaccepted.
+**Consequences:** the site passes AA contrast in both themes; form errors are announced. Deployed to staging
+(`cb5f7d02`). `--line` hairlines/cards unchanged. The non-AA home heading-size note stays with
+`[SITE-CONSISTENCY]` part 5.
+
 ## Conv 029
 
 ### DEC-029-5 — Suppress the unfulfilled AI-era testimonials behind a reversible flag

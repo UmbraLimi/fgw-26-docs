@@ -300,7 +300,7 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
 
 ### Conv 030 — [SITE-A11Y] WCAG review + 3 fixes; board re-ordered toward production; NODE-FLOOR fixed; Home Tooling statement
 - **[SITE-A11Y] — full WCAG AA review done + 3 gaps fixed, deployed to staging (`cb5f7d02`).** The site was
-  already strong; the three fixes (decisions at `/r-end` as `DEC-030-?`): **F1** placeholder contrast
+  already strong; the three fixes (`DEC-030-1`): **F1** placeholder contrast
   (`--faint`→`--subtle`, WCAG 1.4.3); **F2** form-input border (new `--field-border` token, WCAG 1.4.11);
   **F3** contact-form per-field error association (`aria-describedby` + blur `aria-invalid` + messages,
   WCAG 3.3.1). All verified in the running product (served HTML/CSS + live F3 blur, incl. real-keystroke
@@ -326,33 +326,5 @@ _None._ (`[SITE-TEST-SETUP]` completed Conv 006; its gate — the scaffold — i
   per-page structured-data dump); `[SITE-SOCIAL]` footer links (`x.com/frasergorrie`,
   `linkedin.com/in/frasergorrie` + JSON-LD `sameAs`).
 
-### Conv 029 — [SITE-CONSISTENCY] 7-part review; client sign-off recorded; AI testimonials suppressed; pro-forma templates
-- **[SITE-CONSISTENCY] — completed (all 7 parts ruled, actionable ones done + verified on staging).**
-  - **Part 4 (vertical rhythm, `DEC-029-1`)** — reduced the shared `--section-rhythm` `clamp(4rem, 8vw, 8rem)`
-    → `clamp(3rem, 5vw, 4.5rem)`, uniform on every section/band edge; home keeps its 2.5rem `-tight` override.
-    Closes the Conv 019 "non-home pages too tall" flag; operator confirmed the flow on staging.
-  - **Part 6 (spelling → UK, `DEC-029-2`)** — swept judgment→judgement, organiz*→organis*, modernization→
-    modernisation, recognized→recognised, formalizing→formalising across prose + page title + meta/JSON-LD +
-    `/llms.txt`, incl. the **client-approved Work cases** (operator ruled it a non-substantive copy-edit).
-    Left: `/record` transcripts (`DEC-014-1`), 2 code comments, schema.org keywords.
-  - **Part 7 ("honest" framing, `DEC-029-3`)** — reworded 4 assertion-type instances (FAQ h1 + meta →
-    "straight answers"; dropped "Honestly," in `this-site`; `/llms.txt` `/faq` note); kept the descriptive
-    "honest record/account" language.
-  - **Part 2a (meta descriptions, `DEC-029-4`)** — unique per-page `description` added to home/about/method/
-    contact/phases (were inheriting a stale generic default); "Fraser" not "Fraser Gorrie"; year-vs-AI
-    ambiguity fixed.
-  - **Left as ruled:** 1a career-length variation, 1c "North America"/"Canada", 3 layout measure, 5 heading
-    hierarchy (scoped), 2f/2g minor metadata.
-- **Client sign-off (ad hoc)** — both clients approved the de-identified `/work` case pages, **no changes**.
-  Clears the Work-case leg of the production sign-off gate (`[SITE-NARRATIVE]` / `[SITE-GO-LIVE]`); residual
-  gates: testimonial quotes + the two `/record` artifacts (`[CASE-RECORD-SIGNOFF]`). Masking (`DEC-023-3`) still governs.
-- **AI-era testimonials suppressed (`DEC-029-5`)** — the two placeholders never arrived (may not); the home
-  "Recent testimonials" band + the `/testimonials` "In the AI era" section are hidden behind a
-  `showAiTestimonials = false` flag (markup intact; `/testimonials` lede flag-gated to single-group wording).
-  No longer a go-live blocker; restore by adding a real quote to `testimonials.json` + flipping the flag.
-- **Pro-forma testimonials** — drafted fill-in-the-blank templates for Gabriel (SPT) + Brian (Peerloop),
-  emphasising Fraser's role / ideas / AI-assisted coding; presented in chat (operator to hand to clients).
-- **Hopper** — 1 item raised + ruled (promoted): the Gabriel-testimonial masking vet, folded into
-  `[CASE-RECORD-SIGNOFF]`. Hopper clear at close.
-- **Deployed to staging** (version `0dcb567e`); production still never deployed.
+_(Conv 029 and earlier: see `docs/convs/` records + `DECISIONS.md`.)_
 
