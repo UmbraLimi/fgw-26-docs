@@ -27,25 +27,26 @@ page_view fix + `/privacy`, Conv 031), SOCIAL (footer X/LinkedIn + `sameAs`, Con
 the run to production, **re-sequenced Conv 031** so the only irreversible step (the DNS cutover) is last
 and the domain lands on the optimized, shareable site. Order (detail in the critical path below):
 
-1. **Commit + push** Conv 031's work (SOCIAL + ANALYTICS) — production must deploy from pushed code.
-2. **[SITE-GO-LIVE] step 1 — production worker (reversible)** ⚡ — deploy the prod worker, set the prod
-   `EMAIL_TO` secret, verify on `*.workers.dev` (contact-form email + GA now live in prod). Does **not**
-   touch `frasergorrie.com`; the legacy site keeps answering the domain.
-3. **[SITE-PERF]** — image optimization (`fraser.jpg`, mockup PNGs → WebP/AVIF) + a Lighthouse/CWV pass +
-   budget. Actionable now — images finalized Conv 030.
-4. **[SITE-OG-IMAGE]** — a 1200×630 social-share card + wiring (`twitter:card` → `summary_large_image`).
+1. **Commit** Conv 031's work (SOCIAL + ANALYTICS) — ✅ committed Conv 031 (`7b26cf6`); push at `/r-end`.
+2. **[SITE-GO-LIVE] step 1 — production worker (reversible)** — ✅ **deployed Conv 031** at
+   `fgw.fgorrie.workers.dev` (GA4 live, serving, domain untouched). 🙋 one live check left: contact-form
+   email delivery (4.1).
+3. **[SITE-PERF]** — ✅ image optimization done Conv 031 (astro:assets `<Picture>`; 335/352 KB → ~2–32 KB).
+   🔵 optional: a formal Lighthouse run.
+4. **[SITE-OG-IMAGE]** ⚡ — a 1200×630 social-share card + wiring (`twitter:card` → `summary_large_image`).
    🔴 Needs an operator design call first — the one thing that can gate the cutover.
 5. **[SITE-GO-LIVE] step 2 — DNS cutover (irreversible, LAST)** — operator DNS confirm + go-ahead; bind
    apex + `www`; cut `frasergorrie.com` from the legacy site to the prod worker. **Done-when:**
    frasergorrie.com serves fgw-26. (Legal-review gate dropped Conv 030.)
 
-⚡ **Do-next — Conv 031:** **commit + push** this conv's work, then **[SITE-GO-LIVE] step 1** (deploy the
-reversible production worker + prod `EMAIL_TO` secret + verify on `workers.dev`). Then **[SITE-PERF]**
-(actionable now) and **[SITE-OG-IMAGE]** (needs the operator design call), and the **DNS cutover last**.
-Done this conv: `[SITE-ANALYTICS]` (GA4 `G-EH3RJTF0VE`, production-only, + the view-transition page_view
-fix for the case→`/record` funnel + per-page engagement time; `/privacy` reconciled) and `[SITE-SOCIAL]`
-(footer X/LinkedIn + JSON-LD `sameAs`) — both deployed to staging, **uncommitted** pending step 1.
-Remaining Unordered: `[SITE-TOOLS]` (parked) and the standing `[CASE-RECORD-SIGNOFF]` masking guard.
+⚡ **Do-next — Conv 031:** **[SITE-OG-IMAGE]** — but it opens with an ask-point (🙋 3.6: the card's design).
+After that, the DNS location + cutover go-ahead (🙋 4.2/4.3). Also pending: the **prod worker** has
+SOCIAL+ANALYTICS (deployed from `7b26cf6`) but is on the **pre-PERF build** — redeploy to prod once the
+PERF work is committed. Done this conv + deployed: `[SITE-ANALYTICS]` (GA4
+`G-EH3RJTF0VE` + the view-transition page_view fix for the case→`/record` funnel + engagement time;
+`/privacy` reconciled), `[SITE-SOCIAL]` (footer X/LinkedIn + JSON-LD `sameAs`), and **[SITE-GO-LIVE] step 1**
+(prod worker live at `fgw.fgorrie.workers.dev`). Committed `7b26cf6` (push at `/r-end`). Remaining Unordered:
+`[SITE-TOOLS]` (parked) and the standing `[CASE-RECORD-SIGNOFF]` masking guard.
 
 (**[SITE-ANALYTICS]** / **[SITE-SOCIAL]** ✅ Conv 031 · **[SITE-A11Y]** / **[CASE-RECORD-SIGNOFF]** / **[NODE-FLOOR]** ✅ Conv 030 · **[SITE-CONSISTENCY]** ✅ Conv 029 ·
 **[CASE-DIAGRAMS]** / **[CASE-RECORD-REFRESH]** ✅ Conv 025 · **[SITE-AI-SEO]** ✅ Conv 016 ·
@@ -64,6 +65,9 @@ to the real site serving at **frasergorrie.com**.
 🔴 **This section is pure sequence + pointers.** Every step names an **existing** task by `[CODE]` or an
 operator action; the row holds the work, detail, and done-condition — this holds the order *over* them,
 not a second copy.
+
+🙋 **marks an operator ask-point** — input or a live check I need from you. These are asked **when the step
+is reached, one at a time** (never batched into a handoff list ahead of time), so the path stays clear.
 
 **Already true — NOT a gate:** the app is scaffolded (Astro 7 + Cloudflare Workers adapter + Tailwind
 v4), `npm verify` green, WCAG AA verified, Node 24 baseline (all Conv 006); the staging deploy pipeline
@@ -105,25 +109,27 @@ production deploy + the domain.
   gtag; the view-transition page_view fix (powers the case→`/record` funnel + per-page engagement time);
   `/privacy` reconciled. Data only starts once production serves (prod-only gating).
 - **3.4 — `[SITE-SOCIAL]`** — ✅ built Conv 031: footer X + LinkedIn links + JSON-LD `sameAs`.
-- **3.5 — `[SITE-PERF]`** — 🔴 **remaining.** Page-speed as a tracked discipline: a Lighthouse / CWV pass +
-  budget, plus image optimization (`fraser.jpg`, mockup PNGs → WebP/AVIF). Largely satisfied already
-  (static + edge + near-zero JS). ✅ Un-gated Conv 030 (image set finalized) — **actionable now.**
+- **3.5 — `[SITE-PERF]`** — ✅ **image optimization done Conv 031** (astro:assets `<Picture>` AVIF/WebP;
+  335/352 KB images → ~2–32 KB; verified on staging). Budget set. 🔵 optional remainder: a formal
+  Lighthouse run for a recorded score — not a blocker.
 - **3.6 — `[SITE-OG-IMAGE]`** — 🔴 **remaining.** The 1200×630 social-share card + wiring (`twitter:card`
-  → `summary_large_image`). Needs an operator design call. Wanted before the cutover so launch shares via
-  the new SOCIAL links carry a proper card.
+  → `summary_large_image`). 🙋 **ask you:** the card's look, or supply the asset, before I wire it. Wanted
+  before the cutover so launch shares via the new SOCIAL links carry a proper card.
 
 ### Phase 4 — Live at frasergorrie.com *(two steps; re-sequenced Conv 031)*
 The production worker and the domain cutover are **split** so the only irreversible, outward-facing action
 is last — and the domain lands on the PERF/OG-IMAGE-finished site.
-- **4.1 — `[SITE-GO-LIVE]` step 1: production worker (reversible)** ⚡ **next.** Deploy the prod worker,
-  set the prod `EMAIL_TO` secret (`fraser@frasergorrie.com`), verify on `*.workers.dev` — contact-form
-  email delivery + GA4 now firing in prod. Does **not** touch the domain; reversible; testable in isolation.
-- **4.2 — operator: confirm where `frasergorrie.com` DNS lives today** and whether/when its zone is in this
-  Cloudflare account. The legacy `frasergorrie` site currently answers the domain.
+- **4.1 — `[SITE-GO-LIVE]` step 1: production worker (reversible)** — ✅ **deployed Conv 031** at
+  `fgw.fgorrie.workers.dev` (prod secrets uploaded; GA4 live; HTTP 200; domain untouched). Contact pipeline
+  **verified end-to-end Conv 031**: test POST → `{ok:true}`, and the operator confirmed the email arrived
+  at `fraser@frasergorrie.com`. ✅ **Step 1 complete.**
+- **4.2 — DNS location.** 🙋 **ask you:** where `frasergorrie.com` DNS lives today, and whether/when its
+  zone moves into this Cloudflare account. The legacy `frasergorrie` site currently answers the domain.
 - **4.3 — `[SITE-GO-LIVE]` step 2: DNS cutover (irreversible, LAST)** — a custom-domain/route binding
-  (apex + `www`) + the DNS cutover from the legacy site. 🔴 **Outward-facing + hard to reverse** — needs an
-  explicit operator go-ahead, never autopilot. Run only after PERF + OG-IMAGE. **Done-when:**
-  frasergorrie.com serves fgw-26.
+  (apex + `www`) + the DNS cutover from the legacy site. 🔴 **Outward-facing + hard to reverse.** 🙋 **ask
+  you:** explicit go-ahead for the cutover, never autopilot. Run only after PERF + OG-IMAGE. Then 🙋 **live
+  check with you:** apex + `www` serve fgw-26 over HTTPS, GA realtime + contact form work on the real
+  domain. **Done-when:** frasergorrie.com serves fgw-26.
 
 ---
 
@@ -209,6 +215,16 @@ Other pages still pending reconciliation; consistency sweep tracked as `[SITE-CO
 the honesty frame + evidence came from `discovery/WORKING-METHOD.md` + `discovery/EVIDENCE-LEDGER.md`.
 
 ### [SITE-PERF] · critical-path Phase 3 · opened Conv 009
+
+#### Status — Conv 031 — image optimization ✅ done + verified
+Moved `fraser.jpg` → `src/assets/` and converted every raster render to `astro:assets` `<Picture>`
+(AVIF/WebP + resized fallback), right-sized per spot; SVG mockups pass through untouched. **Measured
+transfer (AVIF, what visitors load):** home hero avatar 335 KB → ~1.9 KB; home band avatar → ~2.5 KB;
+about portrait → ~27 KB; redline mockup thumbnail 352 KB → ~32 KB. Verified in the running product
+(staging `842e7171`): correct crops (80/96 square, about 4:5, mockup 2:3), AVIF served, SVG untouched.
+JSON-LD `image` single-sourced to the imported asset's `.src`. **Image budget (set Conv 031):** on-page
+raster ≤ ~35 KB (AVIF) per image. CWV otherwise strong by construction. 🔵 **Remaining (optional):** a
+formal Lighthouse/CWV run for a recorded score — not a blocker; CWV levers are already pulled.
 
 ✅ **Un-gated Conv 030** — the operator confirmed the current image set is finalized, so the
 image-optimization leg (the substantive part) can now proceed alongside the measurement/budget leg. Both
