@@ -329,6 +329,28 @@ prospects move through the site. 🔴 Privacy/consent is a real gate for a provi
 sends PII. Likely wanted around `[SITE-GO-LIVE]`. (hopper → Conv 018)
 
 ### [SITE-A11Y] · promoted Conv 027
+
+#### Status — Conv 030 — ✅ review complete · 3 fixes applied + verified in the running product
+Full WCAG AA review done across all 14 routes + the shared shell. The site was already strong: single
+`h1`/page with orderly nesting; skip link + `header`/`main`/`footer` landmarks; native `<details>`/
+`<dialog>` disclosures (keyboard + Esc/backdrop close); `prefers-reduced-motion` reset; `:focus-visible`
+ring; meaningful img alt + decorative `alt=""`; icons `aria-hidden` by default; diagram/mockup SVGs carry
+`role="img"` + `aria-label`; theme toggle labelled; contact labels associated; **every** text/background
+pair passes AA contrast in both themes (computed). **Three gaps found + fixed (decisions at `/r-end`):**
+- **F1** placeholder contrast 2.9:1 → `--subtle` (5.2–5.4:1) — WCAG 1.4.3. `global.css` `.input::placeholder`.
+- **F2** form-input resting border ~1.2:1 → new `--field-border` token (3.1–3.7:1), scoped to
+  `.input/.textarea/.select`; `--line` hairlines/cards untouched — WCAG 1.4.11.
+- **F3** contact-form per-field error association — `aria-describedby` → a `field-error` slot; blur sets
+  `aria-invalid` + a plain-language message, cleared on valid — WCAG 3.3.1. Existing submit-gating,
+  honeypot, no-JS mailto fallback preserved.
+
+Verified in the running product (dev server: served HTML + CSS, and the F3 blur interaction exercised live
+on all three fields incl. a real-keystroke `tooShort`). Typecheck 0 errors. **Not yet deployed to staging.**
+Left (not AA): home's first `<h2>` renders at `text-h3` size — semantic order is correct; sits with
+`[SITE-CONSISTENCY]` part 5 (heading hierarchy), ruled scoped Conv 028.
+
+<details><summary>Original review brief + checklist (archive)</summary>
+
 Full WCAG AA review across the whole site, re-checking the Conv 006 scaffold baseline against everything
 added since — home rework (Conv 017/018), `/phases` (incl. the new pricing section), the `/work` cases +
 `/record` pages, testimonials, FAQ, the contact form, the new `/privacy` page, and the footer.
@@ -343,6 +365,8 @@ meaningful); `prefers-reduced-motion`; skip-to-content link.
 content-dependent a11y (heading order, link text, alt text, `aria-label`s) can now be checked against
 settled copy. Pairs with `[SITE-CONSISTENCY]` + `[SITE-PERF]` as the pre-go-live quality sweep; wanted
 before `[SITE-GO-LIVE]`.
+
+</details>
 
 ## ⏸️ Parked
 
