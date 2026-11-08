@@ -2,26 +2,24 @@
 
 ## Where we left off
 
-Conv 030 fixed the three `[SITE-A11Y]` WCAG gaps (deployed to staging `cb5f7d02`) and then ran an
-operator-driven production-planning walkthrough that re-ordered the whole board. The **content side of
-go-live is now done** — `[SITE-NARRATIVE]` is fully client-signed-off (Work cases + both `/record`
-artifacts) and the `/privacy` legal-review gate was dropped. Also built this conv: the Home **Tooling**
-statement, the `[NODE-FLOOR]` typecheck guard, and the `[CASE-MOCKUPS]` mobile case-layout refactor (all
-committed, but **not yet deployed** — staging still holds only the a11y deploy).
-
-🔥 Ordered now runs: **[SITE-NARRATIVE] (done) → [SITE-ANALYTICS] → [SITE-SOCIAL] → [SITE-PERF] →
-[SITE-OG-IMAGE] → [SITE-GO-LIVE]**. `[SITE-GO-LIVE]` is gated only on operator DNS + go-ahead + the prod
-`EMAIL_TO` secret.
+Conv 031 made the site **launch-ready**. Everything remaining before the domain cutover got built,
+deployed to prod + staging (kept in sync), and verified: `[SITE-SOCIAL]`, `[SITE-ANALYTICS]` (GA4
+`G-EH3RJTF0VE`, production-only, + the view-transition page_view fix for the case→`/record` funnel +
+engagement time), `[SITE-PERF]` (images 335/352 KB → ~2–32 KB via astro:assets `<Picture>`),
+`[SITE-OG-IMAGE]` (wordmark share card), and `[CONTACT-TURNSTILE]` (spam-hardening, verified end-to-end).
+The **production worker is live** at `fgw.fgorrie.workers.dev` as a reversible step 1 — the contact form
+delivers email end-to-end through Turnstile. The board was pruned 392 → ~110 lines (done rows now drop to a
+tags line, `DEC-031-7`). **The only remaining task on the whole project is the DNS cutover.**
 
 ## Next action
 
-**Wire GA4 + rewrite `/privacy` the moment the operator provides the real `G-XXXXXXX` Measurement ID** —
-this is the operator's stated near-term priority ("using GA today"); the approach is settled (`DEC-030-3`:
-lean `gtag`, no banner, mirroring `fg`). While that's blocked, the actionable-without-operator work is
-**(a)** deploy the committed Conv-030 work to staging so the Tooling section + mobile case layout are
-visible, **(b)** `[SITE-SOCIAL]` footer links + JSON-LD `sameAs` (`x.com/frasergorrie`,
-`linkedin.com/in/frasergorrie`), and **(c)** the directed **JSON-LD** work (a repo-side validator + a
-per-page structured-data dump for Google's paste tool).
+**`[SITE-GO-LIVE]` step 2 — the DNS cutover** (operator-gated, irreversible; `DEC-031-3` put it last on
+purpose). It begins with the 🙋 4.2 ask (**where `frasergorrie.com` DNS lives today** + whether/when its
+zone is in this Cloudflare account — the legacy site still answers the domain), needs an **explicit
+go-ahead**, and has a 🔴 **tracked prerequisite: `frasergorrie.com` + `www.frasergorrie.com` must be in the
+Turnstile widget's hostname list** or the live contact form `110200`-errors. Then the post-cutover live
+checks on the real domain (GA realtime + case→`/record` funnel, contact form, apex/`www` HTTPS, `og:image`
+previews). Staging + prod are currently in sync on the Turnstile build (`821eba8c` / `f86a3c72`).
 
 ## 🔬 Carried findings
 _None._

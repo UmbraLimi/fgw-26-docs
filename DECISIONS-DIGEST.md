@@ -6,6 +6,58 @@ _As of 2026-11-07._
 
 ---
 
+### DEC-031-8 — Turnstile gates the cutover; explicit-render widget + fail-closed server verify
+
+Cloudflare Turnstile on the contact form is a **cutover gate** (operator ruling at `/r-hopper`).
+The widget renders *explicitly* and re-renders on every `astro:page-load` (survives view-transition nav);
+`api/contact.ts` verifies the token via siteverify **fail-closed**, *after* field validation; the public
+site key is in `consts.ts` (`TURNSTILE_SITEKEY`), the secret a Worker secret (`TURNSTILE_SECRET_KEY`, in
+`wrangler.jsonc` `secrets.required` + `.dev.vars`).
+
+### DEC-031-7 — A completed board row is deleted to the tags line, not archived inline
+
+When a task completes, its `CURRENT-TASKS.md` row is **deleted** and the task drops to a
+one-line `## ✅ Completed (tags)` entry; the detail lives in commit messages, `DECISIONS.md`, and
+`docs/convs/`. The board shows only live work.
+
+### DEC-031-6 — Staging stays mirrored to production until the domain cutover
+
+Until `frasergorrie.com` is cut over, every production deploy is mirrored to staging (and
+vice versa) so the two serve identical builds — only the intentional env differences remain (staging
+`noindex` + GA gated off). Operator instruction; expires at cutover.
+
+### DEC-031-5 — OG share card: wordmark-only, browser-canvas-rendered, JPEG
+
+The 1200×630 `og:image` is a **wordmark-only** card on the brand gradient — "Fraser Gorrie"
+(Fraunces) + a two-line tagline + `frasergorrie.com` — rendered on an HTML `<canvas>` in a real browser
+(the site's actual fonts), exported PNG→JPEG (`public/og-image.jpg`, 97 KB). Tagline: "Built by AI for
+speed. / Corrected by me for quality."
+
+### DEC-031-4 — Image optimization via astro:assets `<Picture>`
+
+The two heavy rasters (`fraser.jpg` 335 KB, `redline.png` 352 KB) go through astro:assets
+`<Picture>` (AVIF/WebP + resized fallback), right-sized per placement; `fraser.jpg` moved `public/` →
+`src/assets/`; SVG mockups pass through; the `<picture>` wrapper is unwrapped with `display:contents` so
+existing `object-fit:cover` sizing holds; the JSON-LD `image` single-sources the imported asset's `.src`.
+
+### DEC-031-3 — Go-live split into two steps; reversible prod worker early, DNS cutover last
+
+`[SITE-GO-LIVE]` splits into **step 1** (deploy the production worker + prod `EMAIL_TO`,
+verify on `*.workers.dev` — reversible, domain untouched) done now, and **step 2** (custom-domain binding +
+DNS cutover — irreversible) done **last**, after `[SITE-PERF]` + `[SITE-OG-IMAGE]`. Critical path re-sequenced.
+
+### DEC-031-2 — GA4 is production-only; page_view sent manually on astro:page-load
+
+GA4 (`G-EH3RJTF0VE`, lean gtag, no banner — `DEC-030-3`) renders **only in production**
+(`!isStaging`). Because the site uses `<ClientRouter>`, the automatic page_view is disabled
+(`send_page_view:false`) and one is sent manually on every `astro:page-load`. `/privacy` was rewritten to
+name GA + an opt-out, the lede softened, stale no-analytics/legal notes dropped.
+
+### DEC-031-1 — Social links: X as `x.com`; footer brand marks + JSON-LD `sameAs`
+
+`[SITE-SOCIAL]` adds X (`x.com/frasergorrie`) + LinkedIn (`linkedin.com/in/frasergorrie`) to
+the footer (inline fill-SVG brand marks, `sr-only` labels) + a `sameAs` array on the Person JSON-LD.
+
 ### DEC-030-6 — `/work` case layout: hoist the visual + benefit above the prose on mobile
 
 The `/work/<slug>` case page is a 3-part grid — `.case-lead` (mockup/diagram/segment-table +
