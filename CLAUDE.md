@@ -21,7 +21,7 @@ say what job it does.
 ## Permissions & mode
 - **Start with NO deny rules and NO allow/auto-accept rules** beyond the inherited `AskUserQuestion` deny; build them as need arises. User runs **auto-mode** most of the time.
 - **`AskUserQuestion` is disabled — never call it.** Verbose/Explanatory output OFF; match response length to the question.
-- **Auto-mode classifier denial → offer the `!<command>` route first** (operator runs it in-session); don't default to "disable auto mode", and don't just retry the same call (it re-denies).
+- **Auto-mode classifier denial → tell the operator auto-mode blocked the action, then wait for direction.** Don't offer a workaround (`!<command>`, disabling auto-mode), and don't retry on my own — the operator decides how to proceed. (Conv 032, supersedes the prior "offer `!` first" rule; DEC at /r-end.)
 
 ## Tooling
 - **Chrome bridge fails → it's usually the browser's Claude extension logged out.** Ask the operator to sign in again rather than retrying or treating it as a code fault.
