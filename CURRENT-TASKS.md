@@ -52,6 +52,13 @@ irreversible action is last:
 - **Turnstile (`[CONTACT-TURNSTILE]`)** — ✅ **done Conv 031** (built, deployed, verified end-to-end). 🔴
   **Cutover prerequisite:** the Turnstile widget's Hostname Management list MUST include `frasergorrie.com`
   + `www.frasergorrie.com`, or the contact form 110200-errors on the live domain. Confirm before cutover.
+- 🔵 **DNS already on Cloudflare (`[SITE-GO-LIVE]` Conv 032, corrected):** `frasergorrie.com`'s Namecheap
+  nameservers already point to Cloudflare; the zone is **active in THIS account**
+  (`2f8286492e4415e7f3e3a1898b883b5b`, Free, zone `aa1f185dc823b6f1903c421a30cbc5ed`) and serves the legacy
+  site. **No nameserver change, no Namecheap DNS work.** Cutover = re-point apex + `www` at the `fgw` worker
+  via a Worker custom-domain binding. 🔴 **Email-preservation prerequisite:** `fraser@frasergorrie.com` is a
+  live mailbox served by **external MX** (Cloudflare Email Routing is `unconfigured`); MX + SPF/DKIM/DMARC
+  TXT records in this zone must be **left untouched** — the binding only swaps the apex/`www` site records.
 - 🔴 **Standing: if a real, signed-off testimonial quote later arrives** — add it to
   `src/data/testimonials.json` and set `showAiTestimonials = true` in `index.astro` + `testimonials.astro`
   to restore the suppressed sections + two-group lede (`DEC-029-5`); the `[CASE-RECORD-SIGNOFF]`
