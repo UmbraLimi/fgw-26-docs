@@ -26,18 +26,18 @@ visibility, `.sample-badge` cleanup, and recording the Conv-033 masking exceptio
 
 ## 📋 Unordered
 
-### [CASE-RECORD-SIGNOFF] · promoted Conv 014 · sign-off ✅ Conv 030 (row stays for the standing guard)
+### [CASE-RECORD-SIGNOFF] · promoted Conv 014 · sign-off ✅ Conv 030 (row stays for the standing masking guard)
 ✅ Sign-off complete (operator + clients checked both `/record` artifacts, no changes).
-🔴 **Standing masking guard (why the row stays):** if the suppressed AI-era testimonials (`DEC-029-5`) are
-ever restored, **Gabriel's** quote must not name Gabriel / CFU / the Urantia source text / the target
-language (`DEC-023-3`); a Conv-029 pro-forma template exists for him to fill. **Brian** (marketplace) is
-unconstrained.
-🔴 **⚠️ Amended Conv 033 (formal rewrite carried):** Gabriel gave a real, signed-off testimonial and
-cleared being named; it is now live in-repo naming **Gabriel + the Center for Unity** — a deliberate
-**testimonial-only** exception to the guard above. Still enforced: the `translation-platform` case stays
-de-identified, `discover-jesus`/`discover-the-ub` unchanged, the **target language is never named**, and
-**no case-study link** sits on the testimonial. The guard rewrite + a `DEC` are a carried hopper item,
-ruled next conv.
+🔴 **Standing masking guard (why the row stays) — current as of Conv 034 (`DEC-034-1`):** the AI-era
+testimonials are **live** (`showAiTestimonials = true`; `DEC-029-5`). **Gabriel's** testimonial runs under a
+deliberate **testimonial-only naming exception**: it names **Gabriel + the Center for Unity** — he gave a
+real, signed-off quote and cleared being named. The exception reaches no further than the testimonial text;
+everything else the mask protects still holds:
+- the `translation-platform` **case** stays de-identified (`DEC-023-3`) — no client, no source text, no target language on it;
+- **no case-study link** sits on the testimonial — nothing may bridge the named quote to the de-identified case;
+- the **target language is never named** anywhere;
+- `discover-jesus` / `discover-the-ub` are unchanged.
+**Brian** (marketplace) is unconstrained.
 🔴 **Restore mechanism (if a real, signed-off testimonial later arrives):** add it to
 `src/data/testimonials.json` and set `showAiTestimonials = true` in `index.astro` + `testimonials.astro`
 to restore the suppressed sections + two-group lede (`DEC-029-5`); the masking guard above applies before
