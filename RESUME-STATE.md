@@ -2,21 +2,28 @@
 
 ## Where we left off
 
-Conv 032 took fgw-26 **live at frasergorrie.com** (DNS cutover done — apex custom domain + `www` route,
-Google Workspace + Resend email preserved) and then fixed three post-launch bugs, all verified live: the
-contact-form confirmation (Astro ClientRouter was intercepting the POST), the brown image-band
-(`display:contents` percentage-height bug), and old-URL 301 redirects. A `deploy:staging` briefly stole the
-live apex mid-conv (top-level routes leaked into the flattened staging config) — recovered within minutes
-and guarded (`assert-worker.mjs` + `routes:[]` in `env.staging`). The Conv-007 critical path is **complete**;
-the board's 🔥 Ordered is empty. Lighthouse home = 100/100/100/100.
+Conv 033 published **Gabriel Rymberg's** real, signed-off testimonial: a short **mask-safe** pull-quote on
+home deep-linking (`#gabriel-rymberg`) to the full named quote on `/testimonials` (AI-era section restored,
+`showAiTestimonials=true`). It runs under a **testimonial-only masking exception** — names Gabriel + the
+Center for Unity (he cleared it), but the `translation-platform` case stays de-identified, no case-study
+link sits on it, and the target language is never named. Also done: Turnstile → `interaction-only`
+(**deployed**), robots.txt made single-source by disabling Cloudflare **Bot Preference Sync** (verified
+live; `Google-Extended` allow restored), `/llms.txt` trailing-slash fix, a `scroll-padding-top` anchor fix,
+and the `/testimonials` lede de-identification wording.
+
+🔴 **Committed but NOT deployed.** Everything except the Turnstile change is in the repo (two Conv-033
+commits + this close) but **not live** — the prod deploy was auto-mode-blocked. The live site still shows
+the pre-testimonial state (plus the already-deployed Turnstile hide).
 
 ## Next action
 
-No launch work remains. The two **carried hopper items** — `Turnstile-hide` (switch widget to invisible
-mode) and `HSTS` (enable deliberately) — surface at the next `/r-start`; rule/do them if you want further
-polish, otherwise the site is in steady state. Both are low-priority (cosmetic / hardening). Standing
-Unordered rows: `[CASE-RECORD-SIGNOFF]` (masking + restore guards) and `[SITE-TOOLS]` (parked). `/blog`→`/`
-redirect is flagged provisional (`DEC-032-5`).
+🔴 **Deploy** to make the testimonial / llms / anchor fixes live: `npm run deploy` from `fgw-26` — it is
+auto-mode-blocked, so the operator runs it (or disables auto-mode). Then at `/r-start` → `/r-hopper`, rule
+the **3 carried hopper items**: (1) **record the masking exception** — write the `DEC` + rewrite the
+`[CASE-RECORD-SIGNOFF]` guard (which currently carries only a ⚠️ Conv-033 pointer, not the full rewrite);
+(2) **secondary-button visibility** (faint in both modes — global fix); (3) **`.sample-badge` CSS cleanup**.
+Open board rows: `[SITE-HSTS]` (low-priority hardening) and `[SITE-HEADER-TITLE]` (page loses its title once
+the H1 scrolls off — site-wide UX, deferred here for a fresh pass).
 
 ## 🔬 Carried findings
 _None._

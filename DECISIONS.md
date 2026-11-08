@@ -8,6 +8,39 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 033
+
+### DEC-033-2 — robots.txt single-source: disable Cloudflare Bot Preference Sync
+**Decision:** Resolve the live `robots.txt` inconsistency by disabling Cloudflare's **Bot Preference Sync**
+(the managed-robots.txt prepend, in the zone's AI-Crawler-access-policies panel), making the repo's own
+`robots.txt.ts` the single published source. Do **not** reproduce Cloudflare's broader training-UA block
+list into the repo.
+**Rationale:** Cloudflare was prepending a managed block that duplicated `User-agent: *` and set
+`Google-Extended: Disallow` — contradicting `DEC-016-1`'s deliberate allow (kept so AI-Overviews grounding
+isn't lost). The managed block is all-or-nothing (no per-line edit), so disabling the sync is the only
+lever that removes the contradiction. The real training-bot blocking is enforced separately by the zone's
+`Training = Disallow` access policy (edge enforcement, stronger than an advisory line) and stays on, so the
+repo needs no copy of the list. Alternatives that lost: edit the managed block (not possible); copy CF's
+~30-UA list into the repo (advisory-only, redundant with enforcement, a drifting roster — operator chose
+"neither", and it also swept in `Baiduspider`/`Google-Extended` the repo deliberately allows); flip the
+repo to disallow Google-Extended to match CF (reverses `DEC-016-1`, still leaves duplication).
+**Consequences:** Live `robots.txt` = the repo file only; the `Google-Extended` allow is restored; no
+`Content-Signal` lines. Training crawlers stay blocked at the CF edge. The robots policy is again fully in
+version control. Operator action in the Cloudflare dashboard (done this conv; verified live).
+
+### DEC-033-1 — Turnstile rendered "interaction-only" to hide the contact-form widget
+**Decision:** The contact-form Turnstile widget renders with `appearance: "interaction-only"` so the box
+stays hidden for a visitor who passes silently, surfacing a challenge only when Cloudflare judges one
+needed. Server-side `siteverify` + the honeypot are unchanged.
+**Rationale:** The visible Managed-mode box was pure UX friction with no security value — the real
+protection is server-side verification + the honeypot. `interaction-only` removes the box in the common
+case while keeping the token requirement. Chosen as a one-line code change (captured in the repo) over
+flipping the widget's Cloudflare-dashboard mode to Invisible (config outside version control, can drift).
+Alternatives that lost: leave the visible widget (friction); dashboard Invisible mode (durability — not in
+repo).
+**Consequences:** No Turnstile box for ordinary visitors; spam protection unchanged; the intended
+appearance is recorded in a `consts.ts` comment by the sitekey. Deployed to production this conv.
+
 ## Conv 032
 
 ### DEC-032-7 — `/r-hopper` gains a Carry disposition

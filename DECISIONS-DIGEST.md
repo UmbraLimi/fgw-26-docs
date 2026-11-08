@@ -6,6 +6,19 @@ _As of 2026-11-08._
 
 ---
 
+### DEC-033-2 — robots.txt single-source: disable Cloudflare Bot Preference Sync
+
+Resolve the live `robots.txt` inconsistency by disabling Cloudflare's **Bot Preference Sync**
+(the managed-robots.txt prepend, in the zone's AI-Crawler-access-policies panel), making the repo's own
+`robots.txt.ts` the single published source. Do **not** reproduce Cloudflare's broader training-UA block
+list into the repo.
+
+### DEC-033-1 — Turnstile rendered "interaction-only" to hide the contact-form widget
+
+The contact-form Turnstile widget renders with `appearance: "interaction-only"` so the box
+stays hidden for a visitor who passes silently, surfacing a challenge only when Cloudflare judges one
+needed. Server-side `siteverify` + the honeypot are unchanged.
+
 ### DEC-032-7 — `/r-hopper` gains a Carry disposition
 
 `/r-hopper`'s per-item ruling adds a 4th option, **Carry** (`D`): leave the item in the

@@ -19,7 +19,8 @@ is **live**, not what is finished.
 _None._ 🎉 **The site is LIVE** — `[SITE-GO-LIVE]` ✅ Conv 032: `frasergorrie.com` serves fgw-26 (apex
 custom domain + `www` route over HTTPS, GA4 realtime confirmed, contact form delivering, old-URL
 redirects live, email preserved). The Conv-007 critical path is **complete**. No ordered work remains;
-the open threads are the two carried hopper items (`Turnstile-hide`, `HSTS`) and the Unordered rows.
+the open threads are the Unordered rows below and three carried hopper items (secondary-button
+visibility, `.sample-badge` cleanup, and recording the Conv-033 masking exception).
 
 ---
 
@@ -31,6 +32,12 @@ the open threads are the two carried hopper items (`Turnstile-hide`, `HSTS`) and
 ever restored, **Gabriel's** quote must not name Gabriel / CFU / the Urantia source text / the target
 language (`DEC-023-3`); a Conv-029 pro-forma template exists for him to fill. **Brian** (marketplace) is
 unconstrained.
+🔴 **⚠️ Amended Conv 033 (formal rewrite carried):** Gabriel gave a real, signed-off testimonial and
+cleared being named; it is now live in-repo naming **Gabriel + the Center for Unity** — a deliberate
+**testimonial-only** exception to the guard above. Still enforced: the `translation-platform` case stays
+de-identified, `discover-jesus`/`discover-the-ub` unchanged, the **target language is never named**, and
+**no case-study link** sits on the testimonial. The guard rewrite + a `DEC` are a carried hopper item,
+ruled next conv.
 🔴 **Restore mechanism (if a real, signed-off testimonial later arrives):** add it to
 `src/data/testimonials.json` and set `showAiTestimonials = true` in `index.astro` + `testimonials.astro`
 to restore the suppressed sections + two-group lede (`DEC-029-5`); the masking guard above applies before
@@ -81,6 +88,12 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 033:** Turnstile → "interaction-only" (hidden unless challenged; **deployed**) · robots.txt made
+  single-source (disabled Cloudflare Bot Preference Sync; `Google-Extended` allow restored) · `/llms.txt`
+  canonical trailing-slash links · **Gabriel Rymberg testimonial published** (home mask-safe pull-quote +
+  full named quote on `/testimonials`, `#gabriel-rymberg` deep-link, AI-era section restored) — committed,
+  **not yet deployed** · anchor `scroll-padding-top` fix · lede de-identification wording. (Hopper do-nows
+  + fixes, not board rows.)
 - **Conv 032:** `[SITE-GO-LIVE]` ✅ — DNS cutover complete; `frasergorrie.com` serves fgw-26 (apex custom
   domain + `www` route, MX/email left intact). Plus hopper do-nows (not board rows): contact-form
   ClientRouter submit fix, image brown-band fix, 6 old-URL 301 redirects, deploy-routes guard, lint debt.
