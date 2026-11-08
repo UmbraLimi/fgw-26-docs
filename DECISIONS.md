@@ -8,6 +8,52 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 034
+
+### DEC-034-2 — `[SITE-HEADER-TITLE]`: reveal the page title in the sticky header on scroll
+**Decision:** Implement `[SITE-HEADER-TITLE]` as an explicit per-page `headerTitle` prop (threaded
+`SiteLayout` → `Nav`), revealed by an `IntersectionObserver` on the page H1 once it scrolls above the
+sticky bar. It shows **inline beside the brand at ≥1024px** and as a **full-width second row inside the
+sticky header below 1024px**, styled as an **eyebrow** (uppercase, ember `--accent-strong`),
+**left-aligned**. Home omits the prop, so no reveal there.
+**Rationale:** Four forks closed, each with a loser: (1) *explicit prop* over auto-reading the H1's
+`textContent` — controllable wording, clean home opt-out, and it sidesteps home's H1 (an embedded
+em-dash anchor + long headline). (2) *Full-width row below 1024 (option B)* over hiding the title in the
+768–1023 band (A — rejected: the title staying visible is the whole point) and over raising the
+nav→hamburger breakpoint to 1024 (C — rejected: trades the horizontal nav for a hamburger on common
+laptop widths, a nav-behaviour change). The row is needed because the container caps at 768px until the
+`lg` breakpoint, so the ~502px horizontal nav leaves no inline room there. (3) *Eyebrow typography* over
+display-serif inked — the serif "looked clickable / like a nav item" (operator); the uppercase
+letter-spaced ember label reads as a page marker and matches the site's section kickers. (4)
+*Left-aligned* over centered — centering is the only non-gutter-aligned text in a left-aligned editorial
+layout, and with `text-overflow: ellipsis` a long centered title falls back to left + right-ellipsis
+anyway (no both-ends clip), so it just flips alignment by title length.
+**Consequences:** `SiteLayout` gains an optional `headerTitle`; `Nav` renders the inline title + the
+full-width row + an `is:inline` observer re-bound on `astro:page-load` (ClientRouter-safe); `global.css`
+carries the two-variant eyebrow styling, forces the brand to `nowrap`, and bumps `scroll-padding-top` to
+7.5rem below 1024 to clear the two-row header. `headerTitle` is set on 12 pages; home omits it. One
+accepted tradeoff: below 1024 the header grows one row when the title reveals — a one-time content shift
+as the H1 scrolls off; an overlay variant is available if that ever reads badly. Verified across widths,
+both themes, deep-link clearance, and a ClientRouter swap.
+
+### DEC-034-1 — Masking exception: the Gabriel Rymberg testimonial may name Gabriel + the Center for Unity
+**Decision:** Gabriel Rymberg's live testimonial (home mask-safe pull-quote + full named quote on
+`/testimonials`, `#gabriel-rymberg`) names **Gabriel + the Center for Unity** under a deliberate
+**testimonial-only** exception to the standing masking guard (`DEC-023-3`). The exception is bounded: the
+`translation-platform` case stays de-identified, no case-study link bridges the named testimonial to that
+case, the target language is never named anywhere, and `discover-jesus`/`discover-the-ub` are unchanged.
+**Rationale:** Gabriel gave a real, signed-off testimonial and explicitly cleared being named, so the
+earlier blanket constraint (his quote must not name Gabriel/CFU — the Conv-029 premise, written when his
+quote was hypothetical/suppressed) no longer fits the facts. Alternative that lost: keep him anonymous
+despite his clearance — rejected because a named, real client endorsement is materially stronger, and the
+mask's actual purpose (not linking the public Urantia work to the de-identified SPT/translation case) is
+preserved by bounding the exception to the testimonial text and withholding the case link + target
+language.
+**Consequences:** The `[CASE-RECORD-SIGNOFF]` board guard is rewritten to current-state (it names the
+live exception instead of the suppressed-state constraint + a ⚠️ amendment). Future testimonials follow
+the restore mechanism in that row; the `translation-platform` de-identification remains load-bearing and
+must not be relaxed by a case-study cross-link.
+
 ## Conv 033
 
 ### DEC-033-2 — robots.txt single-source: disable Cloudflare Bot Preference Sync

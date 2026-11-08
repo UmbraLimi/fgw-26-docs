@@ -2,28 +2,24 @@
 
 ## Where we left off
 
-Conv 033 published **Gabriel Rymberg's** real, signed-off testimonial: a short **mask-safe** pull-quote on
-home deep-linking (`#gabriel-rymberg`) to the full named quote on `/testimonials` (AI-era section restored,
-`showAiTestimonials=true`). It runs under a **testimonial-only masking exception** — names Gabriel + the
-Center for Unity (he cleared it), but the `translation-platform` case stays de-identified, no case-study
-link sits on it, and the target language is never named. Also done: Turnstile → `interaction-only`
-(**deployed**), robots.txt made single-source by disabling Cloudflare **Bot Preference Sync** (verified
-live; `Google-Extended` allow restored), `/llms.txt` trailing-slash fix, a `scroll-padding-top` anchor fix,
-and the `/testimonials` lede de-identification wording.
+Conv 034 shipped **`[SITE-HEADER-TITLE]`**: the page title reveals in the sticky header once the H1
+scrolls off — **inline beside the brand at ≥1024px**, a **full-width second row inside the header below
+1024px** (keeps the horizontal nav down to 768px), **eyebrow styling** (uppercase ember), left-aligned;
+home omits it. Also recorded the **Gabriel masking exception** (`DEC-034-1`; `[CASE-RECORD-SIGNOFF]`
+guard rewritten to current-state) and removed the orphaned `.sample-badge` CSS. All committed in-repo.
 
-🔴 **Committed but NOT deployed.** Everything except the Turnstile change is in the repo (two Conv-033
-commits + this close) but **not live** — the prod deploy was auto-mode-blocked. The live site still shows
-the pre-testimonial state (plus the already-deployed Turnstile hide).
+🔴 **Still NOT deployed.** Neither the Conv-034 header-title work nor the Conv-033 testimonial /
+`/llms.txt` / anchor fixes are live — the prod deploy has been auto-mode-blocked since Conv 033. The
+live site shows none of it.
 
 ## Next action
 
-🔴 **Deploy** to make the testimonial / llms / anchor fixes live: `npm run deploy` from `fgw-26` — it is
-auto-mode-blocked, so the operator runs it (or disables auto-mode). Then at `/r-start` → `/r-hopper`, rule
-the **3 carried hopper items**: (1) **record the masking exception** — write the `DEC` + rewrite the
-`[CASE-RECORD-SIGNOFF]` guard (which currently carries only a ⚠️ Conv-033 pointer, not the full rewrite);
-(2) **secondary-button visibility** (faint in both modes — global fix); (3) **`.sample-badge` CSS cleanup**.
-Open board rows: `[SITE-HSTS]` (low-priority hardening) and `[SITE-HEADER-TITLE]` (page loses its title once
-the H1 scrolls off — site-wide UX, deferred here for a fresh pass).
+🔴 **Deploy** to make Conv-033 **and** Conv-034 changes live: `npm run deploy` from `fgw-26`. It is
+auto-mode-blocked, so the operator runs it (or disables auto-mode) — don't retry it under auto-mode.
+Then at `/r-start` → `/r-hopper` for the one carried item: **secondary-button visibility** (a global
+`Button variant="secondary"` token/styling fix — faint in both themes; seen on the home testimonial
+band, phase CTAs, and case-study transcript buttons). Open board rows: `[SITE-HSTS]` (low-priority
+hardening), `[SITE-TOOLS]` (parked).
 
 ## 🔬 Carried findings
 _None._

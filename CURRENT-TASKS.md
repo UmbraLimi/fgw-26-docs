@@ -19,8 +19,8 @@ is **live**, not what is finished.
 _None._ 🎉 **The site is LIVE** — `[SITE-GO-LIVE]` ✅ Conv 032: `frasergorrie.com` serves fgw-26 (apex
 custom domain + `www` route over HTTPS, GA4 realtime confirmed, contact form delivering, old-URL
 redirects live, email preserved). The Conv-007 critical path is **complete**. No ordered work remains;
-the open threads are the Unordered rows below and three carried hopper items (secondary-button
-visibility, `.sample-badge` cleanup, and recording the Conv-033 masking exception).
+the open threads are the Unordered rows below (`[SITE-HSTS]` hardening; `[SITE-TOOLS]` parked) and one
+carried hopper item (secondary-button visibility).
 
 ---
 
@@ -68,18 +68,6 @@ is for authenticated / sensitive-transaction sites, which this is not.
 Routes: Cloudflare dashboard → SSL/TLS → Edge Certificates → HSTS (operator action), or a worker response
 header (code).
 
-### [SITE-HEADER-TITLE] · promoted Conv 033 · UX, site-wide
-Once the H1 scrolls out of view, a page loses all title/context: the sticky `.site-header` shows only the
-brand + nav, not the current page name. Worst on **deep-links** (the new `/testimonials#gabriel-rymberg`
-lands with no "What clients say" framing) and on **nav-absent pages** (Testimonials, FAQ, History, Privacy
-— no active-nav fallback either). (Promoted Conv 033 from the hopper; operator asked for it as a proper
-pass rather than a tail-of-conv patch.)
-**Candidate fix:** reveal the page title in the sticky header once the H1 leaves the viewport — an
-`IntersectionObserver` on the H1, a title element in the header, a clean title source (H1 text or a layout
-prop), a subtle two-theme reveal, truncation. **Verify across page types (home / testimonials / a case
-study) in both modes.** Weigh the JS + design cost against lean-process, but it earns a row because it is
-significant and multi-surface.
-
 ## ⏸️ Parked
 
 _None._
@@ -88,6 +76,12 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 034:** `[SITE-HEADER-TITLE]` ✅ — the page title now reveals in the sticky header once the H1
+  scrolls off: inline beside the brand at ≥1024px, a full-width second row inside the header below that
+  (keeps the horizontal nav down to 768px). Eyebrow styling (uppercase ember), `IntersectionObserver`
+  re-bound across ClientRouter swaps, brand forced no-wrap, anchor `scroll-padding` bumped for the
+  two-row header; home omits it. Plus hopper do-nows: masking exception recorded (`DEC-034-1`),
+  orphaned `.sample-badge` CSS removed.
 - **Conv 033:** Turnstile → "interaction-only" (hidden unless challenged; **deployed**) · robots.txt made
   single-source (disabled Cloudflare Bot Preference Sync; `Google-Extended` allow restored) · `/llms.txt`
   canonical trailing-slash links · **Gabriel Rymberg testimonial published** (home mask-safe pull-quote +

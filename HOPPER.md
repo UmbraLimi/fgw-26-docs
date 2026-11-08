@@ -6,5 +6,4 @@ The durable record of what was done is the conv record + the board, never a line
 
 ## Open
 
-- [ ] Write `DEC-034-1` at /r-end — records the Gabriel testimonial masking exception. Guard already rewritten (Conv 034; `[CASE-RECORD-SIGNOFF]` now cites `DEC-034-1`), draft DEC text is in the Conv-034 scrollback. Only the DECISIONS.md write remains, which belongs at /r-end.
 - [ ] Secondary buttons are almost invisible in BOTH dark and light modes (Conv 033) — need to read much more evidently as a button of secondary importance. Seen on: the "Read the full testimonial" button (home testimonial band), the "See the work" / phase CTAs on home, the "Read the full transcript" button on case-study pages — and likely every `Button variant="secondary"`. Fix the secondary button token/styling globally, not per-page.

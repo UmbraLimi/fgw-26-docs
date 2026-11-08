@@ -6,6 +6,22 @@ _As of 2026-11-08._
 
 ---
 
+### DEC-034-2 — `[SITE-HEADER-TITLE]`: reveal the page title in the sticky header on scroll
+
+Implement `[SITE-HEADER-TITLE]` as an explicit per-page `headerTitle` prop (threaded
+`SiteLayout` → `Nav`), revealed by an `IntersectionObserver` on the page H1 once it scrolls above the
+sticky bar. It shows **inline beside the brand at ≥1024px** and as a **full-width second row inside the
+sticky header below 1024px**, styled as an **eyebrow** (uppercase, ember `--accent-strong`),
+**left-aligned**. Home omits the prop, so no reveal there.
+
+### DEC-034-1 — Masking exception: the Gabriel Rymberg testimonial may name Gabriel + the Center for Unity
+
+Gabriel Rymberg's live testimonial (home mask-safe pull-quote + full named quote on
+`/testimonials`, `#gabriel-rymberg`) names **Gabriel + the Center for Unity** under a deliberate
+**testimonial-only** exception to the standing masking guard (`DEC-023-3`). The exception is bounded: the
+`translation-platform` case stays de-identified, no case-study link bridges the named testimonial to that
+case, the target language is never named anywhere, and `discover-jesus`/`discover-the-ub` are unchanged.
+
 ### DEC-033-2 — robots.txt single-source: disable Cloudflare Bot Preference Sync
 
 Resolve the live `robots.txt` inconsistency by disabling Cloudflare's **Bot Preference Sync**
