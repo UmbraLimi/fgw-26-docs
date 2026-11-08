@@ -1,15 +1,16 @@
 ---
 name: r-hopper
-description: Deal with the hopper — walk each open item in HOPPER.md, rule it with the operator (promote to a board row / do it now / drop), and clear it immediately. Never closes a conv, never commits, never pushes.
+description: Deal with the hopper — walk each open item in HOPPER.md, rule it with the operator (promote to a board row / do it now / drop / carry to next conv), and resolve it immediately. Never closes a conv, never commits, never pushes.
 argument-hint: ""
 allowed-tools: Bash, Read, Edit, Write
 ---
 
 # Deal with the hopper
 
-Walk `HOPPER.md`: **rule** each open (`- [ ]`) item with the operator and **clear it the moment it is
-dealt with** (dealing with an item and disposing of it are one act), and **dispose** of any completed
-(`- [x]`) rows or stray non-task lines that reached the hopper from outside this skill.
+Walk `HOPPER.md`: **rule** each open (`- [ ]`) item with the operator and **resolve it the moment it is
+ruled** (ruling an item and acting on that ruling are one act — including Carry, which keeps the line),
+and **dispose** of any completed (`- [x]`) rows or stray non-task lines that reached the hopper from
+outside this skill.
 
 🔴 **Never rule alone** (`CLAUDE.md` §Tasks). Every disposition is the operator's call. Present the
 item and its options; do not pick one to keep moving — that is the exact failure this prevents.
@@ -42,26 +43,30 @@ done is the conv record + the board — never a line left in the hopper. None �
 ## Step 3 — Rule each open item, one at a time
 
 🔴 One item, one question, in order. For each `- [ ]`: present what it is, why it was captured, and
-what a ruling decides. Then get the call, labelled `A`/`B`/`C`:
+what a ruling decides. Then get the call, labelled `A`/`B`/`C`/`D`:
 - **Promote** → it earns a board row in `CURRENT-TASKS.md`. 🔴 A new task must earn its place —
   significant, or multi-conv. Most items do not; promoting is the exception.
 - **Do it now** → do the work this session.
 - **Drop** → noise, superseded, or not worth doing.
+- **Carry** → leave it in the hopper untouched; it rides to the next conv (surfaced at `/r-start`, and
+  offered again at `/r-end`'s hopper gate). For an item still worth keeping that is not board-worthy,
+  not for now, and not noise. "Save/keep for next conv" means Carry, not Promote.
 
 🔴 The operator will often want a fuller look before ruling. Investigate first, then re-present. Do not
 press for a ruling to keep moving.
 
-## Step 4 — Clear the ruled item immediately
+## Step 4 — Resolve the ruled item immediately
 
-As each item is ruled, clear it before moving on — do not tick to `- [x]`, do not defer to `/r-end`:
+As each item is ruled, resolve it before moving on — do not tick to `- [x]`, do not defer to `/r-end`:
 - **Promote** → write the board row (readable hyphenated `[CODE]`, `promoted Conv NNN`), **then** delete
   the hopper line. 🔴 Row first, then delete — a delete-without-row loses the item.
 - **Do it now** → do the work, then delete the line.
 - **Drop** → delete the line.
+- **Carry** → leave the line exactly as-is (stays `- [ ]`). No edit — carrying *is* the resolution.
 
 ## Step 5 — Report
 
-One line: `Hopper dealt with — X promoted (handles), Y done, Z dropped, W disposed.` Or
+One line: `Hopper dealt with — X promoted (handles), Y done, Z dropped, C carried, W disposed.` Or
 `Hopper already clear.`
 
 ---

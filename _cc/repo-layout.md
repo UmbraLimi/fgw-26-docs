@@ -29,8 +29,9 @@ The `fgw` shell function (in `~/.zshrc`, machine-local):
 cd ~/projects/fgw-26-docs && claude --add-dir ../fgw-26 --add-dir ../fg --add-dir ../frasergorrie
 ```
 
-`../fg` (the current live-site reference) was added as a working dir Conv 013 — in both the `fgw` launch
-line and the `_pl_fgw_roots` guard array. Takes effect next `fgw` launch.
+`../fg` (the previous live-site reference — served frasergorrie.com until the Conv 032 cutover) was added
+as a working dir Conv 013 — in both the `fgw` launch line and the `_pl_fgw_roots` guard array. Takes
+effect next `fgw` launch.
 
 It runs behind the cross-project launch guard (refuses to start fgw from inside another project's tree).
 

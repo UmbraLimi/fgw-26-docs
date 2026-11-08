@@ -16,83 +16,10 @@ is **live**, not what is finished.
 
 ## 🔥 Ordered
 
-**One thing left before cutover: the DNS cutover itself** (`[SITE-GO-LIVE]` step 2) — fully operator-gated.
-Everything else is built and deployed to prod + staging: content + discoverability (NARRATIVE, ANALYTICS,
-SOCIAL, PERF, OG-IMAGE) and `[CONTACT-TURNSTILE]` (Cloudflare Turnstile on the contact form — verified
-end-to-end Conv 031: enforced, widget passes a real human, email delivered).
-
-### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4 · split into two steps Conv 031
-
-#### What it is
-Take fgw-26 to production and point **frasergorrie.com** at it — **split into two steps** so the only
-irreversible action is last:
-- **Step 1 — production worker (reversible):** ✅ **done Conv 031.** Prod worker at
-  `fgw.fgorrie.workers.dev` (secrets uploaded, GA4 live, HTTP 200); contact pipeline verified end-to-end
-  (test POST → `{ok:true}`, operator confirmed inbox arrival). Domain untouched.
-- **Step 2 — DNS cutover (irreversible, LAST):** a custom-domain/route binding (apex + `www`) + the DNS
-  cutover from the legacy site. 🔴 **Outward-facing + hard to reverse** — needs explicit operator
-  go-ahead, never autopilot. The operator is fine losing the legacy fallback (Conv 031), so the ordering
-  is about launching on the finished site, not reversibility.
-
-#### 🙋 Operator ask-points (asked when reached, one at a time)
-- **DNS location** — where `frasergorrie.com` DNS lives today + whether/when its zone is in this
-  Cloudflare account. Legacy `frasergorrie` currently answers the domain.
-- **Cutover go-ahead** — explicit, never autopilot.
-
-#### 🔎 Post-cutover verification (on the real domain, with the operator)
-- apex + `www` both serve fgw-26 over HTTPS (valid cert); the `www`↔apex redirect holds.
-- Contact form delivers on the real domain (one test → `fraser@frasergorrie.com`).
-- **Analytics end-to-end:** GA4 **realtime** receives a page_view from a live browser, the **case→`/record`
-  funnel** fires (the page_view-on-client-nav fix), and per-page engagement time shows. First real traffic
-  GA sees (prod-only gating).
-- `og:image` resolves (card previews when the live URL is shared); `robots.txt` serves the prod allow-all
-  policy and the site is no longer `noindex`.
-
-#### 🔴 Pre-production gates — remaining
-- **Turnstile (`[CONTACT-TURNSTILE]`)** — ✅ **done Conv 031** (built, deployed, verified end-to-end). 🔴
-  **Cutover prerequisite:** the Turnstile widget's Hostname Management list MUST include `frasergorrie.com`
-  + `www.frasergorrie.com`, or the contact form 110200-errors on the live domain. Confirm before cutover.
-- 🔵 **DNS already on Cloudflare (`[SITE-GO-LIVE]` Conv 032, corrected):** `frasergorrie.com`'s Namecheap
-  nameservers already point to Cloudflare; the zone is **active in THIS account**
-  (`2f8286492e4415e7f3e3a1898b883b5b`, Free, zone `aa1f185dc823b6f1903c421a30cbc5ed`) and serves the legacy
-  site. **No nameserver change, no Namecheap DNS work.** Cutover = re-point apex + `www` at the `fgw` worker
-  via a Worker custom-domain binding. 🔴 **Email-preservation prerequisite:** `fraser@frasergorrie.com` is a
-  live mailbox served by **external MX** (Cloudflare Email Routing is `unconfigured`); MX + SPF/DKIM/DMARC
-  TXT records in this zone must be **left untouched** — the binding only swaps the apex/`www` site records.
-- 🔴 **Standing: if a real, signed-off testimonial quote later arrives** — add it to
-  `src/data/testimonials.json` and set `showAiTestimonials = true` in `index.astro` + `testimonials.astro`
-  to restore the suppressed sections + two-group lede (`DEC-029-5`); the `[CASE-RECORD-SIGNOFF]`
-  attribution-masking ruling applies before it renders.
-- ✅ All other gates cleared: client sign-offs (Work cases Conv 029, `/record` Conv 030), legal review
-  dropped (Conv 030), `/privacy` + GA4 reconciled (Conv 031), prod `EMAIL_TO` set (Conv 031).
-
-#### 🔵 Watch — crawlable `workers.dev` pre-cutover (Conv 031)
-The live prod worker is indexable (robots allow-all, no `noindex`). Low, mitigated risk — canonical/
-`og:url`/sitemap all point to `frasergorrie.com` and the URL is unlinked/obscure. Pages are prerendered,
-so a runtime host `noindex` won't work; proper gating needs an `X-Robots-Tag: noindex` for the
-`workers.dev` host (Cloudflare/worker level). **Act only if the pre-cutover window runs long** — otherwise
-the cutover resolves it.
-
----
-
-## 🎯 Critical path — fgw-26 live at frasergorrie.com
-
-Set Conv 007. **Phases 1–3 are ✅ all done** — scaffold + proven staging deploy (Conv 006–008),
-publishable signed-off content (Conv 009–030), and findable & fast: SEO + AI-SEO + analytics + social +
-perf + OG-image (Conv 015–031). Full detail in `docs/convs/` + `DECISIONS.md`. **Only Phase 4 remains.**
-
-🙋 **marks an operator ask-point** — asked when the step is reached, one at a time, never batched ahead.
-
-🔵 **Standing deploy rule (operator instruction, Conv 031):** until the domain cutover, **every production
-deploy is mirrored to staging** (and vice versa) so the two stay identical — only the intentional env
-differences remain (staging `noindex` + GA gated off). Both are currently on the same build
-(prod `8d29ee36` / staging `dde13427`). Rule expires at cutover. → DEC at `/r-end`.
-
-### Phase 4 — Live at frasergorrie.com *(two steps; re-sequenced Conv 031)*
-- **4.1 — step 1: production worker (reversible)** — ✅ done Conv 031 (see `[SITE-GO-LIVE]`).
-- **4.2 — DNS location** — 🙋 ask the operator (see `[SITE-GO-LIVE]` ask-points).
-- **4.3 — step 2: DNS cutover (irreversible, LAST)** — 🙋 go-ahead, then post-cutover live checks.
-  **Done-when:** frasergorrie.com serves fgw-26.
+_None._ 🎉 **The site is LIVE** — `[SITE-GO-LIVE]` ✅ Conv 032: `frasergorrie.com` serves fgw-26 (apex
+custom domain + `www` route over HTTPS, GA4 realtime confirmed, contact form delivering, old-URL
+redirects live, email preserved). The Conv-007 critical path is **complete**. No ordered work remains;
+the open threads are the two carried hopper items (`Turnstile-hide`, `HSTS`) and the Unordered rows.
 
 ---
 
@@ -104,6 +31,10 @@ differences remain (staging `noindex` + GA gated off). Both are currently on the
 ever restored, **Gabriel's** quote must not name Gabriel / CFU / the Urantia source text / the target
 language (`DEC-023-3`); a Conv-029 pro-forma template exists for him to fill. **Brian** (marketplace) is
 unconstrained.
+🔴 **Restore mechanism (if a real, signed-off testimonial later arrives):** add it to
+`src/data/testimonials.json` and set `showAiTestimonials = true` in `index.astro` + `testimonials.astro`
+to restore the suppressed sections + two-group lede (`DEC-029-5`); the masking guard above applies before
+it renders. (Moved here Conv 032 from the retired `[SITE-GO-LIVE]` row.)
 🔴 **Case → project mapping (lives here, never in the `fgw-26` site source):** `translation-platform` =
 the translation-system/SPT engagement — client **The Center for Unity**, source text the **Urantia Book**
 (the *same* client named publicly in the two Urantia cases, which is what the masking guard protects);
@@ -123,6 +54,9 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 032:** `[SITE-GO-LIVE]` ✅ — DNS cutover complete; `frasergorrie.com` serves fgw-26 (apex custom
+  domain + `www` route, MX/email left intact). Plus hopper do-nows (not board rows): contact-form
+  ClientRouter submit fix, image brown-band fix, 6 old-URL 301 redirects, deploy-routes guard, lint debt.
 - **Conv 031:** `[SITE-ANALYTICS]` · `[SITE-SOCIAL]` · `[SITE-PERF]` · `[SITE-OG-IMAGE]` · `[SITE-NARRATIVE]`
   (signed off) · `[CONTACT-TURNSTILE]` · `[SITE-GO-LIVE]` step 1 · `[CASE-MOCKUPS]` lightbox.
 - **Earlier:** `[SITE-A11Y]` / `[CASE-RECORD-SIGNOFF]`* / `[NODE-FLOOR]` ✅ Conv 030 · `[SITE-CONSISTENCY]`

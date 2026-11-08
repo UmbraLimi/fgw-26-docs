@@ -2,9 +2,50 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-07._
+_As of 2026-11-08._
 
 ---
+
+### DEC-032-7 — `/r-hopper` gains a Carry disposition
+
+`/r-hopper`'s per-item ruling adds a 4th option, **Carry** (`D`): leave the item in the
+hopper untouched to ride to the next conv. "Save/keep for next conv" means Carry, not Promote.
+
+### DEC-032-6 — Auto-mode denial → notify the operator and wait
+
+On an auto-mode classifier denial, tell the operator it blocked the action and wait for
+direction — no self-chosen workaround (`!<command>`, disabling auto-mode) and no retry.
+
+### DEC-032-5 — Old-URL redirects: in-repo 301s, trailing-slash targets, fg-only
+
+The URLs the fgw-26 rewrite changed/dropped from the previous live site (`fg`) get 301
+redirects in `astro.config.mjs` → `_redirects`: `/how-i-work`→`/method/`, `/services|/web-dev|/ai-coaching`
+→`/work/`, `/terms`→`/privacy/`, `/blog`→`/` (provisional). Targets carry trailing slashes (single hop).
+The 2023 `frasergorrie` legacy URLs are **not** covered.
+
+### DEC-032-4 — Routes are production-only; a deploy guard enforces it
+
+Worker `routes` (apex custom domain + `www` route) live only in the top-level (production)
+`wrangler.jsonc`; `env.staging` sets `routes: []` + `workers_dev: true`. `assert-worker.mjs` refuses to
+deploy any non-prod build (`name !== "fgw"`) that carries routes.
+
+### DEC-032-3 — Image brown-band fix: absolute-fill the `<img>`
+
+`.hero-portrait` / `.headshot` / `.case-mockup` images are `position:absolute; inset:0`
+inside their positioned box (keeping `object-fit:cover`), instead of relying on `height:100%`.
+
+### DEC-032-2 — Contact form: inline handler re-bound per navigation
+
+The contact form's JS enhancement is `is:inline` and re-binds on every `astro:page-load`
+(idempotency guard `form.dataset.enhanced`); the `<form>` gets `data-astro-reload`.
+
+### DEC-032-1 — DNS cutover: config-as-code, zone already on Cloudflare, email preserved
+
+`frasergorrie.com` is cut to fgw-26 by binding the apex as a Worker **custom domain**
+(`wrangler.jsonc` top-level `routes`, config-as-code) and `www` as a Workers **route** on its existing
+proxied CNAME; the app redirects `www`→apex. The zone was **already active in this Cloudflare account**
+(Namecheap NS already point to Cloudflare) → **no nameserver change**; MX + SPF/DKIM/DMARC TXT are a
+different record type and left untouched.
 
 ### DEC-031-8 — Turnstile gates the cutover; explicit-render widget + fail-closed server verify
 

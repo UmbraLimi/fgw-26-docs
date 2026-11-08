@@ -2,8 +2,8 @@
 
 Rules for Claude Code working the **fgw** project — the new frasergorrie.com (2026). Four repos:
 `fgw-26-docs` (this repo — project home: docs, decisions, `.claude/`), `fgw-26` (the website code),
-`fg` (the **current live-site** source — read-only reference), `frasergorrie` (the **older 2023 legacy** —
-read-only reference). Neither reference repo is committed by us. Map: `_cc/repo-layout.md`.
+`fg` (the **previous live-site** source — served frasergorrie.com until the Conv 032 cutover; read-only
+reference), `frasergorrie` (the **older 2023 legacy** — read-only reference). Neither reference repo is committed by us. Map: `_cc/repo-layout.md`.
 
 **This file holds rules only.** Every rule should be actionable on its own line. The *why* lives in
 `DECISIONS.md` under the cited `DEC-NNN-N`; supporting detail goes in a topic note under `_cc/`.
@@ -14,7 +14,7 @@ over-grew and needed hard rollbacks (SPT cut its CLAUDE.md 96%; its harness out-
 say what job it does.
 
 ## Repos & paths
-- **`fgw-26-docs`** = project home (CC launched here) · **`fgw-26`** = the website · **`fg`** = current live-site source (reference) · **`frasergorrie`** = older 2023 legacy (reference).
+- **`fgw-26-docs`** = project home (CC launched here) · **`fgw-26`** = the website · **`fg`** = previous live-site source (reference; served the domain until the Conv 032 cutover) · **`frasergorrie`** = older 2023 legacy (reference).
 - **Use tilde-literal paths in Bash/backticks; `git -C <repo>`, never bare git.**
 - The lifecycle commits/pushes **`fgw-26-docs` and `fgw-26`** only. 🔴 **Never commit or push `fg` or `frasergorrie`** — both are read-only reference.
 

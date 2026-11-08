@@ -8,6 +8,83 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 032
+
+### DEC-032-7 — `/r-hopper` gains a Carry disposition
+**Decision:** `/r-hopper`'s per-item ruling adds a 4th option, **Carry** (`D`): leave the item in the
+hopper untouched to ride to the next conv. "Save/keep for next conv" means Carry, not Promote.
+**Rationale:** promote/do-now/drop forced board-worthy-or-gone; an item can be worth keeping yet not
+board-worthy, not for now, and not noise. Lost: forcing a Promote (clutters the board with
+non-commitments) or a Drop (loses live captures). The operator's "save for next conv" had been misread as
+Promote — this names the intent.
+**Consequences:** `r-hopper/SKILL.md` updated (description, Step 3 options A–D, Step 4 "Resolve", Step 5
+report, intro); `/r-end`'s hopper gate (carry-past-close, option B) already handles carried items, left
+unchanged. Turnstile-hide + HSTS carried this way at this close.
+
+### DEC-032-6 — Auto-mode denial → notify the operator and wait
+**Decision:** On an auto-mode classifier denial, tell the operator it blocked the action and wait for
+direction — no self-chosen workaround (`!<command>`, disabling auto-mode) and no retry.
+**Rationale:** the operator wants the denial surfaced for their call, not routed around. Lost (and
+superseded): the prior CLAUDE.md rule "offer the `!<command>` route first, don't disable auto-mode" —
+which had been followed from stale text and is the reverse of the operator's intent.
+**Consequences:** CLAUDE.md §Permissions line rewritten. The action denied this conv (the redirects prod
+deploy) the operator ran after toggling auto-mode off.
+
+### DEC-032-5 — Old-URL redirects: in-repo 301s, trailing-slash targets, fg-only
+**Decision:** The URLs the fgw-26 rewrite changed/dropped from the previous live site (`fg`) get 301
+redirects in `astro.config.mjs` → `_redirects`: `/how-i-work`→`/method/`, `/services|/web-dev|/ai-coaching`
+→`/work/`, `/terms`→`/privacy/`, `/blog`→`/` (provisional). Targets carry trailing slashes (single hop).
+The 2023 `frasergorrie` legacy URLs are **not** covered.
+**Rationale:** external links/search hit the old paths; a 301 preserves them. Trailing-slash targets beat
+bare targets (the site 307-normalises, else a double hop). fg-only beat covering 2023 too — `fg` itself
+never redirected those, so they already 404'd; adding them now regresses nothing and isn't owed.
+`/ai-coaching`→`/work` and `/blog`→`/` are operator calls (no coaching/blog offering now).
+**Consequences:** 6 redirects live + verified single-hop on prod; `/blog`→`/` flagged provisional.
+
+### DEC-032-4 — Routes are production-only; a deploy guard enforces it
+**Decision:** Worker `routes` (apex custom domain + `www` route) live only in the top-level (production)
+`wrangler.jsonc`; `env.staging` sets `routes: []` + `workers_dev: true`. `assert-worker.mjs` refuses to
+deploy any non-prod build (`name !== "fgw"`) that carries routes.
+**Rationale:** `@astrojs/cloudflare` flattens top-level + env config at build time and does **not** override
+`routes` per named env, so a `deploy:staging` inherited the prod routes and **stole `frasergorrie.com`**
+onto the staging worker (apex served staging ~minutes before recovery). Clearing routes in the env fixes
+it; the guard catches a regression. Lost: trusting config alone (the near-miss proves it fails silently).
+**Consequences:** recovered by reassigning the apex custom domain to `fgw` via API (override flags);
+staging redeployed clean; guard tested (prod ✓, staging ✓, staging-with-routes refused ✓).
+
+### DEC-032-3 — Image brown-band fix: absolute-fill the `<img>`
+**Decision:** `.hero-portrait` / `.headshot` / `.case-mockup` images are `position:absolute; inset:0`
+inside their positioned box (keeping `object-fit:cover`), instead of relying on `height:100%`.
+**Rationale:** `height:100%` does not resolve through the `display:contents` `<picture>` wrapper
+(`DEC-031-4`), so each `<img>` fell back to its intrinsic ratio, came up short, and exposed the brown
+placeholder gradient as a ~30% top band. Lost: dropping `display:contents` (reintroduces the percentage-
+height chain). Absolute-fill is the standard fixed-aspect-box pattern and sidesteps the chain.
+**Consequences:** verified live (headshots + redline mockup fill, gapTop 0) on staging then prod.
+
+### DEC-032-2 — Contact form: inline handler re-bound per navigation
+**Decision:** The contact form's JS enhancement is `is:inline` and re-binds on every `astro:page-load`
+(idempotency guard `form.dataset.enhanced`); the `<form>` gets `data-astro-reload`.
+**Rationale:** the handler wasn't reliably attached on view-transition navigations, so Astro's ClientRouter
+intercepted the POST as a view-transition nav — the email sent but the page landed on `?sent=1` with a
+cleared form and no confirmation. Re-binding guarantees the `fetch`/`preventDefault` path wins;
+`data-astro-reload` makes any native fallback a full reload where the `?sent/?error` handling runs. Lost:
+leaving it a bundled module script (ran once — the bug) and `data-astro-reload` alone (loses the no-reload UX).
+**Consequences:** verified live — in-site-nav submit stays on `/contact/`, shows the thank-you, email delivers.
+
+### DEC-032-1 — DNS cutover: config-as-code, zone already on Cloudflare, email preserved
+**Decision:** `frasergorrie.com` is cut to fgw-26 by binding the apex as a Worker **custom domain**
+(`wrangler.jsonc` top-level `routes`, config-as-code) and `www` as a Workers **route** on its existing
+proxied CNAME; the app redirects `www`→apex. The zone was **already active in this Cloudflare account**
+(Namecheap NS already point to Cloudflare) → **no nameserver change**; MX + SPF/DKIM/DMARC TXT are a
+different record type and left untouched.
+**Rationale:** config-as-code keeps `wrangler.jsonc` the source of truth (durable) over a dashboard binding.
+`www`-as-route beat a second custom domain (no conflict with the existing proxied CNAME, no DNS-write scope
+needed). The legacy site ran on a Cloudflare **Pages** project holding the apex custom domain — detached
+it; after the apex CNAME→pages.dev blocked the bind, the operator deleted that one record and the bind
+completed. The deploy-mirror rule (`DEC-031-6`) **expired at cutover** as designed.
+**Consequences:** site live — apex + `www` HTTPS, GA4 realtime confirmed, `og:image`/robots/sitemap
+correct, `workers.dev` disabled (resolves the crawlable-workers.dev watch). `[SITE-GO-LIVE]` closed.
+
 ## Conv 031
 
 ### DEC-031-8 — Turnstile gates the cutover; explicit-render widget + fail-closed server verify

@@ -2,24 +2,21 @@
 
 ## Where we left off
 
-Conv 031 made the site **launch-ready**. Everything remaining before the domain cutover got built,
-deployed to prod + staging (kept in sync), and verified: `[SITE-SOCIAL]`, `[SITE-ANALYTICS]` (GA4
-`G-EH3RJTF0VE`, production-only, + the view-transition page_view fix for the case→`/record` funnel +
-engagement time), `[SITE-PERF]` (images 335/352 KB → ~2–32 KB via astro:assets `<Picture>`),
-`[SITE-OG-IMAGE]` (wordmark share card), and `[CONTACT-TURNSTILE]` (spam-hardening, verified end-to-end).
-The **production worker is live** at `fgw.fgorrie.workers.dev` as a reversible step 1 — the contact form
-delivers email end-to-end through Turnstile. The board was pruned 392 → ~110 lines (done rows now drop to a
-tags line, `DEC-031-7`). **The only remaining task on the whole project is the DNS cutover.**
+Conv 032 took fgw-26 **live at frasergorrie.com** (DNS cutover done — apex custom domain + `www` route,
+Google Workspace + Resend email preserved) and then fixed three post-launch bugs, all verified live: the
+contact-form confirmation (Astro ClientRouter was intercepting the POST), the brown image-band
+(`display:contents` percentage-height bug), and old-URL 301 redirects. A `deploy:staging` briefly stole the
+live apex mid-conv (top-level routes leaked into the flattened staging config) — recovered within minutes
+and guarded (`assert-worker.mjs` + `routes:[]` in `env.staging`). The Conv-007 critical path is **complete**;
+the board's 🔥 Ordered is empty. Lighthouse home = 100/100/100/100.
 
 ## Next action
 
-**`[SITE-GO-LIVE]` step 2 — the DNS cutover** (operator-gated, irreversible; `DEC-031-3` put it last on
-purpose). It begins with the 🙋 4.2 ask (**where `frasergorrie.com` DNS lives today** + whether/when its
-zone is in this Cloudflare account — the legacy site still answers the domain), needs an **explicit
-go-ahead**, and has a 🔴 **tracked prerequisite: `frasergorrie.com` + `www.frasergorrie.com` must be in the
-Turnstile widget's hostname list** or the live contact form `110200`-errors. Then the post-cutover live
-checks on the real domain (GA realtime + case→`/record` funnel, contact form, apex/`www` HTTPS, `og:image`
-previews). Staging + prod are currently in sync on the Turnstile build (`821eba8c` / `f86a3c72`).
+No launch work remains. The two **carried hopper items** — `Turnstile-hide` (switch widget to invisible
+mode) and `HSTS` (enable deliberately) — surface at the next `/r-start`; rule/do them if you want further
+polish, otherwise the site is in steady state. Both are low-priority (cosmetic / hardening). Standing
+Unordered rows: `[CASE-RECORD-SIGNOFF]` (masking + restore guards) and `[SITE-TOOLS]` (parked). `/blog`→`/`
+redirect is flagged provisional (`DEC-032-5`).
 
 ## 🔬 Carried findings
 _None._
