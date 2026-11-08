@@ -6,5 +6,6 @@ The durable record of what was done is the conv record + the board, never a line
 
 ## Open
 
-- [ ] Turnstile adds a Cloudflare widget on the contact form — hide / prevent it from showing
-- [ ] Live apex sends no `Strict-Transport-Security` (HSTS) header — consider enabling HSTS (Cloudflare SSL/TLS → Edge Certificates, or worker header). Security hardening, low priority. Observed Conv 032 post-cutover.
+- [ ] Record the masking exception (Conv 033): Gabriel's testimonial may name Gabriel + CFU (he cleared it) — exception applies to the TESTIMONIAL ONLY. The `translation-platform` case stays de-identified, `discover-jesus`/`discover-the-ub` unchanged, target language never named anywhere. Needs: update the `[CASE-RECORD-SIGNOFF]` masking guard + add a DEC at /r-end.
+- [ ] Secondary buttons are almost invisible in BOTH dark and light modes (Conv 033) — need to read much more evidently as a button of secondary importance. Seen on: the "Read the full testimonial" button (home testimonial band), the "See the work" / phase CTAs on home, the "Read the full transcript" button on case-study pages — and likely every `Button variant="secondary"`. Fix the secondary button token/styling globally, not per-page.
+- [ ] Orphaned `.sample-badge` CSS + its stale comment in `global.css` (Conv 033): the SAMPLE-badge markup was removed when the mock AI-era testimonials were replaced by Gabriel's real one, so the `.sample-badge` rule is now unused. Optional cleanup.
