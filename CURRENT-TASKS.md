@@ -33,16 +33,15 @@ and the domain lands on the optimized, shareable site. Order (detail in the crit
    email delivery (4.1).
 3. **[SITE-PERF]** — ✅ image optimization done Conv 031 (astro:assets `<Picture>`; 335/352 KB → ~2–32 KB).
    🔵 optional: a formal Lighthouse run.
-4. **[SITE-OG-IMAGE]** ⚡ — a 1200×630 social-share card + wiring (`twitter:card` → `summary_large_image`).
-   🔴 Needs an operator design call first — the one thing that can gate the cutover.
-5. **[SITE-GO-LIVE] step 2 — DNS cutover (irreversible, LAST)** — operator DNS confirm + go-ahead; bind
+4. **[SITE-OG-IMAGE]** — ✅ **done Conv 031** (operator-approved). Wordmark card (1200×630, 97 KB JPEG,
+   `public/og-image.jpg`); `og:image`/`twitter:image` wired, `twitter:card` → `summary_large_image`.
+5. **[SITE-GO-LIVE] step 2 — DNS cutover (irreversible, LAST)** ⚡ — operator DNS confirm + go-ahead; bind
    apex + `www`; cut `frasergorrie.com` from the legacy site to the prod worker. **Done-when:**
    frasergorrie.com serves fgw-26. (Legal-review gate dropped Conv 030.)
 
-⚡ **Do-next — Conv 031:** **[SITE-OG-IMAGE]** — but it opens with an ask-point (🙋 3.6: the card's design).
-After that, the DNS location + cutover go-ahead (🙋 4.2/4.3). Also pending: the **prod worker** has
-SOCIAL+ANALYTICS (deployed from `7b26cf6`) but is on the **pre-PERF build** — redeploy to prod once the
-PERF work is committed. Done this conv + deployed: `[SITE-ANALYTICS]` (GA4
+⚡ **Do-next — Conv 031:** **all build work is done.** Only the **DNS cutover** remains (🙋 4.2 DNS
+location + 🙋 4.3 go-ahead) — fully operator-gated. Prod + staging are both current (SOCIAL + ANALYTICS +
+PERF + OG-IMAGE) and in sync. Remaining to close the conv: `/r-end` (pushes everything). Done this conv + deployed: `[SITE-ANALYTICS]` (GA4
 `G-EH3RJTF0VE` + the view-transition page_view fix for the case→`/record` funnel + engagement time;
 `/privacy` reconciled), `[SITE-SOCIAL]` (footer X/LinkedIn + JSON-LD `sameAs`), and **[SITE-GO-LIVE] step 1**
 (prod worker live at `fgw.fgorrie.workers.dev`). Committed `7b26cf6` (push at `/r-end`). Remaining Unordered:
@@ -112,13 +111,18 @@ production deploy + the domain.
 - **3.5 — `[SITE-PERF]`** — ✅ **image optimization done Conv 031** (astro:assets `<Picture>` AVIF/WebP;
   335/352 KB images → ~2–32 KB; verified on staging). Budget set. 🔵 optional remainder: a formal
   Lighthouse run for a recorded score — not a blocker.
-- **3.6 — `[SITE-OG-IMAGE]`** — 🔴 **remaining.** The 1200×630 social-share card + wiring (`twitter:card`
-  → `summary_large_image`). 🙋 **ask you:** the card's look, or supply the asset, before I wire it. Wanted
-  before the cutover so launch shares via the new SOCIAL links carry a proper card.
+- **3.6 — `[SITE-OG-IMAGE]`** — ✅ **done Conv 031** (operator-approved). Wordmark card on the brand
+  gradient (Fraunces), two-line AI/quality tagline, `frasergorrie.com`; `public/og-image.jpg` (1200×630,
+  97 KB). `og:image`/`twitter:image` wired + `summary_large_image`. Deployed prod + staging, verified.
 
 ### Phase 4 — Live at frasergorrie.com *(two steps; re-sequenced Conv 031)*
 The production worker and the domain cutover are **split** so the only irreversible, outward-facing action
 is last — and the domain lands on the PERF/OG-IMAGE-finished site.
+
+🔵 **Standing deploy rule (operator instruction, Conv 031):** until the site goes live on the domain,
+**every production deploy is mirrored to staging** (and vice versa) so the two stay identical — only the
+intentional env differences remain (staging `noindex` + GA gated off). Both are on the PERF build now
+(prod `537dae46` / staging `842e7171`). Rule expires at cutover. → DEC at `/r-end`.
 - **4.1 — `[SITE-GO-LIVE]` step 1: production worker (reversible)** — ✅ **deployed Conv 031** at
   `fgw.fgorrie.workers.dev` (prod secrets uploaded; GA4 live; HTTP 200; domain untouched). Contact pipeline
   **verified end-to-end Conv 031**: test POST → `{ok:true}`, and the operator confirmed the email arrived
@@ -262,10 +266,15 @@ Actionable now — no operator input needed. (Redoing the off-site profiles them
 operator's own accounts.)
 
 ### [SITE-OG-IMAGE] · ordered Conv 030 (promoted from Unordered; opened Conv 015)
-A 1200×630 branded social-share card, the deferred remainder of `[SITE-SEO]` (Conv 015). Build the asset,
-then wire it into `og:image` + `twitter:image` and bump `twitter:card` from `summary` to
-`summary_large_image` in `src/layouts/Layout.astro`. 🔴 Needs a design asset / operator call on the card's
-look before any wiring. Blocks nothing — SEO works without it; wanted before `[SITE-GO-LIVE]`.
+✅ **Done Conv 031** (operator-approved). The 1200×630 branded card, deferred remainder of `[SITE-SEO]`
+(Conv 015). **Direction:** wordmark-only on the brand warm gradient — "Fraser Gorrie" (Fraunces), two-line
+tagline "Built by AI for speed. / Corrected by me for quality." (made self-contained so it reads without
+the AI context — operator note), `frasergorrie.com`. **Build:** rendered on a `<canvas>` in-browser with
+the site's real Fraunces/Inter, exported PNG → JPEG (`public/og-image.jpg`, 1200×630, 97 KB). **Wired** in
+`Layout.astro`: `og:image` + `og:image:width/height/alt` + `twitter:image` + `twitter:card` →
+`summary_large_image`, URL absolute against `Astro.site`. Deployed prod + staging, verified. 🔵 The
+`og:image` URL resolves to `frasergorrie.com/og-image.jpg` — correct post-cutover; 404s on the legacy site
+until then (by design, like every canonical).
 
 ### [SITE-GO-LIVE] · opened Conv 007 · critical-path Phase 4 · split into two steps Conv 031
 
