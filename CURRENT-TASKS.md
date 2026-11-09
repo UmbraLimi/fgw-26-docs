@@ -34,18 +34,14 @@ open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automat
 cadence mechanism (`DEC-035-4`, built Conv 035).
 
 ### [SOCIAL-MAKEOVER] · added Conv 035 · bring X.com and LinkedIn in sync with the new frasergorrie.com
-Two long-ignored social properties — **X.com** and **LinkedIn** — get makeovers to match the new site's
-positioning / voice (`reference/VOICE.md`) / visual. **Starts with the property makeovers themselves**
-(profile, bio, links, imagery), before any posting cadence. Feeds `[POSTING-PLAN]`.
-🔭 **LinkedIn direction locked Conv 036 (→ `DEC` at /r-end): the "educating front door."** The profile
-adopts the site's voice + brand (judgement / trust / steering AI; understated, candid; drop the "2 Paths –
-Done For You / Done With You" pitch framing + bold-unicode); LinkedIn's role is top-of-funnel **teaching**
-that demonstrates the judgement, with frasergorrie.com as the destination for depth + proof. Rejected B
-(a distinct sales-forward LinkedIn voice) — against the operator's nature and a tonal bait-and-switch at
-the click-through. The educating posture carries into `[POSTING-PLAN]` (the every-2-weeks cadence).
-**Makeover worklist (profile vs. site, Conv 036):** 1) headline/banner positioning · 2) About voice +
-de-unicode · 3) Meristics brand line · 4) surface the science-grounding story · 5) CTA (Calendly vs.
-contact form) · 6) market "Canada" → "US and Canada" · 7) 43+→44, recommendations/proof.
+✅ **LinkedIn half complete (Conv 036)** — the whole profile reworked and **applied live** to the
+"educating front door" direction (`DEC-036-1`), for a **buyer** audience (`DEC-036-2`): banner, headline,
+About, Experience (+ Gabriel testimonial image & clickable `/testimonials` link as permanent media),
+pinned Top-3 capability skills; Services/Projects/Licenses removed; Calendly dropped. Full detail +
+approved copy in `_cc/linkedin-makeover.md`. ⚠️ **Operator still to send Gabriel the recommendation
+request** (note in the makeover doc).
+⏳ **Remaining: the X.com makeover** — same approach (consult `reference/PERSONA.md` + `VOICE.md`): profile,
+bio, links, imagery to match the site, before any posting cadence. Feeds `[POSTING-PLAN]`.
 
 ### [POSTING-PLAN] · added Conv 035 · a regular posting plan for X + LinkedIn (may spawn a blog)
 Stand up a sustainable regular-posting plan for both properties — needs an actual **plan**: cadence, topic
@@ -145,6 +141,15 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 036:** **LinkedIn makeover** (`[SOCIAL-MAKEOVER]` LinkedIn half) ✅ — whole profile reworked **live**
+  to the "educating front door" direction (`DEC-036-1`) for a **buyer** audience (`DEC-036-2`): new banner,
+  headline, About ("worthy companion to AI"), Experience (Software developer · Fraser Gorrie ·
+  Self-employed, with the Gabriel testimonial image + clickable `/testimonials` link as permanent media),
+  pinned Top-3 capability skills; Services/Projects/Licenses removed; Calendly dropped; Featured =
+  testimonials link + kept posts. Built **`reference/PERSONA.md`** (persona + audience, standing reference;
+  `DEC-036-3`, now cited in `CLAUDE.md`). Hopper: 3 carried items ruled (→ `[EMAIL-AUTH]`,
+  `[SECURITY-TXT-RENEW]`, GEO folded into `[POSTING-PLAN]`). ⚠️ Operator to send Gabriel the recommendation
+  request.
 - **Conv 035:** Secondary-button fix (3:1 border + translucent hover, `DEC-035-1`) — **deployed** (cleared
   the pending Conv-033/34 deploy to staging + prod). `[GOOGLE-SERVICES]` initial GSC alignment (correct
   `sitemap-index.xml`, broken legacy sitemap removed, homepage re-crawl, **GA4 ↔ Search Console linked**) —

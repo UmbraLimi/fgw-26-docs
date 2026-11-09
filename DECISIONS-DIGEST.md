@@ -2,9 +2,29 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-08._
+_As of 2026-11-09._
 
 ---
+
+### DEC-036-3 — `reference/PERSONA.md` as the standing persona/audience reference
+
+Create `reference/PERSONA.md` — Fraser's outlook, approach, propensities, and audience — as
+the standing reference consulted (alongside `reference/VOICE.md`) for **all** social-media and website
+content work. Registered via a new `## References` pointer in `CLAUDE.md`.
+
+### DEC-036-2 — Social/educating audience: buyers, not builders
+
+The audience for the social presence + educating content is **buyers** — business
+owners/operators who need apps and are commissioning/buying AI-built software — explicitly **including
+those who have tried to build with AI themselves** (the site's straw-man → tin-man → steel-man
+self-qualification arc). Not professional programmers serving their own clients.
+
+### DEC-036-1 — Social/LinkedIn positioning: the "educating front door"
+
+The social presence mirrors the **site's** voice + brand and acts as a top-of-funnel that
+**educates/teaches** (demonstrating judgement), routing people to `frasergorrie.com` for depth + proof.
+The LinkedIn profile dropped the prior sales framing ("2 Paths / Done For You / Done With You", bold-unicode)
+for the site's understated, candid register.
 
 ### DEC-035-4 — Port the fps inline-trigger cadence mechanism into `/r-start`
 

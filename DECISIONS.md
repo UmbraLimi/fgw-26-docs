@@ -8,6 +8,50 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 036
+
+### DEC-036-3 — `reference/PERSONA.md` as the standing persona/audience reference
+**Decision:** Create `reference/PERSONA.md` — Fraser's outlook, approach, propensities, and audience — as
+the standing reference consulted (alongside `reference/VOICE.md`) for **all** social-media and website
+content work. Registered via a new `## References` pointer in `CLAUDE.md`.
+**Rationale:** The persona/audience layer (who he is, who he's for) is distinct from `VOICE.md` (how the
+copy *sounds*) and recurs across every content task, so a durable, discoverable home stops it being
+re-derived each conv. Chose an always-loaded `CLAUDE.md` pointer over: relying on the decision-scan alone
+(found only on a precedent search), or board-row citations alone (not always in view). A living doc with
+an augmentation log.
+**Consequences:** `CLAUDE.md` gains a `## References` section (which also finally gives `VOICE.md` an
+always-loaded pointer). Future social/site work opens both before drafting. Augmented as work proceeds.
+
+### DEC-036-2 — Social/educating audience: buyers, not builders
+**Decision:** The audience for the social presence + educating content is **buyers** — business
+owners/operators who need apps and are commissioning/buying AI-built software — explicitly **including
+those who have tried to build with AI themselves** (the site's straw-man → tin-man → steel-man
+self-qualification arc). Not professional programmers serving their own clients.
+**Rationale:** The buyer *is* the client, so teaching them is the funnel, not a detour; it aligns
+end-to-end (LinkedIn → site → clients), fits the persona (trusted, selective advisor), and is a
+higher-value, less-crowded lane. Rejected the alternative (educate programmers): builds peer reputation,
+not pipeline — and arguably trains competitors — and mismatches the funnel, since LinkedIn exists to pull
+people to a site that sells to business owners.
+**Consequences:** Captured in `reference/PERSONA.md` → Audience (incl. "how they see AI": wonder →
+last-mile frustration → trust-you-can't-verify unease). Drives all social + site content targeting. The
+**"worthy companion to AI"** reframe (AI isn't *unreliable* but *reliant* on the human's context/steering)
+is the content through-line.
+
+### DEC-036-1 — Social/LinkedIn positioning: the "educating front door"
+**Decision:** The social presence mirrors the **site's** voice + brand and acts as a top-of-funnel that
+**educates/teaches** (demonstrating judgement), routing people to `frasergorrie.com` for depth + proof.
+The LinkedIn profile dropped the prior sales framing ("2 Paths / Done For You / Done With You", bold-unicode)
+for the site's understated, candid register.
+**Rationale:** Keeps one continuous voice across the LinkedIn→site click-through (a pitch-forward profile
+landing on a quiet site reads as bait-and-switch, eroding the very trust the site sells); the educating
+posture is the operator's authentic nature and is sustainable for a fortnightly cadence; it is the
+less-crowded lane (most AI content targets builders, not calm teaching for buyers). Rejected B: a distinct,
+sales-forward LinkedIn voice — against the operator's nature and funnel-incoherent.
+**Consequences:** The whole LinkedIn profile was rebuilt to the site voice and **applied live** (Conv 036).
+The educating posture carries into `[POSTING-PLAN]`. 🔴 Reach now depends on the content engine (posts),
+not the quiet static profile — makes `[POSTING-PLAN]` load-bearing, not optional. "Selective / doesn't
+need the work" must not curdle into "unreachable."
+
 ## Conv 035
 
 ### DEC-035-4 — Port the fps inline-trigger cadence mechanism into `/r-start`

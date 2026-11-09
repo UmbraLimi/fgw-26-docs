@@ -13,6 +13,9 @@ over-grew and needed hard rollbacks (SPT cut its CLAUDE.md 96%; its harness out-
 22:2). Process is a cost, not a virtue. Prune when this file passes ~120 lines. Before adding a rule,
 say what job it does.
 
+## References
+- 🔴 **Social-media + website content work consults `reference/PERSONA.md`** (Fraser's outlook, audience, propensities) **and `reference/VOICE.md`** (copy voice/tone) — open both before drafting. (`DEC-036-3`, Conv 036.)
+
 ## Repos & paths
 - **`fgw-26-docs`** = project home (CC launched here) · **`fgw-26`** = the website · **`fg`** = previous live-site source (reference; served the domain until the Conv 032 cutover) · **`frasergorrie`** = older 2023 legacy (reference).
 - **Use tilde-literal paths in Bash/backticks; `git -C <repo>`, never bare git.**
