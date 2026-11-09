@@ -22,6 +22,16 @@ LinkedIn profile — treat it as blank. Write in the **website's voice** (`VOICE
 **originate the wording**: do not parrot the site's *signature phrases* either ("bespoke", "steering AI
 toward builds you can trust", "software you can trust"). **Mirror the voice, not the copy.**
 
+## Applied to LinkedIn — Conv 036 (live)
+
+CC drove the edits in the operator's Chrome session, section by section, each Save operator-approved:
+- ✅ **Headline · About · Experience** (title "Software developer", company **Fraser Gorrie**, Self-employed; new description + tool-flexibility line) · **Skills** (6 added, each tied to the role; **Top 3 pinned = AI-Assisted / Web Application / Custom Software Development**, then LLM / Claude Code / OpenAI Codex) · **Banner** (operator uploaded `linkedin-banner.png`).
+- ✅ **Removed:** Services (unpublished — republishable) · all Projects (HAAT/WARD/SEDI) · Licenses (@NoCodeOps).
+- ✅ **CTA/contact:** Calendly removed from websites (frasergorrie.com + x.com remain); phone/email untouched; **no #OpenToWork** banner (was never active).
+- ⏳ **Operator still to do:** (1) Featured — upload `_cc/assets/linkedin-gabriel-quote.png` + add a `/testimonials#gabriel-rymberg` link, and remove the two old vibe-coding Featured posts (builder-audience); (2) send Gabriel the recommendation request (note below).
+
+Upload PNGs live in `_cc/assets/` (`linkedin-banner.png` 3168×792, `linkedin-gabriel-quote.png` 2400×2400).
+
 ## Section status
 
 | Section | Decision | Status |
