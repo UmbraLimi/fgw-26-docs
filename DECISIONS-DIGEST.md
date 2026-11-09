@@ -6,6 +6,37 @@ _As of 2026-11-08._
 
 ---
 
+### DEC-035-4 — Port the fps inline-trigger cadence mechanism into `/r-start`
+
+Add a "Cadence checks" block to `/r-start`'s pre-computed context (arithmetic on
+`CONV-COUNTER`) plus a Step 6 instruction to surface each line verbatim — `DUE` becomes the conv's
+recommended action; the trigger only *surfaces*, never runs the work. Two triggers: `[GOOGLE-SERVICES]`
+due when `n%3==2 && n≥38` (every 3 convs from 038), `[AGENT-DISCOVERY-WATCH]` due when `n%10==5 && n≥45`
+(every 10 from 045).
+
+### DEC-035-3 — Pursue agent-discoverability as a tracked initiative
+
+Pursue being found and answerable by AI agents as a first-class initiative, home doc
+`AGENT-DISCOVERABILITY.md` (repo root). Layered: L0 be-extracted-correctly → L1 JSON-LD `Person` +
+`ai-agent.json` manifest → L2 a remote MCP server on the Cloudflare Worker (query tools incl.
+`evaluate_fit`) → L3 Web Bot Auth + lead capture. Discovery via the official MCP registry + directories.
+Public profile facts captured: Ontario/Canada → serves North America; native/fluent English; Eastern
+Time.
+
+### DEC-035-2 — Agent-answer data model: a `.private` schema + parameterized prose
+
+Gated data in `src/data` lives under a per-record `.private` key; a single `toPublic()`
+boundary strips it and feeds both the rendered site and any MCP tool (default-deny). Target **100%
+structural masking** — relational guards (no testimonial→case bridge; target language never named) made
+structural by keeping sensitive values only under `.private`, never as public fields. Load-bearing prose
+facts (e.g. project cost range) are parameterized out of page text into `src/data`.
+
+### DEC-035-1 — `.btn-secondary`: 3:1 border + translucent-ink hover
+
+`.btn-secondary` reads as a button via a 3:1 resting border (`--line` → `--field-border`)
+and a hover that is a translucent ink overlay — `background-color: color-mix(in oklab, var(--ink) 8%,
+transparent)`.
+
 ### DEC-034-2 — `[SITE-HEADER-TITLE]`: reveal the page title in the sticky header on scroll
 
 Implement `[SITE-HEADER-TITLE]` as an explicit per-page `headerTitle` prop (threaded

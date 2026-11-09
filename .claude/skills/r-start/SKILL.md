@@ -29,7 +29,7 @@ wait for the ruling (Step 4). Otherwise run straight through to Step 6 and stop.
 **Hopper** (open `- [ ]` items carried from last conv):
 !`n=$(awk '/^## Open/{f=1;next} /^## /{f=0} f && /^- \[ \]/{c++} END{print c+0}' ~/projects/fgw-26-docs/HOPPER.md 2>/dev/null); if [ "$n" -gt 0 ]; then echo "🔴 $n open — run /r-hopper after this /r-start"; else echo "clear"; fi`
 
-**Cadence checks** (standing periodic tasks — mechanical arithmetic on the counter; `DEC-035-N`, adopted from fps `DEC-145-1`/`DEC-151-2`. The trigger only *surfaces*; it never runs the work):
+**Cadence checks** (standing periodic tasks — mechanical arithmetic on the counter; `DEC-035-4`, adopted from fps `DEC-145-1`/`DEC-151-2`. The trigger only *surfaces*; it never runs the work):
 !`c=$(cat ~/projects/fgw-26-docs/CONV-COUNTER 2>/dev/null | grep -o '[0-9][0-9]*' | head -1); n=$((c+1)); if [ $((n % 3)) -eq 2 ] && [ "$n" -ge 38 ]; then echo "🔴 DUE [GOOGLE-SERVICES] (Conv $n) — check GSC for new concerns + crawl/indexing progress of the 22 URLs"; else rem=$(( (2 - n % 3 + 3) % 3 )); next=$((n+rem)); [ "$next" -lt 38 ] && next=38; echo "[GOOGLE-SERVICES] not due (next GSC check at Conv $next)"; fi; if [ $((n % 10)) -eq 5 ] && [ "$n" -ge 45 ]; then echo "🔴 DUE [AGENT-DISCOVERY-WATCH] (Conv $n) — refresh the agent/MCP landscape briefing (AGENT-DISCOVERABILITY.md §7)"; else rem=$(( (5 - n % 10 + 10) % 10 )); next=$((n+rem)); [ "$next" -lt 45 ] && next=45; echo "[AGENT-DISCOVERY-WATCH] not due (next watch at Conv $next)"; fi`
 
 ---
@@ -95,7 +95,7 @@ Report briefly: **Conv NNN opened** on MACHINE · **where we left off** (2–3 s
 thing, with the reason) · **the hopper line verbatim** (if `🔴 N open`, tell the operator to run
 `/r-hopper`). Then stop and wait.
 
-🔴 **Cadence checks (mechanical, `DEC-035-N`) — pass through the pre-computed `Cadence checks` lines
+🔴 **Cadence checks (mechanical, `DEC-035-4`) — pass through the pre-computed `Cadence checks` lines
 verbatim.** For each task: if `not due`, say so in one line (name the next due conv). If `🔴 DUE`,
 surface it as its own line and make that check **this conv's recommended next action** (it competes with
 / replaces the usual recommendation). 🔴 The trigger only *surfaces* the check — it does **not** run it;

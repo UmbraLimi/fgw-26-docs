@@ -2,24 +2,31 @@
 
 ## Where we left off
 
-Conv 034 shipped **`[SITE-HEADER-TITLE]`**: the page title reveals in the sticky header once the H1
-scrolls off — **inline beside the brand at ≥1024px**, a **full-width second row inside the header below
-1024px** (keeps the horizontal nav down to 768px), **eyebrow styling** (uppercase ember), left-aligned;
-home omits it. Also recorded the **Gabriel masking exception** (`DEC-034-1`; `[CASE-RECORD-SIGNOFF]`
-guard rewritten to current-state) and removed the orphaned `.sample-badge` CSS. All committed in-repo.
+Conv 035 was a long post-launch, multi-thread conv. **Deployed** the Conv-033/34/35 backlog to staging +
+production (cleared the long-standing deploy block). **Aligned GSC** with the relaunched site: the
+inherited property's submitted sitemap was the wrong URL (`sitemap.xml` → 404, starving indexing) —
+submitted the correct `sitemap-index.xml`, removed the broken one, requested a homepage re-crawl, and
+**linked GA4 ↔ Search Console**. Opened the **agent-discoverability initiative** (`AGENT-DISCOVERABILITY.md`
+— be answerable by agents tasked to "find someone like me": a `.private` data model, public profile,
+MCP plan). Built a **`/r-start` cadence mechanism** (fps port, `DEC-035-4`) that auto-surfaces periodic
+checks. Secondary-button fix shipped (`DEC-035-1`). Decisions: `DEC-035-1`..`-4`.
 
-🔴 **Still NOT deployed.** Neither the Conv-034 header-title work nor the Conv-033 testimonial /
-`/llms.txt` / anchor fixes are live — the prod deploy has been auto-mode-blocked since Conv 033. The
-live site shows none of it.
+## The board
+
+- **🔥 Ordered (3):** `[GOOGLE-SERVICES]` is now a **standing every-3-convs monitor** (initial alignment
+  done; next GSC check auto-surfaces at Conv 038). `[SOCIAL-MAKEOVER]` (X + LinkedIn) and `[POSTING-PLAN]`
+  remain — these are the next *actionable* ordered work (2 → 3 dependency).
+- **📋 Unordered:** `[SITE-HSTS]`, `[SITE-TOOLS]` (parked), `[CASE-RECORD-SIGNOFF]` (masking guard), plus
+  4 new Conv-035 rows: `[SITE-CSP]`, `[SITE-STRUCTURED-DATA]`, `[SITE-CONSENT]`, `[SITE-WCAG22]`.
+- **Agent initiative:** `AGENT-DISCOVERABILITY.md` §9 stages **6 proposed board rows** awaiting ruling
+  (`[DATA-PRIVATE-SCHEMA]` keystone first). `[SITE-STRUCTURED-DATA]` overlaps `[AGENT-PROFILE]`.
 
 ## Next action
 
-🔴 **Deploy** to make Conv-033 **and** Conv-034 changes live: `npm run deploy` from `fgw-26`. It is
-auto-mode-blocked, so the operator runs it (or disables auto-mode) — don't retry it under auto-mode.
-Then at `/r-start` → `/r-hopper` for the one carried item: **secondary-button visibility** (a global
-`Button variant="secondary"` token/styling fix — faint in both themes; seen on the home testimonial
-band, phase CTAs, and case-study transcript buttons). Open board rows: `[SITE-HSTS]` (low-priority
-hardening), `[SITE-TOOLS]` (parked).
+Recommended: start **`[SOCIAL-MAKEOVER]`** (the next actionable ordered task — X.com + LinkedIn property
+makeovers to match the new site; feeds `[POSTING-PLAN]`). Alternatively, rule the agent-initiative's 6
+proposed board rows and start the `[DATA-PRIVATE-SCHEMA]` keystone. 🔴 **Run `/r-hopper`** — 3 carried
+items: email-auth fix (DMARC `p=none` + no apex SPF), `security.txt` Expires renewal, GEO answer-structuring.
 
 ## 🔬 Carried findings
 _None._

@@ -31,7 +31,7 @@ verification tokens confirmed legit by the operator — left untouched.
 🔁 **Standing check — every 3 convs (next ~Conv 038):** review Search Console for (a) any new
 concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has progressed. Keep this row
 open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
-cadence mechanism (`DEC-035-N`, built Conv 035).
+cadence mechanism (`DEC-035-4`, built Conv 035).
 
 ### [SOCIAL-MAKEOVER] · added Conv 035 · bring X.com and LinkedIn in sync with the new frasergorrie.com
 Two long-ignored social properties — **X.com** and **LinkedIn** — get makeovers to match the new site's
@@ -118,6 +118,13 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 035:** Secondary-button fix (3:1 border + translucent hover, `DEC-035-1`) — **deployed** (cleared
+  the pending Conv-033/34 deploy to staging + prod). `[GOOGLE-SERVICES]` initial GSC alignment (correct
+  `sitemap-index.xml`, broken legacy sitemap removed, homepage re-crawl, **GA4 ↔ Search Console linked**) —
+  row kept as a standing monitor. `security.txt` (RFC 9116) added. Built the `/r-start` **cadence
+  mechanism** (`DEC-035-4`, fps port). Opened the **agent-discoverability** initiative
+  (`AGENT-DISCOVERABILITY.md`, `DEC-035-2`/`-3`). Web-2026 research → 4 new 📋 rows (`[SITE-CSP]` /
+  `[SITE-STRUCTURED-DATA]` / `[SITE-CONSENT]` / `[SITE-WCAG22]`) + 3 carried hopper items.
 - **Conv 034:** `[SITE-HEADER-TITLE]` ✅ — the page title now reveals in the sticky header once the H1
   scrolls off: inline beside the brand at ≥1024px, a full-width second row inside the header below that
   (keeps the horizontal nav down to 768px). Eyebrow styling (uppercase ember), `IntersectionObserver`

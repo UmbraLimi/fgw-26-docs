@@ -8,6 +8,68 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 035
+
+### DEC-035-4 — Port the fps inline-trigger cadence mechanism into `/r-start`
+**Decision:** Add a "Cadence checks" block to `/r-start`'s pre-computed context (arithmetic on
+`CONV-COUNTER`) plus a Step 6 instruction to surface each line verbatim — `DUE` becomes the conv's
+recommended action; the trigger only *surfaces*, never runs the work. Two triggers: `[GOOGLE-SERVICES]`
+due when `n%3==2 && n≥38` (every 3 convs from 038), `[AGENT-DISCOVERY-WATCH]` due when `n%10==5 && n≥45`
+(every 10 from 045).
+**Rationale:** A second periodic task (`[GOOGLE-SERVICES]` every 3) appeared the same conv as the first
+(`[AGENT-DISCOVERY-WATCH]` every 10), so a shared mechanism earns its place — two hand-maintained `⏰`
+markers relying on the model noticing them is the exact fragile vigilance this replaces. Chose
+fps-faithful inline triggers (proven/tested — fps `DEC-145-1`/`DEC-151-2`) over: (a) the brief same-conv
+deferral + `⏰` board markers (**superseded** — the second task met the pre-set build trigger); (b) a
+general `PERIODIC.md` registry (premature at two tasks; new untested parsing — kept as the refactor if
+cadence tasks proliferate).
+**Consequences:** `/r-start` grows one arithmetic block + one Step 6 instruction; each future cadence
+task adds one line. First live fire is Conv 038's `/r-start`. Board `⏰` markers now point at the
+mechanism. Supersedes the same-conv deferral noted in `AGENT-DISCOVERABILITY.md` §7/§8.
+
+### DEC-035-3 — Pursue agent-discoverability as a tracked initiative
+**Decision:** Pursue being found and answerable by AI agents as a first-class initiative, home doc
+`AGENT-DISCOVERABILITY.md` (repo root). Layered: L0 be-extracted-correctly → L1 JSON-LD `Person` +
+`ai-agent.json` manifest → L2 a remote MCP server on the Cloudflare Worker (query tools incl.
+`evaluate_fit`) → L3 Web Bot Auth + lead capture. Discovery via the official MCP registry + directories.
+Public profile facts captured: Ontario/Canada → serves North America; native/fluent English; Eastern
+Time.
+**Rationale:** The operator wants to *answer* agents tasked to "find someone like me" on his terms, not
+be passively scraped. Chose a mainstream root doc over an `_cc/` topic note (operator: "this is now a
+mainstream doc… I want to pursue this"). Honest caveat: L2/L3 bet on a thin-adoption frontier; L0–L1
+carry near-term value.
+**Consequences:** Six proposed board rows staged in §9 await ruling (`[DATA-PRIVATE-SCHEMA]` keystone,
+`[SITE-PARAMETERIZE]`, `[AGENT-PROFILE]`, `[AGENT-MCP]`, `[AGENT-DIRECTORY-LISTINGS]`,
+`[AGENT-DISCOVERY-WATCH]`). `[SITE-STRUCTURED-DATA]` (board) overlaps `[AGENT-PROFILE]`.
+
+### DEC-035-2 — Agent-answer data model: a `.private` schema + parameterized prose
+**Decision:** Gated data in `src/data` lives under a per-record `.private` key; a single `toPublic()`
+boundary strips it and feeds both the rendered site and any MCP tool (default-deny). Target **100%
+structural masking** — relational guards (no testimonial→case bridge; target language never named) made
+structural by keeping sensitive values only under `.private`, never as public fields. Load-bearing prose
+facts (e.g. project cost range) are parameterized out of page text into `src/data`.
+**Rationale:** Makes the `[CASE-RECORD-SIGNOFF]` guard structural (schema shape) instead of
+prose-enforced vigilance — better even without MCP, and the enforcement the MCP footgun required.
+Parameterizing prose is single-source-of-truth, lets masking reach 100% (no gated value surviving as
+inline text), and makes facts agent-queryable. Chose structural `.private`+`toPublic()` over prose-only
+masking; chose 100%-structural (operator) over the initial ~80%/residual-policy split.
+**Consequences:** Becomes the `[DATA-PRIVATE-SCHEMA]` + `[SITE-PARAMETERIZE]` board rows (not yet built).
+The `[CASE-RECORD-SIGNOFF]` row becomes the human-readable policy; the schema is the mechanism.
+
+### DEC-035-1 — `.btn-secondary`: 3:1 border + translucent-ink hover
+**Decision:** `.btn-secondary` reads as a button via a 3:1 resting border (`--line` → `--field-border`)
+and a hover that is a translucent ink overlay — `background-color: color-mix(in oklab, var(--ink) 8%,
+transparent)`.
+**Rationale:** The resting border was `--line` (~1.2:1, too faint to register); the hover was
+`--tint-hover`, an opaque near-paper fill invisible on `--surface`/`--accent-tint` grounds. A translucent
+overlay darkens any ground by a constant amount, so it reads everywhere in both themes. Chose the
+translucent-fill hover (A) over an outline-emphasis hover (B — border/text go ember, no fill) after the
+operator compared both live: A "works quite well," keeps the filled-hover language. Reused the proven
+`--field-border` token (Conv 030) over a dedicated new border token (lean).
+**Consequences:** One shared rule fixes every secondary button (home testimonial band, phase CTAs,
+case-study transcript). Deployed Conv 035. The `var(--ink)` fallback lightningcss emits for
+non-`color-mix` browsers is moot (those also lack `light-dark()`).
+
 ## Conv 034
 
 ### DEC-034-2 — `[SITE-HEADER-TITLE]`: reveal the page title in the sticky header on scroll

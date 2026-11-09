@@ -139,7 +139,7 @@ pre-set trigger for building the shared mechanism. We ported the fps inline-trig
 `CONV-COUNTER`, and Step 6 surfaces each line verbatim (DUE → the conv's recommended action; the trigger
 only surfaces, never runs). Two triggers live there now — `[AGENT-DISCOVERY-WATCH]` due when `n % 10 == 5
 && n ≥ 45`, `[GOOGLE-SERVICES]` due when `n % 3 == 2 && n ≥ 38`. A general `PERIODIC` registry stays the
-refactor to reach for only if cadence tasks proliferate. (`DEC-035-N`; adopted from fps
+refactor to reach for only if cadence tasks proliferate. (`DEC-035-4`; adopted from fps
 `DEC-145-1`/`DEC-151-2`.)
 
 #### Landscape snapshot — Conv 035 `[checked: web search, Conv 035]`
@@ -153,7 +153,7 @@ refactor to reach for only if cadence tasks proliferate. (`DEC-035-N`; adopted f
 - **MCP registry** is the canonical publish target; directory counts range wildly by source (Glama
   cited at 21k–111k) — treat all counts as indicative.
 
-## 8. Decisions to record (formalize at /r-end as DEC-035-N)
+## 8. Decisions (recorded Conv 035 — `DEC-035-2` data model, `DEC-035-3` pursue-initiative, `DEC-035-4` cadence mechanism)
 
 - **`.private` schema convention:** gated data lives under a per-record `.private` key; a single
   `toPublic()` boundary strips it; it is the one enforcement point for site + MCP. Target 100%
