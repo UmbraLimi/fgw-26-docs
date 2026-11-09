@@ -25,10 +25,12 @@ toward builds you can trust", "software you can trust"). **Mirror the voice, not
 ## Applied to LinkedIn — Conv 036 (live)
 
 CC drove the edits in the operator's Chrome session, section by section, each Save operator-approved:
-- ✅ **Headline · About · Experience** (title "Software developer", company **Fraser Gorrie**, Self-employed; new description + tool-flexibility line) · **Skills** (6 added, each tied to the role; **Top 3 pinned = AI-Assisted / Web Application / Custom Software Development**, then LLM / Claude Code / OpenAI Codex) · **Banner** (operator uploaded `linkedin-banner.png`).
+- ✅ **Headline · About · Experience · Banner.** Experience = "Software developer · Fraser Gorrie · Self-employed", new description + tool-flexibility line. Banner: operator uploaded `linkedin-banner.png`.
+- ✅ **Skills:** 6 added (each tied to the role). **Top 3 displayed** (AI-Assisted / Web Application / Custom Software Development) are pinned via the **About → "Top skills" editor** — ⚠️ **correction:** the Skills-list *reorder* alone does **not** set the displayed Top skills; that was an earlier mis-step, fixed by pinning in the About editor.
 - ✅ **Removed:** Services (unpublished — republishable) · all Projects (HAAT/WARD/SEDI) · Licenses (@NoCodeOps).
-- ✅ **CTA/contact:** Calendly removed from websites (frasergorrie.com + x.com remain); phone/email untouched; **no #OpenToWork** banner (was never active).
-- ⏳ **Operator still to do:** (1) Featured — upload `_cc/assets/linkedin-gabriel-quote.png` + add a `/testimonials#gabriel-rymberg` link, and remove the two old vibe-coding Featured posts (builder-audience); (2) send Gabriel the recommendation request (note below).
+- ✅ **CTA/contact:** Calendly removed from websites (frasergorrie.com + x.com remain); phone/email untouched; **no #OpenToWork** (was never active).
+- ✅ **Testimonial (Gabriel):** quote card first added to **Featured**, then **moved to the Experience entry's Media** (permanent, per operator — Featured read as "ephemeral"). Experience media is now: clickable **Testimonials link** (`/testimonials#gabriel-rymberg`) + the **quote-card image** (image media only opens the image, hence the separate link) + the general `frasergorrie.com` link. **Featured** = a **Testimonials link** + the two original vibe-coding posts (operator kept those + the post history).
+- ⏳ **Operator still to do:** send Gabriel the recommendation request (note below).
 
 Upload PNGs live in `_cc/assets/` (`linkedin-banner.png` 3168×792, `linkedin-gabriel-quote.png` 2400×2400).
 
@@ -46,7 +48,7 @@ Upload PNGs live in `_cc/assets/` (`linkedin-banner.png` 3168×792, `linkedin-ga
 | Services | **Drop** — a storefront fights "doesn't need the work" | ✅ agreed (drop) |
 | Projects (HAAT/WARD) | **Drop** — old env-science, off-positioning | ✅ agreed (drop) |
 | Licenses (@NoCodeOps) | **Drop** — badge-ish | ✅ agreed (drop) |
-| Recommendations | **Gabriel Rymberg only** (rest too old / de-identified). Featured = quote card (built) + site link; formal rec = Gabriel posts it | ✅ card built · ⏳ formal request + link pending apply |
+| Recommendations | **Gabriel only.** Quote card + Testimonials link now live in the **Experience** entry (moved from Featured, permanent); Featured keeps a Testimonials link. Formal rec = Gabriel posts it | ✅ image + link live · ⏳ operator sends the request |
 | CTA | Soft / site-first: website = frasergorrie.com; **drop Calendly**; **no #OpenToWork** banner; action button = "Visit website" | ✅ confirmed |
 | Market / location | Header location **stays "Canada"** (base, not a market claim); served-markets (US/Canada/Europe) live in the Experience copy | ✅ confirmed |
 | **Apply to LinkedIn** | Public-profile edit — only with operator go-ahead, section by section | ⏳ not started |
