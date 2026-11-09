@@ -6,6 +6,6 @@ The durable record of what was done is the conv record + the board, never a line
 
 ## Open
 
-- [ ] Email auth fix (verified Conv 035): DKIM `resend._domainkey` ✓, but **DMARC is `p=none`** (monitor-only) and **no apex SPF** TXT. Raise DMARC to at least `p=quarantine` and add/confirm SPF — a Cloudflare DNS change, deliverability-sensitive, so do it deliberately (verify Resend alignment first). (Conv 035)
-- [ ] Renew `security.txt` `Expires` on/before **2027-11-08** (RFC 9116 — the file is invalid once it lapses). `public/.well-known/security.txt` in fgw-26. (Conv 035)
-- [ ] GEO answer-structuring: TL;DR / direct-answer blocks under key H2s, consistent entity naming (low effort; vendor "30–40% citation gain" figures unverified). Best folded into later content work (`[POSTING-PLAN]` / blog). (Conv 035, carried)
+- [ ] Persona now reframes AI as *powerful-but-needs-a-worthy-companion*, not "unreliable" (Conv 036). The live site still says "a powerful, **unreliable** tool" (`about.astro`) and "AI is **confidently wrong** often enough to sink a project" (`llms.txt.ts`). Decide: propagate the "worthy companion" reframe to the site copy, or persona/site intentionally differ in register? (Conv 036)
+- [ ] Register `reference/PERSONA.md` as a discoverable standing reference (the way the project cites `VOICE.md`) so future convs consult it for all social-media + website work — add a pointer in `CLAUDE.md` and/or the relevant board rows. Right now nothing points to it. (Conv 036)
+

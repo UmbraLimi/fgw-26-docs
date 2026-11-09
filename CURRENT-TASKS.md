@@ -37,11 +37,24 @@ cadence mechanism (`DEC-035-4`, built Conv 035).
 Two long-ignored social properties — **X.com** and **LinkedIn** — get makeovers to match the new site's
 positioning / voice (`reference/VOICE.md`) / visual. **Starts with the property makeovers themselves**
 (profile, bio, links, imagery), before any posting cadence. Feeds `[POSTING-PLAN]`.
+🔭 **LinkedIn direction locked Conv 036 (→ `DEC` at /r-end): the "educating front door."** The profile
+adopts the site's voice + brand (judgement / trust / steering AI; understated, candid; drop the "2 Paths –
+Done For You / Done With You" pitch framing + bold-unicode); LinkedIn's role is top-of-funnel **teaching**
+that demonstrates the judgement, with frasergorrie.com as the destination for depth + proof. Rejected B
+(a distinct sales-forward LinkedIn voice) — against the operator's nature and a tonal bait-and-switch at
+the click-through. The educating posture carries into `[POSTING-PLAN]` (the every-2-weeks cadence).
+**Makeover worklist (profile vs. site, Conv 036):** 1) headline/banner positioning · 2) About voice +
+de-unicode · 3) Meristics brand line · 4) surface the science-grounding story · 5) CTA (Calendly vs.
+contact form) · 6) market "Canada" → "US and Canada" · 7) 43+→44, recommendations/proof.
 
 ### [POSTING-PLAN] · added Conv 035 · a regular posting plan for X + LinkedIn (may spawn a blog)
 Stand up a sustainable regular-posting plan for both properties — needs an actual **plan**: cadence, topic
 pillars, sourcing, and voice. 🔴 **May force the creation of a blog** on `frasergorrie.com` as the content
 home/source — a real sub-decision to surface when we reach it. Depends on `[SOCIAL-MAKEOVER]`.
+📎 **GEO answer-structuring (folded in Conv 036):** as content gets built, structure it so generative
+engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, consistent entity naming.
+Low effort, a content-shaping guideline rather than separate work. (Vendor "30–40% citation gain" figures
+are unverified.)
 
 ---
 
@@ -109,6 +122,20 @@ privacy/legal call, not a quick fix. (Promoted Conv 035.)
 ### [SITE-WCAG22] · promoted Conv 035 · WCAG 2.2 delta re-audit
 Re-audit against the WCAG 2.2 deltas on top of the Conv-030 AA pass: focus-not-obscured (2.4.11),
 target-size 24px (2.5.8), dragging alternatives (2.5.7). (Promoted Conv 035.)
+
+### [EMAIL-AUTH] · promoted Conv 036 · DMARC/SPF hardening (deliverability + anti-spoof)
+Email auth is partially set up: DKIM `resend._domainkey` verified ✓ (Conv 035), but **DMARC is `p=none`**
+(monitor-only — spoofed mail is neither quarantined nor rejected) and there is **no apex SPF** TXT record.
+Raise DMARC to at least `p=quarantine` and add/confirm SPF. 🔴 **Deliverability-sensitive, do it
+deliberately (hard to reverse cleanly):** verify Resend's SPF/DKIM alignment *first* — tightening DMARC
+before SPF+DKIM align on the From domain can start bouncing legitimate mail. A Cloudflare DNS change.
+(Promoted Conv 036 from the hopper; verified Conv 035.)
+
+### [SECURITY-TXT-RENEW] · promoted Conv 036 · renew security.txt Expires before 2027-11-08
+`public/.well-known/security.txt` in fgw-26 (RFC 9116) carries `Expires: 2027-11-08`. **Not actionable
+now** — the file stays valid until that date, at which point it flips to invalid (compliant scanners then
+ignore the disclosure contact). No decay in between; it's a dated reminder, not live work. **Do before the
+date:** bump `Expires` further out (and re-confirm the contact). (Promoted Conv 036 from the hopper.)
 
 ## ⏸️ Parked
 
