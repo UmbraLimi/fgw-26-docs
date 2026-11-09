@@ -16,11 +16,32 @@ is **live**, not what is finished.
 
 ## 🔥 Ordered
 
-_None._ 🎉 **The site is LIVE** — `[SITE-GO-LIVE]` ✅ Conv 032: `frasergorrie.com` serves fgw-26 (apex
-custom domain + `www` route over HTTPS, GA4 realtime confirmed, contact form delivering, old-URL
-redirects live, email preserved). The Conv-007 critical path is **complete**. No ordered work remains;
-the open threads are the Unordered rows below (`[SITE-HSTS]` hardening; `[SITE-TOOLS]` parked) and one
-carried hopper item (secondary-button visibility).
+> 🎉 **Launch milestone done** — `[SITE-GO-LIVE]` ✅ Conv 032 (apex + `www` over HTTPS, GA4, contact form,
+> redirects, email preserved); the Conv-007 critical path is complete. The three rows below are a new
+> **post-launch presence thread**, added Conv 035 (operator): get Google + the social properties in sync
+> with the relaunched site and start publishing. **Natural dependency:** 2 → 3 (makeovers before a posting
+> cadence); 1 is independent and can go first/in parallel. Order as the operator listed them.
+
+### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
+✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
+`sitemap-index.xml` (Success, 22 URLs); removed the broken legacy `sitemap.xml`; requested homepage
+re-crawl; confirmed verified ownership / valid robots / HTTPS / **no manual actions** / AI "Include";
+linked **GA4 ↔ Search Console**. Two owners (`EsoxAmericanusVermiculatus` + Fraser) + their two DNS
+verification tokens confirmed legit by the operator — left untouched.
+🔁 **Standing check — every 3 convs (next ~Conv 038):** review Search Console for (a) any new
+concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has progressed. Keep this row
+open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
+cadence mechanism (`DEC-035-N`, built Conv 035).
+
+### [SOCIAL-MAKEOVER] · added Conv 035 · bring X.com and LinkedIn in sync with the new frasergorrie.com
+Two long-ignored social properties — **X.com** and **LinkedIn** — get makeovers to match the new site's
+positioning / voice (`reference/VOICE.md`) / visual. **Starts with the property makeovers themselves**
+(profile, bio, links, imagery), before any posting cadence. Feeds `[POSTING-PLAN]`.
+
+### [POSTING-PLAN] · added Conv 035 · a regular posting plan for X + LinkedIn (may spawn a blog)
+Stand up a sustainable regular-posting plan for both properties — needs an actual **plan**: cadence, topic
+pillars, sourcing, and voice. 🔴 **May force the creation of a blog** on `frasergorrie.com` as the content
+home/source — a real sub-decision to surface when we reach it. Depends on `[SOCIAL-MAKEOVER]`.
 
 ---
 
@@ -67,6 +88,27 @@ is for authenticated / sensitive-transaction sites, which this is not.
 `max-age` stays pinned to HTTPS for that whole window even if HTTPS later breaks, with no HTTP fallback.
 Routes: Cloudflare dashboard → SSL/TLS → Edge Certificates → HSTS (operator action), or a worker response
 header (code).
+
+### [SITE-CSP] · promoted Conv 035 · Content-Security-Policy (security hardening)
+Add a **hash-based** CSP (static site → hashes, not nonces) + `frame-ancestors` (keep `X-Frame-Options`
+for old browsers). Roll out **report-only first**, then enforce. Closes most XSS + clickjacking. Set via
+the Cloudflare Worker response headers — same home as `[SITE-HSTS]`, so likely do them together.
+(Promoted Conv 035 from the web-2026 research hopper.)
+
+### [SITE-STRUCTURED-DATA] · promoted Conv 035 · JSON-LD structured data (SEO + GEO)
+Add/expand JSON-LD: `Person` / `Organization` / `WebSite` + per-project `CreativeWork` + breadcrumbs, via
+`@graph` with cross-ref `@id`s; validate with Rich Results Test. 🔗 **Overlaps `[AGENT-PROFILE]`**
+(`AGENT-DISCOVERABILITY.md` §9 — the public `Person` profile with geo/lang/tz) — likely merge or sequence
+together. (Promoted Conv 035.)
+
+### [SITE-CONSENT] · promoted Conv 035 · GA4 analytics consent decision (privacy/legal)
+GA4 sets cookies → EU visitors likely need consent (cookieless ≠ consent-free; fingerprinting is the weak
+point). Decide: a consent gate vs. switching to a genuinely cookieless analytics. A load-bearing
+privacy/legal call, not a quick fix. (Promoted Conv 035.)
+
+### [SITE-WCAG22] · promoted Conv 035 · WCAG 2.2 delta re-audit
+Re-audit against the WCAG 2.2 deltas on top of the Conv-030 AA pass: focus-not-obscured (2.4.11),
+target-size 24px (2.5.8), dragging alternatives (2.5.7). (Promoted Conv 035.)
 
 ## ⏸️ Parked
 

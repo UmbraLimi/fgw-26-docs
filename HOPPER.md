@@ -6,4 +6,6 @@ The durable record of what was done is the conv record + the board, never a line
 
 ## Open
 
-- [ ] Post-deploy, visually confirm `.btn-secondary` now reads as a button in both themes (home testimonial band, phase CTAs, case-study transcript) — Conv-035 fix is a `--field-border` token swap, unverified in the running product (deploy still pending).
+- [ ] Email auth fix (verified Conv 035): DKIM `resend._domainkey` ✓, but **DMARC is `p=none`** (monitor-only) and **no apex SPF** TXT. Raise DMARC to at least `p=quarantine` and add/confirm SPF — a Cloudflare DNS change, deliverability-sensitive, so do it deliberately (verify Resend alignment first). (Conv 035)
+- [ ] Renew `security.txt` `Expires` on/before **2027-11-08** (RFC 9116 — the file is invalid once it lapses). `public/.well-known/security.txt` in fgw-26. (Conv 035)
+- [ ] GEO answer-structuring: TL;DR / direct-answer blocks under key H2s, consistent entity naming (low effort; vendor "30–40% citation gain" figures unverified). Best folded into later content work (`[POSTING-PLAN]` / blog). (Conv 035, carried)
