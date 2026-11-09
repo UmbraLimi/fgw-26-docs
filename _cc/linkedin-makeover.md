@@ -15,6 +15,13 @@
   the straw → tin → steel arc. (Rejected A: educate professional programmers.) Full detail + "how they
   see AI" in `reference/PERSONA.md` → Audience.
 
+## Working principle (Conv 036)
+
+This is a **brand-new profile pasted over the old one.** Carry over **no** content from the existing
+LinkedIn profile — treat it as blank. Write in the **website's voice** (`VOICE.md` / `PERSONA.md`), but
+**originate the wording**: do not parrot the site's *signature phrases* either ("bespoke", "steering AI
+toward builds you can trust", "software you can trust"). **Mirror the voice, not the copy.**
+
 ## Section status
 
 | Section | Decision | Status |
@@ -23,7 +30,7 @@
 | Headline | New, buyer-facing, seasoning kept out of the line | ✅ **approved** (below) |
 | About | New, educating, the "worthy companion" chord | ✅ **approved** (below) |
 | Banner | Drop the sales poster → new quiet, editorial visual | ⏳ design task, not started |
-| Experience | Reshape to one clean, restrained current role | ⏳ **next** |
+| Experience | One entry: **Fraser Gorrie** / Self-employed / "Software developer"; signals depth (dates) + breadth (sectors) | ✅ **approved** (below) |
 | Education | Keep as-is (UofT MSc Zoology; Guelph BSc Marine Biology) | ✅ agreed |
 | Skills | Pare to a tight handful (AI-steering, bespoke software, judgement) | ⏳ |
 | Services | **Drop** — a storefront fights "doesn't need the work" | ✅ agreed (drop) |
@@ -49,3 +56,8 @@
 > I came to software from science — degrees in biology, years of field and lab work — and the habit that stuck was the useful one: measure before you conclude, test the idea, let the evidence decide. I've built software through a lot of tool changes since the early 1980s; AI is the newest and biggest, and the same judgement carries across all of them.
 >
 > I take on only a project or two at a time, so most of what I do here is share how this actually works — the approaches that get AI to build the right thing. If that's useful, follow along. And if you've got something real you're trying to build, the rest of the story is at frasergorrie.com.
+
+### Experience
+**Fraser Gorrie** · Self-employed · title *"Software developer"* · Jul 1982 – Present · Hamilton, Ontario · Remote
+
+> I write software for business owners who've outgrown off-the-shelf tools — the kind that make you bend your work to fit the software. What I build fits the business instead, whether I build it for you or help you build it yourself. The work has ranged widely — energy, manufacturing, agriculture distribution, government agencies, scientific research, and lately online marketplaces and translation pipelines — for clients from small businesses to federal agencies, across the US, Canada and Europe.
