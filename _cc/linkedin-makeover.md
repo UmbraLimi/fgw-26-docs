@@ -32,7 +32,7 @@ toward builds you can trust", "software you can trust"). **Mirror the voice, not
 | Banner | Drop the sales poster → new quiet, editorial visual | ⏳ design task, not started |
 | Experience | One entry: **Fraser Gorrie** / Self-employed / "Software developer"; signals depth (dates) + breadth (sectors) | ✅ **approved** (below) |
 | Education | Keep as-is (UofT MSc Zoology; Guelph BSc Marine Biology) | ✅ agreed |
-| Skills | Pare to a tight handful (AI-steering, bespoke software, judgement) | ⏳ |
+| Skills | Six tags, top 3 pinned; mirrors the home "Tooling" statement | ✅ **approved** (below) |
 | Services | **Drop** — a storefront fights "doesn't need the work" | ✅ agreed (drop) |
 | Projects (HAAT/WARD) | **Drop** — old env-science, off-positioning | ✅ agreed (drop) |
 | Licenses (@NoCodeOps) | **Drop** — badge-ish | ✅ agreed (drop) |
@@ -60,4 +60,9 @@ toward builds you can trust", "software you can trust"). **Mirror the voice, not
 ### Experience
 **Fraser Gorrie** · Self-employed · title *"Software developer"* · Jul 1982 – Present · Hamilton, Ontario · Remote
 
-> I write software for business owners who've outgrown off-the-shelf tools — the kind that make you bend your work to fit the software. What I build fits the business instead, whether I build it for you or help you build it yourself. The work has ranged widely — energy, manufacturing, agriculture distribution, government agencies, scientific research, and lately online marketplaces and translation pipelines — for clients from small businesses to federal agencies, across the US, Canada and Europe.
+> I write software for business owners who've outgrown off-the-shelf tools — the kind that make you bend your work to fit the software. What I build fits the business instead, whether I build it for you or help you build it yourself. The work has ranged widely — energy, manufacturing, agriculture distribution, government agencies, scientific research, and lately online marketplaces and translation pipelines — for clients from small businesses to federal agencies, across the US, Canada and Europe. I'm not tied to any one tool — I work with whatever suits the job and the stack you already have, and I'm glad to pick up new ones.
+
+### Skills
+**Top 3 (pinned):** AI-Assisted Software Development · Custom Software Development · Web Application Development
+**Then:** Claude Code · Large Language Models (LLMs) · OpenAI / Codex
+*(Mirrors the home Tooling statement — Claude Code/Claude first, comfortable across OpenAI/Codex + open-source LLMs. The "whatever your stack / new ones gladly" flexibility now lives in the Experience description's closing line.)*
