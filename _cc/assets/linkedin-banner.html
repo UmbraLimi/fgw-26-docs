@@ -1,0 +1,30 @@
+<!doctype html>
+<!--
+  LinkedIn banner — Fraser Gorrie. Concept 1 / variant B1 (chosen Conv 036).
+  Site warm-dark scheme + Fraunces/Inter + ember (values from fgw-26 global.css).
+  Durable, regenerable SOURCE. To re-export the upload PNG (2x, 3168x792):
+    CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    "$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
+      --window-size=1584,396 --virtual-time-budget=3000 \
+      --screenshot=linkedin-banner.png linkedin-banner.html
+  LinkedIn banner is 1584x396 (4:1); content is kept right-of-centre so the
+  profile photo + name-card (lower-left) stay clear.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@600&display=swap" rel="stylesheet">
+<style>
+  html,body { margin:0; padding:0; background:#1b1712; }
+  svg { display:block; }
+</style>
+</head>
+<body>
+  <svg width="1584" height="396" viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1584" height="396" fill="#1b1712"/>
+    <text x="990" y="330" text-anchor="middle" font-family="'Fraunces',Georgia,serif" font-weight="600" font-size="300" fill="#262019">FG</text>
+    <text x="990" y="200" text-anchor="middle" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="25" letter-spacing="6" fill="#cabfb0">SOFTWARE DEVELOPER &#160;&#183;&#160; 1982 <tspan fill="#f0a53f">&#8594; AI</tspan></text>
+    <rect x="840" y="222" width="300" height="2" fill="#f0a53f" opacity="0.7"/>
+  </svg>
+</body>
+</html>

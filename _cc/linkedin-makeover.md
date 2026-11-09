@@ -29,7 +29,7 @@ toward builds you can trust", "software you can trust"). **Mirror the voice, not
 | Name | Keep **"Fraser Gorrie, MSc"** (MSc = quiet science nod) | ✅ agreed |
 | Headline | New, buyer-facing, seasoning kept out of the line | ✅ **approved** (below) |
 | About | New, educating, the "worthy companion" chord | ✅ **approved** (below) |
-| Banner | Drop the sales poster → new quiet, editorial visual | ⏳ design task, not started |
+| Banner | **Concept 1 / B1** — warm-dark, faint FG monogram, "SOFTWARE DEVELOPER · 1982 → AI" (→ AI ember). Source: `_cc/assets/linkedin-banner.html` (regen cmd in its header) | ✅ **approved**, PNG rendered |
 | Experience | One entry: **Fraser Gorrie** / Self-employed / "Software developer"; signals depth (dates) + breadth (sectors) | ✅ **approved** (below) |
 | Education | Keep as-is (UofT MSc Zoology; Guelph BSc Marine Biology) | ✅ agreed |
 | Skills | Six tags, top 3 pinned; mirrors the home "Tooling" statement | ✅ **approved** (below) |
@@ -37,8 +37,8 @@ toward builds you can trust", "software you can trust"). **Mirror the voice, not
 | Projects (HAAT/WARD) | **Drop** — old env-science, off-positioning | ✅ agreed (drop) |
 | Licenses (@NoCodeOps) | **Drop** — badge-ish | ✅ agreed (drop) |
 | Recommendations | Seed 1–3 from Gabriel / Brian (site testimonials) | ⏳ needs outreach |
-| CTA | Soft / site-first (not a hard Calendly "book a call") | ✅ agreed |
-| Market | "Canada" → "US and Canada" | ✅ agreed |
+| CTA | Soft / site-first: website = frasergorrie.com; **drop Calendly**; **no #OpenToWork** banner; action button = "Visit website" | ✅ confirmed |
+| Market / location | Header location **stays "Canada"** (base, not a market claim); served-markets (US/Canada/Europe) live in the Experience copy | ✅ confirmed |
 | **Apply to LinkedIn** | Public-profile edit — only with operator go-ahead, section by section | ⏳ not started |
 
 ## Approved copy
