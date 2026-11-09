@@ -34,6 +34,15 @@ CC drove the edits in the operator's Chrome session, section by section, each Sa
 
 Upload PNGs live in `_cc/assets/` (`linkedin-banner.png` 3168×792, `linkedin-gabriel-quote.png` 2400×2400).
 
+## Post-makeover cleanup — Conv 037
+
+- ✅ **Meristics LinkedIn Company Page deactivated** (operator did it). It was stranded after the makeover
+  repositioned the profile to "Fraser Gorrie · Self-employed": the page (`/company/frasergorrie`, 4 followers,
+  off-brand purple identity, no posts, **no employees → no collateral**) no longer served its only purpose
+  (explaining the business name — which lives on the site's `llms.txt` "trading as Meristics"). Verified sole
+  admin + no other person listing Meristics as employer before deactivating. (Reversible within LinkedIn's
+  deactivation window, then permanent.)
+
 ## Section status
 
 | Section | Decision | Status |

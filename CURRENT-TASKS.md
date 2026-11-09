@@ -16,11 +16,10 @@ is **live**, not what is finished.
 
 ## 🔥 Ordered
 
-> 🎉 **Launch milestone done** — `[SITE-GO-LIVE]` ✅ Conv 032 (apex + `www` over HTTPS, GA4, contact form,
-> redirects, email preserved); the Conv-007 critical path is complete. The three rows below are a new
-> **post-launch presence thread**, added Conv 035 (operator): get Google + the social properties in sync
-> with the relaunched site and start publishing. **Natural dependency:** 2 → 3 (makeovers before a posting
-> cadence); 1 is independent and can go first/in parallel. Order as the operator listed them.
+> 🎉 **Launch milestone done** — `[SITE-GO-LIVE]` ✅ Conv 032; the Conv-007 critical path is complete.
+> **Post-launch presence thread** (added Conv 035): `[SOCIAL-MAKEOVER]` is now **✅ done** (LinkedIn Conv 036,
+> X.com Conv 037). The two rows below remain: the standing **GSC monitor**, and the **posting plan** (now
+> unblocked by the makeovers). Order as the operator listed them.
 
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
@@ -33,20 +32,12 @@ concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has pr
 open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
 cadence mechanism (`DEC-035-4`, built Conv 035).
 
-### [SOCIAL-MAKEOVER] · added Conv 035 · bring X.com and LinkedIn in sync with the new frasergorrie.com
-✅ **LinkedIn half complete (Conv 036)** — the whole profile reworked and **applied live** to the
-"educating front door" direction (`DEC-036-1`), for a **buyer** audience (`DEC-036-2`): banner, headline,
-About, Experience (+ Gabriel testimonial image & clickable `/testimonials` link as permanent media),
-pinned Top-3 capability skills; Services/Projects/Licenses removed; Calendly dropped. Full detail +
-approved copy in `_cc/linkedin-makeover.md`. ⚠️ **Operator still to send Gabriel the recommendation
-request** (note in the makeover doc).
-⏳ **Remaining: the X.com makeover** — same approach (consult `reference/PERSONA.md` + `VOICE.md`): profile,
-bio, links, imagery to match the site, before any posting cadence. Feeds `[POSTING-PLAN]`.
-
 ### [POSTING-PLAN] · added Conv 035 · a regular posting plan for X + LinkedIn (may spawn a blog)
 Stand up a sustainable regular-posting plan for both properties — needs an actual **plan**: cadence, topic
 pillars, sourcing, and voice. 🔴 **May force the creation of a blog** on `frasergorrie.com` as the content
-home/source — a real sub-decision to surface when we reach it. Depends on `[SOCIAL-MAKEOVER]`.
+home/source — a real sub-decision to surface when we reach it. **Now unblocked** — `[SOCIAL-MAKEOVER]` ✅ done
+(LinkedIn Conv 036, X.com Conv 037); this is the live next step in the presence thread. 📎 A purpose-written,
+buyer-facing **pinned post** for X (deferred from the Conv-037 makeover) folds in here.
 📎 **GEO answer-structuring (folded in Conv 036):** as content gets built, structure it so generative
 engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, consistent entity naming.
 Low effort, a content-shaping guideline rather than separate work. (Vendor "30–40% citation gain" figures
@@ -83,6 +74,27 @@ home (the "Tooling" section); a standalone page didn't earn its place ("not sure
 time; individual projects give a taste"). Seeded by the per-case **Built with** chips. Revisit only if a
 fuller tools surface earns it.
 
+### [SITE-TRAILING-SLASH-LINKS] · added Conv 037 · stop internal links bouncing through the trailing-slash 307
+**Decision made Conv 037 (operator):** keep the **trailing-slash** URL form (the site is already built,
+canonicalised, and GSC-indexed on it — the smaller ripple; `DEC` at /r-end) and fix the **internal links**,
+which are written *without* slashes (`href="/about"`) while pages serve at `/about/`, so every direct nav
+hits a 307 → `/about/`. Google says trailing-slash vs not is a consistency/taste call, neither better.
+**Scope (enumerated Conv 037 — ~42 links / 13 files):**
+- **33 static `href="/page"` literals** (+ `/`): `Footer.astro` ×8, `index.astro` ×5 (incl.
+  `/testimonials#gabriel-rymberg` → `/testimonials/#…`), `history.astro` ×3, `testimonials.astro` ×3,
+  `work/index.astro` ×3, `work/[slug].astro` ×3, `about.astro` ×2, `method.astro` ×2, `faq.astro` ×2,
+  `phases.astro` ×1, `privacy.astro` ×1.
+- **5 nav links** — `Nav.astro` `links` array (`/work` `/method` `/phases` `/about` `/contact`).
+- **3 dynamic case links** — `/work/${id}`, `/work/${id}/record`, record→case back-link.
+- **1 markdown cross-link** — `content/work/discover-the-ub.md` (`/work/discover-jesus`).
+- **Leave alone:** assets (favicons, og-image), `mailto:`, external live URLs, auto-gen canonical, root `/`,
+  `/llms.txt` (Conv 033 already slash-correct). `Nav.astro` `isCurrent` uses `startsWith` → stays correct.
+- **After edits:** rebuild + prod redeploy + **verify by crawling internal links for any remaining 307s**.
+- ⚠️ **Standing habit once done:** every *new* internal link must include the trailing slash (consider a
+  lint rule / a link helper so it doesn't regress).
+**Benefit is minor** (removes one ~tens-of-ms redirect hop on direct loads; ClientRouter already does many
+navs client-side) — hence boarded, not rushed.
+
 ### [SITE-HSTS] · promoted Conv 033 · security hardening, low priority
 The live apex sends no `Strict-Transport-Security` header. HSTS would close the window where an on-path
 attacker (same network as the visitor) intercepts the *first* plain-HTTP request and SSL-strips it before
@@ -109,6 +121,9 @@ Add/expand JSON-LD: `Person` / `Organization` / `WebSite` + per-project `Creativ
 `@graph` with cross-ref `@id`s; validate with Rich Results Test. 🔗 **Overlaps `[AGENT-PROFILE]`**
 (`AGENT-DISCOVERABILITY.md` §9 — the public `Person` profile with geo/lang/tz) — likely merge or sequence
 together. (Promoted Conv 035.)
+📎 **Geography reconcile — ✅ done Conv 037:** `areaServed` updated to `["United States","Canada","Europe"]`
+(`Layout.astro`), matching the Conv-037 "US, Canada and Europe" copy edits. (The broader JSON-LD expansion
+above is still the open work.)
 
 ### [SITE-CONSENT] · promoted Conv 035 · GA4 analytics consent decision (privacy/legal)
 GA4 sets cookies → EU visitors likely need consent (cookieless ≠ consent-free; fingerprinting is the weak
@@ -141,6 +156,15 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 037:** **X.com makeover** (`[SOCIAL-MAKEOVER]` X half → row **completed**, both halves done) ✅ —
+  profile reworked **live** to the educating-front-door direction: name "Fraser Gorrie, MSc 🇨🇦", concise new
+  bio, new warm-dark brand header (re-rendered at 1500×500, replacing the "2 Paths" sales banner); pinned-post
+  deferred to `[POSTING-PLAN]`. Detail in `_cc/x-makeover.md`. Plus: **4 site-copy/structured-data edits
+  deployed & verified live** (geography "US, Canada and Europe" in `history`/`llms.txt`/`areaServed`; About
+  "unreliable tool" → "powerful tool"; `DEC`s at /r-end). **Meristics LinkedIn Company Page deactivated**
+  (stranded by the makeover). GSC "Alternate page / canonical" alert investigated — **benign/stale old-site
+  URL, no action**. Verified the Conv-036 LinkedIn profile still live. New row `[SITE-TRAILING-SLASH-LINKS]`
+  (keep slashes, align internal links — boarded, not done). ⚠️ Operator still to send Gabriel the LinkedIn rec.
 - **Conv 036:** **LinkedIn makeover** (`[SOCIAL-MAKEOVER]` LinkedIn half) ✅ — whole profile reworked **live**
   to the "educating front door" direction (`DEC-036-1`) for a **buyer** audience (`DEC-036-2`): new banner,
   headline, About ("worthy companion to AI"), Experience (Software developer · Fraser Gorrie ·

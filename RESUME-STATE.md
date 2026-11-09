@@ -2,23 +2,25 @@
 
 ## Where we left off
 
-Conv 036 executed the **LinkedIn half of `[SOCIAL-MAKEOVER]`** end to end. Locked the two load-bearing
-calls — direction = the **"educating front door"** (`DEC-036-1`, mirror the site voice, teach, route to
-the site) and audience = **buyers** incl. straw/tin/steel DIY-AI attempters (`DEC-036-2`) — built
-**`reference/PERSONA.md`** (persona + audience; `DEC-036-3`, now cited in `CLAUDE.md`), and **applied the
-whole new profile live** in the operator's Chrome: banner, headline, About ("worthy companion to AI"),
-Experience (new copy + the Gabriel testimonial image and a clickable `/testimonials` link as permanent
-media), pinned Top-3 capability skills; removed Services/Projects/Licenses; dropped Calendly. Approved
-copy + status live in `_cc/linkedin-makeover.md`; render-ready assets in `_cc/assets/`.
+Conv 037 completed the **X.com half of `[SOCIAL-MAKEOVER]`** — profile reworked **live** (name →
+"Fraser Gorrie, MSc 🇨🇦", a concise new bio, a new warm-dark brand header re-rendered at 1500×500 replacing
+the old "2 Paths" sales banner; pinned-post deferred) — which **finishes the whole social makeover** (both
+halves done; row retired). Also reconciled and **deployed to prod (verified live)** four site edits: geography
+→ "US, Canada and Europe" (`history.astro`, `llms.txt.ts`, JSON-LD `areaServed`) and `/about` "a powerful,
+unreliable tool" → "a powerful tool" (`DEC-037-1..3`). Deactivated the stranded **Meristics** LinkedIn
+Company Page (`DEC-037-5`); investigated a **GSC** alert → benign/stale old-site URL, no action. Decisions:
+`DEC-037-1..6` (incl. trailing-slash call + `DEC-024-1` affirmed).
 
 ## Next action
 
-Start the **X.com makeover** — the remaining half of `[SOCIAL-MAKEOVER]`, same educating-front-door
-approach (consult `reference/PERSONA.md` + `VOICE.md`): profile, bio, links, imagery to match the site.
-⚠️ Two carry-overs for a human: the operator must **send Gabriel the LinkedIn recommendation request**
-(note in `_cc/linkedin-makeover.md`), and the hopper holds **2 carried items** for `/r-start` to re-rule
-(site geography "US & Canada" vs LinkedIn's "+ Europe"; the site's "unreliable AI" framing vs the
-persona's "worthy companion" reframe).
+**`[POSTING-PLAN]` is now unblocked** (both makeovers done) — the live next step in the post-launch presence
+thread: stand up a sustainable **posting cadence** for X + LinkedIn (topic pillars, sourcing, voice —
+consult `PERSONA.md` + `VOICE.md`), 🔴 which **may force creating a blog** on frasergorrie.com as the content
+home; a purpose-written, buyer-facing **pinned post for X** folds in here.
+⚠️ **Carry-overs for a human:** (1) operator still to **send Gabriel the LinkedIn recommendation request**
+(note in `_cc/linkedin-makeover.md`); (2) **auto-mode is currently OFF** (turned off for the prod deploy) —
+re-enable if wanted. Also open but boarded: `[SITE-TRAILING-SLASH-LINKS]` (~42 internal links). `[GOOGLE-SERVICES]`
+standing GSC check next due ~Conv 38.
 
 ## 🔬 Carried findings
 _None._

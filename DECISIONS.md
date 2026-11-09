@@ -8,6 +8,88 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 037
+
+### DEC-037-6 — `DEC-024-1` affirmed: CC surfaces site-copy edits for approval (the balk was right)
+**Decision:** `DEC-024-1` stands. The operator is the **approver** of site/deliverable-copy changes; CC
+presents the exact change for approval rather than editing site content silently. When the operator
+explicitly directs it and the exact wording is already approved in chat, CC may apply the edit, but still
+shows it. Process/working files (`_cc/*`, board, hopper, `DECISIONS.md`) are outside `DEC-024-1` — CC
+maintains them directly, as always.
+**Rationale:** After CC declined to edit site copy and handed the changes to the operator, the operator
+confirmed "you were right to balk. I do approve edits." The approval gate — the operator sees every
+content change, nothing inferred from a diff — is the point of the rule and is kept. Rejected: widening
+the rule so CC freely makes pre-approved site edits *without* presenting them.
+**Consequences:** This conv's four site edits were made at explicit operator direction and shown for
+approval before deploy. No `CLAUDE.md` rewording needed; the rule holds as written.
+
+### DEC-037-5 — Deactivate the stranded Meristics LinkedIn Company Page
+**Decision:** Deactivate the Meristics LinkedIn Company Page (operator executed), orphaned after the
+Conv-036 makeover repositioned the profile to "Fraser Gorrie · Self-employed".
+**Rationale:** Nothing links to it; off-brand (old purple identity vs. the new warm-dark brand); dormant
+(4 followers, no posts); **zero collateral** — no other person lists Meristics as employer (verified); and
+its only purpose (explaining the business name) is served on the site (`llms.txt` "trading as Meristics").
+A separate company storefront also fights the "self-employed / doesn't need the work" posture. Rejected:
+keeping the page.
+**Consequences:** Deactivated (reversible within LinkedIn's window, then permanent). Recorded in
+`_cc/linkedin-makeover.md` § Post-makeover cleanup.
+
+### DEC-037-4 — Trailing-slash URLs: keep the slash, align internal links
+**Decision:** Keep the site's **trailing-slash** canonical form (`/about/`) and fix the internal links
+(written as `/about`) to include the slash — rather than switching the whole site to no-trailing-slash
+URLs.
+**Rationale:** The site is already built, canonicalised, sitemapped, and being GSC-indexed on the slash
+form, so aligning links is by far the smaller ripple (no canonical / sitemap / GSC / redirect churn);
+switching to no-slash is a site-wide re-canonicalisation for a cosmetic gain. Google treats the two as a
+consistency/taste call, neither better. Rejected: switch to clean no-slash URLs (bigger blast radius,
+though cheapest now, 1 day post-launch); leave links bouncing (the 307 on every direct nav is the irritant).
+**Consequences:** Boarded as `[SITE-TRAILING-SLASH-LINKS]` (~42 links / 13 files + rebuild + redeploy +
+crawl-verify), not done this conv — benefit is minor. Standing habit once done: every new internal link
+must include the slash.
+
+### DEC-037-3 — `/about` AI framing: drop "unreliable", keep candor where it's paired with the human-skill answer
+**Decision:** On `/about`, reframe "a powerful, **unreliable** tool" → "a powerful tool" (drop the
+defect-label), aligning with the persona's "worthy companion to AI" positioning. Leave the "confidently
+wrong" candor on `/method` and `/llms.txt` **unchanged**.
+**Rationale:** The persona reframes *away* from AI-as-defective (the gap is the human skill of directing
+it, not AI's reliability); `/about`'s "unreliable tool" was the one spot framing AI as a defective thing.
+But `/method` and `/llms.txt` name AI's failure mode *and pair it with the human-skill answer* ("I plan
+the route and correct the course" / "steers the AI… corrects the course") — that *is* the persona's point,
+and `VOICE.md`'s candor rule wants the honest failure-mode naming kept. Rejected: propagate the reframe to
+all three spots (costs candor without buying alignment); leave `/about` as "unreliable" (contradicts the
+persona).
+**Consequences:** `/about` edited + deployed live. Candor about AI's failure mode retained where it serves
+the positioning.
+
+### DEC-037-2 — Site client-geography: "US, Canada and Europe"
+**Decision:** Add Europe to the site's client-geography statements to match the Conv-036 LinkedIn copy —
+in `history.astro`, `llms.txt.ts`, and the homepage JSON-LD `areaServed` (`Layout.astro`). Deployed live.
+**Rationale:** The LinkedIn Experience (Conv 036) widened the geography to include Europe (recent clients);
+the site said only US + Canada — a cross-property inconsistency. Chose to widen the site to match (the
+Europe clients are real). For `history.astro` (the career-long sweep, whose named clients are all
+Ontario/Canada), the operator chose to include Europe too, over keeping it present-tense-only. Rejected:
+keep the site at US + Canada and let it differ from LinkedIn.
+**Consequences:** Four loci reconciled (history, llms.txt, `areaServed`, + the LinkedIn source). Copy and
+structured data consistent and **verified live**. `areaServed` uses "Europe" (continent) to match the
+copy's wording. (Deploy required turning auto-mode off — the classifier blocks production deploys.)
+
+### DEC-037-1 — X.com profile makeover (educating front door, inherited direction)
+**Decision:** Reworked the X.com profile **live** to the same "educating front door" direction + buyer
+audience as LinkedIn (`DEC-036-1`/`-2`): display name **"Fraser Gorrie, MSc 🇨🇦"** (MSc science nod + 🇨🇦 for
+the Canada signal); a **concise bio** — "Software developer, over 40 years. Helping you get software worth
+trusting out of AI." — seasoning kept quiet, the education angle reserved for *content* not the bio; a new
+warm-dark brand **header** ("SOFTWARE DEVELOPER · 1982 → AI") re-rendered at X's 1500×500, replacing the
+old "2 Paths / Done For You / Done With You" sales banner; kept location/website/photo; kept the current
+pinned post, deferring a deliberate buyer-facing pin to `[POSTING-PLAN]`.
+**Rationale:** Completes `[SOCIAL-MAKEOVER]` with one continuous voice across both properties and the site;
+X was further from the new positioning than LinkedIn (overt sales framing). The bio's 160-char cap
+(verified live) makes it a distilled identity+offer line, not a teaching surface. Rejected for the name:
+plain / flag-only (operator wanted both the credential *and* the nationality signal). Rejected generally: a
+distinct sales-forward X voice (`DEC-036-1` logic).
+**Consequences:** `[SOCIAL-MAKEOVER]` complete (both halves); row retired to the ✅ tags. X profile live.
+Working record `_cc/x-makeover.md`; banner source `_cc/assets/x-banner.html` (regenerable). Pinned-post +
+posting cadence → `[POSTING-PLAN]`.
+
 ## Conv 036
 
 ### DEC-036-3 — `reference/PERSONA.md` as the standing persona/audience reference

@@ -6,6 +6,46 @@ _As of 2026-11-09._
 
 ---
 
+### DEC-037-6 — `DEC-024-1` affirmed: CC surfaces site-copy edits for approval (the balk was right)
+
+`DEC-024-1` stands. The operator is the **approver** of site/deliverable-copy changes; CC
+presents the exact change for approval rather than editing site content silently. When the operator
+explicitly directs it and the exact wording is already approved in chat, CC may apply the edit, but still
+shows it. Process/working files (`_cc/*`, board, hopper, `DECISIONS.md`) are outside `DEC-024-1` — CC
+maintains them directly, as always.
+
+### DEC-037-5 — Deactivate the stranded Meristics LinkedIn Company Page
+
+Deactivate the Meristics LinkedIn Company Page (operator executed), orphaned after the
+Conv-036 makeover repositioned the profile to "Fraser Gorrie · Self-employed".
+
+### DEC-037-4 — Trailing-slash URLs: keep the slash, align internal links
+
+Keep the site's **trailing-slash** canonical form (`/about/`) and fix the internal links
+(written as `/about`) to include the slash — rather than switching the whole site to no-trailing-slash
+URLs.
+
+### DEC-037-3 — `/about` AI framing: drop "unreliable", keep candor where it's paired with the human-skill answer
+
+On `/about`, reframe "a powerful, **unreliable** tool" → "a powerful tool" (drop the
+defect-label), aligning with the persona's "worthy companion to AI" positioning. Leave the "confidently
+wrong" candor on `/method` and `/llms.txt` **unchanged**.
+
+### DEC-037-2 — Site client-geography: "US, Canada and Europe"
+
+Add Europe to the site's client-geography statements to match the Conv-036 LinkedIn copy —
+in `history.astro`, `llms.txt.ts`, and the homepage JSON-LD `areaServed` (`Layout.astro`). Deployed live.
+
+### DEC-037-1 — X.com profile makeover (educating front door, inherited direction)
+
+Reworked the X.com profile **live** to the same "educating front door" direction + buyer
+audience as LinkedIn (`DEC-036-1`/`-2`): display name **"Fraser Gorrie, MSc 🇨🇦"** (MSc science nod + 🇨🇦 for
+the Canada signal); a **concise bio** — "Software developer, over 40 years. Helping you get software worth
+trusting out of AI." — seasoning kept quiet, the education angle reserved for *content* not the bio; a new
+warm-dark brand **header** ("SOFTWARE DEVELOPER · 1982 → AI") re-rendered at X's 1500×500, replacing the
+old "2 Paths / Done For You / Done With You" sales banner; kept location/website/photo; kept the current
+pinned post, deferring a deliberate buyer-facing pin to `[POSTING-PLAN]`.
+
 ### DEC-036-3 — `reference/PERSONA.md` as the standing persona/audience reference
 
 Create `reference/PERSONA.md` — Fraser's outlook, approach, propensities, and audience — as
