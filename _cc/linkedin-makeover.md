@@ -36,7 +36,7 @@ toward builds you can trust", "software you can trust"). **Mirror the voice, not
 | Services | **Drop** — a storefront fights "doesn't need the work" | ✅ agreed (drop) |
 | Projects (HAAT/WARD) | **Drop** — old env-science, off-positioning | ✅ agreed (drop) |
 | Licenses (@NoCodeOps) | **Drop** — badge-ish | ✅ agreed (drop) |
-| Recommendations | Seed 1–3 from Gabriel / Brian (site testimonials) | ⏳ needs outreach |
+| Recommendations | **Gabriel Rymberg only** (rest too old / de-identified). Featured = quote card (built) + site link; formal rec = Gabriel posts it | ✅ card built · ⏳ formal request + link pending apply |
 | CTA | Soft / site-first: website = frasergorrie.com; **drop Calendly**; **no #OpenToWork** banner; action button = "Visit website" | ✅ confirmed |
 | Market / location | Header location **stays "Canada"** (base, not a market claim); served-markets (US/Canada/Europe) live in the Experience copy | ✅ confirmed |
 | **Apply to LinkedIn** | Public-profile edit — only with operator go-ahead, section by section | ⏳ not started |
@@ -66,3 +66,14 @@ toward builds you can trust", "software you can trust"). **Mirror the voice, not
 **Top 3 (pinned):** AI-Assisted Software Development · Custom Software Development · Web Application Development
 **Then:** Claude Code · Large Language Models (LLMs) · OpenAI / Codex
 *(Mirrors the home Tooling statement — Claude Code/Claude first, comfortable across OpenAI/Codex + open-source LLMs. The "whatever your stack / new ones gladly" flexibility now lives in the Experience description's closing line.)*
+
+## Recommendations & social proof (Conv 036)
+
+- **Only Gabriel Rymberg** will be asked for a LinkedIn Recommendation. Pre-AI clients are too old / de-identified; Brian (Peerloop) has no testimonial and is dropped from the ask.
+- **Formal Recommendation** must be posted by Gabriel himself (LinkedIn requires the recommender to submit) → a **pending request** (note drafted below; operator sends — CC does not message on the operator's behalf). His site testimonial already reads as a recommendation, so this is a warm, likely yes.
+- **Immediate social proof — Featured, both (option C, Conv 036):**
+  1. a **branded quote card** (built; source `_cc/assets/linkedin-quote-gabriel.html`, warm-dark + Fraunces + ember) — line chosen for *differentiation*: *"What sets Fraser apart isn't only that he knows how to use AI to build complex software — it's his judgment."* (the "anyone can prompt AI; judgment is the scarce thing" argument, said by a client);
+  2. a **link to `/testimonials#gabriel-rymberg`** carrying the full testimonial on the site.
+  Card = the hook; link = the whole thing on the site (proof lives on the site).
+- **Request note (operator sends):** *"Gabriel — your words about our work together meant a great deal, and I'm grateful. I'm refreshing my LinkedIn, and I'd be honoured if you'd be willing to post a short recommendation there too, in your own words — whatever feels right. No pressure at all, and thank you either way."*
+- ⚠️ **Masking:** never name the de-identified translation work's target language in any LinkedIn rec or quote.
