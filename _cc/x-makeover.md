@@ -83,3 +83,9 @@ draft: "Its" → "It's"; "developing apps" → "building apps" (clears the devel
 replacing the Sep-2025 "vibe-coding" placeholder. **No link-preview card rendered** — X no longer shows
 image cards for external links — so the branded `og-image.jpg` was attached as **media** to give the pin a
 visual (no card to suppress). The pin reads: text → bare `/phases` link → wide branded banner.
+
+**Repost (same session):** the operator noticed the og-image card named no *subject* — "built/corrected"
+with no object (software). Rebuilt `og-image.jpg` from a new durable source `_cc/assets/og-image.html`
+to name **"Custom software, built by AI for speed, corrected by me for quality"** (matching the
+`og:image:alt`), **prod-deployed** `fgw-26` (live `og:image` updated), then **deleted + reposted + re-pinned**
+the pin with the corrected card (X can't swap media on an existing post). Same approved text throughout.

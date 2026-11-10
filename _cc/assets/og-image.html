@@ -1,0 +1,42 @@
+<!doctype html>
+<!--
+  OG share card — Fraser Gorrie. Created Conv 038 as a durable, regenerable SOURCE for
+  fgw-26/public/og-image.jpg (the sitewide og:image / twitter:image, 1200x630).
+  Replaces the Conv-031 canvas-rendered card (DEC-031-5), which had no source and named
+  no SUBJECT — "built/corrected" with no object. This card now names what is built
+  ("Custom software"), matching the existing og:image:alt text in Layout.astro.
+  Warm-orange brand card, Fraunces (serif name) + Inter (tagline), cream text.
+
+  To re-export (render PNG @2x, then convert to the JPEG the site references):
+    CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    "$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
+      --window-size=1200,630 --virtual-time-budget=3000 \
+      --screenshot=og-image.png og-image.html
+    sips -s format jpeg -s formatOptions 85 og-image.png --out og-image.jpg
+    # then copy og-image.jpg -> fgw-26/public/og-image.jpg and redeploy.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  html,body { margin:0; padding:0; background:#1b1712; }
+  svg { display:block; }
+</style>
+</head>
+<body>
+  <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0.85">
+        <stop offset="0" stop-color="#cc6e19"/>
+        <stop offset="1" stop-color="#5f3109"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="630" fill="url(#bg)"/>
+    <text x="88" y="238" font-family="'Fraunces',Georgia,serif" font-weight="600" font-size="112" fill="#f7efe1">Fraser Gorrie</text>
+    <text x="90" y="352" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="45" fill="#f2e6d1">Custom software, built by AI for speed,</text>
+    <text x="90" y="412" font-family="'Inter',system-ui,sans-serif" font-weight="600" font-size="45" fill="#f2e6d1">corrected by me for quality.</text>
+    <text x="90" y="565" font-family="'Inter',system-ui,sans-serif" font-weight="500" font-size="30" fill="#e8d0a6">frasergorrie.com</text>
+  </svg>
+</body>
+</html>
