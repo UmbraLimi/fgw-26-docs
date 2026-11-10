@@ -2,9 +2,58 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-09._
+_As of 2026-11-10._
 
 ---
+
+### DEC-038-1 — Posting-plan channel & funnel strategy (`reference/CHANNELS.md`)
+
+Stand up the X + LinkedIn posting plan as a durable **channel/funnel reference**,
+`reference/CHANNELS.md` — a third content axis beside `PERSONA.md` (who he is) and `VOICE.md` (how it
+sounds). It sets: two funnel entries — **word of mouth** (traditional, unpredictable) + **inbound
+discovery** via search/GEO (cultivated secondary, DEC-038-2); the social channels as a
+**confirmation/qualification layer** (not cold acquisition), with the site's evergreen content the one
+acquisition surface; channel roles — **LinkedIn** primary (positioning/credibility), **X** downstream echo
+(personality), **Website** (qualify/convert + content home); cadence — **biweekly LinkedIn, opportunistic
+X**; pillars — **Trust / Steering / Deciding** + a 40-years **Judgement** thread; sourcing — capture habit +
+case-record mining + de-identified project drip; workflow — **CC drafts → operator approves → publish**,
+write-once-then-distribute.
+
+### DEC-038-2 — Secondary funnel entry: inbound discovery (search + GEO), not referral partnerships
+
+Diversify the top of funnel with **inbound discovery** — buyer-education content found via
+search and AI assistants — as the cultivated second entry point.
+
+### DEC-038-3 — Content home: guides + blog, hub-and-spoke
+
+Build the content home as undated cornerstone **guides** (one per pillar — the GEO/SEO
+acquisition backbone) + a dated **blog** (the "alive" stream and the owned home for
+write-once-then-distribute to LinkedIn/X), with posts linking *up* to the guides.
+
+### DEC-038-4 — Editor model reaffirmed: CC is sole editor of every file; per-project, operator approves
+
+CC makes **every file edit** in this project (process, governance, and — with operator approval
+before publish — site/deliverable copy); the operator **directs or approves** and does **not** edit files.
+Standing for this project, **adopted per-project on onboarding** — not a blanket all-projects rule, and does
+not preclude the operator editing directly in a project that hasn't adopted it.
+
+### DEC-038-5 — Em-dash policy: all-content sanity check (surface before publishing), not a ban
+
+Before publishing *any* new content (site page, blog, guide, LinkedIn/X post), CC **surfaces
+every em-dash** for the operator to rule; em-dashes are **not banned**. Existing vetted copy stands. Also:
+prefer complete sentences over fragment pile-ups on social (one rhetorical question is fine).
+
+### DEC-038-6 — OG share card names the subject + carries a headshot (supersedes `DEC-031-5`)
+
+Rebuild the sitewide OG/Twitter card (`public/og-image.jpg`, 1200×630 JPEG,
+`summary_large_image`) from a **durable HTML source** (`_cc/assets/og-image.html`, headless-Chrome render +
+`sips`) that **names what is built** ("Custom Software"), adds **"MSc"** (eyebrow treatment) + **"Over 40
+years"**, uses **"Built with AI for speed / Steered by me for quality"**, and includes a **circular
+headshot**. `og:image:alt` updated to match.
+
+### DEC-038-7 — No X Premium
+
+Keep X free/lean; do not buy Premium.
 
 ### DEC-037-6 — `DEC-024-1` affirmed: CC surfaces site-copy edits for approval (the balk was right)
 
@@ -187,12 +236,7 @@ Until `frasergorrie.com` is cut over, every production deploy is mirrored to sta
 vice versa) so the two serve identical builds — only the intentional env differences remain (staging
 `noindex` + GA gated off). Operator instruction; expires at cutover.
 
-### DEC-031-5 — OG share card: wordmark-only, browser-canvas-rendered, JPEG
-
-The 1200×630 `og:image` is a **wordmark-only** card on the brand gradient — "Fraser Gorrie"
-(Fraunces) + a two-line tagline + `frasergorrie.com` — rendered on an HTML `<canvas>` in a real browser
-(the site's actual fonts), exported PNG→JPEG (`public/og-image.jpg`, 97 KB). Tagline: "Built by AI for
-speed. / Corrected by me for quality."
+### DEC-031-5 — ⛔ superseded by `DEC-038-6`
 
 ### DEC-031-4 — Image optimization via astro:assets `<Picture>`
 

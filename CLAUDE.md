@@ -15,6 +15,7 @@ say what job it does.
 
 ## References
 - 🔴 **Social-media + website content work consults `reference/PERSONA.md`** (who he is / how he thinks), **`reference/VOICE.md`** (how the copy sounds), **and `reference/CHANNELS.md`** (each channel's job + the funnel) — open all three before drafting. (`DEC-036-3`, Conv 036; `CHANNELS.md` added Conv 038, `DEC-038-N`.)
+- 🔴 **Em-dash sanity check before publishing any new content** — a website page, blog post, guide, or a LinkedIn/X post: before it goes live, scan the content and **surface every em-dash** for the operator to rule. Em-dashes aren't banned; they're surfaced for a conscious call (an em-dash can read as an AI tell, especially on social). Already-vetted existing copy stands. (Conv 038, `DEC-038-N`; retires the retroactive sweep and supersedes the earlier "no em-dashes on LinkedIn/X" rule.)
 
 ## Repos & paths
 - **`fgw-26-docs`** = project home (CC launched here) · **`fgw-26`** = the website · **`fg`** = previous live-site source (reference; served the domain until the Conv 032 cutover) · **`frasergorrie`** = older 2023 legacy (reference).

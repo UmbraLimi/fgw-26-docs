@@ -8,6 +8,89 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 038
+
+### DEC-038-1 — Posting-plan channel & funnel strategy (`reference/CHANNELS.md`)
+**Decision:** Stand up the X + LinkedIn posting plan as a durable **channel/funnel reference**,
+`reference/CHANNELS.md` — a third content axis beside `PERSONA.md` (who he is) and `VOICE.md` (how it
+sounds). It sets: two funnel entries — **word of mouth** (traditional, unpredictable) + **inbound
+discovery** via search/GEO (cultivated secondary, DEC-038-2); the social channels as a
+**confirmation/qualification layer** (not cold acquisition), with the site's evergreen content the one
+acquisition surface; channel roles — **LinkedIn** primary (positioning/credibility), **X** downstream echo
+(personality), **Website** (qualify/convert + content home); cadence — **biweekly LinkedIn, opportunistic
+X**; pillars — **Trust / Steering / Deciding** + a 40-years **Judgement** thread; sourcing — capture habit +
+case-record mining + de-identified project drip; workflow — **CC drafts → operator approves → publish**,
+write-once-then-distribute.
+**Rationale:** WoM alone is a lottery; one lean, durable strategy file keeps all three media consistent yet
+tailored. Rejected: a **second distinct X program** (doubles work, courts the builder crowd, against the
+1–2-project capacity); folding channel strategy into `PERSONA.md` (mixes axes); three per-channel files
+(duplication/drift).
+**Consequences:** `CHANNELS.md` is consulted for all social + site content work (`CLAUDE.md` References
+updated); sub-decisions DEC-038-2/-3; execution = the `[SITE-CONTENT-HOME]` build + running the cadence.
+
+### DEC-038-2 — Secondary funnel entry: inbound discovery (search + GEO), not referral partnerships
+**Decision:** Diversify the top of funnel with **inbound discovery** — buyer-education content found via
+search and AI assistants — as the cultivated second entry point.
+**Rationale:** WoM is a single, unpredictable mechanism (someone vouches). Inbound discovery is a *different*
+mechanism (intent-driven pull) that reaches strangers, so it genuinely diversifies. **Referral partnerships**
+(the rejected alternative) only firm up WoM — same vouching mechanism, not a new entry. Paid ads / speaking /
+directories rejected (posture / bandwidth / commodity positioning).
+**Consequences:** the site's evergreen content becomes the acquisition asset → makes the content-home
+decision load-bearing (DEC-038-3).
+
+### DEC-038-3 — Content home: guides + blog, hub-and-spoke
+**Decision:** Build the content home as undated cornerstone **guides** (one per pillar — the GEO/SEO
+acquisition backbone) + a dated **blog** (the "alive" stream and the owned home for
+write-once-then-distribute to LinkedIn/X), with posts linking *up* to the guides.
+**Rationale:** low volume + slow source cadence — undated guides avoid the staleness signal a thin blog
+shows, while the blog gives social posts a durable, owned destination. Rejected: full blog only (staleness
+risk), guides only (no stream / no owned post home), no content home (undercuts inbound discovery).
+**Consequences:** `[SITE-CONTENT-HOME]` board row (build in `fgw-26`, dovetails with `[SITE-STRUCTURED-DATA]`).
+
+### DEC-038-4 — Editor model reaffirmed: CC is sole editor of every file; per-project, operator approves
+**Decision:** CC makes **every file edit** in this project (process, governance, and — with operator approval
+before publish — site/deliverable copy); the operator **directs or approves** and does **not** edit files.
+Standing for this project, **adopted per-project on onboarding** — not a blanket all-projects rule, and does
+not preclude the operator editing directly in a project that hasn't adopted it.
+**Rationale:** reaffirms `DEC-024-1` and `DEC-037-6`, which a mid-conv misreading had inverted (CC briefly
+treated the operator as the file editor and proposed a "marketing-doc direct-edit carve-out"). The operator
+retracted it — "edits are yours to make and yours alone" — and added the per-project nuance (keeps him free
+to type directly in future projects). The carve-out was never enshrined.
+**Consequences:** `CLAUDE.md` sole-editor rule rewritten; the carve-out reference scrubbed from `CHANNELS.md`.
+
+### DEC-038-5 — Em-dash policy: all-content sanity check (surface before publishing), not a ban
+**Decision:** Before publishing *any* new content (site page, blog, guide, LinkedIn/X post), CC **surfaces
+every em-dash** for the operator to rule; em-dashes are **not banned**. Existing vetted copy stands. Also:
+prefer complete sentences over fragment pile-ups on social (one rhetorical question is fine).
+**Rationale:** an em-dash (and a fragment pile-up) can read as an AI-marketing tell, so a conscious
+pre-publish check earns its keep — but a blanket ban over-reaches: the operator had already vetted the live
+LinkedIn/X/site copy (which uses em-dashes naturally), so a retroactive sweep is false positives. Replaces
+the "no em-dashes on LinkedIn/X" rule briefly set earlier the same conv.
+**Consequences:** `CLAUDE.md` pre-publish rule + `CHANNELS.md` convention; the retroactive-sweep hopper item
+retired.
+
+### DEC-038-6 — OG share card names the subject + carries a headshot (supersedes `DEC-031-5`)
+**Decision:** Rebuild the sitewide OG/Twitter card (`public/og-image.jpg`, 1200×630 JPEG,
+`summary_large_image`) from a **durable HTML source** (`_cc/assets/og-image.html`, headless-Chrome render +
+`sips`) that **names what is built** ("Custom Software"), adds **"MSc"** (eyebrow treatment) + **"Over 40
+years"**, uses **"Built with AI for speed / Steered by me for quality"**, and includes a **circular
+headshot**. `og:image:alt` updated to match.
+**Rationale:** the Conv-031 wordmark-only card (`DEC-031-5`) named no subject ("built/corrected" with no
+object) and had no regenerable source; a face reinforces the personal, work-directly-with-me positioning.
+Along the way: text-only augmented card rejected (operator chose the photo); tight face crop rejected (zoomed
+out to the original framing).
+**Consequences:** prod-deployed; the X pinned-post image updated to match (delete + repost + re-pin, as X
+can't swap media on a posted tweet). Supersedes `DEC-031-5`.
+
+### DEC-038-7 — No X Premium
+**Decision:** Keep X free/lean; do not buy Premium.
+**Rationale:** X's role is a low-priority downstream personality/confirmation channel; Premium's main value
+(reach boost + long posts) serves cold acquisition/volume, which X isn't doing here — reach would amplify to
+the builder crowd not buyers, and long-form lives on the owned blog. Spend on the real engine (guides/blog,
+proof assets) instead.
+**Consequences:** the pinned post is the tight ≤280 form; a visual is added by attaching an image (X renders
+no link-preview card for external links anyway).
+
 ## Conv 037
 
 ### DEC-037-6 — `DEC-024-1` affirmed: CC surfaces site-copy edits for approval (the balk was right)
@@ -386,16 +469,7 @@ vice versa) so the two serve identical builds — only the intentional env diffe
 (cheaper, but staging stops representing production).
 **Consequences:** every Conv-031 deploy went to both; recorded on the board as a standing rule with a stated expiry.
 
-### DEC-031-5 — OG share card: wordmark-only, browser-canvas-rendered, JPEG
-**Decision:** The 1200×630 `og:image` is a **wordmark-only** card on the brand gradient — "Fraser Gorrie"
-(Fraunces) + a two-line tagline + `frasergorrie.com` — rendered on an HTML `<canvas>` in a real browser
-(the site's actual fonts), exported PNG→JPEG (`public/og-image.jpg`, 97 KB). Tagline: "Built by AI for
-speed. / Corrected by me for quality."
-**Rationale:** wordmark beat a headshot card (reads at small sizes). Canvas-render beat SVG→sharp (real-font
-fidelity vs embedded-font risk). JPEG beat PNG (754 KB gradient PNG → 97 KB). The operator flagged the h1
-tagline as opaque out of context → reworded to the self-contained footer-voice line.
-**Consequences:** `twitter:card` → `summary_large_image`; URL absolute against `Astro.site` (resolves to
-`frasergorrie.com/og-image.jpg` — correct post-cutover, 404 on the legacy site until then). `[SITE-OG-IMAGE]` closed.
+### DEC-031-5 — ⛔ superseded by `DEC-038-6`
 
 ### DEC-031-4 — Image optimization via astro:assets `<Picture>`
 **Decision:** The two heavy rasters (`fraser.jpg` 335 KB, `redline.png` 352 KB) go through astro:assets

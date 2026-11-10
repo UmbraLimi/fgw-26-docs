@@ -2,25 +2,26 @@
 
 ## Where we left off
 
-Conv 037 completed the **X.com half of `[SOCIAL-MAKEOVER]`** — profile reworked **live** (name →
-"Fraser Gorrie, MSc 🇨🇦", a concise new bio, a new warm-dark brand header re-rendered at 1500×500 replacing
-the old "2 Paths" sales banner; pinned-post deferred) — which **finishes the whole social makeover** (both
-halves done; row retired). Also reconciled and **deployed to prod (verified live)** four site edits: geography
-→ "US, Canada and Europe" (`history.astro`, `llms.txt.ts`, JSON-LD `areaServed`) and `/about` "a powerful,
-unreliable tool" → "a powerful tool" (`DEC-037-1..3`). Deactivated the stranded **Meristics** LinkedIn
-Company Page (`DEC-037-5`); investigated a **GSC** alert → benign/stale old-site URL, no action. Decisions:
-`DEC-037-1..6` (incl. trailing-slash call + `DEC-024-1` affirmed).
+Conv 038 stood up **[POSTING-PLAN]**: built `reference/CHANNELS.md` — the full channel/funnel strategy (WoM
++ inbound-discovery funnel entries; LinkedIn/X/Website roles; biweekly cadence; Trust/Steering/Deciding
+pillars + a Judgement thread; sourcing/workflow; **guides+blog** content home; copy conventions) — and
+published the buyer-facing **X pinned post** (Straw Man → `/phases`). The sitewide **OG share card** was
+rebuilt, then augmented (now names "Custom Software", + MSc / "Over 40 years" / "Built with AI / Steered by
+me" / a circular headshot) from a durable HTML source (`_cc/assets/og-image.html`), prod-deployed, with the
+X pin re-imaged to match. **Editor model reaffirmed** — CC is sole editor of every file, per-project
+(`DEC-038-4`, after a mid-conv misread of `DEC-024-1`) — and the **em-dash policy** set to an all-content
+**pre-publish sanity check** (`DEC-038-5`). Decisions `DEC-038-1..7`; `DEC-031-5` tombstoned.
 
 ## Next action
 
-**`[POSTING-PLAN]` is now unblocked** (both makeovers done) — the live next step in the post-launch presence
-thread: stand up a sustainable **posting cadence** for X + LinkedIn (topic pillars, sourcing, voice —
-consult `PERSONA.md` + `VOICE.md`), 🔴 which **may force creating a blog** on frasergorrie.com as the content
-home; a purpose-written, buyer-facing **pinned post for X** folds in here.
-⚠️ **Carry-overs for a human:** (1) operator still to **send Gabriel the LinkedIn recommendation request**
-(note in `_cc/linkedin-makeover.md`); (2) **auto-mode is currently OFF** (turned off for the prod deploy) —
-re-enable if wanted. Also open but boarded: `[SITE-TRAILING-SLASH-LINKS]` (~42 internal links). `[GOOGLE-SERVICES]`
-standing GSC check next due ~Conv 38.
+Build **[SITE-CONTENT-HOME]** — the guides + blog hub-and-spoke in `fgw-26`. It's the live next step: the
+content home the inbound-discovery entry *and* the write-once posting cadence both depend on, and it
+dovetails with `[SITE-STRUCTURED-DATA]` for the GEO markup. (Alternatively, begin the biweekly LinkedIn
+cadence drafting per the pillars — operator's order.)
+
+⚠️ **Human carry-over (still open):** the operator is to **send Gabriel the LinkedIn recommendation request**
+(note + draft in `_cc/linkedin-makeover.md`).
 
 ## 🔬 Carried findings
+
 _None._

@@ -6,6 +6,4 @@ The durable record of what was done is the conv record + the board, never a line
 
 ## Open
 
-- [ ] Sweep already-published LinkedIn + X copy (posts + profile text) for em-dashes (the Conv-038 no-em-dash rule applies to existing copy too, not just new posts).
-
 

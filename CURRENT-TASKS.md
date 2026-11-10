@@ -27,21 +27,21 @@ is **live**, not what is finished.
 re-crawl; confirmed verified ownership / valid robots / HTTPS / **no manual actions** / AI "Include";
 linked **GA4 ↔ Search Console**. Two owners (`EsoxAmericanusVermiculatus` + Fraser) + their two DNS
 verification tokens confirmed legit by the operator — left untouched.
-🔁 **Standing check — every 3 convs (next ~Conv 038):** review Search Console for (a) any new
+🔁 **Standing check — every 3 convs (next ~Conv 041; the Conv-038 check was skipped by the operator — GSC
+already reviewed Conv 037):** review Search Console for (a) any new
 concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has progressed. Keep this row
 open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
 cadence mechanism (`DEC-035-4`, built Conv 035).
 
-### [POSTING-PLAN] · added Conv 035 · a regular posting plan for X + LinkedIn (may spawn a blog)
-Stand up a sustainable regular-posting plan for both properties — needs an actual **plan**: cadence, topic
-pillars, sourcing, and voice. 🔴 **May force the creation of a blog** on `frasergorrie.com` as the content
-home/source — a real sub-decision to surface when we reach it. **Now unblocked** — `[SOCIAL-MAKEOVER]` ✅ done
-(LinkedIn Conv 036, X.com Conv 037); this is the live next step in the presence thread. 📎 A purpose-written,
-buyer-facing **pinned post** for X (deferred from the Conv-037 makeover) folds in here.
+### [POSTING-PLAN] · added Conv 035 · run the X + LinkedIn posting cadence (plan ✅ Conv 038)
+✅ **Plan stood up Conv 038** — the full channel/funnel strategy lives in `reference/CHANNELS.md` (funnel,
+channel roles, cadence, pillars, sourcing/workflow, content home, copy conventions). Buyer-facing **X pinned
+post** done (Conv 038). 🔁 **Standing work:** run the **biweekly LinkedIn** cadence (opportunistic X echo),
+drafting per the pillars — CC drafts → operator approves → publish (write-once-then-distribute). Leans on
+`[SITE-CONTENT-HOME]` (the blog/guides posts point to).
 📎 **GEO answer-structuring (folded in Conv 036):** as content gets built, structure it so generative
-engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, consistent entity naming.
-Low effort, a content-shaping guideline rather than separate work. (Vendor "30–40% citation gain" figures
-are unverified.)
+engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, consistent entity naming
+(a content-shaping guideline; vendor "30–40% citation gain" figures unverified).
 
 ---
 
@@ -163,6 +163,14 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 038:** **`[POSTING-PLAN]` stood up** — built `reference/CHANNELS.md` (funnel: WoM + inbound-discovery
+  entries; LinkedIn/X/Website roles; biweekly cadence; Trust/Steering/Deciding pillars; sourcing + CC-drafts
+  workflow; **guides+blog** content home; em-dash sanity-check + complete-sentences copy conventions). New row
+  `[SITE-CONTENT-HOME]`. **X pinned post** written → posted → pinned (Straw Man → `/phases`). **OG share card**
+  rebuilt to name the subject, then augmented (MSc eyebrow mark, "Over 40 years", "Built with AI / Steered by
+  me", circular headshot) with a durable HTML source — prod-deployed, pin re-imaged. Editor model reaffirmed
+  (CC sole editor, per-project; `DEC-038-*`). No X Premium. GSC cadence check skipped (operator). Detail in
+  `_cc/x-makeover.md` + `_cc/assets/og-image.html`.
 - **Conv 037:** **X.com makeover** (`[SOCIAL-MAKEOVER]` X half → row **completed**, both halves done) ✅ —
   profile reworked **live** to the educating-front-door direction: name "Fraser Gorrie, MSc 🇨🇦", concise new
   bio, new warm-dark brand header (re-rendered at 1500×500, replacing the "2 Paths" sales banner); pinned-post

@@ -131,17 +131,19 @@ the interesting question. Supplies credibility by proof and the human voice; sea
 **Workflow — CC drafts, the operator owns the voice:**
 - CC turns a captured seed + the pillars into a **candidate post**; the operator redlines it to final (his
   voice, his name); then publish. Batch 2–3 per sitting to fit the biweekly rhythm.
-- 🔴 **The posts and site content are the operator's.** The marketing-doc direct-edit carve-out covers
-  `PERSONA.md` / `VOICE.md` / `CHANNELS.md` only — **not** post or site content, which the operator
-  approves before it goes out.
+- 🔴 **Posts and site content ship only with operator approval.** CC drafts and makes every edit, but
+  post and site/deliverable copy goes live only after the operator approves it (`DEC-024-1` / `DEC-037-6`):
+  CC drafts → operator approves → publish.
 - **Backlog:** a lightweight durable list — seeds → drafts → published — kept at `_cc/content-backlog.md`
   (alt: a board section; chose a topic note to keep the board for commitments).
 
 ## Social copy conventions (LinkedIn + X, not the site)
 
-- 🔴 **No em-dashes on LinkedIn or X.** The site permits em-dashes; the social channels do not. Recast with
-  a period, comma, semicolon, colon, or parentheses. (Operator directive, Conv 038; an em-dash reads as an
-  AI tell on social.)
+- 🔴 **Em-dashes: surfaced for review, not banned (revised Conv 038).** Before publishing *any* new content
+  (site page, blog, guide, or a LinkedIn/X post), CC surfaces every em-dash for the operator to rule — the
+  all-content em-dash sanity check in `CLAUDE.md`. Already-vetted existing copy stands. (Supersedes the
+  earlier Conv-038 "no em-dashes on LinkedIn/X"; the operator had already vetted the live LinkedIn/X/site
+  copy, so a retroactive sweep would be false positives.)
 - 🔴 **Prefer complete sentences on LinkedIn or X.** Sentence fragments read as a punchy, promotional
   cadence (ad copy, not a seasoned person talking) and are themselves an AI-marketing tell. One rhetorical
   question is fine; a pile-up of fragments is not. (Operator directive, Conv 038.)
@@ -181,3 +183,6 @@ the site, or a specific piece. Don't chase vanity metrics (counter to `PERSONA.m
   media since X renders no link card). See `_cc/x-makeover.md`.
 - **Conv 038** — social copy conventions added: **no em-dashes** and **prefer complete sentences** on
   LinkedIn/X (fragments read as a marketing/AI cadence; the site still permits em-dashes). Operator directive.
+- **Conv 038** — em-dash rule **revised**: from "no em-dashes on LinkedIn/X" to an **all-content em-dash
+  sanity check** (surface before publishing; operator rules; not banned). Existing vetted copy stands; the
+  retroactive sweep retired as false positives. Operator directive.
