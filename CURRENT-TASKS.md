@@ -47,6 +47,24 @@ engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, c
 
 ## 📋 Unordered
 
+### [PROD-DEPLOY-BAN] · added Conv 039 · production deploys banned until content home is finalized
+🔴 **Operator directive (Conv 039):** no **production** deploy until the **first blog page** and **all
+guide pages** (`[SITE-CONTENT-HOME]`) are finalized. **Staging deploys as usual** (`npm run deploy:staging`
+is unaffected). **Enforced technically, fail-closed:** `scripts/assert-prod-deploy-allowed.mjs` runs first
+in the `deploy` script and exits non-zero while the ban stands; `deploy:staging` does not call it.
+**To lift:** set `PROD_DEPLOY_BANNED = false` in that script once the content is finalized + approved, and
+record the lift here. (DEC at /r-end.)
+
+### [BLOG-REDIRECT] · added Conv 039 · decide the fate of the dropped `/blog` → `/` redirect
+The provisional `'/blog': '/'` 301 (added Conv 032 for the old fg site's `/blog` URL) was **dropped in
+Conv 039** so the new blog can own `/blog` (`[SITE-CONTENT-HOME]`) and be previewed/worked on — it was
+*shadowing the blog index route entirely*, so `/blog/` emitted no page while it stood. **Decide the final
+disposition** before/at flip: (a) leave it removed — the blog index now answers `/blog` (the intended end
+state), accepting that old inbound `/blog` links land on the (currently empty, noindex) blog index instead
+of 301'ing home; or (b) reinstate a redirect to a different target if the empty-blog landing is unwanted
+pre-launch. Leaning (a). The removal is live in `astro.config.mjs` (comment points here). Supersedes the
+redirect sub-point in the flip-live hopper item.
+
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014 · sign-off ✅ Conv 030 (row stays for the standing masking guard)
 ✅ Sign-off complete (operator + clients checked both `/record` artifacts, no changes).
 🔴 **Standing masking guard (why the row stays) — current as of Conv 034 (`DEC-034-1`):** the AI-era
