@@ -55,15 +55,15 @@ in the `deploy` script and exits non-zero while the ban stands; `deploy:staging`
 **To lift:** set `PROD_DEPLOY_BANNED = false` in that script once the content is finalized + approved, and
 record the lift here. (DEC at /r-end.)
 
-### [BLOG-REDIRECT] · added Conv 039 · decide the fate of the dropped `/blog` → `/` redirect
+### [BLOG-REDIRECT] · added Conv 039 · decide what old-site `/blog` links should do
 The provisional `'/blog': '/'` 301 (added Conv 032 for the old fg site's `/blog` URL) was **dropped in
-Conv 039** so the new blog can own `/blog` (`[SITE-CONTENT-HOME]`) and be previewed/worked on — it was
-*shadowing the blog index route entirely*, so `/blog/` emitted no page while it stood. **Decide the final
-disposition** before/at flip: (a) leave it removed — the blog index now answers `/blog` (the intended end
-state), accepting that old inbound `/blog` links land on the (currently empty, noindex) blog index instead
-of 301'ing home; or (b) reinstate a redirect to a different target if the empty-blog landing is unwanted
-pre-launch. Leaning (a). The removal is live in `astro.config.mjs` (comment points here). Supersedes the
-redirect sub-point in the flip-live hopper item.
+Conv 039** (`[SITE-CONTENT-HOME]`). The article stream then landed at **`/writing/`**, not `/blog/`
+(Conv 039 rename — section URL matches its name), so **`/blog` is now a free, unhandled path**: old-site
+inbound `/blog` links would 404. **Decide before/at flip:** (a) add a `'/blog': '/writing/'` 301 so those
+old links reach the new articles home — **leaning (a)**, it's the natural successor; or (b) leave `/blog`
+to 404 (acceptable if the old `/blog` had little inbound value); or (c) 301 `/blog` → home. Do this at
+flip (when `/writing/` goes live), not while dark. Supersedes the redirect sub-point in the flip-live
+hopper item.
 
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014 · sign-off ✅ Conv 030 (row stays for the standing masking guard)
 ✅ Sign-off complete (operator + clients checked both `/record` artifacts, no changes).
