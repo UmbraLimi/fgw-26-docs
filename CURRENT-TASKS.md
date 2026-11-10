@@ -53,7 +53,7 @@ guide pages** (`[SITE-CONTENT-HOME]`) are finalized. **Staging deploys as usual*
 is unaffected). **Enforced technically, fail-closed:** `scripts/assert-prod-deploy-allowed.mjs` runs first
 in the `deploy` script and exits non-zero while the ban stands; `deploy:staging` does not call it.
 **To lift:** set `PROD_DEPLOY_BANNED = false` in that script once the content is finalized + approved, and
-record the lift here. (DEC at /r-end.)
+record the lift here. (`DEC-039-2`.)
 
 ### [BLOG-REDIRECT] · added Conv 039 · decide what old-site `/blog` links should do
 The provisional `'/blog': '/'` 301 (added Conv 032 for the old fg site's `/blog` URL) was **dropped in
@@ -103,6 +103,10 @@ hits a 307 → `/about/`. Google says trailing-slash vs not is a consistency/tas
   `work/index.astro` ×3, `work/[slug].astro` ×3, `about.astro` ×2, `method.astro` ×2, `faq.astro` ×2,
   `phases.astro` ×1, `privacy.astro` ×1.
 - **5 nav links** — `Nav.astro` `links` array (`/work` `/method` `/phases` `/about` `/contact`).
+  ⚠️ **Re-count before doing (Conv 039):** the nav/footer changed — Nav dropped "Home" and added `/guides/`
+  (already slashed); Footer added `/guides/` `/writing/` `/phases/` (already slashed) and the Guides/Writing
+  links are flag-gated. The Conv-037 enumeration above predates this; re-derive the exact non-slashed-link
+  list when this row is worked.
 - **3 dynamic case links** — `/work/${id}`, `/work/${id}/record`, record→case back-link.
 - **1 markdown cross-link** — `content/work/discover-the-ub.md` (`/work/discover-jesus`).
 - **Leave alone:** assets (favicons, og-image), `mailto:`, external live URLs, auto-gen canonical, root `/`,
@@ -144,11 +148,21 @@ together. (Promoted Conv 035.)
 above is still the open work.)
 
 ### [SITE-CONTENT-HOME] · added Conv 038 · build the guides + blog content surface in fgw-26
-Build the hub-and-spoke content home decided Conv 038 (`reference/CHANNELS.md` → Website): undated
-cornerstone **guides** (~3, one per pillar — Trust / Steering / Deciding) as the GEO/SEO acquisition
-backbone, + a dated **blog** as the stream and owned home for write-once-then-distribute to LinkedIn/X.
-🔗 Dovetails with `[SITE-STRUCTURED-DATA]` (per-piece JSON-LD / `CreativeWork`) — likely sequence
-together. Build row only; content is authored separately (CC drafts → operator approves).
+✅ **Dark scaffold built Conv 039** (`fgw-26`), gated by `CONTENT_HOME_LIVE` (noindex + off-nav +
+sitemap-excluded until flip; shown in `astro dev`). `guides` collection (undated cornerstones) + a
+`pillar` join on the `blog` collection; pages: hub **`/guides/`** (leads with the 3 cornerstones + a
+"Latest writing" stream), `/guides/<slug>/`, **`/writing/`** (the dated article stream, renamed from
+`/blog/`), `/writing/<slug>/` (up-links to its guide). Nav "Guides" + footer "Guides"/"Writing" links,
+gated the same way.
+🧭 **IA settled Conv 039 (`DEC-039-*`):** "Guides" for cornerstones, "Writing" for articles;
+`/guides/` + `/writing/` single-purpose, bound by cross-links (not a mixed index); `/blog/` retired →
+`[BLOG-REDIRECT]`.
+✍️ **Draft content (Conv 039, all `draft: true`, pending operator redline):** 3 cornerstone guide drafts
+(Trust / Steering / Deciding) + one throwaway sample article. **Remaining:** finalise the first article +
+all three guides (CC drafts → operator approves), then **flip live** (hopper item: set
+`CONTENT_HOME_LIVE = true` + deploy). 🔴 Prod deploys banned until finalised (`[PROD-DEPLOY-BAN]`).
+🔗 Per-piece JSON-LD (`CreativeWork`) deferred to `[SITE-STRUCTURED-DATA]` (a clean `slot="head"` hook is
+left on the detail pages).
 
 ### [SITE-CONSENT] · promoted Conv 035 · GA4 analytics consent decision (privacy/legal)
 GA4 sets cookies → EU visitors likely need consent (cookieless ≠ consent-free; fingerprinting is the weak
@@ -181,6 +195,17 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 039:** **`[SITE-CONTENT-HOME]` dark scaffold built + IA settled** (row stays — content + flip
+  pending). Hub-and-spoke content home in `fgw-26`, gated dark by `CONTENT_HOME_LIVE` (`DEC-039-1`): `guides`
+  collection + `pillar` join on `blog`; hub `/guides/`, `/guides/<slug>/`, `/writing/` (renamed from
+  `/blog/`), `/writing/<slug>/`; nav "Guides" + footer "Guides"/"Writing" — all gated `CONTENT_HOME_LIVE ||
+  DEV` (`DEC-039-4`, flag-gate pattern retiring the dev-preview juggling). **IA** (`DEC-039-3`): "Guides"/
+  "Writing" labels, single-purpose `/guides/`+`/writing/` bound by cross-links, `/blog/` retired →
+  `[BLOG-REDIRECT]`. **Draft content** (all `draft:true`): 3 cornerstone guides (Trust/Steering/Deciding) +
+  1 throwaway article — pending redline. New rows **`[PROD-DEPLOY-BAN]`** (`DEC-039-2`, fail-closed guard;
+  staging exempt) + **`[BLOG-REDIRECT]`**. Interface polish: nav trimmed ("Home" dropped, logo covers it;
+  `DEC-039-5`), Phases added to footer, **sticky footer** (short-page fix), footer "corrected"→"steered"
+  (matches og-image), `/writing/` back-link + eyebrow-collision fixed. Verified in dev via Chrome.
 - **Conv 038:** **`[POSTING-PLAN]` stood up** — built `reference/CHANNELS.md` (funnel: WoM + inbound-discovery
   entries; LinkedIn/X/Website roles; biweekly cadence; Trust/Steering/Deciding pillars; sourcing + CC-drafts
   workflow; **guides+blog** content home; em-dash sanity-check + complete-sentences copy conventions). New row

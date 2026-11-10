@@ -186,3 +186,8 @@ the site, or a specific piece. Don't chase vanity metrics (counter to `PERSONA.m
 - **Conv 038** — em-dash rule **revised**: from "no em-dashes on LinkedIn/X" to an **all-content em-dash
   sanity check** (surface before publishing; operator rules; not banned). Existing vetted copy stands; the
   retroactive sweep retired as false positives. Operator directive.
+- **Conv 039** — content home **built** (dark until flip; `[SITE-CONTENT-HOME]`, `fgw-26`). Implementation
+  naming settled: the "blog"/dated stream described above ships as **"Writing"** at **`/writing/`**; the
+  cornerstones ship as **"Guides"** at **`/guides/`** (nav label "Guides", one entry). `/guides/` and
+  `/writing/` are single-purpose pages bound by cross-links, not a mixed index. So **"blog" in this doc =
+  the "Writing" section in the build.** (`DEC-039-1`/`-3`/`-4`/`-5`.)

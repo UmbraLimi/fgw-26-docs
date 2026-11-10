@@ -8,6 +8,76 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 039
+
+### DEC-039-1 — Content home built dark; one `CONTENT_HOME_LIVE` flip switch
+**Decision:** Build the `[SITE-CONTENT-HOME]` guides + writing surface in `fgw-26` but keep it **dark**
+until the first cornerstone guide (and first article) are finalised and approved. One boolean
+`CONTENT_HOME_LIVE` (consts.ts) drives `noindex`, sitemap exclusion, and (DEC-039-4) nav/footer
+visibility; `[slug]` routes stay draft-filtered so a prod/staging build generates only approved pieces
+(drafts still preview in `astro dev`). Per-piece JSON-LD (`CreativeWork`) is deferred to
+`[SITE-STRUCTURED-DATA]`, with a clean `slot="head"` hook left on the detail pages.
+**Rationale:** The guides are the GEO/credibility acquisition asset; a thin or "coming soon" cornerstone
+indexed by Google or lifted by an AI assistant is worse than no page. Build the durable machinery now,
+flip when there is real substance. Rejected: shipping the hub live with placeholder/seed content (undercuts
+the purpose); folding JSON-LD in now (would half-do structured data twice, out of sync with the
+Person/Organization `@graph` that `[SITE-STRUCTURED-DATA]` owns).
+**Consequences:** dark scaffold built Conv 039; flip = set `CONTENT_HOME_LIVE = true` + deploy (a hopper
+item, carried to next conv). Content authored separately (CC drafts → operator approves). Backstopped by
+DEC-039-2.
+
+### DEC-039-2 — Production deploys banned until the content home is finalised (fail-closed)
+**Decision:** No **production** deploy until the first article + all three guide pages are finalised.
+Enforced technically: `scripts/assert-prod-deploy-allowed.mjs` runs first in the `deploy` script and exits
+non-zero while `PROD_DEPLOY_BANNED` is true; `deploy:staging` does **not** call it (staging deploys as
+usual).
+**Rationale:** Content work spans several convs with the live site's copy in flux; a routine `npm run
+deploy` would ship half-finalised guides to production. A fail-closed guard (matching the existing
+`assert-worker.mjs` pattern) is more reliable than a prose promise. Rejected: a prose-only rule
+(forgettable); banning staging too (needlessly blocks preview deploys).
+**Consequences:** `[PROD-DEPLOY-BAN]` board row; general-site fixes made this conv (sticky footer, footer
+copy) also wait for the flip. Lift = set `PROD_DEPLOY_BANNED = false`.
+
+### DEC-039-3 — Content-home IA: "Guides" + "Writing", single-purpose pages, `/blog/` → `/writing/`
+**Decision:** The content home is two single-purpose sections bound by cross-links, not a mixed index:
+**`/guides/`** (label "Guides") holds the undated cornerstones; **`/writing/`** (label "Writing") holds the
+dated articles, renamed from `/blog/`. One nav entry, "Guides" → `/guides/` (which leads with the
+cornerstones + a "Latest writing" teaser); "Writing" is reached from the guides hub, each guide's related
+list, and a footer link. Each article up-links to its pillar guide; each guide lists related articles.
+**Rationale:** A page's URL and label should match its content; the earlier mixed `/guides/` hub
+(cornerstones + stream) left no single honest label fitting it, which drove the naming churn. "Writing"
+suits the quiet editorial voice and sidesteps the now-dated "Blog" label; "guides" in the URL honestly
+types the cornerstones. Guides are the acquisition asset so they take the one nav slot; articles support
+(per the funnel), so they are one click away, not top-level. Rejected: a single mixed hub (label mismatch);
+two top-level nav entries (nav bloat); keeping `/blog/` (retires the "Blog" label — a pre-publish rename is
+free).
+**Consequences:** `/blog/` retired → old-site `/blog` disposition is `[BLOG-REDIRECT]`; the content
+collection stays named `blog` internally (invisible). Refines the content-home shape from DEC-038-3.
+
+### DEC-039-4 — Content-home nav/footer links gated `CONTENT_HOME_LIVE || DEV`, committed
+**Decision:** The nav + footer content-home links render only when `CONTENT_HOME_LIVE ||
+import.meta.env.DEV` — shown in `astro dev` and once the flag flips, hidden in prod/staging builds while
+dark — so they are **committed as ordinary code** rather than kept as uncommitted working-tree
+"dev-preview" edits reverted each conv.
+**Rationale:** The working-tree-only approach leaned on remembering never to stage two files and reverting
+them before `/r-end` (a footgun). A flag gate — the same switch the pages, sitemap, and `noindex` use —
+lets the links be committed, stay dark in prod, preview in dev, and flip in one line. Rejected: the
+uncommitted dev-preview juggling (fragile; the earlier approach).
+**Consequences:** flip-live is now solely `CONTENT_HOME_LIVE = true`; the Nav/Footer "reverse before
+/r-end" hopper item was retired. Backstopped by DEC-039-2.
+
+### DEC-039-5 — Nav trimmed: drop "Home", keep Phases (Phases also added to the footer)
+**Decision:** Drop the "Home" item from the top nav — the brand logo/wordmark already links home — and keep
+Phases. Nav = Work · Guides · Method · Phases · About · Contact. Phases is also added to the footer (it was
+the one main-nav page missing there).
+**Rationale:** The new "Guides" entry made the seven-item nav crowd the wordmark at 768–1023px (it needed a
+brand-text hide). "Home" is redundant with the logo on most sites, so dropping it is a free slot — chosen
+over demoting Phases to footer-only, since Phases is a real qualification surface worth keeping up top. Six
+items fit, so the brand-text hide was removed. Rejected: demote Phases to footer-only; keep the seven-item
+nav + the brand-text hide.
+**Consequences:** `Nav.astro` simplified (no brand-text crowding fix); footer gains Phases; refines
+DEC-013-1 (which listed "Home" in the top nav).
+
 ## Conv 038
 
 ### DEC-038-1 — Posting-plan channel & funnel strategy (`reference/CHANNELS.md`)

@@ -6,6 +6,43 @@ _As of 2026-11-10._
 
 ---
 
+### DEC-039-1 — Content home built dark; one `CONTENT_HOME_LIVE` flip switch
+
+Build the `[SITE-CONTENT-HOME]` guides + writing surface in `fgw-26` but keep it **dark**
+until the first cornerstone guide (and first article) are finalised and approved. One boolean
+`CONTENT_HOME_LIVE` (consts.ts) drives `noindex`, sitemap exclusion, and (DEC-039-4) nav/footer
+visibility; `[slug]` routes stay draft-filtered so a prod/staging build generates only approved pieces
+(drafts still preview in `astro dev`). Per-piece JSON-LD (`CreativeWork`) is deferred to
+`[SITE-STRUCTURED-DATA]`, with a clean `slot="head"` hook left on the detail pages.
+
+### DEC-039-2 — Production deploys banned until the content home is finalised (fail-closed)
+
+No **production** deploy until the first article + all three guide pages are finalised.
+Enforced technically: `scripts/assert-prod-deploy-allowed.mjs` runs first in the `deploy` script and exits
+non-zero while `PROD_DEPLOY_BANNED` is true; `deploy:staging` does **not** call it (staging deploys as
+usual).
+
+### DEC-039-3 — Content-home IA: "Guides" + "Writing", single-purpose pages, `/blog/` → `/writing/`
+
+The content home is two single-purpose sections bound by cross-links, not a mixed index:
+**`/guides/`** (label "Guides") holds the undated cornerstones; **`/writing/`** (label "Writing") holds the
+dated articles, renamed from `/blog/`. One nav entry, "Guides" → `/guides/` (which leads with the
+cornerstones + a "Latest writing" teaser); "Writing" is reached from the guides hub, each guide's related
+list, and a footer link. Each article up-links to its pillar guide; each guide lists related articles.
+
+### DEC-039-4 — Content-home nav/footer links gated `CONTENT_HOME_LIVE || DEV`, committed
+
+The nav + footer content-home links render only when `CONTENT_HOME_LIVE ||
+import.meta.env.DEV` — shown in `astro dev` and once the flag flips, hidden in prod/staging builds while
+dark — so they are **committed as ordinary code** rather than kept as uncommitted working-tree
+"dev-preview" edits reverted each conv.
+
+### DEC-039-5 — Nav trimmed: drop "Home", keep Phases (Phases also added to the footer)
+
+Drop the "Home" item from the top nav — the brand logo/wordmark already links home — and keep
+Phases. Nav = Work · Guides · Method · Phases · About · Contact. Phases is also added to the footer (it was
+the one main-nav page missing there).
+
 ### DEC-038-1 — Posting-plan channel & funnel strategy (`reference/CHANNELS.md`)
 
 Stand up the X + LinkedIn posting plan as a durable **channel/funnel reference**,
