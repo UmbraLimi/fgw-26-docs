@@ -89,3 +89,10 @@ with no object (software). Rebuilt `og-image.jpg` from a new durable source `_cc
 to name **"Custom software, built by AI for speed, corrected by me for quality"** (matching the
 `og:image:alt`), **prod-deployed** `fgw-26` (live `og:image` updated), then **deleted + reposted + re-pinned**
 the pin with the corrected card (X can't swap media on an existing post). Same approved text throughout.
+
+**Augment (same session):** card augmented again at the operator's direction — added **"MSc"** (eyebrow
+treatment: Inter, ember, mixed-case, 20px right of "Gorrie"), added **"Over 40 years"**, shifted the tagline
+to **"Built with AI for speed / Steered by me for quality"** (*steered*, not corrected), and added a
+**circular headshot** on the right (from `fraser-src.jpg`, a copy of `fgw-26/src/assets/fraser.jpg`).
+`og:image:alt` in `Layout.astro` updated to match. Prod-redeployed, then the pin was deleted + reposted +
+re-pinned again. `_cc/assets/og-image.html` is now the photo version (requires `fraser-src.jpg` to render).
