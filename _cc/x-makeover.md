@@ -28,7 +28,7 @@ can trust", "software you can trust").
 | **Display name** | ✅ **"Fraser Gorrie, MSc 🇨🇦"** — MSc (quiet science nod, matches LinkedIn) + 🇨🇦 flag (operator: Canada's reputation / nationality matters to clients) | ✅ approved |
 | **Profile photo** | Keep (matches LinkedIn) | ⏳ pending |
 | **Location / Category** | ✅ Keep **"Hamilton, Canada"** (concrete/grounded, keeps Canada signal); Professional Services + website unchanged | ✅ approved |
-| **Pinned post** | X's Featured analogue — pin educational/testimonials post or defer to `[POSTING-PLAN]` | ⏳ pending |
+| **Pinned post** | Buyer-facing purpose-written pin (the deferred `[POSTING-PLAN]` item) — replaces the placeholder "vibe-coding" post | ✅ **posted + pinned** (Conv 038, below) |
 | **Website** | frasergorrie.com — keep | ✅ |
 
 ## Applied to X — Conv 037 (live)
@@ -58,3 +58,28 @@ CC drove the edits in the operator's Chrome, operator-approved before Save (Link
 > Software developer, over 40 years. Helping you get software worth trusting out of AI.
 
 Operator direction: "over 40 years" (not "40+"/"four decades"); education angle is for *content* (posts), kept out of the bio; concise over filling 160.
+
+## Pinned post — approved (Conv 038)
+
+The buyer-facing pin deferred from Conv 037, written under `[POSTING-PLAN]` (`reference/CHANNELS.md`:
+X = personality + the buyer chord, soft CTA → site). **No X Premium** (decided Conv 038) → the **tight
+≤280** form, not long-form. Replaces the placeholder Sep-2025 "vibe-coding" post when posted.
+
+**✅ APPROVED (Conv 038) — complete sentences, no em-dash, 279/280:**
+> A paragraph, to AI, can land you a full app that looks really good. I call that the Straw Man.
+>
+> But is it sound? It's only the first of 3 phases in AI app development.
+>
+> I've spent 40 years building apps for clients. AI is fantastic but it needs steering.
+>
+> frasergorrie.com/phases
+
+Notes: operator-led copy. Opens on the **Straw Man** (first of the site's straw/tin/steel phases); strikes
+the buyer chord ("looks good, but is it sound?"); activates the **Steering** pillar ("AI needs steering");
+grounds credibility ("40 years building apps for clients"); links to `/phases`. Conforms to the Conv-038
+social conventions: **no em-dashes, complete sentences** (one rhetorical question). Edits from the operator
+draft: "Its" → "It's"; "developing apps" → "building apps" (clears the developing/development echo + fits
+280); bare URL (no arrow). **✅ POSTED + PINNED (Conv 038)** via Chrome, operator-approved before posting,
+replacing the Sep-2025 "vibe-coding" placeholder. **No link-preview card rendered** — X no longer shows
+image cards for external links — so the branded `og-image.jpg` was attached as **media** to give the pin a
+visual (no card to suppress). The pin reads: text → bare `/phases` link → wide branded banner.

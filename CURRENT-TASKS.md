@@ -125,6 +125,13 @@ together. (Promoted Conv 035.)
 (`Layout.astro`), matching the Conv-037 "US, Canada and Europe" copy edits. (The broader JSON-LD expansion
 above is still the open work.)
 
+### [SITE-CONTENT-HOME] · added Conv 038 · build the guides + blog content surface in fgw-26
+Build the hub-and-spoke content home decided Conv 038 (`reference/CHANNELS.md` → Website): undated
+cornerstone **guides** (~3, one per pillar — Trust / Steering / Deciding) as the GEO/SEO acquisition
+backbone, + a dated **blog** as the stream and owned home for write-once-then-distribute to LinkedIn/X.
+🔗 Dovetails with `[SITE-STRUCTURED-DATA]` (per-piece JSON-LD / `CreativeWork`) — likely sequence
+together. Build row only; content is authored separately (CC drafts → operator approves).
+
 ### [SITE-CONSENT] · promoted Conv 035 · GA4 analytics consent decision (privacy/legal)
 GA4 sets cookies → EU visitors likely need consent (cookieless ≠ consent-free; fingerprinting is the weak
 point). Decide: a consent gate vs. switching to a genuinely cookieless analytics. A load-bearing

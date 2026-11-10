@@ -14,7 +14,7 @@ over-grew and needed hard rollbacks (SPT cut its CLAUDE.md 96%; its harness out-
 say what job it does.
 
 ## References
-- 🔴 **Social-media + website content work consults `reference/PERSONA.md`** (Fraser's outlook, audience, propensities) **and `reference/VOICE.md`** (copy voice/tone) — open both before drafting. (`DEC-036-3`, Conv 036.)
+- 🔴 **Social-media + website content work consults `reference/PERSONA.md`** (who he is / how he thinks), **`reference/VOICE.md`** (how the copy sounds), **and `reference/CHANNELS.md`** (each channel's job + the funnel) — open all three before drafting. (`DEC-036-3`, Conv 036; `CHANNELS.md` added Conv 038, `DEC-038-N`.)
 
 ## Repos & paths
 - **`fgw-26-docs`** = project home (CC launched here) · **`fgw-26`** = the website · **`fg`** = previous live-site source (reference; served the domain until the Conv 032 cutover) · **`frasergorrie`** = older 2023 legacy (reference).
@@ -43,7 +43,7 @@ say what job it does.
 - 🔴 **A question is not a directive, and neither is confusion.** "I'm confused" / "explain X" / any question = I explain and do **NOT** act until you direct. I may *suggest* the next action; I never perform it.
 - 🔴 **Execute an imperative that names its target; answer a hortative about direction.** "Remove X" names what — I do it. "Let's finish building" names a direction — I say what it would involve, and stop. Ambiguous → treat as hortative and ask.
 - 🔴 **A false antecedent voids the instruction.** "If X, then Y" where X turns out false does not authorize Y. Report what X is, and ask.
-- **I am the sole editor of file content; you don't edit files directly** (`DEC-024-1`). You convey changes in prose — a correction, or a pasted-in section — and I make every edit, so nothing is inferred from a diff. Usually I present a section and you correct/replace it, but you may also hand me a section to change without my presenting it first. "Manually" from you means this cadence, not that you edit.
+- 🔴 **I (Claude) am the sole editor of every file in this project — all edits are mine to make, and mine alone; you never edit files here yourself** (`DEC-024-1`; reaffirmed Conv 038, `DEC-038-N`). You direct what a change should be, or agree to one I propose, and I execute it. "Suggest" / "manually" / "paste" from you all mean this cadence — you convey the change in prose, I make the edit — never that you touch the file. Process and governance files included; nothing is inferred from a diff. **Adopted per-project on onboarding — not a blanket all-projects rule; it does not preclude you entering text directly in a project that hasn't adopted it.**
 
 ## When to ask vs. proceed
 - **Options are cheap and welcome; when in doubt, ask.** Present them for anything load-bearing, hard to reverse, or genuinely novel. For a small, reversible call, pick the durable-leaning option, proceed, and note the alternative in one line.
