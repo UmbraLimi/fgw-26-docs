@@ -40,6 +40,12 @@
   **Not** professional programmers serving *their own* clients (considered and set aside Conv 036:
   teaching peers builds reputation, not pipeline, and breaks the funnel — LinkedIn exists to bring people
   to the site, which sells to business owners).
+- **The buyer/coder line is blurred; the real divider is vernacular, not concept (operator, Conv 040).**
+  Fraser's buyers have often tried to build with AI themselves, so the *concepts* aren't foreign to them —
+  what separates buyer copy from coder copy is the **vernacular**: coder jargon like "logging" or "edge
+  cases." Keep buyer-facing copy in plain language; use a technical term only when deliberately introduced
+  and explained (e.g. "edge cases" is kept and defined in the Trust guide, while "logging" was cut). This
+  is where the drift-watch bites: reframe the *jargon*, not necessarily the idea.
 - **What he educates about:** how to get AI-built software you can **trust** — how to judge whether it's
   sound, what AI gets confidently wrong, how to steer it, when to build-your-own vs. bring someone in.
   Craft wisdom translated into *buyer* terms.
@@ -72,8 +78,19 @@
 - **Educator by nature.** Shares, encourages, teaches — warm, practical ("have a notebook handy; write
   down the ideas that spring up"). Sales-forward pitching is **against his nature** and should be avoided
   in anything written as him.
+- **Teaches coders too, but that is a side channel (operator, Conv 040).** His educator instinct sometimes
+  drifts into teaching fellow coders who use AI to build — a *builder* audience, not the *buyer* audience
+  the funnel serves (see Audience). 🔎 **Watch for this drift in buyer-facing copy and reframe to the
+  buyer.** The builder/buyer *difference* can itself be instructive to buyers, but the framing stays
+  buyer-first. He does see a **rare, separate "for builders" article** as the proper home for genuinely
+  coder-aimed advice (it showcases the teaching propensity); coder-framed material cut from buyer copy is
+  preserved in `_cc/for-builders-tidbits.md` rather than dropped. (First catch: Trust guide edge-cases
+  passage, Conv 040.)
 - **Science-trained thinker.** Biology background (field + lab): *measure before you conclude, test the
   hypothesis, let the evidence decide.* Methodical with complex systems; evidence over assertion.
+- **Intuition is the upstream of judgement (operator, Conv 040).** A major theme: help the reader build
+  their *own* intuition, and use it as the trigger for judgement. The felt "something is off" is the signal
+  to stop and look harder. He writes to surface and develop that instinct in people, never to override it.
 - **Judgement is the throughline.** Across every tool-shift in 40+ years, what carried was knowing *what
   to build, what to refuse, and when something isn't right yet*. The programming language was never the
   interesting question.
@@ -105,3 +122,17 @@
   replaced the "two modes" framing with **spectrum of involvement**) and added **"How they see AI"** to
   Audience (wonder → last-mile frustration → trust-you-can't-verify unease; their question is "will I get
   burned?", not "is AI reliable?"). Drove the LinkedIn Headline #1 + About copy.
+- **Conv 040** — added **intuition as the upstream of judgement** to Outlook & propensities (operator's
+  theme: help readers build their own intuition and use it as the trigger for judgement). Mirrors the
+  matching entry in `VOICE.md`'s accreted turns-of-phrase section (which also holds the sounding pattern
+  "that's your intuition serving you well" and the assistant-register tell to avoid, "that's the right
+  question to ask"). Drove the Trust guide P3 rewrite.
+- **Conv 040** — added **"teaches coders too, but that is a side channel"** to Outlook & propensities: the
+  operator named a propensity to drift into teaching fellow coders (builder audience) inside buyer copy. CC
+  now watches for that drift, reframes to the buyer, and preserves the coder-angled material in
+  `_cc/for-builders-tidbits.md` (seeded Conv 040 with the Trust guide edge-cases tidbit) toward a rare,
+  separate "for builders" article.
+- **Conv 040** — added the **vernacular-is-the-divider** nuance to Audience: buyers here have often built
+  with AI themselves, so the concept line is blurred; coder *jargon* (e.g. "logging") is the real tell.
+  Drove the Trust guide P7S3 reframe (cut "logs them for future work"; kept the plain outcome) and a second
+  `for-builders-tidbits.md` entry.
