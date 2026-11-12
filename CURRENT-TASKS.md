@@ -146,6 +146,10 @@ together. (Promoted Conv 035.)
 📎 **Geography reconcile — ✅ done Conv 037:** `areaServed` updated to `["United States","Canada","Europe"]`
 (`Layout.astro`), matching the Conv-037 "US, Canada and Europe" copy edits. (The broader JSON-LD expansion
 above is still the open work.)
+📎 **Content authorship carrier (Conv 041 policy, `DEC` at /r-end):** content pieces are **byline-less
+on-page** by decision, so the author signal is carried **here** — add `author` (`Person`, → `/about/`) to the
+per-post `Article`/`CreativeWork` JSON-LD, plus `datePublished`/`dateModified` from the blog `pubDate`/
+`updatedDate` fields (added Conv 041). This is the agreed home for attribution; don't add a visible byline.
 
 ### [SITE-CONTENT-HOME] · added Conv 038 · build the guides + blog content surface in fgw-26
 ✅ **Dark scaffold built Conv 039** (`fgw-26`), gated by `CONTENT_HOME_LIVE` (noindex + off-nav +
@@ -159,8 +163,13 @@ gated the same way.
 `[BLOG-REDIRECT]`.
 ✍️ **Draft content (Conv 039, all `draft: true`, pending operator redline):** 3 cornerstone guide drafts
 (Trust / Steering / Deciding) + one throwaway sample article. **Remaining:** finalise the first article +
-all three guides (CC drafts → operator approves), then **flip live** (hopper item: set
-`CONTENT_HOME_LIVE = true` + deploy). 🔴 Prod deploys banned until finalised (`[PROD-DEPLOY-BAN]`).
+all three guides (CC drafts → operator approves), then **flip live** (🚀 steps below). 🔴 Prod deploys
+banned until finalised (`[PROD-DEPLOY-BAN]`).
+🚀 **Flip-live steps (folded from hopper, Conv 041):** when the first real cornerstone guide is approved,
+set **`CONTENT_HOME_LIVE = true`** (`consts.ts`) and deploy. That one flag drives everything: reveals the
+nav + footer content-home links (gated `CONTENT_HOME_LIVE || DEV`, Conv 039), drops the `noindex`, and
+re-includes `/guides` + `/writing` in the sitemap — no per-file nav edits at flip. The old `/blog` →
+`/writing/` 301 is tracked by `[BLOG-REDIRECT]`; per-piece JSON-LD via `[SITE-STRUCTURED-DATA]`.
 🔗 Per-piece JSON-LD (`CreativeWork`) deferred to `[SITE-STRUCTURED-DATA]` (a clean `slot="head"` hook is
 left on the detail pages).
 ✍️ **Trust guide heavily redlined + tone-reviewed Conv 040** (`is-your-ai-built-software-sound.md`, still
