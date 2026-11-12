@@ -75,6 +75,26 @@ departure; only approved ones land here. (Mechanism set Conv 040.)
   Humility above). Use it sparingly; an item is fine ending on the problem. The explicit "here's how I help
   / get in touch" stays concentrated at the guide's **close** (and in the Deciding guide, which carries the
   soft CTA), never seeded through the teaching body.
+- **Sentence-initial conjunctions — ~2 of *each*, a guideline (operator, Conv 040).** Fraser likes opening
+  a sentence with a conjunction ("And", "But", "So") for contrast or emphasis — the reader gets a full stop,
+  then the conjunction lands the next beat. A device he likes but overdoes. Guideline: **about two of each
+  conjunction per article** (not a hard cap, not 2 total). Workflow: CC audits and presents a per-type
+  summary (the sentences, grouped by And/But/So); **the operator rules** which to keep and which to reword
+  so they don't lead with the conjunction. (Conjunctive adverbs like "Then" are in scope only if asked.)
+- **Metaphors / clichéd phrases — surface and rule, no hard cap (operator, Conv 040; softened).** A
+  fatherly, mentory habit: reaching for a metaphor or clichéd phrase to pull drifting text back to its impact
+  on the reader. **Mostly welcome** — they're a big part of how the reader feels talked to directly, and the
+  **unexpected** ones ("welcome them as the friends they are", "rushing is the enemy", "something is off")
+  give the voice its character; those tend to be *keepers*, not cuts. **No hard cap.** Workflow: CC audits a
+  piece for these phrases and **highlights the unexpected / distinctive ones** (vs. the mild, expected
+  phrasings); the **operator rules each** (keep / reword). **Structural** metaphors — a whole analogy, the
+  core hook — are the spine and kept.
+- **The aim behind both caps above (operator, Conv 040).** Not mechanical counting, and never about
+  provenance — a sentence CC wrote can be the one that stays, a sentence the operator wrote can be the one
+  reworded. It's the **balance** of transitions, contrasts, and emphasis across a whole piece: these devices
+  are how the reader feels they're being talked to *directly*, so keep as much of that voice as possible and
+  trim only where the pile-up turns jarring or erratic. The caps serve that balance; they don't replace the
+  judgement, and the operator rules the close calls.
 
 ## On a "site config file"
 The site repo (`fgw-26`) has no brand/voice config today; this file is the durable standard. If a
