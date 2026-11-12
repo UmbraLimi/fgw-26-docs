@@ -163,6 +163,15 @@ all three guides (CC drafts → operator approves), then **flip live** (hopper i
 `CONTENT_HOME_LIVE = true` + deploy). 🔴 Prod deploys banned until finalised (`[PROD-DEPLOY-BAN]`).
 🔗 Per-piece JSON-LD (`CreativeWork`) deferred to `[SITE-STRUCTURED-DATA]` (a clean `slot="head"` hook is
 left on the detail pages).
+✍️ **Trust guide heavily redlined + tone-reviewed Conv 040** (`is-your-ai-built-software-sound.md`, still
+`draft:true`/dark): operator-directed content pass (intuition throughline, edge-cases framing, human-nature
+testing → automated checks, a new **"Know your limits, and grow past them"** section, home-repair +
+collaborative-close fixes) then a whole-guide tone/presentation review — new **glossary feature**
+(`DEC-040-3`: guides-schema `glossary` field + small muted end-of-page block, 4 terms), an **"it" pass**
+(default "it" = your AI-built software, non-software "it"s named), **"I"/conjunction/metaphor balancing**
+(headings → "you"). Built via the new **`scripts/number-content.mjs`** `P#S#` coordinate-view tool
+(`DEC-040-1`). **Remaining:** operator's final rendered-page read (hopper), then finalise + flip; Steering/
+Deciding guides + the sample article still unredlined.
 
 ### [SITE-CONSENT] · promoted Conv 035 · GA4 analytics consent decision (privacy/legal)
 GA4 sets cookies → EU visitors likely need consent (cookieless ≠ consent-free; fingerprinting is the weak
@@ -195,6 +204,15 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 040:** **`[SITE-CONTENT-HOME]` Trust guide redlined + glossary feature** (row stays — content +
+  flip pending). Heavy operator-directed redline of `is-your-ai-built-software-sound.md` (`draft:true`/
+  dark): intuition throughline, edge-cases framing, human-nature testing → automated checks, new **"Know
+  your limits, and grow past them"** section, home-repair + collaborative-close fixes; then a whole-guide
+  **tone/presentation review** — **glossary feature** (`DEC-040-3`), an **"it" pass** (default "it" = your
+  AI-built software; non-software "it"s named), and **"I"/conjunction/metaphor balancing** (headings →
+  "you"). Built the **`scripts/number-content.mjs`** `P#S#` coordinate-view tool (`DEC-040-1`). Governance:
+  editing working-mode + audience-drift/for-builders capture (`DEC-040-2`, `_cc/for-builders-tidbits.md`),
+  conjunction + metaphor voice rules (`DEC-040-4`), intuition theme, `VOICE.md`/`PERSONA.md` accretions.
 - **Conv 039:** **`[SITE-CONTENT-HOME]` dark scaffold built + IA settled** (row stays — content + flip
   pending). Hub-and-spoke content home in `fgw-26`, gated dark by `CONTENT_HOME_LIVE` (`DEC-039-1`): `guides`
   collection + `pillar` join on `blog`; hub `/guides/`, `/guides/<slug>/`, `/writing/` (renamed from

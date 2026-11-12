@@ -8,6 +8,71 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 040
+
+### DEC-040-4 — Voice-balance rules: conjunction cap (~2 each) + metaphor surface-and-rule
+**Decision:** Two standing content voice guidelines, recorded in `VOICE.md`. (a) **Sentence-initial
+conjunctions** ("And"/"But"/"So"): a guideline of **~2 of each per article** (not a hard cap, not 2
+total); CC audits a piece, presents a per-type summary, and the operator rules which to keep vs. reword.
+(b) **Metaphors / clichéd "pull-back" phrases**: **no hard cap** — CC audits and **highlights the
+unexpected/distinctive ones** (vs. mild expected phrasings), the operator rules each; structural metaphors
+(a whole analogy, the core hook) are the spine and kept. Both serve one aim: the **balance** of
+transitions/contrasts/emphasis that keeps the reader feeling talked to directly — not mechanical counting,
+never about provenance (a CC-written sentence can stay; an operator-written one can be the one reworded).
+**Rationale:** The operator named two self-aware tendencies (over-opening with conjunctions; over-reaching
+for fatherly metaphors) and wants them governed without flattening his voice — the distinctive phrasings
+are character, not clutter. Rejected: a hard "2 per article" cap (too blunt — cuts good lines, reads as
+erratic); CC ruling the cuts itself (operator rules close calls); provenance-based cutting (irrelevant to
+the reader).
+**Consequences:** Applied to the Trust guide — conjunctions trimmed toward ~2-of-each (reworded a leading
+"And" and "So"); all metaphors kept (operator ruled the unexpected ones as keepers). Future audits follow
+surface → highlight → operator-rules.
+
+### DEC-040-3 — Guides carry an optional end-of-page glossary (frontmatter + template)
+**Decision:** Guides may define an optional **`glossary`** array in frontmatter (`term` + `definition`),
+rendered as a **small, muted block** (hairline top rule) at the very bottom of the guide by `[slug].astro`,
+only when present. The Trust guide seeds four terms (Edge case, Happy path, Silent failure, Automated test).
+**Rationale:** An understated, skippable glossary lets a buyer meet the few unavoidable technical terms
+without the prose stopping to over-explain. Frontmatter + template (not inline markdown) keeps the prose
+clean, styles the small font properly (markdown can't), and makes the feature reusable across
+Steering/Deciding. Rejected: inline markdown definitions (can't style small/muted, clutter the body); no
+glossary (leaves terms unexplained for scanners).
+**Consequences:** `glossary` field added to the guides schema (`content.config.ts`); render block in
+`[slug].astro`; four terms on the Trust guide. Steering/Deciding get it for free when terms are added.
+
+### DEC-040-2 — Editing working-mode: improve in-voice, surface candidates, watch audience-drift
+**Decision:** The cadence for CC editing pre-curated content. (a) When applying a `P#S#` edit, CC is **free
+to normalize and improve the prose while keeping the voice** (consulting `VOICE.md`/`PERSONA.md`); the
+operator says **"verbatim"** for a literal replacement. (b) CC **notices good turns of phrase / deliberate
+voice departures**, surfaces them (inline, or a `VOICE-CANDIDATE` hopper line mid-flow); operator-approved
+ones land in `VOICE.md`'s accretion section. (c) CC **watches for audience-drift** (teaching coders inside
+buyer copy), **reframes to the buyer**, and **preserves the coder-angled material** in
+`_cc/for-builders-tidbits.md` (a capture bin toward a rare, separate "for builders" article). The
+buyer/coder line is blurred (these buyers have built with AI) — the real divider is **vernacular**, not
+concept (recorded in `PERSONA.md`, refining `DEC-036-2`).
+**Rationale:** The operator directs content and wants CC to carry voice/jargon discipline without spelling
+out every tweak; the drift toward teaching coders is a known propensity worth catching, and the cut coder
+material has future value. Rejected: verbatim-only edits (wastes CC's voice judgement); dropping drift
+material (loses reusable teaching); treating concept-level content as the divider (these buyers grasp the
+concepts — it's the jargon that misfits).
+**Consequences:** `_cc/for-builders-tidbits.md` created (four Trust-guide tidbits); `PERSONA.md` gains the
+"teaches coders, a side channel" propensity + the vernacular-divider nuance; `VOICE.md` gains the
+turns-of-phrase accretion section + these conventions. Drove the whole Trust-guide redline.
+
+### DEC-040-1 — Content coordinate-view tool + `P#S#` edit-addressing convention
+**Decision:** Build **`scripts/number-content.mjs`** (fgw-26): it prints a guide/article with a positional
+address on every block (`P#`) and sentence (`S#`), computed on demand and **never stored in the content**.
+The operator points CC at an exact edit site ("change P2S4 to read …"); CC edits the clean source and
+reprints the view. An `npm run number` alias is added.
+**Rationale:** The operator needed a shared, deterministic way to point at edit sites in CC-only-edited
+content. A generated coordinate *view* keeps the shipped markdown clean and drift-free (reprinted each
+round); a script makes the numbering identical for both sides. Rejected: numbers baked into the source +
+stripped at build (pollutes content, build complexity, sentence numbering unworkable in markdown); CC
+hand-numbering per reply (no shared determinism on a long guide); an outline restructure (damages prose).
+**Consequences:** Tool + `package.json` alias built; used for the entire Trust-guide redline. The operator
+loads the view in a pane (`fgw-26-docs/.scratch/`, gitignored); CC reprints after each edit. Reusable for
+every guide/article.
+
 ## Conv 039
 
 ### DEC-039-1 — Content home built dark; one `CONTENT_HOME_LIVE` flip switch

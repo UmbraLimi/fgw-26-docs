@@ -2,9 +2,45 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-10._
+_As of 2026-11-11._
 
 ---
+
+### DEC-040-4 — Voice-balance rules: conjunction cap (~2 each) + metaphor surface-and-rule
+
+Two standing content voice guidelines, recorded in `VOICE.md`. (a) **Sentence-initial
+conjunctions** ("And"/"But"/"So"): a guideline of **~2 of each per article** (not a hard cap, not 2
+total); CC audits a piece, presents a per-type summary, and the operator rules which to keep vs. reword.
+(b) **Metaphors / clichéd "pull-back" phrases**: **no hard cap** — CC audits and **highlights the
+unexpected/distinctive ones** (vs. mild expected phrasings), the operator rules each; structural metaphors
+(a whole analogy, the core hook) are the spine and kept. Both serve one aim: the **balance** of
+transitions/contrasts/emphasis that keeps the reader feeling talked to directly — not mechanical counting,
+never about provenance (a CC-written sentence can stay; an operator-written one can be the one reworded).
+
+### DEC-040-3 — Guides carry an optional end-of-page glossary (frontmatter + template)
+
+Guides may define an optional **`glossary`** array in frontmatter (`term` + `definition`),
+rendered as a **small, muted block** (hairline top rule) at the very bottom of the guide by `[slug].astro`,
+only when present. The Trust guide seeds four terms (Edge case, Happy path, Silent failure, Automated test).
+
+### DEC-040-2 — Editing working-mode: improve in-voice, surface candidates, watch audience-drift
+
+The cadence for CC editing pre-curated content. (a) When applying a `P#S#` edit, CC is **free
+to normalize and improve the prose while keeping the voice** (consulting `VOICE.md`/`PERSONA.md`); the
+operator says **"verbatim"** for a literal replacement. (b) CC **notices good turns of phrase / deliberate
+voice departures**, surfaces them (inline, or a `VOICE-CANDIDATE` hopper line mid-flow); operator-approved
+ones land in `VOICE.md`'s accretion section. (c) CC **watches for audience-drift** (teaching coders inside
+buyer copy), **reframes to the buyer**, and **preserves the coder-angled material** in
+`_cc/for-builders-tidbits.md` (a capture bin toward a rare, separate "for builders" article). The
+buyer/coder line is blurred (these buyers have built with AI) — the real divider is **vernacular**, not
+concept (recorded in `PERSONA.md`, refining `DEC-036-2`).
+
+### DEC-040-1 — Content coordinate-view tool + `P#S#` edit-addressing convention
+
+Build **`scripts/number-content.mjs`** (fgw-26): it prints a guide/article with a positional
+address on every block (`P#`) and sentence (`S#`), computed on demand and **never stored in the content**.
+The operator points CC at an exact edit site ("change P2S4 to read …"); CC edits the clean source and
+reprints the view. An `npm run number` alias is added.
 
 ### DEC-039-1 — Content home built dark; one `CONTENT_HOME_LIVE` flip switch
 

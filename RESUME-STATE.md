@@ -2,24 +2,26 @@
 
 ## Where we left off
 
-Conv 039 **built [SITE-CONTENT-HOME] dark** in `fgw-26`: the guides + writing hub-and-spoke
-(`/guides/` cornerstones, `/writing/` dated articles — renamed from `/blog/`), all gated by one
-`CONTENT_HOME_LIVE` flag (noindex + off-nav + sitemap-excluded; shown only in `astro dev`). Drafted and
-**pending operator redline** (all `draft:true`): 3 cornerstone guides (Trust / Steering / Deciding) + 1
-throwaway sample article. IA settled (`DEC-039-3`: "Guides"/"Writing", single-purpose pages, cross-linked);
-nav trimmed (dropped "Home"; `DEC-039-5`), Phases added to footer, sticky-footer + back-link fixes. A
-**production deploy ban** (`DEC-039-2`, fail-closed guard; staging exempt) holds until the content home is
-finalised — so this conv's general fixes also wait for the flip. Decisions `DEC-039-1..5`.
+Conv 040 heavily **redlined + tone-reviewed the Trust cornerstone guide** (`is-your-ai-built-software-sound.md`,
+still `draft:true`/dark) and, along the way, built the machinery and voice rules for all content work
+(`DEC-040-1..4`): the **`P#S#` coordinate-view edit tool** (`scripts/number-content.mjs`), a **guides
+glossary** feature, the **editing working-mode** (+ the `_cc/for-builders-tidbits.md` capture bin), and the
+**conjunction / metaphor voice-balance rules** (`VOICE.md`/`PERSONA.md` accretions). The guide reads
+finished-for-now but is **not yet finalised**; Steering/Deciding guides + the sample article are still
+unredlined; the content home is still **dark** (flip pending, `[PROD-DEPLOY-BAN]` holds).
 
-## Next action
-
-**Operator redlines the 3 guide drafts + the sample article** (in `fgw-26`, preview at the running
-`astro dev` / localhost:4321); then **CC seeds `_cc/content-backlog.md`** with pillar-consistent topics
-(the operator's stated plan, turn 9). Finalising the first article + all three guides is the gate: it
-unblocks the flip-live hopper item (set `CONTENT_HOME_LIVE = true` + deploy) and lifts `[PROD-DEPLOY-BAN]`.
+Three hopper items carried: the operator's rendered-page read, the images/attribution/date-stamping ruling,
+and the `[SITE-CONTENT-HOME]` flip-live steps.
 
 ⚠️ **Human carry-over (still open):** the operator is to **send Gabriel the LinkedIn recommendation request**
 (note + draft in `_cc/linkedin-makeover.md`).
+
+## Next action
+
+**Operator reads the Trust guide as a rendered web page** (dev server / `localhost:4321/guides/is-your-ai-built-software-sound/`),
+top to bottom, for a final feel — then rules **images / attribution / date-stamping** (noted as mostly
+Writing-not-guides) and whether Trust is ready to finalise toward the flip. It's the gate the operator set
+for this thread and the top hopper carry.
 
 ## 🔬 Carried findings
 
