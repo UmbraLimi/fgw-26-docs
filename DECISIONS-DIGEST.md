@@ -2,9 +2,28 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-11._
+_As of 2026-11-12._
 
 ---
+
+### DEC-041-2 — Content-media policy: no byline, optional updated-date, optional on-page hero
+
+How content pieces (guides + blog) handle attribution, dates, and images. (a) **No visible
+byline** anywhere; authorship is carried in JSON-LD only (a `Person`/`author`, owned by
+`[SITE-STRUCTURED-DATA]`) — no `author` field in either schema. (b) **Dates:** guides stay **undated**;
+blog keeps `pubDate` and gains an **optional `updatedDate`** (renders "Updated <date>", feeds
+`dateModified` in the deferred per-post JSON-LD). (c) **Images:** optional `image()` **hero on blog posts
+only** (schema object: `src` + required `alt` + optional `caption`/`credit`), rendered as an **on-page
+adornment** atop the article and **not** wired to `og:image` (shares keep the branded 1200×630 card in
+`Layout.astro`); plus `.prose img` styling for inline markdown images. Guides stay text-only. Any
+third-party image needs alt + a visible credit.
+
+### DEC-041-1 — Inline prose links unified on a shared `--link` token (semibold, no underline)
+
+All inline prose/content links across the site share one treatment: a new `--link` token
+(`light-dark(#b23a0b, #f6b85e)`) + `font-weight: 600`, no underline. Both `.prose a` (markdown bodies) and
+`.text-link` (hand-authored inline links) point at it; `.text-link` drops its former underline to match;
+hover standardized to `--ink`. `.prose img` added alongside.
 
 ### DEC-040-4 — Voice-balance rules: conjunction cap (~2 each) + metaphor surface-and-rule
 

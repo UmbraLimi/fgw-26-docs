@@ -8,6 +8,49 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 041
+
+### DEC-041-2 — Content-media policy: no byline, optional updated-date, optional on-page hero
+**Decision:** How content pieces (guides + blog) handle attribution, dates, and images. (a) **No visible
+byline** anywhere; authorship is carried in JSON-LD only (a `Person`/`author`, owned by
+`[SITE-STRUCTURED-DATA]`) — no `author` field in either schema. (b) **Dates:** guides stay **undated**;
+blog keeps `pubDate` and gains an **optional `updatedDate`** (renders "Updated <date>", feeds
+`dateModified` in the deferred per-post JSON-LD). (c) **Images:** optional `image()` **hero on blog posts
+only** (schema object: `src` + required `alt` + optional `caption`/`credit`), rendered as an **on-page
+adornment** atop the article and **not** wired to `og:image` (shares keep the branded 1200×630 card in
+`Layout.astro`); plus `.prose img` styling for inline markdown images. Guides stay text-only. Any
+third-party image needs alt + a visible credit.
+**Rationale:** Eponymous site + quiet-editorial voice → a visible byline is redundant blog-template
+texture, while the machine/E-E-A-T signal is better served by structured data. Optional `updatedDate`
+gives a freshness signal + candour at near-zero cost. A hero is "an on-page adornment, not an SEO
+ambassador" (operator) — so it stays decoupled from the branded og card, which is correctly sized and
+consistent; an editorial hero of arbitrary aspect makes a worse share card and wiring it needs
+prop-threading through `Layout`. Rejected: a visible byline (redundant here); `pubDate`-only (no revision
+signal); a public-path hero string (loses Astro image optimization — the site has `[SITE-PERF]`
+discipline); hero-as-og:image (worse cards, more build).
+**Consequences:** `blog` schema gains `updatedDate` + optional `image()` `heroImage`; `writing/[slug].astro`
+renders both (verified in dev with a temporary stand-in, then reverted); `.prose img` added.
+`[SITE-STRUCTURED-DATA]` now owns the `author`/`datePublished`/`dateModified` JSON-LD. Guides and
+`og:image` unchanged.
+
+### DEC-041-1 — Inline prose links unified on a shared `--link` token (semibold, no underline)
+**Decision:** All inline prose/content links across the site share one treatment: a new `--link` token
+(`light-dark(#b23a0b, #f6b85e)`) + `font-weight: 600`, no underline. Both `.prose a` (markdown bodies) and
+`.text-link` (hand-authored inline links) point at it; `.text-link` drops its former underline to match;
+hover standardized to `--ink`. `.prose img` added alongside.
+**Rationale:** A guide CTA link was effectively invisible — `.prose a` used the dark light-mode ember
+`--accent-strong` (#92400e), too close in value to `--ink`, with no underline (the `text-underline-offset`
+was an orphaned fossil of an intended-but-missing underline). On the deep warm paper, no AA-legible ember
+is also distinct from near-black ink (measured: #b45309 fails AA at 4.14:1; AA-safe candidates barely
+separate from ink), so a **second signal** is needed — weight. The operator chose colour + weight over an
+underline ("not an underline, a colour change") and wanted the same inline-link look site-wide. Rejected:
+brighter ember #b45309 (fails AA on paper); colour-only (marginal, still quiet); keeping `.text-link`'s
+underline (leaves the two inline-link mechanisms divergent); adding underlines to prose (operator ruled it
+out).
+**Consequences:** `--link` token added; `.prose a` + `.text-link` unified; ~20 `.text-link` links across 9
+pages lost their underline (operator verified they still read as links in both modes); `.prose img` added.
+WCAG 1.4.1 (colour-alone) is covered by the weight as the non-colour signal.
+
 ## Conv 040
 
 ### DEC-040-4 — Voice-balance rules: conjunction cap (~2 each) + metaphor surface-and-rule

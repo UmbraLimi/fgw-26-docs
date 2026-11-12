@@ -32,6 +32,13 @@ already reviewed Conv 037):** review Search Console for (a) any new
 concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has progressed. Keep this row
 open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
 cadence mechanism (`DEC-035-4`, built Conv 035).
+✅ **Conv 41 check (cadence):** no new concerns — manual actions none, security none, HTTPS clean, sitemap
+Success (22 discovered, read Nov 10). Indexing early but healthy: of the 22 real pages only **3 indexed**
+(`/`, `/work/`, `/privacy/`); the core pages (`/about/`, `/method/`, `/phases/`, `/contact/`, `/faq/`,
+`/history/`, `/testimonials/`, work cases) are discovered-but-not-yet-crawled (expected lag, new
+low-authority site). Old-site paths (`/services/`, `/ai-coaching/`, `/how-i-work/`, `/terms/`) linger as
+stale "indexed" entries that now 301 (verified live) — self-heal on re-crawl. GSC "All known pages"
+filter chevron is non-functional (GSC-side glitch). Next cadence ~Conv 44.
 
 ### [POSTING-PLAN] · added Conv 035 · run the X + LinkedIn posting cadence (plan ✅ Conv 038)
 ✅ **Plan stood up Conv 038** — the full channel/funnel strategy lives in `reference/CHANNELS.md` (funnel,
@@ -146,7 +153,7 @@ together. (Promoted Conv 035.)
 📎 **Geography reconcile — ✅ done Conv 037:** `areaServed` updated to `["United States","Canada","Europe"]`
 (`Layout.astro`), matching the Conv-037 "US, Canada and Europe" copy edits. (The broader JSON-LD expansion
 above is still the open work.)
-📎 **Content authorship carrier (Conv 041 policy, `DEC` at /r-end):** content pieces are **byline-less
+📎 **Content authorship carrier (Conv 041 policy, `DEC-041-2`):** content pieces are **byline-less
 on-page** by decision, so the author signal is carried **here** — add `author` (`Person`, → `/about/`) to the
 per-post `Article`/`CreativeWork` JSON-LD, plus `datePublished`/`dateModified` from the blog `pubDate`/
 `updatedDate` fields (added Conv 041). This is the agreed home for attribution; don't add a visible byline.
@@ -179,8 +186,17 @@ collaborative-close fixes) then a whole-guide tone/presentation review — new *
 (`DEC-040-3`: guides-schema `glossary` field + small muted end-of-page block, 4 terms), an **"it" pass**
 (default "it" = your AI-built software, non-software "it"s named), **"I"/conjunction/metaphor balancing**
 (headings → "you"). Built via the new **`scripts/number-content.mjs`** `P#S#` coordinate-view tool
-(`DEC-040-1`). **Remaining:** operator's final rendered-page read (hopper), then finalise + flip; Steering/
-Deciding guides + the sample article still unredlined.
+(`DEC-040-1`).
+✍️ **Trust guide: rendered-read pass Conv 041** — operator read the whole guide as it renders; **11 edits
+applied** (lede recast as a hook carrying the "AI-built software" keyphrase, opening tightened so the "get
+burned" question lands, "prompt"→"the directions you gave it", edge-case "them" disambiguation closing on
+"hurt you", "recognizable kinds", notebook questions pluralized, "When does checking it yourself end?"
+heading + two-part test). Reads finished-for-now; **operator has not yet declared it final**. Same conv
+added the **content-media policy** (`DEC-041-2`: byline-less → JSON-LD author; `pubDate` + optional
+`updatedDate`; optional `image()` hero as on-page adornment, og decoupled) and the **prose-link styling
+unification** (`DEC-041-1`: `--link` token, `.prose a`↔`.text-link`, dropped underlines — fixes a
+light-mode content-link that was invisible). **Remaining:** operator declares Trust final; Steering/
+Deciding guides + the sample article still unredlined; then flip live (🚀 above).
 
 ### [SITE-CONSENT] · promoted Conv 035 · GA4 analytics consent decision (privacy/legal)
 GA4 sets cookies → EU visitors likely need consent (cookieless ≠ consent-free; fingerprinting is the weak
@@ -213,6 +229,17 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 041:** **Trust rendered-read redline + prose-link + content-media policy + GSC check** (rows stay
+  — content + flip pending). Operator read the Trust guide as a rendered page; **11 content edits** applied
+  (hook lede with keyphrase, tightened opening, "prompt"→"directions you gave it", edge-case "them"
+  disambiguation, "recognizable kinds", "When does checking end?" two-part test). **`DEC-041-1` prose-link
+  styling unification** (`--link` token; `.prose a`↔`.text-link` → semibold, no underline; fixed a
+  light-mode content link that was invisible against `--ink`). **`DEC-041-2` content-media policy**
+  (byline-less → JSON-LD author; `pubDate` + optional `updatedDate`; optional `image()` hero as on-page
+  adornment, og decoupled) — implemented + verified (blog schema, `writing/[slug]` render, `.prose img`).
+  **`[GOOGLE-SERVICES]` cadence check** (Conv 41): no new concerns; 3/22 real pages indexed, rest
+  discovered-and-queued (expected lag), old-path URLs self-healing. Hopper cleared (3 items: Trust read done,
+  content-media ruled, flip steps folded to board).
 - **Conv 040:** **`[SITE-CONTENT-HOME]` Trust guide redlined + glossary feature** (row stays — content +
   flip pending). Heavy operator-directed redline of `is-your-ai-built-software-sound.md` (`draft:true`/
   dark): intuition throughline, edge-cases framing, human-nature testing → automated checks, new **"Know
