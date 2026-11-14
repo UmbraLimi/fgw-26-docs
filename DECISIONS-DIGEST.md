@@ -2,9 +2,29 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-12._
+_As of 2026-11-14._
 
 ---
+
+### DEC-042-2 — Image storage + provenance: single-repo, co-located provenance.json + one central schema
+
+Every source image used (or planned) gets a folder `fgw-26/src/content/images/<id>/` holding
+the archived original + **every kept treatment** (full-res masters) + a co-located `provenance.json`,
+validated by **one central Zod schema** (the `images` content collection; folder name = the id via
+`generateId`). Schema is **one source → many treatments** (`name`/`file`/`role`/`usedOn`/`derivedFrom`/
+`crop`/`cleanup`/`conv`/`date`); failed experiments are **excluded** (they live in scratch + the conv
+record). Everything in **one repo** (`fgw-26`), one copy, no cross-repo sync. `guides` gained an optional
+`image` reference; `guides/[slug].astro` renders the `square` treatment in-page + the `colophon` at the foot
+(name + PD credit), glob-importing the treatment files so Astro optimizes them at build.
+
+### DEC-042-1 — Guide/article imagery: cleaned public-domain line engravings (square tile + colophon)
+
+Per-guide/article illustration comes from **public-domain natural-history line engravings**
+(BHL/Wikimedia/Wellcome — e.g. Lister's *Historiae Conchyliorum*), **cleaned as a raster engraving** (gentle:
+grayscale + a mild `contrast-stretch` + a warm duotone; no flat-field), presented as a **square detail crop**
+in-page (operator picks the diagnostic feature) + the **full plate in a foot colophon** (species name +
+public-domain credit). Text is removed by **cropping** (captions sit in the plate margins), not inpainting.
+**No light/dark theming** (fixed background). O'Reilly is loose inspiration only.
 
 ### DEC-041-2 — Content-media policy: no byline, optional updated-date, optional on-page hero
 

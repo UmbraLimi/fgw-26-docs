@@ -11,20 +11,17 @@
 
 ## Status (Conv 042)
 
-- Trust guide **prose is final**; its *image* is the one open dependency before flip.
-- **Pipeline PROVEN** (ImageMagick + potrace/autotrace installed): crush → blur → trace tonal cutoffs →
-  stroke. Pure line art themes free via `currentColor` (light/dark proven); grey fills do **not** (a
-  per-theme tonal ramp is needed).
-- **Key pivot (Conv 042): source PD *illustrations*, not photographs.** Photo-tracing *reproduces* a
-  specimen's incidental 3-D/tonal noise and so always looks complex; a naturalist's plate *interprets* —
-  it draws the diagnostic features. Automated tracing can't invent that interpretation, so we feed it input
-  where a human already did. (See "Reproduction vs. interpretation".)
-- ⚠️ **O'Reilly trade-dress caution** steers us away from the vintage-engraving *look* toward an original
-  identity. (See "O'Reilly".)
-- Subject experiments (photos): dragonfly head macro (too complex); pimpleback mussel (pustules fight the
-  airy look; grey-fill reads busy) — both confirmed the reproduction-vs-interpretation problem.
-- Candidate PD illustration sourced: **Conrad, *New fresh water shells of the United States* (1834)** —
-  North American freshwater mussels, PD (pre-1931). [checked: Commons/BHL, Conv 042]
+- Trust guide **prose final** and its **illustration built + rendering** (Conus; square tile in-page +
+  full-plate colophon). The flip now waits on the **Steering + Deciding** guides (content + their images).
+- **Approach settled (`DEC-042-1`):** PD natural-history **line engravings**, cleaned as a raster engraving,
+  a **square detail tile** in-page + a **full-plate colophon**; no light/dark theming (fixed background).
+  Got here via rejected experiments — photo-tracing a dragonfly head + a pimpleback mussel *reproduced*
+  3-D/tonal noise, never *interpreted*; and a tonal lithograph (Conrad) is tone, not line. (See
+  "Reproduction vs. interpretation" + "O'Reilly".)
+- **Architecture built (`DEC-042-2`):** the `images` content collection + one central Zod schema, single-
+  repo co-located. (See "Storage architecture" + "First image".)
+- First image: **Lister, *Conus marmoreus*** (PD line engraving, Historiae Conchyliorum). [checked: Commons
+  API, Conv 042]
 
 ## Art direction (locked so far, Conv 042)
 
@@ -138,8 +135,7 @@ background, per operator.
 - **Cleanup — gentle** (a heavier flat-field washed out detail and was rejected):
   `-colorspace Gray -contrast-stretch 0.3%x0.08% +level-colors '#2b2114','#efe7d2'`
   — even the paper, lift contrast lightly, warm duotone (dark-brown ink on aged cream).
-- Final asset: `.scratch/img-proof/drawings/conus_square_final.png` (1520²). 🔴 **Move into `fgw-26` when
-  wired** — scratch is non-durable.
+- Final asset: `fgw-26/src/content/images/conus-marmoreus-lister/square.png` (1520²), committed Conv 042.
 - ⚠️ `#efe7d2` cream is a **placeholder** — match the real site background token at integration.
 
 ## Storage architecture (decided Conv 042 — "C")
@@ -152,15 +148,16 @@ Built + `astro sync`-validated Conv 042.
 - 🔴 **Rejected: the docs/site split** (full provenance + masters in `fgw-26-docs`, only optimized-used in
   `fgw-26`). The leaner-build gain is **eaten by uneven cross-repo duplication that has to be managed** —
   two homes, a sync/generator step, drift risk. One repo, one copy, no sync beats a smaller build.
-  (Operator's call; → distil as `DEC-042-N` at /r-end.)
+  (Operator's call; `DEC-042-2`.)
 - **Optimization is not a treatment, and not committed.** Astro reads the committed master and emits
   optimized webp/avif into `dist` at build (ephemeral). We commit masters, never pre-optimized files.
 - **Accepted tradeoff:** `fgw-26` carries full-res masters/originals, so the repo grows with the image
   library — accepted over the management cost of a split.
 
-**Built Conv 042:** the `images` collection + schema; `conus-marmoreus-lister/` (`source.jpg` +
-`square.png` + `provenance.json`). **Still open:** colophon full-plate treatment; render wiring (guides
-image field + the square tile + colophon, real background token); the remaining guide/article images.
+**Built Conv 042:** the `images` collection + schema; `conus-marmoreus-lister/` (`source.jpg` + `square.png`
++ `colophon.png` + `provenance.json`); the `guides` `image` ref; the guide page rendering the **square
+tile** + **colophon** (species name + PD credit), verified in dev. **Still open:** images for the Steering +
+Deciding guides; the site-wide provenance guard + usage cross-ref (`[IMAGE-PROVENANCE]`).
 
 ## Does Wikipedia already "follow this model"? (the operator's question)
 

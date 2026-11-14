@@ -195,8 +195,42 @@ heading + two-part test). Reads finished-for-now; **operator has not yet declare
 added the **content-media policy** (`DEC-041-2`: byline-less → JSON-LD author; `pubDate` + optional
 `updatedDate`; optional `image()` hero as on-page adornment, og decoupled) and the **prose-link styling
 unification** (`DEC-041-1`: `--link` token, `.prose a`↔`.text-link`, dropped underlines — fixes a
-light-mode content-link that was invisible). **Remaining:** operator declares Trust final; Steering/
-Deciding guides + the sample article still unredlined; then flip live (🚀 above).
+light-mode content-link that was invisible). **Remaining (Conv 042):** Trust prose **declared final** and
+its illustration wired (`[CONTENT-ART]`); **Steering/Deciding guides + the sample article still unredlined**
+(and still need their images); then flip live (🚀 above).
+
+### [CONTENT-ART] · promoted Conv 042 · guide/article illustration programme
+🎨 **Approach settled Conv 042** (full reasoning + recipes: `_cc/content-art-and-copyright.md`): per-guide/
+article imagery from **public-domain natural-history line engravings** (not photos, not AI — a naturalist's
+plate already does the diagnostic interpretation that tracing a photo can't), cleaned as a raster engraving,
+a **square detail tile** in-page + a **full-plate colophon** at the foot (species name + PD credit). No
+light/dark theming (fixed background). O'Reilly is loose inspiration only — a trade-dress watch-item
+(software + woodcut animals is their niche); copyright is clean (same PD well, the original plate not their
+redraw).
+🏗️ **Built Conv 042:** the `images` content collection + central Zod schema (co-located `provenance.json`
+per `src/content/images/<id>/`, one source → many kept treatments, folder = id); first image
+**`conus-marmoreus-lister`** (Lister *Conus marmoreus*, PD) with `square` + `colophon` treatments + source;
+`guides` schema `image` ref; **Trust guide wired + rendering** (verified in dev). Storage = single-repo
+co-located (`DEC-042-2`; rejected the docs/site split — cross-repo duplication outweighs a leaner build).
+🔜 **Remaining:** images for the **Steering** + **Deciding** guides (and articles as they land); more
+treatments/alternates as chosen; operator selects further subjects (own PD photos possible later). Part of
+what the `[SITE-CONTENT-HOME]` flip counts as "finalized".
+
+### [IMAGE-PROVENANCE] · promoted Conv 042 · provenance + treatment + usage for ALL site images
+🏗️ **Foundation built Conv 042** — the `images` content collection + central Zod schema (co-located
+`provenance.json` per `src/content/images/<id>/`; see `[CONTENT-ART]` + `_cc/content-art-and-copyright.md`).
+This row extends it site-wide.
+🎯 **Goal:** *every* image on the site carries provenance + treatment history — not only the new guide/
+article art but existing assets (work-case mockups/screenshots, diagrams, og-image, headshot, etc.).
+🔧 **Three needs:**
+- **A trigger / guard** so the ledger can't silently fall behind. Today it's manual discipline; the schema
+  validates *structure* but nothing fails the build when an image asset has **no** provenance entry. Want a
+  check (build step / pre-commit / `/r-end`) that flags any image not accounted for in a provenance record.
+- **Backfill** existing site images into the model (one-time audit + entries).
+- **Usage cross-reference** — a reliable way to know *where each image is used* (which pages). The per-
+  treatment `usedOn` field is a manual start (drifts); better to derive/validate usage from content at
+  build. Decide: hand-maintained `usedOn` vs a generated image→page map.
+🔭 Design-heavy; sequence after the `[CONTENT-ART]` images are flowing.
 
 ### [SITE-CONSENT] · promoted Conv 035 · GA4 analytics consent decision (privacy/legal)
 GA4 sets cookies → EU visitors likely need consent (cookieless ≠ consent-free; fingerprinting is the weak
@@ -229,6 +263,17 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 042:** **`[CONTENT-ART]` + `[IMAGE-PROVENANCE]` foundation built** (new rows; programme ongoing).
+  Settled the guide/article illustration approach (`DEC-042-1`): public-domain natural-history **line
+  engravings** (not photos/AI — a naturalist's plate already does the diagnostic interpretation that tracing
+  a photo can't), cleaned as a raster engraving, a **square detail tile** in-page + a **full-plate colophon**
+  (species name + PD credit); text handled by cropping; gentle cleanup (a flat-field washed detail away,
+  rejected); O'Reilly copyright clean, trade-dress a managed watch-item. Built the **image-provenance
+  architecture** (`DEC-042-2`): `images` content collection + one central Zod schema, co-located
+  `provenance.json` per `src/content/images/<id>/` (one source → many kept treatments; folder = id);
+  single-repo co-located (rejected the docs/site split). First image **`conus-marmoreus-lister`** (Lister
+  *Conus marmoreus*, PD) — `source` + `square` + `colophon`; `guides` `image` ref; **Trust guide wired +
+  rendering** (verified in dev). Hopper: 2 promoted (`[CONTENT-ART]`, `[IMAGE-PROVENANCE]`), 1 dropped.
 - **Conv 041:** **Trust rendered-read redline + prose-link + content-media policy + GSC check** (rows stay
   — content + flip pending). Operator read the Trust guide as a rendered page; **11 content edits** applied
   (hook lede with keyphrase, tightened opening, "prompt"→"directions you gave it", edge-case "them"

@@ -8,6 +8,54 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 042
+
+### DEC-042-2 — Image storage + provenance: single-repo, co-located provenance.json + one central schema
+**Decision:** Every source image used (or planned) gets a folder `fgw-26/src/content/images/<id>/` holding
+the archived original + **every kept treatment** (full-res masters) + a co-located `provenance.json`,
+validated by **one central Zod schema** (the `images` content collection; folder name = the id via
+`generateId`). Schema is **one source → many treatments** (`name`/`file`/`role`/`usedOn`/`derivedFrom`/
+`crop`/`cleanup`/`conv`/`date`); failed experiments are **excluded** (they live in scratch + the conv
+record). Everything in **one repo** (`fgw-26`), one copy, no cross-repo sync. `guides` gained an optional
+`image` reference; `guides/[slug].astro` renders the `square` treatment in-page + the `colophon` at the foot
+(name + PD credit), glob-importing the treatment files so Astro optimizes them at build.
+**Rationale:** Co-located JSON keeps the record with the images (locality); one central schema makes drift a
+**build error**, not silent divergence — the content-collection pattern already used repo-wide. Single-repo
+because a docs/site split trades a smaller build for **uneven cross-repo duplication that must be managed**
+(operator: a worse deal); optimization isn't a stored artifact anyway (Astro optimizes the committed master
+into `dist`). Keeping only *good* treatments keeps provenance a crisp product record (it feeds the colophon);
+the dead-end trail belongs in the conv record. Rejected: a **central single ledger** (JSON apart from the
+images); the **docs/site split** (cross-repo duplication); per-image unvalidated JSON (drift); recording
+failed experiments in provenance (bloat, no consumer); committing pre-optimized images.
+**Consequences:** `images` collection + schema added (`content.config.ts`); first folder
+`conus-marmoreus-lister/` (`source.jpg` + `square.png` + `colophon.png` + `provenance.json`); the Trust guide
+renders both (verified in dev). The site repo now carries full-res masters (grows with the library —
+accepted). No auto-trigger/guard yet and no usage cross-reference → the `[IMAGE-PROVENANCE]` board task
+(site-wide provenance, a build/commit guard, image→page usage).
+
+### DEC-042-1 — Guide/article imagery: cleaned public-domain line engravings (square tile + colophon)
+**Decision:** Per-guide/article illustration comes from **public-domain natural-history line engravings**
+(BHL/Wikimedia/Wellcome — e.g. Lister's *Historiae Conchyliorum*), **cleaned as a raster engraving** (gentle:
+grayscale + a mild `contrast-stretch` + a warm duotone; no flat-field), presented as a **square detail crop**
+in-page (operator picks the diagnostic feature) + the **full plate in a foot colophon** (species name +
+public-domain credit). Text is removed by **cropping** (captions sit in the plate margins), not inpainting.
+**No light/dark theming** (fixed background). O'Reilly is loose inspiration only.
+**Rationale:** The goal is a *diagnostic/narrative* drawing, not a specimen reproduction. Automated
+photo→line tracing *reproduces* 3-D/tonal noise (always looks complex) and cannot *interpret* which features
+are diagnostic; a naturalist's engraving already did that, in clean line. A **line** engraving (not a tonal
+lithograph, which is tone-not-line and won't strip to clean lines). **Gentle** cleanup (a heavier flat-field
+washed the fine hatching). **Crop-not-inpaint** (lossless; the text is marginal). On O'Reilly: **copyright is
+clean** (a PD engraving is PD for everyone — source the original plate, not their redraw); the real risk is
+**trade dress** (woodcut-animal + *software* is their niche) but low for a consulting site with our own
+layout + aquatic theme and no O'Reilly marks — **managed, not avoided**. Rejected: **AI-generated** line art
+(hallucinates diagnostic detail; AI-on-a-steered-craft-site tension); **tracing photos** (reproduces, can't
+interpret); **tonal lithographs** (tone, not line — Conrad tried + dropped); **tracing engravings to vector**
+(loses the finest hatching — kept raster since no theming); abandoning the engraving look (operator kept it,
+managing the trade-dress risk).
+**Consequences:** First image built — *Conus marmoreus* (Lister). The programme is `[CONTENT-ART]`; each
+image needs an operator-chosen diagnostic crop + the gentle cleanup recipe; candidates live in scratch until
+a treatment is selected. Still open: Steering + Deciding guide images. Pairs with `DEC-042-2` (storage).
+
 ## Conv 041
 
 ### DEC-041-2 — Content-media policy: no byline, optional updated-date, optional on-page hero
