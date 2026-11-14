@@ -6,4 +6,7 @@ The durable record of what was done is the conv record + the board, never a line
 
 ## Open
 
+- [ ] Deciding guide review: "honest/honestly" is used as prose framing ~3× ("finding that point honestly", "honestly, yes", "Two honest signals") — VOICE bans the word as a frame (Conv 040). Reword in the rigorous Deciding redline. (Conv 043, caught in the snippet-truth check)
+- [ ] Reconcile "need" vs "mean" on the Steering guide: the title now ends "…what you actually **need**?", but the body thesis uses "what you **mean/meant**" throughout and the URL slug is still `steer-ai-to-build-what-you-mean`. Decide in the prose redline whether "need" propagates into the body, and whether the slug changes (URL + cross-links from Trust/Deciding + a redirect if it does). (Conv 043)
+- [ ] Strip the `✎ OPTIONAL (Fraser)` inline comment markers from `steer-ai-to-build-what-you-mean.md` (and any sibling guide they land in) before the content-home flip. They're invisible on-page but ship in page source. Greppable by the `✎ OPTIONAL` token. (Conv 043)
 
