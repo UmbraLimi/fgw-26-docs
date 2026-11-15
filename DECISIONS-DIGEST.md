@@ -2,9 +2,41 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-14._
+_As of 2026-11-15._
 
 ---
+
+### DEC-043-4 — Entity naming: seat "AI-built software" across guides (F1); keep pillar-signature phrasing distinct
+
+"AI-built software" is seated as the shared **subject noun** in the Steering and Deciding
+guide bodies (one natural insertion each). "Worthy companion to AI" stays **Steering-only** (its pillar's
+signature), and the "bring someone in" vs "second opinion / second set of eyes" variance is left as-is —
+Trust (final, and ruled "leave its help content as-is") is not reopened.
+
+### DEC-043-3 — Per-piece JSON-LD: Article/BlogPosting + FAQPage, Q&A auto-extracted from the page
+
+Guides and blog posts emit per-piece JSON-LD in the detail-page `slot="head"` via a reusable
+`components/ArticleJsonLd.astro` (+ `lib/articleJsonLd.ts`): an `Article` (guides, **undated**) or
+`BlogPosting` (blog, dated) + a `BreadcrumbList` + a `FAQPage`. The FAQ Q&A is **auto-extracted from the
+on-page body** — question = each `?`-ending H2, answer = that section's opening paragraph, and when the
+opening is a lead-in ending on a colon it reads on to the next H2 so the answer is complete — never
+hand-authored. `author`/`publisher` reference the site-wide `#fraser`/`#meristics` nodes (already emitted by
+`Layout.astro`) by `@id`.
+
+### DEC-043-2 — Card copy and SEO/GEO snippet are decoupled fields
+
+The guide (and blog) `description` frontmatter is the **on-page card blurb** — evocative,
+evoke-and-stop register. A new optional `snippet` field is the **search/GEO meta** text — direct-answer,
+keyphrase-forward, in Fraser's voice — feeding `<meta name="description">` + `og:description` +
+`twitter:description` via `snippet ?? description`. The card keeps `description`.
+
+### DEC-043-1 — Guide content-art layout: two-column sticky aside, dark thin border, fixed square below 1024
+
+The guide renders a two-column layout at ≥1024px — prose in the main column, the square image +
+glossary in a **sticky right aside** (mirrors `.case-grid`); the full-plate colophon + provenance stays
+full-width at the foot. Square and colophon carry a **1px `--ink`** (dark, thin) border. The in-page square
+is a **fixed 320px** below 1024 (matching the aside width, continuous across the breakpoint), going fluid
+only below ~360px; it fills the 20rem aside at ≥1024.
 
 ### DEC-042-2 — Image storage + provenance: single-repo, co-located provenance.json + one central schema
 

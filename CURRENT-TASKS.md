@@ -157,6 +157,14 @@ above is still the open work.)
 on-page** by decision, so the author signal is carried **here** — add `author` (`Person`, → `/about/`) to the
 per-post `Article`/`CreativeWork` JSON-LD, plus `datePublished`/`dateModified` from the blog `pubDate`/
 `updatedDate` fields (added Conv 041). This is the agreed home for attribution; don't add a visible byline.
+✅ **Per-piece JSON-LD built Conv 043 (`DEC-043-3`):** `Article` (guides, undated) + `BlogPosting` (blog,
+dated) + `BreadcrumbList` + `FAQPage` (Q&A **auto-extracted** from each page's `?`-ending H2s; a lead-in
+answer that opens on a colon reads on to the next H2 so the lift is complete, with no reshaping of the
+prose). Built as a reusable `components/ArticleJsonLd.astro` + `lib/articleJsonLd.ts`, emitted in the
+detail-page `slot="head"`. `author`/`publisher` reuse the site `#fraser`/`#meristics` nodes by `@id`
+(satisfies the carrier above). **Remaining:** the broader site-wide expansion (`WebSite`, per-project
+`CreativeWork`); point the author `@id`'s `url` at `/about/` (currently home — minor); external Rich-Results
+validation at flip (guides are dark/noindex on localhost, so a crawler can't reach them yet).
 
 ### [SITE-CONTENT-HOME] · added Conv 038 · build the guides + blog content surface in fgw-26
 ✅ **Dark scaffold built Conv 039** (`fgw-26`), gated by `CONTENT_HOME_LIVE` (noindex + off-nav +
@@ -176,9 +184,12 @@ banned until finalised (`[PROD-DEPLOY-BAN]`).
 set **`CONTENT_HOME_LIVE = true`** (`consts.ts`) and deploy. That one flag drives everything: reveals the
 nav + footer content-home links (gated `CONTENT_HOME_LIVE || DEV`, Conv 039), drops the `noindex`, and
 re-includes `/guides` + `/writing` in the sitemap — no per-file nav edits at flip. The old `/blog` →
-`/writing/` 301 is tracked by `[BLOG-REDIRECT]`; per-piece JSON-LD via `[SITE-STRUCTURED-DATA]`.
-🔗 Per-piece JSON-LD (`CreativeWork`) deferred to `[SITE-STRUCTURED-DATA]` (a clean `slot="head"` hook is
-left on the detail pages).
+`/writing/` 301 is tracked by `[BLOG-REDIRECT]`; per-piece JSON-LD is **built** (Conv 043, `DEC-043-3`; see `[SITE-STRUCTURED-DATA]`).
+🔴 **Pre-flip gate (Conv 043, from hopper):** strip the `✎ OPTIONAL (Fraser)` author-insertion markers from the
+guide drafts (currently `steer-ai-to-build-what-you-mean.md`, and any sibling they land in) before flipping —
+invisible on-page but they ship in page source; greppable by the `✎ OPTIONAL` token.
+🔗 Per-piece JSON-LD **built Conv 043** (`DEC-043-3`) in the `slot="head"` hook (`Article`/`BlogPosting` +
+`FAQPage` + breadcrumbs); see `[SITE-STRUCTURED-DATA]`.
 ✍️ **Trust guide heavily redlined + tone-reviewed Conv 040** (`is-your-ai-built-software-sound.md`, still
 `draft:true`/dark): operator-directed content pass (intuition throughline, edge-cases framing, human-nature
 testing → automated checks, a new **"Know your limits, and grow past them"** section, home-repair +
@@ -198,6 +209,18 @@ unification** (`DEC-041-1`: `--link` token, `.prose a`↔`.text-link`, dropped u
 light-mode content-link that was invisible). **Remaining (Conv 042):** Trust prose **declared final** and
 its illustration wired (`[CONTENT-ART]`); **Steering/Deciding guides + the sample article still unredlined**
 (and still need their images); then flip live (🚀 above).
+✍️ **Conv 043 — Steering first pass + card tone + SEO/GEO structure (prose NOT approved).** Steering guide
+**first editorial pass** (light; flow preserved): tightened the close opener, added the intuition
+throughline, a **4-term glossary**, and the title's last word `mean`→`need` (body/slug reconciliation
+**carried** in the hopper). All three **guide cards retoned** to one evoke-and-stop register; **card copy
+decoupled from the SEO/GEO snippet** (`DEC-043-2`: new `snippet` field feeds meta/og/twitter, card keeps the
+evocative `description`), a `snippet` authored per guide, and the **blog** given the same decoupling. **Per-
+piece JSON-LD built** (`DEC-043-3`). Content-art **image layout finalized** (`DEC-043-1`: two-column sticky
+aside, dark thin border, fixed 320px below 1024) and the **hub cards equalized** to one height. **Entity
+naming:** "AI-built software" seated in Steering + Deciding (`DEC-043-4`, F1; F2/F3 rejected, Trust frozen).
+Author-insertion `✎ OPTIONAL` markers left in the Steering draft (pre-flip gate above). **Still open:**
+Steering + Deciding prose redlines (unapproved; + their images), the real first article, the **conjunction +
+metaphor voice audits** on Steering.
 
 ### [CONTENT-ART] · promoted Conv 042 · guide/article illustration programme
 🎨 **Approach settled Conv 042** (full reasoning + recipes: `_cc/content-art-and-copyright.md`): per-guide/
@@ -263,6 +286,17 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 043:** **`[SITE-CONTENT-HOME]` SEO/GEO structure + Steering first pass** (rows stay — guide prose
+  unapproved). Content-art **image layout finalized** (`DEC-043-1`: two-column sticky aside, dark thin
+  border, fixed 320px below 1024); hub cards retoned to one evoke-and-stop register + equalized to one
+  height. **Card/snippet decoupling** (`DEC-043-2`): new `snippet` field feeds search/GEO meta while the
+  card keeps the evocative `description`; authored per guide + extended to the blog. **Per-piece JSON-LD
+  built** (`DEC-043-3`): `Article`/`BlogPosting` + `BreadcrumbList` + `FAQPage` with Q&A auto-extracted from
+  on-page `?`-H2s (lead-in answers completed to the next H2), reusing the site `#fraser`/`#meristics` nodes;
+  `ArticleJsonLd.astro` + `lib/articleJsonLd.ts`. **Entity naming** (`DEC-043-4`): "AI-built software"
+  seated in Steering + Deciding (F1; F2/F3 rejected, Trust frozen). Steering **first editorial pass** +
+  4-term glossary + `mean`→`need` title. Hopper: 1 promoted (flip-gate: strip `✎ OPTIONAL` markers), 2
+  carried (Deciding "honest" reword, Steering need/mean).
 - **Conv 042:** **`[CONTENT-ART]` + `[IMAGE-PROVENANCE]` foundation built** (new rows; programme ongoing).
   Settled the guide/article illustration approach (`DEC-042-1`): public-domain natural-history **line
   engravings** (not photos/AI — a naturalist's plate already does the diagnostic interpretation that tracing

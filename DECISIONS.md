@@ -8,6 +8,79 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 043
+
+### DEC-043-4 — Entity naming: seat "AI-built software" across guides (F1); keep pillar-signature phrasing distinct
+**Decision:** "AI-built software" is seated as the shared **subject noun** in the Steering and Deciding
+guide bodies (one natural insertion each). "Worthy companion to AI" stays **Steering-only** (its pillar's
+signature), and the "bring someone in" vs "second opinion / second set of eyes" variance is left as-is —
+Trust (final, and ruled "leave its help content as-is") is not reopened.
+**Rationale:** A consistent subject-entity noun across the guides is a clean, free GEO signal (natural
+insertions). "Worthy companion to AI" names *Steering's* steering-skill specifically; echoing it into
+Deciding (whose skill is *when to bring someone in*) would blur two pillars meant to own distinct skills,
+and echoing it into Trust reopens final prose. Converging the help-term lexicon would only touch Trust
+(Steering/Deciding already consistent), which is frozen. Rejected: **F2** — echo "worthy companion to AI"
+across guides (conceptual blur + reopens Trust); **F3** — converge the help-term lexicon (only changes the
+frozen Trust).
+**Consequences:** One "AI-built software" insertion in each of Steering and Deciding; the Steering one lands
+inside its first FAQ answer, so the auto-extracted GEO Q&A gains it too. Trust untouched; F2/F3 are no-ops.
+
+### DEC-043-3 — Per-piece JSON-LD: Article/BlogPosting + FAQPage, Q&A auto-extracted from the page
+**Decision:** Guides and blog posts emit per-piece JSON-LD in the detail-page `slot="head"` via a reusable
+`components/ArticleJsonLd.astro` (+ `lib/articleJsonLd.ts`): an `Article` (guides, **undated**) or
+`BlogPosting` (blog, dated) + a `BreadcrumbList` + a `FAQPage`. The FAQ Q&A is **auto-extracted from the
+on-page body** — question = each `?`-ending H2, answer = that section's opening paragraph, and when the
+opening is a lead-in ending on a colon it reads on to the next H2 so the answer is complete — never
+hand-authored. `author`/`publisher` reference the site-wide `#fraser`/`#meristics` nodes (already emitted by
+`Layout.astro`) by `@id`.
+**Rationale:** Chose the **richer** build (Article + FAQPage) over Article-only because the guides are
+buyer-question-structured, so FAQ Q&A is the strongest AI-citation signal. **Auto-extraction**, not
+hand-authored frontmatter, because FAQPage data must match visible page content (Google's rule) and then
+cannot drift. Guides stay undated to preserve the "timeless reference, no staleness signal" design; blog
+carries dates. The colon-lead-in rule completes the answer **without reshaping prose the operator approved**.
+Rejected: **Article-only** (ships sooner, drops the Q&A lever); **hand-authored FAQ** in frontmatter (drifts;
+risks a content-mismatch flag); **rewriting the lead-in prose** so the first paragraph is self-contained (the
+operator liked those paragraphs — fix the extractor, not the writing).
+**Consequences:** `ArticleJsonLd.astro` + `lib/articleJsonLd.ts` added; both detail pages wired; typecheck
+clean; validated in dev on the guides (site graph + article graph, breadcrumb, 4 FAQ Q&A). Author `@id`'s
+`url` is home, not `/about/` (minor tweak noted on `[SITE-STRUCTURED-DATA]`). External Rich-Results
+validation waits for the flip (dark/noindex on localhost). Site-wide `WebSite`/`CreativeWork` expansion
+stays open on `[SITE-STRUCTURED-DATA]`.
+
+### DEC-043-2 — Card copy and SEO/GEO snippet are decoupled fields
+**Decision:** The guide (and blog) `description` frontmatter is the **on-page card blurb** — evocative,
+evoke-and-stop register. A new optional `snippet` field is the **search/GEO meta** text — direct-answer,
+keyphrase-forward, in Fraser's voice — feeding `<meta name="description">` + `og:description` +
+`twitter:description` via `snippet ?? description`. The card keeps `description`.
+**Rationale:** One string can't be both the best on-page hook and the best search snippet: the card should
+evoke the problem and stop (matching the redlined Trust card), the snippet should state a liftable direct
+answer for search and AI assistants. Snippets are kept **in voice** (not generic "How to X: a, b, c"
+boilerplate) and answer-structured; Trust's snippet omits the "get help" angle (Deciding's territory).
+Rejected: one shared `description` for both (forces a compromise — the operator saw card copy and SEO snippet
+pulling opposite ways); terse SEO-speak snippets (off-voice boilerplate); a card that is a trimmed echo of
+the snippet (loses the evocative hook).
+**Consequences:** `snippet` added to the guides + blog schemas; both detail pages feed `snippet ??
+description` to meta; a `snippet` authored per guide. The card descriptions were retoned to one evoke-and-stop
+register and the hub cards equalized to one height. Card descriptions now exceed the ~155-char SERP limit,
+but `snippet` drives search, so the card shows the full line regardless.
+
+### DEC-043-1 — Guide content-art layout: two-column sticky aside, dark thin border, fixed square below 1024
+**Decision:** The guide renders a two-column layout at ≥1024px — prose in the main column, the square image +
+glossary in a **sticky right aside** (mirrors `.case-grid`); the full-plate colophon + provenance stays
+full-width at the foot. Square and colophon carry a **1px `--ink`** (dark, thin) border. The in-page square
+is a **fixed 320px** below 1024 (matching the aside width, continuous across the breakpoint), going fluid
+only below ~360px; it fills the 20rem aside at ≥1024.
+**Rationale:** The single-column guide left ~40% desktop whitespace; the aside fills it with genuinely
+referential material (image + glossary). A fixed 320px below the breakpoint avoids the balloon a percentage
+produced near 1024 (the body column is nearly full-width there) and the size-jump at the breakpoint. The dark
+border realizes the art-direction's "framed as a bordered square" that the near-invisible `--line` hairline
+did not. Rejected: **percentage-width** square (ballooned to ~650px at 1023, jumped from the ~320px aside);
+the **`max-w-sm` cap** (static 384px across 540–1024 — the operator read it as "big and unchanging");
+**image-only aside** without the glossary (left the rail thin).
+**Consequences:** `.guide-grid` added to `global.css`; `guides/[slug].astro` restructured
+(`.guide-image`/`.guide-main`/`.guide-glossary`); borders switched to `border-ink`. The same layout serves
+every guide. Committed early in the conv (`f8a1a36`).
+
 ## Conv 042
 
 ### DEC-042-2 — Image storage + provenance: single-repo, co-located provenance.json + one central schema

@@ -2,23 +2,26 @@
 
 ## Where we left off
 
-Conv 042 built the guide/article **illustration programme** (`[CONTENT-ART]`) and its **image-provenance
-architecture** (`[IMAGE-PROVENANCE]`). Approach (`DEC-042-1`): public-domain natural-history **line
-engravings** (not photos/AI — a naturalist's plate already does the diagnostic interpretation tracing a
-photo can't), cleaned as a raster engraving, a **square detail tile** in-page + a **full-plate colophon**;
-no light/dark theming (fixed background). Data model (`DEC-042-2`): co-located `provenance.json` per
-`fgw-26/src/content/images/<id>/`, validated by one central Zod schema (one source → many kept treatments;
-folder = id), single-repo. First image **`conus-marmoreus-lister`** (Lister *Conus marmoreus*, PD) is built
-and **rendering on the Trust guide** (square + colophon), verified in dev. Trust guide prose is now **final**.
+Conv 043 built the **SEO/GEO structural layer** for the content home and opened the Steering redline.
+Settled: the guide **image layout** (`DEC-043-1`: two-column sticky aside, dark thin border, square a
+**fixed 320px** below 1024 — not a %); **card/snippet decoupling** (`DEC-043-2`: a new `snippet` field, in
+voice, feeds search/GEO meta while the card keeps the evocative `description`; blog too); **per-piece
+JSON-LD** built + validated in dev (`DEC-043-3`: Article/BlogPosting + BreadcrumbList + FAQPage with Q&A
+**auto-extracted** from on-page `?`-H2s); **entity naming** F1 (`DEC-043-4`: "AI-built software" seated in
+Steering + Deciding; Trust frozen). Steering got a **light first editorial pass** + a 4-term glossary + a
+`mean`→`need` title. 🔴 **Steering and Deciding prose are NOT operator-approved.**
 
 ## Next action
 
-**Images for the Steering and Deciding guides** — same recipe (operator sources a PD line engraving → picks
-a diagnostic square crop → gentle cleanup → folder + `provenance.json`). With those two guides' prose, that
-is what the `[SITE-CONTENT-HOME]` flip waits on. Separately, `[IMAGE-PROVENANCE]` wants a build/commit
-**guard** (nothing fails today when an image lacks provenance) + a **usage cross-reference** — design-heavy,
-sequence after the images are flowing. Prod deploys remain banned until the content home is finalised
-(`[PROD-DEPLOY-BAN]`).
+**Resume the Steering prose redline collaboratively, by coordinate** — regenerate `.scratch/steering-view.txt`
+(`npm run number -- src/content/guides/steer-ai-to-build-what-you-mean.md`) first, then run the pending
+**conjunction + metaphor voice audits** and settle the carried `mean`/`need` reconciliation; then Deciding's
+rigorous review (incl. the carried "honest" reword). Those redlines, plus the Steering/Deciding **images**
+and a real first article, are the gate to the `[SITE-CONTENT-HOME]` flip. 🔴 At flip, the **pre-flip gate**
+on that row applies: strip the `✎ OPTIONAL (Fraser)` markers from the Steering draft (greppable). Prod
+deploys remain banned until the content home is finalized (`[PROD-DEPLOY-BAN]`).
+
+**Hopper carries 2 items** (Deciding "honest" reword; `mean`/`need` reconciliation) — surfaced at `/r-start`.
 
 ⚠️ **Human carry-over (still open):** the operator is to **send Gabriel the LinkedIn recommendation request**
 (note + draft in `_cc/linkedin-makeover.md`) — unchanged.
