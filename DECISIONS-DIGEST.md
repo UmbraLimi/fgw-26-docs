@@ -2,9 +2,27 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-15._
+_As of 2026-11-16._
 
 ---
+
+### DEC-044-2 — `[GOOGLE-SERVICES]` check: filter to submitted pages + Nov-9 floor; push + track indexing
+
+Every `[GOOGLE-SERVICES]` cadence check (not just a health scan) now: (a) filters the Pages
+report to **All submitted pages** so the self-healing old-URL 301 ghosts drop out and are never re-reported;
+(b) treats **Nov 9** as the crawl floor (sitemap submitted Nov 8, so only Nov-9+ fetches count as real);
+(c) reports **exactly which real pages were crawled and when, which have issues, and what to do**. The
+operator's standing lever against crawl-stall is **manual URL-Inspection → Request indexing** on priority
+pages, **logged per push** so the next check can judge whether it worked.
+
+### DEC-044-1 — Steering guide's thrust is "mean" (transmission gap); "need" (discovery gap) is a separate future guide
+
+The Steering guide is about the **transmission gap** — intent you hold but didn't voice, which
+the AI can't read; the skill is articulation ("say the quiet part out loud"). Its title/description/snippet
+revert `need`→`mean` (undoing the Conv-043 title change), re-aligning with the body and slug (already
+"mean"). The **discovery gap** — what you'll actually use and that fits the job but can't pre-specify even to
+yourself, surfacing only as you exercise the build — is named **"need"** and reserved for a **separate future
+guide** (seeded in the hopper).
 
 ### DEC-043-4 — Entity naming: seat "AI-built software" across guides (F1); keep pillar-signature phrasing distinct
 

@@ -2,26 +2,28 @@
 
 ## Where we left off
 
-Conv 043 built the **SEO/GEO structural layer** for the content home and opened the Steering redline.
-Settled: the guide **image layout** (`DEC-043-1`: two-column sticky aside, dark thin border, square a
-**fixed 320px** below 1024 — not a %); **card/snippet decoupling** (`DEC-043-2`: a new `snippet` field, in
-voice, feeds search/GEO meta while the card keeps the evocative `description`; blog too); **per-piece
-JSON-LD** built + validated in dev (`DEC-043-3`: Article/BlogPosting + BreadcrumbList + FAQPage with Q&A
-**auto-extracted** from on-page `?`-H2s); **entity naming** F1 (`DEC-043-4`: "AI-built software" seated in
-Steering + Deciding; Trust frozen). Steering got a **light first editorial pass** + a 4-term glossary + a
-`mean`→`need` title. 🔴 **Steering and Deciding prose are NOT operator-approved.**
+Conv 044 ran the **`[GOOGLE-SERVICES]` Conv-44 GSC cadence check**, filtered (operator-directed) to the 22
+submitted pages: **real-page indexing is stalled at 3/22** — the same `/`, `/work/`, `/privacy/` as Conv 41;
+18 real pages have never been crawled, 1 (`/testimonials/`) was crawled-but-declined. The all-known "7
+indexed" was inflated by old-URL 301 ghosts (harmless, self-healing). Health is clean. **First active
+intervention:** manual Request-indexing pushed `/about/ /method/ /phases/ /contact/` + re-requested
+`/testimonials/` — logged on the board for a **Conv-47 follow-up** (did they get crawled/indexed?). The
+standing check method is now expanded (`DEC-044-2`). Separately, the Steering guide title reverted
+`need`→`mean` (`DEC-044-1`: "need"/discovery is a *separate future guide*; Steering's thrust is "mean"/
+transmission). 🔴 **Steering and Deciding prose are still NOT operator-approved.**
 
 ## Next action
 
-**Resume the Steering prose redline collaboratively, by coordinate** — regenerate `.scratch/steering-view.txt`
-(`npm run number -- src/content/guides/steer-ai-to-build-what-you-mean.md`) first, then run the pending
-**conjunction + metaphor voice audits** and settle the carried `mean`/`need` reconciliation; then Deciding's
-rigorous review (incl. the carried "honest" reword). Those redlines, plus the Steering/Deciding **images**
-and a real first article, are the gate to the `[SITE-CONTENT-HOME]` flip. 🔴 At flip, the **pre-flip gate**
-on that row applies: strip the `✎ OPTIONAL (Fraser)` markers from the Steering draft (greppable). Prod
-deploys remain banned until the content home is finalized (`[PROD-DEPLOY-BAN]`).
+**Resume the Steering + Deciding prose redlines** — the gate to the `[SITE-CONTENT-HOME]` flip. Steering
+still needs the pending **conjunction + metaphor voice audits**; Deciding needs its rigorous review
+(including the carried **"honest" reword** — VOICE bans the word as a frame). Both guides still need their
+images (`[CONTENT-ART]`), plus a real first article. Regenerate `.scratch/steering-view.txt` (`npm run
+number -- src/content/guides/steer-ai-to-build-what-you-mean.md`) before redlining by coordinate. 🔴 At
+flip: strip the `✎ OPTIONAL (Fraser)` markers (greppable); prod deploys stay banned (`[PROD-DEPLOY-BAN]`).
+Note: `[GOOGLE-SERVICES]` next cadence is ~Conv 47 (includes the request-indexing follow-up) — surfaced
+automatically at `/r-start`.
 
-**Hopper carries 2 items** (Deciding "honest" reword; `mean`/`need` reconciliation) — surfaced at `/r-start`.
+**Hopper carries 2 items** (Deciding "honest" reword; new "need"/discovery guide idea) — surfaced at `/r-start`.
 
 ⚠️ **Human carry-over (still open):** the operator is to **send Gabriel the LinkedIn recommendation request**
 (note + draft in `_cc/linkedin-makeover.md`) — unchanged.

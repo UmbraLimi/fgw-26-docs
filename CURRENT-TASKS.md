@@ -27,8 +27,7 @@ is **live**, not what is finished.
 re-crawl; confirmed verified ownership / valid robots / HTTPS / **no manual actions** / AI "Include";
 linked **GA4 ↔ Search Console**. Two owners (`EsoxAmericanusVermiculatus` + Fraser) + their two DNS
 verification tokens confirmed legit by the operator — left untouched.
-🔁 **Standing check — every 3 convs (next ~Conv 041; the Conv-038 check was skipped by the operator — GSC
-already reviewed Conv 037):** review Search Console for (a) any new
+🔁 **Standing check — every 3 convs (next ~Conv 047; checks run Conv 035/037/041/044):** review Search Console for (a) any new
 concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has progressed. Keep this row
 open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
 cadence mechanism (`DEC-035-4`, built Conv 035).
@@ -256,6 +255,13 @@ naming:** "AI-built software" seated in Steering + Deciding (`DEC-043-4`, F1; F2
 Author-insertion `✎ OPTIONAL` markers left in the Steering draft (pre-flip gate above). **Still open:**
 Steering + Deciding prose redlines (unapproved; + their images), the real first article, the **conjunction +
 metaphor voice audits** on Steering.
+✍️ **Conv 044 — Steering title reverted `need`→`mean` (`DEC-044-1`).** The Conv-043 `mean`→`need` title
+change was undone: operator's call that **"need" (the *discovery* gap** — the thing you'll actually use and
+that fits, but can't pre-specify even to yourself) is a **separate future guide**, while Steering's thrust
+is **"mean" (the *transmission* gap** — intent you hold but didn't voice; the AI can't read your mind).
+Title/description/snippet back to "mean"; body + slug were already "mean", so no redirect/cross-link change.
+The carried need/mean hopper item is **resolved**; a new hopper capture seeds the "need" guide. Everything
+else above stays open (Steering/Deciding redlines + images, first article, conjunction+metaphor audits).
 
 ### [CONTENT-ART] · promoted Conv 042 · guide/article illustration programme
 🎨 **Approach settled Conv 042** (full reasoning + recipes: `_cc/content-art-and-copyright.md`): per-guide/
@@ -321,6 +327,16 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 044:** **`[GOOGLE-SERVICES]` Conv-44 GSC check + indexing push** (row stays — standing monitor) and
+  **Steering need→mean revert** (`[SITE-CONTENT-HOME]` stays — prose unapproved). GSC filtered to submitted
+  pages (operator-directed): **3/22 real pages indexed — the same 3 as Conv 41** (`/`, `/work/`, `/privacy/`);
+  18 discovered-never-crawled + 1 crawled-not-indexed (`/testimonials/`); the all-known 3→7 rise was
+  old-URL 301 ghosts (live-verified harmless). Health clean (manual actions/security none, sitemap Success,
+  re-read Nov 13). **Pulled the lever:** manual Request-indexing on 4 core pages (`/about/ /method/ /phases/
+  /contact/`) + re-request `/testimonials/` — all queued; logged for Conv-47 follow-up. Standing-check method
+  expanded (`DEC-044-2`: submitted-pages filter + Nov-9 crawl floor + which-crawled-when + issues). Steering
+  title reverted `need`→`mean` (`DEC-044-1`: "need"/discovery = a separate future guide). Hopper: 2 carried
+  (Deciding "honest" reword, new "need"-guide idea).
 - **Conv 043:** **`[SITE-CONTENT-HOME]` SEO/GEO structure + Steering first pass** (rows stay — guide prose
   unapproved). Content-art **image layout finalized** (`DEC-043-1`: two-column sticky aside, dark thin
   border, fixed 320px below 1024); hub cards retoned to one evoke-and-stop register + equalized to one

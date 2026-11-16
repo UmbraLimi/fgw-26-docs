@@ -8,6 +8,42 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 044
+
+### DEC-044-2 — `[GOOGLE-SERVICES]` check: filter to submitted pages + Nov-9 floor; push + track indexing
+**Decision:** Every `[GOOGLE-SERVICES]` cadence check (not just a health scan) now: (a) filters the Pages
+report to **All submitted pages** so the self-healing old-URL 301 ghosts drop out and are never re-reported;
+(b) treats **Nov 9** as the crawl floor (sitemap submitted Nov 8, so only Nov-9+ fetches count as real);
+(c) reports **exactly which real pages were crawled and when, which have issues, and what to do**. The
+operator's standing lever against crawl-stall is **manual URL-Inspection → Request indexing** on priority
+pages, **logged per push** so the next check can judge whether it worked.
+**Rationale:** Bare GSC mixes the 22 real pages with old-path ghosts and stale pre-submission crawls, which
+the operator reads as "a confusing mess" that hides the real signal — organic indexing has been flat at
+3/22 for three convs. Filtering + a crawl-date floor turns it into a current-pages answer; the push is the
+only active lever on crawl-budget starvation for a young low-authority domain. Rejected: the prior
+**health-scan-only** method (counts "indexed" without separating ghosts — it inflated 3→7 and masked the
+stall) and **waiting for organic crawl** (no movement in three convs).
+**Consequences:** `[GOOGLE-SERVICES]` row carries the method + a request-indexing log; Conv 044 pushed
+`/about/ /method/ /phases/ /contact/` + re-requested `/testimonials/`, to be verified Conv 47. Known gotcha
+recorded: Request-indexing's live fetch can falsely reject a healthy page with "Server connection error"
+(transient; re-run the live test to green, then request).
+
+### DEC-044-1 — Steering guide's thrust is "mean" (transmission gap); "need" (discovery gap) is a separate future guide
+**Decision:** The Steering guide is about the **transmission gap** — intent you hold but didn't voice, which
+the AI can't read; the skill is articulation ("say the quiet part out loud"). Its title/description/snippet
+revert `need`→`mean` (undoing the Conv-043 title change), re-aligning with the body and slug (already
+"mean"). The **discovery gap** — what you'll actually use and that fits the job but can't pre-specify even to
+yourself, surfacing only as you exercise the build — is named **"need"** and reserved for a **separate future
+guide** (seeded in the hopper).
+**Rationale:** "mean" and "need" are genuinely different claims; the guide as written teaches transmission
+end to end (last-mile = said→meant, the three context kinds are all unvoiced-but-held). A title promising
+"need" (discovery) over a "mean" (transmission) body under-delivers on itself. Rejected: **reframe the
+Steering spine around "need"** (A — the braver claim, but it's a different guide and would reopen approved
+structure) and **keep title "need" with a "mean" body** (the dissonance that triggered the hopper item).
+**Consequences:** Steering frontmatter back to "mean"; no redirect/cross-link change (slug unchanged). The
+carried need/mean hopper item is resolved; a new hopper item seeds the "need"/discovery guide. The home hero
+(`index.astro`, Conv-017 copy) still says "what you actually need" — long-standing, out of scope, left as-is.
+
 ## Conv 043
 
 ### DEC-043-4 — Entity naming: seat "AI-built software" across guides (F1); keep pillar-signature phrasing distinct
