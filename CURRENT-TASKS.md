@@ -32,6 +32,12 @@ already reviewed Conv 037):** review Search Console for (a) any new
 concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has progressed. Keep this row
 open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
 cadence mechanism (`DEC-035-4`, built Conv 035).
+🔴 **Method — operator-set Conv 044 (do this EVERY check, not just a health scan):** on the Pages report
+switch the filter to **All submitted pages** (drops the self-healing old-path 301 ghosts — do **not**
+re-report them each time), treat **Nov 9** as the crawl floor (sitemap submitted Nov 8, so only Nov-9+
+crawls count as real), and report **exactly which real pages have been crawled and when**, **which have
+issues**, and **what to do** about each. The operator reads bare GSC as "a confusing mess" — the job is
+to filter it down to a current-pages answer, not to relay GSC's mixed all-known-pages view.
 ✅ **Conv 41 check (cadence):** no new concerns — manual actions none, security none, HTTPS clean, sitemap
 Success (22 discovered, read Nov 10). Indexing early but healthy: of the 22 real pages only **3 indexed**
 (`/`, `/work/`, `/privacy/`); the core pages (`/about/`, `/method/`, `/phases/`, `/contact/`, `/faq/`,
@@ -39,6 +45,35 @@ Success (22 discovered, read Nov 10). Indexing early but healthy: of the 22 real
 low-authority site). Old-site paths (`/services/`, `/ai-coaching/`, `/how-i-work/`, `/terms/`) linger as
 stale "indexed" entries that now 301 (verified live) — self-heal on re-crawl. GSC "All known pages"
 filter chevron is non-functional (GSC-side glitch). Next cadence ~Conv 44.
+🔴 **Conv 44 check (cadence) — filtered to submitted pages (operator-directed; `DEC` at /r-end):** no new
+concerns (manual actions none, security none, sitemap `sitemap-index.xml` Success, re-read Nov 13, 22
+discovered). **Real-page indexing has NOT materially moved since Conv 41** — the all-known count rose 3→7
+but all four new "indexed" entries are old-path 301 ghosts (`/services/ /ai-coaching/ /how-i-work/ /terms/`,
+live-verified 301→`/work/ /work/ /method/ /privacy/`, serving no old content — harmless, self-healing).
+**Filtered to the 22 submitted pages: 3 indexed, 19 not (2 reasons).**
+- **Indexed (3):** `/` (Nov 9), `/work/` (Nov 9), `/privacy/` (Nov 8) — same 3 as Conv 41.
+- **Crawled, not indexed (1):** `/testimonials/` — last crawled **Sep 28** (stale, *pre-submission*; Google
+  declined, not re-fetched since). The one real "issue" page.
+- **Discovered, never crawled (18, all Last-crawled N/A):** 6 core (`/about/ /contact/ /faq/ /history/
+  /method/ /phases/`) + 12 work (`/work/` cases + `/record` for discover-jesus, discover-the-ub,
+  learning-marketplace, personal-productivity-app, redline, this-site, translation-platform).
+**What to do (operator's call):** the 18 have been *discovered via sitemap but never crawled* — normal
+crawl-budget lag for a new low-authority site; the lever is **URL Inspection → Request indexing** on the
+priority pages (`/about/ /method/ /phases/ /contact/` first) to push them into the crawl queue, + re-request
+`/testimonials/` to force a fresh post-submission crawl. (Not done this check — pending operator direction.)
+The "All submitted pages" filter works fine now (the Conv-41 chevron glitch didn't recur). Next cadence ~Conv 47.
+🔁 **Request-indexing log (operator-directed Conv 044 — track each push + whether it took):** manual
+URL-Inspection → Request indexing pushes a URL into a priority crawl queue (quota ~10/day; re-submitting
+doesn't change queue position). **At every future check, verify whether the pages below actually got
+crawled/indexed after their request — that's how we judge if the push worked.**
+- **2026-11-16 (Conv 044):** requested `/about/`, `/method/`, `/phases/`, `/contact/` (core, never-crawled)
+  + re-requested `/testimonials/` (was Crawled-not-indexed, Sep 28, Google declined). All 5 accepted into
+  the priority queue. ⬜ *Conv 47: check which of these 5 moved to Indexed / got a fresh crawl date.*
+⚠️ **Gotcha (Conv 044, resolved in-session):** Request-indexing runs a live fetch first; it can flake with
+**"Page fetch — Failed: Server connection error" → request rejected** even when the page is perfectly
+healthy (verified `/method/` served HTTP 200 / 20KB via curl at the same moment). **Fix:** re-run the live
+test (↻) until it goes green, then Request indexing. Likely transient rate-limiting from rapid back-to-back
+live probes — space them out. Don't mistake this for a real page problem.
 
 ### [POSTING-PLAN] · added Conv 035 · run the X + LinkedIn posting cadence (plan ✅ Conv 038)
 ✅ **Plan stood up Conv 038** — the full channel/funnel strategy lives in `reference/CHANNELS.md` (funnel,

@@ -7,5 +7,5 @@ The durable record of what was done is the conv record + the board, never a line
 ## Open
 
 - [ ] Deciding guide review: "honest/honestly" is used as prose framing ~3× ("finding that point honestly", "honestly, yes", "Two honest signals") — VOICE bans the word as a frame (Conv 040). Reword in the rigorous Deciding redline. (Conv 043, caught in the snippet-truth check)
-- [ ] Reconcile "need" vs "mean" on the Steering guide: the title now ends "…what you actually **need**?", but the body thesis uses "what you **mean/meant**" throughout and the URL slug is still `steer-ai-to-build-what-you-mean`. Decide in the prose redline whether "need" propagates into the body, and whether the slug changes (URL + cross-links from Trust/Deciding + a redirect if it does). (Conv 043)
+- [ ] New guide idea — "need" (the discovery gap): a guide distinct from Steering ("mean"/transmission). Thesis: you can't fully pre-specify what you'll actually use and what's perfect for the job; it stays partly unvoiced even to you and surfaces only as you exercise the build and react "no, not that." The skill is recognition, not articulation. Seeds already in the Steering draft (the notebook, the "sits wrong with you" instinct) belong here instead. (Conv 044, from the need/mean ruling)
 
