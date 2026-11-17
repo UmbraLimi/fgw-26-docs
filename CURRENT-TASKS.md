@@ -319,6 +319,21 @@ now** — the file stays valid until that date, at which point it flips to inval
 ignore the disclosure contact). No decay in between; it's a dated reminder, not live work. **Do before the
 date:** bump `Expires` further out (and re-confirm the contact). (Promoted Conv 036 from the hopper.)
 
+### [AGENT-INITIATIVE] · added Conv 045 · agent-discoverability assessed + deferred — revisit at next watch (Conv 055)
+✅ **Conv 045 watch + assessment (approved):** the `[AGENT-DISCOVERY-WATCH]` refresh updated the §7
+landscape snapshot and produced the **first action-plan assessment** (full per-row dispositions +
+decision: `AGENT-DISCOVERABILITY.md` §10). **Operator decision: start nothing now** — the initiative
+stays dark behind the content-home flip + `[PROD-DEPLOY-BAN]`.
+🔁 **Revisit the full action plan at the next `[AGENT-DISCOVERY-WATCH]` (Conv 055):** (a) re-weigh starting
+**`[DATA-PRIVATE-SCHEMA]`** — the one row with zero external-standard dependency (an internal `src/data`
+refactor, authorable without a deploy, **better-than-status-quo masking even if MCP never ships**;
+prerequisite for all agent-facing work); and (b) **revisit the `ai-agent.json` L1 commitment** — the
+Conv-045 refresh found the manifest namespace **unconverged** (`ai-agent.json` now an also-ran vs A2A
+AgentCard; three specs contest `/.well-known/agent.json`), so that commitment must not be inherited
+silently. Everything else agent-facing is gated by the deploy ban, sequenced behind the schema refactor,
+or waiting on an agent surface (`[AGENT-MCP]`, Web Bot Auth). Candidate rows live in §9; the watch itself
+is the standing cadence (surfaced at `/r-start`).
+
 ## ⏸️ Parked
 
 _None._

@@ -142,6 +142,41 @@ only surfaces, never runs). Two triggers live there now — `[AGENT-DISCOVERY-WA
 refactor to reach for only if cadence tasks proliferate. (`DEC-035-4`; adopted from fps
 `DEC-145-1`/`DEC-151-2`.)
 
+#### Landscape snapshot — Conv 045 `[checked: web search, Conv 045 — all external facts volatile, secondary-sourced]`
+
+Deltas vs the Conv-035 snapshot below. **Net:** transport/verification (Web Bot Auth, WebMCP-in-browser)
+is consolidating faster than the **manifest layer**, which is still forking — directly relevant to our L1
+bet on `ai-agent.json`.
+
+- **WebMCP** — now a W3C **Draft Community Group Report** (Web ML CG), **not** on the Standards Track; a
+  draft charter for a new **Agentic Web Working Group** names it as starting input (chairs/dates TBD).
+  **Chrome origin trial from Chrome 149** (Edge 150 following); API renamed `navigator.modelContext` →
+  `document.modelContext` (still churning). Still overkill for a static portfolio; watch.
+- **Web Bot Auth (our L3)** — biggest mover, was "watch," now shipping. **Cloudflare folded it into
+  Verified Bots** (Free/Pro live, expanding to Business/Enterprise); public keys at
+  `/.well-known/http-message-signatures-directory`; since **1 Jul 2026 Cloudflare separates identity from
+  access** (verified ≠ allowed). Other verifiers: AWS WAF, Akamai, HUMAN, Vercel. IETF WG chartered early
+  2026, BCP targeted Aug 2026 but **no adopted WG docs as of mid-Aug** (individual drafts). A signature
+  identifies the *operator*, not the principal.
+- **MCP registry + directories** — registry still canonical upstream (`server.json` → downstream ingest)
+  but **still "preview, no durability guarantees"** (June 2026). Counts grew and still disagree wildly:
+  Glama ~96k–113k; **PulseMCP ~21.6k, not taking submissions**; **Smithery acquired by Arcade** (~5 Aug
+  2026, paid subs refunded) — consistent with the Conv-035 note that its hosted proxy retired, now a plain
+  directory. New entrant **Unyly** ingests the registry.
+- **`ai-agent.json`** (our L1 plan names it) — Aiia spec published **28 Mar 2026**, but the namespace is
+  **fragmented**: three draft specs claim `/.well-known/agent.json`; it reads as an **also-ran** next to
+  A2A's **AgentCard** (more institutional backing) and Wildcard's OpenAPI-based `agents.json`. A **W3C AIVS
+  proposal (May 2026)** frames a unifying `agent.json` as a *superset* of MCP `server.json` + A2A card +
+  `ai-agent.json`. The manifest layer has **not** converged on a winner.
+- **Agent-readiness adoption** (Cloudflare Radar) — still **~4%** of sites declare AI prefs; MCP cards grew
+  from "<15 sites" to **0.31% of ~110k domains** (~340) mid-Aug, and **0.43%→1.17% among tech domains** by
+  end-Sep. Minority position, less extreme than Conv 035.
+- **Lighthouse** — confirmed **13.3 (7 May 2026)** Agentic Browsing category: accessibility tree, WebMCP
+  tools, layout stability, `llms.txt`; pass/fail ratio (no 0–100); **CLI/JSON only**, not DevTools/PSI.
+- **NLWeb** (new, not in Conv 035) — Microsoft/O'Reilly open protocol; **every NLWeb instance also acts as
+  an MCP server**; Cloudflare added native support via AutoRAG. Adoption **pilot-stage/stalled** (reference
+  impl no tagged release, ~flat since June 2026); analysts forecast 2–3 yrs to real adoption.
+
 #### Landscape snapshot — Conv 035 `[checked: web search, Conv 035]`
 
 - **WebMCP** (Google) — early preview Feb 2026; agentic-web direction at I/O. Overkill for a static
@@ -178,3 +213,34 @@ refactor to reach for only if cadence tasks proliferate. (`DEC-035-4`; adopted f
 - `[AGENT-DISCOVERY-WATCH]` — the periodic briefing (§7); **every 10 convs from Conv 045**
   (`[operator, Conv 035]`), surfaced automatically by the `/r-start` cadence mechanism (§7, built Conv
   035) — no hand-maintained marker needed.
+
+## 10. Action-plan assessment — Conv 045 `[operator-directed assessment, Conv 045]`
+
+First assessment of the §9 menu against a refreshed landscape (§7 Conv-045 snapshot). **Decision
+(operator, Conv 045): start nothing now — the initiative stays dark behind the content-home flip; revisit
+the whole plan at the next watch (Conv 055).** Board handle: `[AGENT-INITIATIVE]` (📋 Unordered).
+
+**Two gates bear on every row:** `[PROD-DEPLOY-BAN]` (no prod deploy until the content-home flip) and the
+declared current priority (Steering/Deciding redlines → flip). Per-row disposition:
+
+- **`[DATA-PRIVATE-SCHEMA]`** — the **only** row with zero external-standard dependency: an internal
+  `src/data` refactor, authorable now (deploy comes later, so the ban doesn't block *building* it), and
+  **better-than-status-quo masking even if MCP never ships** (§3). Prerequisite for everything
+  agent-facing. *Not started this conv* — deferred to the Conv-055 re-weigh.
+- **`[SITE-PARAMETERIZE]`** — depends on the schema above; authorable now, same deploy caveat; lower
+  standalone urgency.
+- **`[AGENT-PROFILE]`** — split: the JSON-LD `Person` half is safe + SEO/GEO-valuable and **already
+  overlaps `[SITE-STRUCTURED-DATA]`** on the board; the **`ai-agent.json` half is now risky** — the
+  manifest namespace has **not** converged (`ai-agent.json` an also-ran vs A2A AgentCard; three specs
+  contest `/.well-known/agent.json`). 🔴 The L1 commitment to `ai-agent.json` (§2/§5/§9) must be
+  **revisited before any `[AGENT-PROFILE]` work**, not inherited silently.
+- **`[AGENT-MCP]`** — directionally the right transport bet (MCP is consolidating; every NLWeb instance is
+  an MCP server), but needs the `.private` boundary first, **requires a prod deploy (banned)**, and targets
+  a registry still in "preview, no durability guarantees." Not now.
+- **`[AGENT-DIRECTORY-LISTINGS]`** — nothing to list until `[AGENT-MCP]` exists. Blocked.
+- **Web Bot Auth (L3)** — jumped from "watch" to shipping (Cloudflare Verified Bots), but only useful once
+  there's an MCP surface worth protecting + agent traffic to distinguish. No surface yet → not actionable.
+
+**Net:** exactly one action (`[DATA-PRIVATE-SCHEMA]`) is both unblocked and standard-risk-free; everything
+agent-facing is behind the deploy ban, sequenced behind that refactor, or betting on an unconverged
+manifest layer. All of it competes with the content-home flip. Hence: defer, revisit at Conv 055.
