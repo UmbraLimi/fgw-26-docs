@@ -10,6 +10,74 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 047
 
+### DEC-047-5 — central image-sourcing reference (`reference/COLOPHON.md`); resolution dropped as a gating criterion
+**Decision:** Created `reference/COLOPHON.md` as the single lookup for sourcing guide/article imagery —
+the go/no-go criteria + where to find the plates (BHL, Wikimedia Commons, Internet Archive) + a running
+list of works drawn from. It defers to `_cc/content-art-and-copyright.md` for the copyright tiers and the
+treatment/architecture (no duplication). Same conv, **resolution is no longer a gating criterion** (operator):
+low-res images are fine, higher is a nice-to-have — reversing the earlier ≥1500px sourcing target.
+**Rationale:** the sourcing criteria lived scattered across convs + the content-art working doc; the
+operator asked to centralize "where to find images + the criteria" in one named place. The engraving/PD
+constraints stay; resolution was never load-bearing for this use (the art is pattern/texture, cropped to a
+small square tile + a foot colophon), so gating on it needlessly narrowed the field. Rejected: folding it
+into the existing content-art doc (that doc is the process/copyright/treatment detail; a clean front-door
+criteria list is easier to consult); keeping the ≥1500px bar (excluded good PD plates for no real benefit).
+**Consequences:** `reference/COLOPHON.md` added beside `VOICE`/`PERSONA`/`CHANNELS`/`GUIDE-REVIEW`.
+Engraving-only is marked "for now" (operator), so the medium criterion is expected to widen later. The
+content-art doc remains the home for copyright tiers + the cleanup recipe.
+
+### DEC-047-4 — operator-viewable images live in `.scratch/`, not the session temp dir
+**Decision:** Any image the operator needs to see — tentative/candidate source images as well as their
+manipulations (treatments for a post) — is stored in the repo's `.scratch/` (gitignored), named with its
+provenance, never left only in the session scratchpad. CLAUDE.md §Scratch carries the rule.
+**Rationale:** scar this conv — a subagent sourced 3 candidate starfish engravings into the session temp
+dir (`/private/tmp/.../scratchpad`), which is invisible to the operator; CC described them and asked for a
+pick, but the operator had no way to view them. `.scratch/` is browsable in the checkout, so it's the
+right home for anything the operator must lay eyes on. The existing practice already put image
+*manipulations* there; this extends it to the tentative *sources*. Rejected: committing candidates to the
+repo (they're non-durable until chosen); inlining/linking the temp path (the operator can't reach it).
+**Consequences:** `.scratch/` stays non-durable (a chosen image is still promoted to
+`src/content/images/<id>/` and committed to be durable — `DEC-042-2`). Candidate images this conv landed
+in `.scratch/starfish-candidates/`.
+
+### DEC-047-3 — codified the guide-review finalize pass (`reference/GUIDE-REVIEW.md`)
+**Decision:** Wrote a single reusable 10-step "guide review" checklist (`reference/GUIDE-REVIEW.md`) that
+takes a cornerstone guide from body-redlined to prose-final: coordinate-view redline → "it" pass →
+glossary → headings/FAQ-lift → entity naming → conjunction audit → metaphor audit → rendered read →
+em-dash check → markers + declare final. CC does the mechanical part and presents; the operator rules each.
+**Rationale:** the Trust guide's review was a de-facto sequence (Conv 040 tone/presentation + Conv 041
+rendered read) that lived only in the convs; with Steering now at the same stage and Deciding + articles
+still to come, reconstructing the pass from memory each time risks drift between guides. A short checklist
+makes each review identical for ~one page of process. Rejected: **running Steering's review ad hoc** (the
+Conv-047 option B — fine once, but the third reconstruction is where drift creeps in); **a skill** (heavier
+than warranted — a reference note the finalize work reads is enough, per the lean-process rule).
+**Consequences:** `reference/GUIDE-REVIEW.md` added; it cross-refs the existing `VOICE.md` audit workflows
+and the relevant DECs rather than restating them. Steps already satisfied for a given guide are stated as
+done, not silently skipped. Images + JSON-LD + the live-flip stay out of scope (board-tracked).
+
+### DEC-047-2 — routing guard reworked: go-list review-signal + lapse-catcher hook (reworks `DEC-046-1`)
+**Decision:** `check-routing.sh` changes from a board-dirtiness "verifier" to a **lapse-catcher** with a
+self-signal partner. (1) A **go-list** of surfacing/routing words — routing/routed ·
+surfaced/surfacing · raised/raising · flagged/flagging · disposition (9 forms; the present-tense bases
+route/surface/raise/flag are deliberately excluded as too noisy) — a **living list**, tuned over time. (2) By CLAUDE.md rule, whenever a turn
+uses a go-list word, Claude ends it with a compact `🔎 Review: words=[…]; changed files=[git status
+--short, or none] — please review.` line, and the **operator** verifies the claim against the actual
+`git` diff. (3) The hook nudges (exit 2) **only** when a go-list word appears **without** the `🔎 Review:`
+marker; the old `git status` dirty-board allow-path is removed.
+**Rationale:** the hook could never truly verify a claimed route reached a durable file — it only checked
+whether `HOPPER.md`/`CURRENT-TASKS.md` were dirty, a coarse proxy that passed on any unrelated edit and
+would false-block a *committed* route (operator's own analysis, Conv 047). Rather than build real
+diff-parsing verification (rejected — too much code for the value), push verification to the operator (who
+reads `git` easily) and shrink the hook to ensuring the review line is present, so the operator scans one
+line instead of watching a whole turn's scrollback. Rejected: **self-signal alone, hook retired** (option
+A — loses the mechanical catch for when Claude forgets the line, the Conv-046 reason the hook exists);
+**keeping the dirty-board gate** (the proxy the operator judged untrustworthy).
+**Consequences:** CLAUDE.md "Surfacing & guards" gains the go-list review-signal rule; `check-routing.sh`
+reworked (go-list grep + `🔎 Review:` marker check, no git), all five paths re-verified via crafted stdin.
+The go-list is expected to churn — single words over-match meta-discussion, so we add/retire as we learn.
+`DEC-046-1`'s CLAUDE.md Surfacing-rule strengthening stands; only its hook-enforcement mechanism is
+replaced. The script body is re-read each Stop, so the change is live this session.
+
 ### DEC-047-1 — `/r-end` drains only the closing conv's turns, surfaces orphans (never `rm -f` the whole file)
 **Decision:** The `/r-end` dialogue-drain step (r-end `SKILL.md` Step 3) no longer `rm -f`s
 `.conv-turns.jsonl` wholesale. After writing the companion from this conv's lines (`select(.conv==$c)`,

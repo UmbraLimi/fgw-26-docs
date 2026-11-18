@@ -278,6 +278,10 @@ voice audits, the "Does steering well…" close + the Deciding redline, images (
 🔴 **Deciding redline — carried voice catch (folded from hopper Conv 047; caught Conv 043):** in the
 rigorous Deciding redline, reword the ~3 uses of "honest/honestly" as a prose frame ("finding that point
 honestly", "honestly, yes", "Two honest signals") — VOICE bans the word as a framing word (Conv 040).
+🔸 **Metaphor audit — examine (Conv 047):** Steering P29 S3 packs two intuition-echoes into one sentence
+("sensing the problems that aren't obvious" + "feeling your way"). Both are deliberate show-don't-name
+echoes of the intuition throughline, but back-to-back in the same sentence they may blunt rather than
+reinforce — the audit decides whether to keep both, cut one, or space them.
 
 ### [GUIDE-PLANNING] · promoted Conv 046 · write the PLANNING guide (folds in the need/discovery gap)
 A new cornerstone-style guide (promoted from the hopper Conv 046; origin: Conv 044 need/mean split
