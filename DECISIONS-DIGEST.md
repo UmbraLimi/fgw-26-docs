@@ -2,9 +2,27 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-17._
+_As of 2026-11-18._
 
 ---
+
+### DEC-046-2 — read-only reference repos attach via `additionalDirectories`, not launch `--add-dir`
+
+The read-only reference repos `fg` and `frasergorrie` attach to the `fgw` session through
+`permissions.additionalDirectories` in `fgw-26-docs/.claude/settings.json` (`["../fg","../frasergorrie"]`),
+not via the launch command's `--add-dir` flags. The `fgw` alias is slimmed to `--add-dir ../fgw-26` (the
+actively-edited website repo) only.
+
+### DEC-046-1 — Surfacing rule strengthened + `check-routing.sh` enforcement (refines `DEC-008-2`)
+
+Strengthen the CLAUDE.md "Surfacing & guards" rule: (1) the words *route / routing / routed /
+surfaced* assert a destination — writing one without the concrete artifact edit it names, landed the same
+turn, is the same empty gesture as "flag"; (2) a live/unresolved caveat must go to the hopper as a `- [ ]`
+line (or a board row) — "surfaced inline" is **not** a valid disposition for one, and inventing a
+disposition (e.g. "no durable record needed") to dodge the hopper is barred; "surfaced inline" is reserved
+for a caveat mitigated the same turn or a pure visible-only aside. Enforced by a new `check-routing.sh`
+Stop hook that blocks (exit 2) when a disposition phrase appears in a turn with no pending edit to
+`HOPPER.md`/`CURRENT-TASKS.md`.
 
 ### DEC-045-4 — `✎ ANECDOTE` token for REQUIRED author insertions (distinct from `✎ OPTIONAL`)
 

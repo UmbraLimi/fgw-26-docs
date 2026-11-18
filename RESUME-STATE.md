@@ -2,40 +2,38 @@
 
 ## Where we left off
 
-Conv 045 was a **mid-conv resume** — a `/quit` right after `/r-start` stranded the approved
-agent-discoverability assessment (banked at session start: §7 snapshot + §10 action-plan; **start nothing
-now, revisit Conv 055**, `DEC-045-1`, `[AGENT-INITIATIVE]`). The rest was a long, close **Steering guide
-redline** with the operator (`steer-ai-to-build-what-you-mean.md`, still `draft:true`/dark, **prose NOT
-approved**): title last word `mean`→`meant` (`DEC-045-2`); card `description` + SERP `snippet` retuned; a
-bridging **pull-quote** at the planning→steering seam; the whole **opening** (Short answer + Paras 2/3) and
-the **"How do I actually steer the AI" steer-section** bullets; a new **"Don't I just need a better plan?"**
-section foreshadowing the future **PLANNING guide** (`DEC-045-3`, which folds in the old "need"/discovery
-idea — one guide, not two); **H2 nouns** seated for the FAQ-lift (H1 "AI-built software", H4 "the AI"); the
-**intuition** beat (confident-nonsense bullet reframed — Steering's first literal use of "intuition"); and
-two first-person **anecdotes** (record-keeping + intuition, the latter masking-generalized to "a big client
-project"). New `✎ ANECDOTE` required-insertion token (`DEC-045-4`). Everything stays **dark/draft and
-prose-unapproved**; the content-home flip is still gated on Steering + Deciding.
+Conv 046 was a **governance + tooling** conv, opened mid-stream after a product question. Two things
+shipped, both in `fgw-26-docs` only (the website + content guides were untouched): (1) the **reference-repo
+trust-prompt fix** (`DEC-046-2`) — `fg`/`frasergorrie` moved from the `fgw` alias's `--add-dir` flags to
+`permissions.additionalDirectories`, to stop the per-folder workspace-trust prompt CC **v2.1.325** added to
+`--add-dir`; the alias is now `--add-dir ../fgw-26` only; and (2) the **routing-guard** work (`DEC-046-1`,
+refines `DEC-008-2`) — a strengthened CLAUDE.md Surfacing rule plus a new `check-routing.sh` Stop hook that
+blocks a turn using disposition vocabulary with no pending board/hopper edit. `[GUIDE-PLANNING]` was promoted
+from the hopper. The **Steering guide and all content work sit exactly where Conv 045 left them** — still
+`draft:true`/dark, **prose not approved**.
 
 ## Next action
 
-🔴 **Resume at the H2 "Does steering it well mean I don't need anyone?"** — the next unredlined section (the
-"edge of steering" close that hands off to the Trust + Deciding guides). The operator floated tightening the
-heading to **"…anyone's help?"** — settle that first. Then finish Steering: the still-pending **conjunction +
-metaphor voice audits**, the **Deciding** rigorous redline (incl. the carried "honest" reword), images
-(`[CONTENT-ART]`), and a real first article. 🔧 Regenerate the coordinate view before redlining by P# — it's
-one word stale (translation→client): `node scripts/number-content.mjs
+🔴 **Return to the standing priority: the Steering redline.** Resume at the H2 **"Does steering it well mean
+I don't need anyone?"** — the operator floated tightening it to **"…anyone's help?"**; settle that first.
+Then the still-pending **conjunction + metaphor voice audits**, the **Deciding** rigorous redline (incl. the
+carried "honest" reword), images (`[CONTENT-ART]`), and a real first article. 🔧 Regenerate the coordinate
+view before redlining by P#: `node scripts/number-content.mjs
 src/content/guides/steer-ai-to-build-what-you-mean.md > ~/projects/fgw-26-docs/.scratch/steering-view.txt`
-(run from `~/projects/fgw-26`). 🔴 At flip: strip `✎ OPTIONAL` markers (greppable) **and** confirm no
-`✎ ANECDOTE` placeholder remains; prod deploys stay banned (`[PROD-DEPLOY-BAN]`). `[GOOGLE-SERVICES]` next
-cadence ~Conv 47 (incl. the request-indexing follow-up); `[AGENT-DISCOVERY-WATCH]` next ~Conv 55.
+(run from `~/projects/fgw-26`). At next **launch**, also clear the two Conv-046 hopper verifications (the
+trust-prompt fix and that `check-routing.sh` actually fires). `[GOOGLE-SERVICES]` cadence ~Conv 47;
+`[AGENT-DISCOVERY-WATCH]` ~Conv 55. Prod deploys stay banned (`[PROD-DEPLOY-BAN]`).
 
-**Hopper carries 4 items** (Deciding "honest" reword; PLANNING guide — folds need/discovery; Steering
-intuition anecdote — **satisfied this conv, droppable**; Trust→Trusting rename) — surfaced at `/r-start`;
-run `/r-hopper`.
-
-⚠️ **Human carry-over (still open):** the operator is to **send Gabriel the LinkedIn recommendation request**
-(note + draft in `_cc/linkedin-makeover.md`) — unchanged.
+⚠️ **Human carry-over (still open):** operator to **send Gabriel the LinkedIn recommendation request**
+(note + draft in `_cc/linkedin-makeover.md`).
 
 ## 🔬 Carried findings
 
-_None._
+- **Dialogue capture bled across convs.** `.conv-turns.jsonl` held **60 undrained Conv-045 turns** at the
+  Conv-046 close — Conv 045's `/r-end` drain (`rm -f`) evidently never ran. Drained during this close (045
+  already has its companion, so nothing lost). Rule next `/r-start`: does the `/r-end` drain step or the
+  capture hook need hardening so one conv's turns can't ride into the next?
+- **Pre-`/r-start` turns are never captured.** `capture-turn.sh` keys on `.conv-current`, which doesn't
+  exist until a conv opens, so a conv opened mid-stream (as 046 was) has **no verbatim record** of its
+  richest exchanges (here: the folder-trust question and the whole routing-rule discussion). Decide whether
+  work done before opening a conv should be capturable, or whether `/r-start` should come first by rule.

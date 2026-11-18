@@ -8,7 +8,45 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
-## Conv 045
+## Conv 046
+
+### DEC-046-2 — read-only reference repos attach via `additionalDirectories`, not launch `--add-dir`
+**Decision:** The read-only reference repos `fg` and `frasergorrie` attach to the `fgw` session through
+`permissions.additionalDirectories` in `fgw-26-docs/.claude/settings.json` (`["../fg","../frasergorrie"]`),
+not via the launch command's `--add-dir` flags. The `fgw` alias is slimmed to `--add-dir ../fgw-26` (the
+actively-edited website repo) only.
+**Rationale:** CC v2.1.325 changed `--add-dir`/`/add-dir` to show a per-folder workspace-trust prompt for
+any added folder not yet trusted; `fg` and `frasergorrie` had no trust record, so every launch re-prompted.
+`additionalDirectories` grants file-read access once the project folder is trusted (it is), with no
+per-folder prompt, and deliberately does **not** load those repos' skills/commands/hooks — correct for
+read-only reference material. Rejected: **pre-trusting each folder** by setting `hasTrustDialogAccepted=true`
+in `~/.claude.json` (keeps `--add-dir` and its config loading, but is a machine-local, non-portable edit
+outside the repo, and still loads config we don't want from reference repos).
+**Consequences:** `fgw-26` keeps full `--add-dir` working-dir status (trusted, loads its config);
+`fg`/`frasergorrie` become read-only and config-silent. Takes effect at next `fgw` launch (+ a fresh shell
+for the `~/.zshrc` edit); verification carried in the hopper. If the relative `../` paths don't resolve,
+switch to absolute. `_cc/repo-layout.md` updated.
+
+### DEC-046-1 — Surfacing rule strengthened + `check-routing.sh` enforcement (refines `DEC-008-2`)
+**Decision:** Strengthen the CLAUDE.md "Surfacing & guards" rule: (1) the words *route / routing / routed /
+surfaced* assert a destination — writing one without the concrete artifact edit it names, landed the same
+turn, is the same empty gesture as "flag"; (2) a live/unresolved caveat must go to the hopper as a `- [ ]`
+line (or a board row) — "surfaced inline" is **not** a valid disposition for one, and inventing a
+disposition (e.g. "no durable record needed") to dodge the hopper is barred; "surfaced inline" is reserved
+for a caveat mitigated the same turn or a pure visible-only aside. Enforced by a new `check-routing.sh`
+Stop hook that blocks (exit 2) when a disposition phrase appears in a turn with no pending edit to
+`HOPPER.md`/`CURRENT-TASKS.md`.
+**Rationale:** scar this conv — a live next-launch-verification caveat was labelled "surfaced inline —
+disposition: no durable record needed" and routed nowhere; "routing" sounded like surfacing while nothing
+moved. `DEC-008-2` already required caveats to reach the hopper but left "surfaced inline" open as an
+escape. Rejected: **CLAUDE.md wording alone** (soft, model-reliant — the operator asked to enforce "as much
+as possible"); **triggering the hook on the bare word "routing"** (saturates ordinary prose → constant
+false fires; keyed instead on the deliberate disposition vocabulary, as `check-ab-options.sh` keys on the
+`👉👉👉` anchor).
+**Consequences:** `check-routing.sh` registered in `settings.json` after `check-ab-options.sh`; heuristic
+(under-fires if the board was already dirty; over-fires on a genuinely-mitigated / visible-only disposition
+or when merely explaining the rule — accepted, like the A/B guard). In-session end-to-end firing is
+unverified (a `settings.json` hook may load only at session start); carried in the hopper.
 
 ### DEC-045-4 — `✎ ANECDOTE` token for REQUIRED author insertions (distinct from `✎ OPTIONAL`)
 **Decision:** Introduce a `✎ ANECDOTE (Fraser)` HTML-comment token for **required** first-person author

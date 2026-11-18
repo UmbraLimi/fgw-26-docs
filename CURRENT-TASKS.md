@@ -276,6 +276,18 @@ anecdote masking-generalized to "a big client project"). 🔴 **Resume next conv
 mean I don't need anyone?"** (operator floated "…anyone's **help**?"). **Still open:** conjunction + metaphor
 voice audits, the "Does steering well…" close + the Deciding redline, images (`[CONTENT-ART]`).
 
+### [GUIDE-PLANNING] · promoted Conv 046 · write the PLANNING guide (folds in the need/discovery gap)
+A new cornerstone-style guide (promoted from the hopper Conv 046; origin: Conv 044 need/mean split
+`DEC-044-1` + Conv 045 planning fold-in `DEC-045-3`). **Thesis:** you can't fully pre-specify complex
+custom software up front — the AI fills the gaps on its own, so plan *good-enough* (outcomes + solid
+starting points, not a perfect PRD), then steer. **Discovery-gap strand:** you can't pre-specify what
+you'll actually use; it stays partly unvoiced even to you and surfaces as you build and react ("no, not
+that") — the skill is **recognition, not articulation**. **Seeds** already in the Steering draft (the
+notebook, "sits wrong with you") belong here. Steering **foreshadows** it (the "Don't I just need a
+better plan?" section, `DEC-045-3`). 🔗 **On ship:** wire the forward-link from Steering's planning
+paragraph to this guide. Part of the `[SITE-CONTENT-HOME]` content set — same dark/draft → flip gating +
+`[PROD-DEPLOY-BAN]`.
+
 ### [CONTENT-ART] · promoted Conv 042 · guide/article illustration programme
 🎨 **Approach settled Conv 042** (full reasoning + recipes: `_cc/content-art-and-copyright.md`): per-guide/
 article imagery from **public-domain natural-history line engravings** (not photos, not AI — a naturalist's
@@ -355,6 +367,16 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 046:** **Routing-guard enforcement + reference-repo trust-prompt fix** (no content-guide rows
+  changed). Strengthened the CLAUDE.md Surfacing rule so routing/disposition vocabulary must be backed by
+  a real artifact edit the same turn and a live caveat goes to the hopper — "surfaced inline" barred for
+  an unresolved one (`DEC-046-1`, refines `DEC-008-2`); built + registered **`check-routing.sh`** Stop
+  hook enforcing it (blocks exit 2 when a disposition phrase appears with a clean board), all five logic
+  paths verified. Moved the **fg + frasergorrie** read-only reference repos to
+  `permissions.additionalDirectories` + slimmed the `fgw` alias to `--add-dir ../fgw-26` (`DEC-046-2`) —
+  stops the per-folder workspace-trust prompt `--add-dir` began showing in CC v2.1.325; verify next launch
+  (carried). Promoted **`[GUIDE-PLANNING]`** (the need/discovery guide) from the hopper. Hopper: 1
+  promoted, 1 dropped, 4 carried.
 - **Conv 045:** **Steering redline — title/opening/steer-section + intuition beat** (`[SITE-CONTENT-HOME]`
   stays — prose unapproved, guide still dark/draft) and **agent-discoverability assessed + deferred**
   (`[AGENT-INITIATIVE]`, `DEC-045-1`: start nothing, revisit Conv 055). Steering: title last word
