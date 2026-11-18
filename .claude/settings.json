@@ -1,6 +1,7 @@
 {
   "permissions": {
-    "deny": ["AskUserQuestion"]
+    "deny": ["AskUserQuestion"],
+    "additionalDirectories": ["../fg", "../frasergorrie"]
   },
   "hooks": {
     "Stop": [
@@ -9,6 +10,10 @@
           {
             "type": "command",
             "command": "\"${CLAUDE_PROJECT_DIR}/.claude/hooks/check-ab-options.sh\""
+          },
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PROJECT_DIR}/.claude/hooks/check-routing.sh\""
           }
         ]
       }
