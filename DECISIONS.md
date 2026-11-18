@@ -8,6 +8,64 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 045
+
+### DEC-045-4 — `✎ ANECDOTE` token for REQUIRED author insertions (distinct from `✎ OPTIONAL`)
+**Decision:** Introduce a `✎ ANECDOTE (Fraser)` HTML-comment token for **required** first-person author
+insertions, separate from the existing droppable `✎ OPTIONAL (Fraser)` token. The pre-flip strip gate (which
+greps `✎ OPTIONAL`) deliberately does **not** match `✎ ANECDOTE`, so a required insertion can't be silently
+swept at flip; each `✎ ANECDOTE` is instead a tracked pre-flip **blocker** (hopper) and ships empty only if
+forgotten.
+**Rationale:** `✎ OPTIONAL` markers are nice-to-haves, stripped at flip; a planned required anecdote needs
+the opposite guarantee — must be filled, never auto-dropped. A distinct token plus explicit hopper tracking
+gives that. Rejected: **reusing `✎ OPTIONAL`** (would be swept, losing required content) and a **visible
+in-prose placeholder** (renders on-page).
+**Consequences:** first use = the Steering intuition-anecdote slot (filled this conv, so the blocker is
+already satisfied). Pattern is available for future required insertions; each must be hoppered as a pre-flip
+blocker until filled.
+
+### DEC-045-3 — the future PLANNING guide folds in the "need"/discovery gap (one guide, not two)
+**Decision:** The "need"/discovery guide seeded by `DEC-044-1` is **folded into a single future PLANNING
+guide**. The Steering guide's new "Don't I just need a better plan?" section foreshadows that one guide.
+**Rationale:** the planning guide ("you can't fully spec complex software up front; plan good-enough, then
+steer") and the discovery-gap guide ("you can't pre-specify what you'll actually use; it surfaces through
+use") share one premise — the limits of up-front specification — so splitting them would have Steering
+foreshadow two overlapping future guides. Rejected: **two distinct guides** (real but overlapping premise)
+and **parking the roadmap question**.
+**Consequences:** the hopper's "need"/discovery line becomes the single PLANNING-guide line (folding in the
+discovery thesis); Steering's planning section carries a prose-only forward-reference, with the link wired
+when the PLANNING guide ships (hoppered). Builds on `DEC-044-1` (which reserved "need" for a separate future
+guide) — names which guide.
+
+### DEC-045-2 — Steering title's last word `mean` → `meant` (past tense)
+**Decision:** The Steering guide title's last word changes from "mean" to "meant": *"How do you get AI to
+build what you actually meant?"*. Slug and body unchanged.
+**Rationale:** present "mean" carries unwanted overtones (adjective "mean streets / mean-spirited") and the
+latent "mean to build"; past "meant" is purely verbal, drops both, stays in the mean/meant keyphrase family,
+matches the description's existing tense, and reinforces the stay-on-track frame (the meaning is already
+formed; steering realizes it). Rejected: **keep "mean"** (the overtone the operator flagged) and **"intend"**
+(cooler/corporate, breaks the keyphrase family, tilts to the plan sense). Refines `DEC-044-1`'s "mean"
+(transmission) thrust on **tense only** — not a supersede.
+**Consequences:** title and description now both read past; slug stays `…what-you-mean` (slugs don't track
+tense, no redirect). Part of the still-unapproved Steering redline.
+
+### DEC-045-1 — agent-discoverability initiative: start nothing now, revisit at Conv 055
+**Decision:** After the Conv-045 `[AGENT-DISCOVERY-WATCH]` refresh and the first `AGENT-DISCOVERABILITY.md`
+§10 action-plan assessment, **start none of the agent-discoverability rows now**; the initiative stays dark
+behind the content-home flip + `[PROD-DEPLOY-BAN]`. Revisit the full plan at the next watch (**Conv 055**),
+re-weighing `[DATA-PRIVATE-SCHEMA]` (the one unblocked, standard-risk-free row) and the **`ai-agent.json` L1
+commitment** (manifest namespace now unconverged — `ai-agent.json` an also-ran vs A2A AgentCard; three specs
+contest `/.well-known/agent.json`).
+**Rationale:** exactly one row (`[DATA-PRIVATE-SCHEMA]`) is both unblocked and free of external-standard
+risk; everything else agent-facing is gated by the deploy ban, sequenced behind that refactor, or betting on
+an unconverged manifest layer — and all of it competes with the content-home flip, the declared priority.
+Rejected: **starting `[DATA-PRIVATE-SCHEMA]` now** (defensible — internal, deploy-free, better masking even
+if MCP never ships — but still competes with the flip) and **inheriting the `ai-agent.json` L1 commitment
+silently** (the refresh found it unconverged).
+**Consequences:** new 📋 row `[AGENT-INITIATIVE]`; §7 snapshot + §10 assessment recorded in
+`AGENT-DISCOVERABILITY.md`; the `ai-agent.json` L1 commitment (§2/§5/§9) is flagged for explicit revisit
+before any `[AGENT-PROFILE]` work. Next watch Conv 055.
+
 ## Conv 044
 
 ### DEC-044-2 — `[GOOGLE-SERVICES]` check: filter to submitted pages + Nov-9 floor; push + track indexing

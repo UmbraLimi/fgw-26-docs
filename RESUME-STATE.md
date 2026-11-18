@@ -2,28 +2,36 @@
 
 ## Where we left off
 
-Conv 044 ran the **`[GOOGLE-SERVICES]` Conv-44 GSC cadence check**, filtered (operator-directed) to the 22
-submitted pages: **real-page indexing is stalled at 3/22** — the same `/`, `/work/`, `/privacy/` as Conv 41;
-18 real pages have never been crawled, 1 (`/testimonials/`) was crawled-but-declined. The all-known "7
-indexed" was inflated by old-URL 301 ghosts (harmless, self-healing). Health is clean. **First active
-intervention:** manual Request-indexing pushed `/about/ /method/ /phases/ /contact/` + re-requested
-`/testimonials/` — logged on the board for a **Conv-47 follow-up** (did they get crawled/indexed?). The
-standing check method is now expanded (`DEC-044-2`). Separately, the Steering guide title reverted
-`need`→`mean` (`DEC-044-1`: "need"/discovery is a *separate future guide*; Steering's thrust is "mean"/
-transmission). 🔴 **Steering and Deciding prose are still NOT operator-approved.**
+Conv 045 was a **mid-conv resume** — a `/quit` right after `/r-start` stranded the approved
+agent-discoverability assessment (banked at session start: §7 snapshot + §10 action-plan; **start nothing
+now, revisit Conv 055**, `DEC-045-1`, `[AGENT-INITIATIVE]`). The rest was a long, close **Steering guide
+redline** with the operator (`steer-ai-to-build-what-you-mean.md`, still `draft:true`/dark, **prose NOT
+approved**): title last word `mean`→`meant` (`DEC-045-2`); card `description` + SERP `snippet` retuned; a
+bridging **pull-quote** at the planning→steering seam; the whole **opening** (Short answer + Paras 2/3) and
+the **"How do I actually steer the AI" steer-section** bullets; a new **"Don't I just need a better plan?"**
+section foreshadowing the future **PLANNING guide** (`DEC-045-3`, which folds in the old "need"/discovery
+idea — one guide, not two); **H2 nouns** seated for the FAQ-lift (H1 "AI-built software", H4 "the AI"); the
+**intuition** beat (confident-nonsense bullet reframed — Steering's first literal use of "intuition"); and
+two first-person **anecdotes** (record-keeping + intuition, the latter masking-generalized to "a big client
+project"). New `✎ ANECDOTE` required-insertion token (`DEC-045-4`). Everything stays **dark/draft and
+prose-unapproved**; the content-home flip is still gated on Steering + Deciding.
 
 ## Next action
 
-**Resume the Steering + Deciding prose redlines** — the gate to the `[SITE-CONTENT-HOME]` flip. Steering
-still needs the pending **conjunction + metaphor voice audits**; Deciding needs its rigorous review
-(including the carried **"honest" reword** — VOICE bans the word as a frame). Both guides still need their
-images (`[CONTENT-ART]`), plus a real first article. Regenerate `.scratch/steering-view.txt` (`npm run
-number -- src/content/guides/steer-ai-to-build-what-you-mean.md`) before redlining by coordinate. 🔴 At
-flip: strip the `✎ OPTIONAL (Fraser)` markers (greppable); prod deploys stay banned (`[PROD-DEPLOY-BAN]`).
-Note: `[GOOGLE-SERVICES]` next cadence is ~Conv 47 (includes the request-indexing follow-up) — surfaced
-automatically at `/r-start`.
+🔴 **Resume at the H2 "Does steering it well mean I don't need anyone?"** — the next unredlined section (the
+"edge of steering" close that hands off to the Trust + Deciding guides). The operator floated tightening the
+heading to **"…anyone's help?"** — settle that first. Then finish Steering: the still-pending **conjunction +
+metaphor voice audits**, the **Deciding** rigorous redline (incl. the carried "honest" reword), images
+(`[CONTENT-ART]`), and a real first article. 🔧 Regenerate the coordinate view before redlining by P# — it's
+one word stale (translation→client): `node scripts/number-content.mjs
+src/content/guides/steer-ai-to-build-what-you-mean.md > ~/projects/fgw-26-docs/.scratch/steering-view.txt`
+(run from `~/projects/fgw-26`). 🔴 At flip: strip `✎ OPTIONAL` markers (greppable) **and** confirm no
+`✎ ANECDOTE` placeholder remains; prod deploys stay banned (`[PROD-DEPLOY-BAN]`). `[GOOGLE-SERVICES]` next
+cadence ~Conv 47 (incl. the request-indexing follow-up); `[AGENT-DISCOVERY-WATCH]` next ~Conv 55.
 
-**Hopper carries 2 items** (Deciding "honest" reword; new "need"/discovery guide idea) — surfaced at `/r-start`.
+**Hopper carries 4 items** (Deciding "honest" reword; PLANNING guide — folds need/discovery; Steering
+intuition anecdote — **satisfied this conv, droppable**; Trust→Trusting rename) — surfaced at `/r-start`;
+run `/r-hopper`.
 
 ⚠️ **Human carry-over (still open):** the operator is to **send Gabriel the LinkedIn recommendation request**
 (note + draft in `_cc/linkedin-makeover.md`) — unchanged.

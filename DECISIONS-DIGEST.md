@@ -2,9 +2,36 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-16._
+_As of 2026-11-17._
 
 ---
+
+### DEC-045-4 — `✎ ANECDOTE` token for REQUIRED author insertions (distinct from `✎ OPTIONAL`)
+
+Introduce a `✎ ANECDOTE (Fraser)` HTML-comment token for **required** first-person author
+insertions, separate from the existing droppable `✎ OPTIONAL (Fraser)` token. The pre-flip strip gate (which
+greps `✎ OPTIONAL`) deliberately does **not** match `✎ ANECDOTE`, so a required insertion can't be silently
+swept at flip; each `✎ ANECDOTE` is instead a tracked pre-flip **blocker** (hopper) and ships empty only if
+forgotten.
+
+### DEC-045-3 — the future PLANNING guide folds in the "need"/discovery gap (one guide, not two)
+
+The "need"/discovery guide seeded by `DEC-044-1` is **folded into a single future PLANNING
+guide**. The Steering guide's new "Don't I just need a better plan?" section foreshadows that one guide.
+
+### DEC-045-2 — Steering title's last word `mean` → `meant` (past tense)
+
+The Steering guide title's last word changes from "mean" to "meant": *"How do you get AI to
+build what you actually meant?"*. Slug and body unchanged.
+
+### DEC-045-1 — agent-discoverability initiative: start nothing now, revisit at Conv 055
+
+After the Conv-045 `[AGENT-DISCOVERY-WATCH]` refresh and the first `AGENT-DISCOVERABILITY.md`
+§10 action-plan assessment, **start none of the agent-discoverability rows now**; the initiative stays dark
+behind the content-home flip + `[PROD-DEPLOY-BAN]`. Revisit the full plan at the next watch (**Conv 055**),
+re-weighing `[DATA-PRIVATE-SCHEMA]` (the one unblocked, standard-risk-free row) and the **`ai-agent.json` L1
+commitment** (manifest namespace now unconverged — `ai-agent.json` an also-ran vs A2A AgentCard; three specs
+contest `/.well-known/agent.json`).
 
 ### DEC-044-2 — `[GOOGLE-SERVICES]` check: filter to submitted pages + Nov-9 floor; push + track indexing
 

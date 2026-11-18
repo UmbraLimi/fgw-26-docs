@@ -262,6 +262,19 @@ is **"mean" (the *transmission* gap** — intent you hold but didn't voice; the 
 Title/description/snippet back to "mean"; body + slug were already "mean", so no redirect/cross-link change.
 The carried need/mean hopper item is **resolved**; a new hopper capture seeds the "need" guide. Everything
 else above stays open (Steering/Deciding redlines + images, first article, conjunction+metaphor audits).
+✍️ **Conv 045 — Steering redline: title/opening/steer-section + intuition beat (prose still NOT approved).**
+Title last word `mean`→`meant` (`DEC-045-2`); card `description` + SERP `snippet` retuned (planning-vs-steering
+thesis); bridging **pull-quote** at the planning→steering seam; **Short answer** recast (steering + discernment
++ agency); **Paras 2/3** reworked (seat "AI-built software" entity, past-build→present-discovery tense, italic
+coinage *becoming a worthy companion to AI*, "a skill you can learn"); **P7** closer ("where your judgement
+must take over"); **Decide** bullet → "spell it out" + record + generalization; **Watch for confident
+nonsense** reframed around **intuition** (Steering's first literal use; close = "ask the AI… name what you
+only sensed"); new **"Don't I just need a better plan?"** section foreshadowing the future **PLANNING guide**
+(`DEC-045-3`, folds in need/discovery); **H2 nouns** seated for FAQ-lift (H1 "AI-built software", H4 "the
+AI"); **record-keeping + intuition anecdotes** added (new `✎ ANECDOTE` required token, `DEC-045-4`; intuition
+anecdote masking-generalized to "a big client project"). 🔴 **Resume next conv at H2 "Does steering it well
+mean I don't need anyone?"** (operator floated "…anyone's **help**?"). **Still open:** conjunction + metaphor
+voice audits, the "Does steering well…" close + the Deciding redline, images (`[CONTENT-ART]`).
 
 ### [CONTENT-ART] · promoted Conv 042 · guide/article illustration programme
 🎨 **Approach settled Conv 042** (full reasoning + recipes: `_cc/content-art-and-copyright.md`): per-guide/
@@ -342,6 +355,15 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 045:** **Steering redline — title/opening/steer-section + intuition beat** (`[SITE-CONTENT-HOME]`
+  stays — prose unapproved, guide still dark/draft) and **agent-discoverability assessed + deferred**
+  (`[AGENT-INITIATIVE]`, `DEC-045-1`: start nothing, revisit Conv 055). Steering: title last word
+  `mean`→`meant` (`DEC-045-2`); card/snippet retuned; bridging pull-quote; Short answer + Paras 2/3 reworked
+  (seat "AI-built software" entity, tense fix, italic coinage, "a skill you can learn"); P7 closer; Decide +
+  confident-nonsense bullets (latter reframed around **intuition**, Steering's first literal use); new
+  **"Don't I just need a better plan?"** section foreshadowing the **PLANNING guide** (`DEC-045-3`, folds in
+  need/discovery); H2 nouns seated for FAQ-lift (H1/H4); record-keeping + intuition anecdotes (new
+  `✎ ANECDOTE` token, `DEC-045-4`). Hopper: 4 carried.
 - **Conv 044:** **`[GOOGLE-SERVICES]` Conv-44 GSC check + indexing push** (row stays — standing monitor) and
   **Steering need→mean revert** (`[SITE-CONTENT-HOME]` stays — prose unapproved). GSC filtered to submitted
   pages (operator-directed): **3/22 real pages indexed — the same 3 as Conv 41** (`/`, `/work/`, `/privacy/`);
