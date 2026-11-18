@@ -81,12 +81,22 @@ omitted. Written once, never edited (erratum-append only). 🔴 Never assert an 
 jq -r --arg c <NNN> 'select(.conv==$c) | .text' ~/projects/fgw-26-docs/.conv-turns.jsonl
 ```
 renders each operator turn verbatim; write them into `…Conv NNN — dialogue.md` in order, adding the
-optional one-line produced-note per turn. 🔴 Verbatim — never clean typos. **Then drain the capture:**
+optional one-line produced-note per turn. 🔴 Verbatim — never clean typos. **Then drain ONLY this conv's
+lines** — never `rm -f` the whole file. A prior conv whose `/r-end` died before its own drain leaves
+orphan turns here; blowing the file away would destroy them unseen (the Conv-045→046 bleed, `DEC-047-1`):
 ```
-rm -f ~/projects/fgw-26-docs/.conv-turns.jsonl
+T=$(mktemp); jq -c --arg c <NNN> 'select(.conv != $c)' ~/projects/fgw-26-docs/.conv-turns.jsonl > "$T" \
+  && mv "$T" ~/projects/fgw-26-docs/.conv-turns.jsonl
+# File now holds only turns tagged for OTHER convs. Empty → remove; non-empty → orphans, surface them.
+if [ -s ~/projects/fgw-26-docs/.conv-turns.jsonl ]; then \
+  echo "🔴 ORPHAN turns remain (conv count):"; jq -r '.conv' ~/projects/fgw-26-docs/.conv-turns.jsonl | sort | uniq -c; \
+else rm -f ~/projects/fgw-26-docs/.conv-turns.jsonl; fi
 ```
-No `.jsonl`, or no lines for this conv → skip the companion, say so in one line (capture was empty).
-The companion is a tracked doc under `docs/convs/**` (staged in Step 6); the `.jsonl` never travels.
+🔴 **Orphans surfaced → report them** (which conv(s), how many) before closing: they belong to a conv
+whose drain never completed — recover into that conv's companion if it lacks one, else note and drop.
+Do not let them ride silently into the next conv. No `.jsonl`, or no lines for this conv → skip the
+companion, say so in one line (capture was empty). The companion is a tracked doc under `docs/convs/**`
+(staged in Step 6); the `.jsonl` never travels.
 
 ## Step 4 — Carried findings
 

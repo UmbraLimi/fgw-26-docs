@@ -275,6 +275,9 @@ AI"); **record-keeping + intuition anecdotes** added (new `✎ ANECDOTE` require
 anecdote masking-generalized to "a big client project"). 🔴 **Resume next conv at H2 "Does steering it well
 mean I don't need anyone?"** (operator floated "…anyone's **help**?"). **Still open:** conjunction + metaphor
 voice audits, the "Does steering well…" close + the Deciding redline, images (`[CONTENT-ART]`).
+🔴 **Deciding redline — carried voice catch (folded from hopper Conv 047; caught Conv 043):** in the
+rigorous Deciding redline, reword the ~3 uses of "honest/honestly" as a prose frame ("finding that point
+honestly", "honestly, yes", "Two honest signals") — VOICE bans the word as a framing word (Conv 040).
 
 ### [GUIDE-PLANNING] · promoted Conv 046 · write the PLANNING guide (folds in the need/discovery gap)
 A new cornerstone-style guide (promoted from the hopper Conv 046; origin: Conv 044 need/mean split

@@ -37,3 +37,4 @@ trust-prompt fix and that `check-routing.sh` actually fires). `[GOOGLE-SERVICES]
   exist until a conv opens, so a conv opened mid-stream (as 046 was) has **no verbatim record** of its
   richest exchanges (here: the folder-trust question and the whole routing-rule discussion). Decide whether
   work done before opening a conv should be capturable, or whether `/r-start` should come first by rule.
+  ✔ **ruled (Conv 047):** drop — operator's call is to stay vigilant to always run `/r-start` first; no tooling change.

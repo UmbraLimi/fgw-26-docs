@@ -8,6 +8,28 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 047
+
+### DEC-047-1 — `/r-end` drains only the closing conv's turns, surfaces orphans (never `rm -f` the whole file)
+**Decision:** The `/r-end` dialogue-drain step (r-end `SKILL.md` Step 3) no longer `rm -f`s
+`.conv-turns.jsonl` wholesale. After writing the companion from this conv's lines (`select(.conv==$c)`,
+unchanged), it rewrites the file to the complement (`select(.conv != $c)`): if the remainder is empty the
+file is removed; if not, the leftover lines are **orphans from another conv** and are surfaced (conv +
+count) for recovery before the conv closes. The `capture-turn.sh` hook is unchanged — it already tags
+every line with its conv correctly.
+**Rationale:** scar — at the Conv-046 close `.conv-turns.jsonl` held 60 undrained **Conv-045** turns
+because Conv 045's `/r-end` died before its own `rm`. The companion *write* was already conv-scoped so
+nothing was misfiled, but the unconditional `rm -f` would silently destroy any orphan turns a prior conv
+hadn't yet written up; nothing was lost only because 045 already had its companion (luck, not design).
+Scoping the deletion to consumed lines and surfacing the remainder makes the drain non-destructive and
+turns a silent bleed into a visible, recoverable signal. Rejected: **hardening the capture hook** (it's
+correct — the failure was the drain, not the capture) and **a `/r-start` orphan check** (detects later,
+after the next conv's turns have already mixed in; the fix belongs where turns are consumed).
+**Consequences:** r-end `SKILL.md` Step 3 carries the scoped-drain shell block + an "orphans surfaced →
+report + recover" rule. Drain logic verified on a mixed-conv fixture (045 orphans surfaced, current conv
+written, file cleared when single-conv). Finding 2 (pre-`/r-start` turns uncaptured) was **dropped** the
+same conv — operator's call is to stay vigilant to always run `/r-start` first, no tooling change.
+
 ## Conv 046
 
 ### DEC-046-2 — read-only reference repos attach via `additionalDirectories`, not launch `--add-dir`
