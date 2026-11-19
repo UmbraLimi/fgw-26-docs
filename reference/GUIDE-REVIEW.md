@@ -14,10 +14,16 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
 ## The pass (in order)
 
 **Structure & content**
-1. **Coordinate-view redline** — regenerate the `P#S#` view (`node scripts/number-content.mjs <file>`, run
-   from `fgw-26`), redline section by section, **checking each change back against the creation outline's
-   arc** (`GUIDE-CREATE.md`) — a rewritten paragraph must stay on-story. Foundation; everything below
-   assumes the body is passed through.
+1. **Coordinate-view redline — whole-draft-first (`DEC` Conv 049).** Once the arc + key design are locked
+   (`GUIDE-CREATE.md`), **CC writes the entire piece in one coherent pass against the approved `✎ ARC`
+   block** — *not* block-by-block with a ruling between each. Editing one block at a time fractures CC's
+   intent and lets the arc drift; a whole-draft pass keeps the story intact (operator, Conv 049).
+   Regenerate the `P#S#` view (`node scripts/number-content.mjs <file>`, from `fgw-26`) for addressing.
+   🔴 **The whole-draft pass marks deferred items inline, it never fabricates:** `✎ ANECDOTE` for the
+   operator's own stories (CC never invents a personal anecdote in his voice), provisional wording flagged,
+   `✎ OPTIONAL` author insertions. CC then **self-checks the finished draft against the `✎ ARC` block and
+   reports any drift**. **Then the operator reads/edits the whole piece first, and only then moves block by
+   block.** Foundation; everything below assumes the body is passed through.
 2. **"It" pass** — the default "it" = the piece's core subject (e.g. *your AI-built software*); every
    non-subject "it" named so no referent is ambiguous. (Trust, `DEC-040`.)
 3. **Anecdote check** — does the piece carry **enough personal-experience anecdotes** (the operator's

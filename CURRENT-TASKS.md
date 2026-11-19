@@ -33,6 +33,96 @@ dossier template (what the live board row accrues). The Steering dossier is the 
 Ideally landed **before Deciding graduates** (Deciding starts next conv; its graduation is a few steps
 out, so no rush to start). (Promoted Conv 048 from the hopper.)
 
+### [GUIDE-DECIDING] · added Conv 049 · "Should you build it yourself or bring someone in?" (3rd cornerstone)
+📄 The **Deciding** cornerstone guide — the 3rd and last of the first three. A draft predated `/r-content`;
+dossier scaffolded Conv 049 (compared doc-derived "B" vs rigorous retrofit "A"; **operator chose A**).
+slug `build-it-yourself-or-bring-someone-in` · pillar `deciding` · order 3 · `draft: true` · dark behind
+`CONTENT_HOME_LIVE` + `[PROD-DEPLOY-BAN]`.
+
+**Take (A, rigorous):** the call isn't a feeling, it's a **test you can run on each part** — *do I
+understand what it does?* × *does my business depend on it?* The quadrant tells you keep / learn / watch /
+bring-someone-in. AI raised the floor (self-build goes further than you'd expect) but pushed the
+load-bearing parts to the end, where an explicit test beats a gut call. A clear test is *more* empowering
+than "trust your unease" — it names which part and why.
+
+**Outline / approved arc (A — seat as the on-arc comment block at redline step 1):**
+1. **Short answer** — reworded off "honestly": build yourself as far as you can *stand behind*; bring
+   someone in for the specific part your business leans on that you can't verify or fix.
+2. **Home-repair analogy** — kept, tied to the test ("open the wall" = a load-bearing part you can't judge).
+3. **H2 "Hasn't AI made bringing someone in unnecessary?"** — floor-not-ceiling; hard parts moved to the end.
+4. **H2 "How do I test each part?"** — 🆕 rigorous core: an **Eisenhower-style 2×2**, *understanding*
+   (can I judge/fix it?) × *dependence* (does my business lean on it?), **shown as a matrix in the guide**
+   (operator, Conv 049). Four cells: **Keep** (understand/low-dep), **Own it** (understand/high-dep),
+   **Leave it or learn it** (black-box/low-dep), **Bring someone in — or learn it** (black-box/high-dep =
+   the one cell that forces a call; sub-fork: delegate vs grow-past-the-limit). Promotes the test buried
+   in the draft's keep/restart §. 🔧 Matrix render = a later design call (static table or inline SVG,
+   legible both themes; simpler than `[PILLAR-DIAGRAM]`'s interactive build).
+5. **H2 "Where am I on the path, really?"** — the three places, framed as *where the test sends you*. → `/phases/`.
+6. **H2 "What do I keep, and what do I start over?"** — keep simple+understood, rebuild tangled+load-bearing;
+   the start-over trap (gaps = unasked questions) — now a consequence of §4, not a separate idea.
+7. **H2 "When is it genuinely time to bring someone in?"** — the specific unverifiable business-critical
+   part; two signals seated as **intuition** (the unease that won't go away — Trust/Steering throughline)
+   + the mechanical signal (can't-change-without-breaking). → the work I do + soft CTA `/contact/`.
+🔴 **A is an arc change** (promote the 2×2, re-sequence cause→consequence), so redline step 1 reconciles
+the existing draft body to this arc — not a prose-only pass.
+
+🔲 **Matrix — working spec (Conv 049; all wording PROVISIONAL — operator finalizes at the final pass):**
+- **Title/question above the matrix:** *"Should I bring someone in to help (me)?"*
+- **Cell labels — decision-led (A):** *No — carry on* · *No — you've got it* · *No — it doesn't matter* ·
+  **Yes — bring someone in, or learn it** (each cell answers the title-question).
+- **Colour:** the three "No / keep going yourself" cells one **calm** tone; the "Yes / get help" cell a
+  distinct **warm** tone (legible in both themes).
+- **Axis explanations = small figure text BELOW the matrix** (not just terse axis labels):
+  - **Columns (X):** frame as **"risk to you if something goes wrong"** (stakes). "Dependence" is the same
+    idea but *vaguer* — lean to the risk framing.
+  - **Rows (Y):** **"your understanding of how the entire system works."**
+
+**Checklist (lifecycle order, live from the docs Conv 049):**
+Creation (`GUIDE-CREATE.md`):
+- [ ] Slot — pillar `deciding` already in `pillars.ts`; confirm its **colour** is set (feeds `[PILLAR-DIAGRAM]`)
+- [x] Take drawn out (A) · [x] Outline/arc approved (A) — ⬜ seat it as the on-arc comment block in the draft at step 1
+- [x] First draft exists — ⬜ reconcile body to the approved A-arc (done inside step 1)
+Finalize (`GUIDE-REVIEW.md`, in order):
+- [ ] 1 Coordinate-view redline (`number-content.mjs`; reconcile to the A-arc) — folds in the **"honest/honestly" reword** (~3 uses, carried voice-catch; VOICE)
+- [ ] 2 "It" pass (default it = your AI-built software)
+- [ ] 3 Anecdote check (home-repair is analogy, not anecdote — check for real from-experience beats)
+- [ ] 4 Glossary (3–5 terms)
+- [ ] 5 Headings (H2 = NL questions; FAQ-lift nouns)
+- [ ] 6 Entity naming — seat "AI-built software" (`DEC-043-4`, Deciding in-scope)
+- [ ] 7 Conjunction audit
+- [ ] 8 Metaphor audit (home-repair structural metaphor as a unit)
+- [ ] 9 Pull quote (one)
+- [ ] 10 Rendered read
+- [ ] 11 Em-dash sanity check
+- [ ] 12 Colophon selection + fitting — **Deciding image lead: Bloch *Esox lucius* pike** / freshwater-fish pool (`COLOPHON.md`, `[CONTENT-ART]`)
+- [ ] 13 Card + SEO/GEO snippet match (final)
+- [ ] 14 Masking check
+- [ ] 15 Final whole-page review → declare final → graduate to `docs/content/build-it-yourself-or-bring-someone-in.md`, retire row
+
+**Decisions (piece-specific, accrue here):**
+- **Conv 049:** adopted arc **A** (2×2-test spine, re-sequenced) over B (keep-draft-arc). The 2×2 was latent
+  in the draft (§ "do I understand… does my business lean on it"); A promotes it to the spine.
+- **Conv 049:** the decision test is an **Eisenhower-style 2×2** (understanding × dependence), and it is
+  **rendered as a visible matrix in the guide** (operator). Only the black-box × high-dependence cell
+  forces a call; the other three are "you're fine."
+- **Conv 049:** that danger cell carries a **third route — learn it / grow past the limit** (operator,
+  "most definitely"), not just bring-someone-in — echoing Trust's "know your limits, and grow past them."
+  Delegate vs invest-to-learn is the sub-fork (stakes / runway).
+- **Conv 049:** matrix cell labels are **decision-led (A)** — each answers the matrix title-question
+  *"Should I bring someone in to help (me)?"* with No/Yes + nuance; colour groups the three No/keep-going
+  cells vs the one Yes/get-help cell. Axis explanations go in small figure text below (X = "risk if it goes
+  wrong", vaguer as "dependence"; Y = "your understanding of how the whole system works"). All wording
+  provisional — operator finalizes at the final pass. (See 🔲 Matrix working spec above.)
+- **Conv 049:** matrix cells are **software-filled**, with home-repair as a **prose echo** (operator chose
+  A over a home-repair-filled matrix). Working fills: *Keep* = a copy tweak / settings toggle; *Own it* =
+  your core workflow logic; *Leave it or learn it* = an animation lib you didn't write; *Bring someone in
+  or learn it* = auth / payments / data handling. Home-repair echo lands on the danger cell in prose
+  ("the wiring behind the wall").
+
+**Published:** _pending — dark behind the flip + `[PROD-DEPLOY-BAN]`._
+🔗 On finish: the carried **3-cornerstone interlink** hopper item unblocks (Trust/Steering/Deciding + the
+`[GUIDE-PLANNING]` forward-link).
+
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
 `sitemap-index.xml` (Success, 22 URLs); removed the broken legacy `sitemap.xml`; requested homepage
@@ -231,9 +321,10 @@ set **`CONTENT_HOME_LIVE = true`** (`consts.ts`) and deploy. That one flag drive
 nav + footer content-home links (gated `CONTENT_HOME_LIVE || DEV`, Conv 039), drops the `noindex`, and
 re-includes `/guides` + `/writing` in the sitemap — no per-file nav edits at flip. The old `/blog` →
 `/writing/` 301 is tracked by `[BLOG-REDIRECT]`; per-piece JSON-LD is **built** (Conv 043, `DEC-043-3`; see `[SITE-STRUCTURED-DATA]`).
-🔴 **Pre-flip gate (Conv 043, from hopper):** strip the `✎ OPTIONAL (Fraser)` author-insertion markers from the
-guide drafts (currently `steer-ai-to-build-what-you-mean.md`, and any sibling they land in) before flipping —
-invisible on-page but they ship in page source; greppable by the `✎ OPTIONAL` token.
+🔴 **Pre-flip gate (Conv 043, from hopper; broadened Conv 049):** strip the **`✎`-family** author/planning
+markers — `✎ OPTIONAL` (author insertions), `✎ ANECDOTE` (anecdote placeholders), `✎ ARC` (the on-arc
+outline block, Conv 049) — from the guide drafts before flipping; invisible on-page but they **ship in page
+source**. Greppable by the single **`✎`** token (catches all three) — don't grep only `✎ OPTIONAL`.
 🔗 Per-piece JSON-LD **built Conv 043** (`DEC-043-3`) in the `slot="head"` hook (`Article`/`BlogPosting` +
 `FAQPage` + breadcrumbs); see `[SITE-STRUCTURED-DATA]`.
 ✍️ **Trust guide heavily redlined + tone-reviewed Conv 040** (`is-your-ai-built-software-sound.md`, still

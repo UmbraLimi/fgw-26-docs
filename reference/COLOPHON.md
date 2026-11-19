@@ -14,12 +14,14 @@ criteria + source list live in one place instead of scattered across convs.
 1. 🔴 **License = PUBLIC DOMAIN / CC0 only.** Verify on the actual source page. **Reject** CC-BY,
    CC-BY-SA, and any dealer/stock page (Alamy, Getty, Pinterest, print sellers) — those are **not** PD
    evidence. This is the only load-bearing criterion (`DEC-042-1`; tiers in the content-art doc).
-2. **Medium = line / copperplate ENGRAVINGS** (for now — operator, Conv 047). Not photos, not AI, not
-   heavy colour lithographs. A **hand-coloured** engraving is a *caveat*, not a bar: the cleanup recipe
-   desaturates it to the warm duotone, but the engraved line reads less purely than an uncoloured plate —
-   surface it for a conscious call.
+2. **Medium = line / copperplate ENGRAVINGS, plus pre-1850 WATERCOLOURS** (watercolours added — operator,
+   Conv 049; engravings-only was Conv 047). Not photos, not AI, not heavy colour lithographs. A
+   **hand-coloured** engraving (or a watercolour) is a *caveat*, not a bar: the cleanup recipe desaturates
+   it to the warm duotone, but a coloured plate reads less purely than an uncoloured engraved line — note
+   it for a conscious call.
 3. **Era = similar vintage** to the first image (Lister, *Historiae Conchyliorum*, ~1685). 17th–18th c.
-   preferred. A **soft preference, not a gate.**
+   preferred; **pre-1850** is the outer bound for the Conv-049 fish/amphibian expansion. A **soft
+   preference, not a gate.**
 4. **Subject verified by VIEWING the actual image** — never a title/filename match alone (scar Conv 047:
    a "Seba starfish" plate was actually opossums).
 5. **Resolution is NOT a gating criterion** (operator, Conv 047) — low-res is fine; higher is a
@@ -73,6 +75,42 @@ Linck image; both Trust and Steering now duotone both elements).
 | *Tableau encyclopédique et méthodique* | 1791 | echinoderms, cephalopods, &c. | candidate — Steering (Asterias pl.) |
 | G. W. Knorr, *Delights of the Eyes and Mind* | 1760s | shells, marine life | not yet used |
 | Jonston / Merian, *Historia Naturalis* | 1657 | closest to Lister's era; clean PD scans scarce | not yet located |
+| M. E. Bloch, *Allg. Naturgeschichte der Fische* / *Ökon. Naturg. der Fische Deutschlands* / *Ichthyologie* | 1782–95 | freshwater + marine fish (pike, perch, roach, eel, sturgeon) — hand-coloured copperplate | candidate — **Deciding** (pike *Esox lucius* L., pl. 32) |
+| William Yarrell, *A History of British Fishes* | 1836 | British fish — **uncoloured wood engravings** (purest line) | candidate — freshwater fish (pike/perch/eel) |
+| Edward Donovan, *Natural History of British Fishes* | 1802–08 | British fish — hand-coloured engravings | candidate — freshwater fish |
+| A. J. Rösel von Rosenhof, *Historia naturalis ranarum nostratium* | 1758 | frogs (+ dissections/skeletons) — hand-coloured engravings | candidate — amphibians |
+| Mark Catesby, *Natural History of Carolina, Florida & the Bahama Islands* | 1731–43 | **N. American** fish/amphibians/reptiles — hand-coloured etchings | candidate — amphibians + fish (on-theme) |
+
+## Freshwater fish + amphibians (Conv 049 — subject expansion)
+
+Operator widened the subject pool to **water-dwelling vertebrates — freshwater fish + amphibians**
+(engravings **and** pre-1850 watercolours). Treatment + architecture unchanged. 🔴 The leads below are
+**found via web search, not yet viewed or license-verified** — criterion 1 (confirm PD on the actual
+source page) and criterion 4 (view the real plate, never a title match) still gate any use.
+[checked: WebSearch, Conv 049]
+
+**Freshwater fish (engraved)**
+- 🎯 **Deciding lead — Bloch, northern pike (*Esox lucius* L.).** Bloch's hand-coloured copperplate of the
+  pike is **plate 32** of *Ökonomische Naturgeschichte der Fische Deutschlands* (Tome 1, 1783); the
+  Linnaean binomial fits the "Linnaeus" nod. All plates digitized at **Univ. Heidelberg** and **Univ.
+  Strasbourg**; a French-edition variant at **Gallica**; Commons **`Category:Esox lucius`** (+ an
+  `Esox lucius illustrations` subcat — not yet opened). Caveat: hand-coloured (criterion 2).
+- **Bloch, full ichthyology** — *Allgemeine Naturgeschichte der Fische* (1782–95): the standard freshwater
+  set (perch, roach, eel, sturgeon) as hand-coloured copperplates; same Heidelberg/Strasbourg scans, plus
+  BHL (MCZ scan).
+- **William Yarrell, *A History of British Fishes*** (1836) — ~400 **uncoloured wood engravings** (Bewick
+  technique); the **purest engraved line** of the fish options (pike/perch/eel, uncoloured). BHL
+  (bib 29002), Darwin Online PDFs, Wellcome (PD Mark). Species plates must be browsed — not indexed by name.
+- **Edward Donovan, *The Natural History of British Fishes*** (1802–08) — hand-coloured engravings; BHL
+  (bib 6497) + Internet Archive + NYPL.
+
+**Amphibians (engraved / watercolour)**
+- **A. J. Rösel von Rosenhof, *Historia naturalis ranarum nostratium*** (1758) — the classic frog atlas,
+  hand-coloured engravings (+ dissections/skeletons). BHL (bib 149946), Univ. Heidelberg (Tafeln I–XXIV),
+  AMNH, Smithsonian. Some on Commons via the **Wellcome set — license mixed there, verify per file**.
+- **Mark Catesby, *Natural History of Carolina, Florida & the Bahama Islands*** (1731–43) — **North
+  American** fish + amphibians/reptiles, hand-coloured etchings (matches the "N. American to start"
+  direction). BHL (bib 62015, Smithsonian scan), Public Domain Review (individual plates), Artvee.
 
 ## Workflow notes
 
