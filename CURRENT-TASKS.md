@@ -21,31 +21,6 @@ is **live**, not what is finished.
 > X.com Conv 037). The two rows below remain: the standing **GSC monitor**, and the **posting plan** (now
 > unblocked by the makeovers). Order as the operator listed them.
 
-### [GUIDE-STEERING] · dossier added Conv 047 (retroactive) · "How do you get AI to build what you actually meant?"
-🧭 **Piece dossier** (new pattern, `DEC-047-8`), created mid-flight: Steering **predates the process**, so
-it has **no `r-content` task and — ⚠️ — no outline**. Pillar **steering**; image `stella-marina-linck`
-(✅ Conv 047). On sign-off this graduates to `docs/content/steer-ai-to-build-what-you-mean.md`.
-**Take:** Planning matters, but getting AI to build what you *mean* takes continuous **steering** with the
-context only you have — the things in your head. (The *transmission* gap, not the discovery/planning gap.)
-**Outline:** ⚠️ **MISSED** — no arc outline was created (predates the outline pass). The redline's on-arc
-check (GUIDE-REVIEW step 1) has nothing to check against; reconstruct one if the finalize needs it.
-**Lifecycle state:**
-- **Create** (GUIDE-CREATE): slot ✅ (steering) · take ✅ · outline ⚠️ missed · first draft ✅ (Conv 039–045,
-  closing section redlined Conv 047).
-- **Image** (COLOPHON): ✅ Conv 047 — Linck sea star, firm duotone tile + cropped duotone colophon + the
-  bounded-box sizing standard.
-- **Finalize** (GUIDE-REVIEW, 14 steps) — body redline done through the close; the **formal pass is NOT
-  run**:
-  - [ ] 2 "it" pass · [ ] 3 anecdote check · [ ] 4 glossary · [ ] 5 headings/FAQ · [ ] 6 entity naming ·
-    [ ] 7 conjunction audit · [ ] 8 metaphor audit (P29-S3 "sensing"+"feeling your way" input noted) ·
-    [ ] 9 pull-quote (a bridging pull-quote already exists, Conv 045 — confirm/place) · [ ] 10 rendered read ·
-    [ ] 11 em-dash · [x] 12 colophon ✅ · [ ] 13 card/snippet match · [ ] 14 masking check (the P30
-    screen-sharing anecdote — confirm not identifiable / generalize) · [ ] 15 final review + declare final + graduate
-**Decisions (piece-level):** historically in `DECISIONS.md` (predates `DEC-047-8`): title "meant"
-(`DEC-045-2`), need/mean split (`DEC-044-1`), planning-guide foreshadow (`DEC-045-3`), + the Conv-047 close
-redline + image calls. Future Steering-specific calls go **here**.
-**Published:** not yet (dark / `draft:true`).
-
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
 `sitemap-index.xml` (Success, 22 URLs); removed the broken legacy `sitemap.xml`; requested homepage
@@ -426,6 +401,16 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 048:** **Steering guide finalized + graduated** — `[GUIDE-STEERING]` row retired. Ran the full
+  `GUIDE-REVIEW` finalize pass (steps 2–15): default "it" = the AI (P20/P24 edits); P8 forty-years aside
+  added; glossary/headings/entity/conjunctions clean; metaphor audit kept all (P29-S3 sense-vs-choose pair);
+  pull-quote confirmed at P17; rendered-read fixes (P24 confident-nonsense inversion, P25 corner/rewrite);
+  zero em-dashes; snippet reworked to seat "AI-built software"; **P31 masking-generalized** (dropped the
+  video/screen-sharing + session recording/replay that sat adjacent to the learning-marketplace/Peerloop
+  case); `✎` markers stripped; **declared final**. **Graduated** to
+  `docs/content/steer-ai-to-build-what-you-mean.md` under a **richer dossier format** (per-step finalize
+  record + piece-decision home; `DEC` at /r-end). Still dark behind the content-home flip +
+  `[PROD-DEPLOY-BAN]`.
 - **Conv 047:** **Content-piece lifecycle built + Steering closing redline & image** (plus routing-guard
   rework + drain fix). **Tooling:** `/r-end` dialogue-drain scoped so one conv's turns can't bleed into the
   next (`DEC-047-1`); **routing guard reworked** to a go-list review-signal + lapse-catcher hook (`DEC-047-2`
