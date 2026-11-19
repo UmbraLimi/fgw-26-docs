@@ -81,3 +81,15 @@ Linck image; both Trust and Steering now duotone both elements).
   `src/content/images/<id>/` + committed to be durable (`DEC-042-2`).
 - Capture provenance at selection: `source { title, work, license, credit, sourceUrl, accessed, file }`
   per `provenance.json` (see an existing entry under `src/content/images/`).
+- **Division of labour (Conv 047):** the **operator creates the candidate square inner-extracts** for the
+  in-page aside — the zoomed-in detail tiles, framed per "Square detail tile — what to crop." CC then does
+  the treatment + build: crop, duotone, cleanup, `provenance.json`, and wiring the guide's `image` field.
+- **A source plate usually needs two treatments before it ships (Conv 047):** (1) **crop** to an even
+  margin around the printed frame — scans carry a large, uneven paper border; remove it, keep the credits;
+  and (2) **duotone normalization** — run the plate through the same duotone recipe as the square so the
+  colophon and tile match (see "Treatment consistency"). Neither is always needed, but expect both.
+- ⚠️ **Dev image-cache trap (Conv 047):** replacing a content image *in place* (same filename) during
+  `astro dev` leaves Chrome serving the old bytes on the unchanged `/_image?...` URL — and a lazy,
+  below-the-fold image isn't fixed by a plain Cmd+Shift+R (the deferred fetch still hits the cache). Bust
+  it by **renaming the file** (new URL) or **"Empty Cache and Hard Reload"** (DevTools open → right-click
+  the reload button). Production never hits this — built asset URLs are content-hashed.

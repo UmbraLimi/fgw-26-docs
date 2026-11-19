@@ -72,6 +72,7 @@ say what job it does.
 
 ## Decisions & learnings — keep recording
 - 🔴 **Every decision → `DECISIONS.md` as `DEC-NNN-N`** (`DEC-000-5`), design and process alike, newest-first. `Decision:` / `Rationale:` (name the alternative that lost) / `Consequences:`. Learnings + narrative → the per-conv record in `docs/convs/`, at `/r-end`.
+- **Exception — piece-level content decisions** (calls about one specific guide/article) live in that piece's **dossier** (its `CURRENT-TASKS.md` row, graduating to `docs/content/<slug>.md` at sign-off), **not** `DECISIONS.md`. `DECISIONS.md` stays for project / process / design decisions. (`DEC-047-8`.)
 - 🔴 **Tombstone what you supersede — never delete it.** An overtaken decision keeps its entry, re-headed `### DEC-NNN-N — ⛔ superseded by \`DEC-NNN-N\`` and holding nothing else, so every handle ever issued still resolves.
 - 🔎 **Scanning for precedent → load `DECISIONS-DIGEST.md` first** (generated, drift-proof), find candidate `DEC-NNN-N`, then open those in `DECISIONS.md`. Never hand-edit the digest; `/r-end` regenerates it.
 - **Design change is expected.** An earlier decision carries no special standing; a proposal never has to justify itself against what it would overtake.

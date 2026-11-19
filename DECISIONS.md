@@ -10,6 +10,57 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 047
 
+### DEC-047-8 — the piece dossier: per-piece decision home, graduating to a permanent record
+**Decision:** The `r-content` board row is each content piece's **dossier** — the home for its take,
+outline pointer, ordered checklist, **piece-specific decisions**, and publish record. Piece-level content
+decisions live here, **not** in `DECISIONS.md` (which stays project / process / design). At the
+`GUIDE-REVIEW` final gate (declare final), the dossier **graduates** to a permanent per-piece record at
+`fgw-26-docs/docs/content/<slug>.md` (keyed by the piece id), and the board row retires.
+**Rationale:** mirrors the conv lifecycle (board row → `docs/convs/` record) for content pieces, so the
+full history of **why and how** each piece was created is preserved durably, one file per piece — and it
+keeps `DECISIONS.md` focused on project-level calls instead of bloating with per-piece editorial ones.
+The operator wanted the task to become "full of great information and history," then saved permanently
+tied to the id.
+**Consequences:** `r-content` Step 3 builds the dossier (take / outline / checklist / decisions /
+published); `GUIDE-CREATE` records the take + outline + piece-decisions there; `GUIDE-REVIEW` step 14
+graduates it to `docs/content/<slug>.md` and retires the row. CLAUDE.md "Decisions & learnings" carries
+the carve-out (piece decisions → dossier, not `DECISIONS.md`). New durable location `docs/content/`
+(created on first graduation). Sibling: `DEC-047-7` (the creation infra).
+
+### DEC-047-7 — content-creation infra: `GUIDE-CREATE.md` (drafting pass) + the `r-content` skill
+**Decision:** Added `reference/GUIDE-CREATE.md` — the **creation pass** (idea → first draft): slot it
+(guide = pillar / article → pillar) → **get the operator's take** (a small, rough take is fine) → **outline
+the arc** (kept as the on-arc reference, checked during the redline) → **first draft from the outline**.
+And built the **`r-content` skill**: starting a new guide/article, it reads `GUIDE-CREATE` + `COLOPHON` +
+`GUIDE-REVIEW` **live** and emits the piece's full ordered checklist (create → image → finalize) as a
+`CURRENT-TASKS.md` board row.
+**Rationale:** `GUIDE-REVIEW.md` only covered finalizing an existing draft — no mapped creation process,
+so a generated checklist would skip the actual writing. The **outline is kept as the arc yardstick** so
+the operator can rewrite any paragraph and CC can check it stays on-story. The skill **derives steps from
+the docs at run time** (🔴 never hardcoded) so updating the mds keeps every future checklist current — the
+operator's explicit requirement.
+**Consequences:** three single-purpose docs now compose the content lifecycle — GUIDE-CREATE (draft) →
+COLOPHON (image) → GUIDE-REVIEW (finalize); `r-content` stitches them into a per-piece board checklist.
+`GUIDE-REVIEW` step 1 now checks each redline change against the creation outline. A skill added
+mid-session is invokable from the next session (like a hook). Siblings: `DEC-047-3` (GUIDE-REVIEW),
+`DEC-047-5` (COLOPHON).
+
+### DEC-047-6 — guide = pillar (1:1); the pillar taxonomy grows with each cornerstone
+**Decision:** Each cornerstone **guide IS a pillar** and vice versa (1:1), making explicit the model the
+code already assumes (`content.config.ts` "one cornerstone guide per pillar"; `pillars.ts` closed enum;
+the `/guides/` hub renders one cornerstone per pillar). **Adding a guide = adding a pillar** (extend the
+`Pillar` enum + the join). The taxonomy therefore grows past the original three (trust / steering /
+deciding) to the operator's evergreen set: **Planning, Skills, Sub-agents, Testing, Documentation**
+(8 so far, more possible).
+**Rationale:** operator's strong preference (Conv 047). Keeps "pillar" and "cornerstone guide" synonymous
+— the simplest mental + code model (one join key, one hub slot per guide), and each evergreen topic is
+meant to *be* a pillar. Rejected **B (decouple)** — pillars as a fixed buyer-problem set with ≥1 guide
+each: more flexible but reworks the hub + enum for flexibility the operator doesn't want.
+**Consequences:** `pillars.ts` enum + the `/guides/` hub grow with each new cornerstone; each new guide
+extends the enum and gets a **colour** (feeds the planned interactive pillar diagram — coloured clickable
+circles = pillars, hoverable connecting lines = how two pillars relate). The five new guides are future
+content work (board rows). `[GUIDE-PLANNING]` is now confirmed a pillar, not a sub-topic of steering.
+
 ### DEC-047-5 — central image-sourcing reference (`reference/COLOPHON.md`); resolution dropped as a gating criterion
 **Decision:** Created `reference/COLOPHON.md` as the single lookup for sourcing guide/article imagery —
 the go/no-go criteria + where to find the plates (BHL, Wikimedia Commons, Internet Archive) + a running
@@ -41,10 +92,12 @@ repo (they're non-durable until chosen); inlining/linking the temp path (the ope
 in `.scratch/starfish-candidates/`.
 
 ### DEC-047-3 — codified the guide-review finalize pass (`reference/GUIDE-REVIEW.md`)
-**Decision:** Wrote a single reusable 10-step "guide review" checklist (`reference/GUIDE-REVIEW.md`) that
-takes a cornerstone guide from body-redlined to prose-final: coordinate-view redline → "it" pass →
-glossary → headings/FAQ-lift → entity naming → conjunction audit → metaphor audit → rendered read →
-em-dash check → markers + declare final. CC does the mechanical part and presents; the operator rules each.
+**Decision:** Wrote a single reusable **guide/article** finalize checklist (`reference/GUIDE-REVIEW.md`)
+that takes a cornerstone guide or blog article from body-redlined to prose-final. Steps (expanded to 14
+the same conv with the operator's additions): coordinate-view redline → "it" pass → anecdote check →
+glossary → headings/FAQ-lift → entity naming → conjunction audit → metaphor audit → pull-quote → rendered
+read → em-dash → colophon selection+fitting → card/SEO-GEO-snippet match → final whole-page review +
+declare final. CC does the mechanical part and presents; the operator rules each.
 **Rationale:** the Trust guide's review was a de-facto sequence (Conv 040 tone/presentation + Conv 041
 rendered read) that lived only in the convs; with Steering now at the same stage and Deciding + articles
 still to come, reconstructing the pass from memory each time risks drift between guides. A short checklist
@@ -53,7 +106,10 @@ Conv-047 option B — fine once, but the third reconstruction is where drift cre
 than warranted — a reference note the finalize work reads is enough, per the lean-process rule).
 **Consequences:** `reference/GUIDE-REVIEW.md` added; it cross-refs the existing `VOICE.md` audit workflows
 and the relevant DECs rather than restating them. Steps already satisfied for a given guide are stated as
-done, not silently skipped. Images + JSON-LD + the live-flip stay out of scope (board-tracked).
+done, not silently skipped. The operator **expanded the pass the same conv** — anecdote check, pull-quote,
+colophon selection+fitting, card/SEO-GEO-snippet match, a final whole-page review — and broadened it to
+blog articles. JSON-LD + the live-flip stay out of scope (board-tracked); the colophon/image step is now
+in-scope.
 
 ### DEC-047-2 — routing guard reworked: go-list review-signal + lapse-catcher hook (reworks `DEC-046-1`)
 **Decision:** `check-routing.sh` changes from a board-dirtiness "verifier" to a **lapse-catcher** with a
