@@ -39,7 +39,8 @@ check (GUIDE-REVIEW step 1) has nothing to check against; reconstruct one if the
   - [ ] 2 "it" pass · [ ] 3 anecdote check · [ ] 4 glossary · [ ] 5 headings/FAQ · [ ] 6 entity naming ·
     [ ] 7 conjunction audit · [ ] 8 metaphor audit (P29-S3 "sensing"+"feeling your way" input noted) ·
     [ ] 9 pull-quote (a bridging pull-quote already exists, Conv 045 — confirm/place) · [ ] 10 rendered read ·
-    [ ] 11 em-dash · [x] 12 colophon ✅ · [ ] 13 card/snippet match · [ ] 14 final review + declare final + graduate
+    [ ] 11 em-dash · [x] 12 colophon ✅ · [ ] 13 card/snippet match · [ ] 14 masking check (the P30
+    screen-sharing anecdote — confirm not identifiable / generalize) · [ ] 15 final review + declare final + graduate
 **Decisions (piece-level):** historically in `DECISIONS.md` (predates `DEC-047-8`): title "meant"
 (`DEC-045-2`), need/mean split (`DEC-044-1`), planning-guide foreshadow (`DEC-045-3`), + the Conv-047 close
 redline + image calls. Future Steering-specific calls go **here**.
@@ -319,6 +320,33 @@ better plan?" section, `DEC-045-3`). 🔗 **On ship:** wire the forward-link fro
 paragraph to this guide. Part of the `[SITE-CONTENT-HOME]` content set — same dark/draft → flip gating +
 `[PROD-DEPLOY-BAN]`.
 
+### [PILLAR-ROADMAP] · promoted Conv 047 · the evergreen guide-pillar pipeline (guide = pillar, `DEC-047-6`)
+The pipeline of cornerstone **guide-pillars** beyond the first three (Trusting ✅ dossier, Steering 🔄
+`[GUIDE-STEERING]`, Deciding ⬜). Each new guide **IS a pillar**: extend `pillars.ts` (`Pillar` enum +
+`PILLAR_META` label / blurb / order / **colour**) + a `/guides/` hub slot, then run create→image→finalize
+(`/r-content` scaffolds the dossier).
+🔤 **Pillar labels are gerunds** (operator, Conv 047 — matches Trusting / Steering / Deciding; the label is
+the user-facing gerund, the internal `pillars.ts` key stays a short slug).
+**Pipeline (Conv 047):**
+- **Planning** — already a row, `[GUIDE-PLANNING]` (need / discovery + planning gap).
+- **Documenting** — keeping track of what you did, why you did it, what you learned; tasks and processing.
+- **Creating Skills** — writing them, using them, extending them.
+- **Creating Subagents** — when to use them.
+- **Testing** — scope TBD.
+- **Reviewing** — when a project gets big enough that you can't remember how it all works.
+- **Rewriting** — knowing when to rewrite what you've already built.
+Each gets a **colour** (feeds `[PILLAR-DIAGRAM]`). Promote a topic to its own active row (via `/r-content`)
+as it's started. All dark/draft → flip gating + `[PROD-DEPLOY-BAN]`.
+
+### [PILLAR-DIAGRAM] · promoted Conv 047 · interactive pillar map (coloured circles + hoverable connections)
+An interactive diagram of the pillar set that shows a user how the pillars relate: coloured **circles =
+pillars**, clickable → the pillar's guide; **lines = interrelations**, hoverable to reveal how the two
+pillars connect. **Needs:** (1) a **colour per pillar** (settle alongside `[PILLAR-ROADMAP]` as pillars
+are defined — the diagram reuses the `PILLAR_META` colours); (2) the **pairwise "how they relate"
+content** — a one-line connection per linked pair (a content task); (3) the **interactive build** — inline
+SVG + JS (clickable circles, hoverable lines), on the `/guides/` hub or a dedicated page, legible in both
+themes. Operator-planned; benefits from the pillar colours being set first.
+
 ### [CONTENT-ART] · promoted Conv 042 · guide/article illustration programme
 🎨 **Approach settled Conv 042** (full reasoning + recipes: `_cc/content-art-and-copyright.md`): per-guide/
 article imagery from **public-domain natural-history line engravings** (not photos, not AI — a naturalist's
@@ -398,6 +426,20 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 047:** **Content-piece lifecycle built + Steering closing redline & image** (plus routing-guard
+  rework + drain fix). **Tooling:** `/r-end` dialogue-drain scoped so one conv's turns can't bleed into the
+  next (`DEC-047-1`); **routing guard reworked** to a go-list review-signal + lapse-catcher hook (`DEC-047-2`
+  — 9 `-ing`/`-ed` trigger words, the `🔎 Review` line, no git gate). **Content lifecycle:** new
+  `reference/GUIDE-CREATE.md` (drafting pass) + `GUIDE-REVIEW.md` expanded to 15 steps (anecdote, pull-quote,
+  colophon, metadata, masking, final review; on-arc check) + `COLOPHON.md` learnings; the **`r-content`
+  skill** composes a per-piece **dossier**/checklist from the three docs live (`DEC-047-3`/`-5`/`-7`);
+  **guide = pillar** (`DEC-047-6` — gerund labels, 10-pillar roadmap); the dossier **graduates** to
+  `docs/content/<slug>.md` at sign-off (`DEC-047-8`). Retrofitted **Trusting** (graduated dossier) +
+  **Steering** (`[GUIDE-STEERING]` in-flight dossier). **Steering:** closing section redlined (heading
+  "…anyone's help?", claim/anecdote/takeaway split, best-customer close) + the **Linck sea-star image**
+  (firm duotone tile + cropped duotone colophon + bounded-box colophon sizing standard). New rows
+  `[GUIDE-STEERING]` · `[PILLAR-ROADMAP]` · `[PILLAR-DIAGRAM]`. GSC cadence skipped (done Conv 44). Hopper:
+  2 verified-dropped + 2 content-ruled (earlier), then 2 promoted / 1 institutionalized / 1 carried.
 - **Conv 046:** **Routing-guard enforcement + reference-repo trust-prompt fix** (no content-guide rows
   changed). Strengthened the CLAUDE.md Surfacing rule so routing/disposition vocabulary must be backed by
   a real artifact edit the same turn and a live caveat goes to the hopper — "surfaced inline" barred for

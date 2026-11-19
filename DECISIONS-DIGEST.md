@@ -6,6 +6,76 @@ _As of 2026-11-18._
 
 ---
 
+### DEC-047-8 — the piece dossier: per-piece decision home, graduating to a permanent record
+
+The `r-content` board row is each content piece's **dossier** — the home for its take,
+outline pointer, ordered checklist, **piece-specific decisions**, and publish record. Piece-level content
+decisions live here, **not** in `DECISIONS.md` (which stays project / process / design). At the
+`GUIDE-REVIEW` final gate (declare final), the dossier **graduates** to a permanent per-piece record at
+`fgw-26-docs/docs/content/<slug>.md` (keyed by the piece id), and the board row retires.
+
+### DEC-047-7 — content-creation infra: `GUIDE-CREATE.md` (drafting pass) + the `r-content` skill
+
+Added `reference/GUIDE-CREATE.md` — the **creation pass** (idea → first draft): slot it
+(guide = pillar / article → pillar) → **get the operator's take** (a small, rough take is fine) → **outline
+the arc** (kept as the on-arc reference, checked during the redline) → **first draft from the outline**.
+And built the **`r-content` skill**: starting a new guide/article, it reads `GUIDE-CREATE` + `COLOPHON` +
+`GUIDE-REVIEW` **live** and emits the piece's full ordered checklist (create → image → finalize) as a
+`CURRENT-TASKS.md` board row.
+
+### DEC-047-6 — guide = pillar (1:1); the pillar taxonomy grows with each cornerstone
+
+Each cornerstone **guide IS a pillar** and vice versa (1:1), making explicit the model the
+code already assumes (`content.config.ts` "one cornerstone guide per pillar"; `pillars.ts` closed enum;
+the `/guides/` hub renders one cornerstone per pillar). **Adding a guide = adding a pillar** (extend the
+`Pillar` enum + the join). **Pillar labels are gerunds** (Conv 047 — Trusting / Steering / Deciding; the
+user-facing label is the gerund, the internal key stays a short slug). The taxonomy grows past the first
+three to the operator's evergreen set: **Planning, Documenting, Creating Skills, Creating Subagents,
+Testing, Reviewing, Rewriting** (10 so far, more possible; living list in `[PILLAR-ROADMAP]`).
+
+### DEC-047-5 — central image-sourcing reference (`reference/COLOPHON.md`); resolution dropped as a gating criterion
+
+Created `reference/COLOPHON.md` as the single lookup for sourcing guide/article imagery —
+the go/no-go criteria + where to find the plates (BHL, Wikimedia Commons, Internet Archive) + a running
+list of works drawn from. It defers to `_cc/content-art-and-copyright.md` for the copyright tiers and the
+treatment/architecture (no duplication). Same conv, **resolution is no longer a gating criterion** (operator):
+low-res images are fine, higher is a nice-to-have — reversing the earlier ≥1500px sourcing target.
+
+### DEC-047-4 — operator-viewable images live in `.scratch/`, not the session temp dir
+
+Any image the operator needs to see — tentative/candidate source images as well as their
+manipulations (treatments for a post) — is stored in the repo's `.scratch/` (gitignored), named with its
+provenance, never left only in the session scratchpad. CLAUDE.md §Scratch carries the rule.
+
+### DEC-047-3 — codified the guide-review finalize pass (`reference/GUIDE-REVIEW.md`)
+
+Wrote a single reusable **guide/article** finalize checklist (`reference/GUIDE-REVIEW.md`)
+that takes a cornerstone guide or blog article from body-redlined to prose-final. Steps (expanded to 15
+the same conv with the operator's additions): coordinate-view redline → "it" pass → anecdote check →
+glossary → headings/FAQ-lift → entity naming → conjunction audit → metaphor audit → pull-quote → rendered
+read → em-dash → colophon selection+fitting → card/SEO-GEO-snippet match → masking check → final whole-page review +
+declare final. CC does the mechanical part and presents; the operator rules each.
+
+### DEC-047-2 — routing guard reworked: go-list review-signal + lapse-catcher hook (reworks `DEC-046-1`)
+
+`check-routing.sh` changes from a board-dirtiness "verifier" to a **lapse-catcher** with a
+self-signal partner. (1) A **go-list** of surfacing/routing words — routing/routed ·
+surfaced/surfacing · raised/raising · flagged/flagging · disposition (9 forms; the present-tense bases
+route/surface/raise/flag are deliberately excluded as too noisy) — a **living list**, tuned over time. (2) By CLAUDE.md rule, whenever a turn
+uses a go-list word, Claude ends it with a compact `🔎 Review: words=[…]; changed files=[git status
+--short, or none] — please review.` line, and the **operator** verifies the claim against the actual
+`git` diff. (3) The hook nudges (exit 2) **only** when a go-list word appears **without** the `🔎 Review:`
+marker; the old `git status` dirty-board allow-path is removed.
+
+### DEC-047-1 — `/r-end` drains only the closing conv's turns, surfaces orphans (never `rm -f` the whole file)
+
+The `/r-end` dialogue-drain step (r-end `SKILL.md` Step 3) no longer `rm -f`s
+`.conv-turns.jsonl` wholesale. After writing the companion from this conv's lines (`select(.conv==$c)`,
+unchanged), it rewrites the file to the complement (`select(.conv != $c)`): if the remainder is empty the
+file is removed; if not, the leftover lines are **orphans from another conv** and are surfaced (conv +
+count) for recovery before the conv closes. The `capture-turn.sh` hook is unchanged — it already tags
+every line with its conv correctly.
+
 ### DEC-046-2 — read-only reference repos attach via `additionalDirectories`, not launch `--add-dir`
 
 The read-only reference repos `fg` and `frasergorrie` attach to the `fgw` session through

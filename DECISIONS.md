@@ -49,9 +49,10 @@ mid-session is invokable from the next session (like a hook). Siblings: `DEC-047
 **Decision:** Each cornerstone **guide IS a pillar** and vice versa (1:1), making explicit the model the
 code already assumes (`content.config.ts` "one cornerstone guide per pillar"; `pillars.ts` closed enum;
 the `/guides/` hub renders one cornerstone per pillar). **Adding a guide = adding a pillar** (extend the
-`Pillar` enum + the join). The taxonomy therefore grows past the original three (trust / steering /
-deciding) to the operator's evergreen set: **Planning, Skills, Sub-agents, Testing, Documentation**
-(8 so far, more possible).
+`Pillar` enum + the join). **Pillar labels are gerunds** (Conv 047 — Trusting / Steering / Deciding; the
+user-facing label is the gerund, the internal key stays a short slug). The taxonomy grows past the first
+three to the operator's evergreen set: **Planning, Documenting, Creating Skills, Creating Subagents,
+Testing, Reviewing, Rewriting** (10 so far, more possible; living list in `[PILLAR-ROADMAP]`).
 **Rationale:** operator's strong preference (Conv 047). Keeps "pillar" and "cornerstone guide" synonymous
 — the simplest mental + code model (one join key, one hub slot per guide), and each evergreen topic is
 meant to *be* a pillar. Rejected **B (decouple)** — pillars as a fixed buyer-problem set with ≥1 guide
@@ -93,10 +94,10 @@ in `.scratch/starfish-candidates/`.
 
 ### DEC-047-3 — codified the guide-review finalize pass (`reference/GUIDE-REVIEW.md`)
 **Decision:** Wrote a single reusable **guide/article** finalize checklist (`reference/GUIDE-REVIEW.md`)
-that takes a cornerstone guide or blog article from body-redlined to prose-final. Steps (expanded to 14
+that takes a cornerstone guide or blog article from body-redlined to prose-final. Steps (expanded to 15
 the same conv with the operator's additions): coordinate-view redline → "it" pass → anecdote check →
 glossary → headings/FAQ-lift → entity naming → conjunction audit → metaphor audit → pull-quote → rendered
-read → em-dash → colophon selection+fitting → card/SEO-GEO-snippet match → final whole-page review +
+read → em-dash → colophon selection+fitting → card/SEO-GEO-snippet match → masking check → final whole-page review +
 declare final. CC does the mechanical part and presents; the operator rules each.
 **Rationale:** the Trust guide's review was a de-facto sequence (Conv 040 tone/presentation + Conv 041
 rendered read) that lived only in the convs; with Steering now at the same stage and Deciding + articles

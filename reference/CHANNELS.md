@@ -102,6 +102,12 @@ Three **buyer-problem-facing** pillars (each a question a real buyer asks — so
 inbound topic), plus one cross-cutting thread. Everything on LinkedIn, X, and the site pulls from this set,
 so the channels stay consistent. Grounds in `PERSONA.md` ("what he educates about").
 
+> 📌 **Conv 047 update — the pillar set is expanding.** `DEC-047-6` made **guide = pillar** (1:1) explicit
+> and the taxonomy is growing beyond these three, with **gerund labels** (Trusting / Steering / Deciding
+> + Planning, Documenting, Creating Skills, Creating Subagents, Testing, Reviewing, Rewriting). Living
+> roadmap + framing: `[PILLAR-ROADMAP]`. This section still describes the three **live** pillars — fold in
+> the new ones (funnel role, buyer question, label) as each is built.
+
 1. **Trust — is this AI-built software sound?** What AI gets confidently wrong, how to judge whether what
    you got will hold, how to spot the gaps. Answers the buyer's real question ("will I get burned?") and
    catches the straw-man searcher. The primary inbound-discovery magnet.

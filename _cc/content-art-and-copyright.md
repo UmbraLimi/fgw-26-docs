@@ -12,7 +12,9 @@
 ## Status (Conv 042)
 
 - Trust guide **prose final** and its **illustration built + rendering** (Conus; square tile in-page +
-  full-plate colophon). The flip now waits on the **Steering + Deciding** guides (content + their images).
+  full-plate colophon). **Steering's image is now done too** (Conv 047 — Linck sea star, duotone tile +
+  cropped duotone colophon). The flip now waits on **Steering's finalize + the Deciding guide** (content
+  + Deciding's image).
 - **Approach settled (`DEC-042-1`):** PD natural-history **line engravings**, cleaned as a raster engraving,
   a **square detail tile** in-page + a **full-plate colophon**; no light/dark theming (fixed background).
   Got here via rejected experiments — photo-tracing a dragonfly head + a pimpleback mussel *reproduced*

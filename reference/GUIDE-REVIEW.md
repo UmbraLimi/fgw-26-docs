@@ -53,12 +53,18 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
     the `snippet` (meta / og / twitter, SEO + GEO) still accurately match the **final** content. They are
     decoupled by `DEC-043-2`, but both must be true to the piece.
 
+**Safety**
+14. **Masking check** — every personal-experience anecdote is confirmed **not client-identifiable**: no
+    real client / source / target exposed, nothing that bridges to a de-identified case
+    (`[CASE-RECORD-SIGNOFF]`, 🔴). Generalize where needed (Conv-045 precedent: "a big client project").
+    Applies to any piece carrying anecdotes — guides and articles alike.
+
 **Gate**
-14. **Final whole-page review + declare final + graduate** — strip/resolve author-insertion markers
-    (`✎ OPTIONAL`, `✎ ANECDOTE`); resolve any open masking-confirm caveats (`[CASE-RECORD-SIGNOFF]`); the
-    **operator does a final manual review of the whole rendered page**; then declares it **final**.
-    **Graduate the dossier:** write the piece's board-row dossier (take, outline, decisions, publish
-    status + date) to a permanent **`fgw-26-docs/docs/content/<slug>.md`**, then retire the board row.
+15. **Final whole-page review + declare final + graduate** — strip/resolve author-insertion markers
+    (`✎ OPTIONAL`, `✎ ANECDOTE`); the **operator does a final manual review of the whole rendered page**;
+    then declares it **final**. **Graduate the dossier:** write the piece's board-row dossier (take,
+    outline, decisions, publish status + date) to a permanent **`fgw-26-docs/docs/content/<slug>.md`**,
+    then retire the board row.
 
 ## Out of scope here
 Per-piece JSON-LD (`[SITE-STRUCTURED-DATA]`) is auto-generated (`DEC-043-3`), not a manual step. The
