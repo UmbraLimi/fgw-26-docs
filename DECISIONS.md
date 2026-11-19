@@ -8,6 +8,38 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 048
+
+### DEC-048-2 — hub `/guides/` cards carry the guide's square art as a lower-right corner tile
+**Decision:** On the `/guides/` hub, each cornerstone guide's `square` image treatment renders as a small
+(64px) framed tile tucked into the lower-right corner of its card, reusing the `guides/[slug].astro`
+treatment loader (glob + `loadTreatment`). Placement `bottom-6 right-6`, `h-16 w-16 rounded-sm border
+border-ink`; the tile is decorative (empty `alt`, the card already links its title). Guides with no image
+yet (Deciding) render a bare card.
+**Rationale:** ties each hub card to its guide's art — a quiet signature that carries the content-art
+programme (`[CONTENT-ART]`) onto the hub without competing with the card copy. Operator-directed; size +
+inset tuned live (56px / inset-4 → 64px / inset-6). Rejected a larger or flush-to-corner image as too loud
+for a card.
+**Consequences:** `src/pages/guides/index.astro` now resolves each guide's square treatment inline (same
+pattern as `[slug].astro`; a shared helper is a possible later extraction if a third consumer appears).
+Degrades cleanly when a guide lacks an image. Held dark behind the content-home flip + `[PROD-DEPLOY-BAN]`.
+
+### DEC-048-1 — the graduated dossier uses a richer format than Trust's retroactive record
+**Decision:** The graduated per-piece dossier (`docs/content/<slug>.md`) uses a fuller structure than the
+Trust record: header · take · outline (honest — N/A where none) · how-it-was-made · a **per-step finalize
+record** (every `GUIDE-REVIEW` step with its outcome/ruling) · a **piece-level decision home** · image ·
+interlinks · published. Established by the Steering graduation (Conv 048). Codifying it into
+`GUIDE-REVIEW.md` step 15 and/or the `r-content` dossier template is tracked by the `[DOSSIER-FORMAT]`
+board row.
+**Rationale:** Trust's dossier was reverse-engineered onto a piece that skipped the process, so it was thin
+where the rigor should show; the operator wanted the record "full of great information and history"
+(`DEC-047-8`) and Deciding "more rigorous still." The per-step finalize record is the audit trail that makes
+the rigor durable. Rejected keeping Trust's thinner shape as the template — it under-records the finalize
+work.
+**Consequences:** the Steering dossier is the worked reference for `[DOSSIER-FORMAT]`. `GUIDE-REVIEW` step 15
+still describes only the minimal "take / outline / decisions / published" write — to be reconciled by that
+row. Builds on `DEC-047-8` (the dossier-graduation mechanism).
+
 ## Conv 047
 
 ### DEC-047-8 — the piece dossier: per-piece decision home, graduating to a permanent record

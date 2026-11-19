@@ -2,9 +2,26 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-18._
+_As of 2026-11-19._
 
 ---
+
+### DEC-048-2 — hub `/guides/` cards carry the guide's square art as a lower-right corner tile
+
+On the `/guides/` hub, each cornerstone guide's `square` image treatment renders as a small
+(64px) framed tile tucked into the lower-right corner of its card, reusing the `guides/[slug].astro`
+treatment loader (glob + `loadTreatment`). Placement `bottom-6 right-6`, `h-16 w-16 rounded-sm border
+border-ink`; the tile is decorative (empty `alt`, the card already links its title). Guides with no image
+yet (Deciding) render a bare card.
+
+### DEC-048-1 — the graduated dossier uses a richer format than Trust's retroactive record
+
+The graduated per-piece dossier (`docs/content/<slug>.md`) uses a fuller structure than the
+Trust record: header · take · outline (honest — N/A where none) · how-it-was-made · a **per-step finalize
+record** (every `GUIDE-REVIEW` step with its outcome/ruling) · a **piece-level decision home** · image ·
+interlinks · published. Established by the Steering graduation (Conv 048). Codifying it into
+`GUIDE-REVIEW.md` step 15 and/or the `r-content` dossier template is tracked by the `[DOSSIER-FORMAT]`
+board row.
 
 ### DEC-047-8 — the piece dossier: per-piece decision home, graduating to a permanent record
 

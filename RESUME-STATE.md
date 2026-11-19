@@ -2,33 +2,28 @@
 
 ## Where we left off
 
-Conv 047 pivoted from finishing Steering into **building the process around it**. The big output is a
-three-doc **content-piece lifecycle** — `GUIDE-CREATE.md` (draft) → `COLOPHON.md` (image) →
-`GUIDE-REVIEW.md` (finalize, now **15 steps**) — stitched by the new **`/r-content` skill** into a
-per-piece **dossier** (board row) that accrues the take, outline, piece-level decisions and publish record,
-then **graduates** to `docs/content/<slug>.md` at sign-off (`DEC-047-7`/`-8`). **Guide = pillar** (1:1) is
-now explicit (`DEC-047-6`), with **gerund labels** and a 10-pillar roadmap (`[PILLAR-ROADMAP]`) + a planned
-interactive **pillar diagram** (`[PILLAR-DIAGRAM]`). Also shipped: the `/r-end` dialogue-drain scoping
-(`DEC-047-1`) and the **routing-guard rework** (`DEC-047-2`, go-list `🔎 Review` nudge). **Steering** got
-its **closing redline + Linck sea-star image** (duotone tile + cropped duotone colophon + bounded-box
-sizing) — but its **15-step finalize is unrun**. Both existing guides were retrofitted into dossiers
-(**Trusting** graduated → `docs/content/is-your-ai-built-software-sound.md`; **Steering** → the in-flight
-`[GUIDE-STEERING]` row).
+Conv 048 **finalized the Steering guide** — ran the full `GUIDE-REVIEW` pass (steps 2–15), the operator
+declared it final, and it **graduated** to `docs/content/steer-ai-to-build-what-you-mean.md` under a richer
+dossier format (per-step finalize record + piece-decision home; `DEC-048-1`). Now **2 of 3 cornerstones are
+prose-final** (Trust + Steering); **Deciding** is the one left. Also: hub `/guides/` cards gained a
+lower-right **corner art tile** of each guide's square image (`DEC-048-2`), and `[DOSSIER-FORMAT]` was
+promoted to 🔥 Ordered.
 
 ## Next action
 
-🔴 **Run the Steering finalize pass** — work the `[GUIDE-STEERING]` dossier checklist, resuming at
-**step 2 "it" pass** (outline is **N/A — retrofit**; step 12 colophon ✅ done). Note **step 14 masking
-check** = confirm the **P30 screen-sharing anecdote** isn't client-identifiable (or generalize it). At
-step 15 the dossier **graduates** to `docs/content/steer-ai-to-build-what-you-mean.md` and the row retires.
-`/r-content` is **now invokable** (new skill, live from this `/r-start`). 🔁 Hopper carries **1** item (the
-3-guide interlink, gated on Deciding) — run `/r-hopper`. `[GOOGLE-SERVICES]` cadence ~Conv 50;
-`[AGENT-DISCOVERY-WATCH]` ~Conv 55. Prod deploys stay banned (`[PROD-DEPLOY-BAN]`).
+🔴 **Start DECIDING** — the `build-it-yourself-or-bring-someone-in` guide (pillar `deciding`, the 3rd
+cornerstone; a draft exists). It **predates `/r-content`**, so the first call is: scaffold a
+`[GUIDE-DECIDING]` dossier (retrofit, like Steering) or run `/r-content` fresh. The operator wants Deciding
+**"more rigorous still"**, so it should carry a **real outline** (Steering's was N/A). Two things already
+waiting on it: the **carried voice-catch** ([SITE-CONTENT-HOME] board) — reword ~3 uses of "honest/honestly"
+as a prose frame (VOICE bans it); and it needs its **image** (`[CONTENT-ART]`) — until then its hub card
+stays bare.
 
-⚠️ **Human carry-over (still open):** operator to **send Gabriel the LinkedIn recommendation request**
-(note + draft in `_cc/linkedin-makeover.md`).
+Also live: **`[DOSSIER-FORMAT]`** (ordered) — codify the richer dossier format into `GUIDE-REVIEW` step 15 /
+`r-content`, ideally before Deciding graduates. Hopper carries **1** (3-cornerstone interlink, gated on
+Deciding being finished) — run `/r-hopper`. Prod deploys stay banned (`[PROD-DEPLOY-BAN]`). Cadence:
+`[GOOGLE-SERVICES]` GSC ~Conv 50, `[AGENT-DISCOVERY-WATCH]` ~Conv 55.
 
 ## 🔬 Carried findings
 
-_None._ (Both Conv-046 findings were ruled this conv: capture-bleed → `DEC-047-1`; pre-`/r-start` capture
-→ dropped.)
+_None._

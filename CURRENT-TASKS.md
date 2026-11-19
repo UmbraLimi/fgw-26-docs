@@ -19,7 +19,19 @@ is **live**, not what is finished.
 > 🎉 **Launch milestone done** — `[SITE-GO-LIVE]` ✅ Conv 032; the Conv-007 critical path is complete.
 > **Post-launch presence thread** (added Conv 035): `[SOCIAL-MAKEOVER]` is now **✅ done** (LinkedIn Conv 036,
 > X.com Conv 037). The two rows below remain: the standing **GSC monitor**, and the **posting plan** (now
-> unblocked by the makeovers). Order as the operator listed them.
+> unblocked by the makeovers). Order as the operator listed them. **Added Conv 048:**
+> `[DOSSIER-FORMAT]` leads the section (content-process; operator placed it ordered).
+
+### [DOSSIER-FORMAT] · promoted Conv 048 · codify the richer graduated-dossier format into the process
+📐 **From the Steering graduation (Conv 048).** `docs/content/steer-ai-to-build-what-you-mean.md`
+introduced a fuller dossier than Trust's retroactive record — a **per-step finalize record** (§5), a real
+**piece-decision home** (§6), plus **how-it-was-made** and **interlinks** sections. It worked well; the
+operator wants Deciding "more rigorous still".
+**Task:** bake this shape into the process so it's the standard, not reconstructed each graduation —
+decide where it lives: `GUIDE-REVIEW.md` **step 15** (what "graduate" writes) and/or the **`r-content`**
+dossier template (what the live board row accrues). The Steering dossier is the worked reference.
+Ideally landed **before Deciding graduates** (Deciding starts next conv; its graduation is a few steps
+out, so no rush to start). (Promoted Conv 048 from the hopper.)
 
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
@@ -278,10 +290,16 @@ voice audits, the "Does steering well…" close + the Deciding redline, images (
 🔴 **Deciding redline — carried voice catch (folded from hopper Conv 047; caught Conv 043):** in the
 rigorous Deciding redline, reword the ~3 uses of "honest/honestly" as a prose frame ("finding that point
 honestly", "honestly, yes", "Two honest signals") — VOICE bans the word as a framing word (Conv 040).
-🔸 **Metaphor audit — examine (Conv 047):** Steering P29 S3 packs two intuition-echoes into one sentence
-("sensing the problems that aren't obvious" + "feeling your way"). Both are deliberate show-don't-name
-echoes of the intuition throughline, but back-to-back in the same sentence they may blunt rather than
-reinforce — the audit decides whether to keep both, cut one, or space them.
+✍️ **Conv 048 — Steering FINALIZED + graduated.** Ran the full `GUIDE-REVIEW` finalize pass (steps 2–15);
+operator **declared it final**; the piece graduated to `docs/content/steer-ai-to-build-what-you-mean.md`
+(richer dossier format → new `[DOSSIER-FORMAT]` row) and the `[GUIDE-STEERING]` board row retired. Key
+edits: "it" pass (default = the AI), the P8 forty-years aside, the P24 confident-nonsense inversion fix, the
+P25 retrace rewrite, **P31 masking-generalized** (dropped the screen-sharing specifics), snippet seats
+"AI-built software". The **metaphor audit resolved the carried P29-S3 note — kept both** ("sensing" =
+diagnosis / "feeling your way" = choosing, a pair not a repeat). Zero em-dashes. **Hub `/guides/` cards now
+carry the square art as a 64px lower-right corner tile** (Trust + Steering; Deciding bare until imaged).
+**Cornerstones now: 2 of 3 prose-final (Trust ✅, Steering ✅); Deciding remaining.** Still dark behind the
+flip + `[PROD-DEPLOY-BAN]`.
 
 ### [GUIDE-PLANNING] · promoted Conv 046 · write the PLANNING guide (folds in the need/discovery gap)
 A new cornerstone-style guide (promoted from the hopper Conv 046; origin: Conv 044 need/mean split
@@ -296,8 +314,8 @@ paragraph to this guide. Part of the `[SITE-CONTENT-HOME]` content set — same 
 `[PROD-DEPLOY-BAN]`.
 
 ### [PILLAR-ROADMAP] · promoted Conv 047 · the evergreen guide-pillar pipeline (guide = pillar, `DEC-047-6`)
-The pipeline of cornerstone **guide-pillars** beyond the first three (Trusting ✅ dossier, Steering 🔄
-`[GUIDE-STEERING]`, Deciding ⬜). Each new guide **IS a pillar**: extend `pillars.ts` (`Pillar` enum +
+The pipeline of cornerstone **guide-pillars** beyond the first three (Trusting ✅ dossier, Steering ✅
+dossier (graduated Conv 048), Deciding ⬜). Each new guide **IS a pillar**: extend `pillars.ts` (`Pillar` enum +
 `PILLAR_META` label / blurb / order / **colour**) + a `/guides/` hub slot, then run create→image→finalize
 (`/r-content` scaffolds the dossier).
 🔤 **Pillar labels are gerunds** (operator, Conv 047 — matches Trusting / Steering / Deciding; the label is
@@ -335,7 +353,8 @@ per `src/content/images/<id>/`, one source → many kept treatments, folder = id
 **`conus-marmoreus-lister`** (Lister *Conus marmoreus*, PD) with `square` + `colophon` treatments + source;
 `guides` schema `image` ref; **Trust guide wired + rendering** (verified in dev). Storage = single-repo
 co-located (`DEC-042-2`; rejected the docs/site split — cross-repo duplication outweighs a leaner build).
-🔜 **Remaining:** images for the **Steering** + **Deciding** guides (and articles as they land); more
+🔜 **Remaining:** image for the **Deciding** guide (Steering ✅ `stella-marina-linck` Conv 047 — its square
+tile now also marks the Steering `/guides/` hub card, Conv 048); articles as they land; more
 treatments/alternates as chosen; operator selects further subjects (own PD photos possible later). Part of
 what the `[SITE-CONTENT-HOME]` flip counts as "finalized".
 
