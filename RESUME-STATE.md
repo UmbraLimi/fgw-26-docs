@@ -1,60 +1,42 @@
-**Conv:** FORCE-ENDED (screen-garble emergency close) · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
-
-⚠️ **FORCE-ENDED Conv 049 — screen garble.** NOT a normal /r-end. Handoff written from live context at
-force-end. 🔴 Decisions were NOT distilled and the hopper was NOT ruled — both deferred to next conv.
-
-🔴 **DO FIRST, next conv (before anything else):**
-1. If `/r-start` reports `ahead > 0`, the force-end commit is **unpushed** — push both repos now.
-2. **Distill Conv 049's decisions** into `DECISIONS.md` + regenerate the digest (force-end deferred them;
-   the raw material is the "Decisions made this conv" section below).
-3. **Walk the `🔬 VERIFY the Conv-049 /rfe force-end worked` hopper item** (item #1) — this close was the
-   first-ever live run of `/rfe`; that checklist is its pass/fail test. Record the verdict.
-4. Then resume the real board work: **`[GUIDE-DECIDING]` step 1** (see below).
+**Conv:** 050 closed (normal `/r-end`) · **Machine:** MacMiniM4Pro · **Branches:** docs `main`, code `main`
 
 ## Where we left off
 
-Conv 049 was itself a **resume** (the previous session died to the same screen-garble, leaving 049
-`present + OPEN`, so this morning's `/r-start` hit the resume-HALT). This conv then pivoted entirely to a
-new tool: **built `/r-force-end` (alias `/rfe`)** — a one-command, blind-typeable emergency conv close for
-exactly this garble situation (it happens ~3×/month). This very close is its **first live test**, driven
-by the hopper verify-checklist. The original board work — the **Deciding cornerstone guide** redline — was
-pre-empted and is untouched this conv.
+Conv 050 opened by **verifying the Conv-049 `/rfe` force-end** — it worked end-to-end (clean `/r-start`,
+no HALT, no work lost, conv history saved, pushed clean); the one gap was a degraded-context handoff
+error ("Deciding untouched" when the arc-A rewrite had in fact been committed), now corrected. Paid the
+deferred debt (distilled `DEC-049-1..4` + digest). Then two process changes: **GSC cadence → every-9**
+(`DEC-050-1`; next check Conv 59) and, the main thread, a **new content-creation method** (`DEC-050-2`):
+after the first draft CC generates the **coordinate view** (`.scratch/<guide>-view.txt`) + a **point-form
+skeleton** (`.scratch/<guide>-points.txt`) that *mirrors the draft and invents nothing*; the **operator
+augments** it with the experience-side bits (CC's own suggestions go in `[square brackets]`); CC then
+writes the **second draft** from the result. This keeps the final voice the operator's.
 
 ## Next action
 
-🔴 After the DO-FIRST block above: **`[GUIDE-DECIDING]` step 1** — the coordinate-view redline reconciling
-the existing Deciding draft body to the approved **arc A** (the 2×2-test spine; whole-draft-first per the
-updated `GUIDE-REVIEW` step 1), folding in the carried **"honest/honestly" reword** (~3 uses; VOICE bans
-it). The `[GUIDE-DECIDING]` board row holds the full take, approved arc, matrix working-spec, and checklist.
+🔴 **Deciding is first through the new method, mid-cycle.** `deciding-view.txt` + a faithful
+`deciding-points.txt` are done (the operator's bullet format, his P2 verbatim, one `[CC Q]` on the P2
+capacity axis). **Ball is with the operator: augment `deciding-points.txt`** — add his bits (unbracketed),
+keep/cut the `[CC Q]` — **then CC writes the Deciding second draft** from the augmented notes, and only
+then the `GUIDE-REVIEW` finalize pass (steps 2–15). The `[GUIDE-DECIDING]` row holds the full state
+(arc A, matrix working-spec, checklist with step 1 done).
 
-## Decisions made this conv (for 050 distillation — raw, not yet in DECISIONS.md)
+## Board
 
-1. **Built `/r-force-end` (`/rfe`) — screen-garble emergency conv close.** *Rationale:* garble forces a quit
-   ~3×/month; `/r-commit` saves files but by rule never touches `RESUME-STATE.md`, and only `/r-end` writes
-   the handoff — but it needs approval + interactive hopper-ruling, impossible blind. A deterministic,
-   blind-typeable command fills the gap. *Alternative rejected:* free-text "ensure continuity" typed blind
-   (unreliable — depends on a possibly-degrading session parsing prose; this was the actual Conv-048→049
-   failure).
-2. **Force-end design.** No approval gate (invocation = authorization). Commits locally **first**;
-   best-effort push with **no allowlist** — a prompted/blocked push is a *handled* outcome (local commit +
-   "push next conv" in handoff + `/r-start` `ahead > 0` catch). Defers decision-distillation **and**
-   hopper-ruling to next conv (no eyes to do either). *Alternative rejected:* a narrow git-command allowlist
-   (operator: commits staying local is fine, next conv pushes — simpler than deviating from "no allow rules").
-3. **Dual commit markers.** The force-end closing commit carries **both** a loud `⚠️ FORCE-END (screen
-   garble)` subject (for conscious rollback-point / timecard reads — must be distinguishable from a normal
-   close) **and** the `Type: end-of-conv` trailer (load-bearing: `conv-state.sh` greps `^Type: end-of-conv$`
-   to read CLOSED; without it the next `/r-start` HALTs). Step 5a self-checks `CLOSED` before removing the
-   marker. *Verified against the consumer:* `conv-state.sh` keys CLOSED **only** off that trailer, not the
-   subject — so a loud subject is safe.
-4. **`/rfe` alias = thin redirect.** `/rfe` (three blind letters) is a logic-free skill that reads+follows
-   `r-force-end/SKILL.md`; full logic lives once in `r-force-end`. *Alternative rejected:* duplicating the
-   body in both (drift). Both skills registered **immediately this session** (no reload needed).
+🔥 Ordered: **`[DOSSIER-FORMAT]`** (codify the richer graduated-dossier format — wanted before Deciding
+graduates) · **`[GUIDE-DECIDING]`** (mid-cycle, above) · `[GOOGLE-SERVICES]` (standing GSC monitor, next
+Conv 59) · `[POSTING-PLAN]`. Plus the 📋 Unordered backlog (security hardening, structured-data, content-art,
+pillar roadmap/diagram, `[AGENT-INITIATIVE]` → revisit Conv 55). Hopper: **1 carried** (3-cornerstone
+interlink, gated on Deciding finishing) — run `/r-hopper` offered at `/r-start`.
 
-(Earlier this conv, pre-pivot, commit `89045ac` already landed: the `[GUIDE-DECIDING]` dossier scaffold with
-**arc A chosen**, the `COLOPHON.md` image-source expansion (Bloch pike lead for Deciding), and the
-`GUIDE-CREATE`/`GUIDE-REVIEW` process-rigor edits — those are committed, decisions on them also want
-distilling.)
+## Cadence (next due)
+- `[GOOGLE-SERVICES]` — Conv 59 (changed to every-9 this conv, `DEC-050-1`).
+- `[AGENT-DISCOVERY-WATCH]` — Conv 55.
 
 ## 🔬 Carried findings
 
-_None._
+- **Go-list routing hook false-fires on ordinary content.** This conv the `check-routing.sh` nudge tripped
+  three times on plain guide copy — **"raised"** (×2, "AI raised the floor") and **"flagged"** (×1, "the bit
+  you flagged") — none a real routing claim. Candidate: retire "raised"/"flagged" from the go-list, or add a
+  content-context exception. CLAUDE.md calls the go-list "a living list, tuned over time." Ruling deferred to
+  the operator at next `/r-start`. (Thrown off by Conv 050's closing/drafting work.)

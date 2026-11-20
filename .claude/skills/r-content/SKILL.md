@@ -17,7 +17,7 @@ spokes to, if known.
 ## Step 2 — Read the current process docs
 
 Read, in full (the current versions — that's what keeps the checklist up to date), in **lifecycle order**:
-- `reference/GUIDE-CREATE.md` — the **creation** pass (slot → take → outline → first draft).
+- `reference/GUIDE-CREATE.md` — the **creation** pass (slot → take → outline → first draft → coordinate view → point-form skeleton → augment → second draft).
 - `reference/COLOPHON.md` — the **image** sourcing + colophon/treatment workflow.
 - `reference/GUIDE-REVIEW.md` — the **finalize** pass (the ordered review steps).
 

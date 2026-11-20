@@ -38,13 +38,35 @@ Each step: CC does the mechanical part and presents; **the operator rules**.
    approved outline** — prose per `VOICE.md` / `PERSONA.md`, the entity phrase seated, glossary terms
    (guides). The piece now has a body.
 
+5. **Generate the coordinate view.** After the first draft, CC runs `node scripts/number-content.mjs
+   <file>` (from `fgw-26`) and saves it to **`.scratch/<guide>-view.txt`** — the `P#S#` addressing
+   substrate the finalize redline keys to (and that any per-paragraph reference keys to). Regenerate it
+   whenever the draft's block structure changes (the finalize step 1 redline regenerates it as a matter of
+   course). 🔴 **Convention:** `.scratch/<guide>-view.txt` = the coordinate view.
+6. **Point-form skeleton → augmentation round-trip → second draft** (`DEC-050-2`). CC boils each
+   paragraph of the first draft down to a **point-form skeleton** — `.scratch/<guide>-points.txt`, keyed to
+   the coordinate-view `P#` — **terse bullets of the bare essentials (WHAT the paragraph must say)** plus a
+   kept one-line **WHY** (its job in the arc), **as terse as possible without losing meaning.** 🔴 **The
+   skeleton mirrors the draft — CC does not invent content here.** The loop:
+   - **a.** CC writes the faithful skeleton. CC **may** add its own suggested bits or open questions, but
+     **only in `[square brackets]`** so the operator can tell them from the distillation.
+   - **b.** The operator **augments** — adds the bits he judges missing (unbracketed), and keeps or cuts
+     CC's bracketed suggestions (removing the brackets on keepers).
+   - **c.** CC writes the **second draft from the resulting point-form notes** — a coherent redraft that now
+     carries the operator's essentials, **without CC having guessed them.**
+   Why: the operator supplies the "extra bits," so CC's prose never smuggles in content the operator didn't
+   choose; boil-down → augment → redraft keeps the draft honest to what he actually wants said.
+   🔴 **Conventions:** `.scratch/<guide>-points.txt` = the skeleton; `[...]` = a CC addition awaiting the
+   operator's keep/cut.
+
 → then the **image** (`COLOPHON.md`) and the **finalize pass** (`GUIDE-REVIEW.md`, whose redline checks
 the prose back against this outline).
 
 ## Handoff
 A piece leaves this pass when it has: its **slot** (pillar / guide), a **take**, a named **emphasis**, an
-**approved outline** (kept as the arc reference), and a **first draft with a body**. `GUIDE-REVIEW.md`
-takes it from there.
+**approved outline** (kept as the arc reference), a **first draft with a body**, its **coordinate view**
+(`.scratch/<guide>-view.txt`), and a **second draft** redrafted from the operator-augmented **point-form
+skeleton** (`.scratch/<guide>-points.txt`). `GUIDE-REVIEW.md` takes it from there.
 
 Throughout its life the piece's **dossier** — its `r-content` board row — is the home for the **take**, the
 **emphasis**, the outline pointer, and every **piece-specific decision** (project/process decisions still

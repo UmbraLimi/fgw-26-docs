@@ -14,7 +14,7 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
 ## The pass (in order)
 
 **Structure & content**
-1. **Coordinate-view redline — whole-draft-first (`DEC` Conv 049).** Once the arc + key design are locked
+1. **Coordinate-view redline — whole-draft-first (`DEC-049-2`).** Once the arc + key design are locked
    (`GUIDE-CREATE.md`), **CC writes the entire piece in one coherent pass against the approved `✎ ARC`
    block** — *not* block-by-block with a ruling between each. Editing one block at a time fractures CC's
    intent and lets the arc drift; a whole-draft pass keeps the story intact (operator, Conv 049).

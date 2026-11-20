@@ -8,6 +8,113 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 050
+
+### DEC-050-2 — content creation gains a coordinate-view step + a point-form augmentation round-trip
+**Decision:** `GUIDE-CREATE.md` gains two steps after the first draft. **Step 5 — coordinate view:** CC
+generates `.scratch/<guide>-view.txt` (`node scripts/number-content.mjs`), the `P#S#` addressing substrate.
+**Step 6 — point-form skeleton + augmentation round-trip:** CC boils each paragraph down to
+`.scratch/<guide>-points.txt` (keyed to the `P#` blocks) — terse bullets of the bare essentials (**WHAT**)
++ a kept one-line **WHY** — **mirroring the draft, inventing nothing**; CC's own suggestions/questions go
+**only in `[square brackets]`**; the operator augments with the bits he judges missing (unbracketed) and
+keeps/cuts the bracketed ones; CC then writes the **second draft** from the resulting notes. Conventions:
+`*-view.txt` = coordinate view, `*-points.txt` = skeleton, `[...]` = a CC addition awaiting keep/cut. The
+`r-content` skill picks these up automatically (it reads `GUIDE-CREATE.md` at creation; no step copy).
+**Rationale:** the operator caught the first point-form importing the guide's *later* model into paragraphs
+that didn't state it ("too much" / "too confusing" in the Short answer vs the draft's understanding × risk
+test). The fix is a division of labour: CC distills faithfully (flow, cause/effect), the **operator**
+supplies the experience-side bits (including the long-tail associations only lived work surfaces), so CC's
+redraft carries what the operator actually wants said rather than CC's guesses — and the voice at the end
+stays the operator's, not a plausible imitation. The bracket convention lets CC still offer suggestions
+without passing them off as the distillation. Rejected: CC adding "essential" bits itself (smuggles in
+unchosen content, dilutes the voice); leaving the step uncodified (it earned its place).
+**Consequences:** every new piece now runs draft → coordinate view → point-form → operator-augment →
+second draft before the `GUIDE-REVIEW` finalize pass. Deciding is the first piece through it
+(`deciding-view.txt` done; `deciding-points.txt` faithful + one `[CC Q]`, awaiting operator augmentation →
+second draft). Builds on the Conv-049 whole-draft-first redline (`DEC-049-2`). Board: `[GUIDE-DECIDING]`.
+
+### DEC-050-1 — GSC check cadence changed from every-3 convs to every-9
+**Decision:** The standing `[GOOGLE-SERVICES]` Search Console check drops from every 3 convs to **every 9**.
+Conv 50's due check is **skipped** (the prior check is effectively current); next due **Conv 59**, then 68,
+77, … Implemented in the `/r-start` cadence formula (`n ≥ 59 && (n − 59) % 9 == 0`) and the `[GOOGLE-SERVICES]`
+board row.
+**Rationale:** at every-3 the indexing needle barely moved between checks (Conv 41 → 44 showed no material
+change), so the check mostly re-reported the same state — cost without signal; every-9 better matches the
+slow crawl pace of a new low-authority site. Rejected keeping every-3 (noise). Next anchor set to **59**
+(9 from the skipped Conv-50 slot) over 53 (9 from the last real check at Conv 44) — treats the skip as the
+reset point.
+**Consequences:** `/r-start` reports GSC not-due until Conv 59. The `[AGENT-DISCOVERY-WATCH]` cadence
+(every-10, next Conv 55) is unchanged.
+
+## Conv 049
+
+### DEC-049-4 — force-end close mechanics: dual commit markers, commits-first best-effort push, thin alias
+**Decision:** The `/r-force-end` close commits CC work in both repos **first** (staged by name, never `-A`),
+then pushes **best-effort** with **no permission allowlist** — a prompted / blocked / offline push is a
+*handled* outcome, not a failure (the local commit holds; RESUME-STATE + the carried hopper item say "push
+next conv"; the next `/r-start` catches `ahead > 0`). The closing `fgw-26-docs` commit carries **both** a
+loud `⚠️ FORCE-END (screen garble)` subject (for conscious rollback / timecard reads) **and** the
+load-bearing `Type: end-of-conv` trailer; Step 5a self-checks that `conv-state.sh` reads `CLOSED` **before**
+removing `.conv-current`. `/rfe` is a logic-free thin redirect that reads + follows `r-force-end/SKILL.md`.
+**Rationale:** the close must survive a degraded moment with no operator eyes. Local-first guarantees no
+work loss even if the push can't complete; the self-check guarantees the marker is removed only once the
+state is genuinely `CLOSED`. The loud subject keeps a force-end distinguishable from a normal close at a
+glance, while `conv-state.sh` keys `CLOSED` **only** off the trailer (verified against the consumer) — so
+the loud subject is safe. Rejected: a narrow git-push allowlist (operator — commits staying local is fine;
+simpler than deviating from "no allow rules"); duplicating the skill body into `/rfe` (drift).
+**Consequences:** verified live Conv 050 — both repos pushed clean (no prompt fired under auto-mode), both
+markers present on `707212e`, `.conv-current` removed, the next `/r-start` opened normally. Sibling of
+`DEC-049-3`.
+
+### DEC-049-3 — built `/r-force-end` (`/rfe`) — emergency screen-garble conv close
+**Decision:** New skill `/r-force-end` (blind-typeable alias `/rfe`): a one-command, no-approval-gate
+emergency conv close for when the operator's screen garbles mid-conv (~3×/month) and they must quit blind.
+It writes the `RESUME-STATE.md` handoff, saves the conv history (record stub + dialogue drain), carries the
+hopper **unruled**, commits + pushes + closes cleanly. The invocation **is** the authorization. It does
+**not** distill decisions and does **not** rule the hopper — both deferred to the next conv (captured as raw
+material in RESUME-STATE + a carried hopper item so nothing is lost).
+**Rationale:** the garble gap had no clean close — `/r-commit` saves files but by rule never
+`RESUME-STATE.md`, and only `/r-end` writes the handoff but needs approval + interactive hopper-ruling
+(impossible blind), so a hard quit left the conv `present + OPEN` and forced a resume-HALT at the next
+`/r-start`. A deterministic blind command fills the gap. Deferring distillation + hopper-ruling is
+deliberate: both need the operator's judgment/eyes (a hopper item is never ruled solo; durable
+`DECISIONS.md` writes shouldn't be made blind without review), so the skill preserves the raw material
+rather than fabricate. Rejected: free-text "ensure continuity" typed blind (unreliable — depends on a
+possibly-degrading session parsing prose; this was the actual Conv-048→049 failure).
+**Consequences:** the first live run was Conv 049's own close; verified end-to-end at Conv 050 (clean open,
+no HALT, no work lost, conv history saved + jsonl drained clean). One gap found: the handoff narrative
+mis-stated "Deciding untouched" when the arc-A rewrite had in fact been committed — a degraded-context
+accuracy risk, not a data-loss bug. Close mechanics in `DEC-049-4`.
+
+### DEC-049-2 — GUIDE-REVIEW step 1 is whole-draft-first; the `✎ ARC` on-arc block
+**Decision:** `GUIDE-REVIEW.md` step 1 (coordinate-view redline) is now **whole-draft-first**: once the arc
++ key design are locked, CC writes the **entire** piece in one coherent pass against the approved **`✎ ARC`**
+block (a new on-arc outline marker) — *not* block-by-block with a ruling between each — marking deferred
+items inline (`✎ ANECDOTE`, `✎ OPTIONAL`, provisional wording) and never fabricating, then self-checks the
+finished draft against the `✎ ARC` block and reports any drift; **only then** does the operator read/edit
+the whole piece and move block by block. The pre-flip strip gate is broadened to catch the **single `✎`
+token** (all three families — `✎ ARC` / `✎ ANECDOTE` / `✎ OPTIONAL`), not only `✎ OPTIONAL`.
+**Rationale:** editing one block at a time fractures CC's intent and lets the arc drift; a whole-draft pass
+keeps the story intact (operator, Conv 049). The single-`✎`-token gate stops a new marker family from
+silently shipping in page source. Rejected: the prior block-by-block-first redline; grepping only
+`✎ OPTIONAL` at the gate (misses `✎ ARC` / `✎ ANECDOTE`).
+**Consequences:** Deciding's arc-A whole-draft rewrite (Conv 049, `31ae6a9`) is the first piece built this
+way. Updates `GUIDE-REVIEW.md` step 1 + the `[SITE-CONTENT-HOME]` pre-flip gate. Builds on the `✎ ANECDOTE`
+token (`DEC-045-4`).
+
+### DEC-049-1 — GUIDE-CREATE keeps a take + a named emphasis as dossier fields
+**Decision:** `GUIDE-CREATE.md` names two kept dossier fields: the **take** (the thesis / what the piece
+argues — a kept field, not a throwaway framing chat, grown through the pass) and, added this conv, the
+**emphasis** (one line: where the guide puts its weight / its spine — what it foregrounds to argue the take).
+A piece leaves the creation pass with slot · take · emphasis · approved outline · first-draft body.
+**Rationale:** the emphasis is the yardstick for *"is this still the point?"* as the outline is for *"is
+this still the arc?"*, and it is what makes two candidate arcs comparable (the A/B spine pick — e.g.
+Deciding's *explicit decision test as the spine*, not self-location). Rejected leaving take/emphasis
+implicit in a framing chat — they drift and the arc loses its weight.
+**Consequences:** `GUIDE-CREATE.md` step 2/3 + Handoff updated; the dossier (`r-content` row) now carries
+take + emphasis explicitly. Piece-level editorial decisions still live in the dossier, project/process ones
+in `DECISIONS.md` (`DEC-047-8`).
+
 ## Conv 048
 
 ### DEC-048-2 — hub `/guides/` cards carry the guide's square art as a lower-right corner tile

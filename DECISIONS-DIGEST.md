@@ -6,6 +6,61 @@ _As of 2026-11-19._
 
 ---
 
+### DEC-050-2 — content creation gains a coordinate-view step + a point-form augmentation round-trip
+
+`GUIDE-CREATE.md` gains two steps after the first draft. **Step 5 — coordinate view:** CC
+generates `.scratch/<guide>-view.txt` (`node scripts/number-content.mjs`), the `P#S#` addressing substrate.
+**Step 6 — point-form skeleton + augmentation round-trip:** CC boils each paragraph down to
+`.scratch/<guide>-points.txt` (keyed to the `P#` blocks) — terse bullets of the bare essentials (**WHAT**)
++ a kept one-line **WHY** — **mirroring the draft, inventing nothing**; CC's own suggestions/questions go
+**only in `[square brackets]`**; the operator augments with the bits he judges missing (unbracketed) and
+keeps/cuts the bracketed ones; CC then writes the **second draft** from the resulting notes. Conventions:
+`*-view.txt` = coordinate view, `*-points.txt` = skeleton, `[...]` = a CC addition awaiting keep/cut. The
+`r-content` skill picks these up automatically (it reads `GUIDE-CREATE.md` at creation; no step copy).
+
+### DEC-050-1 — GSC check cadence changed from every-3 convs to every-9
+
+The standing `[GOOGLE-SERVICES]` Search Console check drops from every 3 convs to **every 9**.
+Conv 50's due check is **skipped** (the prior check is effectively current); next due **Conv 59**, then 68,
+77, … Implemented in the `/r-start` cadence formula (`n ≥ 59 && (n − 59) % 9 == 0`) and the `[GOOGLE-SERVICES]`
+board row.
+
+### DEC-049-4 — force-end close mechanics: dual commit markers, commits-first best-effort push, thin alias
+
+The `/r-force-end` close commits CC work in both repos **first** (staged by name, never `-A`),
+then pushes **best-effort** with **no permission allowlist** — a prompted / blocked / offline push is a
+*handled* outcome, not a failure (the local commit holds; RESUME-STATE + the carried hopper item say "push
+next conv"; the next `/r-start` catches `ahead > 0`). The closing `fgw-26-docs` commit carries **both** a
+loud `⚠️ FORCE-END (screen garble)` subject (for conscious rollback / timecard reads) **and** the
+load-bearing `Type: end-of-conv` trailer; Step 5a self-checks that `conv-state.sh` reads `CLOSED` **before**
+removing `.conv-current`. `/rfe` is a logic-free thin redirect that reads + follows `r-force-end/SKILL.md`.
+
+### DEC-049-3 — built `/r-force-end` (`/rfe`) — emergency screen-garble conv close
+
+New skill `/r-force-end` (blind-typeable alias `/rfe`): a one-command, no-approval-gate
+emergency conv close for when the operator's screen garbles mid-conv (~3×/month) and they must quit blind.
+It writes the `RESUME-STATE.md` handoff, saves the conv history (record stub + dialogue drain), carries the
+hopper **unruled**, commits + pushes + closes cleanly. The invocation **is** the authorization. It does
+**not** distill decisions and does **not** rule the hopper — both deferred to the next conv (captured as raw
+material in RESUME-STATE + a carried hopper item so nothing is lost).
+
+### DEC-049-2 — GUIDE-REVIEW step 1 is whole-draft-first; the `✎ ARC` on-arc block
+
+`GUIDE-REVIEW.md` step 1 (coordinate-view redline) is now **whole-draft-first**: once the arc
++ key design are locked, CC writes the **entire** piece in one coherent pass against the approved **`✎ ARC`**
+block (a new on-arc outline marker) — *not* block-by-block with a ruling between each — marking deferred
+items inline (`✎ ANECDOTE`, `✎ OPTIONAL`, provisional wording) and never fabricating, then self-checks the
+finished draft against the `✎ ARC` block and reports any drift; **only then** does the operator read/edit
+the whole piece and move block by block. The pre-flip strip gate is broadened to catch the **single `✎`
+token** (all three families — `✎ ARC` / `✎ ANECDOTE` / `✎ OPTIONAL`), not only `✎ OPTIONAL`.
+
+### DEC-049-1 — GUIDE-CREATE keeps a take + a named emphasis as dossier fields
+
+`GUIDE-CREATE.md` names two kept dossier fields: the **take** (the thesis / what the piece
+argues — a kept field, not a throwaway framing chat, grown through the pass) and, added this conv, the
+**emphasis** (one line: where the guide puts its weight / its spine — what it foregrounds to argue the take).
+A piece leaves the creation pass with slot · take · emphasis · approved outline · first-draft body.
+
 ### DEC-048-2 — hub `/guides/` cards carry the guide's square art as a lower-right corner tile
 
 On the `/guides/` hub, each cornerstone guide's `square` image treatment renders as a small

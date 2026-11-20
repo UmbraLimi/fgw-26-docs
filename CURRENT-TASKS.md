@@ -80,10 +80,12 @@ the existing draft body to this arc — not a prose-only pass.
 **Checklist (lifecycle order, live from the docs Conv 049):**
 Creation (`GUIDE-CREATE.md`):
 - [ ] Slot — pillar `deciding` already in `pillars.ts`; confirm its **colour** is set (feeds `[PILLAR-DIAGRAM]`)
-- [x] Take drawn out (A) · [x] Outline/arc approved (A) — ⬜ seat it as the on-arc comment block in the draft at step 1
-- [x] First draft exists — ⬜ reconcile body to the approved A-arc (done inside step 1)
+- [x] Take drawn out (A) · [x] Outline/arc approved (A) · [x] `✎ ARC` on-arc block seated in the draft (Conv 049, `31ae6a9`)
+- [x] First draft exists · [x] **body reconciled to the approved A-arc — whole-draft rewrite committed + pushed Conv 049** (fgw-26 `31ae6a9`, 18:55)
+- [x] **Coordinate view generated (Conv 050, GUIDE-CREATE step 5)** — `.scratch/deciding-view.txt` (`number-content.mjs`, 28 blocks).
+- [~] **Point-form skeleton + augmentation round-trip (Conv 050, GUIDE-CREATE step 6, `DEC-050-2`)** — `.scratch/deciding-points.txt` faithful skeleton done (terse bullets + WHY, mirrors the draft; audit found only P2 carried added bits, and those were the operator's). ⬜ **Awaiting operator augmentation** (add missing bits unbracketed; keep/cut CC's `[bracketed]` suggestions) → then CC writes the **second draft** from the result.
 Finalize (`GUIDE-REVIEW.md`, in order):
-- [ ] 1 Coordinate-view redline (`number-content.mjs`; reconcile to the A-arc) — folds in the **"honest/honestly" reword** (~3 uses, carried voice-catch; VOICE)
+- [~] 1 Coordinate-view redline — **arc-A whole-draft rewrite DONE Conv 049** (`31ae6a9`; the new whole-draft-first step 1, `DEC-049-2`). Folded in the **"honest/honestly" reword** (**1 residual use left**, was ~3; VOICE). ⬜ **Remaining (resume here Conv 050): operator's whole-piece read/edit, then block-by-block.** 🔴 Handoff mis-said "untouched" — corrected Conv 050.
 - [ ] 2 "It" pass (default it = your AI-built software)
 - [ ] 3 Anecdote check (home-repair is analogy, not anecdote — check for real from-experience beats)
 - [ ] 4 Glossary (3–5 terms)
@@ -129,7 +131,7 @@ Finalize (`GUIDE-REVIEW.md`, in order):
 re-crawl; confirmed verified ownership / valid robots / HTTPS / **no manual actions** / AI "Include";
 linked **GA4 ↔ Search Console**. Two owners (`EsoxAmericanusVermiculatus` + Fraser) + their two DNS
 verification tokens confirmed legit by the operator — left untouched.
-🔁 **Standing check — every 3 convs (next ~Conv 047; checks run Conv 035/037/041/044):** review Search Console for (a) any new
+🔁 **Standing check — every 9 convs (changed Conv 050 from every-3; next Conv 59; Conv-50 check skipped — prior check effectively current):** review Search Console for (a) any new
 concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has progressed. Keep this row
 open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
 cadence mechanism (`DEC-035-4`, built Conv 035).
@@ -169,7 +171,8 @@ doesn't change queue position). **At every future check, verify whether the page
 crawled/indexed after their request — that's how we judge if the push worked.**
 - **2026-11-16 (Conv 044):** requested `/about/`, `/method/`, `/phases/`, `/contact/` (core, never-crawled)
   + re-requested `/testimonials/` (was Crawled-not-indexed, Sep 28, Google declined). All 5 accepted into
-  the priority queue. ⬜ *Conv 47: check which of these 5 moved to Indexed / got a fresh crawl date.*
+  the priority queue. ⬜ *Next GSC check (now Conv 59, cadence → every-9 `DEC-050-1`): check which of these 5
+  moved to Indexed / got a fresh crawl date — pending since the request (the Conv-47 and Conv-50 checks were skipped).*
 ⚠️ **Gotcha (Conv 044, resolved in-session):** Request-indexing runs a live fetch first; it can flake with
 **"Page fetch — Failed: Server connection error" → request rejected** even when the page is perfectly
 healthy (verified `/method/` served HTTP 200 / 20KB via curl at the same moment). **Fix:** re-run the live
@@ -511,6 +514,16 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 050:** **`/rfe` force-end verified + content-process method extended** (no board row shipped; recovery
+  + process). Confirmed the Conv-049 `/rfe` force-end worked **end-to-end** (clean `/r-start`, no HALT, no
+  work lost, conv history saved + jsonl drained clean, pushed clean); paid its deferred debt — distilled the
+  Conv-049 decisions (`DEC-049-1..4`) + regenerated the digest; corrected the handoff's false "Deciding
+  untouched" (the arc-A whole-draft rewrite `31ae6a9` was committed Conv 049). **GSC cadence** every-3 →
+  **every-9** (`DEC-050-1`; Conv-50 check skipped, next Conv 59). **Content creation** gained **step 5
+  coordinate view** + **step 6 point-form augmentation round-trip** (`DEC-050-2`): CC distills each paragraph
+  faithfully → operator augments the bits (unbracketed; CC's own go in `[brackets]`) → CC writes the second
+  draft; `*-view.txt` / `*-points.txt` conventions. Deciding is first through it — `deciding-view.txt` +
+  faithful `deciding-points.txt` done, awaiting operator augmentation → second draft. Hopper: 1 done, 1 carried.
 - **Conv 048:** **Steering guide finalized + graduated** — `[GUIDE-STEERING]` row retired. Ran the full
   `GUIDE-REVIEW` finalize pass (steps 2–15): default "it" = the AI (P20/P24 edits); P8 forty-years aside
   added; glossary/headings/entity/conjunctions clean; metaphor audit kept all (P29-S3 sense-vs-choose pair);
