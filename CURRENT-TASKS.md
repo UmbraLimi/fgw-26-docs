@@ -79,7 +79,7 @@ the existing draft body to this arc — not a prose-only pass.
 
 **Checklist (lifecycle order, live from the docs Conv 049):**
 Creation (`GUIDE-CREATE.md`):
-- [ ] Slot — pillar `deciding` already in `pillars.ts`; confirm its **colour** is set (feeds `[PILLAR-DIAGRAM]`)
+- [x] Slot — pillar `deciding` in `pillars.ts`; **colour set Conv 051** (`--pillar-deciding: light-dark(#8a4e9e,#a06ec0)` plum; `PILLAR_META.color`). All 3 live pillars coloured + validated (dataviz, both modes); feeds `[PILLAR-DIAGRAM]`
 - [x] Take drawn out (A) · [x] Outline/arc approved (A) · [x] `✎ ARC` on-arc block seated in the draft (Conv 049, `31ae6a9`)
 - [x] First draft exists · [x] **body reconciled to the approved A-arc — whole-draft rewrite committed + pushed Conv 049** (fgw-26 `31ae6a9`, 18:55)
 - [x] **Coordinate view generated (Conv 050, GUIDE-CREATE step 5)** — `.scratch/deciding-view.txt` (`number-content.mjs`, 28 blocks).

@@ -40,3 +40,5 @@ interlink, gated on Deciding finishing) — run `/r-hopper` offered at `/r-start
   you flagged") — none a real routing claim. Candidate: retire "raised"/"flagged" from the go-list, or add a
   content-context exception. CLAUDE.md calls the go-list "a living list, tuned over time." Ruling deferred to
   the operator at next `/r-start`. (Thrown off by Conv 050's closing/drafting work.)
+  ✔ **ruled (Conv 051): do-now — option A, retired `raised`/`raising` + `flagged`/`flagging` from the go-list**
+  (grep in `check-routing.sh` + the go-list line in `CLAUDE.md`; go-list now 5 forms).
