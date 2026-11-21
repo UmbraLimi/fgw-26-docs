@@ -88,13 +88,13 @@ Finalize (`GUIDE-REVIEW.md`, in order):
 - [~] 1 Coordinate-view redline — **arc-A whole-draft rewrite DONE Conv 049** (`31ae6a9`; the new whole-draft-first step 1, `DEC-049-2`). Folded in the **"honest/honestly" reword** (**1 residual use left**, was ~3; VOICE). ⬜ **Remaining (resume here Conv 050): operator's whole-piece read/edit, then block-by-block.** 🔴 Handoff mis-said "untouched" — corrected Conv 050.
 - [ ] 2 "It" pass (default it = your AI-built software)
 - [ ] 3 Anecdote check (home-repair is analogy, not anecdote — check for real from-experience beats)
-- [ ] 4 Glossary (3–5 terms)
+- [ ] 4 Glossary (3–5 terms) + **aside-length check** (image+glossary pin as one sticky aside, Conv 052; confirm the block fits the viewport — trim terms/shorten defs if the lowest terms fall off-screen)
 - [ ] 5 Headings (H2 = NL questions; FAQ-lift nouns)
 - [ ] 6 Entity naming — seat "AI-built software" (`DEC-043-4`, Deciding in-scope)
 - [ ] 7 Conjunction audit
 - [ ] 8 Metaphor audit (home-repair structural metaphor as a unit)
 - [ ] 9 Pull quote (one)
-- [ ] 10 Rendered read
+- [ ] 10 Rendered read (incl. the step-4 **aside-length** visual check — scroll desktop, confirm sticky image+glossary fit)
 - [ ] 11 Em-dash sanity check
 - [ ] 12 Colophon selection + fitting — **Deciding image lead: Bloch *Esox lucius* pike** / freshwater-fish pool (`COLOPHON.md`, `[CONTENT-ART]`)
 - [ ] 13 Card + SEO/GEO snippet match (final)

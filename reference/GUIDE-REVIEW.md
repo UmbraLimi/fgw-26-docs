@@ -29,8 +29,12 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
 3. **Anecdote check** — does the piece carry **enough personal-experience anecdotes** (the operator's
    own)? Surface thin or missing spots; add or strengthen. A core voice element (the from-experience
    register, `PERSONA.md`/`VOICE.md`) — applies to articles as much as guides.
-4. **Glossary** — the `glossary` field present, 3–5 terms, accurate, rendered as the muted end-of-page
-   block (`DEC-040-3`). (Guides; an article may have none.)
+4. **Glossary** — the `glossary` field present, 3–5 terms, accurate, rendered as the muted block in the
+   **sticky right aside** with the image (`DEC-040-3`; sticky-together Conv 052). 🔴 **Aside-length check
+   (Conv 052):** image + glossary pin as one sticky unit; a combined block taller than the viewport keeps
+   its lowest glossary terms off-screen until the page bottom. CSS doesn't solve this — **the operator
+   visually confirms the aside fits** (during the rendered read, step 10) and trims to fit: drop terms or
+   shorten definitions (we control the glossary). (Guides; an article may have none.)
 5. **Headings** — each H2 a natural-language question; FAQ-lift nouns seated so the JSON-LD `FAQPage`
    auto-extraction is clean (`DEC-043-3`).
 6. **Entity naming** — the agreed key phrase ("AI-built software") seated where it belongs; a frozen
@@ -45,7 +49,9 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
 9. **Pull quote** — select **one** pull quote and decide where it goes (the seam or beat it reinforces).
    (Steering used a bridging pull-quote at the planning→steering seam, Conv 045.)
 10. **Rendered read** — the operator reads the whole piece **as it renders** (dev/browser), not just the
-    source; apply edits. The pass that caught 11 edits on Trust (Conv 041).
+    source; apply edits. The pass that caught 11 edits on Trust (Conv 041). Includes the **aside-length
+    check** (step 4): scroll the desktop view and confirm the sticky image + glossary fit without hiding
+    the lowest terms; trim the glossary if not (Conv 052).
 11. **Em-dash sanity check** — surface every em-dash for a conscious ruling (CLAUDE.md; an AI tell on
     social, and these pieces feed social).
 
