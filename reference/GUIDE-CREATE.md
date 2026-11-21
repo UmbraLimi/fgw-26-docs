@@ -58,6 +58,12 @@ Each step: CC does the mechanical part and presents; **the operator rules**.
    choose; boil-down → augment → redraft keeps the draft honest to what he actually wants said.
    🔴 **Conventions:** `.scratch/<guide>-points.txt` = the skeleton; `[...]` = a CC addition awaiting the
    operator's keep/cut.
+   🔴 **The skeleton is a breadcrumb/intent layer, NOT prose (operator, Conv 052).** It carries WHAT must
+   land + the WHY; **prose-level choices — final word choice, voice, deduping (e.g. two metaphors where one
+   will eventually serve) — are CC's to resolve when writing the second draft (and again at the
+   `GUIDE-REVIEW` audits), not policed in the points file.** CC *follows* the breadcrumbs; it does not treat
+   redundancy or rough wording in the skeleton as a defect to fix in place. (Scar, Conv 052: CC flagged a
+   two-metaphor bullet as if the skeleton were prose.)
 
 → then the **image** (`COLOPHON.md`) and the **finalize pass** (`GUIDE-REVIEW.md`, whose redline checks
 the prose back against this outline).

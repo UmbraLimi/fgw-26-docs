@@ -32,8 +32,15 @@ decide where it lives: `GUIDE-REVIEW.md` **step 15** (what "graduate" writes) an
 dossier template (what the live board row accrues). The Steering dossier is the worked reference.
 Ideally landed **before Deciding graduates** (Deciding starts next conv; its graduation is a few steps
 out, so no rush to start). (Promoted Conv 048 from the hopper.)
+🎯 **Conv 052 — now the active capture point for pipeline learnings** (operator: "the pipeline is the
+product; the guide is the occasion"). As Deciding finishes, fold every *how-any-guide-is-made/reviewed*
+learning from the Trust→Steering→Deciding runs into the pipeline docs (`GUIDE-CREATE` / `GUIDE-REVIEW` /
+method), never leaving it in a single piece's dossier, and **drive this row to close before Deciding
+graduates**. The split that keeps it honest: piece-specific calls → the dossier; process calls → the
+pipeline docs. ✅ Folded this conv: the **aside-length check** (`GUIDE-REVIEW` steps 4/10); the
+**breadcrumb/intent-not-prose** principle for the points round-trip (`GUIDE-CREATE` step 6).
 
-### [GUIDE-DECIDING] · added Conv 049 · "Should you build it yourself or bring someone in?" (3rd cornerstone)
+### [GUIDE-DECIDING] · added Conv 049 · "Should you build it all yourself, or bring someone in to help?" (3rd cornerstone)
 📄 The **Deciding** cornerstone guide — the 3rd and last of the first three. A draft predated `/r-content`;
 dossier scaffolded Conv 049 (compared doc-derived "B" vs rigorous retrofit "A"; **operator chose A**).
 slug `build-it-yourself-or-bring-someone-in` · pillar `deciding` · order 3 · `draft: true` · dark behind
@@ -120,6 +127,56 @@ Finalize (`GUIDE-REVIEW.md`, in order):
   your core workflow logic; *Leave it or learn it* = an animation lib you didn't write; *Bring someone in
   or learn it* = auth / payments / data handling. Home-repair echo lands on the danger cell in prose
   ("the wiring behind the wall").
+- **Conv 052 (snippet, in light of the title):** reworked the SEO/GEO snippet — old opener *"Most of a
+  build is now yours to do with AI…"* presupposed a leftover portion you always hand off, contradicting P5
+  ("for plenty of projects you may need no one"). New (option B): *"Build as much as you can with AI; for
+  many projects you may need no one. Bring someone in only for a part your business leans on that you can't
+  check or fix."* Answer-first + GEO-liftable; makes help conditional. Description left as-is (already fits).
+- **Conv 052 (keep/rebuild section, P22–24):** added a **third choice** — the section was keep-vs-rebuild
+  (two-way), now **keep / rebuild-yourself / hand off** (operator). This reconciles a gap with the matrix:
+  the tangled + load-bearing + can't-judge parts are the danger cell's "bring someone in," so "rebuild it
+  yourself" alone contradicted the spine. Heading retitled (C): *"What do I keep, and what should I start
+  over?"* → **"What do I keep, rebuild, or hand off?"** (names all three; FAQ-liftable). **P24 rewritten**
+  to carry the hand-off: rebuild the parts you understand, hand off / get a read on the can't-judge part —
+  the start-over trap (gaps = unasked questions) becomes the case for option three, while agency is kept on
+  the parts you own. Seeded at P23/P24 in the local-only points file.
+- **Conv 052 (matrix presentation):** the 2×2 appears **once, filled, immediately after the P8 lead-in**
+  (grid-count A) — answers live in the cells; P13–15 prose *interprets* (examples + home-repair echo), it
+  does not restate the cell verdicts. Rejected: empty-frame-first-then-filled-payoff (two figures, staged
+  but textbook-y) and empty-frame-only (loses the filled grid as a scannable, GEO-liftable artifact). The
+  P8 lead-in (B) stands because the adjacent grid is filled. Decides the figure build.
+- **Conv 052 (title):** retitled *"Should you build it yourself or bring someone in?"* →
+  **"Should you build it all yourself, or bring someone in to help?"** The old title read as a *before-you-
+  start* fork (build vs hire); the decision actually arrives per-part, well after you've begun. "all"
+  reframes it to *how far you take it* (matches the Short answer's "as far as you can stand behind"); "to
+  help" signals partial, specific-part assistance (matches the glossary + P28). Slug/description/snippet
+  unchanged (already aligned); H1 + meta title only.
+- **Conv 052 (points round-trip, P3→P6 arc):** P3's capability framing ("too much for you," "past your
+  abilities," "a skill you can develop") is an **intentional naive setup, not drift** (operator) — it's the
+  would-be AI developer's POV at the *start* ("am I up to this?"), which **P6 then corrects** to the
+  judgment/"stand behind" framing ("not about your capability — about whether a part outgrew what you can
+  stand behind"). It walks the reader's own solo journey (beginning → partway through) and shows we know it's
+  coming. 🔧 P6 must land an **explicit callback** to the naive framing when redrafted (seeded in the points
+  file). Note: this is distinct from the P2 drop — P2 cut capacity from the *test-axis preview*; P3 keeps it
+  as the *reader's naive entry point*.
+- **Conv 052 (arc reinforcement, operator-approved):** the reader's-own-journey arc (start → partway →
+  further, walked alone, we show we understand it) gets **four reinforcements seeded for the second draft**
+  (in the local-only `deciding-points.txt` ARC REINFORCEMENT block + inline P17/P15/P27/P28 pointers):
+  **#1** write §"Where am I on the path" (P17–P21) as a *progression*, not a menu of three types (+ stage
+  markers P18–P20); **#2** one quiet "I've watched many people walk this path" beat (P17, echo at the P28
+  close); **#3** growth throughline linking P3 "a skill you can develop" → P15 "grow past the limit" → P27
+  "your experience talking" (payoff: reader ends more able to make the call); **#4** journey-metaphor
+  consistency across P2/P16/P21/P28. ⚠️ Seeds live only in the gitignored points file until the second draft.
+- **Conv 052 (P5, candor relocation):** dropped the candor beat ("I'd rather tell you that than sell you a
+  service you don't need") from P5's opening concession and **relocated it near the close/CTA** (seeded at
+  P28, operator) — it reads better once the reader understands the arc, and makes the soft CTA non-pushy. P5
+  keeps the empowerment concession ("you may never need anyone"; "pure gold / in the zone"). Seed lives in
+  the local-only points file.
+- **Conv 052 (points round-trip, P2):** dropped the **capacity** angle ("too much for you") from the Short
+  answer. The test the guide delivers measures only **understanding × risk**; capacity is a different kind
+  of call (a resource/delegate decision, not a judgment one) and reads as minor here — so the opener now
+  previews the same two axes the test uses. Capacity's residue stays where it already lives: P15's runway
+  sub-fork and P20's "hand off the out-of-depth sections."
 
 **Published:** _pending — dark behind the flip + `[PROD-DEPLOY-BAN]`._
 🔗 On finish: the carried **3-cornerstone interlink** hopper item unblocks (Trust/Steering/Deciding + the

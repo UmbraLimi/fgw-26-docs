@@ -8,6 +8,19 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 052
+
+### DEC-052-1 — pre-existing lint/typecheck findings route to the hopper as a full-lint pass
+**Decision:** When a lint or typecheck run surfaces errors or warnings **not caused by the change in hand**,
+CC adds a `- [ ]` hopper line recording that a **full lint pass is required** — it does not fix them inline,
+and it does not let them pass unrecorded. Findings caused by the current change are fixed as normal.
+**Rationale:** Pre-existing lint debt spotted mid-task is easy to either silently absorb (scope creep, muddies
+the diff) or silently ignore (the signal is lost). The hopper captures it as a deliberate, rulable item
+without derailing the current work. Rejected: fixing everything inline (balloons unrelated changes into a
+focused commit); ignoring non-change findings (loses the signal).
+**Consequences:** A lint run that finds unrelated problems ends with a hopper capture; the full cleanup is
+ruled later (promote / do-now / drop) like any hopper item. Standing rule in CLAUDE.md § Tooling.
+
 ## Conv 051
 
 ### DEC-051-5 — `/r-start` rules carried findings one at a time, de-bundled from Step 6

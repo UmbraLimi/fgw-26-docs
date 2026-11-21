@@ -29,6 +29,7 @@ say what job it does.
 
 ## Tooling
 - **Chrome bridge fails → it's usually the browser's Claude extension logged out.** Ask the operator to sign in again rather than retrying or treating it as a code fault.
+- 🔴 **Lint/typecheck flags a problem NOT caused by my current change → hopper a full-lint pass.** Add a `- [ ]` hopper line that a full lint is required; don't fix pre-existing findings inline, and don't let them pass unrecorded. My change's own findings I fix as normal. (Conv 052, `DEC-052-1`.)
 
 ## Claims & verification
 - 🔴 **Label every claim I have not verified** — guess, inference, or read-off-an-artifact. Unlabelled must mean "I checked this, this conv." (`DEC-000-5` keeps the record; this keeps it honest.)
