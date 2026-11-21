@@ -1,27 +1,31 @@
-**Conv:** 051 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
+**Conv:** 052 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
 
 ## Where we left off
 
-Conv 051 was design-heavy: it built the **content pillars' visual identity**. Three pillar colours
-(trust terracotta / steering teal / deciding plum) were settled via the dataviz validator (muted
-full-spectrum, not warm-tonal) and wired as `--pillar-*` fill tokens + text-safe `--pillar-*-strong`
-variants (`DEC-051-2`). The colour now lands on the **hub cards** (12px left stripe + a 1024 stack
-breakpoint + a 2× art tile below 1024 with a text gutter; `DEC-051-3`) and the **guide page** (a 12px bar
-beside the lede + a pillar-coloured eyebrow; `DEC-051-4`). All dark behind the content-home flip +
-`[PROD-DEPLOY-BAN]`, verified in `astro dev`. Also: retired `raised`/`flagged` from the go-list
-(`DEC-051-1`, now 5 forms) and reworked `/r-start` to rule carried findings one at a time (`DEC-051-5`).
-**Deciding's prose did not move** — still mid-cycle.
+Conv 052 ran the **Deciding guide's points round-trip**: the operator augmented
+`.scratch/deciding-points.txt` paragraph by paragraph (P2 capacity drop, P3 naive framing, P5 pure-gold +
+candor relocation, P8 lead-in, P18 sharpening, P22 heading → "What do I keep, rebuild, or hand off?", P23
+third option, P24 rewrite) while CC seeded **four arc reinforcements** + the **P3→P6 naive→judgment** arc.
+CC then wrote the **second draft** (a single whole-draft pass, build-clean, still `draft:true`/dark;
+GUIDE-CREATE step 6c). Interleaved: a **sticky-together guide aside** (`DEC-052-2`, fixing the disappearing
+glossary), a **colophon `year`** (`DEC-052-3`), the **retitle + snippet** rework, and process hardening —
+the **lint-hopper rule** (`DEC-052-1`) and the **breadcrumb/intent-not-prose** principle (`DEC-052-4`).
+`[DOSSIER-FORMAT]` is now the active pipeline-capture point (operator: "the pipeline is the product").
 
 ## Next action
 
-🔴 **Deciding is still waiting on the operator to augment `.scratch/deciding-points.txt`** (add the
-experience-side bits unbracketed; keep/cut the one `[CC Q]` on the P2 capacity axis). Once augmented, CC
-writes the **Deciding second draft** from the result, then runs the `GUIDE-REVIEW` finalize pass (steps
-2–15). The `[GUIDE-DECIDING]` board row holds the full state (arc A, matrix working-spec, checklist — the
-Creation Slot/colour item is now done). ⚠️ `.scratch/` is gitignored — `deciding-view.txt` /
-`deciding-points.txt` live only on this machine's checkout.
+🔴 **Deciding's second draft awaits the operator's whole-piece read** (GUIDE-REVIEW step 1) —
+`src/content/guides/build-it-yourself-or-bring-someone-in.md`, rendered dark at
+`/guides/build-it-yourself-or-bring-someone-in/` (restart `astro dev` from `fgw-26` if needed). After the
+read, apply edits, then continue the finalize pass (steps 2–15). The `[GUIDE-DECIDING]` board row holds the
+full state + the piece dossier.
+⚠️ The `.scratch/deciding-view.txt` coordinate view is **stale** (the second draft moved past it) —
+regenerate with `node scripts/number-content.mjs <file>` (from `fgw-26`) when block-addressing is needed for
+the redline. ⚠️ `.scratch/` is gitignored: `deciding-points.txt` / `deciding-view.txt` live only on this
+machine's checkout (the durable record of their decisions is on the board row).
+Hopper carries **1** item: the 3-cornerstone interlink (gated on Deciding finishing) — run `/r-hopper` next conv.
 
 ## 🔬 Carried findings
 
-_None._ (The Conv-050 go-list finding was ruled this conv — `DEC-051-1`. The 3-cornerstone interlink
-remains a **hopper** item, carried past the close, gated on Deciding finishing.)
+_None._ (The 3-cornerstone interlink is a **hopper** carry, not a carried finding. The COLOPHON.md field-list
+staleness found during this close was fixed in place, Conv 052.)

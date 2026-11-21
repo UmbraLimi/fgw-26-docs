@@ -90,9 +90,10 @@ Creation (`GUIDE-CREATE.md`):
 - [x] Take drawn out (A) · [x] Outline/arc approved (A) · [x] `✎ ARC` on-arc block seated in the draft (Conv 049, `31ae6a9`)
 - [x] First draft exists · [x] **body reconciled to the approved A-arc — whole-draft rewrite committed + pushed Conv 049** (fgw-26 `31ae6a9`, 18:55)
 - [x] **Coordinate view generated (Conv 050, GUIDE-CREATE step 5)** — `.scratch/deciding-view.txt` (`number-content.mjs`, 28 blocks).
-- [~] **Point-form skeleton + augmentation round-trip (Conv 050, GUIDE-CREATE step 6, `DEC-050-2`)** — `.scratch/deciding-points.txt` faithful skeleton done (terse bullets + WHY, mirrors the draft; audit found only P2 carried added bits, and those were the operator's). ⬜ **Awaiting operator augmentation** (add missing bits unbracketed; keep/cut CC's `[bracketed]` suggestions) → then CC writes the **second draft** from the result.
+- [x] **Point-form skeleton + augmentation round-trip (Conv 050–052, GUIDE-CREATE step 6, `DEC-050-2`)** — faithful skeleton (Conv 050); **operator augmentation pass DONE Conv 052** (P2 capacity drop, P3 naive framing, P5 pure-gold + candor relocation, P8 lead-in B, P18 sharpening, P22 heading C, P23 third option, P24 rewrite) + CC's four arc reinforcements seeded.
+- [x] **Second draft written from the augmented points (Conv 052, GUIDE-CREATE step 6c)** — whole-draft pass, build-clean, still `draft:true`/dark. Carries all operator edits + the four arc reinforcements (progression, "seen this path," growth throughline, journey-metaphor) + the P3→P6 naive→judgment callback + the keep/rebuild/hand-off three-way. On-arc comment refreshed (item 6 + Conv-052 refinements). ⬜ **Next: operator's whole-piece read (GUIDE-REVIEW step 1).**
 Finalize (`GUIDE-REVIEW.md`, in order):
-- [~] 1 Coordinate-view redline — **arc-A whole-draft rewrite DONE Conv 049** (`31ae6a9`; the new whole-draft-first step 1, `DEC-049-2`). Folded in the **"honest/honestly" reword** (**1 residual use left**, was ~3; VOICE). ⬜ **Remaining (resume here Conv 050): operator's whole-piece read/edit, then block-by-block.** 🔴 Handoff mis-said "untouched" — corrected Conv 050.
+- [~] 1 Coordinate-view redline — arc-A whole-draft rewrite (Conv 049) → **second draft written Conv 052** (whole-draft pass from the augmented points). ⬜ **Resume here: operator's whole-piece read of the second draft, then block-by-block.** (The draft now lives ahead of the `.scratch/deciding-view.txt` coordinate view — regenerate the view with `number-content.mjs` if block-addressing is needed for the redline.)
 - [ ] 2 "It" pass (default it = your AI-built software)
 - [ ] 3 Anecdote check (home-repair is analogy, not anecdote — check for real from-experience beats)
 - [ ] 4 Glossary (3–5 terms) + **aside-length check** (image+glossary pin as one sticky aside, Conv 052; confirm the block fits the viewport — trim terms/shorten defs if the lowest terms fall off-screen)
@@ -576,6 +577,16 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 052:** **Deciding guide — points round-trip + second draft** (content; `[GUIDE-DECIDING]` stays
+  open). Operator's augmentation pass through `deciding-points.txt` (P2 capacity drop, P3 naive framing, P5
+  pure-gold + candor relocation, P8 lead-in, P18 sharpening, P22 heading → "What do I keep, rebuild, or hand
+  off?", P23 third option, P24 rewrite) + CC's four arc reinforcements; **second draft written** (whole-draft
+  pass, build-clean, dark; GUIDE-CREATE step 6c) → awaiting operator whole-piece read. Title + SEO/GEO snippet
+  reworked (title read as a before-you-start fork; snippet presupposed help). **Site/design:** sticky-together
+  guide aside — image + glossary pin as one unit, `display:contents` on mobile (`DEC-052-2`); **colophon year**
+  added to the image `source` schema + caption (`DEC-052-3`). **Process:** lint-hopper rule (`DEC-052-1`) + the
+  one pre-existing eslint error fixed; the points round-trip is a breadcrumb/intent layer, not prose
+  (`DEC-052-4`). Hopper: 1 done (lint), 1 carried (interlink).
 - **Conv 051:** **Pillar identity colours + cornerstone card/guide-page colour UI** (no content-guide row
   shipped; design + process). **Colour system** (`DEC-051-2`): muted full-spectrum categorical colours
   (trust terracotta / steering teal / deciding plum), `--pillar-*` fill + `--pillar-*-strong` text tokens

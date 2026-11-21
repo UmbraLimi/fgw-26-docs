@@ -117,8 +117,9 @@ source page) and criterion 4 (view the real plate, never a title match) still ga
 - 🔴 **Candidate images the operator must see go in `.scratch/`** (the repo, named with provenance), never
   only the session temp dir (`DEC-047-4`). A **chosen** image is then promoted to
   `src/content/images/<id>/` + committed to be durable (`DEC-042-2`).
-- Capture provenance at selection: `source { title, work, license, credit, sourceUrl, accessed, file }`
-  per `provenance.json` (see an existing entry under `src/content/images/`).
+- Capture provenance at selection: `source { title, year, work, license, credit, sourceUrl, accessed, file }`
+  per `provenance.json` (see an existing entry under `src/content/images/`). `year` (the plate/work year or
+  range, e.g. "1733" or "1685-1692") is required and renders in the colophon caption after the title (Conv 052).
 - **Division of labour (Conv 047):** the **operator creates the candidate square inner-extracts** for the
   in-page aside — the zoomed-in detail tiles, framed per "Square detail tile — what to crop." CC then does
   the treatment + build: crop, duotone, cleanup, `provenance.json`, and wiring the guide's `image` field.

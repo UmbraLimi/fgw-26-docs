@@ -10,6 +10,48 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ## Conv 052
 
+### DEC-052-4 — the point-form round-trip is a breadcrumb/intent layer, not prose
+**Decision:** In the `GUIDE-CREATE` step-6 augmentation round-trip, the `.scratch/<guide>-points.txt`
+skeleton is a **breadcrumb/intent layer** (WHAT must land + WHY), not prose. CC resolves prose-level
+choices — final word choice, voice, deduping (e.g. two metaphors where one will eventually serve) — when
+writing the **second draft** (and again at the `GUIDE-REVIEW` audits), not by policing wording in the
+points file.
+**Rationale:** CC flagged a two-metaphor bullet as if the skeleton were prose — treating a signal as a
+defect (operator: "we are laying breadcrumbs for you to follow"). Naming the layer's job stops CC
+over-policing the skeleton and mistaking intent-capture for finished prose. Rejected: treating the points
+file as draft prose (conflates intent with wording, wastes round-trips on polish that belongs in the second
+draft).
+**Consequences:** CC follows the breadcrumbs and resolves wording at the second draft; redundancy or rough
+wording in the points file is not a defect to fix in place. Folded into `GUIDE-CREATE` step 6.
+
+### DEC-052-3 — colophon provenance carries a required `year`
+**Decision:** The image `source` provenance schema gains a **required `year`** string (plate/work year or
+range, e.g. "1733" or "1685-1692"), rendered in the colophon caption after the title: *<title> (<year>) —
+<credit>*.
+**Rationale:** The colophon credited the plate without a date; a year is basic provenance a reader expects,
+and the `work` string already carried it implicitly. Made required so every future colophon includes it by
+enforcement. Rejected: optional (lets a colophon ship dateless); leaving the year only inside the freeform
+`work`/`credit` text (not separately addressable, inconsistent display).
+**Consequences:** Both existing records backfilled (conus 1685-1692, stella 1733); `content.config.ts`,
+both `provenance.json`, the `[slug].astro` caption, and `COLOPHON.md`'s field list all updated. Every new
+image must supply `year`.
+
+### DEC-052-2 — guide image + glossary pin as one sticky aside
+**Decision:** On the cornerstone guide page the content-art image and the glossary share **one sticky right
+aside** (`.guide-aside`) at ≥1024px, pinning as a single unit; on mobile the aside is `display:contents`, so
+its children flow back into the grid and keep the documented image → prose → glossary order. Supersedes the
+prior solo-sticky-image layout.
+**Rationale:** With only the image sticky, the glossary (a separate grid row) scrolled up behind the pinned
+image and vanished. Binding them as one sticky unit keeps both beside the prose; `display:contents` preserves
+mobile order with no second DOM structure. Rejected: leaving them separate (the disappearing-glossary bug);
+a `max-height` internal scroll (nested scrollbar). Operator's call: glossary length is ours to control, so a
+glossary too tall for the viewport is trimmed at authoring time — captured as the `GUIDE-REVIEW` aside-length
+check (steps 4/10), not solved in CSS.
+**Consequences:** `[slug].astro` wraps image+glossary in `<aside>`; `global.css` makes it `display:contents`
+(mobile) / sticky block (desktop). `GUIDE-REVIEW` gains the aside-length check. Verified in dev (Trust +
+Steering). A glossary tall enough to overflow the viewport hides its lowest terms while pinned — trimmed at
+authoring per the check.
+
 ### DEC-052-1 — pre-existing lint/typecheck findings route to the hopper as a full-lint pass
 **Decision:** When a lint or typecheck run surfaces errors or warnings **not caused by the change in hand**,
 CC adds a `- [ ]` hopper line recording that a **full lint pass is required** — it does not fix them inline,

@@ -6,6 +6,33 @@ _As of 2026-11-21._
 
 ---
 
+### DEC-052-4 — the point-form round-trip is a breadcrumb/intent layer, not prose
+
+In the `GUIDE-CREATE` step-6 augmentation round-trip, the `.scratch/<guide>-points.txt`
+skeleton is a **breadcrumb/intent layer** (WHAT must land + WHY), not prose. CC resolves prose-level
+choices — final word choice, voice, deduping (e.g. two metaphors where one will eventually serve) — when
+writing the **second draft** (and again at the `GUIDE-REVIEW` audits), not by policing wording in the
+points file.
+
+### DEC-052-3 — colophon provenance carries a required `year`
+
+The image `source` provenance schema gains a **required `year`** string (plate/work year or
+range, e.g. "1733" or "1685-1692"), rendered in the colophon caption after the title: *<title> (<year>) —
+<credit>*.
+
+### DEC-052-2 — guide image + glossary pin as one sticky aside
+
+On the cornerstone guide page the content-art image and the glossary share **one sticky right
+aside** (`.guide-aside`) at ≥1024px, pinning as a single unit; on mobile the aside is `display:contents`, so
+its children flow back into the grid and keep the documented image → prose → glossary order. Supersedes the
+prior solo-sticky-image layout.
+
+### DEC-052-1 — pre-existing lint/typecheck findings route to the hopper as a full-lint pass
+
+When a lint or typecheck run surfaces errors or warnings **not caused by the change in hand**,
+CC adds a `- [ ]` hopper line recording that a **full lint pass is required** — it does not fix them inline,
+and it does not let them pass unrecorded. Findings caused by the current change are fixed as normal.
+
 ### DEC-051-5 — `/r-start` rules carried findings one at a time, de-bundled from Step 6
 
 The `r-start` SKILL now rules each carried finding in its **own turn** (one finding, one
