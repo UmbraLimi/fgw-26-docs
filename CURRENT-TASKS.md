@@ -424,12 +424,17 @@ the user-facing gerund, the internal `pillars.ts` key stays a short slug).
 - **Rewriting** — knowing when to rewrite what you've already built.
 Each gets a **colour** (feeds `[PILLAR-DIAGRAM]`). Promote a topic to its own active row (via `/r-content`)
 as it's started. All dark/draft → flip gating + `[PROD-DEPLOY-BAN]`.
+🎨 **Pillar-colour system built Conv 051 (`DEC-051-2`):** muted full-spectrum categorical colours, each a
+`--pillar-<key>` fill token + `--pillar-<key>-strong` text-safe variant (light-dark pairs) exposed via
+`PILLAR_META.color`/`.colorStrong`; validated for colourblind-separation (dataviz). **First 3 live**
+(trust terracotta / steering teal / deciding plum). Each new pillar adds its own validated pair as it ships.
 
 ### [PILLAR-DIAGRAM] · promoted Conv 047 · interactive pillar map (coloured circles + hoverable connections)
 An interactive diagram of the pillar set that shows a user how the pillars relate: coloured **circles =
 pillars**, clickable → the pillar's guide; **lines = interrelations**, hoverable to reveal how the two
-pillars connect. **Needs:** (1) a **colour per pillar** (settle alongside `[PILLAR-ROADMAP]` as pillars
-are defined — the diagram reuses the `PILLAR_META` colours); (2) the **pairwise "how they relate"
+pillars connect. **Needs:** (1) ✅ **a colour per pillar — done for the 3 live pillars Conv 051**
+(`DEC-051-2`; the diagram reuses `PILLAR_META.color` → `--pillar-<key>`, already validated both themes);
+later pillars add theirs as they ship; (2) the **pairwise "how they relate"
 content** — a one-line connection per linked pair (a content task); (3) the **interactive build** — inline
 SVG + JS (clickable circles, hoverable lines), on the `/guides/` hub or a dedicated page, legible in both
 themes. Operator-planned; benefits from the pillar colours being set first.
@@ -514,6 +519,18 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 051:** **Pillar identity colours + cornerstone card/guide-page colour UI** (no content-guide row
+  shipped; design + process). **Colour system** (`DEC-051-2`): muted full-spectrum categorical colours
+  (trust terracotta / steering teal / deciding plum), `--pillar-*` fill + `--pillar-*-strong` text tokens
+  (light-dark pairs), `PILLAR_META.color`/`.colorStrong`, validated via dataviz both themes — closes the
+  `[GUIDE-DECIDING]` Slot/colour item + advances `[PILLAR-ROADMAP]`/`[PILLAR-DIAGRAM]`. **Hub card**
+  (`DEC-051-3`): 12px pillar left stripe (inset), stack breakpoint `sm`→`lg` (3-up ≥1024), art tile 2×
+  (128px) below 1024 with the description wrapping in a left gutter, tile dropped to `bottom-4`. **Guide
+  page** (`DEC-051-4`): 12px pillar bar beside the lede (the bold colour hit) + pillar-coloured eyebrow
+  label; the subtle eyebrow-rule approach rejected. **Process:** retired `raised`/`flagged` from the
+  go-list (`DEC-051-1`; `check-routing.sh` + CLAUDE.md, now 5 forms); reworked
+  `/r-start` so carried findings are ruled one at a time, de-bundled from Step 6 (`DEC-051-5`). All site
+  work dark behind the content-home flip + `[PROD-DEPLOY-BAN]`. Hopper: 1 done (r-start fix), 1 carried.
 - **Conv 050:** **`/rfe` force-end verified + content-process method extended** (no board row shipped; recovery
   + process). Confirmed the Conv-049 `/rfe` force-end worked **end-to-end** (clean `/r-start`, no HALT, no
   work lost, conv history saved + jsonl drained clean, pushed clean); paid its deferred debt — distilled the

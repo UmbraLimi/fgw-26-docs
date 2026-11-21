@@ -8,6 +8,71 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 051
+
+### DEC-051-5 — `/r-start` rules carried findings one at a time, de-bundled from Step 6
+**Decision:** The `r-start` SKILL now rules each carried finding in its **own turn** (one finding, one
+question, ending the turn — the `/r-hopper` cadence). Sequencing: Step 5's heartbeat commits **before** any
+finding is presented, and Step 6's surface runs **only after the last finding is ruled**. A finding ruling
+never shares a turn with another finding, with the Step 6 surface, or with the continuation-mode ask (now a
+standing notice carried once, with the surface).
+**Rationale:** The old skill said "present Step 4 + Step 6 together," so one start turn could carry a finding
+ruling *and* the continuation-mode ask at once — Conv 051's own start did (an A/B/C go-list ruling + an A/B
+continuation pick), against CLAUDE.md's "show a multi-question set, ask one at a time." Rejected: leaving it
+bundled (operator-raised overload); a board row for a later rework (the fix is small, self-contained — do-now).
+**Consequences:** A start with N carried findings takes N ruling turns before the surface; the common
+no-findings case is unchanged (one surface turn).
+
+### DEC-051-4 — guide-page pillar colour UI: a bar beside the lede + a coloured eyebrow label
+**Decision:** The cornerstone guide page carries its pillar colour as a **12px inset bar down the left of the
+lede paragraph** (the bold colour hit, mirroring the hub card stripe; fill tone — a graphic, so 3:1 suffices)
+plus the **eyebrow label in the pillar colour** (the text-safe `-strong` tone).
+**Rationale:** A first pass (coloured eyebrow + a thin trailing eyebrow-rule) read as "far too subtle — no
+way to really see the colour." The lede bar is a large, unmissable colour field and echoes the card's
+identity stripe. Rejected: the subtle eyebrow+rule approach; hosting the bar on the Short-Answer paragraph
+(it lives inside the markdown body, harder to target reliably — the lede is the template-addressable first
+thing read, and left available if wanted later).
+**Consequences:** Guide-page head and hub card now share one identity language (a 12px pillar bar).
+
+### DEC-051-3 — cornerstone hub card treatment: pillar stripe, 1024 stack, 2× art tile with gutter
+**Decision:** The `/guides/` hub cards get a **12px pillar identity stripe** down the left (an inset
+box-shadow via a new `Card` `accent` prop + `.card-accent` — not a real `border-left`, so it survives the
+`--accent` hover border and the rounded corners); the **stack breakpoint moves `sm`→`lg`** (single column
+below 1024, 3-up at ≥1024); and the **square art tile shows at 2× (128px) below 1024** with the description
+wrapping in a left gutter (`pr-36 lg:pr-0`), reverting to the 64px corner mark at ≥1024; the tile drops to
+`bottom-4` for clearance.
+**Rationale:** Operator-directed iteration, each step viewed live and approved. Inset stripe over a literal
+border (avoids the hover/rounded-corner conflict). The 1024 stack + 2× tile make single-column cards read as
+full editorial cards, not cramped thumbnails. Rejected: a `border-left` stripe; keeping the 640px (`sm`)
+stack; a full-height right-side image (square 2× chosen).
+**Consequences:** `Card` gains a reusable `accent` prop; hub card and guide page now carry matching identity.
+
+### DEC-051-2 — pillar identity colour system: muted full-spectrum, fill + text-safe tokens
+**Decision:** Each content pillar gets a fixed categorical identity colour; the 3 live: **trust = terracotta,
+steering = teal, deciding = plum**. Each is a hand-tuned `light-dark()` pair exposed as a `--pillar-<key>`
+**fill token** (marks: card stripe, diagram circle) plus a darker `--pillar-<key>-strong` **text-safe
+variant** (the colour used as TEXT — AA on the warm paper, where the fill tone is not; mirrors
+`--accent`/`--accent-strong`), surfaced via `PILLAR_META.color`/`.colorStrong`. All validated with the
+dataviz `validate_palette.js` in both modes.
+**Rationale:** Operator chose a **muted full spectrum** (desaturated hues across the wheel) over a warm-tonal
+family — categorical separation for ~10 eventual pillars can't be met warm-only (the colourblind-separation
+check fails). A first "dusty" 10-set failed the validator (chroma floor + CVD), so the live set was cut to 3
+well-separated hues and validated; the fill tones then failed AA *as text*, forcing the `-strong` split.
+Rejected: warm-tonal family (fails CVD at scale); one token per pillar (fill tone isn't AA as text).
+**Consequences:** New tokens `--pillar-*` / `--pillar-*-strong` + `PILLAR_META.color`/`.colorStrong`. Closes
+the `[GUIDE-DECIDING]` Slot/colour item; `[PILLAR-DIAGRAM]` reuses these; each future pillar adds + validates
+its own pair. 8 is the CVD-safe hue ceiling — past it, identity leans on the always-present pillar label.
+
+### DEC-051-1 — retire `raised`/`flagged` from the go-list review-signal
+**Decision:** The go-list (the `check-routing.sh` trigger grep + the CLAUDE.md `DEC-047-2` line) drops
+`raised/raising` and `flagged/flagging`, leaving 5 forms: `routing/routed`, `surfaced/surfacing`,
+`disposition`.
+**Rationale:** The two words false-fired 3× on plain guide copy in Conv 050 ("AI raised the floor", "the bit
+you flagged") — content vocabulary, not routing claims. `DEC-047-2` set up the go-list as "a living list,
+tuned over time"; this is that tuning (operator-ruled, option A). Rejected: a content-context exception (more
+machinery than the noise warrants); leaving it (the false-fires are real friction).
+**Consequences:** Fewer false nudges on content work. The present-tense bases `route/surface` stay excluded.
+
 ## Conv 050
 
 ### DEC-050-2 — content creation gains a coordinate-view step + a point-form augmentation round-trip

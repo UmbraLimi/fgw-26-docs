@@ -7,8 +7,9 @@ allowed-tools: Bash, Read, Edit, Write
 
 # Open a conv
 
-Autonomous — no approval needed. One interior stop: if there are carried findings, present them and
-wait for the ruling (Step 4). Otherwise run straight through to Step 6 and stop.
+Autonomous — no approval needed. The interior stops are the carried-finding rulings (Step 4), **ruled
+one at a time** — each its own turn (Conv 051). No carried findings → run straight through to Step 6 and
+stop.
 
 **Formats:** `reference/CONV-FORMAT.md` · `reference/COMMIT-MESSAGE-FORMAT.md`
 
@@ -72,13 +73,21 @@ Read, in order: **`RESUME-STATE.md`** (previous conv's narrative handoff — kep
 are a deliberate carry from last conv — report count + a one-line summary each; do not absorb them
 silently.
 
-## Step 4 — 🔴 Rule carried findings (the one interior stop)
+## Step 4 — 🔴 Rule carried findings (interior stops — one per finding)
 
-`RESUME-STATE.md` may hold a `## 🔬 Carried findings` section. For each: state what it is and what a
-ruling decides, then get the call — **promote** to a board row · **do it now** · **drop**. Never rule
-alone. Annotate each ruled bullet in place `✔ **ruled:** <disposition>` (the only write `/r-start`
-makes to that file). `_None._` or absent → say so in one line. ⚠️ Re-verify before ruling a re-carried
-finding. Commit Step 5's heartbeat **before** presenting these, then present Step 4 + Step 6 together.
+`RESUME-STATE.md` may hold a `## 🔬 Carried findings` section. `_None._` or absent → say so in one line
+and go straight to Step 6.
+
+🔴 **Rule them ONE AT A TIME — one finding, one question, each ending its own turn** (the `/r-hopper`
+cadence, `DEC` Conv 051). For each: state what it is and what a ruling decides, then get the call —
+**promote** to a board row · **do it now** · **drop** — and resolve it (annotate the bullet in place
+`✔ **ruled:** <disposition>`, the only write `/r-start` makes to that file) before presenting the next.
+Never rule alone; never bundle two findings in one turn. ⚠️ Re-verify before ruling a re-carried finding.
+
+🔴 **Sequencing (Conv 051 — the de-bundling fix):** commit Step 5's heartbeat **before** presenting any
+finding. Then rule findings one at a time; **only after the last is ruled does Step 6 surface.** A
+finding ruling never shares a turn with another finding, with Step 6's surface, or with the
+continuation-mode ask.
 
 ## Step 5 — Commit the start heartbeat
 
@@ -105,7 +114,8 @@ skip a `not due` line (silence reads as "forgot").
 **Continuation mode** (default **B — regular ask/respond/wait**): each turn, you give a task/question,
 I answer and propose, then stop. I do not chain work across turns on my own. If you want
 **A — autonomous-continue** (I act on my recommendation and keep going to a named stop), say so now.
-`/r-commit` is my standing right in either mode.
+`/r-commit` is my standing right in either mode. This is a standing notice carried **once, with the
+Step 6 surface** (never on a turn that rules a carried finding) — the default B holds unless you pick A.
 
 ---
 

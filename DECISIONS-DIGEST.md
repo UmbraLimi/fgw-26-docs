@@ -2,9 +2,47 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-19._
+_As of 2026-11-21._
 
 ---
+
+### DEC-051-5 — `/r-start` rules carried findings one at a time, de-bundled from Step 6
+
+The `r-start` SKILL now rules each carried finding in its **own turn** (one finding, one
+question, ending the turn — the `/r-hopper` cadence). Sequencing: Step 5's heartbeat commits **before** any
+finding is presented, and Step 6's surface runs **only after the last finding is ruled**. A finding ruling
+never shares a turn with another finding, with the Step 6 surface, or with the continuation-mode ask (now a
+standing notice carried once, with the surface).
+
+### DEC-051-4 — guide-page pillar colour UI: a bar beside the lede + a coloured eyebrow label
+
+The cornerstone guide page carries its pillar colour as a **12px inset bar down the left of the
+lede paragraph** (the bold colour hit, mirroring the hub card stripe; fill tone — a graphic, so 3:1 suffices)
+plus the **eyebrow label in the pillar colour** (the text-safe `-strong` tone).
+
+### DEC-051-3 — cornerstone hub card treatment: pillar stripe, 1024 stack, 2× art tile with gutter
+
+The `/guides/` hub cards get a **12px pillar identity stripe** down the left (an inset
+box-shadow via a new `Card` `accent` prop + `.card-accent` — not a real `border-left`, so it survives the
+`--accent` hover border and the rounded corners); the **stack breakpoint moves `sm`→`lg`** (single column
+below 1024, 3-up at ≥1024); and the **square art tile shows at 2× (128px) below 1024** with the description
+wrapping in a left gutter (`pr-36 lg:pr-0`), reverting to the 64px corner mark at ≥1024; the tile drops to
+`bottom-4` for clearance.
+
+### DEC-051-2 — pillar identity colour system: muted full-spectrum, fill + text-safe tokens
+
+Each content pillar gets a fixed categorical identity colour; the 3 live: **trust = terracotta,
+steering = teal, deciding = plum**. Each is a hand-tuned `light-dark()` pair exposed as a `--pillar-<key>`
+**fill token** (marks: card stripe, diagram circle) plus a darker `--pillar-<key>-strong` **text-safe
+variant** (the colour used as TEXT — AA on the warm paper, where the fill tone is not; mirrors
+`--accent`/`--accent-strong`), surfaced via `PILLAR_META.color`/`.colorStrong`. All validated with the
+dataviz `validate_palette.js` in both modes.
+
+### DEC-051-1 — retire `raised`/`flagged` from the go-list review-signal
+
+The go-list (the `check-routing.sh` trigger grep + the CLAUDE.md `DEC-047-2` line) drops
+`raised/raising` and `flagged/flagging`, leaving 5 forms: `routing/routed`, `surfaced/surfacing`,
+`disposition`.
 
 ### DEC-050-2 — content creation gains a coordinate-view step + a point-form augmentation round-trip
 
