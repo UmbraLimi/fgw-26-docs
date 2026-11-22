@@ -104,17 +104,18 @@ Finalize (`GUIDE-REVIEW.md`, in order):
 - [x] 3 Anecdote check — **Conv 054: no concrete anecdote, by decision (operator).** A success-story ("a client asked me to look, it worked out well") reads self-serving next to the CTA in the conversion cornerstone — against the persona (credibility by proof, not self-praise). The from-experience *register* carries it instead ("I've sat with people at each of these", "that's the work I do, people bring me software…"). **P32 `✎ ANECDOTE` placeholder removed.** (If ever revisited, the only non-self-serving form is a *teaching* anecdote — mechanism, not outcome.)
 - [ ] 4 Glossary (3–5 terms) + **aside-length check** (image+glossary pin as one sticky aside, Conv 052; confirm the block fits the viewport — trim terms/shorten defs if the lowest terms fall off-screen)
 - [ ] 5 Headings (H2 = NL questions; FAQ-lift nouns)
-- [ ] 6 Entity naming — seat "AI-built software" (`DEC-043-4`, Deciding in-scope)
+- [ ] 6 Entity naming — seat "AI-built software" (`DEC-043-4`, Deciding in-scope). ⚠️ **+ over-seeding audit (operator, Conv 054):** 6 "AI-built software" instances (incl. H2s) read "a little over-seeded with keywords" — at this step, trim/vary to keep enough to seat the entity for GEO without reading as keyword-stuffed (this concern also parked the §6 title retitle, which would have added a 7th).
 - [ ] 7 Conjunction audit
 - [ ] 8 Metaphor audit (home-repair structural metaphor as a unit)
 - [x] 9 Signature-phrase / AI-tell audit (added Conv 054) — **done Conv 054.** Rulings (now logged in `VOICE.md`): **"leans on"** always-change → "relies on" ×3 body + glossary def (snippet's deferred to step 14); **"stand behind"** cut 4→1 (kept P2 thesis; P6→"vouch for", P7→recast "that line moves", P28→"be sure of"); **"load-bearing"** kept (1 body use at P16 earns it; ~1/guide allowed); **"reach"** varied the P27/P28 proximity ("reach that bar"→"get to that bar"), kept the growth-throughline "your reach". Alternatives lists accrue in `VOICE.md`.
 - [ ] 10 Pull quote (one)
-- [ ] 11 Rendered read (incl. the step-4 **aside-length** visual check — scroll desktop, confirm sticky image+glossary fit)
+- [ ] 11 Rendered read (incl. the step-4 **aside-length** visual check — scroll desktop, confirm sticky image+glossary fit). ⚠️ **+ §5 stage-markers revisit (deferred Conv 054):** the bold *Early on / Further along / Further still* (P19/P20/P21) read as a *sequence* but don't cleanly map to discrete "phases" (vs the H2 "Which phase…" + P18 "first/second/third"); *"Early on (in what?)"* mildly unanchored. Reconcile progression-feel vs phase-labels reading it in context — keep all three markers consistent whichever way.
 - [ ] 12 Em-dash sanity check
 - [ ] 13 Colophon selection + fitting — **Deciding image lead: Bloch *Esox lucius* pike** / freshwater-fish pool (`COLOPHON.md`, `[CONTENT-ART]`)
 - [ ] 14 Card + SEO/GEO snippet match (final)
-- [ ] 15 Masking check
-- [ ] 16 Final whole-page review → declare final → graduate to `docs/content/build-it-yourself-or-bring-someone-in.md`, retire row
+- [ ] 15 Cross-linking (added Conv 054) — wire the finished guide into the site link graph: `/faq/` entries link to it, sibling-guide interlinks, forward-links. 🔗 **3-cornerstone interlink pass fires here** (Deciding is the last of the three): Steering already links Trust+Deciding; add Deciding→Trust+Steering reciprocals; fold in the `[GUIDE-PLANNING]` forward-link from Steering's planning para (Conv 047 origin). ⚠️ **One-time retrofit (operator, Conv 054):** this pass must reach back into the already-graduated **Trust and Steering** to add their reciprocal links — they finalized before this step existed, so they won't get it from their own reviews.
+- [ ] 16 Masking check
+- [ ] 17 Final whole-page review → declare final → graduate to `docs/content/build-it-yourself-or-bring-someone-in.md`, retire row
 
 **Decisions (piece-specific, accrue here):**
 - **Conv 049:** adopted arc **A** (2×2-test spine, re-sequenced) over B (keep-draft-arc). The 2×2 was latent
@@ -201,9 +202,28 @@ Finalize (`GUIDE-REVIEW.md`, in order):
   to help?") so it stands alone; cells = *Keep going* / *You've got it* / *But keep an eye on it* / *Bring
   someone in, or learn it*; bottom axis-caption dropped (redundant with named axes). All matrix wording
   **PROVISIONAL** until the final pass.
+- **Conv 054 (§7 self-path section added):** a new H2 "Can I really learn enough on my own when I reach my
+  limit?" seated before §8 — the self-path arm of the danger-cell fork (learn-it-yourself), given its own
+  room; P16 trimmed to introduce-and-hand-off. **Loose binding to `/phases/` (A over tight-mirror B /
+  middle C):** the guide stays the solo reader's *lived* progression (who often doesn't cleanly restart),
+  while `/phases/` owns the disciplined straw/tin/steel fresh-start method; P22 bridges to it ("line up with
+  the straw man / tin man / steel man … how I work through them myself"). The "unembraced straw man" (kept
+  building without ever calling it a first attempt) woven into P19.
+- **Conv 054 (no concrete anecdote):** the `✎ ANECDOTE` placeholder removed — a success-story reads
+  self-serving next to the CTA in the conversion cornerstone (persona: credibility by proof, not
+  self-praise); the from-experience *register* carries it. If ever revisited, only a *teaching* anecdote
+  (mechanism, not outcome) fits.
+- **Conv 054 (§6 title deferred):** "What do I keep, rebuild, or hand off?" left un-retitled — the per-part
+  "Which parts…" seat would have added a 7th "AI-built software"-adjacent keyphrase (over-seeding watch).
+  The body already reads per-part; title liftability + over-seeding both revisit at step 6.
+- **Conv 054 ("the test" bound):** the promised "simple test" (P2) was delivered in §4 but never named
+  there; bound in P9 ("The test is simple.") so the P24/P27 "the test" references resolve.
+- **Conv 054 (signature-phrase pass, `DEC-054-2`):** "leans on" → "relies on" (always-change tic); "stand
+  behind" cut 4→1 (kept the P2 thesis; P6 "vouch for" / P7 recast / P28 "be sure of"); "load-bearing" kept
+  (1 earned use); "reach" proximity varied. Mechanism + lists in `VOICE.md`.
 
 **Published:** _pending — dark behind the flip + `[PROD-DEPLOY-BAN]`._
-🔗 On finish: the carried **3-cornerstone interlink** hopper item unblocks (Trust/Steering/Deciding + the
+🔗 On finish: the **3-cornerstone interlink** fires at review **step 15** (Cross-linking; `DEC-054-3`) — Trust/Steering/Deciding + the
 `[GUIDE-PLANNING]` forward-link).
 
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
@@ -600,6 +620,17 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 054:** **Deciding redline finished (step 1) + new §7 + review-process additions** (content +
+  process; `[GUIDE-DECIDING]` stays open). Block-by-block redline completed **P1→P32**: added **§7 "Can I
+  really learn enough on my own when I reach my limit?"** (the self-path arm, loose-bound to `/phases/`; P16
+  trimmed to hand off), reworked §5 (P17 → "Which phase of building with AI am I in?", P18 phases +
+  unembraced-straw-man, P19 merged, P22 straw/tin/steel bridge + places→phases), bound **"the test"** to §4
+  (P9), rewrote the §8 close ("then I'm happy", solid software). Finalize **step 2 (it-pass, clean bar P15)**
+  + **step 3 (anecdote — dropped: self-serving at the CTA)** done. **Process:** two new `GUIDE-REVIEW` steps —
+  **9 signature-phrase / AI-tell audit** (`DEC-054-2`, + the `VOICE.md` alternatives mechanism; applied:
+  leans on→relies on, stand behind 4→1) and **15 cross-linking** (`DEC-054-3`, folds the 3-cornerstone
+  interlink + the one-time Trust/Steering retrofit); the **markup-stripping rule** → step 1 (`DEC-054-1`).
+  Hopper cleared (6 ruled). Two commits + this close.
 - **Conv 053:** **Deciding §1–§4 redline + the §4 decision-matrix figure** (content; `[GUIDE-DECIDING]`
   stays open). Block-by-block redline of the second draft: Short answer ("as much of it yourself as you can
   stand behind"), home-repair para, the empowerment beat, **§3 reworked off the floor/ceiling metaphor** into

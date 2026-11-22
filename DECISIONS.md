@@ -8,6 +8,50 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 054
+
+### DEC-054-3 — `GUIDE-REVIEW` gains a Cross-linking step (site link-graph wiring)
+**Decision:** A new `GUIDE-REVIEW` step **15 "Cross-linking"** (Wiring cluster, before Safety/Gate): when a
+guide is finalized, wire it into the site's link graph — relevant `/faq/` entries link to it (the curated
+`/faq/` as another on-ramp into the cornerstones), sibling/related guides interlink where the content invites,
+forward-links to related/future guides. The full **3-cornerstone interlink pass fires at Deciding's step 15**
+(Deciding is the last of the three). 🔴 **One-time retrofit:** the pass must reach back into the
+already-graduated **Trust and Steering** — they finalized before this step existed, so they won't get it from
+their own reviews.
+**Rationale:** The `/faq/` → guide cross-link (operator catch this conv) is a recurring finalize concern, so
+it belongs as a step, not a one-off. Rejected: a standalone board row for the `/faq/` link (too small, and it
+recurs per guide); carrying it in the hopper (would ride indefinitely).
+**Consequences:** Steps after it renumber (Masking → 16, Final/graduate → 17). The Conv-047 3-cornerstone
+interlink hopper item folded here (board step 15). Board checklist mirrors the new step.
+
+### DEC-054-2 — `GUIDE-REVIEW` gains a Signature-phrase / AI-tell audit (+ a VOICE alternatives mechanism)
+**Decision:** A new `GUIDE-REVIEW` step **9 "Signature-phrase / AI-tell audit"** (voice cluster, after the
+metaphor audit): CC counts phrases repeated often enough to read as an AI verbal tic and surfaces each with
+count + context; the operator rules keep / vary / trim. Each flagged phrase gets an **acceptable-alternatives
+list** (logged in `VOICE.md`) to rotate through — the flagged word is the *always-change tic*, its approved
+subs may recur. First lists: *lean on* (always-change → relies on / depends on); *load-bearing* (~1/guide,
+must earn it → crucial / critical); *stand behind* (~1/guide → vouch for / be sure of / support / defend /
+uphold); *reach* (not a tic — watch proximity, keep the growth-throughline noun).
+**Rationale:** Operator flagged that CC's repeated signature phrases ("stand behind", "load-bearing", "lean
+on") read as AI-authored. Distinct from the metaphor audit (clichés) and conjunction audit (openers) — this
+catches *repetition of a signature phrase/construction*. Rejected: folding it into the metaphor audit
+(different failure mode); banning the phrases (they're often good — a deliberate throughline is a keep-or-vary
+call, not an auto-cut).
+**Consequences:** Steps 9–15 renumber → 10–16. `VOICE.md` Turns-of-phrase holds the running lists, accruing as
+phrases are ruled. Applied to Deciding this conv (leans on → relies on; stand behind 4→1; load-bearing kept;
+reach proximity varied).
+
+### DEC-054-1 — pasted block rewrites lose markup; always re-apply it
+**Decision:** Standing redline rule (`GUIDE-REVIEW` step 1): the operator's pasted block rewrites come off the
+*rendered* page, so markup (bold stage-markers, links, italics) is stripped from the paste. CC **always
+re-applies existing markup** when applying a pasted rewrite; the absence of markup in a paste is never read as
+intent to remove formatting — a removal is confirmed only if the operator says so.
+**Rationale:** Caught on Deciding P19, where a pasted rewrite dropped the bold stage-marker; applying it
+verbatim would have silently broken the P19/P20/P21 marker parallel. Rejected: treating the paste as
+authoritative on formatting (loses deliberate markup).
+**Consequences:** Folded into `GUIDE-REVIEW` step 1. Prevents silent formatting loss on every future pasted
+redline.
+
 ## Conv 053
 
 ### DEC-053-2 — the Deciding §4 decision matrix renders as a standalone business figure
@@ -298,7 +342,7 @@ where the rigor should show; the operator wanted the record "full of great infor
 (`DEC-047-8`) and Deciding "more rigorous still." The per-step finalize record is the audit trail that makes
 the rigor durable. Rejected keeping Trust's thinner shape as the template — it under-records the finalize
 work.
-**Consequences:** the Steering dossier is the worked reference for `[DOSSIER-FORMAT]`. `GUIDE-REVIEW` step 15
+**Consequences:** the Steering dossier is the worked reference for `[DOSSIER-FORMAT]`. `GUIDE-REVIEW`'s final/graduate step
 still describes only the minimal "take / outline / decisions / published" write — to be reconciled by that
 row. Builds on `DEC-047-8` (the dossier-graduation mechanism).
 
@@ -316,7 +360,7 @@ keeps `DECISIONS.md` focused on project-level calls instead of bloating with per
 The operator wanted the task to become "full of great information and history," then saved permanently
 tied to the id.
 **Consequences:** `r-content` Step 3 builds the dossier (take / outline / checklist / decisions /
-published); `GUIDE-CREATE` records the take + outline + piece-decisions there; `GUIDE-REVIEW` step 14
+published); `GUIDE-CREATE` records the take + outline + piece-decisions there; `GUIDE-REVIEW`'s final step
 graduates it to `docs/content/<slug>.md` and retires the row. CLAUDE.md "Decisions & learnings" carries
 the carve-out (piece decisions → dossier, not `DECISIONS.md`). New durable location `docs/content/`
 (created on first graduation). Sibling: `DEC-047-7` (the creation infra).

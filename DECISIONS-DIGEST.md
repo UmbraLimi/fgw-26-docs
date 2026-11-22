@@ -6,6 +6,33 @@ _As of 2026-11-22._
 
 ---
 
+### DEC-054-3 — `GUIDE-REVIEW` gains a Cross-linking step (site link-graph wiring)
+
+A new `GUIDE-REVIEW` step **15 "Cross-linking"** (Wiring cluster, before Safety/Gate): when a
+guide is finalized, wire it into the site's link graph — relevant `/faq/` entries link to it (the curated
+`/faq/` as another on-ramp into the cornerstones), sibling/related guides interlink where the content invites,
+forward-links to related/future guides. The full **3-cornerstone interlink pass fires at Deciding's step 15**
+(Deciding is the last of the three). 🔴 **One-time retrofit:** the pass must reach back into the
+already-graduated **Trust and Steering** — they finalized before this step existed, so they won't get it from
+their own reviews.
+
+### DEC-054-2 — `GUIDE-REVIEW` gains a Signature-phrase / AI-tell audit (+ a VOICE alternatives mechanism)
+
+A new `GUIDE-REVIEW` step **9 "Signature-phrase / AI-tell audit"** (voice cluster, after the
+metaphor audit): CC counts phrases repeated often enough to read as an AI verbal tic and surfaces each with
+count + context; the operator rules keep / vary / trim. Each flagged phrase gets an **acceptable-alternatives
+list** (logged in `VOICE.md`) to rotate through — the flagged word is the *always-change tic*, its approved
+subs may recur. First lists: *lean on* (always-change → relies on / depends on); *load-bearing* (~1/guide,
+must earn it → crucial / critical); *stand behind* (~1/guide → vouch for / be sure of / support / defend /
+uphold); *reach* (not a tic — watch proximity, keep the growth-throughline noun).
+
+### DEC-054-1 — pasted block rewrites lose markup; always re-apply it
+
+Standing redline rule (`GUIDE-REVIEW` step 1): the operator's pasted block rewrites come off the
+*rendered* page, so markup (bold stage-markers, links, italics) is stripped from the paste. CC **always
+re-applies existing markup** when applying a pasted rewrite; the absence of markup in a paste is never read as
+intent to remove formatting — a removal is confirmed only if the operator says so.
+
 ### DEC-053-2 — the Deciding §4 decision matrix renders as a standalone business figure
 
 The understanding × risk 2×2 renders as a self-contained styled **HTML figure** (approach A),

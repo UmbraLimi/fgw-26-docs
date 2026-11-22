@@ -24,6 +24,11 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
    `✎ OPTIONAL` author insertions. CC then **self-checks the finished draft against the `✎ ARC` block and
    reports any drift**. **Then the operator reads/edits the whole piece first, and only then moves block by
    block.** Foundation; everything below assumes the body is passed through.
+   🔴 **Markup-stripping on pasted rewrites (operator, Conv 054).** The operator's pasted block rewrites
+   come off the *rendered* page, so markup (bold stage-markers, links, italics) is stripped from the
+   paste. Always **re-apply existing markup** when applying a pasted rewrite; never read its absence as
+   intent to remove formatting — confirm a removal only if the operator says so. (Caught on P19's dropped
+   bold stage-marker, Deciding.)
 2. **"It" pass** — the default "it" = the piece's core subject (e.g. *your AI-built software*); every
    non-subject "it" named so no referent is ambiguous. (Trust, `DEC-040`.)
 3. **Anecdote check** — does the piece carry **enough personal-experience anecdotes** (the operator's
@@ -80,14 +85,21 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
     the `snippet` (meta / og / twitter, SEO + GEO) still accurately match the **final** content. They are
     decoupled by `DEC-043-2`, but both must be true to the piece.
 
+**Wiring**
+15. **Cross-linking** — wire the finished guide into the site's link graph: relevant `/faq/` entries
+    link to it (the curated `/faq/` as another on-ramp into the cornerstones); sibling/related guides
+    interlink where the content invites; forward-links to related or future guides. Some cross-links wait
+    until the sibling guides are also final (e.g. the full 3-cornerstone interlink pass). (Added Conv 054,
+    operator.)
+
 **Safety**
-15. **Masking check** — every personal-experience anecdote is confirmed **not client-identifiable**: no
+16. **Masking check** — every personal-experience anecdote is confirmed **not client-identifiable**: no
     real client / source / target exposed, nothing that bridges to a de-identified case
     (`[CASE-RECORD-SIGNOFF]`, 🔴). Generalize where needed (Conv-045 precedent: "a big client project").
     Applies to any piece carrying anecdotes — guides and articles alike.
 
 **Gate**
-16. **Final whole-page review + declare final + graduate** — strip/resolve author-insertion markers
+17. **Final whole-page review + declare final + graduate** — strip/resolve author-insertion markers
     (`✎ OPTIONAL`, `✎ ANECDOTE`); the **operator does a final manual review of the whole rendered page**;
     then declares it **final**. **Graduate the dossier:** write the piece's board-row dossier (take,
     outline, decisions, publish status + date) to a permanent **`fgw-26-docs/docs/content/<slug>.md`**,
