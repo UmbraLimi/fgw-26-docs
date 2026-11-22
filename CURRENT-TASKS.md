@@ -99,7 +99,7 @@ Creation (`GUIDE-CREATE.md`):
 - [x] **Point-form skeleton + augmentation round-trip (Conv 050–052, GUIDE-CREATE step 6, `DEC-050-2`)** — faithful skeleton (Conv 050); **operator augmentation pass DONE Conv 052** (P2 capacity drop, P3 naive framing, P5 pure-gold + candor relocation, P8 lead-in B, P18 sharpening, P22 heading C, P23 third option, P24 rewrite) + CC's four arc reinforcements seeded.
 - [x] **Second draft written from the augmented points (Conv 052, GUIDE-CREATE step 6c)** — whole-draft pass, build-clean, still `draft:true`/dark. Carries all operator edits + the four arc reinforcements (progression, "seen this path," growth throughline, journey-metaphor) + the P3→P6 naive→judgment callback + the keep/rebuild/hand-off three-way. On-arc comment refreshed (item 6 + Conv-052 refinements). ⬜ **Next: operator's whole-piece read (GUIDE-REVIEW step 1).**
 Finalize (`GUIDE-REVIEW.md`, in order):
-- [~] 1 Coordinate-view redline — arc-A whole-draft rewrite (Conv 049) → **second draft written Conv 052** (whole-draft pass from the augmented points). ⬜ **Resume here: operator's whole-piece read of the second draft, then block-by-block.** (The draft now lives ahead of the `.scratch/deciding-view.txt` coordinate view — regenerate the view with `number-content.mjs` if block-addressing is needed for the redline.)
+- [~] 1 Coordinate-view redline — **block-by-block underway Conv 053**: operator's whole-piece read done; **§1–§4 redlined** (Short answer, home-repair, empowerment beat, §3 floor/ceiling→entry-barrier + new "reach keeps growing" para, §4 doubt-framed retitle + Understanding/Risk bullets) and the **§4 matrix figure built** (`DEC-053-2`). ⬜ **Resume here: the two grid-interpretation paragraphs** ("Three of the four squares…" / "Only one square changes…"), then §5 onward. (`.scratch/deciding-view.txt` regenerated, 29 blocks; HTML figure collapses to fewer blocks, so re-address from it.)
 - [ ] 2 "It" pass (default it = your AI-built software)
 - [ ] 3 Anecdote check (home-repair is analogy, not anecdote — check for real from-experience beats)
 - [ ] 4 Glossary (3–5 terms) + **aside-length check** (image+glossary pin as one sticky aside, Conv 052; confirm the block fits the viewport — trim terms/shorten defs if the lowest terms fall off-screen)
@@ -184,6 +184,22 @@ Finalize (`GUIDE-REVIEW.md`, in order):
   of call (a resource/delegate decision, not a judgment one) and reads as minor here — so the opener now
   previews the same two axes the test uses. Capacity's residue stays where it already lives: P15's runway
   sub-fork and P20's "hand off the out-of-depth sections."
+- **Conv 053 (§1–§3 redline):** Short answer → "build **as much of it** yourself as you can stand behind"
+  (object stated once, no double-"it"); home-repair "**ambitious** jobs" + kept the self-empowerment beat;
+  §3/P5 kept "pure gold / in the zone / Keep going!". **§3 (P6) floor/ceiling metaphor RETIRED** for plain
+  "entry barrier lowered, the hard parts moved to the end" (the metaphor read as unclear; ✎ ARC updated).
+  **New §3-close paragraph** — "your reach keeps growing as you develop with AI" (growth-throughline §3
+  node), framed as *what you can stand behind* expanding (not "more capable"), to stay on P6's spine.
+- **Conv 053 (§4 retitle):** "How do I test each part?" → **"How do I find the parts of my AI-built software
+  I'm unsure of?"** — doubt-framed (reader already senses an area of doubt) + entity seated so the FAQ-lift
+  reads standalone (generalised into `GUIDE-REVIEW` step 5, `DEC-053-1`). P9 lead-in kept (pluralised "those
+  parts"), given two bullets **Understanding / Risk** mapping to the matrix axes.
+- **Conv 053 (matrix build + wording):** rendered as a standalone business figure (`DEC-053-2`); axes named
+  **Understanding × Risk** (X-title "Risk if you get it wrong" spans its columns; short "Low/High Risk"
+  labels); two-line title ("I am worried about one part of my AI-built software" / "Should I bring someone in
+  to help?") so it stands alone; cells = *Keep going* / *You've got it* / *But keep an eye on it* / *Bring
+  someone in, or learn it*; bottom axis-caption dropped (redundant with named axes). All matrix wording
+  **PROVISIONAL** until the final pass.
 
 **Published:** _pending — dark behind the flip + `[PROD-DEPLOY-BAN]`._
 🔗 On finish: the carried **3-cornerstone interlink** hopper item unblocks (Trust/Steering/Deciding + the
@@ -583,6 +599,17 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 053:** **Deciding §1–§4 redline + the §4 decision-matrix figure** (content; `[GUIDE-DECIDING]`
+  stays open). Block-by-block redline of the second draft: Short answer ("as much of it yourself as you can
+  stand behind"), home-repair para, the empowerment beat, **§3 reworked off the floor/ceiling metaphor** into
+  plain entry-barrier framing + a **new "your reach keeps growing" paragraph** (growth throughline, §3 node),
+  **§4 retitled** doubt-framed + entity-seated ("How do I find the parts of my AI-built software I'm unsure
+  of?"), §4 lead-in recast with Understanding/Risk bullets. **Matrix** (`DEC-053-2`): the §4 2×2 rebuilt from
+  a markdown table into a standalone styled-HTML **business figure** — `--font-sans`, green/red stop-go cells
+  with coloured verdicts, named axes (Understanding × Risk), two-line scenario+question title, equal rows,
+  theme-adaptive; built + screenshotted both themes (`.scratch/deciding-matrix-v6-light.jpg`). **Process:**
+  heading FAQ/GEO-liftability scrutiny folded into `GUIDE-REVIEW` step 5 (`DEC-053-1`). Hopper: 1 carried
+  (interlink).
 - **Conv 052:** **Deciding guide — points round-trip + second draft** (content; `[GUIDE-DECIDING]` stays
   open). Operator's augmentation pass through `deciding-points.txt` (P2 capacity drop, P3 naive framing, P5
   pure-gold + candor relocation, P8 lead-in, P18 sharpening, P22 heading → "What do I keep, rebuild, or hand

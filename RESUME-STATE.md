@@ -1,31 +1,29 @@
-**Conv:** 052 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
+**Conv:** 053 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
 
 ## Where we left off
 
-Conv 052 ran the **Deciding guide's points round-trip**: the operator augmented
-`.scratch/deciding-points.txt` paragraph by paragraph (P2 capacity drop, P3 naive framing, P5 pure-gold +
-candor relocation, P8 lead-in, P18 sharpening, P22 heading → "What do I keep, rebuild, or hand off?", P23
-third option, P24 rewrite) while CC seeded **four arc reinforcements** + the **P3→P6 naive→judgment** arc.
-CC then wrote the **second draft** (a single whole-draft pass, build-clean, still `draft:true`/dark;
-GUIDE-CREATE step 6c). Interleaved: a **sticky-together guide aside** (`DEC-052-2`, fixing the disappearing
-glossary), a **colophon `year`** (`DEC-052-3`), the **retitle + snippet** rework, and process hardening —
-the **lint-hopper rule** (`DEC-052-1`) and the **breadcrumb/intent-not-prose** principle (`DEC-052-4`).
-`[DOSSIER-FORMAT]` is now the active pipeline-capture point (operator: "the pipeline is the product").
+Conv 053 ran the **Deciding redline** (`GUIDE-REVIEW` step 1, block-by-block) through **§4**, after the
+operator's whole-piece read: §1–§3 reworded (Short answer "as much of it… stand behind", home-repair
+"ambitious jobs", empowerment beat; **§3 floor/ceiling metaphor retired** + a new "your reach keeps growing"
+paragraph), and **§4 retitled** doubt-framed + entity-seated ("How do I find the parts of my AI-built
+software I'm unsure of?") with Understanding/Risk bullets. The large build was the **§4 decision-matrix
+figure** (`DEC-053-2`): a standalone styled-HTML **business 2×2** — green/red stop-go cells, named axes
+(Understanding × Risk), two-line scenario+question title, equal rows, theme-adaptive — verified both themes
+in Chrome. Also folded the **heading FAQ/GEO-liftability scrutiny** into `GUIDE-REVIEW` step 5 (`DEC-053-1`).
 
 ## Next action
 
-🔴 **Deciding's second draft awaits the operator's whole-piece read** (GUIDE-REVIEW step 1) —
-`src/content/guides/build-it-yourself-or-bring-someone-in.md`, rendered dark at
-`/guides/build-it-yourself-or-bring-someone-in/` (restart `astro dev` from `fgw-26` if needed). After the
-read, apply edits, then continue the finalize pass (steps 2–15). The `[GUIDE-DECIDING]` board row holds the
-full state + the piece dossier.
-⚠️ The `.scratch/deciding-view.txt` coordinate view is **stale** (the second draft moved past it) —
-regenerate with `node scripts/number-content.mjs <file>` (from `fgw-26`) when block-addressing is needed for
-the redline. ⚠️ `.scratch/` is gitignored: `deciding-points.txt` / `deciding-view.txt` live only on this
-machine's checkout (the durable record of their decisions is on the board row).
-Hopper carries **1** item: the 3-cornerstone interlink (gated on Deciding finishing) — run `/r-hopper` next conv.
+🔴 **Resume the Deciding redline at the two grid-interpretation paragraphs** that follow the matrix figure —
+*"Three of the four squares…"* and *"Only one square changes…"* — then continue **§5 onward** (`GUIDE-REVIEW`
+steps 1→15). File `src/content/guides/build-it-yourself-or-bring-someone-in.md`, rendered dark at
+`/guides/build-it-yourself-or-bring-someone-in/` (restart `astro dev` from `fgw-26`). The coordinate view
+`.scratch/deciding-view.txt` is regenerated (**29 blocks**; the HTML figure collapses to fewer blocks, so
+re-address from it).
+⚠️ **Matrix cell + axis wording is PROVISIONAL** — the operator finalizes it at the final pass (tracked on
+the `[GUIDE-DECIDING]` row + the `✎ FIGURE` comment). The board row holds the full finalize checklist + the
+piece dossier.
+Hopper carries **1**: the 3-cornerstone interlink (gated on Deciding finishing) — run `/r-hopper` next conv.
 
 ## 🔬 Carried findings
 
-_None._ (The 3-cornerstone interlink is a **hopper** carry, not a carried finding. The COLOPHON.md field-list
-staleness found during this close was fixed in place, Conv 052.)
+_None._

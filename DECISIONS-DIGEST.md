@@ -2,9 +2,28 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-21._
+_As of 2026-11-22._
 
 ---
+
+### DEC-053-2 — the Deciding §4 decision matrix renders as a standalone business figure
+
+The understanding × risk 2×2 renders as a self-contained styled **HTML figure** (approach A),
+deliberately **off the site style guide** (operator Conv 053): a bordered, elevated panel on `--font-sans`
+(not the prose Fraunces serif), **green/red traffic-light cells** (keep-going vs get-help) with the verdict
+word (No./Yes.) coloured, **named axes** (Understanding vertical × Risk horizontal, the X-title spanning its
+columns), a **two-line scenario+question title** so the graphic stands alone (names the "it"), equal-height
+rows, **theme-adaptive** via `light-dark()`. Cell text stays real (GEO-liftable) and identity is never
+colour-alone (every cell carries No/Yes → CVD-safe). Lives as `.decision-matrix` in `global.css` + a raw
+`<figure>` in the guide `.md`.
+
+### DEC-053-1 — guide headings get a FAQ/GEO liftability scrutiny
+
+`GUIDE-REVIEW` step 5 (Headings) gains a **liftability scrutiny**: read every H2 **cold, out
+of the page** — the way it appears in a `FAQPage` rich result, an AI/GEO answer, or a search snippet, with
+none of the surrounding prose — and confirm it still names its own subject. A heading that borrows its
+referent from the paragraph above it is seated with the subject itself (usually the entity keyphrase),
+weighed against heading length.
 
 ### DEC-052-4 — the point-form round-trip is a breadcrumb/intent layer, not prose
 
