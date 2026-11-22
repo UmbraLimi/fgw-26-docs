@@ -33,7 +33,7 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
    **sticky right aside** with the image (`DEC-040-3`; sticky-together Conv 052). 🔴 **Aside-length check
    (Conv 052):** image + glossary pin as one sticky unit; a combined block taller than the viewport keeps
    its lowest glossary terms off-screen until the page bottom. CSS doesn't solve this — **the operator
-   visually confirms the aside fits** (during the rendered read, step 10) and trims to fit: drop terms or
+   visually confirms the aside fits** (during the rendered read, step 11) and trims to fit: drop terms or
    shorten definitions (we control the glossary). (Guides; an article may have none.)
 5. **Headings — each H2 a standalone, liftable question.** Each H2 is a
    natural-language question with FAQ-lift nouns seated so the JSON-LD `FAQPage`
@@ -56,33 +56,38 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
 8. **Metaphor audit** — `VOICE.md` workflow: CC lists local metaphors / clichéd phrasings; operator rules
    keep-or-reword; a structural metaphor (a whole analogy) is handled as a unit. Carry any inputs noted
    during the redline (e.g. intuition-echo proximity).
-9. **Pull quote** — select **one** pull quote and decide where it goes (the seam or beat it reinforces).
+9. **Signature-phrase / AI-tell audit** — CC counts phrases repeated often enough to read as an AI
+   verbal tic (CC's own register) and surfaces each with its body count + context; the operator rules
+   keep / vary / trim per phrase. Distinct from the metaphor audit (clichés) and conjunction audit
+   (openers): this catches **repetition of a signature phrase or construction**. A deliberate throughline
+   (e.g. "stand behind") is a conscious keep-or-vary call, not an automatic cut. (Added Conv 054, operator.)
+10. **Pull quote** — select **one** pull quote and decide where it goes (the seam or beat it reinforces).
    (Steering used a bridging pull-quote at the planning→steering seam, Conv 045.)
-10. **Rendered read** — the operator reads the whole piece **as it renders** (dev/browser), not just the
+11. **Rendered read** — the operator reads the whole piece **as it renders** (dev/browser), not just the
     source; apply edits. The pass that caught 11 edits on Trust (Conv 041). Includes the **aside-length
     check** (step 4): scroll the desktop view and confirm the sticky image + glossary fit without hiding
     the lowest terms; trim the glossary if not (Conv 052).
-11. **Em-dash sanity check** — surface every em-dash for a conscious ruling (CLAUDE.md; an AI tell on
+12. **Em-dash sanity check** — surface every em-dash for a conscious ruling (CLAUDE.md; an AI tell on
     social, and these pieces feed social).
 
 **Image**
-12. **Colophon selection + fitting** — select the public-domain plate, create the square tile + colophon,
+13. **Colophon selection + fitting** — select the public-domain plate, create the square tile + colophon,
     crop / duotone-normalize / size, and fit it to the piece. Full how-to + standards: `COLOPHON.md`
     (the operator frames the candidate square inner-extracts; CC treats, builds, and wires `image`).
 
 **Metadata**
-13. **Card + SEO/GEO snippet match** — after the redline, confirm the card `description` (evocative) and
+14. **Card + SEO/GEO snippet match** — after the redline, confirm the card `description` (evocative) and
     the `snippet` (meta / og / twitter, SEO + GEO) still accurately match the **final** content. They are
     decoupled by `DEC-043-2`, but both must be true to the piece.
 
 **Safety**
-14. **Masking check** — every personal-experience anecdote is confirmed **not client-identifiable**: no
+15. **Masking check** — every personal-experience anecdote is confirmed **not client-identifiable**: no
     real client / source / target exposed, nothing that bridges to a de-identified case
     (`[CASE-RECORD-SIGNOFF]`, 🔴). Generalize where needed (Conv-045 precedent: "a big client project").
     Applies to any piece carrying anecdotes — guides and articles alike.
 
 **Gate**
-15. **Final whole-page review + declare final + graduate** — strip/resolve author-insertion markers
+16. **Final whole-page review + declare final + graduate** — strip/resolve author-insertion markers
     (`✎ OPTIONAL`, `✎ ANECDOTE`); the **operator does a final manual review of the whole rendered page**;
     then declares it **final**. **Graduate the dossier:** write the piece's board-row dossier (take,
     outline, decisions, publish status + date) to a permanent **`fgw-26-docs/docs/content/<slug>.md`**,

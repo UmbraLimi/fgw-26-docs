@@ -100,20 +100,21 @@ Creation (`GUIDE-CREATE.md`):
 - [x] **Second draft written from the augmented points (Conv 052, GUIDE-CREATE step 6c)** — whole-draft pass, build-clean, still `draft:true`/dark. Carries all operator edits + the four arc reinforcements (progression, "seen this path," growth throughline, journey-metaphor) + the P3→P6 naive→judgment callback + the keep/rebuild/hand-off three-way. On-arc comment refreshed (item 6 + Conv-052 refinements). ⬜ **Next: operator's whole-piece read (GUIDE-REVIEW step 1).**
 Finalize (`GUIDE-REVIEW.md`, in order):
 - [x] 1 Coordinate-view redline — **COMPLETE, whole guide P1→P32 (Conv 053 §1–§4; Conv 054 §4-grids→§8 close)**. Conv-053: §1–§4 redlined + the §4 matrix figure built (`DEC-053-2`). Conv-054: the two grid-interpretation paras (P14/P15); **new §7 section added** — "Can I really learn enough on my own when I reach my limit?" (the self-path arm of the danger-cell fork, loose-binding to `/phases/`; P16 trimmed to hand off); §5 reworked (P17 retitled "Which phase of building with AI am I in?", P18 phases/unembraced-straw-man, P19 merged, P22 straw/tin/steel bridge + places→phases fix); §6 grid-anchor + "another question" ordinal fix; "the test" bound to its §4 home (P9); P31 "experience"→"intuition"; §8 close rewritten (solid software, "then I'm happy", CTA). Guide now **32 blocks**; `.scratch/deciding-view.txt` current. (DEC for the new §7 section + the loose-binding call → `/r-end`.)
-- [ ] 2 "It" pass (default it = your AI-built software)
-- [ ] 3 Anecdote check (home-repair is analogy, not anecdote — check for real from-experience beats)
+- [x] 2 "It" pass (default it = your AI-built software) — **Conv 054: clean.** Default "it" = the build holds throughout; only fix was P15 "the impact it's had" → "the impact that change has had" (named the AI's change; killed an AI/suggestion/part three-way). P27 learning/part "it" cluster + P30 "settle it" judged below the bar, left.
+- [x] 3 Anecdote check — **Conv 054: no concrete anecdote, by decision (operator).** A success-story ("a client asked me to look, it worked out well") reads self-serving next to the CTA in the conversion cornerstone — against the persona (credibility by proof, not self-praise). The from-experience *register* carries it instead ("I've sat with people at each of these", "that's the work I do, people bring me software…"). **P32 `✎ ANECDOTE` placeholder removed.** (If ever revisited, the only non-self-serving form is a *teaching* anecdote — mechanism, not outcome.)
 - [ ] 4 Glossary (3–5 terms) + **aside-length check** (image+glossary pin as one sticky aside, Conv 052; confirm the block fits the viewport — trim terms/shorten defs if the lowest terms fall off-screen)
 - [ ] 5 Headings (H2 = NL questions; FAQ-lift nouns)
 - [ ] 6 Entity naming — seat "AI-built software" (`DEC-043-4`, Deciding in-scope)
 - [ ] 7 Conjunction audit
 - [ ] 8 Metaphor audit (home-repair structural metaphor as a unit)
-- [ ] 9 Pull quote (one)
-- [ ] 10 Rendered read (incl. the step-4 **aside-length** visual check — scroll desktop, confirm sticky image+glossary fit)
-- [ ] 11 Em-dash sanity check
-- [ ] 12 Colophon selection + fitting — **Deciding image lead: Bloch *Esox lucius* pike** / freshwater-fish pool (`COLOPHON.md`, `[CONTENT-ART]`)
-- [ ] 13 Card + SEO/GEO snippet match (final)
-- [ ] 14 Masking check
-- [ ] 15 Final whole-page review → declare final → graduate to `docs/content/build-it-yourself-or-bring-someone-in.md`, retire row
+- [x] 9 Signature-phrase / AI-tell audit (added Conv 054) — **done Conv 054.** Rulings (now logged in `VOICE.md`): **"leans on"** always-change → "relies on" ×3 body + glossary def (snippet's deferred to step 14); **"stand behind"** cut 4→1 (kept P2 thesis; P6→"vouch for", P7→recast "that line moves", P28→"be sure of"); **"load-bearing"** kept (1 body use at P16 earns it; ~1/guide allowed); **"reach"** varied the P27/P28 proximity ("reach that bar"→"get to that bar"), kept the growth-throughline "your reach". Alternatives lists accrue in `VOICE.md`.
+- [ ] 10 Pull quote (one)
+- [ ] 11 Rendered read (incl. the step-4 **aside-length** visual check — scroll desktop, confirm sticky image+glossary fit)
+- [ ] 12 Em-dash sanity check
+- [ ] 13 Colophon selection + fitting — **Deciding image lead: Bloch *Esox lucius* pike** / freshwater-fish pool (`COLOPHON.md`, `[CONTENT-ART]`)
+- [ ] 14 Card + SEO/GEO snippet match (final)
+- [ ] 15 Masking check
+- [ ] 16 Final whole-page review → declare final → graduate to `docs/content/build-it-yourself-or-bring-someone-in.md`, retire row
 
 **Decisions (piece-specific, accrue here):**
 - **Conv 049:** adopted arc **A** (2×2-test spine, re-sequenced) over B (keep-draft-arc). The 2×2 was latent

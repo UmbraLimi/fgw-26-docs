@@ -95,6 +95,19 @@ departure; only approved ones land here. (Mechanism set Conv 040.)
   are how the reader feels they're being talked to *directly*, so keep as much of that voice as possible and
   trim only where the pile-up turns jarring or erratic. The caps serve that balance; they don't replace the
   judgement, and the operator rules the close calls.
+- **Signature-phrase / AI-tell alternatives (operator, Conv 054).** CC has verbal tics that read as
+  AI-authored when repeated; each gets an **acceptable-alternatives list** to rotate through, run as the
+  signature-phrase audit (`GUIDE-REVIEW` step 9). The flagged word is the *always-change tic*; its approved
+  subs may recur freely. Running list (accrues as phrases are ruled):
+  - **"lean on / leans on"** — always change. Subs: *relies on · depends on*.
+  - **"load-bearing"** — a real CC tell, but a *good, evocative* phrase (importance; a narrowing to the
+    critical part that dictates downstream). **Allow ~1 per guide/article, and it must earn its keep.**
+    Subs: *crucial · critical*.
+  - **"stand behind"** — **allow ~1 per guide/article** (keep it where it lands hardest). Subs — read
+    situationally, not all fit: *vouch for · be sure of · support · defend · uphold*; or recast around the
+    sentence (e.g. "that line moves").
+  - **"reach"** — not itself a tic (varied senses: *within reach* / *your reach* / *reach that bar*); watch
+    **proximity clusters**, but the growth-throughline noun *"your reach"* is deliberate — keep.
 
 ## On a "site config file"
 The site repo (`fgw-26`) has no brand/voice config today; this file is the durable standard. If a
