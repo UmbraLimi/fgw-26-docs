@@ -8,6 +8,41 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 053
+
+### DEC-053-2 — the Deciding §4 decision matrix renders as a standalone business figure
+**Decision:** The understanding × risk 2×2 renders as a self-contained styled **HTML figure** (approach A),
+deliberately **off the site style guide** (operator Conv 053): a bordered, elevated panel on `--font-sans`
+(not the prose Fraunces serif), **green/red traffic-light cells** (keep-going vs get-help) with the verdict
+word (No./Yes.) coloured, **named axes** (Understanding vertical × Risk horizontal, the X-title spanning its
+columns), a **two-line scenario+question title** so the graphic stands alone (names the "it"), equal-height
+rows, **theme-adaptive** via `light-dark()`. Cell text stays real (GEO-liftable) and identity is never
+colour-alone (every cell carries No/Yes → CVD-safe). Lives as `.decision-matrix` in `global.css` + a raw
+`<figure>` in the guide `.md`.
+**Rationale:** The markdown-table placeholder rendered in the prose serif and read as body text, not a
+decision aid. A business-matrix treatment (operator: "think business") makes it scannable and shareable.
+Rejected: **pillar-native plum scheme** (didn't imply stop/go); **raster image** (loses theme-adaptivity,
+accessibility, and the GEO-liftable cell text — counter to the guide's discovery intent); **inline SVG**
+(held in reserve if HTML couldn't hit the look — it did, so not needed).
+**Consequences:** Reusable for future pillar matrices. Cell + axis wording stays **provisional** until the
+final pass. Reference stills in `.scratch/deciding-matrix-v5-{light,dark}.jpg`.
+
+### DEC-053-1 — guide headings get a FAQ/GEO liftability scrutiny
+**Decision:** `GUIDE-REVIEW` step 5 (Headings) gains a **liftability scrutiny**: read every H2 **cold, out
+of the page** — the way it appears in a `FAQPage` rich result, an AI/GEO answer, or a search snippet, with
+none of the surrounding prose — and confirm it still names its own subject. A heading that borrows its
+referent from the paragraph above it is seated with the subject itself (usually the entity keyphrase),
+weighed against heading length.
+**Rationale:** A heading clear *in context* can go vague once lifted standalone by FAQ/GEO extraction.
+Deciding §4's *"How do I test each part?"* leaned on its paragraph for "part of **what?**"; retitled to
+*"How do I find the parts of my AI-built software I'm unsure of?"* — self-contained when extracted, and
+seats the entity. Rejected: a new standalone review step (step 5 already owns headings; expanding it is
+leaner); leaving step 5's one-line *"FAQ-lift nouns seated"* as the only guidance (it names the goal but
+never makes you test each heading out-of-context).
+**Consequences:** Step 5 expanded with the cold-read check + the Deciding worked example; applies to every
+guide/article heading at finalize. Advances `[DOSSIER-FORMAT]` (a pipeline learning folded into the pipeline
+doc, not left in one piece's dossier).
+
 ## Conv 052
 
 ### DEC-052-4 — the point-form round-trip is a breadcrumb/intent layer, not prose

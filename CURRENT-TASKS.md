@@ -37,8 +37,10 @@ product; the guide is the occasion"). As Deciding finishes, fold every *how-any-
 learning from the Trust→Steering→Deciding runs into the pipeline docs (`GUIDE-CREATE` / `GUIDE-REVIEW` /
 method), never leaving it in a single piece's dossier, and **drive this row to close before Deciding
 graduates**. The split that keeps it honest: piece-specific calls → the dossier; process calls → the
-pipeline docs. ✅ Folded this conv: the **aside-length check** (`GUIDE-REVIEW` steps 4/10); the
+pipeline docs. ✅ Folded Conv 052: the **aside-length check** (`GUIDE-REVIEW` steps 4/10); the
 **breadcrumb/intent-not-prose** principle for the points round-trip (`GUIDE-CREATE` step 6).
+✅ Folded Conv 053: the **heading FAQ/GEO-liftability scrutiny** — read each H2 cold, out of the page, and
+seat the subject if the lift goes vague (`GUIDE-REVIEW` step 5, `DEC-053-1`; worked example = Deciding §4 retitle).
 
 ### [GUIDE-DECIDING] · added Conv 049 · "Should you build it all yourself, or bring someone in to help?" (3rd cornerstone)
 📄 The **Deciding** cornerstone guide — the 3rd and last of the first three. A draft predated `/r-content`;
@@ -64,6 +66,10 @@ than "trust your unease" — it names which part and why.
    the one cell that forces a call; sub-fork: delegate vs grow-past-the-limit). Promotes the test buried
    in the draft's keep/restart §. 🔧 Matrix render = a later design call (static table or inline SVG,
    legible both themes; simpler than `[PILLAR-DIAGRAM]`'s interactive build).
+   🖼️ **Matrix figure BUILT Conv 053 (`DEC-053-2`):** styled HTML business panel (`.decision-matrix` in
+   `global.css` + raw `<figure>` in the guide) — sans font, green/red stop-go cells, named axes
+   (Understanding × Risk), two-line scenario+question title, equal rows, theme-adaptive. Cell/axis wording
+   still PROVISIONAL (final pass). Stills: `.scratch/deciding-matrix-v5-{light,dark}.jpg`.
 5. **H2 "Where am I on the path, really?"** — the three places, framed as *where the test sends you*. → `/phases/`.
 6. **H2 "What do I keep, and what do I start over?"** — keep simple+understood, rebuild tangled+load-bearing;
    the start-over trap (gaps = unasked questions) — now a consequence of §4, not a separate idea.

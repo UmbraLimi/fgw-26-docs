@@ -35,8 +35,18 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
    its lowest glossary terms off-screen until the page bottom. CSS doesn't solve this — **the operator
    visually confirms the aside fits** (during the rendered read, step 10) and trims to fit: drop terms or
    shorten definitions (we control the glossary). (Guides; an article may have none.)
-5. **Headings** — each H2 a natural-language question; FAQ-lift nouns seated so the JSON-LD `FAQPage`
-   auto-extraction is clean (`DEC-043-3`).
+5. **Headings — each H2 a standalone, liftable question.** Each H2 is a
+   natural-language question with FAQ-lift nouns seated so the JSON-LD `FAQPage`
+   auto-extraction is clean (`DEC-043-3`). 🔴 **Liftability scrutiny (`DEC-053-1`,
+   Conv 053):** read every H2 **cold — out of the page**, the way it appears in a
+   `FAQPage` rich result, an AI/GEO answer, or a search snippet, with *none* of the
+   surrounding prose. Confirm it still names its own subject. A heading that borrows
+   its referent from the paragraph above it (*"How do I test each part?"* → part of
+   **what?**) goes vague once lifted; seat the subject in the heading itself —
+   usually the entity keyphrase. **Worked example (Deciding §4, Conv 053):** *"How
+   do I test each part?"* → *"How do I find the parts of my AI-built software I'm
+   unsure of?"* (self-contained when extracted, and seats *AI-built software*). Weigh
+   against length — seat the entity where the lift payoff is real, not on every H2.
 6. **Entity naming** — the agreed key phrase ("AI-built software") seated where it belongs; a frozen
    piece is not re-seated without a new ruling (`DEC-043-4`).
 
