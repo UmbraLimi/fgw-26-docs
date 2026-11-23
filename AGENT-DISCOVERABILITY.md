@@ -129,8 +129,15 @@ A perfect MCP server is inert if tasked agents can't find it. So:
 A standing track: a periodic briefing on the evolving space — standards (WebMCP, `ai-agent.json`, Web
 Bot Auth), registries/directories (new entrants, submission status, ingestion), and **what filters
 agents actually query on** — so we support whatever emerges. **Mechanism `[operator, Conv 035]`:** manual
-cadence (no scheduled cloud agent) — **run every 10 convs, starting Conv 045** (→ 045, 055, 065, …). The
-refresh updates the snapshot below and reports deltas.
+cadence (no scheduled cloud agent) — **run every 10 convs, starting Conv 045** (→ 045, 055, 065, …).
+
+🔁 **Each run produces three things (`[operator, Conv 055]`):** (1) a **landscape snapshot** below —
+deltas vs the prior snapshot; (2) an **assessment of the findings** — a ban-aware read of which
+*strengthening* initiatives we can inch toward despite `[PROD-DEPLOY-BAN]`, split into build-now-ship-later
+vs genuinely-blocked moves (recorded newest-first in §10, the per-watch ledger); and (3) a
+**reconciliation into the `[AGENT-INITIATIVE]` board row** (`CURRENT-TASKS.md`, 📋 Unordered) — the standing
+action-plan home, refreshed every watch, not a one-shot deferral. The **act-point is ~20–30 convs out**
+(operator, Conv 055 — ~Conv 75–85); until then each watch keeps the assessment live.
 
 **Surfacing mechanism — built `[operator, Conv 035]`.** The port was briefly deferred, then reversed the
 same conv: the **second** periodic task (`[GOOGLE-SERVICES]`, every 3 convs) appeared, meeting the
@@ -141,6 +148,48 @@ only surfaces, never runs). Two triggers live there now — `[AGENT-DISCOVERY-WA
 && n ≥ 45`, `[GOOGLE-SERVICES]` due when `n % 3 == 2 && n ≥ 38`. A general `PERIODIC` registry stays the
 refactor to reach for only if cadence tasks proliferate. (`DEC-035-4`; adopted from fps
 `DEC-145-1`/`DEC-151-2`.)
+
+#### Landscape snapshot — Conv 055 `[checked: web search, Conv 055 — all external facts volatile, mostly secondary-sourced; primary pages (W3C charter draft, IETF datatracker, Cloudflare docs) not re-fetched this pass]`
+
+Deltas vs the Conv-045 snapshot below. **Net:** the **transport + verification** layers kept hardening
+(MCP registries ballooning, Web Bot Auth now a WG-adopted IETF draft), while the **manifest layer our L1
+bet rides** diverged *further* — A2A's **AgentCard** pulled ahead as the institutional frontrunner and
+`ai-agent.json` has faded toward also-ran. That sharpens, not softens, the §10 🔴 on revisiting the
+`ai-agent.json` L1 commitment.
+
+- **Web Bot Auth (our L3) — biggest mover again.** Promoted from individual drafts to a **WG-adopted
+  IETF draft** (`draft-ietf-webbotauth-httpsig-protocol`, Meunier/Cloudflare + Major/Google; the
+  `ietf-` prefix = adopted). IETF 126 (Jul 2026) polled **22 for / 6 against / 5 no-opinion** on
+  building on RFC 9421 HTTP Message Signatures. Cloudflare now **encourages all bot operators** to move
+  to Message Signatures over legacy verification, plus a "signed agents" category. Still **no final
+  RFC**; most AI crawlers don't sign yet. Signature expiry recommended ≤24h.
+- **MCP registry + directories — counts ballooned, still irreconcilable.** Glama **~124k** (as displayed
+  20 Nov 2026); official registry **~53.5k** (API count); PulseMCP **~21.5k**; Smithery **~27k** but its
+  **hosted connection service fully ended 31 Oct 2026** — now a plain directory under **Arcade**
+  (consistent with the Conv-045 acquisition note). Commentary has shifted to "**discovery is now the
+  load-bearing problem**" (five registries, five counts). New entrant **Unyly** still ingesting. Registry
+  governance maturity not re-confirmed this pass (was "preview, no durability guarantees" at Conv 045).
+- **Manifest layer (`ai-agent.json`, our L1) — diverged further, against us.** A2A's **AgentCard**
+  settled its path to **`/.well-known/agent-card.json`** (renamed from `agent.json` in v0.3; **v1.0,
+  Jan 2026, added signed Agent Cards**) and reads as the institutional frontrunner. A separate IETF
+  individual draft (`draft-aevum-agentcard`, Apr 2026) proposes `/.well-known/agentcard`. `ai-agent.json`
+  barely surfaces now; serving bare `/.well-known/agent.json` is flagged **ambiguous** (multiple specs
+  contest it). **No convergence standard** exists. → Directly reinforces §10's 🔴: revisit the
+  `ai-agent.json` commitment (§2/§5/§9) before any `[AGENT-PROFILE]` work; AgentCard is the emerging bet.
+- **WebMCP — still pre-standard, still thin adoption.** The **Agentic Web Working Group is NOT chartered
+  yet** (W3C Strategy Team discussion paper Oct 2026; draft charter lists WebMCP as adopted-from the Web
+  ML CG with completion date still blank). Remains a **Draft Community Group Report, not Standards
+  Track**; draft editions churning (Oct–Nov 2026). **Neither Chrome nor Edge shipped it to all users**;
+  Mozilla neutral, WebKit **oppose**. One tracker's verdict: "deployed, readable, and almost nobody calls
+  the tools." Still overkill for a static portfolio; watch.
+- **Agent-readiness adoption — still a tiny minority.** Cloudflare's **Agent Readiness Score +
+  isitagentready.com** launched 17 Apr 2026 (now folded into Radar + the URL Scanner API, ~20–23 checks):
+  **<15 of ~200k** top domains expose Agent Cards or MCP Server Cards; **~4%** declare AI prefs (Content
+  Signals); **3.9%** pass markdown negotiation. `llms.txt` is **not** in the default scan (markdown
+  negotiation is). Being early here remains a genuine minority position.
+- **NLWeb — minor step, adoption still stalled.** Re-presented at **Ignite** with a first enterprise
+  offering via **Microsoft Foundry**; every NLWeb instance still also acts as an MCP server. VentureBeat
+  still pegs it "very early," **2–3 yrs** to substantial adoption. No Build-2026 outcome confirmed.
 
 #### Landscape snapshot — Conv 045 `[checked: web search, Conv 045 — all external facts volatile, secondary-sourced]`
 
@@ -214,7 +263,40 @@ bet on `ai-agent.json`.
   (`[operator, Conv 035]`), surfaced automatically by the `/r-start` cadence mechanism (§7, built Conv
   035) — no hand-maintained marker needed.
 
-## 10. Action-plan assessment — Conv 045 `[operator-directed assessment, Conv 045]`
+## 10. Action-plan assessment — per-watch ledger (newest-first)
+
+Each `[AGENT-DISCOVERY-WATCH]` run re-weighs the §9 menu against its fresh snapshot (§7) and records the
+read here, newest-first; the terse standing state is reconciled into the `[AGENT-INITIATIVE]` board row.
+
+### Conv 055 — `[watch-driven assessment, Conv 055]`
+
+Re-weigh against the §7 Conv-055 snapshot. **Standing frame (operator, Conv 055):** the act-point is
+**~20–30 convs out (~Conv 75–85)**; until then the watch keeps this read live. Gates **unchanged** —
+`[PROD-DEPLOY-BAN]` still binds, Deciding → content-home flip is still the declared priority. What the ban
+does **not** block, foundation-first:
+
+- **Tier 1 — ban-independent, zero external-standard risk, buildable today:** `[DATA-PRIVATE-SCHEMA]` (the
+  keystone `src/data` refactor — public + `.private` behind one `toPublic()`; **better masking than the
+  status quo even if MCP never ships**; prerequisite for all agent-facing work), then `[SITE-PARAMETERIZE]`
+  (load-bearing prose facts → queryable fields).
+- **Tier 2 — build now, ships at the flip, standard-stable:** the JSON-LD `Person` half of
+  `[AGENT-PROFILE]` (overlaps `[SITE-STRUCTURED-DATA]`; schema.org `Person` isn't volatile; SEO/GEO-valuable
+  regardless of how the agent standards resolve).
+- **Tier 3 — docs/decision moves, no deploy at all:** **re-pin the manifest bet** `ai-agent.json` → A2A
+  **AgentCard** — this watch confirms AgentCard (`/.well-known/agent-card.json`, signed cards v1.0) pulled
+  ahead while `ai-agent.json` faded; correcting §2/§5/§9 is a ban-free edit here. The AgentCard field-mapping
+  from §5 can be drafted now; only *serving* the file needs a deploy.
+- **Tier 4 — buildable, not shippable:** `[AGENT-MCP]` (prototype locally on the Worker against
+  `toPublic()`; needs the schema first + a prod deploy to serve).
+- **Blocked until a live surface exists:** `[AGENT-DIRECTORY-LISTINGS]` (nothing to list until MCP is live);
+  **Web Bot Auth / L3** (strengthening fastest, but only useful once there's an MCP surface + agent traffic).
+
+🔴 **Live caveat (carried on the board):** the `ai-agent.json` L1 commitment (§2/§5/§9) is now the *losing*
+horse per this watch; it stays on-record as our stated bet until re-pinned (tracked in `[AGENT-INITIATIVE]`).
+**Conv-055 disposition: held — not acting yet** (operator's ~20–30-conv horizon); machinery set up to
+re-weigh each watch.
+
+### Conv 045 — `[operator-directed assessment, Conv 045]`
 
 First assessment of the §9 menu against a refreshed landscape (§7 Conv-045 snapshot). **Decision
 (operator, Conv 045): start nothing now — the initiative stays dark behind the content-home flip; revisit

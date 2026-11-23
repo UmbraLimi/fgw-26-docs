@@ -102,9 +102,9 @@ Finalize (`GUIDE-REVIEW.md`, in order):
 - [x] 1 Coordinate-view redline — **COMPLETE, whole guide P1→P32 (Conv 053 §1–§4; Conv 054 §4-grids→§8 close)**. Conv-053: §1–§4 redlined + the §4 matrix figure built (`DEC-053-2`). Conv-054: the two grid-interpretation paras (P14/P15); **new §7 section added** — "Can I really learn enough on my own when I reach my limit?" (the self-path arm of the danger-cell fork, loose-binding to `/phases/`; P16 trimmed to hand off); §5 reworked (P17 retitled "Which phase of building with AI am I in?", P18 phases/unembraced-straw-man, P19 merged, P22 straw/tin/steel bridge + places→phases fix); §6 grid-anchor + "another question" ordinal fix; "the test" bound to its §4 home (P9); P31 "experience"→"intuition"; §8 close rewritten (solid software, "then I'm happy", CTA). Guide now **32 blocks**; `.scratch/deciding-view.txt` current. (DEC for the new §7 section + the loose-binding call → `/r-end`.)
 - [x] 2 "It" pass (default it = your AI-built software) — **Conv 054: clean.** Default "it" = the build holds throughout; only fix was P15 "the impact it's had" → "the impact that change has had" (named the AI's change; killed an AI/suggestion/part three-way). P27 learning/part "it" cluster + P30 "settle it" judged below the bar, left.
 - [x] 3 Anecdote check — **Conv 054: no concrete anecdote, by decision (operator).** A success-story ("a client asked me to look, it worked out well") reads self-serving next to the CTA in the conversion cornerstone — against the persona (credibility by proof, not self-praise). The from-experience *register* carries it instead ("I've sat with people at each of these", "that's the work I do, people bring me software…"). **P32 `✎ ANECDOTE` placeholder removed.** (If ever revisited, the only non-self-serving form is a *teaching* anecdote — mechanism, not outcome.)
-- [ ] 4 Glossary (3–5 terms) + **aside-length check** (image+glossary pin as one sticky aside, Conv 052; confirm the block fits the viewport — trim terms/shorten defs if the lowest terms fall off-screen)
-- [ ] 5 Headings (H2 = NL questions; FAQ-lift nouns)
-- [ ] 6 Entity naming — seat "AI-built software" (`DEC-043-4`, Deciding in-scope). ⚠️ **+ over-seeding audit (operator, Conv 054):** 6 "AI-built software" instances (incl. H2s) read "a little over-seeded with keywords" — at this step, trim/vary to keep enough to seat the entity for GEO without reading as keyword-stuffed (this concern also parked the §6 title retitle, which would have added a 7th).
+- [x] 4 Glossary (3–5 terms) — **done Conv 055** (operator). 4 terms in the draft frontmatter: *AI-built software*, *Load-bearing*, *Black box*, *Bring someone in* (within 3–5, definitions present). The **aside-length visual check** defers to **step 11** (needs the rendered page + the pending colophon image; already tracked there).
+- [x] 5 Headings (H2 = NL questions; FAQ-lift nouns) — **done Conv 055.** Cold-read all 6 H2s. **#4 reseated** via the §6 whole-section rewrite → "When my build stalls, do I push on, start over, or get help?" (see decision below). **#5 reseated** → "Can I really learn **the hard part** myself when I reach my limit?" (seated the object; aligns §7's "the part that stops you"). **Left as-is:** #1 ("Hasn't AI made bringing someone in unnecessary?" — "AI" seats it; bookends #6), #3 ("Which phase of building with AI am I in?" — "building with AI" seats it), #6 ("When is it genuinely time to bring someone in?" — answer seats it; bookends #1). #2 already seats ("…parts of my AI-built software…"). All seats used **varied, non-entity** words — no new "AI-built software" added (step-6 over-seeding guard).
+- [x] 6 Entity naming + over-seeding audit — **done Conv 055.** Trimmed shipping "AI-built software" from **5 → 3** (kept the three highest-signal seats: glossary definition, H2 #2 "How do I find the parts of my AI-built software I'm unsure of?", matrix caption — definition + liftable heading + standalone figure). **Varied 2** (the stuffed §3→§4 cluster around the H2): §3 "part of your AI-built software" → "part of what you built"; §4 lead-in "Look at your AI-built software" → "Look at your build". Step 5 added none (guard held). The §6-title over-seeding park is moot — §6 was rewritten (no entity in the new heading). (`✎ ARC` comment instance strips at the pre-flip gate — not shipping.)
 - [ ] 7 Conjunction audit
 - [ ] 8 Metaphor audit (home-repair structural metaphor as a unit)
 - [x] 9 Signature-phrase / AI-tell audit (added Conv 054) — **done Conv 054.** Rulings (now logged in `VOICE.md`): **"leans on"** always-change → "relies on" ×3 body + glossary def (snippet's deferred to step 14); **"stand behind"** cut 4→1 (kept P2 thesis; P6→"vouch for", P7→recast "that line moves", P28→"be sure of"); **"load-bearing"** kept (1 body use at P16 earns it; ~1/guide allowed); **"reach"** varied the P27/P28 proximity ("reach that bar"→"get to that bar"), kept the growth-throughline "your reach". Alternatives lists accrue in `VOICE.md`.
@@ -221,6 +221,20 @@ Finalize (`GUIDE-REVIEW.md`, in order):
 - **Conv 054 (signature-phrase pass, `DEC-054-2`):** "leans on" → "relies on" (always-change tic); "stand
   behind" cut 4→1 (kept the P2 thesis; P6 "vouch for" / P7 recast / P28 "be sure of"); "load-bearing" kept
   (1 earned use); "reach" proximity varied. Mechanism + lists in `VOICE.md`.
+- **Conv 055 (§6 whole-section rewrite + heading, operator-directed):** the section was reframed. Old
+  frame (keep / rebuild / hand off, with "starting over is a trap") **contradicted the straw→tin→steel
+  method (§5/§7)**, which advocates restarting. New frame: §4's grid has flagged the *risky black-box*
+  parts; §6 decides what to do about a **stalled** one, three moves — **push on** (hopeless, you're
+  already stalled) / **start over** (legit, it's what straw→tin→steel is for, but no sure thing — a blind
+  self-redo inherits the same unasked-question gaps) / **get help** (fresh eyes, fresh ideas). Heading → **"When my build stalls, do I push on, start over, or get help?"** (supersedes the
+  interim "…keep, rebuild, or get help on?"; matches the new triad + sibling single-question shape; seats
+  via "my build"; retires the Conv-054 over-seeding park). Em-dash-free; "relies on" (not "leans on"); no
+  new "stand behind"/"be sure of" (avoided echoing §7's closer). **§6 CTA dropped** (operator, Conv 055) —
+  it lives only in §8, which already carries it ("that's the work I do… get in touch"); resolves the §6/§8
+  CTA redundancy. **Straw/tin/steel not named in §6** — the reframing alone kills the old contradiction;
+  the method stays named at §7's `/phases/` bridge. **Block count unchanged (2 paras);** view regenerated
+  (202 lines; §6 = P23 heading, P24 S1–S6, P25 S1–S8). S3 + S6–S8 smoothed Conv 055 (operator flagged
+  awkward); S6 keeps the "put them to the AI" beat, active voice.
 
 **Published:** _pending — dark behind the flip + `[PROD-DEPLOY-BAN]`._
 🔗 On finish: the **3-cornerstone interlink** fires at review **step 15** (Cross-linking; `DEC-054-3`) — Trust/Steering/Deciding + the
@@ -597,20 +611,23 @@ now** — the file stays valid until that date, at which point it flips to inval
 ignore the disclosure contact). No decay in between; it's a dated reminder, not live work. **Do before the
 date:** bump `Expires` further out (and re-confirm the contact). (Promoted Conv 036 from the hopper.)
 
-### [AGENT-INITIATIVE] · added Conv 045 · agent-discoverability assessed + deferred — revisit at next watch (Conv 055)
-✅ **Conv 045 watch + assessment (approved):** the `[AGENT-DISCOVERY-WATCH]` refresh updated the §7
-landscape snapshot and produced the **first action-plan assessment** (full per-row dispositions +
-decision: `AGENT-DISCOVERABILITY.md` §10). **Operator decision: start nothing now** — the initiative
-stays dark behind the content-home flip + `[PROD-DEPLOY-BAN]`.
-🔁 **Revisit the full action plan at the next `[AGENT-DISCOVERY-WATCH]` (Conv 055):** (a) re-weigh starting
-**`[DATA-PRIVATE-SCHEMA]`** — the one row with zero external-standard dependency (an internal `src/data`
-refactor, authorable without a deploy, **better-than-status-quo masking even if MCP never ships**;
-prerequisite for all agent-facing work); and (b) **revisit the `ai-agent.json` L1 commitment** — the
-Conv-045 refresh found the manifest namespace **unconverged** (`ai-agent.json` now an also-ran vs A2A
-AgentCard; three specs contest `/.well-known/agent.json`), so that commitment must not be inherited
-silently. Everything else agent-facing is gated by the deploy ban, sequenced behind the schema refactor,
-or waiting on an agent surface (`[AGENT-MCP]`, Web Bot Auth). Candidate rows live in §9; the watch itself
-is the standing cadence (surfaced at `/r-start`).
+### [AGENT-INITIATIVE] · added Conv 045 · standing agent-discoverability action plan — re-weighed each `[AGENT-DISCOVERY-WATCH]`; act-point ~Conv 75–85
+🧭 **Standing row (`[operator, Conv 055]`):** the living action plan for the agent-discoverability
+initiative, **refreshed every `[AGENT-DISCOVERY-WATCH]`** (not a one-shot deferral). Each watch reconciles
+its findings into this row; the full per-watch assessment ledger lives in `AGENT-DISCOVERABILITY.md` §10.
+**Act-point ~20–30 convs out (~Conv 75–85, operator Conv 055)** — until then we hold and keep the read current.
+🔁 **Conv 055 re-weigh (held — not acting yet):** gates unchanged (`[PROD-DEPLOY-BAN]` binds; Deciding → flip
+stays the priority). When acting begins, the live candidates are the **Tier 1 keystone
+`[DATA-PRIVATE-SCHEMA]`** (internal `src/data` refactor, ban-independent, prerequisite for everything
+agent-facing) and the **Tier 3 manifest re-pin** (below). Build-now-ship-later vs blocked split: §10
+Conv-055 assessment.
+🔴 **Open caveat — the manifest bet is now the losing horse:** the Conv-055 watch confirms A2A **AgentCard**
+(`/.well-known/agent-card.json`, signed cards v1.0) pulled ahead while **`ai-agent.json` faded**. Our L1
+commitment to `ai-agent.json` (`AGENT-DISCOVERABILITY.md` §2/§5/§9) stays on-record as our stated bet
+**until re-pinned** — it must not be inherited silently into any `[AGENT-PROFILE]` work. Re-pinning is a
+ban-free docs edit, held per the act-horizon above.
+✅ **Conv 045 (origin):** first watch + assessment (`DEC-045-1`); operator decided **start nothing now**;
+candidate rows in §9, dispositions in §10. Next re-weigh: the **Conv 65** watch.
 
 ## ⏸️ Parked
 
