@@ -1,24 +1,27 @@
-**Conv:** 057 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
+**Conv:** 058 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
 
 ## Where we left off
 
-Conv 057 **shipped the guides-only launch** (`DEC-056-3`): the 3 cornerstone guides (Trust / Steering /
-Deciding) are **live on frasergorrie.com** (Version `b8abe635`) — indexed, in the sitemap, in nav/footer.
-The crux was splitting `CONTENT_HOME_LIVE` into two flags (`DEC-057-1`): `CONTENT_HOME_LIVE=true` lights
-the guides, a new **`WRITING_LIVE=false`** holds the dated writing stream dark. A launch-blocker was caught
-in the build output — the guides were still `draft:true` so prod generated only the hub, not the pages;
-flipped `draft:false`. `/blog` → `/guides/` 301 (`DEC-057-2`); `[PROD-DEPLOY-BAN]` amended + lifted
-(`DEC-057-3`). `npm run verify` passed; verified live. `[SITE-CONTENT-HOME]`, `[BLOG-REDIRECT]`,
-`[PROD-DEPLOY-BAN]` retired; `[WRITING-BUILDOUT]` promoted.
+Conv 058 **posted the cross-pillar launch lead to LinkedIn** (`guides-launch`, 2026-11-23) — CC drove it via
+the Chrome bridge under a new **standing authorization** (`DEC-058-7`). To get there it built the
+**social-post machinery** (`POST-CREATE`/`POST-REVIEW`/`r-post` + `_cc/content-backlog.md`; `DEC-058-1`),
+tightened the **funnel to website-only + one-link-per-post** (`DEC-058-2`), and stood up a **content-analytics**
+process (`[CONTENT-ANALYTICS]`, per-piece Outcomes + rollup, riding the 9-conv GSC cadence, likes as an early
+proxy; `DEC-058-4`). For the post's visual it shipped a **pillar triangle**: `/guides/`'s per-page **og:image**
+(so the LinkedIn card renders it) **and** a static on-page hub figure — `[PILLAR-DIAGRAM]` **v1** (`DEC-058-9`).
+Deployed prod (`00ab7d50`) + staging (`8a7cbd13`). Also: a `check-promises.sh` **close-deferral trigger**
+(`DEC-058-3`), **plain-prose drafts** (`DEC-058-5`), **no-video** rule (`DEC-058-6`), and **keep-staging-updated**
+(`DEC-058-8`). Nine DECs (`DEC-058-1..9`).
 
 ## Next action
 
-🔁 **Run `[POSTING-PLAN]`** — now unblocked by live guides to point at. Draft the launch announcement(s)
-for LinkedIn (biweekly cadence) + opportunistic X echo, per `reference/CHANNELS.md` pillars; CC drafts →
-operator approves → publish. **Reason:** the guides exist to earn GEO/credibility and feed the funnel; the
-launch is the natural moment to distribute. Two quick wins also unblocked and worth folding in: **GSC
-request-indexing** for the 4 new guide URLs (speed the first crawl; full cadence is Conv 59) and the
-**Rich-Results validation** now that the guides are live/crawlable (`[SITE-STRUCTURED-DATA]`).
+🔁 **The GSC + content-analytics sweep is DUE this conv (59)** — `[GOOGLE-SERVICES]` cadence surfaces at
+`/r-start`. Run the GSC check (crawl/index progress of the 22 URLs + the 4 guide URLs; the Conv-044
+request-indexing follow-up) **and** piggyback the first **content-analytics** pass: capture the launch post's
+early outcomes (likes/clicks/comments) into `docs/content/posts/guides-launch.md` + the `_cc/content-analytics.md`
+rollup. **Reason:** it's the due cadence item and the launch post now has a few days of signal.
+**Also available (not due):** the **per-pillar follow-on posts** (Trust → Steering → Deciding) — seeds in
+`content-backlog.md`, run via `/r-post`; and `[SITE-STRUCTURED-DATA]` Rich-Results validation of the live guides.
 
 ## 🔬 Carried findings
 

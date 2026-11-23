@@ -8,6 +8,99 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 058
+
+### DEC-058-9 — per-page og:image + the `/guides/` pillar-triangle (share card + on-page `[PILLAR-DIAGRAM]` v1)
+**Decision:** Added a per-page `ogImage`/`ogImageAlt` prop (`Layout.astro` → `SiteLayout.astro`), defaulting
+to the sitewide `og-image.jpg`; `/guides/` sets it to a purpose-built **pillar triangle**
+(`public/guides-pillar-triangle-og.png`, 1200×630 — three pillar-coloured circles in Fraunces, connectors).
+The same triangle also ships **on the hub** beside the lede as a static, theme-aware inline-SVG figure
+(`[PILLAR-DIAGRAM]` v1), with inside knockout labels (`--surface`, AA in both themes).
+**Rationale:** Putting the image on the page is *not* what makes it the share card — the og card is the
+meta tag + a `public/` asset, independent of on-page content. Setting it as `/guides/`'s og:image keeps the
+LinkedIn link-card (drives the click) while branding it with the triangle; attaching an image to the post
+instead would suppress the auto card. Alternatives that lost: attach the image directly to the post
+(loses the click-card); ship only the og card without the on-page figure (operator wanted both, B). Label
+contrast drove the knockout choice: fixed white fails AA on the lighter dark-theme fills, so the label is a
+theme-aware `--surface` knockout.
+**Consequences:** Deployed to prod (`00ab7d50`) + staging (`8a7cbd13`); card refreshed via LinkedIn Post
+Inspector before posting; verified live. `[PILLAR-DIAGRAM]` v1 shipped (interactive build remains). The
+`og-image.jpg` "sitewide" comments now mean the *default*, overridden per-page.
+
+### DEC-058-8 — standing rule: keep staging updated
+**Decision:** After a production deploy (and at `/r-end`), also run `deploy:staging` so the staging worker
+mirrors prod.
+**Rationale:** Keeps staging a faithful preview/testing mirror rather than drifting behind prod (operator).
+Alternative that lost: update staging ad hoc / only when testing.
+**Consequences:** Staging deployed this conv after prod (`fgw-staging` Version `8a7cbd13`). Codified in
+`CLAUDE.md`.
+
+### DEC-058-7 — standing authorization: CC drives social via the Chrome bridge
+**Decision:** The operator durably authorizes CC to drive **all** social posts + checks (LinkedIn, X)
+through the Chrome bridge; the operator keeps Chrome open + logged into X and LinkedIn (separate tabs).
+**Rationale:** Removes per-post friction for the ongoing cadence. Alternative that lost: confirm each
+post/check interactively. The final irreversible publish click is still surfaced for operator review on a
+first-of-kind (the operator authorized the launch-post click explicitly).
+**Consequences:** Applies to future social work. Codified in `CLAUDE.md`. The launch post was driven this
+conv via the bridge (compose → operator "go ahead and post" → published).
+
+### DEC-058-6 — no video on social posts (general rule)
+**Decision:** Social posts are text + at most one image; video is off by default.
+**Rationale:** Video is high-maintenance and louder than the quiet-editorial voice, and sets a cadence
+expectation (operator). Alternative that lost: allow video case-by-case from the start. Revisit only if a
+specific case clearly earns it.
+**Consequences:** Added to `CHANNELS.md` social-copy conventions. The launch used an image (pillar triangle).
+
+### DEC-058-5 — post draft candidates stored as plain prose (no markup)
+**Decision:** Draft candidates in `docs/content/posts/<slug>.md` are plain prose — no blockquote (`> `) or
+decorative markup.
+**Rationale:** The operator copies a block to send a rewrite back, and markup rides along as friction to
+strip (CC is sole editor). Extends the markup-stripping precedent (`DEC-054-1`). Alternative that lost:
+visually set drafts off with a blockquote.
+**Consequences:** Written into `POST-CREATE.md` step 4; the copy-edit-return loop stays clean.
+
+### DEC-058-4 — content prose lives in a file from draft-time (B) + a content-analytics process
+**Decision:** (a) **Prose-home split:** social posts draft into `docs/content/posts/<slug>.md` (docs repo)
+from draft-time; guides/articles draft in `fgw-26` `src/content/` (site repo); the board row stays a
+lightweight dossier/pointer. (b) **Content-analytics process:** a per-piece **Outcomes** section +
+`_cc/content-analytics.md` rollup + the `[CONTENT-ANALYTICS]` board row, riding the 9-conv GSC cadence;
+qualitative-first, with likes/reactions tracked as an early-phase readership proxy.
+**Rationale:** Keeps the board lean (prose not inline) and mirrors how guides separate prose from dossier.
+Alternative that lost: prose inline in the board row (A). Analytics stays qualitative-first per CHANNELS;
+the operator wanted likes tracked early as a weak "was it read" signal despite the no-vanity-metrics stance.
+**Consequences:** `GUIDE-REVIEW` dossier template gained a §9 Outcomes (articles adopt it too); CHANNELS
+measurement reconciled; adopted for posts and articles.
+
+### DEC-058-3 — `check-promises.sh` gains a close-deferral trigger
+**Decision:** Added a second, independently-tunable trigger to the `check-promises.sh` Stop hook — the
+phrase deferring work to the conv close (e.g. "DEC at /r-end") now fires a nudge (7 test cases pass).
+**Rationale:** The session repeatedly used the phrase (a no-op promise) with no hook catch; the operator
+asked for it. Alternative that lost: leave the hook as the single self-reassurance catcher. Known tuning
+item: a purely descriptive mention also fires (living regex), accepted.
+**Consequences:** Deferring a concrete item to the close now nudges Claude to route it durably first.
+
+### DEC-058-2 — social funnel strictly website-only; one outbound link per post
+**Decision:** Dropped the Conv-038 LinkedIn → X downstream cross-link: LinkedIn and X are now **parallel**
+confirmation layers, each linking only to the site, neither to the other. Added a social-copy convention:
+**at most one outbound link per post**, pointing to the site.
+**Rationale:** More than one link reads as salesy, and the site is the only conversion target (operator).
+Amends the Conv-038 channel design. Alternative that lost: keep the LinkedIn → X "downstream echo" link.
+**Consequences:** `CHANNELS.md` flow + both Links lines + measurement updated and change-logged; the launch
+post carries a single `/guides/` link.
+
+### DEC-058-1 — social-post rigor machinery (POST-CREATE / POST-REVIEW / r-post)
+**Decision:** Built a channel-tagged social-post pipeline mirroring the guide pipeline: `POST-CREATE.md`
+(creation pass) + `POST-REVIEW.md` (finalize pass) + the `r-post` skill (scaffolds a per-post dossier,
+deriving steps from the docs at runtime) + `_cc/content-backlog.md` (seeds → drafts → published index).
+Steps tagged `[all]`/`[LinkedIn]`/`[X]`, extensible to future channels (Substack, YouTube Shorts) by
+adding a tag, not forking the doc.
+**Rationale:** Social posts need guide-level rigor (buyer-chord, voice, masking, em-dash, AI-tells) scaled
+to a short post. Alternative that lost: one lightweight steer-by template hardened from use (B) — the
+operator chose to build the machinery up front given the channels will diverge and they'll add per-channel
+steps over time.
+**Consequences:** The `guides-launch` post ran through it; the dossier graduates to
+`docs/content/posts/<slug>.md`. Lean checklist, not a gate.
+
 ## Conv 057
 
 ### DEC-057-3 — amend + lift `[PROD-DEPLOY-BAN]` for the guides-only launch (amends `DEC-039-2`)

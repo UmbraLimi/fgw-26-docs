@@ -29,6 +29,8 @@ say what job it does.
 
 ## Tooling
 - **Chrome bridge fails → it's usually the browser's Claude extension logged out.** Ask the operator to sign in again rather than retrying or treating it as a code fault.
+- **Standing authorization: CC drives all social posts + checks (LinkedIn, X) via the Chrome bridge** — operator keeps Chrome open + logged in (separate tabs). The final irreversible publish click is surfaced for operator review on a first-of-kind. (`DEC-058-7`.)
+- **Keep staging updated** — after a prod deploy (and at `/r-end`), also run `deploy:staging` so staging mirrors prod. (`DEC-058-8`.)
 - 🔴 **Lint/typecheck flags a problem NOT caused by my current change → hopper a full-lint pass.** Add a `- [ ]` hopper line that a full lint is required; don't fix pre-existing findings inline, and don't let them pass unrecorded. My change's own findings I fix as normal. (Conv 052, `DEC-052-1`.)
 
 ## Claims & verification

@@ -6,6 +6,60 @@ _As of 2026-11-23._
 
 ---
 
+### DEC-058-9 — per-page og:image + the `/guides/` pillar-triangle (share card + on-page `[PILLAR-DIAGRAM]` v1)
+
+Added a per-page `ogImage`/`ogImageAlt` prop (`Layout.astro` → `SiteLayout.astro`), defaulting
+to the sitewide `og-image.jpg`; `/guides/` sets it to a purpose-built **pillar triangle**
+(`public/guides-pillar-triangle-og.png`, 1200×630 — three pillar-coloured circles in Fraunces, connectors).
+The same triangle also ships **on the hub** beside the lede as a static, theme-aware inline-SVG figure
+(`[PILLAR-DIAGRAM]` v1), with inside knockout labels (`--surface`, AA in both themes).
+
+### DEC-058-8 — standing rule: keep staging updated
+
+After a production deploy (and at `/r-end`), also run `deploy:staging` so the staging worker
+mirrors prod.
+
+### DEC-058-7 — standing authorization: CC drives social via the Chrome bridge
+
+The operator durably authorizes CC to drive **all** social posts + checks (LinkedIn, X)
+through the Chrome bridge; the operator keeps Chrome open + logged into X and LinkedIn (separate tabs).
+
+### DEC-058-6 — no video on social posts (general rule)
+
+Social posts are text + at most one image; video is off by default.
+
+### DEC-058-5 — post draft candidates stored as plain prose (no markup)
+
+Draft candidates in `docs/content/posts/<slug>.md` are plain prose — no blockquote (`> `) or
+decorative markup.
+
+### DEC-058-4 — content prose lives in a file from draft-time (B) + a content-analytics process
+
+(a) **Prose-home split:** social posts draft into `docs/content/posts/<slug>.md` (docs repo)
+from draft-time; guides/articles draft in `fgw-26` `src/content/` (site repo); the board row stays a
+lightweight dossier/pointer. (b) **Content-analytics process:** a per-piece **Outcomes** section +
+`_cc/content-analytics.md` rollup + the `[CONTENT-ANALYTICS]` board row, riding the 9-conv GSC cadence;
+qualitative-first, with likes/reactions tracked as an early-phase readership proxy.
+
+### DEC-058-3 — `check-promises.sh` gains a close-deferral trigger
+
+Added a second, independently-tunable trigger to the `check-promises.sh` Stop hook — the
+phrase deferring work to the conv close (e.g. "DEC at /r-end") now fires a nudge (7 test cases pass).
+
+### DEC-058-2 — social funnel strictly website-only; one outbound link per post
+
+Dropped the Conv-038 LinkedIn → X downstream cross-link: LinkedIn and X are now **parallel**
+confirmation layers, each linking only to the site, neither to the other. Added a social-copy convention:
+**at most one outbound link per post**, pointing to the site.
+
+### DEC-058-1 — social-post rigor machinery (POST-CREATE / POST-REVIEW / r-post)
+
+Built a channel-tagged social-post pipeline mirroring the guide pipeline: `POST-CREATE.md`
+(creation pass) + `POST-REVIEW.md` (finalize pass) + the `r-post` skill (scaffolds a per-post dossier,
+deriving steps from the docs at runtime) + `_cc/content-backlog.md` (seeds → drafts → published index).
+Steps tagged `[all]`/`[LinkedIn]`/`[X]`, extensible to future channels (Substack, YouTube Shorts) by
+adding a tag, not forking the doc.
+
 ### DEC-057-3 — amend + lift `[PROD-DEPLOY-BAN]` for the guides-only launch (amends `DEC-039-2`)
 
 `[PROD-DEPLOY-BAN]`'s condition (`DEC-039-2`: "first blog page AND all guide pages

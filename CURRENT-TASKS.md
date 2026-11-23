@@ -92,8 +92,13 @@ live probes — space them out. Don't mistake this for a real page problem.
 ✅ **Plan stood up Conv 038** — the full channel/funnel strategy lives in `reference/CHANNELS.md` (funnel,
 channel roles, cadence, pillars, sourcing/workflow, content home, copy conventions). Buyer-facing **X pinned
 post** done (Conv 038). 🔁 **Standing work:** run the **biweekly LinkedIn** cadence (opportunistic X echo),
-drafting per the pillars — CC drafts → operator approves → publish (write-once-then-distribute). Leans on
-`[SITE-CONTENT-HOME]` (the blog/guides posts point to).
+drafting per the pillars — CC drafts → operator approves → publish (write-once-then-distribute). Posts point
+to the **live guides** (`/guides/`, live Conv 057).
+🚀 **Conv 058 — launch lead LIVE.** The cross-pillar launch lead (`guides-launch`) is **posted on LinkedIn**
+(2026-11-23) via the new social-post machinery (`POST-CREATE`/`POST-REVIEW`/`r-post`; `DEC-058-1`) + the
+one-link/website-only funnel (`DEC-058-2`). Remaining cadence: the **per-pillar follow-ons** (Trust →
+Steering → Deciding) — seeds in `_cc/content-backlog.md`, run via `/r-post` when wanted; outcomes via
+`[CONTENT-ANALYTICS]`.
 📎 **GEO answer-structuring (folded in Conv 036):** as content gets built, structure it so generative
 engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, consistent entity naming
 (a content-shaping guideline; vendor "30–40% citation gain" figures unverified).
