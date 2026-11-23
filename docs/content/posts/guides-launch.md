@@ -2,10 +2,10 @@
 slug: guides-launch
 channel: LinkedIn
 pillar: launch (cross-pillar)
-status: approved         # draft | approved | published
+status: published        # draft | approved | published
 link_target: /guides/ hub
 created: Conv 058
-published:               # date on publish
+published: 2026-11-23     # Conv 058 — LinkedIn (frasergorrie.com/guides/ card = pillar triangle)
 ---
 
 # Launch lead — cross-pillar (LinkedIn)

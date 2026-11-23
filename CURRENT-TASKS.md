@@ -24,49 +24,11 @@ is **live**, not what is finished.
 > flipped, `[PROD-DEPLOY-BAN]` lifted, `/blog` → `/guides/`, `[SITE-CONTENT-HOME]` retired). The writing
 > stream stays dark behind the new `WRITING_LIVE` flag → `[WRITING-BUILDOUT]` (Unordered). So the two rows
 > below (GSC monitor + posting plan) are again what remains ordered — the posting plan is now unblocked by
-> live guides to point at. **Conv 058:** launch content started under `[POSTING-PLAN]` (option B — the
-> launch is the opening of the biweekly cadence); the social-post machinery was built (`POST-CREATE.md` /
-> `POST-REVIEW.md` / `r-post` / `content-backlog.md`), and the first post dossier `[POST-guides-launch]`
-> is the new row below.
-
-### [POST-guides-launch] · added Conv 058 · LinkedIn · cross-pillar launch announcement
-**Channel:** LinkedIn (series lead; opportunistic X echo later) · **Pillar:** launch / cross-pillar (N/A a
-single pillar) · **Link target:** the `/guides/` hub.
-**Angle:** the three questions every buyer building with AI runs into — is it sound? can I steer it? do I
-build it myself or bring someone in? — now have three places to turn. Teaching-first, not a "look what I
-made" announcement (`PERSONA.md`).
-The **lead post of the launch series** (`[POSTING-PLAN]`, option B Conv 058): a cross-pillar launch, then
-one dedicated post per pillar (Trust → Steering → Deciding) across the biweekly cadence. First post through
-the new `POST-CREATE`/`POST-REVIEW` machinery (`DEC` at /r-end).
-
-**Checklist** (emitted for LinkedIn = `[all]` + `[LinkedIn]`; a snapshot of the docs this conv):
-_Create (`POST-CREATE.md`):_
-- [x] 1. Pillar & angle `[all]` — cross-pillar launch; angle = the three buyer questions now have three places to turn (Conv 058).
-- [x] 2. Link target & funnel role `[all]` — `/guides/` hub; funnel direction toward the site, confirmed (Conv 058).
-- [x] 3. Seed capture → `_cc/content-backlog.md` `[all]` — logged (lead = draft; series follow-ons = seeds) (Conv 058).
-- [~] 4. Draft — LinkedIn register (complete sentences; links out to site + X) `[LinkedIn]` — **draft v1 written Conv 058, awaiting operator read.**
-- [ ] 5. Hand to the finalize pass
-_Finalize (`POST-REVIEW.md`):_
-- [ ] 6. Buyer-chord & persona check `[all]`
-- [ ] 7. Voice check `[all]`
-- [ ] 8. Buyer-not-builder vernacular `[all]`
-- [ ] 9. Signature-phrase / AI-tell audit `[all]`
-- [ ] 10. Fragment / complete-sentence check `[LinkedIn]`
-- [ ] 11. Conjunction & metaphor scan `[all]`
-- [ ] 12. Em-dash sanity check `[all]` 🔴
-- [ ] 13. Masking check `[all]`
-- [ ] 14. CTA restraint & link mechanics `[all]` + `[LinkedIn]`
-- [ ] 15. Approval gate `[all]` 🔴
-
-**Prose:** `docs/content/posts/guides-launch.md` — **copy APPROVED final (Conv 058; v4)**, `status: approved`,
-**awaiting posting to LinkedIn.** Finalize review clean (buyer-chord / voice / vernacular / AI-tells /
-fragments / masking), one outbound link (→ `/guides/`), **zero em-dashes**. On posting: flip
-`status: published` + date, move backlog line to ✅ Published, retire this row; Outcomes fill at the analytics sweep.
-⚠️ **Post only AFTER the `/guides/` og:image (triangle) is deployed + the LinkedIn card refreshed via Post
-Inspector** — otherwise the share card shows the old/default image (Conv 058; og:image plan).
-
-**Decisions:** _(accrue here)_
-**Published:** —
+> live guides to point at. **Conv 058:** the launch's **cross-pillar lead post is LIVE on LinkedIn**
+> (`guides-launch`, 2026-11-23). Social-post machinery built (`POST-CREATE`/`POST-REVIEW`/`r-post`); the
+> `/guides/` og:image + on-page pillar triangle deployed (fgw-26 `00ab7d50`); the post dossier graduated to
+> `docs/content/posts/guides-launch.md`. Per-pillar follow-ons (Trust → Steering → Deciding) are seeds in
+> `content-backlog.md`.
 
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
@@ -301,6 +263,9 @@ later pillars add theirs as they ship; (2) the **pairwise "how they relate"
 content** — a one-line connection per linked pair (a content task); (3) the **interactive build** — inline
 SVG + JS (clickable circles, hoverable lines), on the `/guides/` hub or a dedicated page, legible in both
 themes. Operator-planned; benefits from the pillar colours being set first.
+✅ **v1 static figure shipped Conv 058** — the `/guides/` hub hero carries a static, theme-aware inline-SVG
+triangle (three pillar-coloured circles + connectors, inside knockout labels, AA both themes). The
+**interactive** build (clickable circles → guides, hoverable relation lines) is the remaining work.
 
 ### [CONTENT-ART] · promoted Conv 042 · guide/article illustration programme
 🎨 **Approach settled Conv 042** (full reasoning + recipes: `_cc/content-art-and-copyright.md`): per-guide/
@@ -384,6 +349,13 @@ _None._
 ---
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
+
+- **Conv 058:** **🚀 Launch lead post LIVE on LinkedIn** (`guides-launch`, cross-pillar; 2026-11-23; share
+  card = the pillar triangle) + the social-post **rigor machinery** (`POST-CREATE`/`POST-REVIEW`/`r-post` +
+  `content-backlog`), the **content-analytics** process (`[CONTENT-ANALYTICS]`, likes-as-early-proxy), the
+  `/guides/` **pillar triangle** (og:image + on-page `[PILLAR-DIAGRAM]` v1, deployed `00ab7d50`), and the
+  **funnel→website-only + one-link + no-video** conventions. CC drove the post via the Chrome bridge
+  (standing authorization). Post dossier: `docs/content/posts/guides-launch.md`. (Full record: commits + DECs at /r-end.)
 
 - **Conv 057:** **🚀 Guides-only content home LIVE on frasergorrie.com** (Version `b8abe635`;
   `[SITE-CONTENT-HOME]` retired, `[BLOG-REDIRECT]` + `[PROD-DEPLOY-BAN]` resolved). Split

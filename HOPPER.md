@@ -34,3 +34,9 @@ The durable record of what was done is the conv record + the board, never a line
 - [ ] **DEC to record at close (Conv 058) — no video on social posts (general rule).** Text + at most one
   image; video off by default (quiet-editorial voice, avoid a high-maintenance cadence). Added to CHANNELS
   social copy conventions.
+- [ ] **DEC to record at close (Conv 058) — standing authorization: CC drives social via the Chrome bridge.**
+  Operator durably authorizes CC to drive **all** social posts + checks (LinkedIn, X) through the Chrome
+  bridge; operator keeps Chrome open + logged into X and LinkedIn (separate tabs). Codify in CLAUDE.md
+  (Permissions/Tooling). Final irreversible publish click still surfaced for operator review on a first-of-kind.
+- [ ] **DEC to record at close (Conv 058) — standing rule: keep staging updated.** After a prod deploy (and
+  at /r-end), also run `deploy:staging` so staging mirrors prod. Operator-directed. Codify in CLAUDE.md.

@@ -14,9 +14,10 @@
 
 ## ✍️ Drafts (in flight — a `[POST-<slug>]` board row exists)
 
-- **`[POST-guides-launch]`** — LinkedIn, cross-pillar launch lead. Angle: the three questions every buyer
-  building with AI runs into now have three places to turn → `/guides/` hub. Board row Conv 058. (Conv 058)
+_None in flight._
 
 ## ✅ Published
 
-_None yet._
+- **2026-11-23 (Conv 058) — `guides-launch`** · LinkedIn · cross-pillar launch lead → `/guides/` hub
+  (share card = the pillar triangle). Record: `docs/content/posts/guides-launch.md`. Outcomes pending the
+  Conv-59 analytics sweep.

@@ -44,4 +44,4 @@ new tooling.
 
 | Piece | Type | Published | Likes | Clicks | Qualitative / read |
 |-------|------|-----------|-------|--------|--------------------|
-| _(none published yet)_ | | | | | |
+| `guides-launch` | post · LinkedIn | 2026-11-23 | — | — | pending (Conv-59 sweep) |
