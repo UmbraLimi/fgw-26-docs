@@ -58,9 +58,12 @@ _Finalize (`POST-REVIEW.md`):_
 - [ ] 14. CTA restraint & link mechanics `[all]` + `[LinkedIn]`
 - [ ] 15. Approval gate `[all]` 🔴
 
-**Prose:** `docs/content/posts/guides-launch.md` (the B home — draft v1, `status: draft`). **Open on this
-draft:** point 1 — para 3 stacks three questions (keep / trim to two) + operator prose edits, before the
-POST-REVIEW pass.
+**Prose:** `docs/content/posts/guides-launch.md` — **copy APPROVED final (Conv 058; v4)**, `status: approved`,
+**awaiting posting to LinkedIn.** Finalize review clean (buyer-chord / voice / vernacular / AI-tells /
+fragments / masking), one outbound link (→ `/guides/`), **zero em-dashes**. On posting: flip
+`status: published` + date, move backlog line to ✅ Published, retire this row; Outcomes fill at the analytics sweep.
+⚠️ **Post only AFTER the `/guides/` og:image (triangle) is deployed + the LinkedIn card refreshed via Post
+Inspector** — otherwise the share card shows the old/default image (Conv 058; og:image plan).
 
 **Decisions:** _(accrue here)_
 **Published:** —

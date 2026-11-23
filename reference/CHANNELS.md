@@ -160,6 +160,9 @@ the interesting question. Supplies credibility by proof and the human voice; sea
   carries **at most a single link**, and it points to the **site** (a guide / the hub / contact) — never a
   sideways link to another channel. The site is the only conversion target; LinkedIn and X don't link to
   each other or to themselves.
+- 🔴 **No video, as a general rule (operator, Conv 058).** Social posts are text + at most one image;
+  video is off by default — high-maintenance and louder than the quiet-editorial voice, and it sets a
+  cadence expectation. Revisit only if a specific case clearly earns it.
 
 ## Proof assets — shared fuel (cross-channel)
 

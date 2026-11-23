@@ -29,6 +29,10 @@ One repeatable pass to take a social post from **seed** to **channel draft** —
    `published:` (empty). Body = the **draft prose** + an **Outcomes** section stub (capture set in
    `_cc/content-analytics.md`). This file is the post's durable prose home from draft → published; the
    board row stays a lightweight dossier/pointer to it.
+   🔴 **Store the draft as plain prose — no blockquote (`> `) or decorative markup.** The operator copies
+   a block to send a rewrite back, and any markup rides along as friction to strip (CC remains the sole
+   editor). Plain prose keeps the copy-edit-return loop clean (markup-stripping precedent, `GUIDE-REVIEW`
+   step 1 / `DEC-054-1`).
 
 5. **Draft** — write the post *into the file*, to the channel's register:
    - `[LinkedIn]` — positioning / credibility register (the look-you-up moment). Complete sentences

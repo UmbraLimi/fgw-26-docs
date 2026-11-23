@@ -26,3 +26,11 @@ The durable record of what was done is the conv record + the board, never a line
   + `_cc/content-analytics.md` rollup + `[CONTENT-ANALYTICS]` row, riding the 9-conv GSC cadence;
   qualitative-first with **likes tracked as an early-phase readership proxy** (operator). Amended the
   hour-old `POST-CREATE`/`POST-REVIEW`/`r-post` + the `GUIDE-REVIEW` dossier template + CHANNELS measurement.
+- [ ] **DEC to record at close (Conv 058) — post draft candidates stored as plain prose (no blockquote/
+  markup).** Draft candidates live in `docs/content/posts/<slug>.md` as **plain prose** so the operator can
+  copy a block, edit it, and hand it back without stripping markup (CC stays sole editor). Already written
+  into `POST-CREATE.md` step 4 so future candidates are set the same way; this line records the convention.
+  Precedent: `GUIDE-REVIEW` step 1 / `DEC-054-1` (markup-stripping on pasted rewrites).
+- [ ] **DEC to record at close (Conv 058) — no video on social posts (general rule).** Text + at most one
+  image; video off by default (quiet-editorial voice, avoid a high-maintenance cadence). Added to CHANNELS
+  social copy conventions.
