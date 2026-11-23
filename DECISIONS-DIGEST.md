@@ -2,9 +2,29 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-22._
+_As of 2026-11-23._
 
 ---
+
+### DEC-055-2 — a pure-text no-op-promise Stop hook (`check-promises.sh`)
+
+Added `check-promises.sh`, a Stop hook that fires on the "don't-drop" self-reassurance
+construction ("so it isn't dropped", "to make sure we don't forget", "so it's not lost", …) and nudges CC
+to either name the concrete artifact (a `HOPPER.md`/board line) or route the item now. It is **pure-text
+with no allow-path** (unlike `check-routing.sh`'s review-line gate) and **no git check**: the phrase is a
+smell whether or not the item was routed — if routed, the artifact is the proof and the prose reassurance
+is redundant; if not, it is the no-op. Registered as the 3rd Stop hook in `settings.json` (after
+`check-ab-options`, `check-routing`).
+
+### DEC-055-1 — `[AGENT-DISCOVERY-WATCH]` gains a three-part output; `[AGENT-INITIATIVE]` becomes the standing action plan
+
+Each `[AGENT-DISCOVERY-WATCH]` run now produces three things, not just a snapshot: (1) the
+landscape-snapshot refresh (deltas vs the prior snapshot); (2) a **ban-aware assessment of the findings** —
+which *strengthening* initiatives we can inch toward despite `[PROD-DEPLOY-BAN]`, as a build-now-ship-later
+vs genuinely-blocked split, recorded newest-first in `AGENT-DISCOVERABILITY.md` §10 (now a per-watch
+ledger); and (3) a **reconciliation into the `[AGENT-INITIATIVE]` board row**. `[AGENT-INITIATIVE]` is
+reframed from the Conv-045 one-shot ("assessed + deferred, revisit at Conv 055") into the **standing,
+re-weighed-each-watch action-plan home**; act-point ~20–30 convs out (~Conv 75–85, operator Conv 055).
 
 ### DEC-054-3 — `GUIDE-REVIEW` gains a Cross-linking step (site link-graph wiring)
 

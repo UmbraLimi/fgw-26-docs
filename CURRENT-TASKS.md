@@ -637,6 +637,19 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 055:** **Deciding finalize steps 4–14 (minus 11/13) + agent-discovery watch + a no-op-promise
+  Stop hook** (content + process; `[GUIDE-DECIDING]` stays open). Deciding: glossary confirmed (4);
+  headings (5) — **§6 reseated via a whole-section rewrite** (reframed off keep/rebuild/hand-off, which
+  fought straw→tin→steel, to *push on / start over / get help* on a stalled risky part; heading "When my
+  build stalls, do I push on, start over, or get help?"), #5 → "…learn the hard part myself…", #1/#3/#6
+  left (context/bookend); entity over-seeding trim **5→3** (6); conjunction leave (7); metaphor audit +
+  "Grinding"→"Pushing harder" (8); pull quote at the §6→§7 seam — "Bringing someone in doesn't replace
+  your learning; it accelerates it" (10); **em-dashes recast to zero** (12); card opener reworked +
+  snippet "leans on"→"relies on" (14). Still `draft:true`/dark. **[AGENT-DISCOVERY-WATCH]** ran (Conv-055
+  landscape snapshot; three-part output codified; **[AGENT-INITIATIVE]** reframed into the standing
+  re-weighed-each-watch action plan, **held**; act-point ~Conv 75–85). **check-promises.sh** no-op-promise
+  Stop hook built, tested (14 cases), registered (`DEC-055-1`, `DEC-055-2`). 4 commits + this close; hopper
+  2 carried.
 - **Conv 054:** **Deciding redline finished (step 1) + new §7 + review-process additions** (content +
   process; `[GUIDE-DECIDING]` stays open). Block-by-block redline completed **P1→P32**: added **§7 "Can I
   really learn enough on my own when I reach my limit?"** (the self-path arm, loose-bound to `/phases/`; P16
