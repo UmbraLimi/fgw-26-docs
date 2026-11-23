@@ -33,3 +33,4 @@ at `/r-start`.
   names `check-routing.sh` as backstopping the go-list review-signal, but says nothing about the new
   `check-promises.sh` backstopping the no-op-promise rule. Consider a one-line parallel mention for
   symmetry. Low-stakes; rule at `/r-start`.
+  ✔ **ruled:** do-now (Conv 056) — added the parallel mention to CLAUDE.md §Surfacing, no-op-promise bullet.

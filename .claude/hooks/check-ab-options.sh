@@ -70,7 +70,15 @@ fi
 # No labels. Labels are required only when the ask OFFERS options — heuristic (operator,
 # Conv 021, DEC-021-4): an options-bearing ask carries a standalone "or" fork. A bare
 # open-ended question has none and needs no labels, so it passes here.
-if ! printf '%s' "$block" | grep -qiE '(^|[^A-Za-z])or([^A-Za-z]|$)'; then
+#
+# First strip "or"s that are NOT real forks: an "or" inside a double-quoted span or a
+# `backtick` span belongs to quoted/option text (a heading, a label), not the ask's own
+# fork. Content work routinely quotes headings/options containing "or", which false-fired
+# a yes/no confirm as an options ask (Conv 055). Same class as check-promises' quoting
+# false-fire. Strip those spans before the fork test; the label check above stays on the
+# full block. (Conv 056, DEC-056-? at /r-end.)
+forktext=$(printf '%s' "$block" | sed -e 's/`[^`]*`//g' -e 's/"[^"]*"//g')
+if ! printf '%s' "$forktext" | grep -qiE '(^|[^A-Za-z])or([^A-Za-z]|$)'; then
   exit 0
 fi
 

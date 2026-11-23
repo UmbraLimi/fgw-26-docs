@@ -87,7 +87,7 @@ Never rule alone; never bundle two findings in one turn. ⚠️ Re-verify before
 🔴 **Sequencing (Conv 051 — the de-bundling fix):** commit Step 5's heartbeat **before** presenting any
 finding. Then rule findings one at a time; **only after the last is ruled does Step 6 surface.** A
 finding ruling never shares a turn with another finding, with Step 6's surface, or with the
-continuation-mode ask.
+continuation-mode notice.
 
 ## Step 5 — Commit the start heartbeat
 
@@ -102,7 +102,11 @@ No body, no trailers. 🔴 The subject is load-bearing (`conv-state.sh` matches 
 Report briefly: **Conv NNN opened** on MACHINE · **where we left off** (2–3 sentences from
 `RESUME-STATE.md`) · **the board** (counts + top of 🔥 Ordered) · **recommended next action** (one
 thing, with the reason) · **the hopper line verbatim** (if `🔴 N open`, tell the operator to run
-`/r-hopper`). Then stop and wait.
+`/r-hopper`). Then stop and wait. 🔴 **The recommended next action is a *single recommendation*
+(one thing + the reason), never a labelled A)/B) fork** — the operator responds in normal cadence. If
+the next step is genuinely a load-bearing fork, that fork takes its own turn **alone** (and the
+continuation-mode notice below defers to the following turn). (Conv 056 — the Conv-055 scar: Step 6 ran
+an A/B recommendation *and* the A/B continuation notice in one turn, two option-sets at once.)
 
 🔴 **Cadence checks (mechanical, `DEC-035-4`) — pass through the pre-computed `Cadence checks` lines
 verbatim.** For each task: if `not due`, say so in one line (name the next due conv). If `🔴 DUE`,
@@ -111,11 +115,15 @@ surface it as its own line and make that check **this conv's recommended next ac
 the check is the conv's work, done with the operator. Judgement-free report of an arithmetic fact; do not
 skip a `not due` line (silence reads as "forgot").
 
-**Continuation mode** (default **B — regular ask/respond/wait**): each turn, you give a task/question,
-I answer and propose, then stop. I do not chain work across turns on my own. If you want
-**A — autonomous-continue** (I act on my recommendation and keep going to a named stop), say so now.
-`/r-commit` is my standing right in either mode. This is a standing notice carried **once, with the
-Step 6 surface** (never on a turn that rules a carried finding) — the default B holds unless you pick A.
+**Continuation mode** — an **informational standing notice, not an options ask** (no 👉👉👉, no
+labelled A)/B) to answer by letter; naming the two modes is not a fork): the default is **regular
+ask/respond/wait** — each turn you give a task/question, I answer and propose, then stop; I do not chain
+work across turns on my own. You may switch to **autonomous-continue** (I act on my recommendation and
+keep going to a named stop) by saying so. `/r-commit` is my standing right in either mode. Carried
+**once, with the Step 6 surface**, **never on a turn that rules a carried finding, and never sharing a
+turn with an options-bearing recommendation** (if the next action is a real fork, it takes its turn
+alone per the Step-6 rule above and this notice rides to the next turn). The default holds unless you say
+otherwise.
 
 ---
 
