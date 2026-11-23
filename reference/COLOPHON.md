@@ -75,7 +75,7 @@ Linck image; both Trust and Steering now duotone both elements).
 | *Tableau encyclopédique et méthodique* | 1791 | echinoderms, cephalopods, &c. | candidate — Steering (Asterias pl.) |
 | G. W. Knorr, *Delights of the Eyes and Mind* | 1760s | shells, marine life | not yet used |
 | Jonston / Merian, *Historia Naturalis* | 1657 | closest to Lister's era; clean PD scans scarce | not yet located |
-| M. E. Bloch, *Allg. Naturgeschichte der Fische* / *Ökon. Naturg. der Fische Deutschlands* / *Ichthyologie* | 1782–95 | freshwater + marine fish (pike, perch, roach, eel, sturgeon) — hand-coloured copperplate | candidate — **Deciding** (pike *Esox lucius* L., pl. 32) |
+| M. E. Bloch, *Allg. Naturgeschichte der Fische* / *Ökon. Naturg. der Fische Deutschlands* / *Ichthyologie* | 1782–95 | freshwater + marine fish (pike, perch, roach, eel, sturgeon) — hand-coloured copperplate | ✅ **USED — Deciding** (pike *Esox lucius* L., pl. 32; `esox-lucius-bloch`, Conv 056) |
 | William Yarrell, *A History of British Fishes* | 1836 | British fish — **uncoloured wood engravings** (purest line) | candidate — freshwater fish (pike/perch/eel) |
 | Edward Donovan, *Natural History of British Fishes* | 1802–08 | British fish — hand-coloured engravings | candidate — freshwater fish |
 | A. J. Rösel von Rosenhof, *Historia naturalis ranarum nostratium* | 1758 | frogs (+ dissections/skeletons) — hand-coloured engravings | candidate — amphibians |
@@ -90,7 +90,7 @@ source page) and criterion 4 (view the real plate, never a title match) still ga
 [checked: WebSearch, Conv 049]
 
 **Freshwater fish (engraved)**
-- 🎯 **Deciding lead — Bloch, northern pike (*Esox lucius* L.).** Bloch's hand-coloured copperplate of the
+- ✅ **Deciding — USED (Conv 056): Bloch, northern pike (*Esox lucius* L.).** Bloch's hand-coloured copperplate of the
   pike is **plate 32** of *Ökonomische Naturgeschichte der Fische Deutschlands* (Tome 1, 1783); the
   Linnaean binomial fits the "Linnaeus" nod. All plates digitized at **Univ. Heidelberg** and **Univ.
   Strasbourg**; a French-edition variant at **Gallica**; Commons **`Category:Esox lucius`** (+ an
@@ -132,3 +132,12 @@ source page) and criterion 4 (view the real plate, never a title match) still ga
   below-the-fold image isn't fixed by a plain Cmd+Shift+R (the deferred fetch still hits the cache). Bust
   it by **renaming the file** (new URL) or **"Empty Cache and Hard Reload"** (DevTools open → right-click
   the reload button). Production never hits this — built asset URLs are content-hashed.
+- ✅ **Hand-coloured plates duotone cleanly (proven Conv 056 — Bloch pike, Deciding).** Criterion 2's
+  hand-colour caveat is real but **not a bar**: `-colorspace Gray` desaturates the colour *before*
+  `+level-colors` re-inks it, so a hand-coloured plate joins the uncoloured-line set as one duotone family
+  (verified against the Trust/Steering engravings).
+- 🔴 **Crop tight to the page BEFORE duotoning — it fixes the levels.** Cropping the plate to its own page
+  (keep the printed writing + any library stamp if the operator wants them; drop the dark book edges,
+  facing page, and under-page fore-edge) lets the `-level` stretch map the full ink→paper range properly —
+  **the dark book pixels otherwise skew the level stretch** and muddy the result. A book-spread scan is a
+  fine *source*; the crop does the cleanup. (Learned Conv 056 on the Bloch book-spread scan.)

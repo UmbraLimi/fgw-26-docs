@@ -19,226 +19,12 @@ is **live**, not what is finished.
 > 🎉 **Launch milestone done** — `[SITE-GO-LIVE]` ✅ Conv 032; the Conv-007 critical path is complete.
 > **Post-launch presence thread** (added Conv 035): `[SOCIAL-MAKEOVER]` is now **✅ done** (LinkedIn Conv 036,
 > X.com Conv 037). The two rows below remain: the standing **GSC monitor**, and the **posting plan** (now
-> unblocked by the makeovers). Order as the operator listed them. **Added Conv 048:**
-> `[DOSSIER-FORMAT]` leads the section (content-process; operator placed it ordered).
-
-### [DOSSIER-FORMAT] · promoted Conv 048 · codify the richer graduated-dossier format into the process
-📐 **From the Steering graduation (Conv 048).** `docs/content/steer-ai-to-build-what-you-mean.md`
-introduced a fuller dossier than Trust's retroactive record — a **per-step finalize record** (§5), a real
-**piece-decision home** (§6), plus **how-it-was-made** and **interlinks** sections. It worked well; the
-operator wants Deciding "more rigorous still".
-**Task:** bake this shape into the process so it's the standard, not reconstructed each graduation —
-decide where it lives: `GUIDE-REVIEW.md` **step 15** (what "graduate" writes) and/or the **`r-content`**
-dossier template (what the live board row accrues). The Steering dossier is the worked reference.
-Ideally landed **before Deciding graduates** (Deciding starts next conv; its graduation is a few steps
-out, so no rush to start). (Promoted Conv 048 from the hopper.)
-🎯 **Conv 052 — now the active capture point for pipeline learnings** (operator: "the pipeline is the
-product; the guide is the occasion"). As Deciding finishes, fold every *how-any-guide-is-made/reviewed*
-learning from the Trust→Steering→Deciding runs into the pipeline docs (`GUIDE-CREATE` / `GUIDE-REVIEW` /
-method), never leaving it in a single piece's dossier, and **drive this row to close before Deciding
-graduates**. The split that keeps it honest: piece-specific calls → the dossier; process calls → the
-pipeline docs. ✅ Folded Conv 052: the **aside-length check** (`GUIDE-REVIEW` steps 4/10); the
-**breadcrumb/intent-not-prose** principle for the points round-trip (`GUIDE-CREATE` step 6).
-✅ Folded Conv 053: the **heading FAQ/GEO-liftability scrutiny** — read each H2 cold, out of the page, and
-seat the subject if the lift goes vague (`GUIDE-REVIEW` step 5, `DEC-053-1`; worked example = Deciding §4 retitle).
-
-### [GUIDE-DECIDING] · added Conv 049 · "Should you build it all yourself, or bring someone in to help?" (3rd cornerstone)
-📄 The **Deciding** cornerstone guide — the 3rd and last of the first three. A draft predated `/r-content`;
-dossier scaffolded Conv 049 (compared doc-derived "B" vs rigorous retrofit "A"; **operator chose A**).
-slug `build-it-yourself-or-bring-someone-in` · pillar `deciding` · order 3 · `draft: true` · dark behind
-`CONTENT_HOME_LIVE` + `[PROD-DEPLOY-BAN]`.
-
-**Take (A, rigorous):** the call isn't a feeling, it's a **test you can run on each part** — *do I
-understand what it does?* × *does my business depend on it?* The quadrant tells you keep / learn / watch /
-bring-someone-in. AI raised the floor (self-build goes further than you'd expect) but pushed the
-load-bearing parts to the end, where an explicit test beats a gut call. A clear test is *more* empowering
-than "trust your unease" — it names which part and why.
-
-**Outline / approved arc (A — seat as the on-arc comment block at redline step 1):**
-1. **Short answer** — reworded off "honestly": build yourself as far as you can *stand behind*; bring
-   someone in for the specific part your business leans on that you can't verify or fix.
-2. **Home-repair analogy** — kept, tied to the test ("open the wall" = a load-bearing part you can't judge).
-3. **H2 "Hasn't AI made bringing someone in unnecessary?"** — floor-not-ceiling; hard parts moved to the end.
-4. **H2 "How do I test each part?"** — 🆕 rigorous core: an **Eisenhower-style 2×2**, *understanding*
-   (can I judge/fix it?) × *dependence* (does my business lean on it?), **shown as a matrix in the guide**
-   (operator, Conv 049). Four cells: **Keep** (understand/low-dep), **Own it** (understand/high-dep),
-   **Leave it or learn it** (black-box/low-dep), **Bring someone in — or learn it** (black-box/high-dep =
-   the one cell that forces a call; sub-fork: delegate vs grow-past-the-limit). Promotes the test buried
-   in the draft's keep/restart §. 🔧 Matrix render = a later design call (static table or inline SVG,
-   legible both themes; simpler than `[PILLAR-DIAGRAM]`'s interactive build).
-   🖼️ **Matrix figure BUILT Conv 053 (`DEC-053-2`):** styled HTML business panel (`.decision-matrix` in
-   `global.css` + raw `<figure>` in the guide) — sans font, green/red stop-go cells, named axes
-   (Understanding × Risk), two-line scenario+question title, equal rows, theme-adaptive. Cell/axis wording
-   still PROVISIONAL (final pass). Stills: `.scratch/deciding-matrix-v5-{light,dark}.jpg`.
-5. **H2 "Where am I on the path, really?"** — the three places, framed as *where the test sends you*. → `/phases/`.
-6. **H2 "What do I keep, and what do I start over?"** — keep simple+understood, rebuild tangled+load-bearing;
-   the start-over trap (gaps = unasked questions) — now a consequence of §4, not a separate idea.
-7. **H2 "When is it genuinely time to bring someone in?"** — the specific unverifiable business-critical
-   part; two signals seated as **intuition** (the unease that won't go away — Trust/Steering throughline)
-   + the mechanical signal (can't-change-without-breaking). → the work I do + soft CTA `/contact/`.
-🔴 **A is an arc change** (promote the 2×2, re-sequence cause→consequence), so redline step 1 reconciles
-the existing draft body to this arc — not a prose-only pass.
-
-🔲 **Matrix — working spec (Conv 049; all wording PROVISIONAL — operator finalizes at the final pass):**
-- **Title/question above the matrix:** *"Should I bring someone in to help (me)?"*
-- **Cell labels — decision-led (A):** *No — carry on* · *No — you've got it* · *No — it doesn't matter* ·
-  **Yes — bring someone in, or learn it** (each cell answers the title-question).
-- **Colour:** the three "No / keep going yourself" cells one **calm** tone; the "Yes / get help" cell a
-  distinct **warm** tone (legible in both themes).
-- **Axis explanations = small figure text BELOW the matrix** (not just terse axis labels):
-  - **Columns (X):** frame as **"risk to you if something goes wrong"** (stakes). "Dependence" is the same
-    idea but *vaguer* — lean to the risk framing.
-  - **Rows (Y):** **"your understanding of how the entire system works."**
-
-**Checklist (lifecycle order, live from the docs Conv 049):**
-Creation (`GUIDE-CREATE.md`):
-- [x] Slot — pillar `deciding` in `pillars.ts`; **colour set Conv 051** (`--pillar-deciding: light-dark(#8a4e9e,#a06ec0)` plum; `PILLAR_META.color`). All 3 live pillars coloured + validated (dataviz, both modes); feeds `[PILLAR-DIAGRAM]`
-- [x] Take drawn out (A) · [x] Outline/arc approved (A) · [x] `✎ ARC` on-arc block seated in the draft (Conv 049, `31ae6a9`)
-- [x] First draft exists · [x] **body reconciled to the approved A-arc — whole-draft rewrite committed + pushed Conv 049** (fgw-26 `31ae6a9`, 18:55)
-- [x] **Coordinate view generated (Conv 050, GUIDE-CREATE step 5)** — `.scratch/deciding-view.txt` (`number-content.mjs`, 28 blocks).
-- [x] **Point-form skeleton + augmentation round-trip (Conv 050–052, GUIDE-CREATE step 6, `DEC-050-2`)** — faithful skeleton (Conv 050); **operator augmentation pass DONE Conv 052** (P2 capacity drop, P3 naive framing, P5 pure-gold + candor relocation, P8 lead-in B, P18 sharpening, P22 heading C, P23 third option, P24 rewrite) + CC's four arc reinforcements seeded.
-- [x] **Second draft written from the augmented points (Conv 052, GUIDE-CREATE step 6c)** — whole-draft pass, build-clean, still `draft:true`/dark. Carries all operator edits + the four arc reinforcements (progression, "seen this path," growth throughline, journey-metaphor) + the P3→P6 naive→judgment callback + the keep/rebuild/hand-off three-way. On-arc comment refreshed (item 6 + Conv-052 refinements). ⬜ **Next: operator's whole-piece read (GUIDE-REVIEW step 1).**
-Finalize (`GUIDE-REVIEW.md`, in order):
-- [x] 1 Coordinate-view redline — **COMPLETE, whole guide P1→P32 (Conv 053 §1–§4; Conv 054 §4-grids→§8 close)**. Conv-053: §1–§4 redlined + the §4 matrix figure built (`DEC-053-2`). Conv-054: the two grid-interpretation paras (P14/P15); **new §7 section added** — "Can I really learn enough on my own when I reach my limit?" (the self-path arm of the danger-cell fork, loose-binding to `/phases/`; P16 trimmed to hand off); §5 reworked (P17 retitled "Which phase of building with AI am I in?", P18 phases/unembraced-straw-man, P19 merged, P22 straw/tin/steel bridge + places→phases fix); §6 grid-anchor + "another question" ordinal fix; "the test" bound to its §4 home (P9); P31 "experience"→"intuition"; §8 close rewritten (solid software, "then I'm happy", CTA). Guide now **32 blocks**; `.scratch/deciding-view.txt` current. (DEC for the new §7 section + the loose-binding call → `/r-end`.)
-- [x] 2 "It" pass (default it = your AI-built software) — **Conv 054: clean.** Default "it" = the build holds throughout; only fix was P15 "the impact it's had" → "the impact that change has had" (named the AI's change; killed an AI/suggestion/part three-way). P27 learning/part "it" cluster + P30 "settle it" judged below the bar, left.
-- [x] 3 Anecdote check — **Conv 054: no concrete anecdote, by decision (operator).** A success-story ("a client asked me to look, it worked out well") reads self-serving next to the CTA in the conversion cornerstone — against the persona (credibility by proof, not self-praise). The from-experience *register* carries it instead ("I've sat with people at each of these", "that's the work I do, people bring me software…"). **P32 `✎ ANECDOTE` placeholder removed.** (If ever revisited, the only non-self-serving form is a *teaching* anecdote — mechanism, not outcome.)
-- [x] 4 Glossary (3–5 terms) — **done Conv 055** (operator). 4 terms in the draft frontmatter: *AI-built software*, *Load-bearing*, *Black box*, *Bring someone in* (within 3–5, definitions present). The **aside-length visual check** defers to **step 11** (needs the rendered page + the pending colophon image; already tracked there).
-- [x] 5 Headings (H2 = NL questions; FAQ-lift nouns) — **done Conv 055.** Cold-read all 6 H2s. **#4 reseated** via the §6 whole-section rewrite → "When my build stalls, do I push on, start over, or get help?" (see decision below). **#5 reseated** → "Can I really learn **the hard part** myself when I reach my limit?" (seated the object; aligns §7's "the part that stops you"). **Left as-is:** #1 ("Hasn't AI made bringing someone in unnecessary?" — "AI" seats it; bookends #6), #3 ("Which phase of building with AI am I in?" — "building with AI" seats it), #6 ("When is it genuinely time to bring someone in?" — answer seats it; bookends #1). #2 already seats ("…parts of my AI-built software…"). All seats used **varied, non-entity** words — no new "AI-built software" added (step-6 over-seeding guard).
-- [x] 6 Entity naming + over-seeding audit — **done Conv 055.** Trimmed shipping "AI-built software" from **5 → 3** (kept the three highest-signal seats: glossary definition, H2 #2 "How do I find the parts of my AI-built software I'm unsure of?", matrix caption — definition + liftable heading + standalone figure). **Varied 2** (the stuffed §3→§4 cluster around the H2): §3 "part of your AI-built software" → "part of what you built"; §4 lead-in "Look at your AI-built software" → "Look at your build". Step 5 added none (guard held). The §6-title over-seeding park is moot — §6 was rewritten (no entity in the new heading). (`✎ ARC` comment instance strips at the pre-flip gate — not shipping.)
-- [x] 7 Conjunction audit — **done Conv 055, leave as-is** (operator). 11 sentence-initial conjunctions across ~30 blocks (And 4 / But 3 / So 3 / Or 1) — in-register, consistent with Trust/Steering; §6 & §7 each stack 3 but not egregiously. No changes.
-- [x] 8 Metaphor audit — **done Conv 055.** Home-repair metaphor coherent as a unit (§2 intro: house/open-a-wall/wiring → §4 "wiring behind the wall" echo + "load-bearing"); other families (journey/path, straw-tin-steel, black box, blind spots) sit in distinct roles, no clash. **One change (operator):** §6 "Grinding on a black box doesn't make it any clearer" → "Pushing harder won't make a black box any clearer" (dropped the stray grindstone metaphor; echoes the section's "push on" frame).
-- [x] 9 Signature-phrase / AI-tell audit (added Conv 054) — **done Conv 054.** Rulings (now logged in `VOICE.md`): **"leans on"** always-change → "relies on" ×3 body + glossary def (snippet's deferred to step 14); **"stand behind"** cut 4→1 (kept P2 thesis; P6→"vouch for", P7→recast "that line moves", P28→"be sure of"); **"load-bearing"** kept (1 body use at P16 earns it; ~1/guide allowed); **"reach"** varied the P27/P28 proximity ("reach that bar"→"get to that bar"), kept the growth-throughline "your reach". Alternatives lists accrue in `VOICE.md`.
-- [x] 10 Pull quote — **done Conv 055.** Seated at the §6→§7 seam (before "Can I really learn the hard part…"): "> Bringing someone in doesn't replace your learning; it accelerates it." Distilled standalone one-liner per the Steering convention (not a verbatim body pull), growth-framed (operator pivoted from the §3-thesis idea to a help-accelerates-learning angle); markdown blockquote, unquoted. Block count 32 → 33; P#s after the seam shifted +1 (pull quote = P26, §7 heading now P27).
-- [ ] 11 Rendered read (incl. the step-4 **aside-length** visual check — scroll desktop, confirm sticky image+glossary fit). ⚠️ **+ §5 stage-markers revisit (deferred Conv 054):** the bold *Early on / Further along / Further still* (P19/P20/P21) read as a *sequence* but don't cleanly map to discrete "phases" (vs the H2 "Which phase…" + P18 "first/second/third"); *"Early on (in what?)"* mildly unanchored. Reconcile progression-feel vs phase-labels reading it in context — keep all three markers consistent whichever way.
-- [x] 12 Em-dash sanity check — **done Conv 055, recast all 10 to zero** (operator — match Trust/Steering). §2/§3/§5/§8 prose dashes → commas/colons/periods; the two §4 bullet label-dashes (Understanding/Risk) → colons; the §8 parenthetical pair → comma-appositive + sentence split. Rendered body now em-dash-free; the only remaining `—` are in the `✎ ARC`/`✎ FIGURE` HTML comments (invisible on-page + strip at the pre-flip gate).
-- [x] 13 Colophon selection + fitting — **DONE Conv 056. Bloch *Esox lucius* pike** (plate 32, *Ökon. Naturg. der Fische Deutschlands* Tome 1, 1783; del. Krüger / sc. A. F. Schmidt; **BNU Strasbourg** scan via aphelis.net). Plate sourced + **viewed/subject-confirmed (criterion 4 ✅)**; **hand-coloured accepted (criterion 2, operator)** — the duotone recipe desaturates it cleanly, reads as one family with Trust/Steering (first hand-coloured plate in the set; Yarrell uncoloured-line alt declined). PD basis = **pre-1931 age** (1783; US faithful-repro / aphelis states PD) — same standard as Trust/Steering. Operator framed the **512² square** (fin + flank, pattern-forward); operator directed the **colophon crop to maximize the page, keeping captions + both credits + the oval BNU stamp**, dropping book edges / facing page / under-page fore-edge. CC treatment: duotone `-colorspace Gray -despeckle -level 2%,84% +level-colors '#2b2114','#efe7d2'` on both. Built `fgw-26/src/content/images/esox-lucius-bloch/` (`source.jpg` pristine + `square.png` + `colophon-duotone.jpg` + `provenance.json`); wired Deciding `image: esox-lucius-bloch`. **Verified in `astro dev`:** page 200, both assets serve as webp (square 360², colophon 520×272), credit line renders. Candidates/proofs in `.scratch/deciding-colophon-*` + `deciding-square-*`.
-- [x] 14 Card + SEO/GEO snippet match — **done Conv 055.** Snippet: applied the deferred step-9 fix ("leans on" → "relies on"); otherwise unchanged (answer-first, GEO-liftable, matches the finished guide). Card description reworked (operator): opener → "AI puts far more of your own software within reach than it used to" (seats "your own software," sets up the "skill isn't building" pivot); "which parts you can finish" → "count on" (reframes completion → trust/soundness, aligns the card with the thesis). Em-dash-free.
-- [x] 15 Cross-linking — **3-cornerstone interlink mesh DONE Conv 056** (`astro check` clean, 0 errors). Added **Deciding→Trust** (§3, "whether the thing holds up when it matters") + **Deciding→Steering** (§3, "steer the tool well"); **Trust retrofit →Steering** ("might not have given it enough to go on") + **→Deciding** (close, "worth bringing in another set of eyes"); **Steering** already linked both — cleaned its Deciding anchor from the raw slug `build-it-yourself-or-bring-someone-in` → prose "whether to build it all yourself, or bring someone in". All **phrase-wrapped** (no new prose, em-dash-free). ⬜ **Deferred (hoppered Conv 056):** (a) the `[GUIDE-PLANNING]` forward-link from Steering's planning para — no planning guide exists yet; (b) the **FAQ→`/guides/` on-ramp** — `faq.astro` renders answers as escaped plain text, so it goes in the bottom cross-link para at flip (not while dark).
-- [x] 16 Masking check — **done Conv 056, clean.** No concrete client anecdote (Conv-054 decision); full-text + first-person scan found zero client/source/target/language/named-engagement signals. No `/work/` or `/record` case-study link to bridge a quote to a de-identified case. The from-experience register ("I've sat with people", "People bring me software…") is generic. No generalization needed.
-- [ ] 17 Final whole-page review → declare final → graduate to `docs/content/build-it-yourself-or-bring-someone-in.md`, retire row
-
-**Decisions (piece-specific, accrue here):**
-- **Conv 049:** adopted arc **A** (2×2-test spine, re-sequenced) over B (keep-draft-arc). The 2×2 was latent
-  in the draft (§ "do I understand… does my business lean on it"); A promotes it to the spine.
-- **Conv 049:** the decision test is an **Eisenhower-style 2×2** (understanding × dependence), and it is
-  **rendered as a visible matrix in the guide** (operator). Only the black-box × high-dependence cell
-  forces a call; the other three are "you're fine."
-- **Conv 049:** that danger cell carries a **third route — learn it / grow past the limit** (operator,
-  "most definitely"), not just bring-someone-in — echoing Trust's "know your limits, and grow past them."
-  Delegate vs invest-to-learn is the sub-fork (stakes / runway).
-- **Conv 049:** matrix cell labels are **decision-led (A)** — each answers the matrix title-question
-  *"Should I bring someone in to help (me)?"* with No/Yes + nuance; colour groups the three No/keep-going
-  cells vs the one Yes/get-help cell. Axis explanations go in small figure text below (X = "risk if it goes
-  wrong", vaguer as "dependence"; Y = "your understanding of how the whole system works"). All wording
-  provisional — operator finalizes at the final pass. (See 🔲 Matrix working spec above.)
-- **Conv 049:** matrix cells are **software-filled**, with home-repair as a **prose echo** (operator chose
-  A over a home-repair-filled matrix). Working fills: *Keep* = a copy tweak / settings toggle; *Own it* =
-  your core workflow logic; *Leave it or learn it* = an animation lib you didn't write; *Bring someone in
-  or learn it* = auth / payments / data handling. Home-repair echo lands on the danger cell in prose
-  ("the wiring behind the wall").
-- **Conv 052 (snippet, in light of the title):** reworked the SEO/GEO snippet — old opener *"Most of a
-  build is now yours to do with AI…"* presupposed a leftover portion you always hand off, contradicting P5
-  ("for plenty of projects you may need no one"). New (option B): *"Build as much as you can with AI; for
-  many projects you may need no one. Bring someone in only for a part your business leans on that you can't
-  check or fix."* Answer-first + GEO-liftable; makes help conditional. Description left as-is (already fits).
-- **Conv 052 (keep/rebuild section, P22–24):** added a **third choice** — the section was keep-vs-rebuild
-  (two-way), now **keep / rebuild-yourself / hand off** (operator). This reconciles a gap with the matrix:
-  the tangled + load-bearing + can't-judge parts are the danger cell's "bring someone in," so "rebuild it
-  yourself" alone contradicted the spine. Heading retitled (C): *"What do I keep, and what should I start
-  over?"* → **"What do I keep, rebuild, or hand off?"** (names all three; FAQ-liftable). **P24 rewritten**
-  to carry the hand-off: rebuild the parts you understand, hand off / get a read on the can't-judge part —
-  the start-over trap (gaps = unasked questions) becomes the case for option three, while agency is kept on
-  the parts you own. Seeded at P23/P24 in the local-only points file.
-- **Conv 052 (matrix presentation):** the 2×2 appears **once, filled, immediately after the P8 lead-in**
-  (grid-count A) — answers live in the cells; P13–15 prose *interprets* (examples + home-repair echo), it
-  does not restate the cell verdicts. Rejected: empty-frame-first-then-filled-payoff (two figures, staged
-  but textbook-y) and empty-frame-only (loses the filled grid as a scannable, GEO-liftable artifact). The
-  P8 lead-in (B) stands because the adjacent grid is filled. Decides the figure build.
-- **Conv 052 (title):** retitled *"Should you build it yourself or bring someone in?"* →
-  **"Should you build it all yourself, or bring someone in to help?"** The old title read as a *before-you-
-  start* fork (build vs hire); the decision actually arrives per-part, well after you've begun. "all"
-  reframes it to *how far you take it* (matches the Short answer's "as far as you can stand behind"); "to
-  help" signals partial, specific-part assistance (matches the glossary + P28). Slug/description/snippet
-  unchanged (already aligned); H1 + meta title only.
-- **Conv 052 (points round-trip, P3→P6 arc):** P3's capability framing ("too much for you," "past your
-  abilities," "a skill you can develop") is an **intentional naive setup, not drift** (operator) — it's the
-  would-be AI developer's POV at the *start* ("am I up to this?"), which **P6 then corrects** to the
-  judgment/"stand behind" framing ("not about your capability — about whether a part outgrew what you can
-  stand behind"). It walks the reader's own solo journey (beginning → partway through) and shows we know it's
-  coming. 🔧 P6 must land an **explicit callback** to the naive framing when redrafted (seeded in the points
-  file). Note: this is distinct from the P2 drop — P2 cut capacity from the *test-axis preview*; P3 keeps it
-  as the *reader's naive entry point*.
-- **Conv 052 (arc reinforcement, operator-approved):** the reader's-own-journey arc (start → partway →
-  further, walked alone, we show we understand it) gets **four reinforcements seeded for the second draft**
-  (in the local-only `deciding-points.txt` ARC REINFORCEMENT block + inline P17/P15/P27/P28 pointers):
-  **#1** write §"Where am I on the path" (P17–P21) as a *progression*, not a menu of three types (+ stage
-  markers P18–P20); **#2** one quiet "I've watched many people walk this path" beat (P17, echo at the P28
-  close); **#3** growth throughline linking P3 "a skill you can develop" → P15 "grow past the limit" → P27
-  "your experience talking" (payoff: reader ends more able to make the call); **#4** journey-metaphor
-  consistency across P2/P16/P21/P28. ⚠️ Seeds live only in the gitignored points file until the second draft.
-- **Conv 052 (P5, candor relocation):** dropped the candor beat ("I'd rather tell you that than sell you a
-  service you don't need") from P5's opening concession and **relocated it near the close/CTA** (seeded at
-  P28, operator) — it reads better once the reader understands the arc, and makes the soft CTA non-pushy. P5
-  keeps the empowerment concession ("you may never need anyone"; "pure gold / in the zone"). Seed lives in
-  the local-only points file.
-- **Conv 052 (points round-trip, P2):** dropped the **capacity** angle ("too much for you") from the Short
-  answer. The test the guide delivers measures only **understanding × risk**; capacity is a different kind
-  of call (a resource/delegate decision, not a judgment one) and reads as minor here — so the opener now
-  previews the same two axes the test uses. Capacity's residue stays where it already lives: P15's runway
-  sub-fork and P20's "hand off the out-of-depth sections."
-- **Conv 053 (§1–§3 redline):** Short answer → "build **as much of it** yourself as you can stand behind"
-  (object stated once, no double-"it"); home-repair "**ambitious** jobs" + kept the self-empowerment beat;
-  §3/P5 kept "pure gold / in the zone / Keep going!". **§3 (P6) floor/ceiling metaphor RETIRED** for plain
-  "entry barrier lowered, the hard parts moved to the end" (the metaphor read as unclear; ✎ ARC updated).
-  **New §3-close paragraph** — "your reach keeps growing as you develop with AI" (growth-throughline §3
-  node), framed as *what you can stand behind* expanding (not "more capable"), to stay on P6's spine.
-- **Conv 053 (§4 retitle):** "How do I test each part?" → **"How do I find the parts of my AI-built software
-  I'm unsure of?"** — doubt-framed (reader already senses an area of doubt) + entity seated so the FAQ-lift
-  reads standalone (generalised into `GUIDE-REVIEW` step 5, `DEC-053-1`). P9 lead-in kept (pluralised "those
-  parts"), given two bullets **Understanding / Risk** mapping to the matrix axes.
-- **Conv 053 (matrix build + wording):** rendered as a standalone business figure (`DEC-053-2`); axes named
-  **Understanding × Risk** (X-title "Risk if you get it wrong" spans its columns; short "Low/High Risk"
-  labels); two-line title ("I am worried about one part of my AI-built software" / "Should I bring someone in
-  to help?") so it stands alone; cells = *Keep going* / *You've got it* / *But keep an eye on it* / *Bring
-  someone in, or learn it*; bottom axis-caption dropped (redundant with named axes). All matrix wording
-  **PROVISIONAL** until the final pass.
-- **Conv 054 (§7 self-path section added):** a new H2 "Can I really learn enough on my own when I reach my
-  limit?" seated before §8 — the self-path arm of the danger-cell fork (learn-it-yourself), given its own
-  room; P16 trimmed to introduce-and-hand-off. **Loose binding to `/phases/` (A over tight-mirror B /
-  middle C):** the guide stays the solo reader's *lived* progression (who often doesn't cleanly restart),
-  while `/phases/` owns the disciplined straw/tin/steel fresh-start method; P22 bridges to it ("line up with
-  the straw man / tin man / steel man … how I work through them myself"). The "unembraced straw man" (kept
-  building without ever calling it a first attempt) woven into P19.
-- **Conv 054 (no concrete anecdote):** the `✎ ANECDOTE` placeholder removed — a success-story reads
-  self-serving next to the CTA in the conversion cornerstone (persona: credibility by proof, not
-  self-praise); the from-experience *register* carries it. If ever revisited, only a *teaching* anecdote
-  (mechanism, not outcome) fits.
-- **Conv 054 (§6 title deferred):** "What do I keep, rebuild, or hand off?" left un-retitled — the per-part
-  "Which parts…" seat would have added a 7th "AI-built software"-adjacent keyphrase (over-seeding watch).
-  The body already reads per-part; title liftability + over-seeding both revisit at step 6.
-- **Conv 054 ("the test" bound):** the promised "simple test" (P2) was delivered in §4 but never named
-  there; bound in P9 ("The test is simple.") so the P24/P27 "the test" references resolve.
-- **Conv 054 (signature-phrase pass, `DEC-054-2`):** "leans on" → "relies on" (always-change tic); "stand
-  behind" cut 4→1 (kept the P2 thesis; P6 "vouch for" / P7 recast / P28 "be sure of"); "load-bearing" kept
-  (1 earned use); "reach" proximity varied. Mechanism + lists in `VOICE.md`.
-- **Conv 055 (§6 whole-section rewrite + heading, operator-directed):** the section was reframed. Old
-  frame (keep / rebuild / hand off, with "starting over is a trap") **contradicted the straw→tin→steel
-  method (§5/§7)**, which advocates restarting. New frame: §4's grid has flagged the *risky black-box*
-  parts; §6 decides what to do about a **stalled** one, three moves — **push on** (hopeless, you're
-  already stalled) / **start over** (legit, it's what straw→tin→steel is for, but no sure thing — a blind
-  self-redo inherits the same unasked-question gaps) / **get help** (fresh eyes, fresh ideas). Heading → **"When my build stalls, do I push on, start over, or get help?"** (supersedes the
-  interim "…keep, rebuild, or get help on?"; matches the new triad + sibling single-question shape; seats
-  via "my build"; retires the Conv-054 over-seeding park). Em-dash-free; "relies on" (not "leans on"); no
-  new "stand behind"/"be sure of" (avoided echoing §7's closer). **§6 CTA dropped** (operator, Conv 055) —
-  it lives only in §8, which already carries it ("that's the work I do… get in touch"); resolves the §6/§8
-  CTA redundancy. **Straw/tin/steel not named in §6** — the reframing alone kills the old contradiction;
-  the method stays named at §7's `/phases/` bridge. **Block count unchanged (2 paras);** view regenerated
-  (202 lines; §6 = P23 heading, P24 S1–S6, P25 S1–S8). S3 + S6–S8 smoothed Conv 055 (operator flagged
-  awkward); S6 keeps the "put them to the AI" beat, active voice.
-
-**Published:** _pending — dark behind the flip + `[PROD-DEPLOY-BAN]`._
-🔗 On finish: the **3-cornerstone interlink** fires at review **step 15** (Cross-linking; `DEC-054-3`) — Trust/Steering/Deciding + the
-`[GUIDE-PLANNING]` forward-link).
+> unblocked by the makeovers). Order as the operator listed them. **Conv 056:** all three cornerstone
+> guides (Trust / Steering / Deciding) are **graduated**, and `[DOSSIER-FORMAT]` is codified + retired —
+> so the two rows below (GSC monitor + posting plan) are what remains ordered. The **guides-only launch
+> (Phase 2)** runs next conv: flip `CONTENT_HOME_LIVE`, amend + lift `[PROD-DEPLOY-BAN]`, suppress the
+> `/guides/` blog section, settle `[BLOG-REDIRECT]`, deploy (see `[SITE-CONTENT-HOME]` + the 4 carried
+> hopper items).
 
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
@@ -637,6 +423,16 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 056:** **`[GUIDE-DECIDING]` graduated (3rd cornerstone) + `[DOSSIER-FORMAT]` codified.** Deciding
+  finalize: step 11 (rendered read — operator declared guide + glossary perfect; §5 markers kept), step 13
+  (**Bloch *Esox lucius* pike** colophon — sourced + viewed + duotone-treated + wired, the first
+  hand-coloured plate in the set), step 15 (**3-cornerstone cross-link mesh** + Trust/Steering retrofit),
+  step 16 (masking, clean), step 17 (**declared final**, matrix wording + card opener finalized, all
+  `✎` markers stripped, **graduated** → `docs/content/build-it-yourself-or-bring-someone-in.md`, row
+  retired). `[DOSSIER-FORMAT]`: 8-section graduated-dossier template codified into `GUIDE-REVIEW` step 17
+  + `r-content`; pipeline learnings folded into `COLOPHON.md` + step 15. Also: 2 hopper-ruling fixes
+  (`check-ab-options` quoting, `r-start` Step 6 two-A/B) + a CLAUDE.md `check-promises` parallel mention.
+  Deciding held dark pending the guides-only flip (`CONTENT_HOME_LIVE` + `[PROD-DEPLOY-BAN]`).
 - **Conv 055:** **Deciding finalize steps 4–14 (minus 11/13) + agent-discovery watch + a no-op-promise
   Stop hook** (content + process; `[GUIDE-DECIDING]` stays open). Deciding: glossary confirmed (4);
   headings (5) — **§6 reseated via a whole-section rewrite** (reframed off keep/rebuild/hand-off, which

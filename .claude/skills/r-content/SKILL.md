@@ -37,6 +37,12 @@ Add it to `CURRENT-TASKS.md` (🔥 Ordered or 📋 Unordered — operator's call
 - **Decisions** — piece-specific calls accrue here as made, **not** in `DECISIONS.md` (project/process only);
 - **Published** — a line to fill with status + date when it ships.
 
+🔴 **The row accrues *toward* the graduated-dossier shape** (`GUIDE-REVIEW` step 17's 8-section template,
+`DOSSIER-FORMAT`): the Take / Outline / Decisions here, plus the **per-step outcomes the checklist records
+during the finalize pass** and the build history, become §1–§8 at graduation — so graduation **reshapes**
+this row, it does not rebuild it. Record each step's outcome on its checklist line as you go (that is §5's
+raw material).
+
 🔴 The checklist is a **snapshot of the docs as they are now**. If the process docs change later, a fresh
 `/r-content` reflects it — an already-created row does not auto-update.
 

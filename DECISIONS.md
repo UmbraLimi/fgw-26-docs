@@ -8,6 +8,66 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 056
+
+### DEC-056-4 — the graduated-dossier format is codified into the pipeline (`DOSSIER-FORMAT`)
+**Decision:** The richer **8-section graduated-dossier shape** (header block + **1** Take · **2** Outline ·
+**3** How-it-was-made · **4** Image · **5** per-step finalize record · **6** Decisions · **7** Interlinks ·
+**8** Published), proven by the Steering dossier, is codified as the standard: `GUIDE-REVIEW` **step 17**
+now carries the explicit template (what "graduate" writes), and `r-content` Step 3 notes the live board row
+**accrues toward** that shape (reshape at graduation, don't rebuild). Two process learnings from the
+Trust→Steering→Deciding runs are folded into the method docs: `COLOPHON.md` (hand-coloured plates duotone
+cleanly; **crop tight before duotoning** to fix the level stretch) and `GUIDE-REVIEW` step 15 (phrase-wrap
+existing body phrases as anchors, reword raw-slug anchors, defer forward-links to unbuilt guides, FAQ
+on-ramp at flip). Step 17's marker-strip broadened to the full **`✎`-family**.
+**Rationale:** The Steering graduation reconstructed the fuller dossier ad hoc; without codification each
+graduation reinvents it (drift + effort). Baking the template into the graduate gate makes it a spec, not a
+memory feat. The alternative — leave the shape as a worked example to copy — lost: a copied example drifts
+and isn't discoverable at the moment of graduating. Homed in **both** step 17 (graduated shape) and
+`r-content` (live-row accrual) because they are different moments of one record; learnings go to the
+pipeline docs (not a single dossier) per the "process calls → pipeline docs; piece calls → dossier" split.
+**Consequences:** Deciding is the **first dossier written to the spec**
+(`docs/content/build-it-yourself-or-bring-someone-in.md`). Fixed a stale "step 15" → step 17 reference.
+`[DOSSIER-FORMAT]` row retired.
+
+### DEC-056-3 — guides-only launch: go live with the 3 cornerstones, suppress the blog section
+**Decision:** Launch the content home with the **three cornerstone guides only** (Trust / Steering /
+Deciding), **fully suppressing the blog articles section on `/guides/`** (the "Latest writing" stream) and
+the `/writing/` stream. Building real articles + re-revealing the blog is a **separate later task**.
+**Rationale:** All three guides are final/graduated, but no finalized first article exists (only a throwaway
+sample), and the operator wants to go live now rather than block on writing articles. The alternative — wait
+for a first article (the original `[PROD-DEPLOY-BAN]` condition "first blog page AND all guide pages") —
+lost: the guides are the valuable finished surface; articles can follow. Rejected: launching with the
+sample article (a throwaway).
+**Consequences:** `[PROD-DEPLOY-BAN]`'s "first blog page" clause must be amended (+ a follow-on DEC) before
+the fail-closed `assert-prod-deploy-allowed.mjs` allows the prod deploy. The blog buildout + re-enable +
+`[BLOG-REDIRECT]` + the ban reconcile + the FAQ on-ramp are **carried hopper items**. **Phase 2** (flip
+`CONTENT_HOME_LIVE` + ban-amend + blog-suppression + `[BLOG-REDIRECT]` + deploy) runs next conv.
+
+### DEC-056-2 — `r-start` Step 6: single-recommendation, and the continuation-notice never shares an options turn
+**Decision:** Reworked `r-start` Step 6 so the **recommended next action is a single recommendation, never
+a labelled A/B fork**, and the **continuation-mode notice is an informational standing notice** (no 👉👉👉,
+no A/B to answer) that **never shares a turn with an options-bearing recommendation** — if the next action
+is a real fork, it takes its turn alone and the notice defers.
+**Rationale:** Conv 055's `/r-start` surfaced **two A/B questions in one turn** (the recommended-action fork
++ the continuation-mode pick), breaking the standing "ask one at a time" rule; the continuation notice's A/B
+mode-labels collided with an options-bearing recommendation. Fixed in the skill (the collision locus) rather
+than CLAUDE.md-only — the general "ask one at a time" rule already exists; the skill just needed to comply
+(the CLAUDE.md-only alternative lost: the skill was the violator).
+**Consequences:** The continuation-mode A/B letters (internal to `r-start` only) are dropped for named
+modes. Hopper item resolved.
+
+### DEC-056-1 — `check-ab-options.sh` ignores "or" inside quotes / backticks
+**Decision:** `check-ab-options.sh` now strips double-quoted and `` `backtick` `` spans before its "or"-fork
+test, so an "or" inside a quoted heading or code span no longer false-fires a yes/no confirm as an options
+ask.
+**Rationale:** Conv 055 the matcher false-fired on an "or" inside a quoted heading in a confirm question —
+and content work routinely quotes headings/options containing "or", so it would recur. Operator ruled
+**do-it-now** (strip quotes) over accepting the false-fire as tolerable. Same class as the `check-promises`
+quoting false-fire.
+**Consequences:** 5 test cases verified (quoted/backticked "or" passes; real forks still block; labelled
+forks pass). Living matcher, tuned further as needed.
+
 ## Conv 055
 
 ### DEC-055-2 — a pure-text no-op-promise Stop hook (`check-promises.sh`)

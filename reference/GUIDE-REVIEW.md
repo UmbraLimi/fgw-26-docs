@@ -91,6 +91,13 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
     interlink where the content invites; forward-links to related or future guides. Some cross-links wait
     until the sibling guides are also final (e.g. the full 3-cornerstone interlink pass). (Added Conv 054,
     operator.)
+    🔧 **Technique (Conv 056):** **wrap an existing body phrase** as the link anchor — no new prose, so no
+    em-dash risk — placed where the content already invites it (the sibling guide's own subject-phrase, e.g.
+    Deciding's "whether the thing holds up when it matters" → the Trust guide). **Reword any raw-slug anchor
+    to prose** (`[build-it-yourself-or-bring-someone-in]` → `[whether to build it all yourself, or bring
+    someone in]`). A **forward-link to a guide that doesn't exist yet** is deferred, not faked (a dead href
+    404s). The **`/faq/` on-ramp waits until flip** when the guides are dark and `faq.astro` renders answers
+    as escaped plain text — the link then goes in the FAQ's **cross-link paragraph**, not inside an answer.
 
 **Safety**
 16. **Masking check** — every personal-experience anecdote is confirmed **not client-identifiable**: no
@@ -99,11 +106,26 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
     Applies to any piece carrying anecdotes — guides and articles alike.
 
 **Gate**
-17. **Final whole-page review + declare final + graduate** — strip/resolve author-insertion markers
-    (`✎ OPTIONAL`, `✎ ANECDOTE`); the **operator does a final manual review of the whole rendered page**;
-    then declares it **final**. **Graduate the dossier:** write the piece's board-row dossier (take,
-    outline, decisions, publish status + date) to a permanent **`fgw-26-docs/docs/content/<slug>.md`**,
-    then retire the board row.
+17. **Final whole-page review + declare final + graduate** — strip/resolve **every `✎`-family**
+    author-insertion marker (`✎ OPTIONAL`, `✎ ANECDOTE`, `✎ ARC`, `✎ FIGURE`; greppable by the bare `✎`
+    token — they ship in page source); the **operator does a final manual review of the whole rendered
+    page**; then declares it **final**. **Graduate the dossier:** write the piece's record to a permanent
+    **`fgw-26-docs/docs/content/<slug>.md`** in the **standard graduated-dossier shape** below, then retire
+    the board row. The live board checklist is the raw material — **reshape it, don't rebuild it.**
+
+    **Graduated-dossier template** (`DOSSIER-FORMAT`, codified Conv 056; the Steering dossier
+    `docs/content/steer-ai-to-build-what-you-mean.md` is the worked reference):
+    - **Header block** — Pillar · Title · Slug · Image · Status (final / dark / published + the gating flags).
+    - **1. Take** — the thesis / why the piece exists.
+    - **2. Outline** — the approved arc (or an honest "N/A — predates the outline pass" note).
+    - **3. How it was made (history)** — per-conv bullets of the build, carrying the `DEC-NNN-N` handles.
+    - **4. Image** — the colophon image id + a one-line treatment summary (`COLOPHON.md`).
+    - **5. Finalize pass — per-step record** — a `# | Step | Outcome` table, one row per step below, lifted
+      from the live board checklist; **"clean" is a real outcome, stated** — never drop a clean step.
+    - **6. Decisions (piece-level)** — the piece's calls gathered here (the dossier is their home,
+      `DEC-047-8`); cross-ref any that predate the carve-out and live in `DECISIONS.md`.
+    - **7. Interlinks** — out (live in the draft) / forward (to wire on ship) / reciprocal-pass status.
+    - **8. Published** — status + date; fill on flip.
 
 ## Out of scope here
 Per-piece JSON-LD (`[SITE-STRUCTURED-DATA]`) is auto-generated (`DEC-043-3`), not a manual step. The

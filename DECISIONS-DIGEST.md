@@ -6,6 +6,37 @@ _As of 2026-11-23._
 
 ---
 
+### DEC-056-4 — the graduated-dossier format is codified into the pipeline (`DOSSIER-FORMAT`)
+
+The richer **8-section graduated-dossier shape** (header block + **1** Take · **2** Outline ·
+**3** How-it-was-made · **4** Image · **5** per-step finalize record · **6** Decisions · **7** Interlinks ·
+**8** Published), proven by the Steering dossier, is codified as the standard: `GUIDE-REVIEW` **step 17**
+now carries the explicit template (what "graduate" writes), and `r-content` Step 3 notes the live board row
+**accrues toward** that shape (reshape at graduation, don't rebuild). Two process learnings from the
+Trust→Steering→Deciding runs are folded into the method docs: `COLOPHON.md` (hand-coloured plates duotone
+cleanly; **crop tight before duotoning** to fix the level stretch) and `GUIDE-REVIEW` step 15 (phrase-wrap
+existing body phrases as anchors, reword raw-slug anchors, defer forward-links to unbuilt guides, FAQ
+on-ramp at flip). Step 17's marker-strip broadened to the full **`✎`-family**.
+
+### DEC-056-3 — guides-only launch: go live with the 3 cornerstones, suppress the blog section
+
+Launch the content home with the **three cornerstone guides only** (Trust / Steering /
+Deciding), **fully suppressing the blog articles section on `/guides/`** (the "Latest writing" stream) and
+the `/writing/` stream. Building real articles + re-revealing the blog is a **separate later task**.
+
+### DEC-056-2 — `r-start` Step 6: single-recommendation, and the continuation-notice never shares an options turn
+
+Reworked `r-start` Step 6 so the **recommended next action is a single recommendation, never
+a labelled A/B fork**, and the **continuation-mode notice is an informational standing notice** (no 👉👉👉,
+no A/B to answer) that **never shares a turn with an options-bearing recommendation** — if the next action
+is a real fork, it takes its turn alone and the notice defers.
+
+### DEC-056-1 — `check-ab-options.sh` ignores "or" inside quotes / backticks
+
+`check-ab-options.sh` now strips double-quoted and `` `backtick` `` spans before its "or"-fork
+test, so an "or" inside a quoted heading or code span no longer false-fires a yes/no confirm as an options
+ask.
+
 ### DEC-055-2 — a pure-text no-op-promise Stop hook (`check-promises.sh`)
 
 Added `check-promises.sh`, a Stop hook that fires on the "don't-drop" self-reassurance

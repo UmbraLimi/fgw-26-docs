@@ -13,8 +13,10 @@
 
 - Trust guide **prose final** and its **illustration built + rendering** (Conus; square tile in-page +
   full-plate colophon). **Steering's image is now done too** (Conv 047 — Linck sea star, duotone tile +
-  cropped duotone colophon). The flip now waits on **Steering's finalize + the Deciding guide** (content
-  + Deciding's image).
+  cropped duotone colophon). **Deciding's image is now done too** (Conv 056 — Bloch *Esox lucius* pike,
+  `esox-lucius-bloch`, the **first hand-coloured plate** in the set, duotone tile + cropped colophon). All
+  three cornerstone guides are **graduated** (Conv 056); the flip now waits only on the **guides-only launch
+  mechanics** (`[SITE-CONTENT-HOME]` flip + `[PROD-DEPLOY-BAN]` amend, Phase 2).
 - **Approach settled (`DEC-042-1`):** PD natural-history **line engravings**, cleaned as a raster engraving,
   a **square detail tile** in-page + a **full-plate colophon**; no light/dark theming (fixed background).
   Got here via rejected experiments — photo-tracing a dragonfly head + a pimpleback mussel *reproduced*
@@ -158,8 +160,9 @@ Built + `astro sync`-validated Conv 042.
 
 **Built Conv 042:** the `images` collection + schema; `conus-marmoreus-lister/` (`source.jpg` + `square.png`
 + `colophon.png` + `provenance.json`); the `guides` `image` ref; the guide page rendering the **square
-tile** + **colophon** (species name + PD credit), verified in dev. **Still open:** images for the Steering +
-Deciding guides; the site-wide provenance guard + usage cross-ref (`[IMAGE-PROVENANCE]`).
+tile** + **colophon** (species name + PD credit), verified in dev. **All three cornerstone images done**
+(Steering `stella-marina-linck` Conv 047; Deciding `esox-lucius-bloch` Conv 056). **Still open:** the
+site-wide provenance guard + usage cross-ref (`[IMAGE-PROVENANCE]`).
 
 ## Does Wikipedia already "follow this model"? (the operator's question)
 

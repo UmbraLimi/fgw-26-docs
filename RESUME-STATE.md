@@ -1,36 +1,40 @@
-**Conv:** 055 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
+**Conv:** 056 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
 
 ## Where we left off
 
-Conv 055 pushed **Deciding** through **8 GUIDE-REVIEW finalize steps** (4, 5, 6, 7, 8, 10, 12, 14),
-headlined by an **operator-directed §6 whole-section rewrite** — reframed off keep/rebuild/hand-off (which
-fought the straw→tin→steel method) to three moves on a *stalled, risky black-box* part: **push on / start
-over / get help** (heading "When my build stalls, do I push on, start over, or get help?"; soft CTA dropped
-from §6, lives only in §8). Also: #5 heading reseat, entity over-seeding trim 5→3, a pull quote at the
-§6→§7 seam, **all em-dashes recast to zero** (match Trust/Steering), and a reworked card opener +
-snippet "relies on". Separately: the **[AGENT-DISCOVERY-WATCH]** ran (Conv-055 snapshot; its process was
-upgraded to a three-part output; **[AGENT-INITIATIVE]** reframed into a standing action plan, **held**),
-and **check-promises.sh** (a no-op-promise Stop hook) was built + tested (`DEC-055-1`, `DEC-055-2`).
+Conv 056 **graduated Deciding** — the 3rd and final cornerstone of the first three (cleared steps 15
+cross-linking, 16 masking, 13 colophon, 11 rendered read, 17 final → graduate; dossier at
+`docs/content/build-it-yourself-or-bring-someone-in.md`). The colophon is the **Bloch *Esox lucius* pike**
+(`esox-lucius-bloch`), the set's first hand-coloured plate — it duotoned cleanly. **All three cornerstone
+guides (Trust / Steering / Deciding) are now final/graduated.** Separately, `[DOSSIER-FORMAT]` was
+**codified** (the 8-section graduated-dossier template → `GUIDE-REVIEW` step 17 + an `r-content` pointer;
+two learnings folded into `COLOPHON.md` + step 15) and **retired**. Two early-conv process fixes landed
+(`DEC-056-1` A/B-matcher quoting, `DEC-056-2` `r-start` Step 6). The operator decided the **guides-only
+launch** (`DEC-056-3`): go live with the 3 guides, suppress the `/guides/` blog section, defer real
+articles.
 
 ## Next action
 
-🔴 **Resume Deciding at `GUIDE-REVIEW` step 15 (Cross-linking).** Wire the finished guide into the link
-graph: `/faq/` entries → Deciding, sibling interlinks, the **3-cornerstone interlink** (Deciding→Trust+
-Steering reciprocals + the `[GUIDE-PLANNING]` forward-link), and the **one-time retrofit reaching back into
-the already-graduated Trust and Steering**. Then step 16 (masking). ⚠️ **Steps 13 (colophon), 17
-(final→graduate), and the step-11 aside-length check are all gated on the pending image** (`[CONTENT-ART]`
-Bloch pike) — so graduation can't happen until that lands; 15/16 are the remaining in-text work before it.
-File `src/content/guides/build-it-yourself-or-bring-someone-in.md`; dark at
-`/guides/build-it-yourself-or-bring-someone-in/` (restart `astro dev` from `fgw-26`). Coordinate view
-`.scratch/deciding-view.txt` current (**33 blocks**; §6 = P23–P25). Guide stays `draft:true`/dark behind
-the flip + `[PROD-DEPLOY-BAN]`. Matrix cell/axis wording still **PROVISIONAL** (finalize at step 17).
-**Hopper carries 2 items** (check-ab-options "or"-in-quotes tune; r-start Step-6 double-A/B fix) — surfaced
-at `/r-start`.
+🔴 **Phase 2 — the guides-only launch.** Work through, with the operator (the prod deploy confirms before
+running):
+1. **Amend `[PROD-DEPLOY-BAN]`** — the ban requires "first blog page AND all guide pages finalized"; for a
+   guides-only launch the **"first blog page" clause must be amended** (record a follow-on DEC), then lift
+   the ban (`PROD_DEPLOY_BANNED = false` in `scripts/assert-prod-deploy-allowed.mjs`). Carried hopper item.
+2. **Suppress the blog articles section on `/guides/`** (the "Latest writing" stream) — operator's decision.
+   Decide flag-gated hide vs removal (lean: flag-gated, re-enableable). Carried hopper item.
+3. **Flip `CONTENT_HOME_LIVE = true`** (`consts.ts`) — reveals nav/footer links, drops `noindex`,
+   re-includes `/guides` + `/writing` in the sitemap.
+4. **Settle `[BLOG-REDIRECT]`** — `/blog` → `/writing/` 301 (or decide) at flip.
+5. **Pre-flip:** Deciding is `✎`-clean; **confirm Trust + Steering are `✎`-clean too** (grep the `✎` token
+   across all 3 guides before flip).
+6. **Build + prod deploy** (confirm first).
+   At flip also: the **FAQ → `/guides/` on-ramp** (carried hopper item — goes in the FAQ's cross-link
+   paragraph, not an answer).
+
+**Hopper carries 4 items** (GUIDE-PLANNING forward-link deferral · blog buildout + re-enable · PROD-DEPLOY-BAN
+reconcile · FAQ on-ramp) — all Phase-2 work, surfaced at `/r-start`.
 
 ## 🔬 Carried findings
 
-- **CLAUDE.md parallel-mention gap** (noticed during the Conv-055 currency sweep): CLAUDE.md §Surfacing
-  names `check-routing.sh` as backstopping the go-list review-signal, but says nothing about the new
-  `check-promises.sh` backstopping the no-op-promise rule. Consider a one-line parallel mention for
-  symmetry. Low-stakes; rule at `/r-start`.
-  ✔ **ruled:** do-now (Conv 056) — added the parallel mention to CLAUDE.md §Surfacing, no-op-promise bullet.
+_None._ (The outgoing finding was ruled do-now at this conv's `/r-start`; the currency-sweep stale refs were
+fixed in place. The 4 hopper items above ride the hopper, not this section.)
