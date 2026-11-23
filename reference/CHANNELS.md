@@ -197,3 +197,8 @@ the site, or a specific piece. Don't chase vanity metrics (counter to `PERSONA.m
   cornerstones ship as **"Guides"** at **`/guides/`** (nav label "Guides", one entry). `/guides/` and
   `/writing/` are single-purpose pages bound by cross-links, not a mixed index. So **"blog" in this doc =
   the "Writing" section in the build.** (`DEC-039-1`/`-3`/`-4`/`-5`.)
+- **Conv 057** — **guides-only launch SHIPPED:** the 3 cornerstone **Guides** are **live on
+  frasergorrie.com** (indexed, in the sitemap, in nav/footer). The dated **Writing** stream is held
+  **dark** behind a new `WRITING_LIVE` flag — real articles + its reveal are deferred to `[WRITING-BUILDOUT]`
+  (`DEC-056-3`). So the funnel's entry-point-2 is live for the guides backbone; the write-once-distribute
+  stream comes online later. Old `/blog` links 301 to `/guides/` for now.

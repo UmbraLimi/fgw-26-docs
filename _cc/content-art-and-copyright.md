@@ -15,8 +15,8 @@
   full-plate colophon). **Steering's image is now done too** (Conv 047 — Linck sea star, duotone tile +
   cropped duotone colophon). **Deciding's image is now done too** (Conv 056 — Bloch *Esox lucius* pike,
   `esox-lucius-bloch`, the **first hand-coloured plate** in the set, duotone tile + cropped colophon). All
-  three cornerstone guides are **graduated** (Conv 056); the flip now waits only on the **guides-only launch
-  mechanics** (`[SITE-CONTENT-HOME]` flip + `[PROD-DEPLOY-BAN]` amend, Phase 2).
+  three cornerstone guides are **graduated** (Conv 056) and went **live at the guides-only launch (Conv
+  057)** — `CONTENT_HOME_LIVE` flipped, `[PROD-DEPLOY-BAN]` lifted, deployed to frasergorrie.com.
 - **Approach settled (`DEC-042-1`):** PD natural-history **line engravings**, cleaned as a raster engraving,
   a **square detail tile** in-page + a **full-plate colophon**; no light/dark theming (fixed background).
   Got here via rejected experiments — photo-tracing a dragonfly head + a pimpleback mussel *reproduced*

@@ -1,40 +1,25 @@
-**Conv:** 056 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
+**Conv:** 057 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
 
 ## Where we left off
 
-Conv 056 **graduated Deciding** — the 3rd and final cornerstone of the first three (cleared steps 15
-cross-linking, 16 masking, 13 colophon, 11 rendered read, 17 final → graduate; dossier at
-`docs/content/build-it-yourself-or-bring-someone-in.md`). The colophon is the **Bloch *Esox lucius* pike**
-(`esox-lucius-bloch`), the set's first hand-coloured plate — it duotoned cleanly. **All three cornerstone
-guides (Trust / Steering / Deciding) are now final/graduated.** Separately, `[DOSSIER-FORMAT]` was
-**codified** (the 8-section graduated-dossier template → `GUIDE-REVIEW` step 17 + an `r-content` pointer;
-two learnings folded into `COLOPHON.md` + step 15) and **retired**. Two early-conv process fixes landed
-(`DEC-056-1` A/B-matcher quoting, `DEC-056-2` `r-start` Step 6). The operator decided the **guides-only
-launch** (`DEC-056-3`): go live with the 3 guides, suppress the `/guides/` blog section, defer real
-articles.
+Conv 057 **shipped the guides-only launch** (`DEC-056-3`): the 3 cornerstone guides (Trust / Steering /
+Deciding) are **live on frasergorrie.com** (Version `b8abe635`) — indexed, in the sitemap, in nav/footer.
+The crux was splitting `CONTENT_HOME_LIVE` into two flags (`DEC-057-1`): `CONTENT_HOME_LIVE=true` lights
+the guides, a new **`WRITING_LIVE=false`** holds the dated writing stream dark. A launch-blocker was caught
+in the build output — the guides were still `draft:true` so prod generated only the hub, not the pages;
+flipped `draft:false`. `/blog` → `/guides/` 301 (`DEC-057-2`); `[PROD-DEPLOY-BAN]` amended + lifted
+(`DEC-057-3`). `npm run verify` passed; verified live. `[SITE-CONTENT-HOME]`, `[BLOG-REDIRECT]`,
+`[PROD-DEPLOY-BAN]` retired; `[WRITING-BUILDOUT]` promoted.
 
 ## Next action
 
-🔴 **Phase 2 — the guides-only launch.** Work through, with the operator (the prod deploy confirms before
-running):
-1. **Amend `[PROD-DEPLOY-BAN]`** — the ban requires "first blog page AND all guide pages finalized"; for a
-   guides-only launch the **"first blog page" clause must be amended** (record a follow-on DEC), then lift
-   the ban (`PROD_DEPLOY_BANNED = false` in `scripts/assert-prod-deploy-allowed.mjs`). Carried hopper item.
-2. **Suppress the blog articles section on `/guides/`** (the "Latest writing" stream) — operator's decision.
-   Decide flag-gated hide vs removal (lean: flag-gated, re-enableable). Carried hopper item.
-3. **Flip `CONTENT_HOME_LIVE = true`** (`consts.ts`) — reveals nav/footer links, drops `noindex`,
-   re-includes `/guides` + `/writing` in the sitemap.
-4. **Settle `[BLOG-REDIRECT]`** — `/blog` → `/writing/` 301 (or decide) at flip.
-5. **Pre-flip:** Deciding is `✎`-clean; **confirm Trust + Steering are `✎`-clean too** (grep the `✎` token
-   across all 3 guides before flip).
-6. **Build + prod deploy** (confirm first).
-   At flip also: the **FAQ → `/guides/` on-ramp** (carried hopper item — goes in the FAQ's cross-link
-   paragraph, not an answer).
-
-**Hopper carries 4 items** (GUIDE-PLANNING forward-link deferral · blog buildout + re-enable · PROD-DEPLOY-BAN
-reconcile · FAQ on-ramp) — all Phase-2 work, surfaced at `/r-start`.
+🔁 **Run `[POSTING-PLAN]`** — now unblocked by live guides to point at. Draft the launch announcement(s)
+for LinkedIn (biweekly cadence) + opportunistic X echo, per `reference/CHANNELS.md` pillars; CC drafts →
+operator approves → publish. **Reason:** the guides exist to earn GEO/credibility and feed the funnel; the
+launch is the natural moment to distribute. Two quick wins also unblocked and worth folding in: **GSC
+request-indexing** for the 4 new guide URLs (speed the first crawl; full cadence is Conv 59) and the
+**Rich-Results validation** now that the guides are live/crawlable (`[SITE-STRUCTURED-DATA]`).
 
 ## 🔬 Carried findings
 
-_None._ (The outgoing finding was ruled do-now at this conv's `/r-start`; the currency-sweep stale refs were
-fixed in place. The 4 hopper items above ride the hopper, not this section.)
+_None._

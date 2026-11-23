@@ -8,6 +8,52 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 057
+
+### DEC-057-3 — amend + lift `[PROD-DEPLOY-BAN]` for the guides-only launch (amends `DEC-039-2`)
+**Decision:** `[PROD-DEPLOY-BAN]`'s condition (`DEC-039-2`: "first blog page AND all guide pages
+finalized") is **amended** — the "first blog page" clause is dropped; the condition is now "all guide
+pages finalized." All three guides are finalized/graduated and flipped `draft:false`, so the amended
+condition is met and the ban is **lifted** (`PROD_DEPLOY_BANNED = false` in
+`scripts/assert-prod-deploy-allowed.mjs`).
+**Rationale:** `DEC-056-3` chose a guides-only launch, so no first article exists to satisfy the original
+clause; keeping it would block the launch indefinitely. The alternative — write a throwaway article to
+satisfy the clause — lost (rejected in `DEC-056-3`). **Amends** `DEC-039-2` rather than superseding it:
+the fail-closed guard mechanism persists in the `deploy` script, **re-armable** (set the boolean `true`)
+if a future content push again needs to bar prod deploys.
+**Consequences:** `npm run deploy` unblocked; the guides-only launch deployed to frasergorrie.com this
+conv (Version `b8abe635`). The guard stays in the `deploy` script, dormant. `[PROD-DEPLOY-BAN]` row
+retired.
+
+### DEC-057-2 — old-site `/blog` 301s to `/guides/`, not `/writing/`
+**Decision:** The free `/blog` path (open since `DEC-039` dropped the provisional `/blog`→`/` 301) now
+**301-redirects to `/guides/`** (trailing-slash target, single hop; `astro.config.mjs` `redirects`).
+**Rationale:** The earlier `[BLOG-REDIRECT]` lean was `/blog`→`/writing/`, which assumed `/writing/`
+would be live at flip. The guides-only launch keeps `/writing/` **dark** (`noindex`), so `/blog`→`/writing/`
+would land old inbound links on an empty noindex page. `/guides/` is the live content hub (and is titled
+"Writing"), so it is the right destination now. Alternatives that lost: `/blog`→`/writing/` (dark page),
+`/blog`→404 (discards old inbound value), defer (leaves a free 404 path at launch).
+**Consequences:** Old-site `/blog` inbound reaches live content. Re-point to `/writing/` later if the
+writing stream becomes its better home (`[WRITING-BUILDOUT]`). `[BLOG-REDIRECT]` row retired.
+
+### DEC-057-1 — guides-only launch: split the content-home flag into `CONTENT_HOME_LIVE` + `WRITING_LIVE`
+**Decision:** The single `CONTENT_HOME_LIVE` dark-switch is **split into two** (`consts.ts`):
+`CONTENT_HOME_LIVE` (now `true`) gates the guides (`/guides/` hub + `/guides/<slug>/`); a new
+`WRITING_LIVE` (default `false`) independently gates the dated writing stream — the `/guides/` "Latest
+writing" block, `/writing/` + `/writing/<slug>/` (their `noindex` + sitemap inclusion), and the footer
+"Writing" link. The 3 cornerstone guides were flipped `draft:false` so a prod build generates their pages.
+**Rationale:** Flipping the single flag would reveal both sections at once, exposing an empty `/writing/`
+(indexed, in footer + sitemap) — unwanted for a guides-only launch (`DEC-056-3`). Splitting lets the
+guides go live while writing stays dark, re-enableable by one boolean flip (`[WRITING-BUILDOUT]`).
+Alternatives that lost: keep one flag (exposes empty writing); delete the writing code (not re-enableable —
+the operator's lean was flag-gated + re-enableable). The `draft:false` flip was required because
+`getStaticPaths` is draft-filtered — without it the live hub would link to ungenerated guide pages (404s;
+caught + fixed this conv before deploy).
+**Consequences:** Guides live + indexable + in the sitemap on frasergorrie.com; writing fully dark behind
+`WRITING_LIVE`. `[SITE-CONTENT-HOME]` retired (core deliverable shipped); remaining writing work →
+`[WRITING-BUILDOUT]`, remaining JSON-LD/Rich-Results → `[SITE-STRUCTURED-DATA]`. `npm run verify` passed;
+split verified in the live product (200s, noindex split, sitemap, `/blog` 301).
+
 ## Conv 056
 
 ### DEC-056-4 — the graduated-dossier format is codified into the pipeline (`DOSSIER-FORMAT`)

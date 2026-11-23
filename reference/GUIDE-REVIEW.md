@@ -129,4 +129,5 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
 
 ## Out of scope here
 Per-piece JSON-LD (`[SITE-STRUCTURED-DATA]`) is auto-generated (`DEC-043-3`), not a manual step. The
-live-flip itself (`CONTENT_HOME_LIVE`) is separate (`[SITE-CONTENT-HOME]`).
+live-flip itself (`CONTENT_HOME_LIVE` / `WRITING_LIVE`) is separate — the guides shipped live at the
+guides-only launch (Conv 057); the dated writing stream's flip is `[WRITING-BUILDOUT]`.

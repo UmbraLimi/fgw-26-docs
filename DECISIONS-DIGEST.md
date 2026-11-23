@@ -6,6 +6,27 @@ _As of 2026-11-23._
 
 ---
 
+### DEC-057-3 — amend + lift `[PROD-DEPLOY-BAN]` for the guides-only launch (amends `DEC-039-2`)
+
+`[PROD-DEPLOY-BAN]`'s condition (`DEC-039-2`: "first blog page AND all guide pages
+finalized") is **amended** — the "first blog page" clause is dropped; the condition is now "all guide
+pages finalized." All three guides are finalized/graduated and flipped `draft:false`, so the amended
+condition is met and the ban is **lifted** (`PROD_DEPLOY_BANNED = false` in
+`scripts/assert-prod-deploy-allowed.mjs`).
+
+### DEC-057-2 — old-site `/blog` 301s to `/guides/`, not `/writing/`
+
+The free `/blog` path (open since `DEC-039` dropped the provisional `/blog`→`/` 301) now
+**301-redirects to `/guides/`** (trailing-slash target, single hop; `astro.config.mjs` `redirects`).
+
+### DEC-057-1 — guides-only launch: split the content-home flag into `CONTENT_HOME_LIVE` + `WRITING_LIVE`
+
+The single `CONTENT_HOME_LIVE` dark-switch is **split into two** (`consts.ts`):
+`CONTENT_HOME_LIVE` (now `true`) gates the guides (`/guides/` hub + `/guides/<slug>/`); a new
+`WRITING_LIVE` (default `false`) independently gates the dated writing stream — the `/guides/` "Latest
+writing" block, `/writing/` + `/writing/<slug>/` (their `noindex` + sitemap inclusion), and the footer
+"Writing" link. The 3 cornerstone guides were flipped `draft:false` so a prod build generates their pages.
+
 ### DEC-056-4 — the graduated-dossier format is codified into the pipeline (`DOSSIER-FORMAT`)
 
 The richer **8-section graduated-dossier shape** (header block + **1** Take · **2** Outline ·

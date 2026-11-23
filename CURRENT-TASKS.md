@@ -19,12 +19,12 @@ is **live**, not what is finished.
 > 🎉 **Launch milestone done** — `[SITE-GO-LIVE]` ✅ Conv 032; the Conv-007 critical path is complete.
 > **Post-launch presence thread** (added Conv 035): `[SOCIAL-MAKEOVER]` is now **✅ done** (LinkedIn Conv 036,
 > X.com Conv 037). The two rows below remain: the standing **GSC monitor**, and the **posting plan** (now
-> unblocked by the makeovers). Order as the operator listed them. **Conv 056:** all three cornerstone
-> guides (Trust / Steering / Deciding) are **graduated**, and `[DOSSIER-FORMAT]` is codified + retired —
-> so the two rows below (GSC monitor + posting plan) are what remains ordered. The **guides-only launch
-> (Phase 2)** runs next conv: flip `CONTENT_HOME_LIVE`, amend + lift `[PROD-DEPLOY-BAN]`, suppress the
-> `/guides/` blog section, settle `[BLOG-REDIRECT]`, deploy (see `[SITE-CONTENT-HOME]` + the 4 carried
-> hopper items).
+> unblocked by the makeovers). Order as the operator listed them. **Conv 057:** the **guides-only launch
+> (Phase 2) SHIPPED** — the 3 cornerstone guides are **live on frasergorrie.com** (`CONTENT_HOME_LIVE`
+> flipped, `[PROD-DEPLOY-BAN]` lifted, `/blog` → `/guides/`, `[SITE-CONTENT-HOME]` retired). The writing
+> stream stays dark behind the new `WRITING_LIVE` flag → `[WRITING-BUILDOUT]` (Unordered). So the two rows
+> below (GSC monitor + posting plan) are again what remains ordered — the posting plan is now unblocked by
+> live guides to point at.
 
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
@@ -74,6 +74,10 @@ crawled/indexed after their request — that's how we judge if the push worked.*
   + re-requested `/testimonials/` (was Crawled-not-indexed, Sep 28, Google declined). All 5 accepted into
   the priority queue. ⬜ *Next GSC check (now Conv 59, cadence → every-9 `DEC-050-1`): check which of these 5
   moved to Indexed / got a fresh crawl date — pending since the request (the Conv-47 and Conv-50 checks were skipped).*
+- **2026-11-23 (Conv 057) — guides-only launch:** 4 new guide URLs went live + entered the sitemap
+  (`/guides/` + the 3 cornerstone slugs). ⬜ *At the Conv-59 check, verify Google has discovered/crawled
+  them; consider Request-indexing the 4 to speed the first crawl (quota permitting). `/writing/` stays
+  `noindex` + off-sitemap by design (`WRITING_LIVE` dark) — do not expect or chase its indexing.*
 ⚠️ **Gotcha (Conv 044, resolved in-session):** Request-indexing runs a live fetch first; it can flake with
 **"Page fetch — Failed: Server connection error" → request rejected** even when the page is perfectly
 healthy (verified `/method/` served HTTP 200 / 20KB via curl at the same moment). **Fix:** re-run the live
@@ -94,43 +98,18 @@ engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, c
 
 ## 📋 Unordered
 
-### [PROD-DEPLOY-BAN] · added Conv 039 · production deploys banned until content home is finalized
-🔴 **Operator directive (Conv 039):** no **production** deploy until the **first blog page** and **all
-guide pages** (`[SITE-CONTENT-HOME]`) are finalized. **Staging deploys as usual** (`npm run deploy:staging`
-is unaffected). **Enforced technically, fail-closed:** `scripts/assert-prod-deploy-allowed.mjs` runs first
-in the `deploy` script and exits non-zero while the ban stands; `deploy:staging` does not call it.
-**To lift:** set `PROD_DEPLOY_BANNED = false` in that script once the content is finalized + approved, and
-record the lift here. (`DEC-039-2`.)
-
-### [BLOG-REDIRECT] · added Conv 039 · ✅ decided + implemented Conv 057 (retire at deploy)
-✅ **Decided Conv 057 (operator, guides-only launch):** `/blog` → `/guides/` 301 — option (a)-variant
-retargeted from `/writing/` to `/guides/` because `/writing/` stays dark behind `WRITING_LIVE` at the
-guides-only launch, so `/guides/` (the live content hub) is the right destination now. Added to the
-`astro.config.mjs` `redirects` map (trailing-slash target, single 301 hop). Goes live with the launch
-deploy; re-point to `/writing/` later if that becomes the better home (`[WRITING-BUILDOUT]`). Retire this
-row once the launch deploy ships.
-The provisional `'/blog': '/'` 301 (added Conv 032 for the old fg site's `/blog` URL) was **dropped in
-Conv 039** (`[SITE-CONTENT-HOME]`). The article stream then landed at **`/writing/`**, not `/blog/`
-(Conv 039 rename — section URL matches its name), so **`/blog` is now a free, unhandled path**: old-site
-inbound `/blog` links would 404. **Decide before/at flip:** (a) add a `'/blog': '/writing/'` 301 so those
-old links reach the new articles home — **leaning (a)**, it's the natural successor; or (b) leave `/blog`
-to 404 (acceptable if the old `/blog` had little inbound value); or (c) 301 `/blog` → home. Do this at
-flip (when `/writing/` goes live), not while dark. Supersedes the redirect sub-point in the flip-live
-hopper item.
-
 ### [WRITING-BUILDOUT] · promoted Conv 057 · build out real articles + re-enable the writing stream
-Deferred by the **guides-only launch** (`DEC-056-3`): the 3-guides launch **fully suppresses** the blog
-articles section on `/guides/` (the "Latest writing" stream) and goes live guides-only. This row is the
-**separate, later** buildout. Covers:
+Deferred by the **guides-only launch** (`DEC-056-3`, shipped Conv 057): the site went live with the 3
+cornerstone guides while the dated writing stream stays dark behind the new **`WRITING_LIVE`** flag
+(`consts.ts`, default `false`). This row is the **separate, later** buildout. Covers:
 - **Write the first real article(s)** — a whole content effort (per `reference/CHANNELS.md` pillars;
   CC drafts → operator approves).
-- **Un-suppress the `/guides/` "Latest writing" stream** — reverse whatever suppression the Conv-057
-  launch sequence applies (keep it re-enableable; lean was a flag-gated hide, settled at launch).
-- **Reveal `/writing/`** — the dated article stream (currently gated with the rest of the content home).
-- **Settle `[BLOG-REDIRECT]`** — the `/blog` → `/writing/` 301 lands with this, if not already decided at
-  the guides-only flip.
-🔴 All gated behind `CONTENT_HOME_LIVE` + whatever the guides-only launch leaves in place. Origin: Conv 056
-hopper, promoted Conv 057.
+- **Flip `WRITING_LIVE = true`** (`consts.ts`) — one switch re-enables everything writing: the
+  "Latest writing" stream on `/guides/`, the `/writing/` hub + `/writing/<slug>/` pages (drops their
+  `noindex`, adds them to the sitemap), and the footer "Writing" link.
+- **Re-point `[BLOG-REDIRECT]` if desired** — `/blog` currently 301s to `/guides/` (Conv 057); consider
+  re-pointing to `/writing/` once the writing stream is live, if that becomes the better home.
+🔴 Gated behind `WRITING_LIVE` (`consts.ts`). Origin: Conv 056 hopper, promoted Conv 057.
 
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014 · sign-off ✅ Conv 030 (row stays for the standing masking guard)
 ✅ Sign-off complete (operator + clients checked both `/record` artifacts, no changes).
@@ -224,97 +203,8 @@ prose). Built as a reusable `components/ArticleJsonLd.astro` + `lib/articleJsonL
 detail-page `slot="head"`. `author`/`publisher` reuse the site `#fraser`/`#meristics` nodes by `@id`
 (satisfies the carrier above). **Remaining:** the broader site-wide expansion (`WebSite`, per-project
 `CreativeWork`); point the author `@id`'s `url` at `/about/` (currently home — minor); external Rich-Results
-validation at flip (guides are dark/noindex on localhost, so a crawler can't reach them yet).
-
-### [SITE-CONTENT-HOME] · added Conv 038 · build the guides + blog content surface in fgw-26
-✅ **Dark scaffold built Conv 039** (`fgw-26`), gated by `CONTENT_HOME_LIVE` (noindex + off-nav +
-sitemap-excluded until flip; shown in `astro dev`). `guides` collection (undated cornerstones) + a
-`pillar` join on the `blog` collection; pages: hub **`/guides/`** (leads with the 3 cornerstones + a
-"Latest writing" stream), `/guides/<slug>/`, **`/writing/`** (the dated article stream, renamed from
-`/blog/`), `/writing/<slug>/` (up-links to its guide). Nav "Guides" + footer "Guides"/"Writing" links,
-gated the same way.
-🧭 **IA settled Conv 039 (`DEC-039-*`):** "Guides" for cornerstones, "Writing" for articles;
-`/guides/` + `/writing/` single-purpose, bound by cross-links (not a mixed index); `/blog/` retired →
-`[BLOG-REDIRECT]`.
-✍️ **Draft content (Conv 039, all `draft: true`, pending operator redline):** 3 cornerstone guide drafts
-(Trust / Steering / Deciding) + one throwaway sample article. **Remaining:** finalise the first article +
-all three guides (CC drafts → operator approves), then **flip live** (🚀 steps below). 🔴 Prod deploys
-banned until finalised (`[PROD-DEPLOY-BAN]`).
-🚀 **Flip-live steps (folded from hopper, Conv 041):** when the first real cornerstone guide is approved,
-set **`CONTENT_HOME_LIVE = true`** (`consts.ts`) and deploy. That one flag drives everything: reveals the
-nav + footer content-home links (gated `CONTENT_HOME_LIVE || DEV`, Conv 039), drops the `noindex`, and
-re-includes `/guides` + `/writing` in the sitemap — no per-file nav edits at flip. The old `/blog` →
-`/writing/` 301 is tracked by `[BLOG-REDIRECT]`; per-piece JSON-LD is **built** (Conv 043, `DEC-043-3`; see `[SITE-STRUCTURED-DATA]`).
-🔴 **Pre-flip gate (Conv 043, from hopper; broadened Conv 049):** strip the **`✎`-family** author/planning
-markers — `✎ OPTIONAL` (author insertions), `✎ ANECDOTE` (anecdote placeholders), `✎ ARC` (the on-arc
-outline block, Conv 049) — from the guide drafts before flipping; invisible on-page but they **ship in page
-source**. Greppable by the single **`✎`** token (catches all three) — don't grep only `✎ OPTIONAL`.
-🔗 Per-piece JSON-LD **built Conv 043** (`DEC-043-3`) in the `slot="head"` hook (`Article`/`BlogPosting` +
-`FAQPage` + breadcrumbs); see `[SITE-STRUCTURED-DATA]`.
-✍️ **Trust guide heavily redlined + tone-reviewed Conv 040** (`is-your-ai-built-software-sound.md`, still
-`draft:true`/dark): operator-directed content pass (intuition throughline, edge-cases framing, human-nature
-testing → automated checks, a new **"Know your limits, and grow past them"** section, home-repair +
-collaborative-close fixes) then a whole-guide tone/presentation review — new **glossary feature**
-(`DEC-040-3`: guides-schema `glossary` field + small muted end-of-page block, 4 terms), an **"it" pass**
-(default "it" = your AI-built software, non-software "it"s named), **"I"/conjunction/metaphor balancing**
-(headings → "you"). Built via the new **`scripts/number-content.mjs`** `P#S#` coordinate-view tool
-(`DEC-040-1`).
-✍️ **Trust guide: rendered-read pass Conv 041** — operator read the whole guide as it renders; **11 edits
-applied** (lede recast as a hook carrying the "AI-built software" keyphrase, opening tightened so the "get
-burned" question lands, "prompt"→"the directions you gave it", edge-case "them" disambiguation closing on
-"hurt you", "recognizable kinds", notebook questions pluralized, "When does checking it yourself end?"
-heading + two-part test). Reads finished-for-now; **operator has not yet declared it final**. Same conv
-added the **content-media policy** (`DEC-041-2`: byline-less → JSON-LD author; `pubDate` + optional
-`updatedDate`; optional `image()` hero as on-page adornment, og decoupled) and the **prose-link styling
-unification** (`DEC-041-1`: `--link` token, `.prose a`↔`.text-link`, dropped underlines — fixes a
-light-mode content-link that was invisible). **Remaining (Conv 042):** Trust prose **declared final** and
-its illustration wired (`[CONTENT-ART]`); **Steering/Deciding guides + the sample article still unredlined**
-(and still need their images); then flip live (🚀 above).
-✍️ **Conv 043 — Steering first pass + card tone + SEO/GEO structure (prose NOT approved).** Steering guide
-**first editorial pass** (light; flow preserved): tightened the close opener, added the intuition
-throughline, a **4-term glossary**, and the title's last word `mean`→`need` (body/slug reconciliation
-**carried** in the hopper). All three **guide cards retoned** to one evoke-and-stop register; **card copy
-decoupled from the SEO/GEO snippet** (`DEC-043-2`: new `snippet` field feeds meta/og/twitter, card keeps the
-evocative `description`), a `snippet` authored per guide, and the **blog** given the same decoupling. **Per-
-piece JSON-LD built** (`DEC-043-3`). Content-art **image layout finalized** (`DEC-043-1`: two-column sticky
-aside, dark thin border, fixed 320px below 1024) and the **hub cards equalized** to one height. **Entity
-naming:** "AI-built software" seated in Steering + Deciding (`DEC-043-4`, F1; F2/F3 rejected, Trust frozen).
-Author-insertion `✎ OPTIONAL` markers left in the Steering draft (pre-flip gate above). **Still open:**
-Steering + Deciding prose redlines (unapproved; + their images), the real first article, the **conjunction +
-metaphor voice audits** on Steering.
-✍️ **Conv 044 — Steering title reverted `need`→`mean` (`DEC-044-1`).** The Conv-043 `mean`→`need` title
-change was undone: operator's call that **"need" (the *discovery* gap** — the thing you'll actually use and
-that fits, but can't pre-specify even to yourself) is a **separate future guide**, while Steering's thrust
-is **"mean" (the *transmission* gap** — intent you hold but didn't voice; the AI can't read your mind).
-Title/description/snippet back to "mean"; body + slug were already "mean", so no redirect/cross-link change.
-The carried need/mean hopper item is **resolved**; a new hopper capture seeds the "need" guide. Everything
-else above stays open (Steering/Deciding redlines + images, first article, conjunction+metaphor audits).
-✍️ **Conv 045 — Steering redline: title/opening/steer-section + intuition beat (prose still NOT approved).**
-Title last word `mean`→`meant` (`DEC-045-2`); card `description` + SERP `snippet` retuned (planning-vs-steering
-thesis); bridging **pull-quote** at the planning→steering seam; **Short answer** recast (steering + discernment
-+ agency); **Paras 2/3** reworked (seat "AI-built software" entity, past-build→present-discovery tense, italic
-coinage *becoming a worthy companion to AI*, "a skill you can learn"); **P7** closer ("where your judgement
-must take over"); **Decide** bullet → "spell it out" + record + generalization; **Watch for confident
-nonsense** reframed around **intuition** (Steering's first literal use; close = "ask the AI… name what you
-only sensed"); new **"Don't I just need a better plan?"** section foreshadowing the future **PLANNING guide**
-(`DEC-045-3`, folds in need/discovery); **H2 nouns** seated for FAQ-lift (H1 "AI-built software", H4 "the
-AI"); **record-keeping + intuition anecdotes** added (new `✎ ANECDOTE` required token, `DEC-045-4`; intuition
-anecdote masking-generalized to "a big client project"). 🔴 **Resume next conv at H2 "Does steering it well
-mean I don't need anyone?"** (operator floated "…anyone's **help**?"). **Still open:** conjunction + metaphor
-voice audits, the "Does steering well…" close + the Deciding redline, images (`[CONTENT-ART]`).
-🔴 **Deciding redline — carried voice catch (folded from hopper Conv 047; caught Conv 043):** in the
-rigorous Deciding redline, reword the ~3 uses of "honest/honestly" as a prose frame ("finding that point
-honestly", "honestly, yes", "Two honest signals") — VOICE bans the word as a framing word (Conv 040).
-✍️ **Conv 048 — Steering FINALIZED + graduated.** Ran the full `GUIDE-REVIEW` finalize pass (steps 2–15);
-operator **declared it final**; the piece graduated to `docs/content/steer-ai-to-build-what-you-mean.md`
-(richer dossier format → new `[DOSSIER-FORMAT]` row) and the `[GUIDE-STEERING]` board row retired. Key
-edits: "it" pass (default = the AI), the P8 forty-years aside, the P24 confident-nonsense inversion fix, the
-P25 retrace rewrite, **P31 masking-generalized** (dropped the screen-sharing specifics), snippet seats
-"AI-built software". The **metaphor audit resolved the carried P29-S3 note — kept both** ("sensing" =
-diagnosis / "feeling your way" = choosing, a pair not a repeat). Zero em-dashes. **Hub `/guides/` cards now
-carry the square art as a 64px lower-right corner tile** (Trust + Steering; Deciding bare until imaged).
-**Cornerstones now: 2 of 3 prose-final (Trust ✅, Steering ✅); Deciding remaining.** Still dark behind the
-flip + `[PROD-DEPLOY-BAN]`.
+validation — **now actionable (Conv 057):** the 3 guides are live + crawlable on `frasergorrie.com`, so
+run the per-piece `Article`/`FAQPage`/`BreadcrumbList` through the Rich Results Test.
 
 ### [GUIDE-PLANNING] · promoted Conv 046 · write the PLANNING guide (folds in the need/discovery gap)
 A new cornerstone-style guide (promoted from the hopper Conv 046; origin: Conv 044 need/mean split
@@ -443,6 +333,16 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 057:** **🚀 Guides-only content home LIVE on frasergorrie.com** (Version `b8abe635`;
+  `[SITE-CONTENT-HOME]` retired, `[BLOG-REDIRECT]` + `[PROD-DEPLOY-BAN]` resolved). Split
+  `CONTENT_HOME_LIVE` into two switches — flipped `CONTENT_HOME_LIVE = true` (the 3 cornerstone guides go
+  live) and added `WRITING_LIVE = false` so the dated writing stream stays dark (hub stream suppressed,
+  `/writing/` + slugs `noindex`/off-sitemap/off-footer); flipped the 3 guides to `draft:false` so prod
+  generates them (hub + 3 slug pages, indexable, in sitemap). `/blog` → `/guides/` 301 (`DEC-056-3` lean).
+  Added the FAQ `/guides/` on-ramp. Amended + lifted `[PROD-DEPLOY-BAN]` (dropped the "first blog page"
+  clause for guides-only; `PROD_DEPLOY_BANNED=false`). `npm run verify` passed; every output + live check
+  confirmed. `[WRITING-BUILDOUT]` promoted (real articles + `WRITING_LIVE` flip). 2 hopper items done
+  (ban reconcile, FAQ on-ramp), 1 dropped (GUIDE-PLANNING fwd-link), 1 promoted (WRITING-BUILDOUT).
 - **Conv 056:** **`[GUIDE-DECIDING]` graduated (3rd cornerstone) + `[DOSSIER-FORMAT]` codified.** Deciding
   finalize: step 11 (rendered read — operator declared guide + glossary perfect; §5 markers kept), step 13
   (**Bloch *Esox lucius* pike** colophon — sourced + viewed + duotone-treated + wired, the first
