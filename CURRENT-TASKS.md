@@ -102,7 +102,13 @@ in the `deploy` script and exits non-zero while the ban stands; `deploy:staging`
 **To lift:** set `PROD_DEPLOY_BANNED = false` in that script once the content is finalized + approved, and
 record the lift here. (`DEC-039-2`.)
 
-### [BLOG-REDIRECT] · added Conv 039 · decide what old-site `/blog` links should do
+### [BLOG-REDIRECT] · added Conv 039 · ✅ decided + implemented Conv 057 (retire at deploy)
+✅ **Decided Conv 057 (operator, guides-only launch):** `/blog` → `/guides/` 301 — option (a)-variant
+retargeted from `/writing/` to `/guides/` because `/writing/` stays dark behind `WRITING_LIVE` at the
+guides-only launch, so `/guides/` (the live content hub) is the right destination now. Added to the
+`astro.config.mjs` `redirects` map (trailing-slash target, single 301 hop). Goes live with the launch
+deploy; re-point to `/writing/` later if that becomes the better home (`[WRITING-BUILDOUT]`). Retire this
+row once the launch deploy ships.
 The provisional `'/blog': '/'` 301 (added Conv 032 for the old fg site's `/blog` URL) was **dropped in
 Conv 039** (`[SITE-CONTENT-HOME]`). The article stream then landed at **`/writing/`**, not `/blog/`
 (Conv 039 rename — section URL matches its name), so **`/blog` is now a free, unhandled path**: old-site
@@ -111,6 +117,20 @@ old links reach the new articles home — **leaning (a)**, it's the natural succ
 to 404 (acceptable if the old `/blog` had little inbound value); or (c) 301 `/blog` → home. Do this at
 flip (when `/writing/` goes live), not while dark. Supersedes the redirect sub-point in the flip-live
 hopper item.
+
+### [WRITING-BUILDOUT] · promoted Conv 057 · build out real articles + re-enable the writing stream
+Deferred by the **guides-only launch** (`DEC-056-3`): the 3-guides launch **fully suppresses** the blog
+articles section on `/guides/` (the "Latest writing" stream) and goes live guides-only. This row is the
+**separate, later** buildout. Covers:
+- **Write the first real article(s)** — a whole content effort (per `reference/CHANNELS.md` pillars;
+  CC drafts → operator approves).
+- **Un-suppress the `/guides/` "Latest writing" stream** — reverse whatever suppression the Conv-057
+  launch sequence applies (keep it re-enableable; lean was a flag-gated hide, settled at launch).
+- **Reveal `/writing/`** — the dated article stream (currently gated with the rest of the content home).
+- **Settle `[BLOG-REDIRECT]`** — the `/blog` → `/writing/` 301 lands with this, if not already decided at
+  the guides-only flip.
+🔴 All gated behind `CONTENT_HOME_LIVE` + whatever the guides-only launch leaves in place. Origin: Conv 056
+hopper, promoted Conv 057.
 
 ### [CASE-RECORD-SIGNOFF] · promoted Conv 014 · sign-off ✅ Conv 030 (row stays for the standing masking guard)
 ✅ Sign-off complete (operator + clients checked both `/record` artifacts, no changes).
