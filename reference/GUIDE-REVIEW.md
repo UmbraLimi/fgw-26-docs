@@ -126,6 +126,10 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
       `DEC-047-8`); cross-ref any that predate the carve-out and live in `DECISIONS.md`.
     - **7. Interlinks** — out (live in the draft) / forward (to wire on ship) / reciprocal-pass status.
     - **8. Published** — status + date; fill on flip.
+    - **9. Outcomes** — analytics (the content-analytics sweep, `[CONTENT-ANALYTICS]`): GA4
+      pageviews/engagement + GSC impressions/clicks/position for the URL, any qualitative inbound that
+      referenced the piece (verbatim), and a one-line read (did it land?). Filled post-publish; method +
+      capture set in `_cc/content-analytics.md`.
 
 ## Out of scope here
 Per-piece JSON-LD (`[SITE-STRUCTURED-DATA]`) is auto-generated (`DEC-043-3`), not a manual step. The

@@ -37,8 +37,9 @@ several months, not a lead stream. Low volume, high fit. Everything is for credi
 
 ## The flow
 
-> **Referral path:** name heard → **LinkedIn** (credibility) → *how he thinks* → **X** (personality)
-> → *when serious* → **Website** (qualify + contact)
+> **Referral path:** name heard → **LinkedIn** (credibility) or **X** (personality) → *when serious*
+> → **Website** (qualify + contact). LinkedIn and X are **parallel** confirmation layers — neither links
+> to the other; each points only to the site.
 >
 > **Inbound path:** problem in hand → search / AI assistant → **Website** evergreen content
 > → (may glance at LinkedIn/X to confirm the person) → **Website** (contact)
@@ -60,7 +61,8 @@ serious. The site is the only place with the real contact mechanism; platform DM
 - **Cadence:** **biweekly (~2/month)** pillar posts — enough to read *alive and thinking* to a buyer
   checking the profile, without a treadmill. Sustainability over reach: a modest cadence held beats an
   ambitious one dropped (a burst then silence reads as abandoned). *Not* asked to generate cold leads.
-- **Links:** out to the site (serious contact) and to X (more of how he thinks).
+- **Links:** out to the site only (serious contact) — **one outbound link per post** (see Social copy
+  conventions). Not to X; the two channels don't cross-link (`DEC` Conv 058).
 
 ## X — personality & point of view (the warming moment)
 
@@ -72,7 +74,8 @@ serious. The site is the only place with the real contact mechanism; platform DM
   no schedule of its own.
 - **Avoid:** reactive news-chasing — the highest-maintenance format, first to lapse at his bandwidth.
   Personality travels without a news peg.
-- **Links:** out to the site; cross-referenced from LinkedIn.
+- **Links:** out to the site only. **Not** cross-referenced from LinkedIn — LinkedIn and X don't link to
+  each other (`DEC` Conv 058).
 - **No X Premium (decided Conv 038):** X stays lean/free — its job needs neither paid reach (would amplify
   into the builder crowd, not buyers) nor long posts (long-form lives on the blog; X links to it). Revisit
   only if X's role is ever upgraded.
@@ -153,6 +156,10 @@ the interesting question. Supplies credibility by proof and the human voice; sea
 - 🔴 **Prefer complete sentences on LinkedIn or X.** Sentence fragments read as a punchy, promotional
   cadence (ad copy, not a seasoned person talking) and are themselves an AI-marketing tell. One rhetorical
   question is fine; a pile-up of fragments is not. (Operator directive, Conv 038.)
+- 🔴 **One outbound link per post (operator, Conv 058).** More than one link reads as salesy. A post
+  carries **at most a single link**, and it points to the **site** (a guide / the hub / contact) — never a
+  sideways link to another channel. The site is the only conversion target; LinkedIn and X don't link to
+  each other or to themselves.
 
 ## Proof assets — shared fuel (cross-channel)
 
@@ -163,7 +170,12 @@ current — the credibility currency the whole funnel spends.
 
 With word of mouth and intent-driven discovery at the top, leads resist attribution — a serious person
 arrives already convinced. Success is **qualitative**: inbound that already fits and mentions the profile,
-the site, or a specific piece. Don't chase vanity metrics (counter to `PERSONA.md`).
+the site, or a specific piece. Don't chase vanity metrics as the *goal* (counter to `PERSONA.md`).
+- **Early-phase readership signal (operator, Conv 058).** At the *start* of the posting history, before
+  qualitative signal accumulates, **likes/reactions are tracked** as a weak proxy for "the post was at
+  least seen." Vanity or not, it points to which posts got read — revisited once richer qualitative data
+  exists. The full capture set, cadence, and per-piece Outcomes home live in `_cc/content-analytics.md`
+  (rides the 9-conv GSC sweep; board row `[CONTENT-ANALYTICS]`).
 
 ## Change log
 
@@ -202,3 +214,8 @@ the site, or a specific piece. Don't chase vanity metrics (counter to `PERSONA.m
   **dark** behind a new `WRITING_LIVE` flag — real articles + its reveal are deferred to `[WRITING-BUILDOUT]`
   (`DEC-056-3`). So the funnel's entry-point-2 is live for the guides backbone; the write-once-distribute
   stream comes online later. Old `/blog` links 301 to `/guides/` for now.
+- **Conv 058** — **funnel made strictly website-only + one-link-per-post rule.** Dropped the Conv-038
+  LinkedIn → X downstream cross-link: LinkedIn and X are now **parallel** confirmation layers, each
+  pointing only to the site, neither linking to the other (The flow + both Links lines). Added the
+  **one-outbound-link-per-post** social copy convention (operator: more than one link reads as salesy).
+  Drove the launch-post decision to carry a single link to the `/guides/` hub. (DEC at /r-end.)

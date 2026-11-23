@@ -24,7 +24,46 @@ is **live**, not what is finished.
 > flipped, `[PROD-DEPLOY-BAN]` lifted, `/blog` → `/guides/`, `[SITE-CONTENT-HOME]` retired). The writing
 > stream stays dark behind the new `WRITING_LIVE` flag → `[WRITING-BUILDOUT]` (Unordered). So the two rows
 > below (GSC monitor + posting plan) are again what remains ordered — the posting plan is now unblocked by
-> live guides to point at.
+> live guides to point at. **Conv 058:** launch content started under `[POSTING-PLAN]` (option B — the
+> launch is the opening of the biweekly cadence); the social-post machinery was built (`POST-CREATE.md` /
+> `POST-REVIEW.md` / `r-post` / `content-backlog.md`), and the first post dossier `[POST-guides-launch]`
+> is the new row below.
+
+### [POST-guides-launch] · added Conv 058 · LinkedIn · cross-pillar launch announcement
+**Channel:** LinkedIn (series lead; opportunistic X echo later) · **Pillar:** launch / cross-pillar (N/A a
+single pillar) · **Link target:** the `/guides/` hub.
+**Angle:** the three questions every buyer building with AI runs into — is it sound? can I steer it? do I
+build it myself or bring someone in? — now have three places to turn. Teaching-first, not a "look what I
+made" announcement (`PERSONA.md`).
+The **lead post of the launch series** (`[POSTING-PLAN]`, option B Conv 058): a cross-pillar launch, then
+one dedicated post per pillar (Trust → Steering → Deciding) across the biweekly cadence. First post through
+the new `POST-CREATE`/`POST-REVIEW` machinery (`DEC` at /r-end).
+
+**Checklist** (emitted for LinkedIn = `[all]` + `[LinkedIn]`; a snapshot of the docs this conv):
+_Create (`POST-CREATE.md`):_
+- [x] 1. Pillar & angle `[all]` — cross-pillar launch; angle = the three buyer questions now have three places to turn (Conv 058).
+- [x] 2. Link target & funnel role `[all]` — `/guides/` hub; funnel direction toward the site, confirmed (Conv 058).
+- [x] 3. Seed capture → `_cc/content-backlog.md` `[all]` — logged (lead = draft; series follow-ons = seeds) (Conv 058).
+- [~] 4. Draft — LinkedIn register (complete sentences; links out to site + X) `[LinkedIn]` — **draft v1 written Conv 058, awaiting operator read.**
+- [ ] 5. Hand to the finalize pass
+_Finalize (`POST-REVIEW.md`):_
+- [ ] 6. Buyer-chord & persona check `[all]`
+- [ ] 7. Voice check `[all]`
+- [ ] 8. Buyer-not-builder vernacular `[all]`
+- [ ] 9. Signature-phrase / AI-tell audit `[all]`
+- [ ] 10. Fragment / complete-sentence check `[LinkedIn]`
+- [ ] 11. Conjunction & metaphor scan `[all]`
+- [ ] 12. Em-dash sanity check `[all]` 🔴
+- [ ] 13. Masking check `[all]`
+- [ ] 14. CTA restraint & link mechanics `[all]` + `[LinkedIn]`
+- [ ] 15. Approval gate `[all]` 🔴
+
+**Prose:** `docs/content/posts/guides-launch.md` (the B home — draft v1, `status: draft`). **Open on this
+draft:** point 1 — para 3 stacks three questions (keep / trim to two) + operator prose edits, before the
+POST-REVIEW pass.
+
+**Decisions:** _(accrue here)_
+**Published:** —
 
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
@@ -97,6 +136,16 @@ engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, c
 ---
 
 ## 📋 Unordered
+
+### [CONTENT-ANALYTICS] · added Conv 058 · standing content-outcomes monitor (posts + articles/guides)
+🔁 **Standing cadence — rides the 9-conv GSC sweep (`[GOOGLE-SERVICES]`; next Conv 59).** A content-outcomes
+pass: update each recent post's / article's **Outcomes** section + the rollup (`_cc/content-analytics.md`).
+**Method + capture set:** `_cc/content-analytics.md`. Qualitative-first (CHANNELS "Measurement"); **likes/
+reactions tracked as an early-phase readership proxy** (operator Conv 058 — a weak "was it read" signal,
+revisit later). Data: GA4 + GSC (site content, linked Conv 035); LinkedIn/X native post analytics via Chrome
+(operator session).
+📌 **Piggybacked on the GSC cadence** — not separately surfaced at `/r-start`. If independent surfacing is
+wanted later, add a cadence entry to the r-start mechanism (`DEC-035-4`).
 
 ### [WRITING-BUILDOUT] · promoted Conv 057 · build out real articles + re-enable the writing stream
 Deferred by the **guides-only launch** (`DEC-056-3`, shipped Conv 057): the site went live with the 3

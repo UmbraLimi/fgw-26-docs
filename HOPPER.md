@@ -6,3 +6,23 @@ The durable record of what was done is the conv record + the board, never a line
 
 ## Open
 
+- [ ] **DEC to record at /r-end (Conv 058) — social-post rigor machinery.** Built `POST-CREATE.md` +
+  `POST-REVIEW.md` + the `r-post` skill + `_cc/content-backlog.md` (channel-tagged `[all]`/`[LinkedIn]`/`[X]`,
+  extensible to Substack / YouTube Shorts). Chose A (build the machinery up front) over lightweight B.
+  Process/design decision.
+- [ ] **DEC to record at /r-end (Conv 058) — funnel website-only + one-link-per-post.** Dropped the
+  Conv-038 LinkedIn → X downstream cross-link (LinkedIn and X are now parallel confirmation layers, each
+  linking only to the site). Added the one-outbound-link-per-post social-copy convention (operator: more
+  than one link reads salesy). Records as an amendment/supersession of the Conv-038 channel design — check
+  the relevant Conv-038 DEC for tombstone-vs-amend when distilling.
+- [ ] **DEC to record at close (Conv 058) — `check-promises.sh` trigger 2.** Added a close-deferral
+  trigger: the phrase deferring work to the conv close now fires the Stop hook (independently-tunable
+  branch; 7 test cases pass). Operator-directed — the session repeatedly used the phrase with no hook
+  catch. Known tuning item: a purely descriptive process reference also fires (living regex).
+- [ ] **DEC to record at close (Conv 058) — content prose-home split (B) + content-analytics process.**
+  Prose lives in a file from draft-time: social posts → `docs/content/posts/<slug>.md` (docs repo);
+  guides/articles → `src/content/` (site repo, `draft:true`); the board row is a lightweight dossier/pointer.
+  Adopted for posts **and** articles. New standing content-analytics process — per-piece **Outcomes** section
+  + `_cc/content-analytics.md` rollup + `[CONTENT-ANALYTICS]` row, riding the 9-conv GSC cadence;
+  qualitative-first with **likes tracked as an early-phase readership proxy** (operator). Amended the
+  hour-old `POST-CREATE`/`POST-REVIEW`/`r-post` + the `GUIDE-REVIEW` dossier template + CHANNELS measurement.
