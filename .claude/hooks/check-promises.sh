@@ -19,8 +19,10 @@
 # Case-insensitive. Matches a reassurance LEAD-IN ("so <pron>" / "to make sure" /
 # "to ensure") followed within the same sentence ([^.]*, i.e. not crossing a period) by
 # a NEGATION then a LOSS verb (drop / lost / lose / forgot / miss / slip).
-# Known false-fire risk: discussing content ("so the reader doesn't lose the thread").
-# Acceptable as a lapse-catcher; retire/narrow if it gets noisy.
+# Needs a PRONOUN subject after "so" (so it/this/that/they/we/nothing), so "so the
+# reader doesn't lose the thread" does NOT match; a genuine false-fire needs the
+# pronoun, e.g. "so it doesn't lose the reader". Acceptable as a lapse-catcher; narrow
+# if it gets noisy.
 #
 # Turn text comes from `last_assistant_message` on stdin (race-free). Loop guard: one
 # nudge per stop cycle. Fails OPEN on any missing input (no jq / no message / etc.).
@@ -37,7 +39,7 @@ text=$(printf '%s' "$input" | jq -r '.last_assistant_message // empty' 2>/dev/nu
 
 # No-op-promise construction present? (case-insensitive; tune this single line.)
 printf '%s' "$text" \
-  | grep -qiE "(so (it|this|that|they|we|nothing)|to make sure|to ensure)[^.]*(isn'?t|does ?n'?t|do ?n'?t|wo ?n'?t|will not|is not|does not|not|never)[^.]*(drop|lost|lose|forgot|miss|slip)" \
+  | grep -qiE "(so (it|this|that|they|we|nothing)|to make sure|to ensure)[^.]*(isn'?t|does ?n'?t|do ?n'?t|wo ?n'?t|will not|is not|does not|not|never)[^.]*(drop|lost|lose|forget|forgot|miss|slip)" \
   || exit 0
 
 echo "NO-OP PROMISE NUDGE: this turn contains a \"don't-drop\" self-reassurance (e.g. \"noting it so it isn't dropped\", \"so it's not lost\", \"to make sure we don't forget\"). Per CLAUDE.md that phrasing is a signal you are about to drop something — a prose reassurance routes NOWHERE. If you DID route it, delete the reassurance and name the concrete artifact instead (e.g. \"captured in HOPPER.md as a - [ ]\"). If you did NOT, add the HOPPER.md \`- [ ]\` line / CURRENT-TASKS.md row now. Then re-stop. (The trigger is a living regex — if this fired on ordinary content, note it for tuning.)" >&2

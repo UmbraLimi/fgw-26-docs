@@ -8,6 +8,47 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 055
+
+### DEC-055-2 — a pure-text no-op-promise Stop hook (`check-promises.sh`)
+**Decision:** Added `check-promises.sh`, a Stop hook that fires on the "don't-drop" self-reassurance
+construction ("so it isn't dropped", "to make sure we don't forget", "so it's not lost", …) and nudges CC
+to either name the concrete artifact (a `HOPPER.md`/board line) or route the item now. It is **pure-text
+with no allow-path** (unlike `check-routing.sh`'s review-line gate) and **no git check**: the phrase is a
+smell whether or not the item was routed — if routed, the artifact is the proof and the prose reassurance
+is redundant; if not, it is the no-op. Registered as the 3rd Stop hook in `settings.json` (after
+`check-ab-options`, `check-routing`).
+**Rationale:** CLAUDE.md already names "I'll handle it at /r-end" / "stale/pre-existing/out-of-scope" as
+no-op promises to route instead, but nothing enforced it — and a prose reassurance can even carry a
+`🔎 Review:` line yet still route nowhere (it did, Conv 055). Operator chose **option A** (pure-text
+catcher) over a **git-gated variant** that would nudge only when `HOPPER`/board is clean: the git-gated
+version closes the gap more precisely but revives the dirty-board check `DEC-047-2` deliberately retired,
+and the phrase-is-always-a-smell logic makes a plain nudge sufficient and lighter. Rejected also: extending
+`check-routing.sh`'s go-list with deferral idioms (its review-line allow-path wouldn't have caught the
+lapse, and "/r-end" is too noisy a token); doing nothing (the rule alone didn't hold).
+**Consequences:** Three Stop hooks now. Fired live Conv 055 (confirming a mid-session `settings.json`
+registration takes effect with no reload). Known false-fire: meta-discussion of the hook / quoting its own
+trigger idioms (hoppered for tuning). A `.test.sh` is optional (`check-routing` ships without one).
+
+### DEC-055-1 — `[AGENT-DISCOVERY-WATCH]` gains a three-part output; `[AGENT-INITIATIVE]` becomes the standing action plan
+**Decision:** Each `[AGENT-DISCOVERY-WATCH]` run now produces three things, not just a snapshot: (1) the
+landscape-snapshot refresh (deltas vs the prior snapshot); (2) a **ban-aware assessment of the findings** —
+which *strengthening* initiatives we can inch toward despite `[PROD-DEPLOY-BAN]`, as a build-now-ship-later
+vs genuinely-blocked split, recorded newest-first in `AGENT-DISCOVERABILITY.md` §10 (now a per-watch
+ledger); and (3) a **reconciliation into the `[AGENT-INITIATIVE]` board row**. `[AGENT-INITIATIVE]` is
+reframed from the Conv-045 one-shot ("assessed + deferred, revisit at Conv 055") into the **standing,
+re-weighed-each-watch action-plan home**; act-point ~20–30 convs out (~Conv 75–85, operator Conv 055).
+**Rationale:** Operator-directed (Conv 055): the action plan should stay live and be re-weighed every
+watch, not revisited once. A watch that only refreshes facts leaves the "so what do we do" question
+unanswered each run; binding an assessment + a board reconciliation to every run keeps the initiative
+decision-ready as the landscape moves. Rejected: leaving the watch a snapshot-only refresh (the Conv-045
+shape — facts without a standing action read); the one-shot revisit (Conv 045 deferred to a single "Conv
+055" point, which this supersedes).
+**Consequences:** `AGENT-DISCOVERABILITY.md` §7 documents the three-part output; §10 is a per-watch ledger
+(Conv-055 assessment recorded). `[AGENT-INITIATIVE]` board row reframed. Conv-055 disposition: **held** (not
+acting yet); the `ai-agent.json` L1 bet rides as the open caveat (losing horse vs A2A AgentCard). Next
+re-weigh: the Conv-65 watch.
+
 ## Conv 054
 
 ### DEC-054-3 — `GUIDE-REVIEW` gains a Cross-linking step (site link-graph wiring)
