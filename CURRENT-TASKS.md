@@ -198,7 +198,12 @@ everything else the mask protects still holds:
 - **no case-study link** sits on the testimonial — nothing may bridge the named quote to the de-identified case;
 - the **target language is never named** anywhere;
 - `discover-jesus` / `discover-the-ub` are unchanged.
-**Brian** (marketplace) is unconstrained.
+**Brian** (marketplace) is unconstrained. ✅ **Conv 059:** Brian's real, signed-off testimonial (founder of
+**PeerLoop** = the `learning-marketplace` engagement) added as the **2nd AI-era testimonial**
+(`testimonials.json` `brian-peerloop`; home + `/testimonials`). This is the **first public naming of PeerLoop**
+on the site — permitted (Brian unconstrained + consented via a public recommendation); does not touch the
+translation-platform mask. The `learning-marketplace` **case page stays de-identified** ("Peer-to-peer
+learning marketplace") — no case link added. Built-verified, **pending deploy**. (DEC at /r-end.)
 🔴 **Restore mechanism (if a real, signed-off testimonial later arrives):** add it to
 `src/data/testimonials.json` and set `showAiTestimonials = true` in `index.astro` + `testimonials.astro`
 to restore the suppressed sections + two-group lede (`DEC-029-5`); the masking guard above applies before
