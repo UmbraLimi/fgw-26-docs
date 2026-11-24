@@ -44,11 +44,18 @@ I hope they help.
 edits, before the POST-REVIEW pass.
 
 ## Outcomes
-_Filled post-publish at the content-analytics sweep (rides the 9-conv GSC cadence). Method + capture set:
-`_cc/content-analytics.md`. Qualitative-first; likes/reactions tracked as an early-phase readership proxy._
-- Likes / reactions: —
-- Link clicks (→ `/guides/`): —
-- Saves / reshares: —
-- Substantive comments: —
-- Qualitative (inbound referencing this post, verbatim): —
-- Read (did the cross-pillar angle land?): —
+_Capture set + tracking horizon: `_cc/content-analytics.md`. Qualitative-first; likes/reactions tracked as an
+early-phase readership proxy._
+
+**Tracking (LinkedIn horizon ~2 weeks, operator-ruled Conv 059):**
+- ✅ early read — Conv 059 (2026-11-24, ~day 1), below.
+- ⬜ **LinkedIn FINAL read due ~2026-12-07** (pub 11-23 + 14d) — do at the nearest GSC sweep on/after that
+  date, then mark this post `settled`. Inbound referencing the post is logged anytime, no horizon.
+
+**Conv 059 sweep (2026-11-24, ~1 day post-publish):**
+- Likes / reactions: **1**
+- Link clicks (→ `/guides/`): **not surfaced** by LinkedIn post analytics (no clicks metric shown for this post); GA4 referral check not yet run
+- Saves / reshares: **0 / 0**
+- Substantive comments: **0**
+- Qualitative (inbound referencing this post, verbatim): none yet
+- Read (did the cross-pillar angle land?): too early to say — **50 impressions**, **31 members reached** (72% in-network / 28% out-of-network), **2 profile viewers** from the post, **0 followers gained**. One day in; revisit next sweep.

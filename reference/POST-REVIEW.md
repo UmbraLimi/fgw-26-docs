@@ -55,6 +55,12 @@ rules**. "Checked, clean" is a valid outcome — stated, never silently skipped,
 The post file `docs/content/posts/<slug>.md` already exists (created at draft-time, `POST-CREATE.md` step 4).
 On publish: flip `status: published`, fill `published:` with the date, confirm the file carries the **final
 copy** + the finalize-pass outcomes (incl. em-dash + masking rulings), and **retire the board row** (the post
-analog of a guide's graduated dossier). The **Outcomes** section (analytics) is filled later at the
-content-analytics sweep — method + capture set in `_cc/content-analytics.md` (rides the 9-conv GSC cadence;
-board row `[CONTENT-ANALYTICS]`). Also move the post's backlog line to **✅ Published**.
+analog of a guide's graduated dossier). Also move the post's backlog line to **✅ Published**.
+
+🔴 **On publish, drop the dated capture-due marker** in the post's **Outcomes** section — this is what makes
+the content-analytics horizon self-running (operator-ruled Conv 059). Add a `⬜` line
+`<channel> final read due ~<pub-date + window>` using the channel's **wall-clock window**: **LinkedIn → pub +
+14 days**, **X → pub + 2 days** (new channels register their window in `_cc/content-analytics.md`). The
+content-analytics sweep executes each due marker at the nearest GSC batch on/after its date, then settles the
+post. The rest of **Outcomes** (the analytics numbers) is filled at that read — method + capture set +
+tracking horizon in `_cc/content-analytics.md`; board row `[CONTENT-ANALYTICS]`.

@@ -36,7 +36,7 @@ is **live**, not what is finished.
 re-crawl; confirmed verified ownership / valid robots / HTTPS / **no manual actions** / AI "Include";
 linked **GA4 ↔ Search Console**. Two owners (`EsoxAmericanusVermiculatus` + Fraser) + their two DNS
 verification tokens confirmed legit by the operator — left untouched.
-🔁 **Standing check — every 9 convs (changed Conv 050 from every-3; next Conv 59; Conv-50 check skipped — prior check effectively current):** review Search Console for (a) any new
+🔁 **Standing check — every 9 convs (changed Conv 050 from every-3; Conv-59 check done → next Conv 68; Conv-50 skipped):** review Search Console for (a) any new
 concerns/errors raised, and (b) how far the crawl/indexing of the 22 URLs has progressed. Keep this row
 open; CC drives via Chrome with the operator's GSC session. ⏰ Surfaced automatically at `/r-start` by the
 cadence mechanism (`DEC-035-4`, built Conv 035).
@@ -46,6 +46,22 @@ re-report them each time), treat **Nov 9** as the crawl floor (sitemap submitted
 crawls count as real), and report **exactly which real pages have been crawled and when**, **which have
 issues**, and **what to do** about each. The operator reads bare GSC as "a confusing mess" — the job is
 to filter it down to a current-pages answer, not to relay GSC's mixed all-known-pages view.
+💡 **Operating notes (Conv 059 — what works, employ EVERY check):**
+- **Request-indexing is reliably effective on this site** — the lever gets a page crawled + indexed in
+  **~1 day** (proven Conv 44 → verified Conv 59, and Conv 59's own batch). When pages are stuck
+  "discovered-never-crawled", pushing the priority ones is the move, not waiting.
+- 🔑 **Live-test-FIRST, then Request Indexing** (the clean way to dodge the Server-connection gotcha):
+  inspect the URL → click **TEST LIVE URL** → if it flakes, re-run (↻) until "URL is available to Google"
+  is green → *then* click **REQUEST INDEXING** from that green state. Clicking Request Indexing cold
+  triggers its own internal live-fetch that flakes on the first probe and **rejects** the request. Running
+  the live test yourself first makes the request succeed on the first try.
+- **Pace the probes** — space live tests a few seconds apart; the flake is transient rate-limiting from
+  rapid back-to-back fetches.
+- 🆕 **New / changed pages are NOT discovered automatically in time** — GSC's sitemap "Last read" lags
+  (Conv 59: the Nov-23 guide launch was still "unknown to Google" because the last read was Nov 18). After
+  any launch or new page: **resubmit `sitemap-index.xml`** (forces a re-read → discovery) **and**
+  **Request-index the specific new URLs** (priority crawl). Don't assume the sitemap alone will surface
+  them before the next check. (This is the seed of `[GSC-SUBMIT-SKILL]`.)
 ✅ **Conv 41 check (cadence):** no new concerns — manual actions none, security none, HTTPS clean, sitemap
 Success (22 discovered, read Nov 10). Indexing early but healthy: of the 22 real pages only **3 indexed**
 (`/`, `/work/`, `/privacy/`); the core pages (`/about/`, `/method/`, `/phases/`, `/contact/`, `/faq/`,
@@ -70,23 +86,49 @@ crawl-budget lag for a new low-authority site; the lever is **URL Inspection →
 priority pages (`/about/ /method/ /phases/ /contact/` first) to push them into the crawl queue, + re-request
 `/testimonials/` to force a fresh post-submission crawl. (Not done this check — pending operator direction.)
 The "All submitted pages" filter works fine now (the Conv-41 chevron glitch didn't recur). Next cadence ~Conv 47.
+✅ **Conv 59 check (cadence) — filtered to submitted pages:** health all clean (manual actions none, security
+none, HTTPS 6/6 with no 90-day issues, sitemap `sitemap-index.xml` Success, last read **Nov 18**). **Big
+movement: 8 / 22 submitted pages indexed (was 3 at Conv 41 & 44); crawled-not-indexed now 0.**
+- ✅ **The Conv-44 request-indexing push TOOK — all 5:** `/about/ /method/ /phases/ /contact/` + the
+  re-requested `/testimonials/` were all crawled **Nov 16** (the request day) and are now **indexed**. With
+  `/` (Nov 15), `/work/` (Nov 9), `/privacy/` (Nov 8) that makes the 8 indexed.
+- **14 discovered-never-crawled** (all Last-crawled N/A): `/faq/`, `/history/`, + all 12 work pages (7 cases
+  + 5 `/record`). Same normal crawl-budget lag.
+- 🔴 **The Nov-23 guides launch was invisible to Google:** URL-inspected `/guides/` = **"unknown to Google"**,
+  no referring sitemap detected, never crawled. Cause — Google last read the sitemap **Nov 18**, *before* the
+  guides went live, so none of the 4 guide URLs had been discovered.
+- 🚀 **Actions taken this check (operator-approved, Conv 059 option A):** resubmitted `sitemap-index.xml`
+  (force a re-read that discovers the guides) **+** Request-indexed the 4 guide URLs (`/guides/` + 3 slugs) **+**
+  `/faq/` + `/history/` (6 pushes). The Trusting-guide slug hit the Server-connection-error gotcha on the
+  first probe → re-ran the live test green, then requested; the rest went clean. Next cadence ~Conv 68.
 🔁 **Request-indexing log (operator-directed Conv 044 — track each push + whether it took):** manual
 URL-Inspection → Request indexing pushes a URL into a priority crawl queue (quota ~10/day; re-submitting
 doesn't change queue position). **At every future check, verify whether the pages below actually got
 crawled/indexed after their request — that's how we judge if the push worked.**
 - **2026-11-16 (Conv 044):** requested `/about/`, `/method/`, `/phases/`, `/contact/` (core, never-crawled)
-  + re-requested `/testimonials/` (was Crawled-not-indexed, Sep 28, Google declined). All 5 accepted into
-  the priority queue. ⬜ *Next GSC check (now Conv 59, cadence → every-9 `DEC-050-1`): check which of these 5
-  moved to Indexed / got a fresh crawl date — pending since the request (the Conv-47 and Conv-50 checks were skipped).*
+  + re-requested `/testimonials/` (was Crawled-not-indexed, Sep 28, Google declined). ✅ **TOOK (verified
+  Conv 59):** all 5 crawled **Nov 16** and now **indexed**. The lever works decisively on this site.
 - **2026-11-23 (Conv 057) — guides-only launch:** 4 new guide URLs went live + entered the sitemap
-  (`/guides/` + the 3 cornerstone slugs). ⬜ *At the Conv-59 check, verify Google has discovered/crawled
-  them; consider Request-indexing the 4 to speed the first crawl (quota permitting). `/writing/` stays
-  `noindex` + off-sitemap by design (`WRITING_LIVE` dark) — do not expect or chase its indexing.*
+  (`/guides/` + the 3 cornerstone slugs). ✅ **Handled Conv 59:** verified at the check they were still
+  *undiscovered* (Google's last sitemap read was Nov 18, pre-launch) → resubmitted the sitemap + Request-indexed
+  all 4 (see Conv-59 entry below). `/writing/` stays `noindex` + off-sitemap by design (`WRITING_LIVE` dark).
+- **2026-11-24 (Conv 059):** requested the 4 guide URLs (`/guides/`, `/guides/is-your-ai-built-software-sound/`,
+  `/guides/steer-ai-to-build-what-you-mean/`, `/guides/build-it-yourself-or-bring-someone-in/`) — all
+  previously "unknown to Google" — plus `/faq/` and `/history/` (the two core discovered-never-crawled pages).
+  All 6 accepted into the priority queue; sitemap also resubmitted. ⬜ **Conv-68 follow-up —
+  EXPECT (glance-test):** all **6 crawled + indexed** (per the ~1-day Conv-44 precedent, ample time by Conv 68);
+  **Discovered pages 22 → ~26** (the sitemap re-read picked up the 4 guide URLs); **Indexed 8 → ~14+** (these 6,
+  plus any of the 12 work pages Google got to). 🔴 **Any of the 6 still Last-crawled N/A = the push failed —
+  investigate** (re-run the live test, re-request; check the page isn't genuinely broken). Also confirm
+  `/guides/` moved off "unknown to Google".
 ⚠️ **Gotcha (Conv 044, resolved in-session):** Request-indexing runs a live fetch first; it can flake with
 **"Page fetch — Failed: Server connection error" → request rejected** even when the page is perfectly
-healthy (verified `/method/` served HTTP 200 / 20KB via curl at the same moment). **Fix:** re-run the live
-test (↻) until it goes green, then Request indexing. Likely transient rate-limiting from rapid back-to-back
-live probes — space them out. Don't mistake this for a real page problem.
+healthy (verified `/method/` served HTTP 200 / 20KB via curl at the same moment; recurred Conv 59 on a
+guide slug). **Best fix (Conv 059) — do the live test FIRST:** TEST LIVE URL → re-run (↻) until green →
+*then* Request Indexing, so the request never hits a cold flaky fetch (see Operating notes above). If you
+clicked Request Indexing cold and it rejected: open **View live test**, re-run until green, request again.
+Likely transient rate-limiting from rapid back-to-back live probes — space them out. Don't mistake this
+for a real page problem.
 
 ### [POSTING-PLAN] · added Conv 035 · run the X + LinkedIn posting cadence (plan ✅ Conv 038)
 ✅ **Plan stood up Conv 038** — the full channel/funnel strategy lives in `reference/CHANNELS.md` (funnel,
@@ -108,14 +150,29 @@ engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, c
 ## 📋 Unordered
 
 ### [CONTENT-ANALYTICS] · added Conv 058 · standing content-outcomes monitor (posts + articles/guides)
-🔁 **Standing cadence — rides the 9-conv GSC sweep (`[GOOGLE-SERVICES]`; next Conv 59).** A content-outcomes
-pass: update each recent post's / article's **Outcomes** section + the rollup (`_cc/content-analytics.md`).
+🔁 **Standing cadence — the GSC sweep (`[GOOGLE-SERVICES]`; next Conv 68) is the batch moment; captures are
+driven by per-post dated markers (per-channel wall-clock horizons, operator-ruled Conv 059 — LinkedIn ~2wk /
+X ~48h).** A content-outcomes pass: update each **due** post's / article's **Outcomes** + the rollup (`_cc/content-analytics.md`).
 **Method + capture set:** `_cc/content-analytics.md`. Qualitative-first (CHANNELS "Measurement"); **likes/
 reactions tracked as an early-phase readership proxy** (operator Conv 058 — a weak "was it read" signal,
 revisit later). Data: GA4 + GSC (site content, linked Conv 035); LinkedIn/X native post analytics via Chrome
 (operator session).
 📌 **Piggybacked on the GSC cadence** — not separately surfaced at `/r-start`. If independent surfacing is
 wanted later, add a cadence entry to the r-start mechanism (`DEC-035-4`).
+
+### [GSC-SUBMIT-SKILL] · added Conv 059 · a skill to submit new/changed pages to Google
+✅ **Skill built Conv 059** — `.claude/skills/r-submit-page-to-gsc/SKILL.md`. Invoke as
+**`/r-submit-page-to-gsc <url-or-path …>`** (takes the page URL as an argument — a full URL or a
+site-relative path, e.g. `/r-submit-page-to-gsc /guides`; normalizes to the trailing-slash canonical form).
+Call it whenever a page is **added OR materially edited** (operator, Conv 059 — material in-place edits need
+a re-crawl too, not just new pages; so **not** gated on bulk-indexing finishing). It resubmits
+`sitemap-index.xml` (new page only) → **live-test-first** Request-indexes the URL (dodges the
+Server-connection gotcha; quota ~10/day) → logs the push + a `⬜` follow-up into `[GOOGLE-SERVICES]`. Drives
+via Chrome + the operator's GSC session. Authoritative operating recipe stays in `[GOOGLE-SERVICES]`
+Operating notes (the skill cites it).
+✅ **Manual by decision (operator, Conv 059)** — deliberately **not** auto-wired into `r-content` / `r-post`
+finalize or prod deploys; it's a manual call you make when you want it. (Revisit if that churn grows.)
+Row can retire to the ✅ tags next `/r-end` — the skill is the durable artifact.
 
 ### [WRITING-BUILDOUT] · promoted Conv 057 · build out real articles + re-enable the writing stream
 Deferred by the **guides-only launch** (`DEC-056-3`, shipped Conv 057): the site went live with the 3

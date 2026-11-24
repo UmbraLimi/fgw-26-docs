@@ -35,13 +35,36 @@ qualitative data exists.
 - **Rollup:** the table below (one row per published piece).
 
 ## Cadence + method
-🔁 **Rides the 9-conv GSC sweep** (`[GOOGLE-SERVICES]`; next Conv 59) — no separate rhythm. One pass updates
-each recent piece's Outcomes section + the rollup. **Method:** GA4 + GSC for site content (linked Conv 035);
-LinkedIn / X native post analytics read manually via Chrome with the operator's session (same as GSC). No
-new tooling.
+🔁 **The GSC sweep (`[GOOGLE-SERVICES]`; next Conv 68) is the batch moment; *which* posts get captured is
+driven by their per-post dated markers (Tracking horizon below), not "every sweep".** **Method:** GA4 + GSC
+for site content (linked Conv 035); LinkedIn / X native post analytics read manually via Chrome with the
+operator's session (same as GSC). No new tooling.
+
+## Tracking horizon — how long a piece stays tracked (operator-ruled Conv 059)
+Horizons are **per-channel wall-clock windows** matching how long each platform actually distributes a post
+— **not conv-count** (convs don't map to days). Rationale: LinkedIn has a weeks-long tail (median post ~90%
+of 30-day impressions by day 8–9, still growing to day 30 — Contentin 427-post study); X is effectively done
+in a day (impression half-life ~80 min; ~95% of tweets get no meaningful impressions after 24h).
+
+| Channel | Active window | Capture plan |
+|---|---|---|
+| **LinkedIn** | ~2 weeks | **final read at ~pub + 14 days** (load-bearing); optional early read ~day 2–3 for trajectory; a ~day-30 glance only for a strong performer |
+| **X** | ~48 hours | **one read at ~pub + 2 days** (numbers are final by then), then settle |
+
+🔧 **Mechanism — dated capture-due markers.** When a post publishes, drop a dated `⬜` capture-due marker in
+its record (`docs/content/posts/<slug>.md` Outcomes) — e.g. "LinkedIn final read due ~2026-12-07". Execute it
+at the **nearest GSC sweep on/after that date** (or sooner if convenient). Mirrors the `[GOOGLE-SERVICES]`
+request-indexing `⬜` follow-up pattern.
+⚪ **Settle.** After the final read, mark the rollup row `settled (Conv NN / date)`, keep the final numbers +
+one-line read, stop tracking.
+🔑 **Qualitative / inbound: no horizon** — any inbound that *references* a piece is logged verbatim whenever
+it arrives, active or settled. That's the signal that matters; re-open a settled piece only on a notable
+event. The horizon governs only the likes/impressions proxy.
 
 ## Rollup — published pieces
 
 | Piece | Type | Published | Likes | Clicks | Qualitative / read |
 |-------|------|-----------|-------|--------|--------------------|
-| `guides-launch` | post · LinkedIn | 2026-11-23 | — | — | pending (Conv-59 sweep) |
+| `guides-launch` | post · LinkedIn | 2026-11-23 | 1 | n/s¹ | Conv 059 (1d in): 50 impr / 31 reached, 0 comments·reposts·saves, 2 profile views — too early to read · ⬜ **final read due ~2026-12-07** |
+
+¹ **n/s = not surfaced** — LinkedIn's post analytics shows no link-clicks metric for this post. Clicks to `/guides/` would have to come from GA4 referral traffic (not yet pulled).
