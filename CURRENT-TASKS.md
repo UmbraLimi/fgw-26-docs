@@ -28,7 +28,9 @@ is **live**, not what is finished.
 > (`guides-launch`, 2026-11-23). Social-post machinery built (`POST-CREATE`/`POST-REVIEW`/`r-post`); the
 > `/guides/` og:image + on-page pillar triangle deployed (fgw-26 `00ab7d50`); the post dossier graduated to
 > `docs/content/posts/guides-launch.md`. Per-pillar follow-ons (Trust → Steering → Deciding) are seeds in
-> `content-backlog.md`.
+> `content-backlog.md`. **Conv 059:** GSC Conv-59 sweep done + `[GSC-SUBMIT-SKILL]` built + content-analytics
+> tracking horizon set; **Brian/PeerLoop testimonial + `/guides/` title fix + testimonial tidy-ups deployed to
+> prod + staging**. The two Ordered rows below still stand.
 
 ### [GOOGLE-SERVICES] · added Conv 035 · standing GSC monitor (initial alignment ✅ Conv 035)
 ✅ **Initial alignment done Conv 035** (via Chrome, operator's GSC session): submitted the correct
@@ -159,20 +161,6 @@ revisit later). Data: GA4 + GSC (site content, linked Conv 035); LinkedIn/X nati
 (operator session).
 📌 **Piggybacked on the GSC cadence** — not separately surfaced at `/r-start`. If independent surfacing is
 wanted later, add a cadence entry to the r-start mechanism (`DEC-035-4`).
-
-### [GSC-SUBMIT-SKILL] · added Conv 059 · a skill to submit new/changed pages to Google
-✅ **Skill built Conv 059** — `.claude/skills/r-submit-page-to-gsc/SKILL.md`. Invoke as
-**`/r-submit-page-to-gsc <url-or-path …>`** (takes the page URL as an argument — a full URL or a
-site-relative path, e.g. `/r-submit-page-to-gsc /guides`; normalizes to the trailing-slash canonical form).
-Call it whenever a page is **added OR materially edited** (operator, Conv 059 — material in-place edits need
-a re-crawl too, not just new pages; so **not** gated on bulk-indexing finishing). It resubmits
-`sitemap-index.xml` (new page only) → **live-test-first** Request-indexes the URL (dodges the
-Server-connection gotcha; quota ~10/day) → logs the push + a `⬜` follow-up into `[GOOGLE-SERVICES]`. Drives
-via Chrome + the operator's GSC session. Authoritative operating recipe stays in `[GOOGLE-SERVICES]`
-Operating notes (the skill cites it).
-✅ **Manual by decision (operator, Conv 059)** — deliberately **not** auto-wired into `r-content` / `r-post`
-finalize or prod deploys; it's a manual call you make when you want it. (Revisit if that churn grows.)
-Row can retire to the ✅ tags next `/r-end` — the skill is the durable artifact.
 
 ### [WRITING-BUILDOUT] · promoted Conv 057 · build out real articles + re-enable the writing stream
 Deferred by the **guides-only launch** (`DEC-056-3`, shipped Conv 057): the site went live with the 3
@@ -416,6 +404,19 @@ _None._
 ---
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
+
+- **Conv 059:** **Brian/PeerLoop testimonial LIVE + `/guides/` title fix + GSC sweep & submit-skill.**
+  **Shipped to prod + staging** (`3455d697` / `62386e89`): Brian's signed-off testimonial as the **2nd AI-era
+  testimonial** (home + `/testimonials`; **first public naming of PeerLoop**; `learning-marketplace` case
+  stays de-identified), `/guides/` hub `<title>`/og:title fixed **"Writing"→"Guides"**, testimonial country
+  attributions standardized to comma-form, and a headline-grid breakpoint (AI-era testimonials single-column
+  <768px). **GSC Conv-59 sweep:** health clean, **8/22 submitted pages indexed** (was 3); the Conv-44
+  request-indexing push **verified took** (all 5 crawled+indexed); resubmitted the sitemap + Request-indexed
+  the 4 guide URLs + `/faq/` + `/history/`. Built **`[GSC-SUBMIT-SKILL]`** (`/r-submit-page-to-gsc`, manual;
+  row retired here). **Content-analytics:** per-channel wall-clock **tracking horizon** (LinkedIn ~2wk /
+  X ~48h) + dated capture-due markers, wired into `POST-REVIEW`. **Fixed** the `/r-start` resume-cadence bug
+  (it nearly hid the due GSC check). Resumed from a dead Conv-059 session. 2 hopper items carried
+  (home+testimonials GSC submit; X-post + posting rhythm).
 
 - **Conv 058:** **🚀 Launch lead post LIVE on LinkedIn** (`guides-launch`, cross-pillar; 2026-11-23; share
   card = the pillar triangle) + the social-post **rigor machinery** (`POST-CREATE`/`POST-REVIEW`/`r-post` +

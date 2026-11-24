@@ -2,9 +2,43 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-23._
+_As of 2026-11-24._
 
 ---
+
+### DEC-059-5 — `/r-start` cadence pre-compute made resume-aware
+
+The `/r-start` cadence snippet now derives the current conv number resume-aware: if
+`.conv-current` exists and equals `CONV-COUNTER` (a resume) use `c`; else (fresh start) `c+1`. Was always
+`c+1`.
+
+### DEC-059-4 — Brian/PeerLoop testimonial published; first public naming of PeerLoop
+
+Added Brian's real, signed-off testimonial (founder of **PeerLoop** = the `learning-marketplace`
+engagement) as the **2nd AI-era testimonial** (`testimonials.json` `brian-peerloop`) on **both** home
+(pull-quote) and `/testimonials` (full). Names PeerLoop publicly for the first time. Corrected "Frasier"→
+"Fraser"; attribution "Brian, founder, PeerLoop" (lowercase, matching Gabriel). The `learning-marketplace`
+**case page stays de-identified** (no case link).
+
+### DEC-059-3 — `/guides/` hub title "Writing" → "Guides" (eyebrow kept)
+
+Fixed the `/guides/` hub `title`/`headerTitle` from "Writing — Fraser Gorrie"/"Writing" to
+"Guides — Fraser Gorrie"/"Guides"; `<title>`/og:title/twitter:title derive from `title`. Kept the on-page
+eyebrow "Writing".
+
+### DEC-059-2 — content-analytics tracking horizon: per-channel wall-clock + dated markers
+
+A published post is actively tracked for a per-channel **wall-clock** window — **LinkedIn
+~2 weeks** (final read ~pub+14d), **X ~48h** (one read) — then settles. Mechanism: a dated `⬜` capture-due
+marker dropped in the post's record at publish (wired into `POST-REVIEW`), executed at the nearest GSC batch
+on/after its date. Qualitative/inbound has no horizon.
+
+### DEC-059-1 — `[GSC-SUBMIT-SKILL]`: a manual page-submit skill (`/r-submit-page-to-gsc`)
+
+Built `/r-submit-page-to-gsc <url|path>` (`.claude/skills/r-submit-page-to-gsc/`): for a new or
+materially-changed page, resubmit the sitemap (new page only) → **live-test-first** Request-index the URL →
+log a `⬜` follow-up into `[GOOGLE-SERVICES]`. **Manual** — not auto-wired. Covers both new pages and material
+in-place edits.
 
 ### DEC-058-9 — per-page og:image + the `/guides/` pillar-triangle (share card + on-page `[PILLAR-DIAGRAM]` v1)
 

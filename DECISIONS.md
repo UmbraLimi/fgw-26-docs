@@ -8,6 +8,76 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 059
+
+### DEC-059-5 — `/r-start` cadence pre-compute made resume-aware
+**Decision:** The `/r-start` cadence snippet now derives the current conv number resume-aware: if
+`.conv-current` exists and equals `CONV-COUNTER` (a resume) use `c`; else (fresh start) `c+1`. Was always
+`c+1`.
+**Rationale:** On a resume the counter is already incremented by the dead session's `/r-start`, so `c+1`
+overshot by one and surfaced cadence for the wrong conv — this conv it reported `[GOOGLE-SERVICES] not due
+(next 68)` when Conv 59's check was in fact DUE, nearly hiding it. Alternatives that lost: leave it (bites
+only on a resume); promote as a separate task.
+**Consequences:** Fixed in `.claude/skills/r-start/SKILL.md`; tested all four cases (resume/fresh ×
+due/not-due). Hopper item resolved do-now.
+
+### DEC-059-4 — Brian/PeerLoop testimonial published; first public naming of PeerLoop
+**Decision:** Added Brian's real, signed-off testimonial (founder of **PeerLoop** = the `learning-marketplace`
+engagement) as the **2nd AI-era testimonial** (`testimonials.json` `brian-peerloop`) on **both** home
+(pull-quote) and `/testimonials` (full). Names PeerLoop publicly for the first time. Corrected "Frasier"→
+"Fraser"; attribution "Brian, founder, PeerLoop" (lowercase, matching Gabriel). The `learning-marketplace`
+**case page stays de-identified** (no case link).
+**Rationale:** The masking guard marks Brian/marketplace unconstrained, and Brian consented by signing a
+public recommendation naming PeerLoop; no conflict with the translation-platform mask. Placement **B** (home
++ /testimonials) over A (testimonials-only) — operator wanted him on the home AI band. Lowercase "founder"
+to match the established Gabriel entry. Alternatives that lost: keep PeerLoop masked; testimonials-only;
+keep Brian's "Founder" capitalization.
+**Consequences:** Home button changed "Read the full testimonial" (Gabriel deep-link) → "Read the full
+testimonials" → `/testimonials`, now that two AI-era cards render. Masking-guard row updated. Country
+attributions also standardized to comma-form (dropped the `(Canada)`/`(Israel)` parens). Deployed prod +
+staging; verified live.
+
+### DEC-059-3 — `/guides/` hub title "Writing" → "Guides" (eyebrow kept)
+**Decision:** Fixed the `/guides/` hub `title`/`headerTitle` from "Writing — Fraser Gorrie"/"Writing" to
+"Guides — Fraser Gorrie"/"Guides"; `<title>`/og:title/twitter:title derive from `title`. Kept the on-page
+eyebrow "Writing".
+**Rationale:** The guides hub shared an identical `<title>`/og:title with the dark `/writing/` page (leftover
+from the pre-Conv-57 combined content home) — a duplicate-title SEO issue and the weak social-card title the
+launch post showed. Terse "Guides — Fraser Gorrie" matches the site's "<Section> — Fraser Gorrie" convention.
+Eyebrow kept per operator (intentional "Writing" section framing). Alternatives that lost: change the eyebrow
+too; leave the title.
+**Consequences:** Deployed prod + staging; verified live. ⚠️ Will NOT change the already-published Conv-058
+launch post's card — LinkedIn bakes the link preview at share time and doesn't re-scrape [inferred]; helps
+future shares only.
+
+### DEC-059-2 — content-analytics tracking horizon: per-channel wall-clock + dated markers
+**Decision:** A published post is actively tracked for a per-channel **wall-clock** window — **LinkedIn
+~2 weeks** (final read ~pub+14d), **X ~48h** (one read) — then settles. Mechanism: a dated `⬜` capture-due
+marker dropped in the post's record at publish (wired into `POST-REVIEW`), executed at the nearest GSC batch
+on/after its date. Qualitative/inbound has no horizon.
+**Rationale:** Horizons should match how long each platform actually distributes a post, not conv-count
+(convs don't map to days). Grounded in current data: LinkedIn ~90% of 30-day impressions by day 8–9 with a
+tail to day 30 (Contentin 427-post study); X impression half-life ~80 min, ~95% done by 24h. Alternatives
+that lost: a conv-count "N-sweeps" horizon (CC's first proposal — rejected, convs ≠ wall-clock); no horizon.
+⚠️ Process scar: CC first wrote the specifics into the doc as decided and mis-attributed them to the operator,
+then corrected to a proposal and got the ruling.
+**Consequences:** `_cc/content-analytics.md` + `reference/POST-REVIEW.md` updated; `guides-launch` carries a
+final-read-due ~2026-12-07 marker.
+
+### DEC-059-1 — `[GSC-SUBMIT-SKILL]`: a manual page-submit skill (`/r-submit-page-to-gsc`)
+**Decision:** Built `/r-submit-page-to-gsc <url|path>` (`.claude/skills/r-submit-page-to-gsc/`): for a new or
+materially-changed page, resubmit the sitemap (new page only) → **live-test-first** Request-index the URL →
+log a `⬜` follow-up into `[GOOGLE-SERVICES]`. **Manual** — not auto-wired. Covers both new pages and material
+in-place edits.
+**Rationale:** New/changed pages aren't discovered by Google in time (its sitemap last-read lags — Conv-59:
+the Nov-23 guides were "unknown to Google"); a repeatable submit packages the proven recipe. Manual over
+auto-wiring (into `r-content`/`r-post`/deploys) — operator wants quota control and no churn; covers material
+edits too, so not gated on bulk-indexing finishing. Alternatives that lost: auto-trigger from content/deploy
+flows; gate until all pages indexed. The authoritative recipe stays in `[GOOGLE-SERVICES]` operating notes
+(the skill cites it, to avoid drift).
+**Consequences:** Skill registered; `[GSC-SUBMIT-SKILL]` row retired to the completed tags. First real use
+queued for next conv (home + `/testimonials`, hoppered).
+
 ## Conv 058
 
 ### DEC-058-9 — per-page og:image + the `/guides/` pillar-triangle (share card + on-page `[PILLAR-DIAGRAM]` v1)
