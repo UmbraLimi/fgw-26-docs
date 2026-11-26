@@ -6,6 +6,15 @@ Conv 047. The `/r-content` skill composes a piece's full checklist from **this d
 
 Each step: CC does the mechanical part and presents; **the operator rules**.
 
+🔴 **Readable `.scratch` copy-from surface (operator, Conv 060) — applies to every guide, article, and
+post.** Alongside the structured working files below, CC keeps a clean plain-prose copy of the **current
+draft** at **`.scratch/<slug>-draft.md`** — just the readable prose (no frontmatter, no MDX/components, no
+decorative markup), so the operator can open it in a text editor and **copy from it**. 🔴 **The operator
+reviews there and pastes proposed changes back in chat — never by editing the `.scratch` file (CC is the
+sole editor, `DEC-024-1`).** CC applies each change to **both** this readable copy **and** the durable
+source (the guide MDX in `fgw-26 src/content/` / the dossier). The `.scratch` copy is a working mirror
+(gitignored — regenerate from source if lost), not the durable record. (DEC at /r-end.)
+
 ## The pass (in order)
 
 1. **Slot it.**

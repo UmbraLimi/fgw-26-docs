@@ -123,6 +123,16 @@ crawled/indexed after their request — that's how we judge if the push worked.*
   plus any of the 12 work pages Google got to). 🔴 **Any of the 6 still Last-crawled N/A = the push failed —
   investigate** (re-run the live test, re-request; check the page isn't genuinely broken). Also confirm
   `/guides/` moved off "unknown to Google".
+- **2026-11-25 (Conv 060) — material in-place edits:** request-indexed `https://frasergorrie.com/` (home: 2nd
+  testimonial card + "Read the full testimonials" button, deployed Conv 059) and
+  `https://frasergorrie.com/testimonials/` (Brian/PeerLoop added + country-format standardized, deployed Conv
+  059). Both were already **indexed** — this pushes a fresh crawl so Google re-reads the changed content; no
+  sitemap resubmit (no new URLs). Home flaked once on the live test ("Something went wrong"; page served HTTP
+  200 at the same moment — the transient gotcha), re-ran green then requested; `/testimonials/` went green
+  first try. Both accepted into the priority queue. ⬜ **Conv-68 follow-up — EXPECT (glance-test):** both show
+  a **Last-crawled on/after Nov 25** (i.e. the re-crawl of the changed content happened). Low-stakes — the
+  pages were already indexed; this only freshens them. No crawl by Conv 68 = re-request, but not a failure to
+  chase (unchanged-looking pages get a slow re-crawl regardless).
 ⚠️ **Gotcha (Conv 044, resolved in-session):** Request-indexing runs a live fetch first; it can flake with
 **"Page fetch — Failed: Server connection error" → request rejected** even when the page is perfectly
 healthy (verified `/method/` served HTTP 200 / 20KB via curl at the same moment; recurred Conv 59 on a
@@ -135,9 +145,14 @@ for a real page problem.
 ### [POSTING-PLAN] · added Conv 035 · run the X + LinkedIn posting cadence (plan ✅ Conv 038)
 ✅ **Plan stood up Conv 038** — the full channel/funnel strategy lives in `reference/CHANNELS.md` (funnel,
 channel roles, cadence, pillars, sourcing/workflow, content home, copy conventions). Buyer-facing **X pinned
-post** done (Conv 038). 🔁 **Standing work:** run the **biweekly LinkedIn** cadence (opportunistic X echo),
-drafting per the pillars — CC drafts → operator approves → publish (write-once-then-distribute). Posts point
-to the **live guides** (`/guides/`, live Conv 057).
+post** done (Conv 038). 🔁 **Standing work:** run the **biweekly LinkedIn** cadence (pillar posts) **and the
+new X cadence** (see Conv-060 note below), drafting per the pillars — CC drafts → operator approves → publish.
+Posts point to the **live guides** (`/guides/`, live Conv 057).
+🆕 **Conv 060 — X given its own content + cadence (echo model retired).** X is no longer an "opportunistic
+echo" of LinkedIn — it **originates its own posts** from the **40-years Judgement thread** (personality /
+POV / candid stories) on a **set rhythm: ~monthly now, biweekly the goal**. Parallel to LinkedIn, not
+downstream (completes the Conv-058 move). Full model + change log: `reference/CHANNELS.md` §X; X seed track:
+`_cc/content-backlog.md`. First X-native post drafted Conv 060. (DEC at /r-end.)
 🚀 **Conv 058 — launch lead LIVE.** The cross-pillar launch lead (`guides-launch`) is **posted on LinkedIn**
 (2026-11-23) via the new social-post machinery (`POST-CREATE`/`POST-REVIEW`/`r-post`; `DEC-058-1`) + the
 one-link/website-only funnel (`DEC-058-2`). Remaining cadence: the **per-pillar follow-ons** (Trust →
@@ -405,6 +420,14 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 060:** **🐳 First X-native post LIVE** (`x-judgement-throughline`, @frasergorrie 2026-11-26) — the
+  40-years **Judgement thread**: expertise is ephemeral, the lasting skill is knowing *when* to switch tools,
+  then learn fast (🐳 mark, no link/image). **First post under the new X content model + cadence** (X
+  originates its own content from the Judgement thread; ~monthly now, biweekly the goal — echo model retired;
+  `CHANNELS.md` §X). Full `POST-REVIEW` pass clean (zero em-dashes). Also Conv 060: **British/Canadian
+  spelling** rule + **readable `.scratch` copy-from draft** process + **marine-biology branding** (🐳 mark;
+  engravings = site carrier, not X media — tested via a mock). Record:
+  `docs/content/posts/x-judgement-throughline.md`; outcomes due ~2026-11-28. [post](https://x.com/frasergorrie/status/2125971418726740081).
 - **Conv 059:** **Brian/PeerLoop testimonial LIVE + `/guides/` title fix + GSC sweep & submit-skill.**
   **Shipped to prod + staging** (`3455d697` / `62386e89`): Brian's signed-off testimonial as the **2nd AI-era
   testimonial** (home + `/testimonials`; **first public naming of PeerLoop**; `learning-marketplace` case

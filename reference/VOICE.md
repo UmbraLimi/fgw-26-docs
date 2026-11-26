@@ -13,6 +13,13 @@ The **lightly-warmed** register: contractions ("I've", "it's"), plain everyday v
 "ascertain"), measured but human. Not cold or formal; not hyped or exclamatory. This is the register the
 operator picked for About in Conv 009, over a sparer option and a more-performative one.
 
+## Spelling — British / Canadian (operator, Conv 060)
+Fraser **always** uses **British (Canadian) spelling** across all content — site copy, guides/articles, and
+social posts alike. E.g. *judgement* (not judgment), *behaviour*, *colour*, *organise* / *recognise*,
+*licence* (noun) / *license* (verb), *-re* endings (*centre*, *metre*), *catalogue*, *traveller*. This is
+the single durable home for the rule; `POST-CREATE.md` / `GUIDE-CREATE.md` inherit it via "consult
+`VOICE.md`." (Settled the Conv-060 judgement/judgment ruling.)
+
 ## Candor — load-bearing
 Honest to the point of naming what went wrong. A documented miss is the trust signal, not a weakness to
 hide (`DEC-000-6`, `discovery/WORKING-METHOD.md`). The `this-site` **"The record"** block is the

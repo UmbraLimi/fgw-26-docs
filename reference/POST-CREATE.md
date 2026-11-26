@@ -33,15 +33,24 @@ One repeatable pass to take a social post from **seed** to **channel draft** —
    a block to send a rewrite back, and any markup rides along as friction to strip (CC remains the sole
    editor). Plain prose keeps the copy-edit-return loop clean (markup-stripping precedent, `GUIDE-REVIEW`
    step 1 / `DEC-054-1`).
+   🔴 **Readable `.scratch` copy-from surface (operator, Conv 060) — applies to every post, guide, and
+   article.** CC also keeps a clean plain-text copy of the **current draft** at **`.scratch/<slug>-draft.md`**
+   — just the readable post text (no frontmatter, no markup), so the operator can open it in a text editor
+   and **copy from it**. 🔴 **The operator reviews there and pastes proposed changes back in chat — never by
+   editing the `.scratch` file (CC is the sole editor, `DEC-024-1`).** CC applies each change to **both** this
+   readable copy **and** the durable source (`docs/content/posts/<slug>.md`). The `.scratch` copy is a
+   working mirror (gitignored — regenerate from source if lost), not the durable record. (DEC at /r-end.)
 
 5. **Draft** — write the post *into the file*, to the channel's register:
    - `[LinkedIn]` — positioning / credibility register (the look-you-up moment). Complete sentences
      (`CHANNELS.md` social conventions). A biweekly pillar post. **One outbound link, to the site** (a
      guide / the hub / contact) — never to X; one link per post (`CHANNELS.md`, Conv 058).
-   - `[X]` — personality / point-of-view register (the warming moment), **adapted opportunistically from a
-     LinkedIn piece with a personable angle** — X keeps no schedule of its own. Lean; no long-form (that
-     lives on the site). Attach a visual as **media** (X renders no link card). **One outbound link, to
-     the site**; not cross-referenced from LinkedIn (the channels don't cross-link).
+   - `[X]` — personality / point-of-view register (the warming moment). **X-native content, not a LinkedIn
+     adaptation (Conv 060):** spin the post from the **40-years Judgement thread** (grounded stories, candid
+     misses, the throughline that the tool was never the interesting question), on X's own cadence (~monthly
+     now, biweekly the goal). Lean; no long-form (that lives on the site). A personality post may carry **no
+     link at all**; if it links, **one outbound link, to the site** (never to LinkedIn — the channels don't
+     cross-link). Attach a visual as **media** if one is wanted (X renders no link card).
 
 6. **Hand to the finalize pass** — the draft goes through `POST-REVIEW.md` before it can publish.
 

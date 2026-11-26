@@ -70,8 +70,14 @@ serious. The site is the only place with the real contact mechanism; platform DM
   thinks.
 - **Posture — downstream of LinkedIn.** Seen mostly by people who already found him and want more; **not**
   a cold-acquisition channel aimed at buyers (not densely on X anyway). It *supports* LinkedIn.
-- **Cadence:** opportunistic — an adapted post only when a LinkedIn piece has a personable angle; X keeps
-  no schedule of its own.
+- **Cadence (revised Conv 060):** X runs **its own set rhythm — ~monthly now, biweekly the goal** (ramp up
+  as it proves sustainable, the same sustainability-over-reach principle as LinkedIn). **Retires** the
+  earlier "opportunistic, no schedule of its own" model.
+- **Content — X-native, not a LinkedIn echo (Conv 060).** X carries **its own posts**, spun from the
+  **40-years Judgement thread** that is its spine: grounded stories, candid misses, the throughline that
+  the tool was never the interesting question (`PERSONA.md` "Judgement is the throughline" + `VOICE.md`). It
+  **does not** adapt LinkedIn pieces — LinkedIn and X are **parallel** channels (Conv 058), so each
+  originates its own content. Its own seed track in `_cc/content-backlog.md`.
 - **Avoid:** reactive news-chasing — the highest-maintenance format, first to lapse at his bandwidth.
   Personality travels without a news peg.
 - **Links:** out to the site only. **Not** cross-referenced from LinkedIn — LinkedIn and X don't link to
@@ -222,3 +228,8 @@ the site, or a specific piece. Don't chase vanity metrics as the *goal* (counter
   pointing only to the site, neither linking to the other (The flow + both Links lines). Added the
   **one-outbound-link-per-post** social copy convention (operator: more than one link reads as salesy).
   Drove the launch-post decision to carry a single link to the `/guides/` hub. (DEC at /r-end.)
+- **Conv 060** — **X given its own content model + cadence; the echo model retired.** Completing the
+  Conv-058 parallel-channel move: X no longer adapts LinkedIn pieces — it **originates its own posts** from
+  the 40-years **Judgement thread** (personality / POV / candid stories), and runs a **set rhythm (~monthly
+  now, biweekly the goal)** rather than "opportunistic, no schedule." Its own seed track in
+  `content-backlog.md`. Operator direction. (DEC at /r-end.)

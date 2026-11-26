@@ -107,6 +107,24 @@
 - **Quiet-editorial restraint.** No hype, no superlatives, no badge-collecting.
 - **Credibility by proof, not self-praise** — grounded specifics and others vouching (testimonials,
   recommendations), not assertions about himself.
+- **Two differentiators in the custom-AI niche (operator, Conv 060) — one loud-ish, one subtle.**
+  (1) **40+ years building apps for clients** — the seasoning, already carried well. (2) His **science
+  background — marine biology**, captured by the memorable line *"a marine biologist who settled 1000 miles
+  from the sea."* 🔑 **The second should register *subtly*, never stated outright** — a faint, repeated
+  signal that builds recognition over time, not a talking point. **Primary carrier = colophon subjects**
+  (the `[CONTENT-ART]` natural-history engravings already lean aquatic: *Conus marmoreus* sea snail, *stella
+  marina* starfish, *Esox lucius* pike — make this a deliberate house policy). 🖼️ **Engravings are a *site*
+  carrier, not X-post media (tested Conv 060):** at X's single-image size the ornate plate overshadows the
+  post text and reads as "why a shell?" without the on-page colophon context — so the plates live on the
+  site (guide colophons + a possible plates/field-notes gallery), not bolted onto posts. **X-post imagery =
+  the 🐳 mark + text**; infographics are a possible future post-image direction if wanted. 🐳 **Post
+  sign-off mark — the spouting whale (operator, Conv 060;
+  already his DM sign-off).** Marine, recognizable, light-hearted. Researched Conv 060: the old Twitter
+  **"Fail Whale"** worry is **low-risk** — retired in 2013, and it was a *specific illustration* (a whale
+  lifted by birds), **not the emoji**, surviving only as retro/outage-joke nostalgia among long-time users;
+  the crypto/gaming "whale" (big holder / big spender) slang attaches to the *word* in crypto/finance
+  contexts, not Fraser's buyer audience. Net: 🐳 is a sound, consistent brand mark. Applies across
+  marketing, guides, articles, and posts.
 
 ## Augmentation log
 
