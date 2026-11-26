@@ -8,6 +8,63 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 060
+
+### DEC-060-4 — Marine-biology branding: differentiators, 🐳 sign-off mark, engravings = site carrier
+**Decision:** Two differentiators in the custom-AI niche — (1) **40+ years** building apps for clients
+(carried well), (2) **marine-biology** background (*"a marine biologist who settled 1000 miles from the
+sea"*), to register **subtly**. The **🐳 spouting whale** is the standing X post sign-off mark (already the
+operator's DM mark). **Colophon engravings are a *site* carrier** (guide colophons + a possible plates/
+field-notes gallery), **not X-post media**; X-post imagery = 🐳 mark + text, with infographics a possible
+future direction. Recorded in `PERSONA.md` (Implications).
+**Rationale:** The marine identity is a memorable differentiator worth a faint, repeated signal, not a
+talking point. 🐳 researched: the "Fail Whale" worry is low-risk (retired 2013; a specific *illustration*,
+not the emoji; nostalgia/outage-joke only) and crypto/gaming "whale" slang attaches to the *word* in
+crypto/finance contexts, not the buyer audience; 🐳 is sound and cross-channel-consistent. Engravings were
+tested on X via a true-scale mock: the ornate plate overshadows the post text and reads "why a shell?"
+without the on-page colophon context. Alternatives that lost: avoid the whale (overturned by research);
+a non-whale water mark (🐟/🌊); colophon square tile or full/matted plate as X media (overshadows / detail
+lost); state the marine angle outright (not subtle).
+**Consequences:** The Conv-060 X post carries 🐳, no engraving. Colophon house policy leans aquatic subjects;
+infographics open as a future X image direction.
+
+### DEC-060-3 — British/Canadian spelling across all content
+**Decision:** Fraser **always** uses British/Canadian spelling in all content — site copy, guides/articles,
+social posts (judgement, behaviour, colour, organise, licence/license, -re endings, catalogue…). Recorded in
+`VOICE.md` (Spelling section); `POST-CREATE.md`/`GUIDE-CREATE.md` inherit it via "consult `VOICE.md`."
+**Rationale:** Operator directive; the project already used "judgement" de facto, but the rule was unstated.
+Settles the judgement/judgment question (judgement correct). Alternatives that lost: American spelling; leave
+it implicit.
+**Consequences:** Single durable home in `VOICE.md`. The Conv-060 X post's "judgement" confirmed correct.
+
+### DEC-060-2 — Readable `.scratch/<slug>-draft.md` copy-from surface for every post/guide/article
+**Decision:** For every post, guide, and article, CC keeps a clean plain-prose copy of the **current draft**
+at `.scratch/<slug>-draft.md` (no frontmatter/MDX/markup) as the operator's read-and-copy surface. The
+operator reviews there and pastes changes back **in chat** — never editing the `.scratch` file (CC sole
+editor, `DEC-024-1`); CC applies each change to **both** the mirror and the durable source. Recorded in
+`POST-CREATE.md` step 4 + `GUIDE-CREATE.md`.
+**Rationale:** The operator needs to open a draft in a text editor and copy from it, but the durable sources
+aren't clean copy surfaces (the posts file carries frontmatter; guides are MDX with components). A dedicated
+readable mirror serves this consistently while preserving the sole-editor loop. Alternatives that lost: copy
+from the committed posts file / guide MDX directly (not clean); operator edits a scratch file (breaks the
+sole-editor rule).
+**Consequences:** The mirror is a working copy (gitignored; regenerate from source if lost), not the durable
+record. Applied first to the Conv-060 X post draft.
+
+### DEC-060-1 — X given its own content model + cadence; LinkedIn-echo model retired
+**Decision:** X is a **parallel** channel that **originates its own posts** from the 40-years **Judgement
+thread** (personality/POV), on its own set cadence — **~monthly now, biweekly the goal**. Retires the
+Conv-038 "opportunistic, no schedule / adapt a LinkedIn piece" echo model. Recorded in `CHANNELS.md` §X +
+change log; `[POSTING-PLAN]` updated; X seed track in `_cc/content-backlog.md`.
+**Rationale:** Completes the Conv-058 move that made LinkedIn and X parallel (dropped the cross-link). X's job
+(the human behind the positioning; the Judgement thread is its spine) is served by its own content, not
+LinkedIn adaptations; a held light cadence reads "alive" without a treadmill (X is "first to lapse at
+bandwidth," so lighter than LinkedIn's biweekly, ramping as it proves sustainable). Alternatives that lost:
+keep the opportunistic-echo model (operator: echo is not the design); a one-off post with no cadence;
+establish biweekly immediately (too much for now).
+**Consequences:** First X-native post shipped this conv (`x-judgement-throughline`). `POST-CREATE.md` [X] step
+rewritten off the echo model; future X posts draw from the Judgement-thread seed track.
+
 ## Conv 059
 
 ### DEC-059-5 — `/r-start` cadence pre-compute made resume-aware

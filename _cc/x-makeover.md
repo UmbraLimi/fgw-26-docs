@@ -38,7 +38,7 @@ CC drove the edits in the operator's Chrome, operator-approved before Save (Link
 - ✅ **Header saved live** — new brand banner replaced the old "2 Paths" banner. Source `_cc/assets/x-banner.html` (1500×500, regen cmd in header), rendered `x-banner.png` (3000×1000 @2x), uploaded via Chrome, operator-approved before Save. Avatar (lower-left) clears the right-of-centre content. (Website briefly showed a t.co wrapper right after save; a reload restored the "frasergorrie.com" display — transient, no action.)
 - ✅ **Pinned post:** keep the current Sep 10 2025 "vibe-coding… it's intuition" post for now (on-theme — AI needs human judgment); a deliberate, buyer-facing pin choice deferred to `[POSTING-PLAN]`. (Mild note: "vibe-coding" is builder-flavored, less buyer-aimed.)
 
-**X profile makeover complete (Conv 037)** — name, bio, header all live; pinned-post disposition made. Remaining X work (a posting cadence, a purpose-written pinned post) belongs to `[POSTING-PLAN]`.
+**X profile makeover complete (Conv 037)** — name, bio, header all live; pinned-post disposition made. Remaining X work (a posting cadence, a purpose-written pinned post) belongs to `[POSTING-PLAN]`. **(Update Conv 060: X's own content model + cadence set — ~monthly→biweekly, originating from the Judgement thread, echo model retired; `DEC-060-1` / `CHANNELS.md` §X. First X-native post shipped.)**
 
 ## Field limits (verified Conv 037)
 

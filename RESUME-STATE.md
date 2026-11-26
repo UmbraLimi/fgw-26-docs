@@ -1,32 +1,26 @@
-**Conv:** 059 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
+**Conv:** 060 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
 
 ## Where we left off
 
-Conv 059 (resumed from a dead session) ran the **GOOGLE-SERVICES Conv-59 GSC sweep** — **8/22 submitted pages
-indexed** (up from 3), the Conv-44 request-indexing push **verified took**, and the undiscovered Nov-23 guide
-launch handled (sitemap resubmit + Request-indexed the 4 guides + `/faq/` + `/history/`). Built
-**`/r-submit-page-to-gsc`** (`[GSC-SUBMIT-SKILL]`, manual) and set the **content-analytics tracking horizon**
-(per-channel wall-clock: LinkedIn ~2wk / X ~48h, dated markers; `POST-REVIEW` wired). Published **Brian's
-PeerLoop testimonial** (2nd AI-era, home + `/testimonials`, first public PeerLoop naming), fixed the
-**`/guides/` title** (Writing→Guides), tidied testimonial country/casing, added a headline-grid breakpoint —
-all **deployed to prod (`3455d697`) + staging (`62386e89`)**, verified live. Fixed the `/r-start`
-resume-cadence bug (`DEC-059-5`).
+Conv 060 stood **X up as its own channel** and shipped its **first X-native post**. X now originates its own
+content from the 40-years **Judgement thread** on its own cadence (**~monthly now, biweekly the goal**; the
+LinkedIn-echo model is retired — `DEC-060-1`). The first post is **LIVE** (`x-judgement-throughline`,
+@frasergorrie 2026-11-26; outcomes due ~2026-11-28). Also set this conv: the **`.scratch` copy-from draft**
+process for every post/guide/article (`DEC-060-2`), the **British/Canadian spelling** rule (`DEC-060-3`), and
+**marine-biology branding** — the 🐳 sign-off mark, engravings = a site carrier not X media (`DEC-060-4`,
+settled via a true-scale X mock). The carried GSC hopper item (request-index home + `/testimonials/`) was done.
+One hopper item carried: tune `check-promises.sh` (false-fires on `/r-hopper` capture-line rulings).
 
 ## Next action
 
-🔁 **Two items carried in the hopper** (surfaced at this `/r-start`; run `/r-hopper` to rule):
-1. **Run `/r-submit-page-to-gsc` for the home page + `/testimonials`** — both materially changed and deployed
-   this conv; in-place edits, so request-index each (no sitemap resubmit needed). URLs: `https://frasergorrie.com/`
-   and `https://frasergorrie.com/testimonials/`.
-2. **Consider an X/Twitter post now + the overall posting rhythm** — echo/adapt the LinkedIn launch lead to X?
-   and set the cadence across channels (per-pillar follow-ons; `reference/CHANNELS.md`, `[POSTING-PLAN]`,
-   seeds in `_cc/content-backlog.md`). A strategy call.
+**Continue the posting cadence** — now that both channels' models are set, the queued content is the
+**per-pillar LinkedIn follow-ons** (Trust → Steering → Deciding; seeds in `_cc/content-backlog.md`,
+run via `/r-post`), with the next **~monthly X-native post** drawn from the Judgement thread. Reason: the
+launch lead (LinkedIn) + first X post are live; the per-pillar posts are the next planned beats.
 
-**Also pending (not due, just tracked):**
-- **`guides-launch` content-analytics final read due ~2026-12-07** (LinkedIn ~2wk horizon) — marker in
-  `docs/content/posts/guides-launch.md`; do at the nearest GSC batch on/after that date, then settle.
-- **GSC next cadence = Conv 68** — the Conv-059 request-indexing batch (6 URLs) has a `⬜` EXPECT glance-test
-  in `[GOOGLE-SERVICES]` (all 6 should be crawled+indexed; Discovered 22→~26; Indexed 8→~14+).
+**Also pending (dated, not due):** the **X post outcomes read ~2026-11-28** (X +2d; do at the nearest
+GSC/analytics sweep on/after); **GSC cadence check next Conv 68** (the Conv-059 request-indexing batch has a
+⬜ EXPECT glance-test in `[GOOGLE-SERVICES]`); **`guides-launch` LinkedIn final read ~2026-12-07**.
 
 ## 🔬 Carried findings
 

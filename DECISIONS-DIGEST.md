@@ -2,9 +2,39 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-24._
+_As of 2026-11-26._
 
 ---
+
+### DEC-060-4 — Marine-biology branding: differentiators, 🐳 sign-off mark, engravings = site carrier
+
+Two differentiators in the custom-AI niche — (1) **40+ years** building apps for clients
+(carried well), (2) **marine-biology** background (*"a marine biologist who settled 1000 miles from the
+sea"*), to register **subtly**. The **🐳 spouting whale** is the standing X post sign-off mark (already the
+operator's DM mark). **Colophon engravings are a *site* carrier** (guide colophons + a possible plates/
+field-notes gallery), **not X-post media**; X-post imagery = 🐳 mark + text, with infographics a possible
+future direction. Recorded in `PERSONA.md` (Implications).
+
+### DEC-060-3 — British/Canadian spelling across all content
+
+Fraser **always** uses British/Canadian spelling in all content — site copy, guides/articles,
+social posts (judgement, behaviour, colour, organise, licence/license, -re endings, catalogue…). Recorded in
+`VOICE.md` (Spelling section); `POST-CREATE.md`/`GUIDE-CREATE.md` inherit it via "consult `VOICE.md`."
+
+### DEC-060-2 — Readable `.scratch/<slug>-draft.md` copy-from surface for every post/guide/article
+
+For every post, guide, and article, CC keeps a clean plain-prose copy of the **current draft**
+at `.scratch/<slug>-draft.md` (no frontmatter/MDX/markup) as the operator's read-and-copy surface. The
+operator reviews there and pastes changes back **in chat** — never editing the `.scratch` file (CC sole
+editor, `DEC-024-1`); CC applies each change to **both** the mirror and the durable source. Recorded in
+`POST-CREATE.md` step 4 + `GUIDE-CREATE.md`.
+
+### DEC-060-1 — X given its own content model + cadence; LinkedIn-echo model retired
+
+X is a **parallel** channel that **originates its own posts** from the 40-years **Judgement
+thread** (personality/POV), on its own set cadence — **~monthly now, biweekly the goal**. Retires the
+Conv-038 "opportunistic, no schedule / adapt a LinkedIn piece" echo model. Recorded in `CHANNELS.md` §X +
+change log; `[POSTING-PLAN]` updated; X seed track in `_cc/content-backlog.md`.
 
 ### DEC-059-5 — `/r-start` cadence pre-compute made resume-aware
 
