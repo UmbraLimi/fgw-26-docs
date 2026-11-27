@@ -1,26 +1,34 @@
-**Conv:** 060 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
+**Conv:** 061 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
 
 ## Where we left off
 
-Conv 060 stood **X up as its own channel** and shipped its **first X-native post**. X now originates its own
-content from the 40-years **Judgement thread** on its own cadence (**~monthly now, biweekly the goal**; the
-LinkedIn-echo model is retired — `DEC-060-1`). The first post is **LIVE** (`x-judgement-throughline`,
-@frasergorrie 2026-11-26; outcomes due ~2026-11-28). Also set this conv: the **`.scratch` copy-from draft**
-process for every post/guide/article (`DEC-060-2`), the **British/Canadian spelling** rule (`DEC-060-3`), and
-**marine-biology branding** — the 🐳 sign-off mark, engravings = a site carrier not X media (`DEC-060-4`,
-settled via a true-scale X mock). The carried GSC hopper item (request-index home + `/testimonials/`) was done.
-One hopper item carried: tune `check-promises.sh` (false-fires on `/r-hopper` capture-line rulings).
+Conv 061 built two things and stifled a GSC artifact. **(1) Social post-stats tooling** (`DEC-061-3`): a
+`stats:` frontmatter snapshot per post dossier, **`/r-post-stats`** (per-channel `.html` reports → `.scratch/`,
+two rows per post striped per pair) + **`/r-post-stats-refresh`** (live X/LinkedIn re-read via Chrome) — ran
+live, both posts current. **(2) Unified content pipeline** (`DEC-061-4`): tracks (`x`/`linkedin`/`guide`/
+`article`) × states (`backlog → … → settled`), **`/r-content-pipeline`** (read-only view); `_cc/content-backlog.md`
+is now the ideas tier (🧩 Unshaped intake + per-track ordered — ideas are captured freeform in chat, land
+**unshaped**, and are shaped **jointly**, never auto-assigned); guides gained frontmatter, posts gained
+`type`/`track`; the **r/K** idea sits unshaped. Plus an out-of-cadence **GSC sweep**: the emailed 4xx =
+`/api/contact` (benign 405), stifled via `robots.txt` `Disallow: /api/` (deployed prod + staging, GSC Validate
+Fix started, `DEC-061-2`); `/guides/` + Trust guide verified **indexed**.
 
 ## Next action
 
-**Continue the posting cadence** — now that both channels' models are set, the queued content is the
-**per-pillar LinkedIn follow-ons** (Trust → Steering → Deciding; seeds in `_cc/content-backlog.md`,
-run via `/r-post`), with the next **~monthly X-native post** drawn from the Judgement thread. Reason: the
-launch lead (LinkedIn) + first X post are live; the per-pillar posts are the next planned beats.
+**Build the on-site type-filtered content library (POSSE)** — the operator named it the next build (hopper
+carry): every content piece gets a home on the public site (`fgw-26`) + a listings/search UI filterable by
+**type** (Articles / X / LinkedIn / Substack…), reusing the pipeline `type`/`track` facet; the site holds the
+canonical copy, social is syndication (so link-less social still has a findable on-site home). Open it as its
+own design thread. Reason: it completes the post↔article relationship + pipeline work and is the agreed next step.
 
-**Also pending (dated, not due):** the **X post outcomes read ~2026-11-28** (X +2d; do at the nearest
-GSC/analytics sweep on/after); **GSC cadence check next Conv 68** (the Conv-059 request-indexing batch has a
-⬜ EXPECT glance-test in `[GOOGLE-SERVICES]`); **`guides-launch` LinkedIn final read ~2026-12-07**.
+**Also carried / pending:**
+- **Wire `/r-post` + `/r-content` to the pipeline model** (hopper carry): scaffold dossier frontmatter at
+  creation, delete an idea's backlog row on graduation, fix the stale `CHANNELS.md` + `r-post` line-54 wording
+  (content-backlog is the ideas tier now).
+- **Dated reads:** X `x-judgement-throughline` **final read ~2026-11-28** (settle it) · LinkedIn `guides-launch`
+  **final read ~2026-12-07**.
+- **GSC cadence — next Conv 68:** confirm the `/api/contact` 4xx **cleared** (→ "Blocked by robots.txt" or
+  dropped) + the Conv-59/60 request-index batch (the ⬜ EXPECT glances in `[GOOGLE-SERVICES]`).
 
 ## 🔬 Carried findings
 

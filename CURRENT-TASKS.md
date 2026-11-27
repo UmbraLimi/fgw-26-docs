@@ -186,6 +186,9 @@ X ~48h).** A content-outcomes pass: update each **due** post's / article's **Out
 reactions tracked as an early-phase readership proxy** (operator Conv 058 — a weak "was it read" signal,
 revisit later). Data: GA4 + GSC (site content, linked Conv 035); LinkedIn/X native post analytics via Chrome
 (operator session).
+🛠️ **Tooling (Conv 061, `DEC-061-3`):** per-post `stats:` frontmatter block = the at-a-glance snapshot;
+**`/r-post-stats`** renders per-channel `.html` tables into `.scratch/`; **`/r-post-stats-refresh`** re-reads
+live numbers (Chrome) and writes the blocks. Cross-content pipeline view: **`/r-content-pipeline`** (`DEC-061-4`).
 📌 **Piggybacked on the GSC cadence** — not separately surfaced at `/r-start`. If independent surfacing is
 wanted later, add a cadence entry to the r-start mechanism (`DEC-035-4`).
 
@@ -432,6 +435,18 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 061:** **Social-analytics tooling + content-pipeline model + a GSC artifact stifled.** Built the
+  **post-stats reporting system** (`DEC-061-3`): a `stats:` snapshot per post dossier + **`/r-post-stats`**
+  (per-channel `.html` reports into `.scratch/`, 2-rows-per-post striped by pair) + **`/r-post-stats-refresh`**
+  (re-reads live X/LinkedIn numbers via Chrome); ran it live (LinkedIn 72 impr / 41 reached; X 37 views). Stood
+  up the **content pipeline** (`DEC-061-4`): tracks (`x`/`linkedin`/`guide`/`article`) × states (`backlog → …
+  → settled`), **`/r-content-pipeline`** (read-only merged view), ideas backlog restructured (🧩 Unshaped
+  intake + per-track ordered; ideas shaped jointly, never auto-assigned), guide dossiers gained frontmatter,
+  posts gained `type`/`track`; **r/K** idea captured (unshaped). **GSC out-of-cadence sweep** (4xx-email
+  trigger, `DEC-061-2`): `/api/contact` 405 artifact stifled via `robots.txt` `Disallow: /api/` (deployed prod
+  `acfc013c` + staging; GSC Validate Fix started); `/guides/` + Trust guide verified **indexed** (Conv-59 push
+  took). Fixed `check-promises.sh` Trigger 2 false-fire (`DEC-061-1`). **Next build (carried):** on-site
+  type-filtered content library (POSSE).
 - **Conv 060:** **🐳 First X-native post LIVE** (`x-judgement-throughline`, @frasergorrie 2026-11-26) — the
   40-years **Judgement thread**: expertise is ephemeral, the lasting skill is knowing *when* to switch tools,
   then learn fast (🐳 mark, no link/image). **First post under the new X content model + cadence** (X

@@ -2,9 +2,50 @@
 
 🔴 **Generated — do not edit.** A deterministic projection of `DECISIONS.md`: each entry's heading + its `Decision:` gist (tombstones = heading only). Regenerate with `.claude/scripts/gen-decisions-digest.sh`; `/r-end` refreshes it when `DECISIONS.md` changed. Load THIS file to scan for precedent, then open the cited `DEC-NNN-N` in `DECISIONS.md` for the full Decision/Rationale/Consequences.
 
-_As of 2026-11-26._
+_As of 2026-11-27._
 
 ---
+
+### DEC-061-4 — Unified content pipeline (tracks × states; backlog file + dossier `status:`; chat-capture, joint shaping)
+
+A unified content pipeline across **tracks** (`x` · `linkedin` · `guide` · `article`) and
+**states** (`backlog → drafting → review → approved → published → settled`; posts use all, guides/articles
+skip `approved`/`settled` — evergreen). **Source of truth:** `_cc/content-backlog.md` holds the `backlog`
+tier only — a **🧩 Unshaped** intake (raw ideas, no track/order) plus per-track **ordered** lists (priority =
+list position); each dossier's `status:` frontmatter holds `drafting`→`settled`. **`/r-content-pipeline`**
+renders the merged, read-only view and answers "next N ideas for `<track>`". **Capture + shaping:** ideas are
+presented **freeform in chat** (no capture skill); each lands **unshaped**, and its track(s)/primary/order/
+angle are decided **in discussion** — never auto-assigned — then it moves into a track's ordered list. Guide
+dossiers gained frontmatter (`type`/`track`/`status: published`/`pillar`/`published`); the 2 posts gained
+`type`/`track`.
+
+### DEC-061-3 — Social post-stats reporting system (`stats:` snapshot + `/r-post-stats` render + `/r-post-stats-refresh`)
+
+Each post dossier gains a machine-readable `stats:` frontmatter block (latest-snapshot numbers
+only — the table source; `## Outcomes` stays the dated-read narrative). **`/r-post-stats`** renders a
+per-channel standalone **`.html`** report into `.scratch/` (filename `<channel>_<most-recent-last_read>.html`),
+**two rows per post** (Opening+Read band over the stats row), posts **striped light-blue per pair + a divider
+line**; read-only. **`/r-post-stats-refresh`** drives Chrome (operator's session) to re-read live X/LinkedIn
+numbers, writes the `stats:` blocks, then regenerates the reports; a past-due horizon surfaces a settle
+prompt (never auto-settles). The `read:` line is **number-free** (numbers live in the fields, so it never
+goes stale).
+
+### DEC-061-2 — GSC report-legibility governing principle (actively stifle every artifact we can)
+
+Actively stifle every GSC-reportable artifact we *can* — via Google's own tools or our settings
+— so Search Console's results read cleanly without per-item caveats; artifacts that only heal with time (e.g.
+old-path 301 "Page with redirect" ghosts) we let age out. **First application:** the `/api/contact` "Blocked
+due to other 4xx issue" (the contact POST handler returns 405 to a GET, which Google found via the form's
+`action="/api/contact"`) was stifled with `Disallow: /api/` in `robots.txt` (`fgw-26 src/pages/robots.txt.ts`),
+deployed prod (ver `acfc013c`) + staging, verified live, then GSC **Validate Fix** started.
+
+### DEC-061-1 — `check-promises.sh` Trigger 2 exclusion (stop self-nudging on hopper-ruling turns)
+
+`check-promises.sh` Trigger 2 (the "at /r-end" close-deferral nudge) now **skips** when the same
+turn also carries an "already-captured / ruling an existing item" marker (`already (captured|routed|a
+durable|in the hopper|a hopper line)` · `capture line` · `rul(e|ing) an existing`), so a `/r-hopper` turn that
+*quotes* an already-captured capture line no longer self-fires. A genuine prose deferral ("DEC at /r-end")
+carries no such marker and still fires.
 
 ### DEC-060-4 — Marine-biology branding: differentiators, 🐳 sign-off mark, engravings = site carrier
 

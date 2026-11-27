@@ -8,6 +8,75 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 061
+
+### DEC-061-4 — Unified content pipeline (tracks × states; backlog file + dossier `status:`; chat-capture, joint shaping)
+**Decision:** A unified content pipeline across **tracks** (`x` · `linkedin` · `guide` · `article`) and
+**states** (`backlog → drafting → review → approved → published → settled`; posts use all, guides/articles
+skip `approved`/`settled` — evergreen). **Source of truth:** `_cc/content-backlog.md` holds the `backlog`
+tier only — a **🧩 Unshaped** intake (raw ideas, no track/order) plus per-track **ordered** lists (priority =
+list position); each dossier's `status:` frontmatter holds `drafting`→`settled`. **`/r-content-pipeline`**
+renders the merged, read-only view and answers "next N ideas for `<track>`". **Capture + shaping:** ideas are
+presented **freeform in chat** (no capture skill); each lands **unshaped**, and its track(s)/primary/order/
+angle are decided **in discussion** — never auto-assigned — then it moves into a track's ordered list. Guide
+dossiers gained frontmatter (`type`/`track`/`status: published`/`pillar`/`published`); the 2 posts gained
+`type`/`track`.
+**Rationale:** Needed one place showing all content by state across types; posts already had `status:`,
+guides' state was stale prose + a `draft:` flag in `fgw-26`. Ideas kept as lightweight rows (not a file per
+idea) to keep capture frictionless. The Unshaped tier + joint-shaping rule were added after the operator
+flagged that the primary track isn't pre-decided and all ideas need shaping together. Alternatives that lost:
+every idea a frontmatter dossier stub (file-clutter); a `/r-idea` capture skill (ceremony); me auto-assigning
+a primary track (operator corrected this).
+**Consequences:** `content-backlog.md`'s old draft/published sections dropped (dossiers own them), so
+`CHANNELS.md` + `r-post` line-54 wording is now stale (carried for fixing). r/K idea captured unshaped. The
+**on-site type-filtered content library (POSSE)** is the next build (carried). Wiring `/r-post`/`/r-content`
+to scaffold frontmatter + delete an idea's backlog row on graduation is carried.
+
+### DEC-061-3 — Social post-stats reporting system (`stats:` snapshot + `/r-post-stats` render + `/r-post-stats-refresh`)
+**Decision:** Each post dossier gains a machine-readable `stats:` frontmatter block (latest-snapshot numbers
+only — the table source; `## Outcomes` stays the dated-read narrative). **`/r-post-stats`** renders a
+per-channel standalone **`.html`** report into `.scratch/` (filename `<channel>_<most-recent-last_read>.html`),
+**two rows per post** (Opening+Read band over the stats row), posts **striped light-blue per pair + a divider
+line**; read-only. **`/r-post-stats-refresh`** drives Chrome (operator's session) to re-read live X/LinkedIn
+numbers, writes the `stats:` blocks, then regenerates the reports; a past-due horizon surfaces a settle
+prompt (never auto-settles). The `read:` line is **number-free** (numbers live in the fields, so it never
+goes stale).
+**Rationale:** Operator wants a per-channel table, runnable often. A render off stored data (fast, offline) +
+a separate live updater (Chrome) keeps the render instant and capture frictionless. `.html` chosen once the
+2-rows-per-post layout required HTML (colspan) — the markdown wrapper then bought nothing. Alternatives that
+lost: `.md` with an embedded HTML table (format mismatch); pure-markdown stacked (loses the grid); live
+refresh on every render (slow, needs session); a structured capture skill (ceremony).
+**Consequences:** Ran live Conv 061 (verified end-to-end). `.scratch` reports are disposable views; the
+`stats:` blocks are the source of truth. Scaffolding `stats:` into `/r-post` is a carried task.
+
+### DEC-061-2 — GSC report-legibility governing principle (actively stifle every artifact we can)
+**Decision:** Actively stifle every GSC-reportable artifact we *can* — via Google's own tools or our settings
+— so Search Console's results read cleanly without per-item caveats; artifacts that only heal with time (e.g.
+old-path 301 "Page with redirect" ghosts) we let age out. **First application:** the `/api/contact` "Blocked
+due to other 4xx issue" (the contact POST handler returns 405 to a GET, which Google found via the form's
+`action="/api/contact"`) was stifled with `Disallow: /api/` in `robots.txt` (`fgw-26 src/pages/robots.txt.ts`),
+deployed prod (ver `acfc013c`) + staging, verified live, then GSC **Validate Fix** started.
+**Rationale:** The operator reads bare GSC as "a confusing mess"; the standing method already filters it — this
+principle extends that to removing noise at the source. 405 is correct for a non-page endpoint, so the artifact
+is benign; robots-blocking reclassifies it to an intentional "Blocked by robots.txt" and stops the crawl.
+Alternatives that lost: leave the 4xx (benign but keeps surfacing); make the endpoint 404/noindex (needs Google
+to keep fetching it).
+**Consequences:** `/api/` is crawl-blocked for Googlebot (the `*` block; the AI-crawler blocks still 405
+harmlessly and don't report to our GSC). Conv-68 follow-up logged: confirm the 4xx cleared. Guides the GSC
+monitor's future work.
+
+### DEC-061-1 — `check-promises.sh` Trigger 2 exclusion (stop self-nudging on hopper-ruling turns)
+**Decision:** `check-promises.sh` Trigger 2 (the "at /r-end" close-deferral nudge) now **skips** when the same
+turn also carries an "already-captured / ruling an existing item" marker (`already (captured|routed|a
+durable|in the hopper|a hopper line)` · `capture line` · `rul(e|ing) an existing`), so a `/r-hopper` turn that
+*quotes* an already-captured capture line no longer self-fires. A genuine prose deferral ("DEC at /r-end")
+carries no such marker and still fires.
+**Rationale:** The hook false-fired on the very act of ruling the pending-decision capture line (the ruling
+turn necessarily quotes the close-deferral phrasing). Verified in the running hook (4 cases: genuine no-op
+fires; genuine close-deferral fires; the false-fire case passes; a clean turn passes). Alternatives that lost:
+leave it (recurring self-nudge); match on backticks/quotes (fragile). Origin: carried hopper item from Conv 060.
+**Consequences:** Living regex — narrow the marker set if a real promise ever slips past.
+
 ## Conv 060
 
 ### DEC-060-4 — Marine-biology branding: differentiators, 🐳 sign-off mark, engravings = site carrier
