@@ -6,6 +6,19 @@ status: published        # draft | approved | published
 link_target: /guides/ hub
 created: Conv 058
 published: 2026-11-23     # Conv 058 — LinkedIn (frasergorrie.com/guides/ card = pillar triangle)
+post_url: https://www.linkedin.com/feed/update/urn:li:activity:7530711461728301056/   # recorded Conv 061
+stats:                       # latest-snapshot numbers (source of truth for /r-post-stats); history in ## Outcomes
+  last_read: 2026-11-27      # Conv 061 (refreshed)
+  day: 4
+  status: active
+  due: 2026-12-07
+  impressions: 72
+  reached: 41
+  reactions: 1
+  comments: 0
+  reshares: 0
+  clicks: n/s
+  read: slow steady growth; engagement still flat
 ---
 
 # Launch lead — cross-pillar (LinkedIn)
@@ -49,8 +62,23 @@ early-phase readership proxy._
 
 **Tracking (LinkedIn horizon ~2 weeks, operator-ruled Conv 059):**
 - ✅ early read — Conv 059 (2026-11-24, ~day 1), below.
+- ✅ trajectory read — Conv 061 (2026-11-26, ~day 3), below.
 - ⬜ **LinkedIn FINAL read due ~2026-12-07** (pub 11-23 + 14d) — do at the nearest GSC sweep on/after that
   date, then mark this post `settled`. Inbound referencing the post is logged anytime, no horizon.
+
+**Conv 061 trajectory read (2026-11-26, ~3 days post-publish):**
+- Likes / reactions: **1** (unchanged)
+- Link clicks (→ `/guides/`): **not surfaced** by LinkedIn post analytics; GA4 referral check not yet run
+- Saves / reshares: **0 / 0**
+- Substantive comments: **0**
+- Qualitative (inbound referencing this post, verbatim): none yet
+- Read: slow, steady growth — **66 impressions** (was 50 at day 1; +16), **38 members reached** (was 31;
+  +7), **74% in-network / 26% out-of-network**. Engagement still flat (1 reaction, no comments/reshares).
+  Modest trajectory; the Dec-7 final read stands.
+- ⚠️ Share-card note: the posted card still shows the **old OG title "Writing — Fraser Gorrie"** — LinkedIn
+  cached it at post time (2026-11-23), *before* the Conv-59 `/guides/` title fix (Writing→Guides, deployed
+  2026-11-24). A posted LinkedIn card can't be re-scraped, so this one is permanently the old title; future
+  posts linking `/guides/` will scrape the corrected title.
 
 **Conv 059 sweep (2026-11-24, ~1 day post-publish):**
 - Likes / reactions: **1**

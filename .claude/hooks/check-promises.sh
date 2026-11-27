@@ -54,7 +54,14 @@ if printf '%s' "$text" \
 fi
 
 # Trigger 2 — close-deferral phrase "at /r-end" (added Conv 058, operator; case-insensitive).
-if printf '%s' "$text" | grep -qiE "at /?r-end"; then
+# EXCLUSION (added Conv 061, DEC at close): a /r-hopper ruling of an already-captured
+# capture line necessarily QUOTES the close-deferral wording, which is a reference to a
+# durable hopper item (already routed), not a fresh prose promise. So skip the nudge when
+# the same turn also carries an "already-captured / ruling an existing item" marker. A
+# genuine no-op promise ("DEC at /r-end") carries no such marker, so it still fires.
+# (Living regex — narrow the marker set if a real promise ever slips past.)
+if printf '%s' "$text" | grep -qiE "at /?r-end" \
+   && ! printf '%s' "$text" | grep -qiE "(already (captured|routed|a durable|in the hopper|a hopper line))|capture line|rul(e|ing) an existing"; then
   echo "CLOSE-DEFERRAL NUDGE: this turn defers something to the close with the phrase \"at /r-end\" (e.g. \"DEC at /r-end\", \"I'll record it at /r-end\"). Per CLAUDE.md that is a no-op promise — the close distills what is ALREADY captured in a durable artifact; it is not where a prose promise gets honoured. Route the item NOW: add the HOPPER.md \`- [ ]\` line (a pending DEC to distill, a task) or the CURRENT-TASKS.md row, then name that artifact instead of the phrase. Then re-stop. (Living regex — if this fired on a purely descriptive mention, note it for tuning.)" >&2
   exit 2
 fi

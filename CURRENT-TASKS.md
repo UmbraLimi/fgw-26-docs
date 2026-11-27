@@ -103,6 +103,18 @@ movement: 8 / 22 submitted pages indexed (was 3 at Conv 41 & 44); crawled-not-in
   (force a re-read that discovers the guides) **+** Request-indexed the 4 guide URLs (`/guides/` + 3 slugs) **+**
   `/faq/` + `/history/` (6 pushes). The Trusting-guide slug hit the Server-connection-error gotcha on the
   first probe → re-ran the live test green, then requested; the rest went clean. Next cadence ~Conv 68.
+✅ **Conv 61 check (OUT-OF-CADENCE — triggered by a GSC "4xx issue" email; does NOT reset the cadence, next
+cadence still ~Conv 68):** health clean (no manual actions / security). **The 4xx page = `/api/contact`**
+(first detected 11/23), the contact-form POST handler whose GET returns **405 by design** — benign, found by
+Google via the form's `action="/api/contact"`. **Fix (operator-approved, governing GSC-legibility principle
+`DEC-061` — actively stifle every artifact we can):** added `Disallow: /api/` to `robots.txt`
+(`fgw-26 src/pages/robots.txt.ts`), **deployed prod (ver `acfc013c`) + staging (`f5866353`)**, verified live
+(`curl` robots.txt shows the rule; `/api/contact` → 405), then clicked GSC **VALIDATE FIX** (validation
+started 11/26). ⬜ **Conv-68 follow-up:** confirm the "4xx issue" cleared (reclassified to "Blocked by
+robots.txt" or dropped). **Indexing progress verified live (aggregate was stale to 11/22):** `/guides/` +
+`/guides/is-your-ai-built-software-sound/` both now **indexed** — the Conv-59 request-index batch **took**
+(both were undiscovered/"unknown to Google" at Conv 59). Did NOT re-push the remaining discovered-not-crawled
+work pages this check (out-of-cadence focus was the 4xx).
 🔁 **Request-indexing log (operator-directed Conv 044 — track each push + whether it took):** manual
 URL-Inspection → Request indexing pushes a URL into a priority crawl queue (quota ~10/day; re-submitting
 doesn't change queue position). **At every future check, verify whether the pages below actually got

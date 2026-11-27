@@ -32,6 +32,11 @@ qualitative data exists.
 ## Where it lives
 - **Per piece:** an **Outcomes** section in the piece's durable record — a post's
   `docs/content/posts/<slug>.md`, an article/guide's graduated dossier `docs/content/<slug>.md`.
+- **Per post — machine-readable snapshot (`DEC-061`, Conv 061):** a `stats:` block in each post dossier's
+  frontmatter holds the **latest numbers only** (the table source). **`/r-post-stats`** renders per-channel
+  `.html` reports from it (read-only, into `.scratch/`); **`/r-post-stats-refresh`** re-reads the live
+  numbers via Chrome and writes the block. The `## Outcomes` narrative stays the dated-read history; the
+  `stats:` block is the at-a-glance current state.
 - **Rollup:** the table below (one row per published piece).
 
 ## Cadence + method
@@ -65,6 +70,9 @@ event. The horizon governs only the likes/impressions proxy.
 
 | Piece | Type | Published | Likes | Clicks | Qualitative / read |
 |-------|------|-----------|-------|--------|--------------------|
-| `guides-launch` | post · LinkedIn | 2026-11-23 | 1 | n/s¹ | Conv 059 (1d in): 50 impr / 31 reached, 0 comments·reposts·saves, 2 profile views — too early to read · ⬜ **final read due ~2026-12-07** |
+| `guides-launch` | post · LinkedIn | 2026-11-23 | 1 | n/s¹ | Conv 061 (3d in): **66 impr / 38 reached** (74% in-network), 0 comments·reposts·saves — slow steady growth (was 50/31 at day 1), engagement flat · ⬜ **final read due ~2026-12-07** |
+| `x-judgement-throughline` | post · X | 2026-11-26 | 0 | n/a² | Conv 061 (day 0, early): **26 views**, 0 likes·reposts·bookmarks, 1 reply (no content renders) — too early · ⬜ **final read due ~2026-11-28** |
 
 ¹ **n/s = not surfaced** — LinkedIn's post analytics shows no link-clicks metric for this post. Clicks to `/guides/` would have to come from GA4 referral traffic (not yet pulled).
+
+² **n/a = not applicable** — the X post is linkless (personality post, no site link), so there is no click metric to track.
