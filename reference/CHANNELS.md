@@ -149,8 +149,12 @@ the interesting question. Supplies credibility by proof and the human voice; sea
 - 🔴 **Posts and site content ship only with operator approval.** CC drafts and makes every edit, but
   post and site/deliverable copy goes live only after the operator approves it (`DEC-024-1` / `DEC-037-6`):
   CC drafts → operator approves → publish.
-- **Backlog:** a lightweight durable list — seeds → drafts → published — kept at `_cc/content-backlog.md`
-  (alt: a board section; chose a topic note to keep the board for commitments).
+- **Backlog (ideas tier):** a lightweight durable list of **ideas** — the `backlog` state **only** — kept
+  at `_cc/content-backlog.md`. An idea **graduates to a dossier** (its `status:` frontmatter) via `/r-post`
+  or `/r-content` when work starts, and its row **leaves this file** (single-source); everything from
+  `drafting` on lives in the dossier. Full pipeline across all states → `/r-content-pipeline`. (Updated
+  Conv 062 — supersedes the earlier "seeds → drafts → published" wording; alt: a board section — chose a
+  topic note to keep the board for commitments.)
 
 ## Social copy conventions (LinkedIn + X, not the site)
 

@@ -178,6 +178,47 @@ engines can lift clean answers — TL;DR / direct-answer blocks under key H2s, c
 
 ## 📋 Unordered
 
+### [CONTENT-LIBRARY] · added Conv 062 · on-site type-filtered content library (POSSE)
+The design thread for giving every content piece a canonical on-site home + a **type-faceted, searchable
+index** (POSSE: site = canonical, social = syndication; **link-less posts still findable**). Reuses the
+pipeline `type`/`track` as the facet. Origin: Conv 061 hopper (operator, "the next build"); opened + designed
+Conv 062. Today social posts live **only** as `fgw-26-docs` dossiers (no site presence); the site has
+collections `work/guides/blog/images/record` + surfaces `/guides/` (pillar hub) and `/writing/` (dated
+stream, dark behind `WRITING_LIVE`).
+**Decisions (accruing here; the model-level `DEC` lands at close):**
+- **D1 — surface architecture: ✅ A (additive unified library).** A new faceted, searchable index (e.g.
+  `/library/`) spanning all types; `/guides/` pillar hub + `/writing/` stream **stay** as curated landings
+  beside it. (Conv 062)
+- **D2 — post on-site home: ✅ A (new `posts` collection + per-post `/posts/<slug>/` pages).** Schema
+  carries channel · type · pillar · `post_url` · `related_article` · `related_posts` · `links_out` + the
+  final copy. The `/library/` index joins them at the presentation layer. (Conv 062)
+- **D3 — dossier→site-content path: ✅ A (manual copy at the publish gate).** POST-REVIEW's graduate step
+  creates `fgw-26/src/content/posts/<slug>.md` (frontmatter + final copy as body); CC syncs by hand at
+  publish + on later edits. Fall back to a sync tool (B) only if drift bites. (Conv 062)
+- **D4 — canonical / syndication policy: ✅ B (substance-threshold indexing) + defaults.** Each
+  `/posts/<slug>/` page is **self-canonical**; **substantial posts indexed, micro-posts `noindex`** but
+  still at a real URL + in the indexable `/library/` index (first heuristic: **by channel** — LinkedIn
+  indexed, X `noindex`; refine later). **Don't retro-edit live social posts** to add back-links (respects
+  link-less-by-design + one-link); "point back" = the site asserts canonicality + links out to the related
+  guide/article, not rewriting published social copy. (Conv 062)
+- **D5 — gating + rollout: ✅ A (dedicated `LIBRARY_LIVE` flag).** Build dark (`noindex` + off-nav/sitemap),
+  flip one flag at launch (the `CONTENT_HOME_LIVE`/`WRITING_LIVE` house pattern); launch-time GSC submit +
+  sitemap pass (`[GOOGLE-SERVICES]` / `/r-submit-page-to-gsc`). (Conv 062)
+**Already decided (Conv 061):** the opt-in **post↔article relationship** — option A: `related_article` /
+`related_posts` fields + a per-post `links_out` toggle. Folds into the D2 `posts` schema.
+
+🟢 **Design settled Conv 062 (D1–D5) — the build is the remaining work.** Concrete spec:
+1. **`posts` content collection** (`fgw-26 src/content.config.ts`) + schema: channel · type · pillar ·
+   `post_url` · `related_article`/`related_posts` · `links_out` · final copy (+ `draft` default true,
+   matching the house pattern).
+2. **`/posts/[slug].astro`** per-post page — self-`rel=canonical`; `noindex` for micro-posts (channel
+   heuristic: LinkedIn indexed, X `noindex`); links out to the related guide/article.
+3. **`/library/` faceted index** — type facets (Guides · Articles · X · LinkedIn · …, from `type`/`track`)
+   + search/subset; indexable; sits beside `/guides/` + `/writing/` (D1=A, additive).
+4. **Dossier→site path** — POST-REVIEW graduate step writes `fgw-26/src/content/posts/<slug>.md` from the
+   dossier final copy (D3=A, manual at publish).
+5. **`LIBRARY_LIVE` flag** (`consts.ts`) — dark build, single flip; launch-time GSC pass.
+
 ### [CONTENT-ANALYTICS] · added Conv 058 · standing content-outcomes monitor (posts + articles/guides)
 🔁 **Standing cadence — the GSC sweep (`[GOOGLE-SERVICES]`; next Conv 68) is the batch moment; captures are
 driven by per-post dated markers (per-channel wall-clock horizons, operator-ruled Conv 059 — LinkedIn ~2wk /

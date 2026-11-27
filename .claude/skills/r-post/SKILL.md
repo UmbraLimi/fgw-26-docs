@@ -17,7 +17,10 @@ skill must not carry its own copy of the steps — a copy would drift.
 ## Step 1 — Gather the post's identity
 Take from the operator (ask for whatever's missing, one at a time): **channel** (LinkedIn | X | …),
 **pillar** (trust | steering | deciding | …), **slug**, **angle** (the buyer-chord in one line), and the
-**link target** (the live guide / `/guides/` hub / site) the post points to.
+**link target** (the live guide / `/guides/` hub / site) the post points to. The pipeline **`track`** is
+derived from the channel (X → `x`, LinkedIn → `linkedin`). Note whether the post **originates from a
+backlog idea** in `_cc/content-backlog.md` — if so, that row is removed in Step 5 (it is graduating to a
+dossier).
 
 ## Step 2 — Read the current process docs
 Read, in full (the current versions — that's what keeps the checklist up to date):
@@ -44,14 +47,23 @@ The row is the post's **dossier** — a lightweight checklist + metadata; the **
 already-created row does not auto-update. Record each step's outcome on its line as you go.
 
 ## Step 4 — Create the post file
-Create `docs/content/posts/<slug>.md` in **fgw-26-docs** (`POST-CREATE.md` step 4): frontmatter (`slug`,
-`channel`, `pillar`, `status: draft`, `link_target`, `created`, empty `published:`) + a **Draft** body + an
-**Outcomes** section stub (capture set in `_cc/content-analytics.md`). This is the post's durable prose
-home; the board row points to it.
+Create `docs/content/posts/<slug>.md` in **fgw-26-docs** (`POST-CREATE.md` step 4). **Frontmatter — the
+full pipeline shape** (so `/r-content-pipeline` + `/r-post-stats` never meet a missing-fields item):
+`slug`, `type: post`, `track` (`x` | `linkedin` | …, derived from the channel), `channel`, `pillar`,
+`status: draft` (`# draft | approved | published`), `link_target`, `created`, empty `published:`, empty
+`post_url:`, and a **`stats:` stub** (the per-post snapshot block; schema lives in `/r-post-stats`).
+🔴 **The `stats:` values are filled at PUBLISH, not now** — `/r-post-stats` **skips** any post whose
+`status:` ≠ `published`, so a draft only needs the stub placeholder. At publish, set `status: active`
+and `due` = `published` + the channel horizon (LinkedIn ~pub + 14d · X ~pub + 48h,
+`_cc/content-analytics.md`). Then a **Draft** body + an **Outcomes** section stub (capture set in
+`_cc/content-analytics.md`). This is the post's durable prose home; the board row points to it.
 
-## Step 5 — Report
-The new `[POST-<slug>]` row + the post file + where they landed, and the **first checklist step** as the
-recommended next action. Also log the seed in `_cc/content-backlog.md` (seeds → drafts → published).
+## Step 5 — Backlog reconcile + report
+🔴 **If this post graduated from a backlog idea, delete that idea's row** from `_cc/content-backlog.md`
+now — its state has moved into the dossier (single-source; the backlog holds only the `backlog` ideas
+tier, never drafts/published). A fresh post with no backlog row removes nothing. Then report: the new
+`[POST-<slug>]` row + the post file + where they landed, and the **first checklist step** as the
+recommended next action.
 
 ---
 - **Not a lifecycle skill.** Never commits, pushes, or touches the conv marker — it only scaffolds a post

@@ -109,12 +109,17 @@ something — "checked, clean" is a valid outcome, stated (never silently skippe
 17. **Final whole-page review + declare final + graduate** — strip/resolve **every `✎`-family**
     author-insertion marker (`✎ OPTIONAL`, `✎ ANECDOTE`, `✎ ARC`, `✎ FIGURE`; greppable by the bare `✎`
     token — they ship in page source); the **operator does a final manual review of the whole rendered
-    page**; then declares it **final**. **Graduate the dossier:** write the piece's record to a permanent
-    **`fgw-26-docs/docs/content/<slug>.md`** in the **standard graduated-dossier shape** below, then retire
-    the board row. The live board checklist is the raw material — **reshape it, don't rebuild it.**
+    page**; then declares it **final**. **Graduate the dossier:** the file
+    **`fgw-26-docs/docs/content/<slug>.md`** already exists — `/r-content` created it in Step 4 as a
+    frontmatter stub (the pipeline state beacon). **Fill in** its body in the **standard graduated-dossier
+    shape** below, update its frontmatter (flip `status:` → `published` and set `published:`; confirm
+    `type`/`track`/`slug`/`pillar`), then retire the board row. The live board checklist is the raw material
+    — **reshape it, don't rebuild it**; the dossier file is **fleshed out, not created anew**.
 
     **Graduated-dossier template** (`DOSSIER-FORMAT`, codified Conv 056; the Steering dossier
     `docs/content/steer-ai-to-build-what-you-mean.md` is the worked reference):
+    - **Pipeline frontmatter** (YAML, carried from the Step-4 stub, at the top of the file) — `slug`,
+      `type`, `track`, `status` (now `published`), `pillar`, `published`. Read by `/r-content-pipeline`.
     - **Header block** — Pillar · Title · Slug · Image · Status (final / dark / published + the gating flags).
     - **1. Take** — the thesis / why the piece exists.
     - **2. Outline** — the approved arc (or an honest "N/A — predates the outline pass" note).

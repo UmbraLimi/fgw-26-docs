@@ -12,7 +12,9 @@ updating the mds keeps the checklist current).
 
 Take from the operator (ask for whatever's missing, one at a time): **type** (guide | article), **title**,
 **slug**, **pillar** (trust | steering | deciding). For an article, also the **cornerstone guide** it
-spokes to, if known.
+spokes to, if known. The pipeline **`track`** is derived from the type (guide → `guide`, article →
+`article`). Note whether the piece **originates from a backlog idea** in `_cc/content-backlog.md` — if so,
+that row is removed in Step 6 (it is graduating to a dossier).
 
 ## Step 2 — Read the current process docs
 
@@ -46,22 +48,49 @@ raw material).
 🔴 The checklist is a **snapshot of the docs as they are now**. If the process docs change later, a fresh
 `/r-content` reflects it — an already-created row does not auto-update.
 
-## Step 4 — (Optional) stub the content file
+## Step 4 — Create the pipeline dossier stub
 
-If the operator wants it, create the content file with **frontmatter only** in `fgw-26`:
+Create `docs/content/<slug>.md` in **fgw-26-docs** with **frontmatter only** — the piece's machine-readable
+**state beacon** while it drafts, so `/r-content-pipeline` shows it in `drafting` (no gap between backlog and
+published):
+```yaml
+---
+slug: <slug>
+type: <guide | article>
+track: <guide | article>
+status: drafting        # backlog | drafting | review | approved | published | settled
+pillar: <pillar>
+# published:            # filled at graduation
+---
+```
+🔴 **This is the SAME file the piece graduates into** at `GUIDE-REVIEW` step 17 — it is **born here as a
+frontmatter stub and accrues**; graduation **fills in** the 8-section body and flips `status:`/`published:`,
+it does **not** create a new file. The board row (Step 3) stays the working surface during drafting; this
+stub carries only the state. Advance `status:` as the piece moves (→ `review` when it enters the
+`GUIDE-REVIEW` finalize pass; → `published` at graduation).
+
+## Step 5 — (Optional) stub the site content file
+
+If the operator wants it, create the **site** content file with **frontmatter only** in `fgw-26`:
 `src/content/guides/<slug>.md` or `src/content/blog/<slug>.md` — title, snippet, pillar, order,
-`draft: true` (guides add an empty `glossary`). Body is left for the redline (Step 1 of the checklist).
+`draft: true` (guides add an empty `glossary`). This is the Astro draft the redline fills (distinct from
+the Step-4 pipeline dossier in `fgw-26-docs`). Body is left for the redline (Step 1 of the checklist).
 
-## Step 5 — Report
+## Step 6 — Backlog reconcile + report
 
-The new `[CODE]` row + where it landed; the stubbed file (if any); and the **first checklist step** as the
-recommended next action.
+🔴 **If this piece graduated from a backlog idea, delete that idea's row** from `_cc/content-backlog.md`
+now — its state has moved into the dossier (single-source; the backlog holds only the `backlog` ideas
+tier, never drafts/published). A fresh piece with no backlog row removes nothing. Then report: the new
+`[CODE]` row + the pipeline dossier stub + where they landed (and the site stub, if made); and the
+**first checklist step** as the recommended next action.
 
 ---
 
 - **Not a lifecycle skill.** This never commits, pushes, or touches the conv marker — it only scaffolds a
   piece and its checklist. Commit via `/r-commit` / `/r-end` as usual.
-- **The board row is the piece's dossier.** Through the piece's life it accrues the take, outline,
+- **The board row is the piece's working dossier.** Through the piece's life it accrues the take, outline,
   piece-specific decisions, and the publish record. At sign-off (`GUIDE-REVIEW.md` final gate) it
-  **graduates** to a permanent record at `docs/content/<slug>.md` (keyed by the piece id), and the board
-  row retires — the content-piece analogue of a conv's board row → `docs/convs/` record.
+  **graduates** into the `docs/content/<slug>.md` **stub created in Step 4** (keyed by the piece id) —
+  filling its 8-section body and flipping `status:`/`published:`, then the board row retires. The analogue
+  of a conv's board row → `docs/convs/` record; the difference is the dossier **file** is born at Step 4
+  (as the pipeline state beacon) and fleshed out at graduation, not created from scratch at the end.

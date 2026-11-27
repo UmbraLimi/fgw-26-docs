@@ -48,14 +48,17 @@ rules**. "Checked, clean" is a valid outcome — stated, never silently skipped,
 
 **Gate**
 10. **Approval gate** `[all]` 🔴 — post copy goes live **only after the operator approves it**
-    (`DEC-024-1` / `DEC-037-6`): CC drafts → operator approves → publish. On publish, record status + date
-    in `_cc/content-backlog.md` and graduate the dossier (below).
+    (`DEC-024-1` / `DEC-037-6`): CC drafts → operator approves → publish. On publish, graduate the dossier
+    (below).
 
 ## Graduate the post file
 The post file `docs/content/posts/<slug>.md` already exists (created at draft-time, `POST-CREATE.md` step 4).
-On publish: flip `status: published`, fill `published:` with the date, confirm the file carries the **final
-copy** + the finalize-pass outcomes (incl. em-dash + masking rulings), and **retire the board row** (the post
-analog of a guide's graduated dossier). Also move the post's backlog line to **✅ Published**.
+On publish: flip `status: published`, fill `published:` with the date and `post_url:` with the live URL,
+**fill the `stats:` block** (set `status: active` + `due` = `published` + the channel horizon; the numbers
+land at the first read), confirm the file carries the **final copy** + the finalize-pass outcomes (incl.
+em-dash + masking rulings), and **retire the board row** (the post analog of a guide's graduated dossier).
+🔴 **No backlog line to move** — the post's idea row was removed from `_cc/content-backlog.md` when it
+graduated out of the backlog **at creation** (`POST-CREATE` step 3 / `r-post` Step 5), single-source.
 
 🔴 **On publish, drop the dated capture-due marker** in the post's **Outcomes** section — this is what makes
 the content-analytics horizon self-running (operator-ruled Conv 059). Add a `⬜` line
