@@ -1,8 +1,17 @@
+---
+slug: is-your-ai-built-software-sound
+type: guide
+track: guide
+status: published       # backlog | drafting | review | approved | published | settled
+pillar: trust
+published: 2026-11-23    # live on frasergorrie.com — Conv 057 content-home flip
+---
+
 # Trust — piece dossier (`is-your-ai-built-software-sound`)
 
 **Pillar:** trust · **Title:** "Is your AI-built software sound?" · **Image:** `conus-marmoreus-lister`
-**Status:** prose final (held dark, `draft:true`) — **not yet published**, pending the content-home flip
-(`CONTENT_HOME_LIVE`) + `[PROD-DEPLOY-BAN]`.
+**Status:** ✅ **published** — live on frasergorrie.com since 2026-11-23 (Conv 057 content-home flip).
+Pipeline state is tracked in the frontmatter above (`status: published`).
 
 > ⚠️ **Retroactive record.** This guide **predates the content-piece process** (`DEC-047-7` / `-8`,
 > Conv 047): it was built with **no `r-content` task and no outline pass**. This dossier is reconstructed

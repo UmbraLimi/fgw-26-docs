@@ -1,5 +1,7 @@
 ---
 slug: x-judgement-throughline
+type: post
+track: x
 channel: X
 pillar: judgement (cross-cutting thread)
 status: published         # draft | approved | published

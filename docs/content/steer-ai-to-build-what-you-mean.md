@@ -1,9 +1,18 @@
+---
+slug: steer-ai-to-build-what-you-mean
+type: guide
+track: guide
+status: published       # backlog | drafting | review | approved | published | settled
+pillar: steering
+published: 2026-11-23    # live on frasergorrie.com — Conv 057 content-home flip
+---
+
 # Steering — piece dossier (`steer-ai-to-build-what-you-mean`)
 
 **Pillar:** steering · **Title:** "How do you get AI to build what you actually meant?" ·
 **Slug:** `steer-ai-to-build-what-you-mean` · **Image:** `stella-marina-linck`
-**Status:** prose **final** (declared Conv 048), held dark (`draft:true`) — **not yet published**, pending
-the content-home flip (`CONTENT_HOME_LIVE`) + `[PROD-DEPLOY-BAN]`.
+**Status:** ✅ **published** — live on frasergorrie.com since 2026-11-23 (Conv 057 content-home flip; prose
+final declared Conv 048). Pipeline state is tracked in the frontmatter above (`status: published`).
 
 > This is the **first dossier graduated through the full finalize pass** (`GUIDE-REVIEW.md`, Conv 048).
 > Unlike the Trust record — reverse-engineered onto a piece that predated the process — the per-step

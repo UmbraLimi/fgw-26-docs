@@ -1,9 +1,18 @@
+---
+slug: build-it-yourself-or-bring-someone-in
+type: guide
+track: guide
+status: published       # backlog | drafting | review | approved | published | settled
+pillar: deciding
+published: 2026-11-23    # live on frasergorrie.com — Conv 057 content-home flip
+---
+
 # Deciding — piece dossier (`build-it-yourself-or-bring-someone-in`)
 
 **Pillar:** deciding · **Title:** "Should you build it all yourself, or bring someone in to help?" ·
 **Slug:** `build-it-yourself-or-bring-someone-in` · **Image:** `esox-lucius-bloch`
-**Status:** prose **final** (declared Conv 056), held dark (`draft:true`) — **not yet published**, pending
-the content-home flip (`CONTENT_HOME_LIVE`) + `[PROD-DEPLOY-BAN]`.
+**Status:** ✅ **published** — live on frasergorrie.com since 2026-11-23 (Conv 057 content-home flip; prose
+final declared Conv 056). Pipeline state is tracked in the frontmatter above (`status: published`).
 
 > The **third cornerstone**, and the **most rigorous dossier to date** — it carries a real approved outline
 > (§2), the full per-step finalize record (§5), and is the **first dossier written to the codified

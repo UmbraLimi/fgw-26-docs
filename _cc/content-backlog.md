@@ -1,34 +1,43 @@
-# Content backlog — seeds → drafts → published
+# Content pipeline — backlog (ideas)
 
-> The lightweight durable index of social-post content (specified in `CHANNELS.md` "Sourcing & workflow").
-> Seeds are the cheapest, highest-yield source — client questions, moments from live work, angles — jotted
-> as they arise. A seed becomes a draft (a `[POST-<slug>]` dossier row via `/r-post`), then published.
-> Process: `POST-CREATE.md` (create) → `POST-REVIEW.md` (finalize) → publish. Created Conv 058.
+> The **backlog tier** of the content pipeline (`DEC-061`): lightweight idea rows, one per line, grouped by
+> **track**, in **priority order — top = next up**. Cheapest, highest-yield source: client questions, moments
+> from live work, angles (`CHANNELS.md` "Sourcing & workflow"). An idea **graduates to a dossier** (frontmatter
+> `status: drafting`) via `/r-post` (X/LinkedIn) or `/r-content` (guide/article) when work starts — then its
+> row leaves this file and the pipeline sources it from the dossier.
+>
+> **This file holds only the `backlog` state.** Everything from `drafting` on lives in a dossier's `status:`
+> frontmatter (`docs/content/**`). The full pipeline across all states → **`/r-content-pipeline`**.
+> Tracks: **X · LinkedIn · Guides · Articles.**
+>
+> 🔴 **Ideas arrive unshaped.** A raw idea lands in **🧩 Unshaped** below; its **track(s), primary, order,
+> and angle are decided together** (a shaping discussion) — never auto-assigned. Once shaped it moves into
+> its track's ordered list. (Conv 061, operator.)
 
-## 🌱 Seeds (captured, not yet drafted)
+## 🧩 Unshaped (to shape + order together)
+> Raw intake — track / primary / order undecided until we discuss. Nothing here is ordered yet.
 
-### LinkedIn (biweekly — pillar posts)
-- **Launch series follow-ons** (LinkedIn, biweekly cadence) — one dedicated post per pillar, each
-  deep-linking its guide: **Trust** (is it sound? / will I get burned?) · **Steering** (becoming a worthy
-  companion to AI) · **Deciding** (build it yourself or bring someone in). Follow the cross-pillar lead
-  `[POST-guides-launch]`. (Conv 058)
+- **r/K selection applied to building software** — ecology's **r-strategy** (many cheap bets, little invested per one, most discarded) vs **K-strategy** (few, heavily-invested, nurtured) as a lens on *how* to build and ship software — spray-and-prune vs commit-and-tend. *Candidate tracks (undecided):* X / LinkedIn / blog article. *Image concept:* one split image — **whale + single calf** (K) on one side, **dandelion seed head** (r) on the other, each with its own backdrop, sides **labelled r / K**, a **slanted line** between. (src: Conv 061, operator)
 
-### X (~monthly now, biweekly the goal — X-native, from the 40-years Judgement thread; Conv 060)
-> X originates its own personality / POV posts — **not** LinkedIn adaptations (`CHANNELS.md` §X). The well:
-> grounded stories, candid misses, the throughline that the tool was never the interesting question.
-- _(open — capture Judgement-thread seeds as they arise: a 40-years story, a candid miss, a POV on how AI
-  actually changes the work.)_
+## X  ·  X-native, ~monthly→biweekly (40-years Judgement thread; `CHANNELS.md` §X)
+> X originates its own personality / POV posts — not LinkedIn adaptations. The well: grounded stories,
+> candid misses, the throughline that the tool was never the interesting question.
 
-## ✍️ Drafts (in flight — a `[POST-<slug>]` board row exists)
+_(no ideas captured yet — jot Judgement-thread seeds here as they arise)_
 
-_None in flight._
+## LinkedIn  ·  biweekly pillar posts
+1. **Trust pillar post** — is your AI-built software sound? / will I get burned? Deep-link the Trust guide. (pillar: trust; src: Conv 058 launch series)
+2. **Steering pillar post** — becoming a worthy companion to AI; getting it to build what you meant. Deep-link the Steering guide. (pillar: steering; src: Conv 058)
+3. **Deciding pillar post** — build it yourself or bring someone in. Deep-link the Deciding guide. (pillar: deciding; src: Conv 058)
 
-## ✅ Published
+## Guides  ·  cornerstone, evergreen
+1. **Planning** — you can't fully pre-spec complex custom software; plan *good-enough* (outcomes + solid starting points), then steer. Discovery-gap strand: recognition, not articulation. (pillar: planning; src: `[GUIDE-PLANNING]`, Conv 046)
+2. **Documenting** — keeping track of what you did, why, what you learned; tasks + processing. (src: `[PILLAR-ROADMAP]`, Conv 047)
+3. **Creating Skills** — writing them, using them, extending them. (src: `[PILLAR-ROADMAP]`)
+4. **Creating Subagents** — when to use them. (src: `[PILLAR-ROADMAP]`)
+5. **Testing** — scope TBD. (src: `[PILLAR-ROADMAP]`)
+6. **Reviewing** — when a project gets too big to hold in your head. (src: `[PILLAR-ROADMAP]`)
+7. **Rewriting** — knowing when to rewrite what you've already built. (src: `[PILLAR-ROADMAP]`)
 
-- **2026-11-26 (Conv 060) — `x-judgement-throughline`** · X · first **X-native** post (40-years Judgement
-  thread; expertise is ephemeral, judgement = knowing when to switch, then learn fast; 🐳 mark, no link/image).
-  [post](https://x.com/frasergorrie/status/2125971418726740081). Record: `docs/content/posts/x-judgement-throughline.md`.
-  Outcomes due ~2026-11-28 (X +2d).
-- **2026-11-23 (Conv 058) — `guides-launch`** · LinkedIn · cross-pillar launch lead → `/guides/` hub
-  (share card = the pillar triangle). Record: `docs/content/posts/guides-launch.md`. Outcomes pending the
-  Conv-59 analytics sweep.
+## Articles  ·  dated writing stream (`WRITING_LIVE` dark)
+_(none yet — the writing stream is gated behind `WRITING_LIVE`; see `[WRITING-BUILDOUT]`)_

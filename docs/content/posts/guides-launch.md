@@ -1,5 +1,7 @@
 ---
 slug: guides-launch
+type: post
+track: linkedin
 channel: LinkedIn
 pillar: launch (cross-pillar)
 status: published        # draft | approved | published
