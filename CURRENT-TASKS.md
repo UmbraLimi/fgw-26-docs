@@ -262,7 +262,7 @@ everything else the mask protects still holds:
 (`testimonials.json` `brian-peerloop`; home + `/testimonials`). This is the **first public naming of PeerLoop**
 on the site — permitted (Brian unconstrained + consented via a public recommendation); does not touch the
 translation-platform mask. The `learning-marketplace` **case page stays de-identified** ("Peer-to-peer
-learning marketplace") — no case link added. Built-verified, **pending deploy**. (DEC at /r-end.)
+learning marketplace") — no case link added. ✅ **Shipped to prod + staging Conv 059** (`3455d697` / `62386e89`); live. (Status reconciled Conv 062 — was stale "pending deploy".)
 🔴 **Restore mechanism (if a real, signed-off testimonial later arrives):** add it to
 `src/data/testimonials.json` and set `showAiTestimonials = true` in `index.astro` + `testimonials.astro`
 to restore the suppressed sections + two-group lede (`DEC-029-5`); the masking guard above applies before
@@ -341,10 +341,12 @@ dated) + `BreadcrumbList` + `FAQPage` (Q&A **auto-extracted** from each page's `
 answer that opens on a colon reads on to the next H2 so the lift is complete, with no reshaping of the
 prose). Built as a reusable `components/ArticleJsonLd.astro` + `lib/articleJsonLd.ts`, emitted in the
 detail-page `slot="head"`. `author`/`publisher` reuse the site `#fraser`/`#meristics` nodes by `@id`
-(satisfies the carrier above). **Remaining:** the broader site-wide expansion (`WebSite`, per-project
-`CreativeWork`); point the author `@id`'s `url` at `/about/` (currently home — minor); external Rich-Results
-validation — **now actionable (Conv 057):** the 3 guides are live + crawlable on `frasergorrie.com`, so
-run the per-piece `Article`/`FAQPage`/`BreadcrumbList` through the Rich Results Test.
+(satisfies the carrier above). ✅ **Conv 062:** author `@id` `url` pointed at `/about/` (`Layout.astro:55`,
+org `#meristics` keeps home) — build-verified, **dark pending deploy**. Live JSON-LD **fetch-validated** on
+all 3 guides: `Article`+`BreadcrumbList`+`FAQPage`+`Person`+`ProfessionalService` all well-formed, FAQ
+Q-counts 5/5/6, author/publisher wired by `@id` (`datePublished` absent by design — undated `Article`,
+`DEC-043-3`). **Remaining:** the broader site-wide expansion (`WebSite`, per-project `CreativeWork`); the
+**official Google Rich Results Test** (browser) as the external confirmation of the fetch-validation above.
 
 ### [GUIDE-PLANNING] · promoted Conv 046 · write the PLANNING guide (folds in the need/discovery gap)
 A new cornerstone-style guide (promoted from the hopper Conv 046; origin: Conv 044 need/mean split
@@ -435,6 +437,17 @@ privacy/legal call, not a quick fix. (Promoted Conv 035.)
 ### [SITE-WCAG22] · promoted Conv 035 · WCAG 2.2 delta re-audit
 Re-audit against the WCAG 2.2 deltas on top of the Conv-030 AA pass: focus-not-obscured (2.4.11),
 target-size 24px (2.5.8), dragging alternatives (2.5.7). (Promoted Conv 035.)
+✅ **Audited Conv 062 (from CSS):**
+- **2.5.7 Dragging — PASS (N/A):** no drag interactions exist in `src/` (grep clean).
+- **2.4.11 Focus Not Obscured — likely PASS:** sticky `.site-header` (~3.5rem) cleared by `scroll-padding-top`
+  5rem/7.5rem. ⬜ **Pending: one live keyboard-Tab spot check** that the first focusable element below the
+  header isn't clipped (scroll-padding applies to focus-scroll in modern browsers, but confirm live).
+- **2.5.8 Target Size — hardened Conv 062:** buttons/ThemeToggle ~36px (pass by size); `.nav-link` (14px, no
+  padding) and footer `.social-link` (20px icon-only) were <24px, passing only via the spacing exception →
+  **fixed:** both given a 24px hit area (`.nav-link` inline-flex + `min-height:1.5rem`; `.social-link`
+  `min-width/height:1.5rem`, centred). Build-verified in `dist`.
+🔴 **Dark — pending deploy** (CSS lives in `fgw-26 src/styles/global.css`; not yet on prod/staging). Row
+stays open until the 2.4.11 live Tab check + deploy.
 
 ### [EMAIL-AUTH] · promoted Conv 036 · DMARC/SPF hardening (deliverability + anti-spoof)
 Email auth is partially set up: DKIM `resend._domainkey` verified ✓ (Conv 035), but **DMARC is `p=none`**
