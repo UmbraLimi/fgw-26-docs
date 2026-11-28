@@ -345,8 +345,14 @@ detail-page `slot="head"`. `author`/`publisher` reuse the site `#fraser`/`#meris
 org `#meristics` keeps home) — build-verified, **dark pending deploy**. Live JSON-LD **fetch-validated** on
 all 3 guides: `Article`+`BreadcrumbList`+`FAQPage`+`Person`+`ProfessionalService` all well-formed, FAQ
 Q-counts 5/5/6, author/publisher wired by `@id` (`datePublished` absent by design — undated `Article`,
-`DEC-043-3`). **Remaining:** the broader site-wide expansion (`WebSite`, per-project `CreativeWork`); the
-**official Google Rich Results Test** (browser) as the external confirmation of the fetch-validation above.
+`DEC-043-3`). ✅ **Deployed Conv 062** (prod `2b73ab27` + staging) — author-url fix live. ✅ **Official
+Google Rich Results Test run Conv 062** (Trust guide, representative — shared `ArticleJsonLd` + `Layout`
+template covers all 3): **4 valid items, all eligible** (Articles ✓ · Breadcrumbs ✓ · Local businesses ✓ ·
+Organization ✓), crawled OK. Non-critical: the `ProfessionalService`/LocalBusiness node (`#meristics`) is
+missing 4 **optional** fields — `telephone`, `address`, `priceRange`, `image` (eligible regardless;
+`address`/`telephone` may be deliberately unpublished — a decision, not an auto-fix). **Remaining:** the
+broader site-wide expansion (`WebSite`, per-project `CreativeWork`); optionally add `image`/`priceRange` to
+`#meristics`.
 
 ### [GUIDE-PLANNING] · promoted Conv 046 · write the PLANNING guide (folds in the need/discovery gap)
 A new cornerstone-style guide (promoted from the hopper Conv 046; origin: Conv 044 need/mean split
@@ -434,21 +440,6 @@ GA4 sets cookies → EU visitors likely need consent (cookieless ≠ consent-fre
 point). Decide: a consent gate vs. switching to a genuinely cookieless analytics. A load-bearing
 privacy/legal call, not a quick fix. (Promoted Conv 035.)
 
-### [SITE-WCAG22] · promoted Conv 035 · WCAG 2.2 delta re-audit
-Re-audit against the WCAG 2.2 deltas on top of the Conv-030 AA pass: focus-not-obscured (2.4.11),
-target-size 24px (2.5.8), dragging alternatives (2.5.7). (Promoted Conv 035.)
-✅ **Audited Conv 062 (from CSS):**
-- **2.5.7 Dragging — PASS (N/A):** no drag interactions exist in `src/` (grep clean).
-- **2.4.11 Focus Not Obscured — likely PASS:** sticky `.site-header` (~3.5rem) cleared by `scroll-padding-top`
-  5rem/7.5rem. ⬜ **Pending: one live keyboard-Tab spot check** that the first focusable element below the
-  header isn't clipped (scroll-padding applies to focus-scroll in modern browsers, but confirm live).
-- **2.5.8 Target Size — hardened Conv 062:** buttons/ThemeToggle ~36px (pass by size); `.nav-link` (14px, no
-  padding) and footer `.social-link` (20px icon-only) were <24px, passing only via the spacing exception →
-  **fixed:** both given a 24px hit area (`.nav-link` inline-flex + `min-height:1.5rem`; `.social-link`
-  `min-width/height:1.5rem`, centred). Build-verified in `dist`.
-🔴 **Dark — pending deploy** (CSS lives in `fgw-26 src/styles/global.css`; not yet on prod/staging). Row
-stays open until the 2.4.11 live Tab check + deploy.
-
 ### [EMAIL-AUTH] · promoted Conv 036 · DMARC/SPF hardening (deliverability + anti-spoof)
 Email auth is partially set up: DKIM `resend._domainkey` verified ✓ (Conv 035), but **DMARC is `p=none`**
 (monitor-only — spoofed mail is neither quarantined nor rejected) and there is **no apex SPF** TXT record.
@@ -489,6 +480,15 @@ _None._
 
 ## ✅ Completed (tags — full records in commits / `DECISIONS.md` / `docs/convs/`)
 
+- **Conv 062:** **Content-pipeline wiring + POSSE design + 3 live site fixes.** Wired `/r-post`+`/r-content`
+  to the pipeline model (`DEC-062-1`: full frontmatter at creation, `stats:` filled at publish, single-source
+  backlog) and made the guide/article dossier born at `/r-content` (`DEC-062-2`, Option A). Designed the
+  **on-site content library (POSSE)** D1–D5 (`DEC-062-3`; `[CONTENT-LIBRARY]` row, build remaining).
+  **Shipped to prod + staging:** `[SITE-WCAG22]` **done** — 2.2 deltas 2.5.7/2.4.11/2.5.8 all pass
+  (target-size hardened; `2b73ab27`); JSON-LD author `url`→`/about/` + **Rich Results Test** (4 valid items,
+  all eligible) under `[SITE-STRUCTURED-DATA]`; guide-title **"Writing"→"Guides"** (`2db9f356`). Reconciled
+  stale `[CASE-RECORD-SIGNOFF]` status. Process: auto-mode-denial rule (`DEC-062-4` — ask to toggle off, then
+  retry) and **reverted** the Conv-062 `check-promises` backtick fix (noise > signal). Commits + this close.
 - **Conv 061:** **Social-analytics tooling + content-pipeline model + a GSC artifact stifled.** Built the
   **post-stats reporting system** (`DEC-061-3`): a `stats:` snapshot per post dossier + **`/r-post-stats`**
   (per-channel `.html` reports into `.scratch/`, 2-rows-per-post striped by pair) + **`/r-post-stats-refresh`**

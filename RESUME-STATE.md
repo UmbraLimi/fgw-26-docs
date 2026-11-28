@@ -1,34 +1,22 @@
-**Conv:** 061 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
+**Conv:** 062 ended · **Machine:** MacMiniM4Pro · **Branch:** docs: `main`, code: `main`
 
 ## Where we left off
 
-Conv 061 built two things and stifled a GSC artifact. **(1) Social post-stats tooling** (`DEC-061-3`): a
-`stats:` frontmatter snapshot per post dossier, **`/r-post-stats`** (per-channel `.html` reports → `.scratch/`,
-two rows per post striped per pair) + **`/r-post-stats-refresh`** (live X/LinkedIn re-read via Chrome) — ran
-live, both posts current. **(2) Unified content pipeline** (`DEC-061-4`): tracks (`x`/`linkedin`/`guide`/
-`article`) × states (`backlog → … → settled`), **`/r-content-pipeline`** (read-only view); `_cc/content-backlog.md`
-is now the ideas tier (🧩 Unshaped intake + per-track ordered — ideas are captured freeform in chat, land
-**unshaped**, and are shaped **jointly**, never auto-assigned); guides gained frontmatter, posts gained
-`type`/`track`; the **r/K** idea sits unshaped. Plus an out-of-cadence **GSC sweep**: the emailed 4xx =
-`/api/contact` (benign 405), stifled via `robots.txt` `Disallow: /api/` (deployed prod + staging, GSC Validate
-Fix started, `DEC-061-2`); `/guides/` + Trust guide verified **indexed**.
+Conv 062 wired the content pipeline into `/r-post` + `/r-content` (full frontmatter at creation, `stats:`
+filled at publish, single-source backlog; `DEC-062-1`) and made the guide/article dossier born at
+`/r-content` (Option A, `DEC-062-2`). It **fully designed POSSE** — the on-site type-filtered content library
+— across D1–D5 (`DEC-062-3`), now the `[CONTENT-LIBRARY]` board row with the build remaining. Then a board
+survey shipped three small fixes to **prod + staging**: WCAG 2.5.8 target sizes (`[SITE-WCAG22]` done), the
+JSON-LD author `url`→`/about/` + a Rich Results Test pass (`[SITE-STRUCTURED-DATA]`, still open for the
+`WebSite`/`CreativeWork` expansion), and the guide-detail `<title>` "Writing"→"Guides". Hopper clear at close.
 
 ## Next action
 
-**Build the on-site type-filtered content library (POSSE)** — the operator named it the next build (hopper
-carry): every content piece gets a home on the public site (`fgw-26`) + a listings/search UI filterable by
-**type** (Articles / X / LinkedIn / Substack…), reusing the pipeline `type`/`track` facet; the site holds the
-canonical copy, social is syndication (so link-less social still has a findable on-site home). Open it as its
-own design thread. Reason: it completes the post↔article relationship + pipeline work and is the agreed next step.
-
-**Also carried / pending:**
-- **Wire `/r-post` + `/r-content` to the pipeline model** (hopper carry): scaffold dossier frontmatter at
-  creation, delete an idea's backlog row on graduation, fix the stale `CHANNELS.md` + `r-post` line-54 wording
-  (content-backlog is the ideas tier now).
-- **Dated reads:** X `x-judgement-throughline` **final read ~2026-11-28** (settle it) · LinkedIn `guides-launch`
-  **final read ~2026-12-07**.
-- **GSC cadence — next Conv 68:** confirm the `/api/contact` 4xx **cleared** (→ "Blocked by robots.txt" or
-  dropped) + the Conv-59/60 request-index batch (the ⬜ EXPECT glances in `[GOOGLE-SERVICES]`).
+**Start the `[CONTENT-LIBRARY]` (POSSE) build** — begin in `fgw-26` with the new `posts` content collection
++ schema (channel · type · pillar · `post_url` · `related_article`/`related_posts` · `links_out` + final
+copy), dark behind a new `LIBRARY_LIVE` flag. Reason: the design is settled (D1–D5, `DEC-062-3`); the
+collection is the foundation the `/posts/<slug>/` pages, the `/library/` faceted index, and the
+dossier→site path all hang off. Full spec on the `[CONTENT-LIBRARY]` row.
 
 ## 🔬 Carried findings
 

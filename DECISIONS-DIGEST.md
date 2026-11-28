@@ -6,6 +6,42 @@ _As of 2026-11-27._
 
 ---
 
+### DEC-062-5 — `check-promises` Trigger 2 stays bare-match; backtick tolerance tried and rejected
+
+`check-promises.sh` Trigger 2 keeps matching only the bare `at /?r-end` — not backticked or
+quoted forms. A backtick-tolerant variant added earlier this same conv was **reverted**.
+
+### DEC-062-4 — Auto-mode-denial behaviour: stop + ask the operator to toggle auto mode off, then retry
+
+On an auto-mode classifier denial, I **stop, state exactly what was blocked, and ask the
+operator to temporarily turn off auto mode** so the action can proceed, then retry once they confirm it is
+off. No routing around it with `!<command>` or a silent retry.
+
+### DEC-062-3 — On-site type-filtered content library (POSSE): architecture D1–D5
+
+POSSE is designed as — **D1** an *additive* unified faceted index (e.g. `/library/`) spanning
+all types, `/guides/` + `/writing/` kept as curated landings; **D2** a new `posts` content collection in
+`fgw-26` with per-post `/posts/<slug>/` pages (schema: channel · type · pillar · `post_url` ·
+`related_article`/`related_posts` · `links_out` + final copy); **D3** a *manual* dossier→site copy at the
+publish gate; **D4** substance-threshold indexing — each post page self-`rel=canonical`, substantial posts
+indexed, micro-posts `noindex` (first heuristic: LinkedIn indexed, X `noindex`), and **no retro-edit of live
+social posts** to add back-links; **D5** dark build behind a `LIBRARY_LIVE` flag, single flip at launch.
+
+### DEC-062-2 — Guide/article dossier file born at `/r-content` (Option A), fleshed out at graduation
+
+`/r-content` creates the piece's `docs/content/<slug>.md` dossier **at the start** as a
+frontmatter-only stub (`slug`/`type`/`track`/`status: drafting`/`pillar`), so `/r-content-pipeline` shows it
+mid-draft. At graduation, `GUIDE-REVIEW` step 17 **fills in** that existing file (8-section body + flips
+`status`/`published`) rather than creating it anew.
+
+### DEC-062-1 — Wire `/r-post` + `/r-content` to the pipeline (frontmatter at creation; stats at publish; single-source backlog)
+
+`/r-post` and `/r-content` scaffold the **full pipeline frontmatter at creation**. A post's
+`stats:` block is a stub at creation but its values are **filled at publish** — because `/r-post-stats` skips
+any post whose `status:` ≠ `published`. A graduating idea's **backlog row is deleted at creation**
+(single-source: `content-backlog.md` is the ideas tier only; `drafting`→ lives in the dossier). The stale
+"seeds → drafts → published" wording is removed from `CHANNELS.md`, `POST-CREATE.md`, `POST-REVIEW.md`.
+
 ### DEC-061-4 — Unified content pipeline (tracks × states; backlog file + dossier `status:`; chat-capture, joint shaping)
 
 A unified content pipeline across **tracks** (`x` · `linkedin` · `guide` · `article`) and

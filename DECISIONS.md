@@ -8,6 +8,73 @@ open the cited entry here. Full format: `reference/CONV-FORMAT.md`.
 
 ---
 
+## Conv 062
+
+### DEC-062-5 — `check-promises` Trigger 2 stays bare-match; backtick tolerance tried and rejected
+**Decision:** `check-promises.sh` Trigger 2 keeps matching only the bare `at /?r-end` — not backticked or
+quoted forms. A backtick-tolerant variant added earlier this same conv was **reverted**.
+**Rationale:** `/r-end` is habitually backticked in BOTH real no-op promises *and* plain descriptive mentions
+of the close, so matching the backticked form fired on every discussion of closing — noise with no signal to
+separate a promise from a mention (operator). Alternatives that lost: keep the backtick fix (too noisy);
+broaden the exclusion to suppress descriptive mentions (risks weakening the catch). Intermediate-message
+blindness stays out of scope — the hook judges only the current turn's final message (operator).
+**Consequences:** Hook back to pre-062 behaviour (net-zero code), with a comment marking "do not re-add
+backtick tolerance". The original gap (a bare-text backticked no-op promise can slip past) is accepted —
+backstopped by discipline + operator review.
+
+### DEC-062-4 — Auto-mode-denial behaviour: stop + ask the operator to toggle auto mode off, then retry
+**Decision:** On an auto-mode classifier denial, I **stop, state exactly what was blocked, and ask the
+operator to temporarily turn off auto mode** so the action can proceed, then retry once they confirm it is
+off. No routing around it with `!<command>` or a silent retry.
+**Rationale:** The Conv-032 rule ("tell the operator, then wait for direction; don't offer disabling
+auto-mode") left the operator having to notice the block and prompt the next step each time — friction, and
+easy to stall on. Asking directly for a temporary toggle is the path the operator actually wants.
+Alternative that lost: the Conv-032 "wait for direction, never mention disabling auto-mode" wording
+(superseded).
+**Consequences:** `CLAUDE.md` Permissions & mode updated. First exercised this conv — a blocked `deploy`;
+once the operator cleared auto mode the retry shipped prod `2db9f356` + staging `ba31410c`.
+
+### DEC-062-3 — On-site type-filtered content library (POSSE): architecture D1–D5
+**Decision:** POSSE is designed as — **D1** an *additive* unified faceted index (e.g. `/library/`) spanning
+all types, `/guides/` + `/writing/` kept as curated landings; **D2** a new `posts` content collection in
+`fgw-26` with per-post `/posts/<slug>/` pages (schema: channel · type · pillar · `post_url` ·
+`related_article`/`related_posts` · `links_out` + final copy); **D3** a *manual* dossier→site copy at the
+publish gate; **D4** substance-threshold indexing — each post page self-`rel=canonical`, substantial posts
+indexed, micro-posts `noindex` (first heuristic: LinkedIn indexed, X `noindex`), and **no retro-edit of live
+social posts** to add back-links; **D5** dark build behind a `LIBRARY_LIVE` flag, single flip at launch.
+**Rationale:** Gives every piece (incl. link-less social) a canonical, findable on-site home while keeping
+the SEO-earning `/guides/` hub intact. Alternatives that lost: D1 folding everything into `/guides/` or
+per-type hubs only; D2 folding posts into `blog` (schema union); D3 a sync tool or moving the canonical copy
+to `fgw-26`; D4 index-everything (thin-content dilution) or noindex-all; D5 reusing `WRITING_LIVE`.
+**Consequences:** `[CONTENT-LIBRARY]` board row holds the full spec; the build is the remaining work.
+Carries the Conv-061 opt-in post↔article relationship (`related_article`/`related_posts`/`links_out`).
+
+### DEC-062-2 — Guide/article dossier file born at `/r-content` (Option A), fleshed out at graduation
+**Decision:** `/r-content` creates the piece's `docs/content/<slug>.md` dossier **at the start** as a
+frontmatter-only stub (`slug`/`type`/`track`/`status: drafting`/`pillar`), so `/r-content-pipeline` shows it
+mid-draft. At graduation, `GUIDE-REVIEW` step 17 **fills in** that existing file (8-section body + flips
+`status`/`published`) rather than creating it anew.
+**Rationale:** Before this, a guide's dossier file was born only at graduation, so an in-drafting guide had
+no frontmatter for the pipeline to read — invisible between leaving the backlog and publishing (the pipeline
+skill already promised it would source from the dossier "from then on"). Alternative that lost: Option B (no
+early stub — the guide reappears only at graduation, leaving a backlog→published visibility gap).
+**Consequences:** `r-content` gained the stub step (+ renumber); `GUIDE-REVIEW` step 17 now "fills, not
+creates" and its graduated-dossier template gained a pipeline-frontmatter block. A near-empty dossier file
+co-exists with the board row during drafting (accepted).
+
+### DEC-062-1 — Wire `/r-post` + `/r-content` to the pipeline (frontmatter at creation; stats at publish; single-source backlog)
+**Decision:** `/r-post` and `/r-content` scaffold the **full pipeline frontmatter at creation**. A post's
+`stats:` block is a stub at creation but its values are **filled at publish** — because `/r-post-stats` skips
+any post whose `status:` ≠ `published`. A graduating idea's **backlog row is deleted at creation**
+(single-source: `content-backlog.md` is the ideas tier only; `drafting`→ lives in the dossier). The stale
+"seeds → drafts → published" wording is removed from `CHANNELS.md`, `POST-CREATE.md`, `POST-REVIEW.md`.
+**Rationale:** `/r-content-pipeline` + `/r-post-stats` must never meet a missing-fields dossier (the carried
+`DEC-061-4` wiring task). Filling `stats:` at publish (not creation) came from verifying the consumer —
+`/r-post-stats` skips drafts, so a draft needs only a placeholder (correcting the hopper's "stats stub with
+status active at creation" premise). Single-source backlog stops an idea living in two places.
+**Consequences:** Edited `r-post`, `r-content`, `POST-CREATE`, `POST-REVIEW`, `CHANNELS`; `GUIDE-REVIEW` +
+`POST-REVIEW` reconciled for the graduate step. Fulfils the `DEC-061-4` carried wiring task.
+
 ## Conv 061
 
 ### DEC-061-4 — Unified content pipeline (tracks × states; backlog file + dossier `status:`; chat-capture, joint shaping)
